@@ -2,7 +2,7 @@
 20.73554        # hbar^2/2m
 0               # 0 = vmc, 1=psitrial wt, 2 = elocal weight, 3 spazzatura
 .true.          # use lattice sites if true
-1000           # 24000 default number of walkers, for faster try 1000
+24000           # 24000 default number of walkers, for faster try 1000
 10              # equilibrium blocks
 50              # averaging blocks
 10              # steps/block
@@ -25,12 +25,12 @@
 1.0             # t tau factor
 0.0             # LS factor
 0.0             # LS tau tau factor
-no3
+no3             # tni
 0.0             # multiply A2pi by this
 0.0             # multiply A2pi_xd by this
 0.0             # multiply A2pi_dd by this
 0               # NOT USED
-.false.          # do independent pair correlations
+.true.          # do independent pair correlations
 2000            # table points for radial functions
 20.0            # rmax for orbitals
 .true.          # divide by r?
