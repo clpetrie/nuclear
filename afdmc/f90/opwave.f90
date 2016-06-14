@@ -6,12 +6,9 @@ module wavefunction
    complex(kind=r8), private, parameter :: cone=(1.0_r8,0.0_r8)
    complex(kind=r8), private, parameter :: czero=(0.0_r8,0.0_r8)
    real(kind=r8), private, parameter :: tiny=1.0e-8_r8
-   integer(kind=i4), private, save :: npart,ndet,npair
-   complex(kind=r8), private, save, allocatable :: cdet(:),cdet0(:)
-   integer(kind=i4), private, save :: nconf
-   integer(kind=i4), private, save, allocatable :: norb(:)
-   real(kind=r8), private, save, allocatable :: vorb(:)
-   complex(kind=r8), private, save, allocatable :: totdet(:)
+   integer(kind=i4), private, save :: npart,nbin(4)
+   real(kind=r8), private, save :: el
+   real(kind=r8), private, save, allocatable :: ak(:,:,:)
    logical, private, save :: dols
    integer(kind=i4), private, save :: npdet
    real(kind=r8), private, save :: rcut,acut,a
@@ -21,35 +18,22 @@ module wavefunction
    complex(kind=r8), private, save, allocatable :: tens(:),tenstau(:)
    logical, private, save :: noprot
    logical, private, save :: optv3,optcsb
-   integer(kind=i4), private, save :: vexid
-   real(kind=r8), private, save :: wsv0,wsrad,wss,hbari,hbarom
    integer, private, save :: corrtype !CODY
 contains
    subroutine setpsi(npartin,elin,hbar,vlsin,noprotin,nprot,nneut)
    use mympi
-   use phimod
+   use backflow
    use correlator
    use jastrow
-   integer(kind=i4) :: npartin,nprot,nneut
-   real(kind=r8) :: elin,hbar
-   character(len=30) :: orbnow
-   character(len=80) :: line
-   character(len=80), allocatable :: lines(:,:)
-   character(len=30), allocatable :: orbfil(:)
-   real(kind=r8), allocatable :: orb(:,:)
-   integer(kind=i4) :: jmax,nrad,notab,j2,m2,ll,itau
-   integer(kind=i4) :: i,j,k
-   integer(kind=i4), allocatable :: lorb(:),iorb(:,:),jpval(:,:),mpval(:,:),lval(:,:),isoval(:,:)
-   real(kind=r8) :: romax,dr,dummy
-   real(kind=r8), allocatable :: fscal(:)
-   logical :: rdiv,vlsin,noprotin
-   npart=npartin
+   real(kind=r8) :: elin,rho,hbar
+   integer(kind=i4) :: npartin,i,j,npair,nprot,nneut
+   integer(kind=i4), allocatable :: iktemp(:,:,:)
+   real(kind=r8) :: efg,kf,pi,fac,ak2
+   logical :: vlsin,noprotin
    noprot=.false.
-   noprotin=noprot
-   nprot=0
-   nneut=0
+   allocate(iktemp(4,3,200)) ! this should be large enough!
    if (myrank().eq.0) then
-      read (5,*) corrtype    !what type of correlations?
+      read (5,*) corrtype    ! what type of correlations?
       if (corrtype.eq.1) then
          write (6,'(''Type of correlations ='',t40,A6)') 'linear'
       elseif (corrtype.eq.2) then
@@ -59,172 +43,87 @@ contains
       else
          write (6,'(''Invalid choice for correlation type (must be integer between 1 and 3)'')')
       endif
-      read (5,*) notab   !table points for orbitals
-      read (5,*) romax   !rmax for orbitals
-      read (5,*) rdiv    !divido orbitali per r?
+      read (5,*) rho     !number density
       read (5,*) npart   !particle number
-      read (5,*) vexid   !external potential
-      if (vexid.eq.1) then
-         read (5,*) wsv0    ! wood-saxon strength (this should be negative)
-         read (5,*) wsrad   ! wood-saxon radius
-         read (5,*) wss     ! wood-saxon smoothness (length)
-      else if (vexid.eq.2) then
-         read (5,*) hbarom
-         hbari=1.0_r8/(2.0_r8*hbar)
-      endif
+      read (5,*) nbin(1) !number of pup
+      do i=1,nbin(1)
+         read (5,*) iktemp(1,:,i)
+      enddo
+      read (5,*) nbin(2) !number of pdn
+      do i=1,nbin(2)
+         read (5,*) iktemp(2,:,i)
+      enddo
+      read (5,*) nbin(3) !number of nup
+      do i=1,nbin(3)
+         read (5,*) iktemp(3,:,i)
+      enddo
+      read (5,*) nbin(4) !number of ndn
+      do i=1,nbin(4)
+         read (5,*) iktemp(4,:,i)
+      enddo
       read (5,*) rcut
       read (5,*) acut
       read (5,*) a
-      read (5,*) nrad    !total number of radial functions for run
-      allocate(orb(notab,nrad),orbfil(nrad),lorb(nrad),fscal(nrad))
-!
-! each radial function is given by the file name followed by
-! the angular momentum L value
-!
-      do i=1,nrad
-         read (5,'(a80)') line
-         line=adjustl(line)
-         orbfil(i)=line(1:index(line,' ')-1)
-         read(line(index(line,' '):80),*) lorb(i),fscal(i)
-         open(unit=22,file=orbfil(i),status='old')
-         do j=1,notab
-            read (22,*) dr,orb(j,i)
-            if (rdiv) orb(j,i)=orb(j,i)/max(dr,0.00001_r8)
-         enddo
-         read (22,*,end=10,err=10) dummy
-         write (6,'(''too many lines in radial file'')')
-         call abort
-     10  close(22)
-      enddo
-      read (5,*) ndet   !number of determinants
-      read (5,*) nconf  !number of components
-      allocate(norb(nconf),vorb(nconf))
-      do i=1,nconf
-         read (5,*) norb(i),vorb(i) ! degeneracy and amplitude
-      enddo
-      if (sum(norb).ne.ndet) then
-         write (6,'(''Wrong total number of determinants'')')
-         write (6,*) ndet,norb
-         call abort
-      endif         
-      allocate(jpval(npart,ndet),mpval(npart,ndet),lval(npart,ndet))
-      allocate(isoval(npart,ndet),iorb(npart,ndet),cdet(ndet),cdet0(ndet))
-      allocate(lines(npart,ndet))
-      do i=1,ndet
-         read (5,*) cdet0(i) ! coefficient
-         do j=1,npart
-            read (5,'(a80)') line
-            lines(j,i)=line
-            read (line,*) j2,m2,ll,itau ! 2*J,2*M,L,2*tau then file
-            line=adjustl(line)
-            do k=1,4
-               line=line(index(line,' '):80)
-               line=adjustl(line)
-            enddo
-            orbnow=line(1:index(line,' ')-1)
-            do k=1,nrad
-               iorb(j,i)=k
-               if (orbnow.eq.orbfil(k)) exit
-               if (k.eq.nrad) then
-                  write(6,'(''Orbital file not found '',a30)') orbnow
-                  call abort
-               endif
-            enddo
-            if (mod(j2,2).ne.1.or.mod(abs(m2),2).ne.1.or.abs(j2-2*ll).ne.1 &
-               .or.abs(m2).gt.j2.or.abs(itau).ne.1 &
-               .or.ll.ne.lorb(iorb(j,i))) then
-               write (6,'(''Orbital quantum numbers wrong '',6i5)') &
-                  j2,m2,ll,iorb(j,i),lorb(iorb(j,i)),itau
-               call abort
-            endif
-            jpval(j,i)=(j2+1)/2     ! jp = J+1/2
-            mpval(j,i)=(j2+m2+2)/2  ! mp = J+M+1
-            lval(j,i)=(2*ll-j2+1)/2-1 ! -1 for L=J-1/2 , 0 for L=J+1/2
-            isoval(j,i)=2-itau  ! 3 for neutron, 1 for proton
-            if (i.eq.1) then
-               if (itau.eq.1) then
-                  nprot=nprot+1
-               else 
-                  nneut=nneut+1
-               endif
-            endif
-         enddo
-      enddo
-      jmax=maxval(jpval)
-      do j=1,nrad 
-         write (6,'(''scale orbital '',i3,'' with factor '',f10.5)') j,fscal(j)
-      enddo
-      do j=1,ndet
-         write (6,'(''determinant #'',i2)') j
-         write (6,'(''coefficient'',t30,2f10.5)') cdet0(j)
-         do i=1,npart
-            write (6,'(a80)') lines(i,j)
-         enddo
-      enddo
-      k=1
-      do i=1,nconf
-         do j=1,norb(i)
-            cdet(k)=vorb(i)*cdet0(k)
-            write (6,'(''rescaled coefficient'',t30,2f10.5)') cdet(k)
-            k=k+1
-         enddo
-      enddo
-      write (6,'(''!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!'')')
-      select case (vexid)
-         case (0)
-            write (6,'(''No external potential'')')
-         case (1)
-            write (6,'(''external WS V0 ='',t40,f10.5)') wsv0
-            write (6,'(''external WS width ='',t40,f10.5)') wsrad
-            write (6,'(''external WS smoothness ='',t40,f10.5)') wss
-         case (2)
-            write (6,'(''external harmonic hbar*omega ='',t40,f10.5)') wsv0
-      end select
-      write (6,'(''!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!'')')
-      write (6,'(''rcut in pair sampling ='',t40,f10.5)') rcut
-      write (6,'(''acut in pair sampling ='',t40,f10.5)') acut
-      write (6,'(''a constant in psig ='',t40,f10.5)') a
+      if (rho.le.0.0_r8) then
+         el=-2.0_r8*rho
+         rho=npart/el**3
+      endif
+      write (6,'(''density ='',t40,f10.5)') rho
+      el=(npart/rho)**(1.0_r8/3.0_r8)
+      write (6,'(''L/2 ='',t40,f10.5)') el*0.5_r8
+      pi=4.0_r8*atan(1.0_r8)
+      kf=(3.0_r8/2.0_r8*pi**2*rho)**(1.0_r8/3.0_r8)
+      efg=3.0_r8/5.0_r8*hbar*kf**2
+      write (6,'(''k_F ='',t40,f10.5)') kf
+      write (6,'(''E_FG ='',t40,f10.5)') efg
+      write (6,'(''npart ='',t40,i10)') npart
+      write (6,'(''proton up ='',t40,i10)') nbin(1)
+      write(6,'(''k values ='',(t35,3i5))') (iktemp(1,:,i),i=1,nbin(1))
+      write (6,'(''proton down ='',t40,i10)') nbin(2)
+      write(6,'(''k values ='',(t35,3i5))') (iktemp(2,:,i),i=1,nbin(2))
+      write (6,'(''neutron up ='',t40,i10)') nbin(3)
+      write(6,'(''k values ='',(t35,3i5))') (iktemp(3,:,i),i=1,nbin(3))
+      write (6,'(''neutron down ='',t40,i10)') nbin(4)
+      write(6,'(''k values ='',(t35,3i5))') (iktemp(4,:,i),i=1,nbin(4))
+      write(6,'(''rcut in pair sampling ='',t40,f10.5)') rcut
+      write(6,'(''acut in pair sampling ='',t40,f10.5)') acut
+      write(6,'(''a constant in psig ='',t40,e12.5)') a
+      if ((nbin(1)+nbin(2)).eq.0) then
+!        noprot=.true. ! still need some work to calculate observables, FIX IT!
+         write(6,'(''Pure neutron matter'')')
+      endif
    endif
    call bcast(npart)
-   call bcast(vexid)
-   call bcast(wsv0)
-   call bcast(wsrad)
-   call bcast(wss)
-   call bcast(hbarom)
-   call bcast(hbari)
+   call bcast(nbin)
+   call bcast(iktemp)
    call bcast(rcut)
    call bcast(acut)
    call bcast(a)
    call bcast(corrtype)
-   call bcast(notab)
-   call bcast(romax)
-   call bcast(nrad)
-   call bcast(jmax)
-   call bcast(ndet)
-   call bcast(nconf)
-   if (myrank().ne.0) then
-      allocate(norb(nconf),vorb(nconf))
-      allocate(jpval(npart,ndet),mpval(npart,ndet),lval(npart,ndet))
-      allocate(isoval(npart,ndet),iorb(npart,ndet),cdet(ndet),cdet0(ndet))
-      allocate(orb(notab,nrad),lorb(nrad),fscal(nrad))
-   endif
-   call bcast(cdet0)
-   call bcast(cdet)
-   call bcast(jpval)
-   call bcast(mpval)
-   call bcast(lval)
-   call bcast(isoval)
-   call bcast(iorb)
-   call bcast(lorb)
-   call bcast(fscal)
-   call bcast(orb)
-   call bcast(norb)
-   call bcast(vorb)
-   call setphi(notab,jmax,nrad,npart,ndet,jpval,mpval,lval,isoval, &
-      iorb,lorb,orb,romax,fscal)
+   call bcast(noprot)
+   call bcast(el)
    npartin=npart
-   elin=-romax
-   allocate(totdet(ndet))
+   elin=el
+   noprotin=noprot
+   allocate(ak(4,3,maxval(nbin)))
+   pi=4.0_r8*atan(1.0_r8)
+   fac=2.0_r8*pi/el
+   if (nbin(1).ne.0) ak(1,:,1:nbin(1))=fac*iktemp(1,:,1:nbin(1))
+   if (nbin(2).ne.0) ak(2,:,1:nbin(2))=fac*iktemp(2,:,1:nbin(2))
+   if (nbin(3).ne.0) ak(3,:,1:nbin(3))=fac*iktemp(3,:,1:nbin(3))
+   if (nbin(4).ne.0) ak(4,:,1:nbin(4))=fac*iktemp(4,:,1:nbin(4))
+   ak2=0.0_r8
+   do i=1,4
+      do j=1,nbin(i)
+         ak2=ak2-sum(ak(i,:,j)**2)
+      enddo
+   enddo
+   ak2=-hbar*ak2
+   if (myrank().eq.0) then
+      write(6,'(''calculating LS ='',t40,l10)') dols
+      write(6,'(''energy of uncorrelated state ='',t40,f10.5)') ak2/npart
+   endif
+!  call setbf(el)
    dols=vlsin
    call setijas(1)
    call initcormod(npart,elin)
@@ -233,8 +132,8 @@ contains
    allocate(tau2(3,3,npair),sig2(3,3,npair),sigtau2(3,3,3,3,npair))
    allocate(np0(npair),np1(npair),pp(npair),nn(npair))
    allocate(tens(npair),tenstau(npair))
-   call bcast(nprot)
-   call bcast(nneut)
+   nprot=nbin(1)+nbin(2)
+   nneut=nbin(3)+nbin(4)
    end subroutine setpsi
 
    subroutine hpsi(w,doall)
@@ -264,24 +163,31 @@ contains
       cvlstpr=czero
       call tpsi(w,dpsi,d2psi)
       if (dols) then
+         call setrn(w%irn)
          spsave=w%sp
          spx=opmult(w%sp)
          do i=2,npart
             do j=1,i-1
                p=0.0_r8
                pt=0.0_r8
+! note that neighbour boxes are not included in V_LS !!!
                ddx=w%x(:,i)-w%x(:,j)
+               ddx=ddx-el*nint(ddx/el)
                r=sqrt(sum(ddx**2))
                call vls(r,vvls,vvlst,1)
                call vls(r,vvlspr,vvlstpr,2)
+               if (noprot) then
+                  vvls=vvls+vvlst
+                  vvlspr=vvlspr+vvlstpr
+                  vvlst=0.0_r8
+                  vvlstpr=0.0_r8
+               endif
                if (r.le.rcut) then
                   prob=1.0_r8
                else
                   prob=exp(-acut*(r-rcut))
                endif
-               call setrn(w%irn)
                rn=randn(1)
-               call savern(w%irn)
                if (rn(1).lt.prob) then
                   do is=1,3
                      if (vvls.ne.0.0_r8.or.vvlspr.ne.0.0_r8) then
@@ -325,6 +231,7 @@ contains
          cvlst=0.25_r8*ci*cvlst/psi
          cvlspr=0.25_r8*ci*cvlspr/psi
          cvlstpr=0.25_r8*ci*cvlstpr/psi
+         call savern(w%irn)
       endif
       w%x=xsave
       call vnpsi2(w,.true.)
@@ -344,7 +251,8 @@ contains
    integer(kind=i4) :: i,ic
    complex(kind=r8) :: psi,dpsi(3,npart),d2psi
    complex(kind=r8) :: d2num,dnum
-   real(kind=r8), parameter :: dx=0.0005_r8
+!  real(kind=r8), parameter :: dx=0.0005_r8
+   real(kind=r8), parameter :: dx=0.01_r8
    psi=w%psi
    dpsi=czero
    d2psi=czero
@@ -373,7 +281,8 @@ contains
    integer(kind=i4) :: i,ic
    complex(kind=r8) :: psi,dpsi(:)
    complex(kind=r8) :: dnum
-   real(kind=r8), parameter :: dx=0.0005_r8
+!  real(kind=r8), parameter :: dx=0.0005_r8
+   real(kind=r8), parameter :: dx=0.01_r8
    psi=w%psi
    do ic=1,3
       w%x(ic,i)=w%x(ic,i)+dx
@@ -394,67 +303,51 @@ contains
    use jastrow
    use v6pot
    use matrixmod
-   use phimod
    use correlator
    use v3bpot
    use random
-   integer(kind=i4) :: i,j,k,idet
-   real(kind=r8) :: eni
-   real(kind=r8) :: u
+   integer(kind=i4) :: i,k,kk,is,j
+   real(kind=r8) :: u,akr,fls(npart,npart),utau
    real(kind=r8) :: fasig(3,npart,3,npart),fasigtau(3,npart,3,npart),fatau(npart,npart)
    real(kind=r8) :: fataupp(npart,npart),fataunn(npart,npart)
    real(kind=r8) :: fasigtautni(3,npart,3,npart),fatautni(npart,npart)
-   real(kind=r8) :: xpi(3,npart,3,npart),xd(3,npart,3,npart)
-   real(kind=r8) :: fls(npart,npart)
+!   real(kind=r8) :: fcsigtautni(3,npart,3,npart) CODY changed to xpi
+   real(kind=r8) :: xd(3,npart,3,npart) !CODY added
    real(kind=r8), dimension(npart,npart) :: v2,v3,v4
    real(kind=r8), dimension(3,npart,3,npart) :: v5,v6
+   real(kind=r8), dimension(3,npart,3,npart) :: xpi
    real(kind=r8), dimension(3,npart,npart) :: g2s3b
    real(kind=r8), dimension(npart,npart) :: delta
-   complex(kind=r8) :: ph(npart,4,npart,ndet),dph(npart,3,4,npart,ndet)
-   complex(kind=r8) :: als(4,3,ndet)
+   complex(kind=r8) :: ph(npart,4,npart)
+   complex(kind=r8) :: als(4,3)
    complex(kind=r8) :: sxmallz(npart,4,npart),sxz(4,npart,npart)
    complex(kind=r8) :: det
    complex(kind=r8) :: tdet
-   complex(kind=r8) :: smati(npart,npart),smat(npart,npart)
+   complex(kind=r8) :: smati(npart,npart)
    complex(kind=r8) :: cvs(6)
-   complex(kind=r8) :: detrat,ccvs(6),ccvspr(6)
-   complex(kind=r8) :: vcoul
-   real(kind=r8) :: vcoulc
-   complex(kind=r8) :: cvcoul
-   real(kind=r8) :: cvcoulc
-   complex(kind=r8) :: csig1(3,npart),csigtau1(3,3,npart),ctau1(3,npart)
-   complex(kind=r8) :: csig2(3,3,npair),csigtau2(3,3,3,3,npair),ctau2(3,3,npair)
-   complex(kind=r8) :: t(npair),ttau(npair)
-   complex(kind=r8) :: np0a(npair),np1a(npair),ppa(npair),nna(npair)
-   real(kind=r8) :: vcoulmat(npart,npart)
-   real(kind=r8) :: phig
+   complex(kind=r8) :: detrat
+   real(kind=r8) :: dummy1
    type (walker) :: w
    logical :: dopot
-   real(kind=r8) :: xcm(3),v,r
-   real(kind=r8) :: tnic,dummy1,vc,u3c
+   real(kind=r8) :: tnic,vc,u3c
    complex(kind=r8) :: tni2pia,tni2pitm,tni2pic,tni2picxd,tni2picdd,tnivd1,tnivd2,tnive,tni2piaxd,tni2piadd
-   complex(kind=r8) :: ttni2pia,ttni2pitm,ttni2pic,ttni2picxd,ttni2picdd,ttnivd1,ttnivd2,ttnive,ttni2piaxd,ttni2piadd
-   complex(kind=r8) :: tni2piapr,ttni2piapr,tni2piaxdpr,ttni2piaxdpr,tni2piaddpr,ttni2piaddpr
+   complex(kind=r8) :: tni2piapr,tni2piaxdpr,tni2piaddpr
    real(kind=r8) :: rij(3),cf3xx,cf3xd,cf3dd
    real(kind=r8) :: rscal(3) ! match the dimension as in jastrowtabop
    rscal=1.0_r8
-   eni=1.0_r8/npart
-   do i=1,3
-      xcm(i)=sum(w%x(i,:))*eni
-      w%x(i,:)=w%x(i,:)-xcm(i)
-   enddo
+   w%x=w%x-el*nint(w%x/el)
+!  call addbf(w%x,xbig)
    call hspot(w%x,w%vc,v2,v3,v4,v5,v6,dopot,1) !always need vc
-   vcoulmat=0.0_r8
    w%vcoulc=0.0_r8
-   call getvcsb(w%x,vcoulmat)
-   w%vcoulc=0.5_r8*0.25_r8*sum(vcoulmat)
+   w%vcoul=0.0_r8
    w%vext=0.0_r8
-   if (vexid.ne.0) then
-      do i=1,npart
-         r=sqrt(sum(w%x(:,i)**2))
-         call vpotex(r,v)
-         w%vext=w%vext+v
-      enddo
+   if (noprot) then
+      w%vc=w%vc+0.5_r8*sum(v2)
+      v2=0.0_r8
+      v3=v3+v4
+      v4=0.0_r8
+      v5=v5+v6
+      v6=0.0_r8
    endif
    if (dopot) then
       call setxspx(w,3.0_r8*rcut,acut,noprot)
@@ -468,158 +361,112 @@ contains
    call tniacor(npart,w%x,u3c,fasigtautni,fatautni,xpi,xd,cf3xx,cf3xd,cf3dd)
    fasigtau=fasigtau+fasigtautni
    fatau=fatau+fatautni
+   utau=0.0_r8
+   if (noprot) then
+      utau=0.5_r8*sum(fatau)
+      fatau=0.0_r8
+      fasig=fasig+fasigtau
+      fasigtau=0.0_r8
+   endif
    call calfop(fatau,fasig,fasigtau,fataupp,fataunn,xpi,xd,cf3xx,cf3xd,cf3dd,w%sp,0.0_r8,dopot)
-   do i=1,npart
-      call getphi(w%x(:,i),ph(:,:,i,:),dph(:,:,:,i,:))
-   enddo
-   do i=1,npart
-      do k=1,npart
-! add linear LS single particle correlations   
-         als=czero
-         do j=1,npart
-            if (j.ne.i.and.fls(i,j).ne.0.0_r8) then
-               rij=w%x(:,i)-w%x(:,j)
-               als(:,1,:)=als(:,1,:)+fls(i,j)*(rij(2)*dph(k,3,:,i,:)-rij(3)*dph(k,2,:,i,:))
-               als(:,2,:)=als(:,2,:)+fls(i,j)*(rij(3)*dph(k,1,:,i,:)-rij(1)*dph(k,3,:,i,:))
-               als(:,3,:)=als(:,3,:)+fls(i,j)*(rij(1)*dph(k,2,:,i,:)-rij(2)*dph(k,1,:,i,:))
-            endif
-         enddo
-         als=-ci*als
+   ph=czero
+   kk=0
+   do is=1,4
+      do k=1,nbin(is)
+         kk=kk+1
+         do i=1,npart
+            akr=w%x(1,i)*ak(is,1,k)+w%x(2,i)*ak(is,2,k)+w%x(3,i)*ak(is,3,k)
+            ph(kk,is,i)=cmplx(cos(akr),-sin(akr))
+! add LS backflow correlations
+            als=czero
+            do j=1,npart
+               if (j.ne.i) then
+                  rij=w%x(:,i)-w%x(:,j)
+                  rij=rij-el*nint(rij/el)
+                  als(is,1)=als(is,1)+0.5_r8*fls(i,j)*(rij(2)*ak(is,3,k)-rij(3)*ak(is,2,k))
+                  als(is,2)=als(is,2)+0.5_r8*fls(i,j)*(rij(3)*ak(is,1,k)-rij(1)*ak(is,3,k))
+                  als(is,3)=als(is,3)+0.5_r8*fls(i,j)*(rij(1)*ak(is,2,k)-rij(2)*ak(is,1,k))
+               endif
+            enddo
+            als=als*ph(kk,is,i)
 ! sigma_y has a minus sign because we use psi*
-         ph(k,1,i,:)=ph(k,1,i,:)+als(2,1,:)+ci*als(2,2,:)+als(1,3,:)
-         ph(k,2,i,:)=ph(k,2,i,:)+als(1,1,:)-ci*als(1,2,:)-als(2,3,:)
-         ph(k,3,i,:)=ph(k,3,i,:)+als(4,1,:)+ci*als(4,2,:)+als(3,3,:)
-         ph(k,4,i,:)=ph(k,4,i,:)+als(3,1,:)-ci*als(3,2,:)-als(4,3,:)
+            ph(kk,1,i)=ph(kk,1,i)+als(2,1)+ci*als(2,2)+als(1,3)
+            ph(kk,2,i)=ph(kk,2,i)+als(1,1)-ci*als(1,2)-als(2,3)
+            ph(kk,3,i)=ph(kk,3,i)+als(4,1)+ci*als(4,2)+als(3,3)
+            ph(kk,4,i)=ph(kk,4,i)+als(3,1)-ci*als(3,2)-als(4,3)
+         enddo
       enddo
    enddo
-!
    tdet=czero
    w%v8all=czero
    w%v8allpr=czero
    w%vcoul=czero
-   ccvs=czero
-   ccvspr=czero
-   vcoul=czero
-   vcoulc=czero
-   tau1=czero
-   sig1=czero
-   sigtau1=czero
-   tau2=czero
-   sig2=czero
-   sigtau2=czero
-   np0=czero
-   np1=czero
-   pp=czero
-   nn=czero
-   tens=czero
-   tenstau=czero
-   ttni2pia=czero
-   ttni2pic=czero
-   ttni2picxd=czero
-   ttni2picdd=czero
-   ttni2pitm=czero
-   ttnivd1=czero
-   ttnivd2=czero
-   ttnive=czero
-   ttni2piaxd=czero
-   ttni2piadd=czero
-   ttni2piapr=czero
-   ttni2piaxdpr=czero
-   ttni2piaddpr=czero
-   do idet=1,ndet
-      do i=1,npart
-         smati(:,i)=matmul(ph(:,:,i,idet),w%sp(:,i))
-      enddo
-      if (idet.eq.1) smat=smati
-      call matinv(smati,det,npart) !smati is now the inverse of the earlier smati
-      det=cdet(idet)*det
-      sxmallz=reshape(matmul(smati,reshape(ph(:,:,:,idet) &
-           ,(/npart,4*npart/))),shape(sxmallz))
-      sxz=reshape(transpose(reshape(sxmallz,(/npart,4*npart/))),shape(sxz))
-      !call cordet(detrat,sxz)
-      call cordet(detrat,sxz,w%sp,corrtype)
-      tdet=tdet+det*detrat
-      totdet(idet)=cdet0(idet)*det*detrat/cdet(idet)
+   do i=1,npart
+      smati(:,i)=matmul(ph(:,:,i),w%sp(:,i))
+   enddo
+   call matinv(smati,det,npart)
+   sxmallz=reshape(matmul(smati,reshape(ph(:,:,:),(/npart,4*npart/))),shape(sxmallz))
+   sxz=reshape(transpose(reshape(sxmallz,(/npart,4*npart/))),shape(sxz))
+   call cordet(detrat,sxz,w%sp,corrtype)
+   tdet=det*detrat
       if (dopot) then
          call v6tot(w%x,w%sp,v2,v3,v4,v5,v6,cvs,tnic,tni2pia,tni2pitm,&
            tni2pic,tni2picxd,tni2picdd,tnivd1,tnivd2,tnive,tni2piaxd,&
            tni2piadd,tni2piapr,tni2piaxdpr,tni2piaddpr,corrtype)
-         ccvs=ccvs+det*cvs
-         call getop1(csig1,ctau1,csigtau1)
-         sig1=sig1+det*csig1
-         tau1=tau1+det*ctau1
-         sigtau1=sigtau1+det*csigtau1
-         call getop2(csig2,ctau2,csigtau2,np0a,np1a,ppa,nna)
-         sig2=sig2+det*csig2
-         tau2=tau2+det*ctau2
-         sigtau2=sigtau2+det*csigtau2
-         np0=np0+det*np0a
-         np1=np1+det*np1a
-         pp=pp+det*ppa
-         nn=nn+det*nna
-         call getoptens(w%x,t,ttau)
-         tens=tens+det*t
-         tenstau=tenstau+det*ttau
-         ttni2pia=ttni2pia+det*tni2pia
-         ttni2piaxd=ttni2piaxd+det*tni2piaxd
-         ttni2piadd=ttni2piadd+det*tni2piadd
-         ttni2pic=ttni2pic+det*tni2pic
-         ttni2picxd=ttni2picxd+det*tni2picxd
-         ttni2picdd=ttni2picdd+det*tni2picdd
-         ttni2pitm=ttni2pitm+det*tni2pitm
-         ttnivd1=ttnivd1+det*tnivd1
-         ttnivd2=ttnivd2+det*tnivd2
-         ttnive=ttnive+det*tnive
-         ttni2piapr=ttni2piapr+det*tni2piapr
-         ttni2piaxdpr=ttni2piaxdpr+det*tni2piaxdpr
-         ttni2piaddpr=ttni2piaddpr+det*tni2piaddpr
+         cvs=det*cvs/tdet
+         call getop1(sig1,tau1,sigtau1)
+         sig1=det*sig1/tdet
+         tau1=det*tau1/tdet
+         sigtau1=det*sigtau1/tdet
+         call getop2(sig2,tau2,sigtau2,np0,np1,pp,nn)
+         sig2=det*sig2/tdet
+         tau2=det*tau2/tdet
+         sigtau2=det*sigtau2/tdet
+         np0=det*np0/tdet
+         np1=det*np1/tdet
+         pp=det*pp/tdet
+         nn=det*nn/tdet
+         call getoptens(w%x,tens,tenstau)
+         tens=det*tens/tdet
+         tenstau=det*tenstau/tdet
+         w%tni2pia=det*tni2pia/tdet
+         w%tni2piaxd=det*tni2piaxd/tdet
+         w%tni2piadd=det*tni2piadd/tdet
+         w%tni2pic=det*tni2pic/tdet
+         w%tni2picxd=det*tni2picxd/tdet
+         w%tni2picdd=det*tni2picdd/tdet
+         w%tni2pitm=det*tni2pitm/tdet
+         w%tnivd1=det*tnivd1/tdet
+         w%tnivd2=det*tnivd2/tdet
+         w%tnive=det*tnive/tdet
+!print*,w%x
+!print*,'!!!!!!!'
+!print*,w%sp
+!print*,'!!!!!!!'
+!print*,'vc=',w%tnic
+!print*,'2pia=',w%tni2pia
+!print*,'2pixd=',w%tni2piaxd
+!print*,'2pidd=',w%tni2piadd
+!print*,'tm=',w%tni2pitm
+!print*,'vd1=',w%tnivd1
+!print*,'vd2=',w%tnivd2
+!print*,'vde=',w%tnive
+!print*,'!!!!!!!'
+!print*,'2pitot=',w%tni2pia+w%tni2piaxd+w%tni2piadd
+!print*,'vdtot=',w%tnivd1+w%tnivd2
+!stop
+         w%tni2piapr=det*tni2piapr/tdet
+         w%tni2piaxdpr=det*tni2piaxdpr/tdet
+         w%tni2piaddpr=det*tni2piaddpr/tdet
+         w%v8all(1)=w%vc
+         w%v8all(2:6)=cvs(2:6)
          call hspot(w%x,vc,v2,v3,v4,v5,v6,dopot,2)
          call calpot(cvs,v2,v3,v4,v5,v6)
-         ccvspr=ccvspr+det*cvs
-         call calpotcoul(cvcoul,cvcoulc,vcoulmat)
-         vcoul=vcoul+det*cvcoul
+         cvs=det*cvs/tdet
+         w%v8allpr(1)=vc
+         w%v8allpr(2:6)=cvs(2:6)
       endif
-   enddo
-   if (dopot) then
-      ccvs=ccvs/tdet
-      w%v8all(1)=w%vc
-      w%v8all(2:6)=ccvs(2:6)
-      tau1=tau1/tdet
-      sig1=sig1/tdet
-      sigtau1=sigtau1/tdet
-      tau2=tau2/tdet
-      sig2=sig2/tdet
-      sigtau2=sigtau2/tdet
-      np0=np0/tdet
-      np1=np1/tdet
-      pp=pp/tdet
-      nn=nn/tdet
-      tens=tens/tdet
-      tenstau=tenstau/tdet
-      w%tni2pia=ttni2pia/tdet
-      w%tni2piaxd=ttni2piaxd/tdet
-      w%tni2piadd=ttni2piadd/tdet
-      w%tni2pic=ttni2pic/tdet
-      w%tni2picxd=ttni2picxd/tdet
-      w%tni2picdd=ttni2picdd/tdet
-      w%tni2pitm=ttni2pitm/tdet
-      w%tnivd1=ttnivd1/tdet
-      w%tnivd2=ttnivd2/tdet
-      w%tnive=ttnive/tdet
-      w%tni2piapr=ttni2piapr/tdet
-      w%tni2piaxdpr=ttni2piaxdpr/tdet
-      w%tni2piaddpr=ttni2piaddpr/tdet
-      w%v8allpr(1)=vc
-      w%vcoul=vcoul/tdet+w%vcoulc
-      ccvspr=ccvspr/tdet
-      w%v8allpr(2:6)=ccvspr(2:6)
-   endif
-   w%psi=tdet*exp(-u)*(1.0_r8+u3c)
-   totdet=totdet*exp(-u)*(1.0_r8+u3c)
-   phig=1.0_r8
-   do i=1,npart
-      phig=phig*sum(dconjg(smat(:,i))*smat(:,i))
-   enddo
+   w%psi=(tdet+utau*det)*exp(-u)*(1.0_r8+u3c)
    w%psig=abs(real(w%psi))+a*abs(aimag(w%psi))
    end subroutine vnpsi2
 
@@ -694,17 +541,6 @@ contains
    opmult(4,9:15:3,:)=-opmult(4,1:3:1,:)
    end function opmult
 
-   subroutine vpotex(r,v)
-   real(kind=r8) :: r,v
-   if (vexid.eq.0) then
-      return
-   else if (vexid.eq.1) then
-         v=wsv0/(1.0_r8+exp((r-wsrad)/wss))
-   else if (vexid.eq.2) then
-         v=0.5_r8*hbari*(hbarom*r)**2
-   endif
-   end subroutine vpotex
-
    subroutine chkder(w,dx,error)
    use stack
    type (walker) w
@@ -747,7 +583,7 @@ contains
    real(kind=r8) :: xsave(3,npart),dphi,c,s,c2,s2
    complex(kind=r8) :: aj,ssave(4,npart),psi,psip,psim
    complex(kind=r8) :: spx(4,15,npart)
-   integer(kind=i4) :: ic,jc,kc
+   integer(kind=i4) :: ic
    integer(kind=i4), parameter :: levi(2,3) = reshape((/2,3, 3,1, 1,2/),(/2,3/))
    complex(kind=r8) :: t2,tz,j2,jz
    c=cos(dphi)
@@ -772,25 +608,8 @@ contains
    enddo
    t2=aj
    aj=czero
-   do ic=1,3
-      jc=levi(1,ic)
-      kc=levi(2,ic)
-      w%x(ic,:)=xsave(ic,:)
-      w%x(jc,:)=xsave(jc,:)*c-xsave(kc,:)*s
-      w%x(kc,:)=xsave(kc,:)*c+xsave(jc,:)*s
-      w%sp(:,:)=c2*ssave(:,:)-ci*s2*spx(:,ic,:)
-      call hpsi(w,.false.)
-      psip=w%psi
-      w%x(ic,:)=xsave(ic,:)
-      w%x(jc,:)=xsave(jc,:)*c+xsave(kc,:)*s
-      w%x(kc,:)=xsave(kc,:)*c-xsave(jc,:)*s
-      w%sp(:,:)=c2*ssave(:,:)+ci*s2*spx(:,ic,:)
-      call hpsi(w,.false.)
-      psim=w%psi
-      aj=aj-(psip+psim-2.0_r8*psi)/(dphi**2*psi)
-      if (ic.eq.3) jz=-(psip-psim)/(ci*2.0_r8*dphi*psi)
-   enddo
-   j2=aj
+   jz=czero
+   j2=czero
    w%x=xsave
    w%sp=ssave
    end subroutine checkj
@@ -867,7 +686,7 @@ contains
    complex(kind=r8) :: spx(4,15,npart),cvls,cvlstau,p(3,3)
    real(kind=r8) :: dx(3),r,vvls,vvlstau
    integer(kind=i4) :: i,j,is
-!  call vnpsi2(w,.false.)
+!  call vnpsi2(w,.false.,.false.)
 ! careful, here I need the derivatives already stored in stack!
    spsave=w%sp
    psi=w%psi
@@ -935,6 +754,24 @@ contains
    enddo
    end subroutine chkop
 
+   subroutine addbf(x,xbig)
+   use backflow
+   real(kind=r8) :: x(:,:),xbig(:,:)
+   real(kind=r8) :: r,dx(3),bf,dbf,d2bf
+   integer(kind=i4) :: i,j
+   xbig=x
+   do i=1,npart-1
+      do j=i+1,npart
+         dx=x(:,i)-x(:,j)
+         dx=dx-el*nint(dx/el)
+         r=sqrt(sum(dx**2))
+         call getbf(r,bf,dbf,d2bf)
+         xbig(:,i)=xbig(:,i)+bf*dx
+         xbig(:,j)=xbig(:,j)-bf*dx
+      enddo
+   enddo
+   end subroutine addbf
+
    subroutine setoptv3(optv3in)
    logical :: optv3in
    optv3=optv3in
@@ -950,38 +787,46 @@ contains
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
    subroutine setdetparam(params)
-   real(kind=r8) :: params(:)
-   integer(kind=i4) :: i,j,k
-   k=1
-   do i=1,nconf
-      do j=1,norb(i)
-         cdet(k)=params(i)*cdet0(k)
-         k=k+1
-      enddo
-   enddo
+   use backflow
+   real(kind=r8) :: params(:),pbf(4)
+   pbf=params
+   call initbf(pbf)
    end subroutine setdetparam
 
    subroutine getdetparam(nparam,params)
+   use backflow
    integer(kind=i4) :: nparam
    real(kind=r8), pointer :: params(:)
-   nparam=nconf
+   real(kind=r8) :: pbf(4)
+   nparam=4
    allocate(params(nparam))
-   params=vorb
+   call getbfpar(pbf)
+   params=pbf
+   npdet=nparam
    end subroutine getdetparam
 
    subroutine getderpsi(w,dpsi)
    use stack
+   use backflow
    type (walker) :: w
    real(kind=r8) :: dpsi(:)
-   integer(kind=i4) :: i,j,k
+   real(kind=r8) :: pbf(4)
+   complex(kind=r8) :: psi0
+   integer(kind=i4) :: i
+   real(kind=r8), parameter :: dp=0.001_r8
    dpsi=0.0_r8
-   k=1
-   do i=1,nconf
-      do j=1,norb(i)
-         dpsi(i)=dpsi(i)+totdet(k)
-         k=k+1
-      enddo
+   call getbfpar(pbf)
+   call hpsi(w,.false.)
+   psi0=w%psi
+   do i=1,npdet
+      pbf(i)=pbf(i)+dp
+      call initbf(pbf)
+      call hpsi(w,.false.)
+      dpsi(i)=(w%psi-psi0)/dp
+      pbf(i)=pbf(i)-dp
+      call initbf(pbf)
    enddo
+   call hpsi(w,.false.)
    dpsi=dpsi/w%psi
    end subroutine getderpsi
 
@@ -999,7 +844,8 @@ contains
    call hpsi(w,.false.)
    psi0=w%psi
    ipar=1
-   do i=1,size(dpsi)-22 ! the last parameters are q1c,q2c,q1p,q2p,rscal,a3c,a3a,a3atm,a3avd1,a3avd2,a3avdc3,a3avec3,a3ve,a3comm,rscpp,rscnn,bpp,bnn
+!   do i=1,size(dpsi)-17 ! the last parameters are q1c,q2c,q1p,q2p,rscal,a3c,a3a,a3atm,a3avd1,a3avd2,a3avdc3,a3avec3,a3ve,rscpp,rscnn,bpp,bnn CODY
+   do i=1,size(dpsi)-22 ! the last parameters are q1c,q2c,q1p,q2p,rscal,a3c,a3a,a3atm,a3avd1,a3avd2,a3avdc3,a3avec3,a3ve,rscpp,rscnn,bpp,bnn
       call setijas(i+1)
       call hpsi(w,.false.)
       dpsi(i)=(w%psi-psi0)/dp
@@ -1007,10 +853,9 @@ contains
       ipar=ipar+1
    enddo
    call setijas(1)
-   if (.false.) then !CODY
+   if(.false.) then !CODY
       do i=1,4 ! q1c,q2c,q1p,q2p
          call f3p(i)
-         call hpsi(w,.false.)
          call hpsi(w,.false.)
          call f3m(i)
          dpsi(ipar)=(w%psi-psi0)/dp
@@ -1020,7 +865,7 @@ contains
       ipar=ipar+4
    endif
    if (optv3) then
-      do i=5,18 ! rsctni(3),ptni(11)
+      do i=5,13 ! rsctni(1),ptni(8)
          call f3p(i)
          call hpsi(w,.false.)
          call f3m(i)
@@ -1028,7 +873,7 @@ contains
          ipar=ipar+1
       enddo
    else
-      ipar=ipar+14
+      ipar=ipar+9
    endif
    if (optcsb) then
 ! now do rscpp and rscnn
@@ -1060,3 +905,4 @@ contains
    dpsi=dpsi/w%psi
    end subroutine getjasder
 end module wavefunction
+
