@@ -355,7 +355,8 @@ contains
    complex(kind=r8) :: sxzj1(4,npart,npart),sxzj2(4,npart,npart)
    complex(kind=r8) :: sxzk(4,npart,npart),dj1,dj2,dk
    integer(kind=i4) :: i,j,ij,iop,is,it,js,k,ks,ijk,kc
-   integer, intent(in) :: corrtype
+   integer :: corrtype
+   corrtype=1 !DELETE
    d1b=czero
    d2b=czero
    d3b=czero
@@ -555,7 +556,8 @@ contains
          ij=j-i*(1+i-2*npart)/2-npart
          do js=1,4
             d2b(:,js,ij)=d2b(:,js,ij) &
-               +0.5*fij*(sxz(:,i,i)*sxz(js,j,j)-sxz(:,i,j)*sxz(js,j,i)) !0.5 because duplicate pairs 1234 and 3412 for example
+!               +0.5*fij*(sxz(:,i,i)*sxz(js,j,j)-sxz(:,i,j)*sxz(js,j,i)) !0.5 because duplicate pairs 1234 and 3412 for example
+               +fij*(sxz(:,i,i)*sxz(js,j,j)-sxz(:,i,j)*sxz(js,j,i)) !0.5 because duplicate pairs 1234 and 3412 for example !DELETE
          enddo
       enddo
    enddo
@@ -1098,4 +1100,5 @@ contains
    enddo
    call savern(w%irn)
    end subroutine setxspx
+
 end module correlator

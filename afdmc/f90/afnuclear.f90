@@ -1,4 +1,4 @@
-   program afnuclear
+program afnuclear
    use stack
    use lattice
    use random
@@ -538,6 +538,8 @@
 !write (6,*) ' calling chkderparams'
 !if (idmc.eq.-1) call chkderp(w1,0.0025_r8)
 !stop
+!write (6,*) ' calling chkcorrop'
+!call chkcorrop(w1,w1,2) !1=linear, 2=ip, 3=quad
             psi=psi+w1%psi*dconjg(w1%psi)
             psi2=psi2+(w1%psi*dconjg(w1%psi))**2
             psig=psig+w1%psig**2

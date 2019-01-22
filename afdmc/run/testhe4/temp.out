@@ -1,0 +1,173 @@
+Variational Monte Carlo Run
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+MPI parameters:
+Number of boss cpus =                           1
+Number of worker cpus for each boss =           0
+Total number of cpus =                          1
+Simulation parameters:
+random number seed =                           17
+hbar^2/2m =                              20.73554
+start from sites =                              T
+nwalk =                                     10000
+equilibration blocks =                         20
+averaging blocks =                             50
+nsteps/blocks =                                10
+time step =                          0.0030000000
+time step rotations (vmc) =          0.1500000000
+trial energy =                          -27.00000
+drift cutoff =                            0.00000
+drastic population control up =           1.10000
+drastic population control down =         0.90000
+rebalance if walkers fluctuate more than      1.00 %
+weight cut off =                         20.00000
+table size =                                 8000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+System parameters:
+lpot =                                         11
+lpotpr =                                       11
+potential  =                           argonne v6'         
+potentialpr =                          argonne v6'         
+multiply central v by =                   1.00000
+multiply tau v by =                       1.00000
+multiply sigma v by =                     1.00000
+multiply sigma tau v by =                 1.00000
+multiply tensor v by =                    1.00000
+multiply tensor tau v by =                1.00000
+multiply spin-orbit v by =                0.00000
+multiply spin-orbit tau v by =            0.00000
+three-body potential =                 no3
+ibox = (0 is nearest image)                     0
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Calculate LS =                                  F
+Type of correlations =                 quadratic
+scale orbital   1 with factor    1.00000
+determinant # 1
+coefficient                     1.00000   0.00000
+1  1  0  1  alpha.orb  # 2J,2M,L,tau radial_file for state                      
+1 -1  0  1  alpha.orb  # 2J,2M,L,tau radial_file for state                      
+1  1  0 -1  alpha.orb  # 2J,2M,L,tau radial_file for state                      
+1 -1  0 -1  alpha.orb  # 2J,2M,L,tau radial_file for state                      
+rescaled coefficient            1.00000   0.00000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+No external potential
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+rcut in pair sampling =                   1.00000
+acut in pair sampling =                   5.00000
+a constant in psig =                      0.00000
+Number of protons =                             2
+Number of neutrons =                            2
+Range of the potential =   20.00000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Do V3                                           F
+Three body force                              no3
+three body a2piPWa  =                        0.000000000000
+three body a2piPwc =                         0.000000000000
+three body a2piSw =                          0.000000000000
+three body Vd,C,c3 =                         0.000000000000
+three body Ve,C,c3 =                         0.000000000000
+three body A_R =                          0.000000000000000
+three body Vd1 =                             0.000000000000
+three body Vd2 =                             0.000000000000
+three body Ve =                              0.000000000000
+propagator: multiply the antic by this    0.000000000000000
+propagator: multiply the antic-xd by th   0.000000000000000
+propagator: multiply the antic-dd by th   0.000000000000000
+propagator three body a2piPW =            0.00000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+jastrow healing distance dc =             3.24000
+jastrow healing distance dtn =            9.83000
+jastrow rho =                             0.01000
+potential quencher acn (v1)=              1.29000
+potential quencher at  (v2)=              2.28000
+potential quencher as  (v3)=              2.56000
+potential quencher ast (v4)=              0.91000
+potential quencher atn (v5)=              1.62000
+potential quencher atn (v6)=              0.91000
+potential quencher als (v7 v8)=           1.00000
+correlation quencher bt (f2)=             1.12000
+correlation quencher bs (f3)=             0.00000
+correlation quencher bst (f4)=            0.20000
+correlation quencher btn (f5)=            0.00000
+correlation quencher btn (f6)=            1.13000
+correlation quencher bls (f7)=            0.00000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+q1c parameter in f3c =                    0.00000
+q2c parameter in f3c =                    0.00000
+q1p parameter in f3p =                    0.00000
+q2p parameter in f3p =                    0.00000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+rscal parameter in Uijk cent =            1.00000
+rscal parameter in Uijk xpi =             1.00000
+rscal parameter in Uijk delta =           1.00000
+eps_c parameter in Uijk =                 0.00000
+eps_anti parameter in Uijk =              0.00000
+eps_tm parameter in Uijk =                0.00000
+eps_vd1 parameter in Uijk =               0.00000
+eps_vd2 parameter in Uijk =               0.00000
+eps_vdc3 parameter in Uijk =              0.00000
+eps_vec3 parameter in Uijk =              0.00000
+eps_ve parameter in Uijk =                0.00000
+eps_comm parameter in Uijk =              0.00000
+eps_comm-XD parameter in Uijk =           0.00000
+eps_comm-DD parameter in Uijk =           0.00000
+TNI-comm correlation included =                 F
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+CSB correlation rscalpp =                 0.00000
+CSB correlation rscalnn =                 0.00000
+CSB correlation quencher pp =             0.00000
+CSB correlation quencher nn =             0.00000
+CSB correlation included =                      F
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+jastrow initialized
+Coulomb included in the energy (and propagation)          F
+Initial walkers from sites
+Configurations at tau =              0.0000000000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Time for reading configurations (sec.) =       0.00
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Initial configurations:
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Psi**2 of initial configurations  =   0.1648319E-22  0.0000000E+00  +-    0.3529670E-25  0.0000000E+00
+Psig**2 of initial configurations =   0.1648317E-22  0.0000000E+00  +-    0.3529670E-25  0.0000000E+00
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+T**2 of initial configurations  =  -0.1255932E-10  0.6104372E-12
+Tz of initial configurations    =   0.5199867E-15 -0.8588622E-15
+J**2 of initial configurations  =   0.1147016E-10  0.3732320E-12
+Jz of initial configurations    =   0.9559288E-15 -0.1474251E-13
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Time to process initial configurations (sec.) =      24.59
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+
+iteration =                               1
+walker number =                       10000
+acceptance                     0.00000000E+00   6.3491000000E-01 +-    1.5224956220E-03   
+acceptance-spin                0.00000000E+00   6.8340000000E-01 +-    1.4709331732E-03   
+Time for propagation (sec) (min) =          35.788      0.596
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.000      0.000
+Time for block (sec) (min) =                35.788      0.596
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =            35.788      0.596
+
+iteration =                               2
+walker number =                       10000
+acceptance                     0.00000000E+00   6.2849000000E-01 +-    1.5280390044E-03   
+acceptance-spin                0.00000000E+00   5.8911000000E-01 +-    1.5558258511E-03   
+Time for propagation (sec) (min) =          35.877      0.598
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.000      0.000
+Time for block (sec) (min) =                35.877      0.598
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =            71.666      1.194
+
+iteration =                               3
+walker number =                       10000
+acceptance                     0.00000000E+00   6.1650000000E-01 +-    1.5376207270E-03   
+acceptance-spin                0.00000000E+00   5.8250000000E-01 +-    1.5594670564E-03   
+Time for propagation (sec) (min) =          36.223      0.604
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.000      0.000
+Time for block (sec) (min) =                36.223      0.604
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =           107.889      1.798

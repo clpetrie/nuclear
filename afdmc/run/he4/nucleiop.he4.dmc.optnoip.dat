@@ -1,0 +1,91 @@
+17              # A random number
+20.73554        # hbar^2/2m
+6               # 0 = vmc, 1=psitrial wt, 2 = elocal weight, 3 spazzatura
+.false.         # use lattice sites if true
+10000           # 48000 CODY default number of walkers
+0               # 0 CODY equilibrium blocks
+100             # 100 CODY averaging blocks
+100             # steps/block
+0.00001         # time step
+0.15            # time step spin (vmc)
+-27.0           # trial energy
+0.0             # drift cut off
+1.1             # drastic walker upperbound
+0.9             # drastic walker lowerbound
+1.0             # rebalance if walker number fluctuate more than this % (per cpu)
+20.0            # weight cut off
+8000            # table points for jastrow and potential
+11              # Bob's potential number
+11              # lpotpr #CODY
+1.0             # central factor
+1.0             # tau factor
+1.0             # sigma factor
+1.0             # sigma tau factor
+1.0             # t factor
+1.0             # t tau factor
+0.0             # LS factor
+0.0             # LS tau tau factor
+no3             # tni #CODY
+0.0             # multiply A2pi by this #CODY
+0.0             # multiply A2pi_xd by this #CODY
+0.0             # multiply A2pi_dd by this #CODY
+0               # NOT USED
+.false.          # do independent pair correlations #CODY
+2000            # table points for radial functions
+20.0            # rmax for orbitals
+.true.          # divide by r?
+4               # particle number
+0               # external potential #CODY
+1.0             # rcut in LS pair sampling
+5.0             # acut in LS pair sampling
+0.0             # a constant in psig #CODY moved down two #.true.          # include coulomb #CODY This line didn't exist
+1               # number of radial functions
+alpha.orb        0   1.0  # radial file, then L, then rscal
+1               # number of determinants
+1
+1 1.0
+(1.0,0.0)       # determinant coefficient
+1  1  0  1  alpha.orb  # 2J,2M,L,tau radial_file for state
+1 -1  0  1  alpha.orb  # 2J,2M,L,tau radial_file for state
+1  1  0 -1  alpha.orb  # 2J,2M,L,tau radial_file for state
+1 -1  0 -1  alpha.orb  # 2J,2M,L,tau radial_file for state
+3.2019509294390759990            # jastrow central healing distance
+9.9551737666452666531            # jastrow tensor healing distance #0.01 # jastrow rho_snm #CODY this was hardcoded in
+1.4121565666984365125            # jastrow quencher central potential
+2.7637182338865354941            # jastrow quencher tau potential
+2.4060016569379720871            # jastrow quencher sigma potential
+0.2170146105644226102            # jastrow quencher sigma-tau potential
+1.4816181812766716908            # jastrow quencher tensor potential #CODY
+1.4287252968331470016            # jastrow quencher tensor-tau potential
+1.0             # jastrow quencher LS potential
+0.4823268689546098431            # jastrow quencher tau correlation
+0.5229893071911665969            # jastrow quencher sigma correlation #CODY
+0.0826282231323937318            # jastrow quencher sigma-tau correlation
+0.373682            # jastrow quencher tensor correlation #CODY
+0.6814694895108689935            # jastrow quencher tensor-tau correlation
+0.0             # jastrow quencher LS correlation #CODY
+0.0             # q1c parameter in fijk #CODY added from here to end
+0.0             # q2c parameter in fijk
+0.0             # q1p parameter in fijk
+0.0             # q2p parameter in fijk
+1.0             # rscal in tnicor
+1.0             # rscal in tnicor
+1.0             # rscal in tnicor
+0.0             # eps_cent in tnicor
+0.0             # eps_anti in tnicor
+0.0             # eps_tm in tnicor
+0.0             # eps_vd1 in tnicor
+0.0             # eps_vd2 in tnicor
+0.0             # eps_vdc3 in tnicor
+0.0             # eps_vec3 in tnicor
+0.0             # eps_ve in tnicor
+0.0             # eps_comm
+0.0             # eps_comm-xd
+0.0             # eps_comm-dd
+0.0             # rscpp
+0.0             # rscnn
+0.0             # bpp
+0.0             # bnn
+200             # number of iterations for optimization
+0.0005          # delta step in the optimization
+0.00001         # epsilon parameter to regularize the optimization

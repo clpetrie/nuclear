@@ -1,0 +1,28 @@
+total number of boss =      8
+total number of workers =      0
+total number of cpu =      8
+total time of execution (sec) =    189.598
+total time for rebalance (sec) =      0.015
+
+
+
+     cpu #       sent     received  maxnw       minnw
+
+         0       140       153        29         7
+         1       162       156        16         9
+         2       156       149        15         9
+         3       149       125        15        10
+         4       150       131        16         9
+         5       145       156        16        10
+         6       133       149        16        10
+         7       150       166        16         9
+
+     total      1185      1185       139        73
+
+
+checkpop calls         500
+rebalance calls        496
+
+number of walkers      47992
+
+number of walkers moved      2.469 %

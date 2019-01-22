@@ -1,0 +1,132 @@
+423                               # A random number
+20.73554                          # hbar^2/2m
+ 0                                # -1=opt, 0=vmc, 6=dmc, 7=trans
+.true.                            # use lattice sites if true
+2 #9600                              # default number of walkers
+1                                 # equilibrium blocks
+1                               # averaging blocks, if negative write out configurations after each block
+2 #500                               # steps/block, if negative don't compute averages and just write out confs
+0.0005 #0.000025                            # time step
+0.06 #0.05                              # time step spin (vmc)
+-230.00                            # trial energy
+0.0                               # drift cut off
+1.2                               # drastic walker upperbound
+0.8                               # drastic walker lowerbound
+2.0                               # rebalance if walker number fluctuate more than this % (per cpu)
+20.0                              # weight cut off
+8000                              # table points for jastrow and potential
+11                               # Bob's potential number
+11                               # lpotpr
+1.0                               # central factor
+1.0                               # tau factor
+1.0                               # sigma factor
+1.0                               # sigma tau factor
+1.0                               # t factor
+1.0                               # t tau factor
+0.0                               # LS factor
+0.0                               # LS tau tau factor
+no3                               # 3b potential
+0.0                               # multiply A2pi by this
+0.0                               # multiply A2pi_xd by this
+0.0                               # multiply A2pi_dd by this
+0                                 # ibox (not used)
+.false.          # do independent pair correlations #CODY
+2000                              # table points for radial functions
+20.0                              # rmax for orbitals
+.true.                            # divide by r?
+40                                # particle number
+0                                 # external potential (0=none, 1=ws, 2=ho)
+1.0                               # rcut in LS pair sampling
+5.0                               # acut in LS pair sampling
+0.2                               # a constant in psig
+6                                 # number of radial functions
+ca40.n1s1_2.orb  0  0.82864298007228387455     # radial file, L, rscal
+ca40.n1p3_2.orb  1  0.95564438848731847465     # radial file, L, rscal
+ca40.n1p1_2.orb  1  0.95922144672337428251     # radial file, L, rscal
+ca40.n1d5_2.orb  2  0.96098776405044505911     # radial file, L, rscal
+ca40.n2s1_2.orb  0  0.96408297684353227996     # radial file, L, rscal
+ca40.n1d3_2.orb  2  0.96335946511417580584     # radial file, L, rscal
+1                                 # number of determinants
+1                                 # number of non-degenerate determinants
+1    1.0                          # determinant occupancy and variational factor
+(1.0,0.0)                         # determinant coefficient
+1  1  0  1  ca40.n1s1_2.orb  # 2J,2M,L,tau radial_file for state
+1 -1  0  1  ca40.n1s1_2.orb  # 2J,2M,L,tau radial_file for state
+3  3  1  1  ca40.n1p3_2.orb  # 2J,2M,L,tau radial_file for state
+3  1  1  1  ca40.n1p3_2.orb  # 2J,2M,L,tau radial_file for state
+3 -1  1  1  ca40.n1p3_2.orb  # 2J,2M,L,tau radial_file for state
+3 -3  1  1  ca40.n1p3_2.orb  # 2J,2M,L,tau radial_file for state
+1  1  1  1  ca40.n1p1_2.orb  # 2J,2M,L,tau radial_file for state
+1 -1  1  1  ca40.n1p1_2.orb  # 2J,2M,L,tau radial_file for state
+5  5  2  1  ca40.n1d5_2.orb  # 2J,2M,L,tau radial_file for state
+5  3  2  1  ca40.n1d5_2.orb  # 2J,2M,L,tau radial_file for state
+5  1  2  1  ca40.n1d5_2.orb  # 2J,2M,L,tau radial_file for state
+5 -1  2  1  ca40.n1d5_2.orb  # 2J,2M,L,tau radial_file for state
+5 -3  2  1  ca40.n1d5_2.orb  # 2J,2M,L,tau radial_file for state
+5 -5  2  1  ca40.n1d5_2.orb  # 2J,2M,L,tau radial_file for state
+1  1  0  1  ca40.n2s1_2.orb  # 2J,2M,L,tau radial_file for state
+1 -1  0  1  ca40.n2s1_2.orb  # 2J,2M,L,tau radial_file for state
+3  3  2  1  ca40.n1d3_2.orb  # 2J,2M,L,tau radial_file for state
+3  1  2  1  ca40.n1d3_2.orb  # 2J,2M,L,tau radial_file for state
+3 -1  2  1  ca40.n1d3_2.orb  # 2J,2M,L,tau radial_file for state
+3 -3  2  1  ca40.n1d3_2.orb  # 2J,2M,L,tau radial_file for state
+1  1  0 -1  ca40.n1s1_2.orb  # 2J,2M,L,tau radial_file for state
+1 -1  0 -1  ca40.n1s1_2.orb  # 2J,2M,L,tau radial_file for state
+3  3  1 -1  ca40.n1p3_2.orb  # 2J,2M,L,tau radial_file for state
+3  1  1 -1  ca40.n1p3_2.orb  # 2J,2M,L,tau radial_file for state
+3 -1  1 -1  ca40.n1p3_2.orb  # 2J,2M,L,tau radial_file for state
+3 -3  1 -1  ca40.n1p3_2.orb  # 2J,2M,L,tau radial_file for state
+1  1  1 -1  ca40.n1p1_2.orb  # 2J,2M,L,tau radial_file for state
+1 -1  1 -1  ca40.n1p1_2.orb  # 2J,2M,L,tau radial_file for state
+5  5  2 -1  ca40.n1d5_2.orb  # 2J,2M,L,tau radial_file for state
+5  3  2 -1  ca40.n1d5_2.orb  # 2J,2M,L,tau radial_file for state
+5  1  2 -1  ca40.n1d5_2.orb  # 2J,2M,L,tau radial_file for state
+5 -1  2 -1  ca40.n1d5_2.orb  # 2J,2M,L,tau radial_file for state
+5 -3  2 -1  ca40.n1d5_2.orb  # 2J,2M,L,tau radial_file for state
+5 -5  2 -1  ca40.n1d5_2.orb  # 2J,2M,L,tau radial_file for state
+1  1  0 -1  ca40.n2s1_2.orb  # 2J,2M,L,tau radial_file for state
+1 -1  0 -1  ca40.n2s1_2.orb  # 2J,2M,L,tau radial_file for state
+3  3  2 -1  ca40.n1d3_2.orb  # 2J,2M,L,tau radial_file for state
+3  1  2 -1  ca40.n1d3_2.orb  # 2J,2M,L,tau radial_file for state
+3 -1  2 -1  ca40.n1d3_2.orb  # 2J,2M,L,tau radial_file for state
+3 -3  2 -1  ca40.n1d3_2.orb  # 2J,2M,L,tau radial_file for state
+    2.48740619225225190192      # jastrow central healing distance
+    6.15902558658494037047      # jastrow tensor healing distance
+    1.36565991405614983734      # jastrow quencher central potential
+    4.07955234078567130496      # jastrow quencher tau potential
+    1.69554775801479573616      # jastrow quencher sigma potential
+    0.50309453616309607327      # jastrow quencher sigma-tau potential
+   -4.89025680653166272549      # jastrow quencher tensor potential
+    0.45498262148266727101      # jastrow quencher tensor-tau potential
+    0.00000000000000000000      # jastrow quencher LS potential    0.00000000000000000000      # jastrow quencher LS-tau potential
+    0.57714672687080703639      # jastrow quencher tau correlation
+    1.62150563681061532506      # jastrow quencher sigma correlation
+    4.77249013838923819009      # jastrow quencher sigma-tau correlation
+   -2.31256330489303874032      # jastrow quencher tensor correlation
+    5.74747496506702049146      # jastrow quencher tensor-tau correlation
+    0.00000000000000000000      # jastrow quencher LS correlation    0.00000000000000000000      # jastrow quencher LS-tau correlation
+   -0.01622602926166675022      # q1c parameter in fijk
+    0.82611438738628084621      # q2c parameter in fijk
+    0.02381793610310981371      # q1p parameter in fijk
+   -0.08051755916988777295      # q2p parameter in fijk
+    1.00000000000000000000      # rscal cent in tnicor
+    1.00000000000000000000      # rscal xpi in tnicor
+    1.00000000000000000000      # rscal delta in tnicor
+    0.00000000000000000000      # eps_cent in tnicor
+    0.00000000000000000000      # eps_anti in tnicor
+    0.00000000000000000000      # eps_tm in tnicor
+    0.00000000000000000000      # eps_vd1 in tnicor
+    0.00000000000000000000      # eps_vd2 in tnicor
+    0.00000000000000000000      # eps_vdc3 in tnicor
+    0.00000000000000000000      # eps_vec3 in tnicor
+    0.00000000000000000000      # eps_ve in tnicor
+    0.00000000000000000000      # eps_comm in tnicor
+    0.00000000000000000000      # eps_comm-xd in tnicor
+    0.00000000000000000000      # eps_comm-dd in tnicor
+    0.0 #1.00000000000000000000      # rscal pp in CSBcor
+    0.0 #1.00000000000000000000      # rscal nn in CSBcor     
+    0.00000000000000000000      # quencher pp CSBcor
+    0.00000000000000000000      # quencher nn CSBcor
+100                               # number of iterations for optimization .true.                            # optimize Jastrow .false.                           # optimize nodes
+0.0001                            # delta step in the optimization
+0.00001                           # epsilon parameter to regularize the optimization

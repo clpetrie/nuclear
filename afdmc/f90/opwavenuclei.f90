@@ -24,6 +24,8 @@ module wavefunction
    integer(kind=i4), private, save :: vexid
    real(kind=r8), private, save :: wsv0,wsrad,wss,hbari,hbarom
    integer, private, save :: corrtype !CODY
+   real(kind=r8), private, save, allocatable :: fasig(:,:,:,:),fasigtau(:,:,:,:),fatau(:,:) !CODY, was part of vnpsi2
+   real(kind=r8) :: u !CODY, was part of vnpsi2
 contains
    subroutine setpsi(npartin,elin,hbar,vlsin,noprotin,nprot,nneut)
    use mympi
@@ -229,6 +231,7 @@ contains
    call setijas(1)
    call initcormod(npart,elin)
    npair=npart*(npart-1)/2
+   allocate(fasig(3,npart,3,npart),fasigtau(3,npart,3,npart),fatau(npart,npart)) !CODY, was part of vnpsi2 (no allocation though)
    allocate(tau1(3,npart),sig1(3,npart),sigtau1(3,3,npart))
    allocate(tau2(3,3,npair),sig2(3,3,npair),sigtau2(3,3,3,3,npair))
    allocate(np0(npair),np1(npair),pp(npair),nn(npair))
@@ -400,8 +403,8 @@ contains
    use random
    integer(kind=i4) :: i,j,k,idet
    real(kind=r8) :: eni
-   real(kind=r8) :: u
-   real(kind=r8) :: fasig(3,npart,3,npart),fasigtau(3,npart,3,npart),fatau(npart,npart)
+!   real(kind=r8) :: u !CODY moved to be more global
+!   real(kind=r8) :: fasig(3,npart,3,npart),fasigtau(3,npart,3,npart),fatau(npart,npart) !CODY moved to be more global
    real(kind=r8) :: fataupp(npart,npart),fataunn(npart,npart)
    real(kind=r8) :: fasigtautni(3,npart,3,npart),fatautni(npart,npart)
    real(kind=r8) :: xpi(3,npart,3,npart),xd(3,npart,3,npart)
@@ -934,6 +937,161 @@ contains
       enddo
    enddo
    end subroutine chkop
+
+   subroutine chkcorrop(w,wsave,corrtypein) !CODY
+   use stack
+   type (walker) :: w
+   type (walker) :: wsave
+   complex(kind=r8) :: spx(4,15,npart),psi,psivnpsi2
+   real(kind=r8) :: tau
+   integer(kind=i4) :: n1
+   integer :: i,j,it,is,js
+   integer :: corrtypesave,corrtypein
+   complex(kind=r8) :: det
+   complex(kind=r8) :: spsave(4,npart)
+
+   !read in good walker from fort.12
+   rewind 12
+   read (12,'(i10,f15.8)') n1,tau
+   read (12,'(6e15.7)') w%x
+   read (12,'(6e15.7)') w%sp
+   read (12,'(4e15.7)') w%weight,w%wt0
+   read (12,'(4e15.7)') w%psi0,w%psig0
+   read (12,'(i20)') w%irn
+!   !read in good walker from fort.12
+!   rewind 9
+!   read (9,'(i10,f15.8)') n1,tau
+!   read (9,'(6e15.7)') w%x
+!   read (9,'(6e15.7)') w%sp
+!   read (9,'(4e15.7)') w%weight,w%wt0
+!   read (9,'(4e15.7)') w%psi0,w%psig0
+!   read (9,'(i20)') w%irn
+
+   !calculate psi from ip correlations to be compared with at the end and reset walker
+   corrtypesave=corrtype
+   call copywalker(wsave,w)
+   corrtype=corrtypein
+   call vnpsi2(w,.true.)
+   psivnpsi2=w%psi
+
+   !calculate psi the stupid way
+   psi=czero
+   call calcpsi(w,det)
+   psi=psi+det !no correlations
+
+   spx=opmult(w%sp)
+   spsave=w%sp
+   do i=1, npart-1
+      do j=i+1,npart
+         do it=1,3 ! tau.tau correlations
+            w%sp(:,i)=spx(:,it+3,i)
+            w%sp(:,j)=spx(:,it+3,j)
+            call calcpsi(w,det)
+            psi=psi+fatau(i,j)*det
+            if (corrtype.gt.1) call chkpair(w,w,psi,fatau(i,j),corrtype,i,j)
+            w%sp=spsave
+         enddo
+         do is=1,3 ! sigma.sigma correlations
+            do js=1,3
+               w%sp(:,i)=spx(:,is,i)
+               w%sp(:,j)=spx(:,js,j)
+               call calcpsi(w,det)
+               psi=psi+fasig(is,i,js,j)*det
+               if (corrtype.gt.1) call chkpair(w,w,psi,fasig(is,i,js,j),corrtype,i,j)
+               w%sp=spsave
+            enddo
+         enddo
+         do it=1,3 ! (sigma.sigma).(tau.tau) correlations
+            do is=1,3
+               do js=1,3
+                  w%sp(:,i)=spx(:,3*is+it+3,i)
+                  w%sp(:,j)=spx(:,3*js+it+3,j)
+                  call calcpsi(w,det)
+                  psi=psi+fasigtau(is,i,js,j)*det
+                  if (corrtype.gt.1) call chkpair(w,w,psi,fasigtau(is,i,js,j),corrtype,i,j)
+                  w%sp=spsave
+               enddo
+            enddo
+         enddo
+      enddo
+   enddo
+
+   !central correlations
+   psi=psi*exp(-u)
+
+   write(6,'(''psiT from vnpsi2 '',2f15.10)') psivnpsi2
+   write(6,'(''psiT from stupid '',2f15.10)') psi
+
+   call copywalker(w,wsave)
+   corrtype=corrtypesave
+   end subroutine chkcorrop
+
+   subroutine calcpsi(w,det) !CODY
+   use stack
+   use phimod
+   use matrixmod
+   type(walker) :: w
+   complex(kind=r8) :: ph(npart,4,npart,ndet),dph(npart,3,4,npart,ndet)
+   complex(kind=r8) :: smati(npart,npart)
+   integer :: i
+   complex(kind=r8), intent(out) :: det
+   do i=1,npart
+      call getphi(w%x(:,i),ph(:,:,i,:),dph(:,:,:,i,:))
+      smati(:,i)=matmul(ph(:,:,i,1),w%sp(:,i))
+   enddo
+   call matinv(smati,det,npart) !all I want from this is det
+   end subroutine calcpsi
+
+   subroutine chkpair(w,wsave,psi,fin,corrtypein,i,j) !CODY
+   use stack
+   type (walker) :: w
+   type (walker) :: wsave
+   real(kind=r8) :: fin,f
+   complex(kind=r8) :: spx(4,15,npart),psi
+   integer :: i,j,k,l,kt,ks,ls
+   integer :: corrtypein
+   complex(kind=r8) :: det
+   complex(kind=r8) :: spsave(4,npart)
+   spsave=w%sp
+   corrtype=corrtypein
+   f=fin
+!   if (corrtype.eq.3) f=0.5*f
+   spx=opmult(w%sp)
+   do k=1, npart-1
+      if (corrtype.eq.2 .and. k.le.i) cycle !only do independent pairs
+      do l=k+1,npart
+         if (corrtype.eq.2 .and. (k.eq.j .or. l.eq.j)) cycle ! only do independent pairs
+         if (corrtype.eq.3 .and. ((k.eq.i .and. l.eq.j) .or. (k.eq.j .and. l.eq.i))) cycle ! only all quad pairs except when they are the same pairs
+         do kt=1,3 ! tau.tau correlations
+            w%sp(:,k)=spx(:,kt+3,k)
+            w%sp(:,l)=spx(:,kt+3,l)
+            call calcpsi(w,det)
+            psi=psi+f*fatau(k,l)*det
+            w%sp=spsave
+         enddo
+         do ks=1,3 ! sigma.sigma correlations
+            do ls=1,3
+               w%sp(:,k)=spx(:,ks,k)
+               w%sp(:,l)=spx(:,ls,l)
+               call calcpsi(w,det)
+               psi=psi+f*fasig(ks,k,ls,l)*det
+               w%sp=spsave
+            enddo
+         enddo
+         do kt=1,3 ! (sigma.sigma).(tau.tau) correlations
+            do ks=1,3
+               do ls=1,3
+                  w%sp(:,k)=spx(:,3*ks+kt+3,k)
+                  w%sp(:,l)=spx(:,3*ls+kt+3,l)
+                  call calcpsi(w,det)
+                  psi=psi+f*fasigtau(ks,k,ls,l)*det
+                  w%sp=spsave
+               enddo
+            enddo
+         enddo
+      enddo
+   enddo
+   end subroutine chkpair
 
    subroutine setoptv3(optv3in)
    logical :: optv3in

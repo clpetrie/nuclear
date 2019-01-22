@@ -1,0 +1,369 @@
+Diffusion Monte Carlo Run -- no drift
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+MPI parameters:
+Number of boss cpus =                           8
+Number of worker cpus for each boss =           0
+Total number of cpus =                          8
+Simulation parameters:
+random number seed =                           17
+hbar^2/2m =                              20.73554
+start from sites =                              F
+nwalk =                                       100
+equilibration blocks =                          0
+averaging blocks =                            100
+nsteps/blocks =                                10
+time step =                          0.0000250000
+time step rotations (vmc) =          0.0500000000
+trial energy =                         -100.00000
+drift cutoff =                            0.00000
+drastic population control up =           1.10000
+drastic population control down =         0.90000
+rebalance if walkers fluctuate more than      1.00 %
+weight cut off =                         20.00000
+table size =                                 8000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+System parameters:
+lpot =                                         11
+lpotpr =                                       11
+potential  =                           argonne v6'         
+potentialpr =                          argonne v6'         
+multiply central v by =                   1.00000
+multiply tau v by =                       1.00000
+multiply sigma v by =                     1.00000
+multiply sigma tau v by =                 1.00000
+multiply tensor v by =                    1.00000
+multiply tensor tau v by =                1.00000
+multiply spin-orbit v by =                0.00000
+multiply spin-orbit tau v by =            0.00000
+three-body potential =                 no3
+ibox = (0 is nearest image)                     0
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+propagate LS =                                  F
+Calculate LS =                                  F
+Type of correlations =                 independent pair
+scale orbital   1 with factor    0.97500
+scale orbital   2 with factor    0.97500
+scale orbital   3 with factor    0.97500
+determinant # 1
+coefficient                     1.00000   0.00000
+1  1  0  1  o16.n1s1_2.orb  # 2J,2M,L,tau radial_file for state                 
+1 -1  0  1  o16.n1s1_2.orb  # 2J,2M,L,tau radial_file for state                 
+3  3  1  1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+3  1  1  1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+3 -1  1  1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+3 -3  1  1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+1  1  1  1  o16.n1p1_2.orb  # 2J,2M,L,tau radial_file for state                 
+1 -1  1  1  o16.n1p1_2.orb  # 2J,2M,L,tau radial_file for state                 
+1  1  0 -1  o16.n1s1_2.orb  # 2J,2M,L,tau radial_file for state                 
+1 -1  0 -1  o16.n1s1_2.orb  # 2J,2M,L,tau radial_file for state                 
+3  3  1 -1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+3  1  1 -1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+3 -1  1 -1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+3 -3  1 -1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+1  1  1 -1  o16.n1p1_2.orb  # 2J,2M,L,tau radial_file for state                 
+1 -1  1 -1  o16.n1p1_2.orb  # 2J,2M,L,tau radial_file for state                 
+rescaled coefficient            1.00000   0.00000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+No external potential
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+rcut in pair sampling =                   1.00000
+acut in pair sampling =                   5.00000
+a constant in psig =                      0.00000
+Number of protons =                             8
+Number of neutrons =                            8
+Range of the potential =   20.00000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Do V3                                           F
+Three body force                              no3
+three body a2piPWa  =                        0.000000000000
+three body a2piPwc =                         0.000000000000
+three body a2piSw =                          0.000000000000
+three body Vd,C,c3 =                         0.000000000000
+three body Ve,C,c3 =                         0.000000000000
+three body A_R =                          0.000000000000000
+three body Vd1 =                             0.000000000000
+three body Vd2 =                             0.000000000000
+three body Ve =                              0.000000000000
+propagator: multiply the antic by this    0.000000000000000
+propagator: multiply the antic-xd by th   0.000000000000000
+propagator: multiply the antic-dd by th   0.000000000000000
+propagator three body a2piPW =            0.00000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+jastrow healing distance dc =             2.36663
+jastrow healing distance dtn =            6.46608
+jastrow rho =                             0.01000
+potential quencher acn (v1)=              1.63021
+potential quencher at  (v2)=              6.51012
+potential quencher as  (v3)=              1.32466
+potential quencher ast (v4)=              0.86880
+potential quencher atn (v5)=              0.21943
+potential quencher atn (v6)=              0.08764
+potential quencher als (v7 v8)=           0.00000
+correlation quencher bt (f2)=             0.05594
+correlation quencher bs (f3)=             0.46670
+correlation quencher bst (f4)=            0.45270
+correlation quencher btn (f5)=            3.90188
+correlation quencher btn (f6)=            6.11769
+correlation quencher bls (f7)=            0.00000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+q1c parameter in f3c =                    0.00000
+q2c parameter in f3c =                    0.00000
+q1p parameter in f3p =                    0.00000
+q2p parameter in f3p =                    0.00000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+rscal parameter in Uijk cent =            0.00000
+rscal parameter in Uijk xpi =             0.00000
+rscal parameter in Uijk delta =           0.00000
+eps_c parameter in Uijk =                 0.00000
+eps_anti parameter in Uijk =              0.00000
+eps_tm parameter in Uijk =                0.00000
+eps_vd1 parameter in Uijk =               0.00000
+eps_vd2 parameter in Uijk =               0.00000
+eps_vdc3 parameter in Uijk =              0.00000
+eps_vec3 parameter in Uijk =              0.00000
+eps_ve parameter in Uijk =                0.00000
+eps_comm parameter in Uijk =              0.00000
+eps_comm-XD parameter in Uijk =           0.00000
+eps_comm-DD parameter in Uijk =           0.00000
+TNI-comm correlation included =                 F
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+CSB correlation rscalpp =                 0.00000
+CSB correlation rscalnn =                 0.00000
+CSB correlation quencher pp =             0.00000
+CSB correlation quencher nn =             0.00000
+CSB correlation included =                      F
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+jastrow initialized
+Symmetrize V6 in the propagator =               T
+Coulomb included in the energy (and propagation)          F
+Initial walkers from file
+Number of walkers =                           100
+Configurations at tau =              0.0000000000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Time for reading configurations (sec.) =       0.10
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Initial configurations:
+total energy-propagated        0.00000000E+00  -8.5651899370E+01 +-    8.2526803846E+00   
+kinetic energy                 0.00000000E+00   4.7671864834E+02 +-    2.3300414896E+01   
+potential energy               0.00000000E+00  -5.6237054771E+02 +-    2.2670276764E+01   
+v cent                         0.00000000E+00  -1.2510562042E+01 +-    2.0238330944E+01   
+v tau                          0.00000000E+00  -2.7404632468E+01 +-    4.9631449382E+00   
+v sigma                        0.00000000E+00  -4.8067273412E+01 +-    4.8822186876E+00   
+v sigtau                       0.00000000E+00  -2.5122327277E+02 +-    1.0343895873E+01   
+v tensor                       0.00000000E+00   2.4590549124E+00 +-    2.5805321214E+00   
+v tenstau                      0.00000000E+00  -2.2562386192E+02 +-    1.9318226747E+01   
+v ls                           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+vls tau                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+v coulomb                      0.00000000E+00   1.3489761193E+01 +-    1.4351459456E-01   
+tni 2pipr-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pixdpr-anticommutator     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2piddpr-anticommutator     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pi-commutator             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pixd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pidd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pi-tm                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+tni vd1                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+tni vd2                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+tni ve                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+tni central                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+enetot v8+tni                  0.00000000E+00  -8.5651899370E+01 +-    8.2526803846E+00   
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Psi**2 of initial configurations  =   0.6889360E-29  0.0000000E+00  +-    0.3526973E-29  0.0000000E+00
+Psig**2 of initial configurations =   0.3239152E-29  0.0000000E+00  +-    0.1529941E-29  0.0000000E+00
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+T**2 of initial configurations  =  -0.4487337E-12 -0.1847794E-11
+Tz of initial configurations    =   0.2446411E-14  0.5460699E-14
+J**2 of initial configurations  =  -0.2027081E-10  0.3214415E-12
+Jz of initial configurations    =  -0.8939764E-14 -0.9585461E-14
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Time to process initial configurations (sec.) =    3019.68
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+
+equilibration done
+
+iteration =                               1
+walker number =                          99
+total energy-propagated        2.50000000E-04  -9.7803336357E+01 +-    7.0535175870E+00   
+kinetic energy                 2.50000000E-04   4.4865513895E+02 +-    2.8138288835E+01   
+potential energy               2.50000000E-04  -5.4645847531E+02 +-    2.6882916795E+01   
+im energy                      2.50000000E-04   1.8181070309E+00 +-    7.4397209270E+00   
+imkin energy                   2.50000000E-04   7.8262376867E+00 +-    7.7183524915E+00   
+impot energy                   2.50000000E-04  -6.0081306558E+00 +-    9.9318127353E+00   
+v cent                         2.50000000E-04  -3.9128762645E+00 +-    2.4260110737E+01   
+v tau                          2.50000000E-04  -2.3514003790E+01 +-    4.8258896561E+00   
+v sigma                        2.50000000E-04  -5.6479720151E+01 +-    5.2364077537E+00   
+v sigtau                       2.50000000E-04  -2.4842949040E+02 +-    1.1260750413E+01   
+v tensor                       2.50000000E-04   3.7661711930E+00 +-    2.7553927913E+00   
+v tenstau                      2.50000000E-04  -2.1788855590E+02 +-    1.5744985621E+01   
+v ls                           2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+vls tau                        2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+vpot v6                        2.50000000E-04  -5.4645847531E+02 +-    2.6882916795E+01   
+vpot v8                        2.50000000E-04  -5.4645847531E+02 +-    2.6882916795E+01   
+v coulomb                      2.50000000E-04   1.3543002282E+01 +-    1.3987827630E-01   
+tni 2pipr-anticommutator       2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pixdpr-anticommutator     2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2piddpr-anticommutator     2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pi-commutator             2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pixd-commutator           2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pidd-commutator           2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pi-tm                     2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni vd1                        2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni vd2                        2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni ve                         2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni central                    2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+vpottot v8+tni                 2.50000000E-04  -5.3291547302E+02 +-    2.6845205581E+01   
+enetot v8+tni                  2.50000000E-04  -8.4260334074E+01 +-    7.0563421047E+00   
+vpr cent                       2.50000000E-04  -3.9128762645E+00 +-    2.4260110737E+01   
+vpr tau                        2.50000000E-04  -2.3514003790E+01 +-    4.8258896561E+00   
+vpr sigma                      2.50000000E-04  -5.6479720151E+01 +-    5.2364077537E+00   
+vpr sigtau                     2.50000000E-04  -2.4842949040E+02 +-    1.1260750413E+01   
+vpr tensor                     2.50000000E-04   3.7661711930E+00 +-    2.7553927913E+00   
+vpr tenstau                    2.50000000E-04  -2.1788855590E+02 +-    1.5744985621E+01   
+vpr ls                         2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+vprls tau                      2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+vpotpr v6                      2.50000000E-04  -5.4645847531E+02 +-    2.6882916795E+01   
+vpotpr v8                      2.50000000E-04  -5.4645847531E+02 +-    2.6882916795E+01   
+vpotv6-vpotprv6 diff           2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+vpotv8-vpotprv8 diff           2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pi-anticommutator         2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pixd-anticommutator       2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pidd-anticommutator       2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+2piapr-2pia diff               2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+2piapr-2pia-2pic               2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+2piaprxd-2piaxd-2picxd         2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+2piaprdd-2piadd-2picdd         2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+proton rms                     2.50000000E-04   6.2309412354E+00 +-    1.5314149695E-01   
+neutron rms                    2.50000000E-04   5.8677493759E+00 +-    1.3136675789E-01   
+total rms                      2.50000000E-04   6.0493453056E+00 +-    1.2112767388E-01   
+neutron-proton rms             2.50000000E-04  -3.6319185954E-01 +-    1.5076946911E-01   
+external potential             2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+single crossing/step           2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+global crossing/step           2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+phase psit                     2.50000000E-04  -1.5055477983E-01 +-    6.2782065020E-02   
+real psit                      2.50000000E-04   3.5542725693E-17 +-    6.0514463859E-17   
+im psit                        2.50000000E-04   2.1456222525E-16 +-    7.4270925258E-17   
+sign real(psit)                2.50000000E-04  -1.6977225673E-01 +-    3.1707406193E-02   
+sign real(psit*wt0)            2.50000000E-04   9.9378881988E-01 +-    3.5804538226E-03   
+real (psit/psig)               2.50000000E-04  -1.6977225673E-01 +-    3.1707406193E-02   
+aimag (psit/psig)              2.50000000E-04  -1.4688720412E+00 +-    7.7836003416E-01   
+energy numerator(real)         2.50000000E-04  -9.7803336357E+01 +-    1.0258151338E+01   
+denominator psit/psigi(real)   2.50000000E-04   1.0000000000E+00 +-    0.0000000000E+00   
+energy numerator(aimag)        2.50000000E-04   1.8181070309E+00 +-    7.4397209270E+00   
+denominator psit/psigi(aimag)  2.50000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+growth(lin dt) energy          2.50000000E-04  -1.1754812493E+02 +-    4.8358614685E+01   
+growth energy                  2.50000000E-04  -8.9379151574E+01 +-    5.0188327562E+01
+growth(global) energy          2.50000000E-04  -3.7064041374E+01 +-    2.2449968953E+02
+Time for propagation (sec) (min) =          26.957      0.449
+Time for energies (sec) (min) =           2871.203     47.853
+Time for load balancing (sec) (min) =        0.008      0.000
+Time for block (sec) (min) =              2900.002     48.333
+Time for operators (sec) (min) =           181.807      3.030
+Elapsed block time (sec) (min) =          3081.812     51.364
+ 
+ walkers multiplicity, block, total
+   0             37             37
+   1           1158           1158
+   2             36             36
+   3              0              0
+   4              0              0
+   5              0              0
+   6              0              0
+   7              0              0
+   8              0              0
+   9              0              0
+ 
+ 
+
+iteration =                               2
+walker number =                         102
+total energy-propagated        5.00000000E-04  -9.7805889211E+01 +-    6.7518450093E+00   
+kinetic energy                 5.00000000E-04   4.1554163570E+02 +-    3.2378679185E+01   
+potential energy               5.00000000E-04  -5.1334752491E+02 +-    3.2463806461E+01   
+im energy                      5.00000000E-04  -1.0438468448E+01 +-    6.8459539949E+00   
+imkin energy                   5.00000000E-04   1.2475342449E+01 +-    8.0594780892E+00   
+impot energy                   5.00000000E-04  -2.2913810897E+01 +-    1.0101718627E+01   
+v cent                         5.00000000E-04   4.3078806121E+00 +-    2.9922037561E+01   
+v tau                          5.00000000E-04  -2.0035212683E+01 +-    4.3397762543E+00   
+v sigma                        5.00000000E-04  -4.9474233801E+01 +-    4.2936238035E+00   
+v sigtau                       5.00000000E-04  -2.2685416336E+02 +-    1.2048977055E+01   
+v tensor                       5.00000000E-04  -2.3622267315E-01 +-    2.3033662762E+00   
+v tenstau                      5.00000000E-04  -2.2105557301E+02 +-    1.3684774784E+01   
+v ls                           5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+vls tau                        5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+vpot v6                        5.00000000E-04  -5.1334752491E+02 +-    3.2463806461E+01   
+vpot v8                        5.00000000E-04  -5.1334752491E+02 +-    3.2463806461E+01   
+v coulomb                      5.00000000E-04   1.3407939022E+01 +-    1.3069932183E-01   
+tni 2pipr-anticommutator       5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pixdpr-anticommutator     5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2piddpr-anticommutator     5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pi-commutator             5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pixd-commutator           5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pidd-commutator           5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pi-tm                     5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni vd1                        5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni vd2                        5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni ve                         5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni central                    5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+vpottot v8+tni                 5.00000000E-04  -4.9993958589E+02 +-    3.2431574624E+01   
+enetot v8+tni                  5.00000000E-04  -8.4397950190E+01 +-    6.7358271839E+00   
+vpr cent                       5.00000000E-04   4.3078806121E+00 +-    2.9922037561E+01   
+vpr tau                        5.00000000E-04  -2.0035212683E+01 +-    4.3397762543E+00   
+vpr sigma                      5.00000000E-04  -4.9474233801E+01 +-    4.2936238035E+00   
+vpr sigtau                     5.00000000E-04  -2.2685416336E+02 +-    1.2048977055E+01   
+vpr tensor                     5.00000000E-04  -2.3622267315E-01 +-    2.3033662762E+00   
+vpr tenstau                    5.00000000E-04  -2.2105557301E+02 +-    1.3684774784E+01   
+vpr ls                         5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+vprls tau                      5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+vpotpr v6                      5.00000000E-04  -5.1334752491E+02 +-    3.2463806461E+01   
+vpotpr v8                      5.00000000E-04  -5.1334752491E+02 +-    3.2463806461E+01   
+vpotv6-vpotprv6 diff           5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+vpotv8-vpotprv8 diff           5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pi-anticommutator         5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pixd-anticommutator       5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+tni 2pidd-anticommutator       5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+2piapr-2pia diff               5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+2piapr-2pia-2pic               5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+2piaprxd-2piaxd-2picxd         5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+2piaprdd-2piadd-2picdd         5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+proton rms                     5.00000000E-04   6.2896432413E+00 +-    1.4729094213E-01   
+neutron rms                    5.00000000E-04   5.8988882960E+00 +-    1.2377278266E-01   
+total rms                      5.00000000E-04   6.0942657687E+00 +-    1.1789563659E-01   
+neutron-proton rms             5.00000000E-04  -3.9075494528E-01 +-    1.3576126920E-01   
+external potential             5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+single crossing/step           5.00000000E-04   1.5906680806E-03 +-    6.4887083904E-04   
+global crossing/step           5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+phase psit                     5.00000000E-04  -1.1224566277E-01 +-    6.1070774459E-02   
+real psit                      5.00000000E-04   9.0192644538E-17 +-    3.7576447703E-17   
+im psit                        5.00000000E-04   3.5170932475E-16 +-    1.1035990814E-16   
+sign real(psit)                5.00000000E-04  -1.4740190880E-01 +-    3.2208768184E-02   
+sign real(psit*wt0)            5.00000000E-04   9.5970307529E-01 +-    9.1511409088E-03   
+real (psit/psig)               5.00000000E-04  -1.4740190880E-01 +-    3.2208768184E-02   
+aimag (psit/psig)              5.00000000E-04  -2.2948343136E+00 +-    1.2441967563E+00   
+energy numerator(real)         5.00000000E-04  -9.7805889211E+01 +-    9.8329079137E+00   
+denominator psit/psigi(real)   5.00000000E-04   1.0000000000E+00 +-    0.0000000000E+00   
+energy numerator(aimag)        5.00000000E-04  -1.0438468448E+01 +-    6.8459539949E+00   
+denominator psit/psigi(aimag)  5.00000000E-04   0.0000000000E+00 +-    0.0000000000E+00   
+growth(lin dt) energy          5.00000000E-04  -5.3573386501E+01 +-    3.9491720050E+01   
+growth energy                  5.00000000E-04  -2.2886937969E+01 +-    4.1058816126E+01
+growth(global) energy          5.00000000E-04  -2.8309709726E+02 +-    2.1234022535E+02
+Time for propagation (sec) (min) =          26.306      0.438
+Time for energies (sec) (min) =           2969.605     49.493
+Time for load balancing (sec) (min) =        0.000      0.000
+Time for block (sec) (min) =              2997.233     49.954
+Time for operators (sec) (min) =           101.418      1.690
+Elapsed block time (sec) (min) =          6180.462    103.008
+ 
+ walkers multiplicity, block, total
+   0             33             70
+   1           1140           2298
+   2             36             72
+   3              0              0
+   4              0              0
+   5              0              0
+   6              0              0
+   7              0              0
+   8              0              0
+   9              0              0
+ 
+ 

@@ -1,4 +1,4 @@
-MPI=false
+MPI=true
 
 ifeq ($(MPI),true)
    FC=mpif90
@@ -11,10 +11,14 @@ else
 endif
 
 FFLAGS=-O2 -g
+#FFLAGS=-O0 -g
+#FFLAGS=-O0 -g -ffpe-trap=invalid,zero,overflow # debugging (can be used with gdb afnuclei)
 F77FLAGS=$(FFLAGS) -fdefault-real-8 -fdefault-double-8 
 LDFLAGS=-g
-MATRIX=matrixstupid
-LIBS=
+#MATRIX=matrixstupid
+#LIBS=
+MATRIX=matrixlapack
+LIBS=-llapack -lblas
 .SUFFIXES:
 .SUFFIXES: .o .f .f90
 
