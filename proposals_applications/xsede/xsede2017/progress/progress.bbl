@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{mad17}
+Lucas Madeira, Stefano Gandolfi, and Kevin~E. Schmidt.
+\newblock {C}ore structure of two-dimensional {F}ermi gas vortices in the
+  {BEC}-{BCS} crossover region.
+\newblock {\em arXiv pre-print}, 2017.
+\newblock \href{http://arxiv.org/abs/1703.01998}{arXiv:1703.01998
+  [cond-mat.quant-gas]}.
+
+\bibitem{gan14}
+S.~Gandolfi, A.~Lovato, J.~Carlson, and Kevin~E. Schmidt.
+\newblock {F}rom the lightest nuclei to the equation of state of asymmetric
+  nuclear matter with realistic nuclear interactions.
+\newblock {\em Phys. Rev. C}, 90:061306, Dec 2014.
+
+\bibitem{car15}
+J.~Carlson, S.~Gandolfi, F.~Pederiva, Steven~C. Pieper, R.~Schiavilla, K.~E.
+  Schmidt, and R.~B. Wiringa.
+\newblock {Q}uantum {M}onte {C}arlo methods for nuclear physics.
+\newblock {\em Rev. Mod. Phys.}, 87:1067--1118, Sep 2015.
+
+\bibitem{sch13}
+P~Schuck, Y~Funaki, H~Horiuchi, G~Röpke, A~Tohsaki, and T~Yamada.
+\newblock {A}lpha-{P}article {C}ondensation in {N}uclear {S}ystems.
+\newblock {\em Journal of Physics: Conference Series}, 413(1):012009, 2013.
+
+\end{thebibliography}

@@ -1,0 +1,180 @@
+\section{Methods}
+Many of the methods that are used to work on nuclear many-body problems are approximate. The method that we will be using and describing in the following sections is the Quantum Monte Carlo method \cite{carlson2015}.
+
+Many methods that use the variational principle start with a trial wave function similar to the one used in Hartree-Fock calculations \cite{slater1951}, sometimes with Jastrow-like correlations \cite{jastrow1955}. However, to get an upper bound on energies they usually have to solve some some sort of differential equation or multi-dimensional integrals. Especially if complicated spin-isospin dependent correlations are applied to the trial wave function, these integrals can be quite difficult to solve. Quantum Monte Carlo calculations use statistical sampling to get solutions with controlled statistical errors to large integrals that would otherwise be intractable. For a good review of Quantum Monte Carlo methods we refer the reader to \cite{carlson2015,kalos1962,schmidt1999,foulkes2001}. Here we will describe the methods that we have used in this research, those being Variational, Diffusion, and Auxiliary Field Diffusion Monte Carlo methods. Before describing those methods we are going to introduce the ideas of Monte Carlo integration and the Metropolis algorithm. Both of these tools will be used in the various Quantum Monte Carlo techniques.
+
+\subsection{Monte Carlo Integration}
+We will illustrate Monte Carlo Integration by imagining that we want to integrate the function $g(\R)$ where $\R=\mathbf{r}_1,\mathbf{r}_2,\ldots,\mathbf{r}_n$, so 
+\begin{equation}
+   I=\int g(\R) d\R.
+\end{equation}
+We can rewrite this integral in terms of a probability density called an importance function $P(\R)$, and $f(\R) = g(\R)/P(\R)$.
+\begin{equation}
+   I=\int f(\R) P(\R) d\R \equiv \expect{f}
+   \label{equ:mci}
+\end{equation}
+This integral is the expectation value of $f(\R)$ as long as the $\R$'s are distributed according to $P(\R)$. Thus we can find the integral by finding the expectation value. One way to do that would be to take an infinite number of sample configurations from the importance function and evaluate the average of $f(\R)$ given that infinite set of samples,
+\begin{equation}
+   I=\lim\limits_{N\rightarrow\infty} \frac{1}{N} \sum\limits_{n=1}^N f(\R_n).
+\end{equation}
+Since we cannot take an infinite number of samples, we can approximate the integral by taking a large number of samples, and finding an approximate expectation value from that finite set.
+\begin{equation}
+   I \approx \frac{1}{N} \sum\limits_{n=1}^N f(\R_n).
+\end{equation}
+The statistical uncertainty for the estimate of the integral is given in the typical way.
+\begin{equation}
+   \sigma_{I} = \sqrt{\frac{\expect{f^2}-\expect{f}^2}{N}} \approx \sqrt{\frac{\left(\frac{1}{N}\sum\limits_{n=1}^Nf^2(\R_n)\right) - \left(\frac{1}{N}\sum\limits_{n=1}^Nf(\R_n)\right)^2}{N-1}}
+\end{equation}
+
+Notice that the scaling is independent of the dimension, and thus this method is useful especially when the dimensions of the integration become large. In many-body quantum mechanics the dimension of the integrals can be quite large, including several dimensions for each particle in the calculation. Monte Carlo integration only needs to sample each of these dimensions, decreasing the work required by a substantial amount for large dimensional integrals.
+
+\subsection{Metropolis Algorithm}
+To do Monte Carlo integration random variables $\R_n$ need to be sampled from the importance function, $P(\R)$. If the inverse cumulative distribution function of the probability distribution exists, $F^{-1}(\R)$, this is straightforward to do. In the one dimensional case a random variables $x$ could be sampled by drawing a random variable $u$ from a uniform distribution from 0 to 1, which is then used as an argument of the inverse cumulative distribution function, $x=F^{-1}(u)$. This works assuming the inverse of the cumulative distribution function can be found. But let's say that we cannot find the inverse. This is where the Metropolis algorithm comes in, allowing us to get random samples from $P(x)$ without knowing $F^{-1}(u)$. The Metropolis algorithm is a Markov Chain method that uses only the previous point to determine where the next move will be, i.e. the step does not depend on history other than the previous step. These are the steps to the algorithm.
+\begin{enumerate}
+   \item Start at a random position, $\R$.
+   \item Propose a move to a new position $\R'$, pulled from a distribution $T(\R'|\R)$. $T$ could be, for example, a Gaussian centered on the current position, but could be optimized for efficiency.
+   \item The probability of accepting the move is given by enforcing a detailed balance condition\footnote{There are two conditions that need to be met to guarantee that this algorithm converges to the desired distribution. First, the transitions must be able to get from any allowed state to another in a finite number of steps. Second, the algorithm cannot include cycles between the same states. This second condition is guaranteed if there is a probability to reject transitions.}.
+   \begin{equation}
+      A(\R'|\R) = \mathrm{min}\left(1, \frac{P(\R')T(\R|\R')}{P(\R)T(\R'|\R)}\right)
+   \end{equation}
+   \item A random number, $u$, is generated from a uniform distribution between 0 and 1, and the move is accepted if $A\ge u$.
+\end{enumerate}
+
+\subsection{Variational Monte Carlo}
+Variational Monte Carlo (VMC) starts with a trial wave function, $\psi_T$, that should have some non-zero overlap with the actual ground-state wave function, and a Hamiltonian, $H$. The expectation value of the Hamiltonian in the trial state gives what is called the variational energy. By the variational principle this energy is guaranteed to be an upper bound on the true ground-state wave function.
+\begin{equation}
+   E_V = \frac{\int\psi_T^*(\R)H\psi_T(\R)d\R}{\int\psi_T^*(\R)\psi_T(\R)d\R} \ge E_0
+\end{equation}
+
+We want to do this integral using Monte Carlo integration and so we need it to look like Eq. \ref{equ:mci}. One way to get it into this form is to multiply the top integrand by $\psi_T(\R)\psi_T^{-1}(\R)$ which gives
+\begin{equation} 
+  E_V = \int P(\R) E_L(\R) d\R,
+\end{equation} 
+where
+\begin{equation}
+   P(\R) = |\Psi_T(\R)|^2/\int|\Psi_T(\R)|^2d\R,
+\end{equation}
+\begin{equation}
+   E_L(\R) = \frac{\Psi_T^*(\R)H\Psi_T(\R)}{\Psi_T^*(\R)\Psi_T(\R)},%E_L(\R) = \Psi_T^{-1}(\R) H \Psi_T(\R),
+\end{equation}
+are the importance function and local energy respectively.
+
+Now using the metropolis algorithm we can draw a set of random configurations, $\{\R_n: n=1,N\}$ from the probability distribution $P(\R)$ and use those to sample the local energy. These random configurations are called walkers and contain the positions, and sometimes spins and isospins, of each particle. The variational energy and corresponding statistical error are then given by,
+\begin{equation} 
+  E_V \approx \frac{1}{N} \sum\limits_{n=1}^N E_L({\R_n}),
+\end{equation}
+\begin{equation} 
+  \sigma_{E_V} = \sqrt{\frac{\left<E_L^2\right>-\left<E_L\right>^2}{N}} \approx \sqrt{\frac{\left(\frac{1}{N}\sum\limits_{n=1}^NE_L^2(\R_n)\right) - \left(\frac{1}{N}\sum\limits_{n=1}^NE_L(\R_n)\right)^2}{N-1}}
+\end{equation}
+
+At this point certain parameters in $\Psi_T$ can be varied until a minimum in the energy is found. A minimum in the energy will be produced when $\Psi_T \rightarrow \Psi_0$. It is important to note however that the trial wave functions that we often use are not exactly the ground-state wave functions and so the energies that we produce are only the minimum energy for that specific trial wave function. That is why it is important to start with the best trial wave function possible.
+
+\subsection{Diffusion Monte Carlo}
+Diffusion Monte Carlo (DMC) solves for the ground-state by letting the walkers diffuse in imaginary time. Starting with the Schr\"odinger equation
+\begin{equation}
+   H\Psi = i\hbar\frac{\partial\Psi}{\partial t}.
+\end{equation}
+Now we substitute time for imaginary time using $\tau=it/\hbar$ and notice that this looks similar to the diffusion equation.
+\begin{equation}
+   H\Psi = -\frac{\partial\Psi}{\partial\tau}
+\end{equation}
+By separating variables we can write the solution as eigenfunctions in spatial coordinates times an exponential in imaginary time where we have shifted the energies by a parameter, $E_0$ that we can use to control the normalization, $V\rightarrow V - E_0$ and $E_n \rightarrow E_n-E_0$.
+\begin{equation}
+   \Psi(\R,\tau) = \sum\limits_{n=0}^\infty c_n\phi_n(\R)e^{-\tau(E_n-E_0)}
+\end{equation}
+Then one of the key parts of DMC is that as you let $\tau\rightarrow\infty$ all of the states higher than the ground-state fall off because the difference, $E_n-E_0$, is non-zero and the exponential tends to zero because of the infinite $\tau$. This leaves only the ground-state,
+\begin{equation}
+   \lim\limits_{\tau\rightarrow\infty}\Psi(\R,\tau) = c_0\phi_0(\R).
+\end{equation}
+
+Since we cannot generally compute this limit, $\lim\limits_{\tau\rightarrow\infty}\Psi(\R,\tau) = \lim\limits_{\tau\rightarrow\infty}e^{-(H-E_0)\tau}\Psi(\R)$, directly we split the propagation into small steps in imaginary time. To do this, insert a complete set of states into the propagated wave function.
+\begin{equation}
+   \braket{\R'}{\Psi_T(\tau)} = \int d\R \bra{\R'}e^{-(H-E_0)\tau}\ket{\R}\braket{\R}{\Psi_T(0)}
+\end{equation}
+Now you can break $\tau$ up into $N$ smaller time steps $\Delta \tau = \tau/N$ and insert a complete set of states between each finite time propagator,
+\begin{align}
+   \braket{\R_N}{\Psi_T(\tau)} &= \int d\R_1 \ldots d\R_N \left[\prod\limits_{i=1}^N \bra{\R_i}e^{-(H-E_0)\Delta\tau}\ket{\R_{i-1}}\right] \braket{\R_0}{\Psi_t(0)} \\
+   &= \int d\R_1 \ldots d\R_N \left[\prod\limits_{i=1}^N G(\R_i,\R_{i-1},\Delta\tau)\right] \braket{\R_0}{\Psi_t(0)},
+\end{align}
+where $\R_N=\R'$, $\R_0=\R$ and $G(\R',\R,\tau)=\bra{\R'}e^{-(H-E_0)\tau}\ket{\R}$, is often called the Green's function or the propagator. We cannot calculate the Green's function directly but if the kinetic and potential terms are broken up each piece can be calculated separately.
+\begin{align}
+   G(\R',\R,\dt) &= \bra{\R'}e^{-(V-E_0)\dt/2}e^{-T\dt}e^{-(V-E_0)\dt/2}\ket{\R} \\
+   &= e^{(V(\R')+V(\R)-2E_0)\dt/2}\bra{\R'}e^{-T\dt}\ket{\R}
+\end{align}
+This break up is equal to the original Green's function up to $\mathcal{O}(\dt^3)$, and thus the step in imaginary time needs to be kept small. The kinetic term is used to move the walkers and the potential part is used to speed up convergence via a branching algorithm. The kinetic term gives us
+\begin{equation}
+   G_0(\R',\R,\Delta \tau) = \bra{\R'}e^{-T\Delta \tau}\ket{\R},
+\end{equation}
+which can be written as a diffusion term
+\begin{equation}
+   G_0(\R',\R,\Delta \tau) = \left(\frac{m}{2\pi\hbar^2\Delta\tau}\right)^{3A/2}e^{-m(\R'-\R)^2/2\hbar^2\Delta\tau},
+\end{equation}
+where $A$ is the total number of nucleons.
+The piece that contains the potential then can be used to give a weight that gets used with the branching algorithm,
+\begin{equation}
+   w(\R') = e^{(V(\R')+V(\R)-2E_0)\dt/2}.
+\end{equation}
+
+This sampling can give us large uncertainties and so we often use a function that does a good job describing the system (this can be the trial wave function) to guide the sampling. This function is called an importance function, $\Psi_I(\R)$, and thus the method is called importance sampling. The idea is that instead of sampling directly from the Green's function you will sample from
+\begin{equation}
+   G(\R',\R,\Delta\tau)\frac{\braket{\R}{\Psi_I}}{\braket{\R'}{\Psi_I}}.
+\end{equation}
+It turns out that this greatly improves the variance of the sampling. This is because the importance function will cause the walkers to move towards where the square of the wave function is larger, and thus there is less samples in regions where the wave function is small. The DMC algorithm can generally be written as follows.
+\begin{enumerate}
+   \item Generate a set of random walkers. These are typically from a previously done VMC calculation, which has no constraint and provides an upper bound in the energy.
+   \item For each walker propose a move, $\R' = \R + \mathbf{\chi}$, where $\mathbf{\chi}$ is a vector of random numbers from the shifted Gaussian $\exp\left(\frac{m}{2\hbar^2\Delta\tau}\left(\R'-\R+2\frac{\nabla\Psi_I(\R')}{\Psi_I(\R')}\right)^2\right)$.
+   \item For each walker calculate the weight $w(\R')=\exp\left(-\left(\frac{E_L(\R')+E_L(\R)}{2}-E_0\right)\Delta\tau\right)$.
+   \item Do the branching. There a various ways to do this, but the simplest way is to make copies of each walker, where the number of copies for each walker that continues in the calculation is given by $\mathrm{int}(w(\R')+\xi)$, where $\xi$ is a uniform random number from $[0,1]$. This way walkers with a small weight will more often be removed from the calculation and walkers with high weights will multiply.
+   \item Calculate and collect the observables and uncertainties needed and increase the imaginary time by $\Delta\tau$.
+   \item Repeat steps 2 through 5 until the uncertainties are small enough.
+\end{enumerate}
+
+This method is described well in Refs. \cite{carlson2015} and \cite{foulkes2001}. Green's function Monte Carlo (GFMC) and auxiliary field diffusion Monte Carlo (AFDMC) use this method to handle the spatial part of the calculation, but they each handle the spin-isospin part differently. Everywhere where the trial wave function is used in GFMC there is an explicit sum over the spin and isospin states. The number of possible spin states given $A$ nucleons is $2^A$. The number of isospin states given $A$ nucleons and $Z$ protons can be reduced to ${A \choose Z}$ states leaving us with a total of $2^A {A \choose Z}$ spin-isospin states. The number of states and the number of operators required for the trial wave function increase exponentially as the number of nucleons increases. To date, the largest nuclei that can be calculated with GFMC is ${}^{12}C$. As a result of this, AFDMC was developed as a way to use Monte Carlo methods to sample the spin states.
+
+\subsection{Auxiliary Field Diffusion Monte Carlo}
+\label{sec:AFDMC}
+To overcome the exponentially large number of spin-isospin states that have to be summed in GFMC, AFDMC was developed in 1999 \cite{schmidt1999} to sample these states and, in analogy to moving the position of each walker, rotate the spin and isospin of each walker. To do this we use the basis where an element of the basis contains the three spatial coordinates of each particle and the amplitude for each particle to be in each of the four possible spin-isospin states $\ket{s} = \ket{p\uparrow,p\downarrow,n\uparrow,n\downarrow}$. Now we need to write the spin-isospin dependent part of the propagator in this basis,
+\begin{equation}
+   G_{SD}(R'S',RS,\dt) = \bra {R'S'}e^{-V_{SD}\dt} \ket{RS},
+\end{equation}
+where $V_{SD}$ does not include the central, non spin-isospin part of the potential. Here the potential can be written as
+\begin{equation}
+   V_{SD} = \sum\limits_{p=2}^{M}\sum\limits_{i<j} \vpij\Opij,
+\end{equation}
+where M is the number of operators (e.g. $M=6$ for the $v_6$ potential or $M=18$ for the Argonne $v_{18}$ two-body potential \cite{wiringa1984}). In this study we have used the standard $v_6$ potential which includes the operators $\si\cdot\sj$, $\ti\cdot\tj$, $\si\cdot\sj \ti\cdot\tj$, $S_{ij}$ and $S_{ij} \ti\cdot\tj$, where $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$. Here the $\mathbf{\sigma}$ and $\mathbf{\tau}$ operators are the Pauli matrices applied to spin and isospin respectively. This potential can be written in the more convenient form
+\begin{equation}
+   V_{SD} = \frac{1}{2}\sum\limits_{i,\alpha,j,\beta} \sigma_{i,\alpha}A^{\sigma}_{i,\alpha,j,\beta}\sigma_{j,\beta}
+      + \frac{1}{2}\sum\limits_{i,\alpha,j,\beta} \sigma_{i,\alpha}A^{\sigma\tau}_{i,\alpha,j,\beta}\sigma_{j,\beta}\ti\cdot\tj
+      + \frac{1}{2}\sum\limits_{i,j} A^{\tau}_{i,j}\ti\cdot\tj,
+   \label{equ:VwithA}
+\end{equation}
+where we have defined these new $A$ matrices. These matrices are written in terms of the $\vpij$ functions above. For example the simplest matrix is the $A^{\tau}_{i,j}$ matrix which can be shown to be $A^{\tau}_{i,j} = v_{\tau}(r_{ij})$. There is a factor of one half in Eq.~\ref{equ:VwithA} because the sums go over all $i$ and $j$ particles instead of pairs for which $i<j$. These matrices are zero when $i=j$ and they are symmetric. We can also write these matrices in terms of their eigenvalues and eigenvectors.
+\begin{align}
+   &\sum\limits_{j,\beta} A^{\sigma}_{i,\alpha,j,\beta}\psi^{\sigma}_{n,j,\beta} = \lambda^{\sigma}_n\psi^{\sigma}_{n,i,\alpha} \\
+   &\sum\limits_{j,\beta} A^{\sigma\tau}_{i,\alpha,j,\beta}\psi^{\sigma\tau}_{n,j,\beta} = \lambda^{\sigma\tau}_n\psi^{\sigma\tau}_{n,i,\alpha} \\
+   &\sum\limits_{j} A^{\tau}_{i,j}\psi^{\tau}_{n,j} = \lambda^{\tau}_n\psi^{\tau}_{n,i}
+\end{align}
+Written in terms of these eigenvalues and eigenvectors the potential can be written as
+\begin{equation}
+   V_{SD} = \frac{1}{2}\sum\limits_{n=1}^{3A} \left(O_{n}^{\sigma}\right)^2 \lambda_n^{\sigma}
+      + \frac{1}{2}\sum\limits_{\alpha=1}^{3}\sum\limits_{n=1}^{3A} \left(O_{n\alpha}^{\sigma\tau}\right)^2 \lambda_n^{\sigma\tau}
+      + \frac{1}{2}\sum\limits_{\alpha=1}^{3}\sum\limits_{n=1}^{A} \left(O_{n\alpha}^{\tau}\right)^2 \lambda_n^{\tau},
+\end{equation}
+where the operators are given by
+\begin{equation}
+\begin{split}
+   O_{n}^{\sigma} &= \sum\limits_{j,\beta} \sigma_{j,\beta}\psi_{n,j,\beta}^{\sigma} \\
+   O_{n\alpha}^{\sigma\tau} &= \sum\limits_{j,\beta} \tau_{j,\alpha}\sigma_{j,\beta}\psi_{n,j,\beta}^{\sigma\tau} \\
+   O_{n\alpha}^{\tau} &= \sum\limits_{j} \tau_{j,\alpha}\psi_{n,j}^{\tau}
+\end{split}
+\end{equation}
+These operators in the propagator now have the effect of rotating the spinors, analogous to diffusing the walkers in space. To reduce the order of the operators in the propagator from quadratic to linear we use the Hubbard-Stratanovich transformation.
+\begin{equation}
+   e^{-\frac{1}{2}\lambda O^2} = \frac{1}{\sqrt{2\pi}} \int dx e^{-\frac{x^2}{2} + \sqrt{-\lambda}x O}
+\end{equation}
+The variable $x$ is called an auxiliary field. Using the fact that there are $3A$ $O_{n}^{\sigma}$ operators, $9A$ $O_{n\alpha}^{\sigma\tau}$ operators and $3A$ $O_{n\alpha}^{\tau}$ operators, for a total of $15A$ operators, and by using the Hubbard-Stratanovich transformation we can write the spin-isospin dependent part of the propagator as
+\begin{equation}
+   \prod\limits_{n=1}^{15A}\frac{1}{\sqrt{2\pi}}\int dx_n e^{-\frac{x_n^2}{2}}e^{\sqrt{-\lambda_n\dt} x_nO_n}.
+   \label{equ:GSD}
+\end{equation}
+The spinors are then rotated based on auxiliary fields sampled from the Gaussian with unit variance in Eq.~\ref{equ:GSD}.

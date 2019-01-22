@@ -1,0 +1,118 @@
+--------------------------------------
+Running PBS prologue script
+--------------------------------------
+User and Job Data:
+--------------------------------------
+Job ID:    222790.smic3
+Username:  cpetrie
+Group:     xsede
+Date:      17-Mar-2017 17:54
+Node:      smic030 (67947)
+--------------------------------------
+PBS has allocated the following nodes:
+
+smic030
+smic031
+smic067
+smic093
+smic095
+smic105
+smic108
+smic113
+smic151
+smic152
+smic154
+smic155
+smic156
+smic159
+smic163
+smic165
+smic166
+smic167
+smic168
+smic169
+smic170
+smic171
+smic217
+smic232
+smic233
+
+A total of 500 processors on 25 nodes allocated
+---------------------------------------------
+Check nodes and clean them of stray processes
+---------------------------------------------
+Checking node smic030 17:54:32 
+Checking node smic031 17:54:34 
+Checking node smic067 17:54:37 
+Checking node smic093 17:54:39 
+Checking node smic095 17:54:41 
+Checking node smic105 17:54:44 
+Checking node smic108 17:54:46 
+Checking node smic113 17:54:48 
+Checking node smic151 17:54:50 
+Checking node smic152 17:54:53 
+Checking node smic154 17:54:55 
+Checking node smic155 17:54:57 
+Checking node smic156 17:55:00 
+Checking node smic159 17:55:02 
+Checking node smic163 17:55:04 
+Checking node smic165 17:55:07 
+Checking node smic166 17:55:09 
+Checking node smic167 17:55:11 
+Checking node smic168 17:55:13 
+Checking node smic169 17:55:16 
+Checking node smic170 17:55:18 
+Checking node smic171 17:55:20 
+Checking node smic217 17:55:23 
+Checking node smic232 17:55:25 
+Checking node smic233 17:55:27 
+Done clearing all the allocated nodes
+------------------------------------------------------
+Concluding PBS prologue script - 17-Mar-2017 17:55:27
+------------------------------------------------------
+500
+------------------------------------------------------
+Running PBS epilogue script    - 17-Mar-2017 17:58:01
+------------------------------------------------------
+Checking node smic030 (MS)
+Checking node smic233 ok
+Checking node smic232 ok
+Checking node smic217 ok
+Checking node smic171 ok
+Checking node smic170 ok
+Checking node smic169 ok
+Checking node smic168 ok
+Checking node smic167 ok
+Checking node smic166 ok
+Checking node smic165 ok
+Checking node smic163 ok
+Checking node smic159 ok
+Checking node smic156 ok
+Checking node smic155 ok
+Checking node smic154 ok
+Checking node smic152 ok
+Checking node smic151 ok
+Checking node smic113 ok
+Checking node smic108 ok
+Checking node smic105 ok
+Checking node smic095 ok
+Checking node smic093 ok
+Checking node smic067 ok
+Checking node smic031 ok
+Checking node smic030 ok
+------------------------------------------------------
+Concluding PBS epilogue script - 17-Mar-2017 17:59:01
+------------------------------------------------------
+Exit Status:     0
+Job ID:          222790.smic3
+Username:        cpetrie
+Group:           xsede
+Job Name:        afnucmat
+Session Id:      67946
+Resource Limits: ncpus=1,neednodes=25:ppn=20,nodes=25:ppn=20,walltime=10:00:00
+Resources Used:  cput=00:50:04,mem=11240kb,vmem=337184kb,walltime=00:02:34
+Queue Used:      workq
+Account String:  TG-PHY160027
+Node:            smic030
+Process id:      68889
+------------------------------------------------------

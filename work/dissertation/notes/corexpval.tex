@@ -1,0 +1,143 @@
+\section{Correlated Mixed Expectation Values}
+One of the main goals of the AFDMC method is to calculate expectation values of the form
+\begin{equation}
+   \eO = \frac{\bra{\Psi(\tau)}\OO\ket{\Psi(\tau)}}{\braket{\Psi(\tau)}{\Psi(\tau)}}.
+\end{equation}
+In practice we calculate mixed expectation values due to the complexity of operating through the propagator on the left.
+\begin{equation}
+   \eOm = \frac{\bra{\Psi(\tau)}\OO\ket{\Psi_T}}{\braket{\Psi(\tau)}{\Psi_T}}
+\end{equation}
+If the real expectation value is written as a perturbation of the variational expectation value, $\eO \approx \eO_T+\delta\eO$ where $\eO_T = \frac{\bra{\Psi_T}\mathcal{O}\ket{\Psi_T}}{\braket{\Psi_T}{\Psi_T}}$. This is a good assumption as long as the trial wave function is close to the true ground state wave function. In general the expectation value can be approximated up to leading order in $\delta$ to be
+\begin{equation}
+   \eO \approx \frac{\bra{\Psi(\tau)}\OO\ket{\Psi_T}}{\braket{\Psi(\tau)}{\Psi_T}}+\frac{\bra{\Psi_T}\OO\ket{\Psi(\tau)}}{\braket{\Psi_T}{\Psi(\tau)}}-\eO_T.
+\end{equation}
+For diagonal matrix elements this can be simplified to $\eO \approx 2\eO_{mixed}-\eO_T$. For operators that commute with the propagator, like the Hamiltonian, it turns out that $\eO \approx \eO_{mixed}$. This can be seen if you split up the propagator in the limit that imaginary time is large,
+\begin{equation}
+   \left<H\right>_{mixed} = \frac{\bra{\Psi_T}e^{-H\tau/2}He^{-H\tau/2}\ket{\Psi_T}}{\bra{\Psi_T}e^{-H\tau/2}e^{-H\tau/2}\ket{\Psi_T}},
+\end{equation}
+which gives in the limit of large $\tau$,
+\begin{equation}
+   \lim\limits_{\tau\rightarrow\infty}\left<H\right>_{mixed} = E_0.
+\end{equation}
+
+The correlation and potential operators only change the spin-isospin states of the walkers. The walkers are used to build a Slater matrix which is then updated according to the various correlation and potential operators. A simple Slater matrix has the form
+\begin{equation}
+   S_{ki} = \braket{k}{\r_i s_i} = \sum\limits_{s=1}^4\braket{k}{\r_i s}\braket{s}{s_i},
+\end{equation}
+where $\ket{\r_i s_i}$ are the walkers containing the positions, spins and isospins of the particles and $\ket{k}$ contain the radial model states and spin-isospin singlet and triplet states. This matrix is updated from $S$ to a new matrix $S'$ for each operator. An arbitrary number of operators can be included by updating the matrix for each additional operator. Since expectation values are given by determinants of matrices that have been operated on, the identity $\det S^{-1}S'=\frac{\det S'}{\det S}$ can be used.
+
+To reduce the number of operators done in the inner loops, the ratio of determinants for a pair of operators is written in the form
+\begin{equation}
+   \frac{\bra{\Phi}O_{ij}\ket{R,S}}{\braket{\Phi}{R,S}} = \sum\limits_{s=1}^4\sum\limits_{s'=1}^4 \mathrm{d2b}(s,s',ij)\bra{ss'}O_{ij}\ket{s_is_j},
+\end{equation}
+where
+\begin{equation}
+   \mathrm{d2b}(s,s',ij)=\frac{\braket{\Phi}{R,s_1,\ldots,s_{i-1},s,s_{i+1},\ldots,s_{j-1},s',s_{j+1},\ldots,s_A}}{\braket{\Phi}{RS}}
+\end{equation}
+can be calculated in an outer loop, with $R=\r_1,\ldots,\r_A$ and $S=s_1,\ldots,s_A$. The distributions, $\mathrm{d2b}$ can be calculated from a precalculated sxz
+\begin{equation}
+   \mathrm{d2b}(s,s',ij) = \det\begin{pmatrix}\sxz(s,i,i)&\sxz(s,i,j)\\\sxz(s',j,i)&\sxz(s',j,j)\end{pmatrix}
+\end{equation}
+where
+\begin{equation}
+   \mathrm{sxz}(s,i,j)=\sum\limits_k S^{-1}_{jk}\braket{k}{\r_i,s}.
+\end{equation}
+Here we are concerned with two-body operators but it is simple to generalize to one-body and three-body operators. Additional operators can be included by updating the Slater matrix and inverse matrices.
+
+In the case of expectation values with correlated wave functions the number of operators can be much greater than two and the sxz need to be updated for each additional operator,
+\begin{equation}
+   \mathrm{sxzi}(s,m,n)=\sum\limits_k S'^{-1}_{nk}S'_{km}(s),
+\end{equation}
+where the updated matrix is given by
+\begin{equation}
+   S'_{km}(s) = \left\{
+   \begin{array}{cc}
+      S_{km} & m \ne i\\
+      \bra{k}O_i\ket{\r_i,s_i} & m = i
+   \end{array}
+   \right.
+\end{equation}
+To calculate sxzi the inverse matrix needs to be calculated and multiplied by this updated matrix. The inverse matrix is calculated by taking the ratio of determinants and again using the identity $\det S^{-1}S'' = \frac{\det S''}{\det S}$, where $\det S^{-1}S''$ is the determinant of the 2x2 sub-matrix, as shown on the right side of equation~\ref{equ:ratiodets}. Here $S'$ is the matrix with the $i^{th}$ column changed and $S''$ is the matrix with first the $i^{th}$ and then the $j^{th}$ columns changed.
+\begin{equation}
+   \label{equ:ratiodets}
+   \frac{\det S''}{\det S} = \frac{\det S'}{\det S} \sum\limits_m S'^{-1}_{jm}S''_{mj} = \left\{
+   \begin{array}{cc}
+      \sum\limits_{nm} S^{-1}_{in}S''_{ni}S^{-1}_{jm}S''_{mj} - \sum\limits_{nm}S^{-1}_{im}S''_{mj}S^{-1}_{jn}S''_{ni} & j \ne i \\
+      \sum\limits_l S^{-1}_{il}S''_{li} & j = i
+   \end{array}
+   \right.
+\end{equation}
+To find the updated inverse matrix the terms multiplying $S''_{mj}$ are gathered. Noting that when $j \ne i$, $S''_{mi}=S'_{mi}$ and the updated inverse can be written as
+\begin{equation}
+   S'^{-1}_{jm} = \left\{
+   \begin{array}{cc}
+      S^{-1}_{jm} - \frac{\sum\limits_nS^{-1}_{jn}S'_{ni}}{\sum\limits_lS^{-1}_{il}S'_{li}}S^{-1}_{im} & j \ne i \\
+      \frac{S^{-1}_{im}}{\sum\limits_nS^{-1}_{in}S'_{ni}} & j = i
+   \end{array}
+   \right. .
+\end{equation}
+Multiplying this by the updated matrix gives
+\begin{equation} 
+{\rm sxzi(s,n,m)} =  \left \{ 
+\begin{array}{cc} 
+{\rm sxz(s,n,m)} - 
+\frac{\sum_k S^{-1}_{mk}\langle k |O_i|\vec r_i s_i\rangle} 
+{\sum_k S^{-1}_{ik}\langle k |O_i|\vec r_i s_i\rangle} {\rm sxz(s,n,i)} & n,m \ne i\\ 
+\frac{\rm sxz(s,n,i)} 
+{\sum_k S^{-1}_{ik}\langle k |O_i|\vec r_i s_i\rangle} & m=i; n \ne i\\ 
+\sum_k S^{-1}_{mk}\langle k |O_i|\vec r_i s\rangle 
+- 
+\frac{\sum_k S^{-1}_{mk}\langle k |O_i|\vec r_i s_i\rangle} 
+{\sum_k S^{-1}_{ik}\langle k |O_i|\vec r_i s_i\rangle} 
+\sum_k S^{-1}_{ik}\langle k |O_i|\vec r_i s\rangle 
+& n=i; m \ne i\\ 
+\frac{\sum_k S^{-1}_{ik} \langle k|O_i|\vec r_i s\rangle} 
+{\sum_k S^{-1}_{ik} \langle k|O_i|\vec r_i s_i\rangle} & n=m=i\\ 
+\end{array} 
+\right . \,. 
+\end{equation}
+This can be written more simply as
+\begin{equation}
+   {\rm sxzi(s,n,m)} =  \left \{
+\begin{array}{cc}
+{\rm sxz(s,n,m)} -
+\frac{{\rm di(m)}}
+{{\rm di(i)}} {\rm sxz(s,n,i)} & n,m \ne i\\
+\frac{\rm sxz(s,n,i)}
+{{\rm di(i)}} & m=i; n \ne i\\
+{\rm opi(s,m)} - \frac{{\rm di(m)}}{\rm di(i)} {\rm opi(s,i)} & n=i; m \ne i\\
+\frac{\rm opi(s,i)}{\rm di(i)} & n=m=i\\
+\end{array}
+\right . \,,
+\end{equation}
+where the opi terms is a sum of sxz terms multiplied by operators and stands for ``operator i,"
+\begin{eqnarray}
+{\rm opi(s,m)} =
+\sum_k S^{-1}_{mk}\langle k |O_i|\vec r_i s\rangle
+= 
+\sum_{k,s'} S^{-1}_{mk}\langle k | \vec r_i s'\rangle \langle s'|O_i|s\rangle
+=  \sum_{s'} {\rm sxz(s',i,m)} \langle s'|O_i|s\rangle \,.
+\end{eqnarray}
+The di term is similar to the opi term except that it has $\ket{s_i}$ on the right hand side. This looks like a ratio of determinants and so the name stands for ``determinant i."
+\begin{equation}
+   {\rm di(m)} = 
+\sum_k S^{-1}_{mk}\langle k |O_i|\vec r_i s_i\rangle
+= \sum_s {\rm opi(s,m)} \langle s|s_i\rangle
+\end{equation}
+
+\subsection{Calculations with linear correlations}
+The two most common calculations are of the wave function and the expectation value of the Hamiltonian. To calculate the wave function with linear correlations, first the walkers are operated on by each possible operator and stored in a variable called spx. A variable containing the functions and the operations is stored in the variable f2b.
+\begin{equation}
+   \mathrm{f2b(iz,jz,ij)=f2b(iz,jz,ij)+}f_{\alpha\beta}(r_{ij})*\mathrm{spx(iz,}\alpha\mathrm{,i)*spx(jz,}\beta\mathrm{,j)}
+\end{equation}
+The ratio of determinants, correlated wave function over uncorrelated wave function, is then calculated by sum(d2b*f2b).
+
+The expectation value of the potential includes correlation and potential operators, where one term in the sum may have the form $\left(1+O^c_{ij}\right)O^p_{kl}$ where the $O^c_{ij}$ and $O^p_{ij}$ are really two operators, the correlation operators being $O^c_{ij}=O^c_iO^c_j$ and similar for the potential operators $O^p_{ij}$. The sxz needs to be updated twice, once for $O^c_i$ and once for $O^c_j$, before it can be used for the calculation of the potential. A subroutine called sxzupdate is called twice, which updates the sxz for each operator. This updated sxz is then used to calculate the d2b values that will be multiplied by the potential operators, $\bra{ss'}O^p_{kl}\ket{s_ks_l}$. The expectation value is then calculated using the updated d2b similar to the wave function described above.
+
+\subsection{Calculations with quadratic correlations}
+To do calculations with quadratic correlations a subroutine called paircorrelation loops through all of the linear correlation operators updating sxz twice for each pair of operators. This can be seen by looking at one term in the sum of correlations, $1+O^c_{ij}+O^c_{ij}O^c_{kl}$. The first set of operators, $O^c_{ij}$ is handled as before, and then paircorrelation uses these same operators to update sxz. The updated sxz are then used to calculate and add the additional terms corresponding to quadratic correlations to d2b. The subroutine paircorrelation includes the function values $f_{\alpha\beta}$ in each pair update, allowing the ratio of determinants to be calculated in the same way as before, sum(d2b*f2b).
+
+One term in the sum of the expectation value of the potential may have the form $\left(1+O^c_{ij}+O^c_{ij}O^c_{kl}\right)O^p_{mn}$, which can be written in a more instructive way combining the $i$ and $j$ operators, $\left(1+O^c_{ij}\left(1+O^c_{kl}\right)\right)O^p_{mn}$. When the sxz is updated for the $O^c_iO^c_j$ operators the d2b values corresponding to the linear term are added as before, however paircorrelation is also called which updates sxz for the $O^c_kO^c_l$ operators as well. The resulting sxz is now updated for all 4 of the quadratic correlation operators. This sxz is then used to add the d2b values which are then multiplied by the potential operators, $\bra{ss'}O^p_{mn}\ket{s_ms_n}$.
+
+\subsection{Operator Breakup}
+In cartesian coordinates the $v6'$ operators, $\si\cdot\sj$, $\ti\cdot\tj$, $\si\cdot\sj \ti\cdot\tj$, $S_{ij}$ and $S_{ij} \ti\cdot\tj$, where $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$, can be written by 39 operators, 3 for the $\tau_{i\alpha}\tau_{j\alpha}$, 9 for the $\sigma_{i\alpha}\sigma_{j\beta}$ and 27 for the $\sigma_{i\alpha}\sigma_{j\beta}\tau_{i\gamma}\tau_{j\gamma}$ operators, where the $\alpha$, $\beta$ and $\gamma$ indecies loop over the cartesian coordinates $x$, $y$, and $z$. If instead of using cartesian coordinates the coordinates $\hat{r}_{ij}$ plus two orthogonal coordinates are used the number of required operators can be reduced to just 15. This is because the $\si\cdot\hat{r}_{ij}$ term in the tensor operator only leaves one nonzero piece, unlike the cartesian breakup which leaves all three. Now the operators are 3 for the $\tau_{i\alpha}\tau_{j\alpha}$, 3 for the $\sigma_{i\alpha}\sigma_{j\alpha}$ and 9 for the $\sigma_{i\alpha}\sigma_{j\alpha}\tau_{i\beta}\tau_{j\beta}$ operators, where $\alpha$ and $\beta$ now loop over the 3 new coordinates, $\hat{r}_{ij}$ plus two orthogonal coordinates.

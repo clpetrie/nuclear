@@ -1,0 +1,72 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: prospectus.aux
+The style file: biblatex.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: prospectus-blx.bib
+Database file #2: ../../papers/references.bib
+I was expecting a `,' or a `}'---line 189 of file ../../papers/references.bib
+ :   
+ :   annote={No-core shell model.}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 331 of file ../../papers/references.bib
+ :   
+ :   %url={http://stacks.iop.org/0034-4885/77/i=9/a=096302},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Biblatex version: 3.0
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+You've used 6 entries,
+            6047 wiz_defined-function locations,
+            1169 strings with 9607 characters,
+and the built_in function-call counts, 17445 in all, are:
+= -- 567
+> -- 636
+< -- 135
++ -- 212
+- -- 263
+* -- 1520
+:= -- 1263
+add.period$ -- 0
+call.type$ -- 6
+change.case$ -- 50
+chr.to.int$ -- 34
+cite$ -- 10
+duplicate$ -- 1887
+empty$ -- 1799
+format.name$ -- 420
+if$ -- 3870
+int.to.chr$ -- 0
+int.to.str$ -- 10
+missing$ -- 0
+newline$ -- 192
+num.names$ -- 205
+pop$ -- 1666
+preamble$ -- 1
+purify$ -- 71
+quote$ -- 0
+skip$ -- 968
+stack$ -- 0
+substring$ -- 277
+swap$ -- 671
+text.length$ -- 165
+text.prefix$ -- 8
+top$ -- 1
+type$ -- 216
+warning$ -- 0
+while$ -- 137
+width$ -- 0
+write$ -- 185
+(There were 2 error messages)

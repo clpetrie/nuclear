@@ -1,0 +1,108 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2923,         99]
+NotebookOptionsPosition[      2474,         78]
+NotebookOutlinePosition[      2812,         93]
+CellTagsIndexPosition[      2769,         90]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.669486087477778*^9, 3.669486095544608*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"data1", "=", 
+   RowBox[{
+    RowBox[{"Transpose", "[", 
+     RowBox[{"Import", "[", "\"\<time1he4.out\>\"", "]"}], "]"}], "[", 
+    RowBox[{"[", "7", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data2", "=", 
+   RowBox[{
+    RowBox[{"Transpose", "[", 
+     RowBox[{"Import", "[", "\"\<time2he4.out\>\"", "]"}], "]"}], "[", 
+    RowBox[{"[", "7", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"data2", "/", "data1"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Mean", "[", "data", "]"}]}], "Input",
+ CellChangeTimes->{{3.669486099546054*^9, 3.669486118428154*^9}, {
+  3.6694861527252817`*^9, 3.669486279015421*^9}}],
+
+Cell[BoxData["4.03683920047419`"], "Output",
+ CellChangeTimes->{{3.6694862270202923`*^9, 3.6694862319157267`*^9}, {
+  3.669486276897719*^9, 3.6694862795583487`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"data1", "=", 
+   RowBox[{
+    RowBox[{"Transpose", "[", 
+     RowBox[{"Import", "[", "\"\<time1o16.out\>\"", "]"}], "]"}], "[", 
+    RowBox[{"[", "7", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data2", "=", 
+   RowBox[{
+    RowBox[{"Transpose", "[", 
+     RowBox[{"Import", "[", "\"\<time2o16.out\>\"", "]"}], "]"}], "[", 
+    RowBox[{"[", "7", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"data2", "/", "data1"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Mean", "[", "data", "]"}]}], "Input",
+ CellChangeTimes->{{3.6694862891511793`*^9, 3.669486292410212*^9}}],
+
+Cell[BoxData["2.732860984446219`"], "Output",
+ CellChangeTimes->{3.669486312305632*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{126, Automatic}, {Automatic, 58}},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 189, 4, 32, "Input"],
+Cell[CellGroupData[{
+Cell[772, 28, 720, 18, 99, "Input"],
+Cell[1495, 48, 165, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1697, 55, 671, 17, 99, "Input"],
+Cell[2371, 74, 87, 1, 65, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

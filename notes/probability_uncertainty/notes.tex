@@ -1,0 +1,115 @@
+\documentclass[12pt]{extarticle}
+\usepackage[margin=1in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{fancyvrb}
+
+
+%My commands
+\newcommand{\Oi}{\mathcal{O}_{i}}
+\newcommand{\Oij}{\mathcal{O}_{ij}}
+\newcommand{\Okl}{\mathcal{O}_{kl}}
+\newcommand{\Oijp}{\mathcal{O}^p_{ij}}
+\newcommand{\Oklp}{\mathcal{O}^p_{kl}}
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\braket}[2]{\left< #1 | #2 \right>}
+\newcommand{\ketbra}[2]{\left| #1 \right> \left< #2 \right|}
+\newcommand{\taui}{\bm{\tau}_i}
+\newcommand{\tauj}{\bm{\tau}_j}
+\newcommand{\sigmai}{\bm{\sigma}_i}
+\newcommand{\sigmaj}{\bm{\sigma}_j}
+\newcommand{\tauij}{\taui \cdot \tauj}
+\newcommand{\sigmaij}{\sigmai \cdot \sigmaj}
+\newcommand{\mycolor}[1]{\textit{\textcolor{red}{#1}}}
+\newcommand{\longsi}{s_1, \ldots, s_{i-1} , s, s_{i+1}, \ldots, s_A}
+\newcommand{\longsij}{s_1, \ldots, s_{i-1} , s, s_{i+1}, \ldots, s_{j-1}, s', s_{j+1}, \ldots ,s_A}
+
+\newenvironment{blockcode}
+  {\leavevmode\small\color{blue}\verbatim}
+  {\endverbatim}
+
+\title{Notes about probability, and error estimation for sampled values}
+\author{Cody L. Petrie}
+
+\begin{document}
+\maketitle
+
+All of this material is being pulled from \textit{Statistical Mechanics: Algorithms and Computations} by Werner Krauth.
+
+\section{Probability}
+\subsection{Sum of random variables, convolution}
+\begin{itemize}
+   \item \underline{Random Variable:} A variable that is subject to uncertainty.
+   \item \underline{Random Variate:} The actual value that a random variable takes on. For example, if you toss dice $X$ may be the random variable with 1/6 probability of being any number between 1 and 6. Not if you toss a dice and get 2, then 2 is the random variate, because it is the value that the random variable takes on.
+\end{itemize}
+   If you have a random number generator that generates $N$ \textbf{independent} numbers, $k_1 \ldots k_N$ (random variates of the random variables $\{\xi_1\ldots\xi_N\}$) each with probability $\pi_i=\pi(k_i)$, then the probability of getting a particular string of number is
+\begin{equation}
+   \pi({k_1 \ldots k_N}) = \pi(k_1) \cdots \pi(k_N).
+\end{equation}
+Let's say that these values can be either 1 (hit) or 0 (nonhit). This means that the sum random variable (the number of hits) is $\xi$, and can be ${0,\ldots,N}$. Since there are ${N \choose k} = \frac{N!}{k!(N-k)!}$ ways to choose the k values with N trials, the probability that the number of hits, $\xi$, will be k is
+\begin{equation}
+   \pi_k = {N \choose k} \theta^k(1-\theta)^{N-k},
+\end{equation}
+where $\theta$ is the probability of a hit. Then you can see that the probability of $k$ hits after $N+1$ trials is $\pi_k'$
+\begin{equation}
+   \pi_k' = \pi_k\cdot(1-\theta)+\pi_{k-1}\cdot\theta.
+\end{equation}
+This looks like a convolution and in continuous form can be written as
+\begin{equation}
+   \pi'(x) = \int\limits_{x-1}^xdy~\pi(y)\pi^1(x-y)
+\end{equation}
+
+\subsection{Mean value and variance}
+\begin{itemize}
+   \item \underline{Second moment:} This is the variance and is special because it is additive.
+   \item \underline{Independent random variables:} variables that satisfy $\pi(x_1,x_2) = \pi(x_1)\pi(x_2)$.
+   \item \underline{Chebyshev's Inequality:} $\mathrm{P}(\left|x-\left<x\right>\right| > \epsilon) < \frac{\mathrm{Var}(\xi)}{\epsilon^2}$
+\end{itemize}
+The expectation value (mean) of discrete and continuous variables $\xi$ can be written respectively as
+\begin{equation}
+\left<\xi\right> = \sum\limits_k k\pi_k,
+\end{equation}
+\begin{equation}
+\left<\xi\right> = \int\limits dx~x\pi(x).
+\end{equation}
+Also mean value of the sum of two random variables is the sum of the means (even when the variables are not independent).
+\begin{equation}
+   \left<\xi_1+\xi_2\right> = \int dx_1~dx_2~(x_1+x_2)\pi(x_1,x_2) = \left<\xi_1\right> + \left<\xi_2\right>
+\end{equation}
+The variance (The second, and probably most talked about moment) is given by the squared deviation from the mean,
+\begin{equation}
+   \mathrm{Var}(\xi) = \left<(\xi-\left<\xi\right>)^2\right> = \left<\xi^2-2\xi\left<\xi\right>+\left<\xi\right>^2\right> = \left<\xi^2\right> - \left<\xi\right>^2,
+\end{equation}
+and the standard deviation is the square root of this value, $\sigma = \sqrt{\mathrm{Var}(\xi)}$.
+
+I am having trouble showing, but it turns out that for \textbf{independent} variables the variance of the sum of random variables is the sum of their variances.
+\begin{equation}
+   \mathrm{Var}(\xi_1+\cdots+\xi_N) = \mathrm{Var}(\xi_1)+\cdots+\mathrm{Var}(\xi_N).
+\end{equation}
+
+\subsection{The central limit theorem}
+Any probability diestribution can be shifted by the mean and scaled to have a variance of one. For example,
+\begin{equation}
+   \pi_{\mathrm{resc}}(x) = \sigma\pi(\sigma x+\left<\xi\right>),
+\end{equation}
+where the argument is $y=\sigma x+\left<\xi\right>$, and the variable $\xi$ takes on the value $y$ with probablity $\pi(y)$. Then the variable $\xi_\mathrm{resc}$ takes on the values $x=(y-\left<\xi\right>)/\sigma$ with probability $\pi_\mathrm{resc}(x)$. The \textbf{central limit theorem} then states that the rescaled random variable is Gaussian in the limit that $N\rightarrow\infty$, if $\xi$ is the sum of independent random variables, $\xi=\xi_1+\cdots+\xi_N$ of finite variance.
+
+\section{Error Estimation}
+Whether the random variables are independent or dependent the mean value is going to be the same. However, for dependent random variates the error will be an under estimate because random variates will be closer to the previous variate, as in a Markov chain.
+\subsection{Independent random variables}
+Calculating the mean value is straight forward.
+\begin{equation}
+   \mu = \frac{1}{N} \sum\limits_{i=1}^N \xi_i
+\end{equation}
+The error is then given by the standard deviation (square root of the variance, or second moment).
+\begin{align}
+   \sigma &= \frac{1}{\sqrt{N-1}}\sqrt{\left[\sum\limits_{j=1}^N\left(\xi_j-\frac{1}{N}\sum\limits_{i=1}^N \xi_i\right)^2\right]} \\
+   &= \frac{1}{\sqrt{N-1}}\sqrt{\frac{1}{N}\sum\limits_i\xi_i^2 - \left(\frac{1}{N}\sum\limits_i\xi_i\right)^2} \\
+   &\approx \frac{1}{\sqrt{N}}\sqrt{\frac{1}{N}\sum\limits_i\xi_i^2 - \left(\frac{1}{N}\sum\limits_i\xi_i\right)^2}
+\end{align}
+
+\end{document}

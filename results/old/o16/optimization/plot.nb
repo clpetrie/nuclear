@@ -1,0 +1,296 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11036,        287]
+NotebookOptionsPosition[     10371,        261]
+NotebookOutlinePosition[     10709,        276]
+CellTagsIndexPosition[     10666,        273]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.662999720376959*^9, 3.662999755740996*^9}, 
+   3.664653326449341*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Import", "[", "\"\<params.6618764.dat\>\"", "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{
+    RowBox[{"Transpose", "[", "data", "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"3", ";;", "39"}], "]"}], "]"}]}], ";"}], "\n", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ListPlot", "[", 
+    RowBox[{
+     RowBox[{"data", "[", 
+      RowBox[{"[", "n", "]"}], "]"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{"\"\<Mean=\>\"", ",", 
+         RowBox[{"ToString", "[", 
+          RowBox[{"Mean", "[", 
+           RowBox[{
+            RowBox[{"data", "[", 
+             RowBox[{"[", "n", "]"}], "]"}], "[", 
+            RowBox[{"[", 
+             RowBox[{"a", ";;", "50"}], "]"}], "]"}], "]"}], "]"}]}], "]"}], 
+       "}"}]}], ",", 
+     RowBox[{"GridLines", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", "a", "}"}], ",", 
+        RowBox[{"{", "}"}]}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "37", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "1", ",", "50", ",", "1"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.665760556611245*^9, 3.665760615786401*^9}, {
+  3.665760687032336*^9, 3.6657607055935287`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 1, $CellContext`n$$ = 1, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`n$$], 1, 37, 1}, {
+      Hold[$CellContext`a$$], 1, 50, 1}}, Typeset`size$$ = {
+    627.5, {26., 13.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`n$25413$$ = 
+    0, $CellContext`a$25414$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 1, $CellContext`n$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$25413$$, 0], 
+        Hold[$CellContext`a$$, $CellContext`a$25414$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ListPlot[
+        Part[$CellContext`data, $CellContext`n$$], PlotRange -> All, 
+        PlotLegends -> {
+          StringJoin["Mean=", 
+           ToString[
+            Mean[
+             Part[
+              Part[$CellContext`data, $CellContext`n$$], 
+              Span[$CellContext`a$$, 50]]]]]}, 
+        GridLines -> {{$CellContext`a$$}, {}}], 
+      "Specifications" :> {{$CellContext`n$$, 1, 37, 1}, {$CellContext`a$$, 1,
+          50, 1}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{675., {74., 81.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.6657607063009644`*^9, 3.6657608479556026`*^9, 
+  3.665760884290195*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "take"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Cannot take positions \[NoBreak]\\!\\(1\\)\[NoBreak] \
+through \[NoBreak]\\!\\(50\\)\[NoBreak] in \[NoBreak]\\!\\(-40.0243674248595`\
+\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Part/take\\\", ButtonNote -> \
+\\\"Part::take\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.66576088458351*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ListPlot", "::", "lpn"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(-40.0243674248595`\\)\[NoBreak] is not a \
+list of numbers or pairs of numbers. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/ListPlot\\\", ButtonNote -> \
+\\\"ListPlot::lpn\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.665760884643162*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ListPlot", "::", "lpn"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(-40.0243674248595`\\)\[NoBreak] is not a \
+list of numbers or pairs of numbers. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/ListPlot\\\", ButtonNote -> \
+\\\"ListPlot::lpn\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6657608846983356`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ListPlot", "::", "lpn"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(-40.0243674248595`\\)\[NoBreak] is not a \
+list of numbers or pairs of numbers. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/ListPlot\\\", ButtonNote -> \
+\\\"ListPlot::lpn\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.665760884754114*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(ListPlot \
+:: lpn\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.665760884767209*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Import", "[", "\"\<eave.6618764.dat\>\"", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{
+    RowBox[{"Transpose", "[", "data", "]"}], "[", 
+    RowBox[{"[", "3", "]"}], "]"}]}], ";"}], "\n", 
+ RowBox[{"ListPlot", "[", "data", "]"}]}], "Input",
+ CellChangeTimes->{{3.6657607857798243`*^9, 3.665760833468988*^9}, {
+  3.665760873380196*^9, 3.665760879765324*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.01388888888888889], 
+     AbsoluteThickness[1.6], PointBox[CompressedData["
+1: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
+/7+W5gHc
+      "]]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, -39.88341478029994},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{},
+  PlotRange->{{0., 158.}, {-42.8434203160507, -40.0243674248595}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.6657608338545227`*^9, 3.6657608496093597`*^9}, {
+  3.665760880342593*^9, 3.665760884415564*^9}}]
+}, Open  ]]
+},
+WindowSize->{808, 811},
+WindowMargins->{{Automatic, 329}, {Automatic, 65}},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 215, 5, 32, "Input"],
+Cell[CellGroupData[{
+Cell[798, 29, 1402, 40, 121, "Input"],
+Cell[2203, 71, 2149, 46, 172, "Output"],
+Cell[4355, 119, 518, 11, 23, "Message"],
+Cell[4876, 132, 463, 10, 23, "Message"],
+Cell[5342, 144, 465, 10, 23, "Message"],
+Cell[5810, 156, 463, 10, 23, "Message"],
+Cell[6276, 168, 530, 11, 23, "Message"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6843, 184, 443, 11, 77, "Input"],
+Cell[7289, 197, 3066, 61, 259, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

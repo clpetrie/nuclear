@@ -1,0 +1,13 @@
+17       ! irn, random seed
+1        ! idmc 1=vmc, 2=dmc
+10       ! equilibrium blocks
+50       ! averaging blocks
+100      ! steps/block
+100     ! walkers
+.false.   ! start from configuration file
+1        ! number of particles
+3.0      ! delta parameter (vmc)
+1.8      ! alpha (for wavefunction)
+1.0      ! omega (for wavefunction)
+0.001    ! time step
+0.5      ! trial energy

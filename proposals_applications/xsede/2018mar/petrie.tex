@@ -1,0 +1,113 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[top=2cm,left=2cm,right=2cm,bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}  
+\usepackage{ae}               % Fonte "Almost European"
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{url}
+\usepackage{color}
+\usepackage{cite}
+\usepackage{gensymb}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{epigraph}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{epstopdf}
+
+\definecolor{red}{rgb}{1.0,0.0,0.0}
+\definecolor{green}{rgb}{0.01,0.75,0.24}
+\definecolor{blue}{rgb}{0.0,0.0,1.0}
+
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\expected}[1]{ \langle #1 \rangle}
+\newcommand{\product}[2]{\langle #1 | #2 \rangle}
+\newcommand{\pib}{\boldsymbol{\pi}}
+\newcommand{\sigmab}{\boldsymbol{\sigma}}
+\newcommand{\taub}{\boldsymbol{\tau}}
+\newcommand{\kdotx}{\textbf{k}\cdot\textbf{x}} % k dot x
+
+\begin{document}
+\onehalfspacing
+%\doublespace
+\title{{\Large \textbf{Cody's contribution to the progress report and main document}} \vspace{-0.5cm}}
+\author{
+{\bf PIs: Kevin E. Schmidt}, Arizona State University \\
+{\bf Stefano Gandolfi}, Los Alamos National Laboratory
+}
+\date{\today}
+\maketitle
+
+\vspace{-1.5cm}
+\section{Progress Report}
+\subsection{Improved trial wave functions for nuclei and nuclear matter}
+Efforts have been made recently to improve the trial wave function used in Quantum Monte Carlo calculations, particularly in Auxiliary Fields Diffusion Monte Carlo (AFDMC). The trial wave function has a large impact on the statistical propagation and accuracy of an AFDMC calculation. In addition, it is one of the most computationally expensive parts of the calculation due to the large number of times it must be calculated. The first major improvement in the AFDMC trial wave function was to include spin-isospin dependent correlations up to linear order, which did provide significant improvements for light nuclei \cite{gan14}. However, this wave function only correlated two particles at a time.
+
+To be accurate for larger systems of particles and to investigate alpha-particle clustering and the structure of neutron stars, many-body correlations need to be included. Our first attempt to improve on this wave function was to include spin-isospin correlations up to quadratic order. This is part of the subject of our recent paper which has been submitted for publication in the Physical Review C journal \cite{lon18}, ``Auxiliary field diffusion Monte Carlo calculations of light- and medium-mass nuclei with local chiral interactions". Though the addition of quadratic correlations did provide a noticeable improvement to the trial wave function, the computational cost was too large to be used on anything other than light to medium mass nuclei.
+
+Another way to include many-body correlations is to include the fully exponential correlations, from which previous approximations are taken. These correlations are symmetric and cluster decomposable, but can't be calculated explicitly. We have used the Hubbard-Stratanovich transformation to transform the quadratic two-body operators to usable one-body operators in the exponential.
+\begin{equation}
+   e^{-\frac{1}{2}\lambda O^2} = \frac{1}{\sqrt{2\pi}} \int dx e^{-\frac{x^2}{2} + \sqrt{-\lambda}x O}
+\end{equation}
+The integrals over auxiliary fields $x$, has been done using a Monte Carlo sampling. Teaching assignments as well as other obligations have prevented us from fully implementing these correlations, accounting for the decreased use of our previous allocation on this project. However, significant progress has been made toward their implementation and we expect to to perform a significant number of production runs using these improved correlations soon. With this improved trial wave function we will investigate alpha-clustering in nuclei with AFDMC, which to our knowledge has not been done before. This trial wave function will also be used to study the structure of neutron stars.
+
+\vspace{-0.5cm}
+\subsection{Scientific production}
+Our findings regarding the improved trial wave function can be found in the article
+``Auxiliary field diffusion Monte Carlo calculations of light- and medium-mass nuclei 
+with local chiral interactions" \cite{lon18}, which is under review by the Physical
+Review C journal.
+
+\section{Main Document}
+\subsection{Improved trial wave functions for nuclei and nuclear matter}
+In QMC calculations, the results are dependent on the accuracy of the trial wave function employed to guide the random walk. We have recently introduced a linearly pair-correlated wave function which has greatly improved the convergence of our results [22]. We are now working on including multiple pair correlations to study their effect. We have written codes to efficiently handle the large number of matrix operations required to include these additional correlations.
+
+We have been able to add quadratic correlations to the trial wave function that we use in nuclear Monte Carlo calculations. These additional correlations have caused the energies to decrease for the nuclei $^4$He and $^{16}$O, as well as for symmetric nuclear matter. The quadratic correlations resulted in an improved trial wave function, but were too expensive to use to larger nuclear systems. Our results for this wave function have been submitted for review to the Physical Review C journal \cite{lon18}. Linear and quadratic correlations come from an expansion of the exponential correlation. We have begun to include the full set of exponential correlations in the nuclear trial wave function, though teaching and responsibilities have prevented us from fully implementing this trial wave function. This accounts for the decreased use of our previous allocation, though significant progress has been made, and we expect to be doing full production runs with this trial wave function shortly.
+
+We then plan to use these improved wave functions to investigate the clustering of nucleons into alpha particles in mostly neutron matter. We intend to study the convergence of variational and auxiliary field diffusion Monte Carlo with these new wave functions for nuclei and nuclear matter with up to $A=40$.
+
+\subsection{Resources: Improved QMC simulations for nuclei and nuclear matter}
+We want to do energy calculations on three systems, $^4$He, $^{16}$O, and
+symmetric nuclear matter using the new exponential correlations to compare the
+trial wave function with the linear and quadratic correlations. To do this we
+will need to optimize a new set of parameters. We estimate that this will
+require 20,000 SUs for development, 40,000 SUs to optimize the variational
+parameters for the new correlations, and 180,000 SUs to calculate the energies
+for the three nuclear systems mentioned above.
+
+With this improved wave function we will be investigating the clustering of
+alpha particles in mostly neutron matter. We will be doing calculations for a
+variety of densities to investigate the clustering dependence on density. We
+estimate that this will require 20,000 SUs for development, 40,000 SUs to
+optimize the code for mostly neutron matter, and 180,000 SUs to calculate the
+clustering at a variety of densities.
+
+\begin{table}[htbp]
+\centering
+\caption{Justification for the requested amount of SUs}
+\begin{tabular}{|l|r|r|}
+\hline
+% & \multicolumn{1}{c|}{\textbf{Explicit pion field}} 
+ & \multicolumn{ 2}{c|}{\textbf{Improved QMC simulations}} \\ \hline
+ & \multicolumn{1}{l|}{Exp. correlations} &
+ \multicolumn{1}{l|}{Alpha particle clustering} \\ \hline
+Development & 20,000 & 20,000 \\ \hline
+Variational optimization & 40,000 & 40,000 \\ \hline
+Production & 180,000 & 180,000 \\ \hline
+Subtotal & 240,000 & 240,000 \\ \hline\hline
+\multicolumn{ 3}{|c|}{\textbf{Total: 480,000 SUs}} \\ \hline
+\end{tabular}
+\label{tab:SUs}
+\end{table}
+
+{\color{red}{Lucas depending on how many SU's we want to apply for and how many you need we can adjust the above estimates.}}
+
+\vspace{-0.5cm}
+%\newpage
+\bibliographystyle{unsrt}
+\bibliography{xsede}
+\end{document}

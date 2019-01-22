@@ -1,0 +1,380 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+%\usepackage{beamerthemesplit} % new 
+\usetheme{Madrid}
+\usefonttheme[onlymath]{serif}
+\setbeamertemplate{frametitle}[default][center] %center slide titles
+
+%My commands
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\braket}[2]{\left<\left. #1 \right| #2 \right>}
+\newcommand{\ak}{a_k}
+\newcommand{\akd}{a_k^\dagger}
+\newcommand{\akb}{a_{\bar{k}}}
+\newcommand{\akbd}{a_{\bar{k}}^\dagger}
+\newcommand{\ai}{a_i}
+\newcommand{\aid}{a_i^\dagger}
+\newcommand{\aib}{a_{\bar{i}}}
+\newcommand{\aibd}{a_{\bar{i}}^\dagger}
+\newcommand{\alk}{\alpha_k}
+\newcommand{\alkd}{\alpha_k^\dagger}
+\newcommand{\alkb}{\alpha_{\bar{k}}}
+\newcommand{\alkbd}{\alpha_{\bar{k}}^\dagger}
+\newcommand{\ali}{\alpha_i}
+\newcommand{\alid}{\alpha_i^\dagger}
+\newcommand{\alib}{\alpha_{\bar{i}}}
+\newcommand{\alibd}{\alpha_{\bar{i}}^\dagger}
+\newcommand{\uk}{\mathrm{u}_k}
+\newcommand{\vk}{\mathrm{v}_k}
+
+\begin{document}
+\title{Notes on Siemens Ch. 6}
+\author{Cody Petrie} 
+\date{\today} 
+
+%start slides
+\frame{\titlepage} 
+
+\frame{\frametitle{Interactions Beyond the Mean Field}
+\begin{itemize}
+   \item The mean field approximation gives us basic features of nuclei. But now we're going to move beyond the mean field approximation.
+   \item The first thing we are going to do is look at the pairing term to the binding energy (equation 4.3.2).
+   \begin{equation}
+      B_p = \frac{\left[(-1)^N+(-1)^Z\right]\delta}{A^{1/2}}
+   \end{equation}
+   \item This gives even-even nuclei a tighter binding energy. Also it turns out that the ground state of even-even nuclei have zero angular momentum.
+   \item To explain these things we are going to go beyond the independent-particle motion (mean field).
+\end{itemize}
+}
+
+\frame{\frametitle{Interactions Beyond the Mean Field}
+\begin{itemize}
+   \item  Add a perturbation to the mean field Hamiltonian ($H_R$ is called the residual interaction)
+   \begin{equation}
+      H = H_{MF} + H_R
+   \end{equation}
+   \begin{itemize}
+      \item The eigenstates of $H_{MF}$ are Slater determinants.
+   \end{itemize}
+   \item One solution to this is to diagonalize $H_R$ in the $H_{MF}$ basis, but this requires large calculations.
+   \item We are going to use other methods in this chapter. We will split (crudely) into long-range and short-range parts, and look at short-range parts here.
+\end{itemize}
+}
+
+\frame{\frametitle{The $\delta$-Force}
+\begin{itemize}
+   \item Look at degenerate states of $H_{MF}$ because $H_R$ with have a decisive influence.
+   \item Start with $H_{MF}$ in a full $j$ state and two identical nucleons in the next $j$ state.
+   \begin{align}
+      \psi^{nlj}_{JM}(1,2) &= \sum\limits_{m_1m_2} \braket{jm_1jm_2}{JM} \mathcal{A}\left[\Phi_{nljm_1}(1)\Phi_{nljm_2}(2)\right] \\
+      \Phi_{nljm_1} &= \frac{1}{r} u_{nlj}(r) \sum\limits_{m,s} \braket{lm\frac{1}{2}s}{jm_1}Y_l^m(\theta,\phi)\chi_s
+   \end{align}
+   \item The shortest range for $H_R$ is a $\delta$-force.
+   \begin{equation}
+      H_R = V_0 \delta(\mathbf{r}_1 - \mathbf{r}_2)
+   \end{equation}
+\end{itemize}
+}
+
+\frame{\frametitle{The $\delta$-Force}
+\begin{itemize}
+   \item This Hamiltonian gives an energy
+   \begin{align}
+      E_R &= V_0 \int \psi^*_{JM}\delta(\mathbf{r}_1-\mathbf{r}_2)\psi_{JM}d^3\mathbf{r}_1 d^3\mathbf{r}_2 \\
+      &= \frac{V_0\left[1+(-1)^J\right](2j+1)^2}{32\pi (2J+1)}\left|\braket{j,\frac{1}{2},j,-\frac{1}{2}}{J,0}\right|^2 \int\limits_0^\infty r^{-2}u^4_{nlj(r) dr}
+   \end{align}
+   \item Note here that $E_R$ vanishes for odd values of $J$. This means that two identical Fermi particles in the same j-shell can only be in even angular-momentum states.
+   \item For an attractive force ($V_0<0$) the lowest energy has $J=0$ and the first excited state is $J=2$.
+\end{itemize}
+}
+
+\frame{\frametitle{The $\delta$-Force}
+\begin{itemize}
+   \item For all $j> \frac{3}{2}$ the difference in energies of these two states is
+   \begin{equation}
+      \left|(E_2-E_0)/E_0\right| \approx \frac{3}{4}
+   \end{equation}
+   which is large as seen in figure 6.2 of the book.
+   \item The two nucleons have their largest spatial overlap in this state ($J=0$).
+   \item Thus an attractive $\delta$-interaction decreases the energy.
+\end{itemize}
+}
+
+\frame{\frametitle{The Degenerate Pairing Model}
+\begin{itemize}
+   \item A main feature of the $\delta$-force that is maintained in the pairing force is that it only has non-zero matrix elements between time-reversed states. Also, they non-zero elements are all identital
+   \begin{equation}
+      \bra{jm_1\overline{jm_1}}V\ket{jm_2\overline{jm_2}} \equiv -G
+   \end{equation}
+   \item Let's use the basis states $j+\frac{1}{2} \equiv \Omega$. Now the Schr\"odinger equation becomes
+   \begin{equation}
+      -G\begin{pmatrix} 1 & 1 & \cdots & 1 \\ 1 & \hfill & \hfill & 1 \\ \vdots & \ddots & \vdots & \hfill \\ 1 & \hfill & \cdots & 1\end{pmatrix}
+      \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_\Omega \end{pmatrix}
+      = E\begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_\Omega \end{pmatrix}
+   \end{equation}
+   \begin{equation}
+      -G(x_1 + \cdots + x_\Omega) = Ex_1 = Ex_2 = \cdots = Ex_\Omega
+   \end{equation}
+\end{itemize}
+}
+
+\frame{\frametitle{The Degenerate Pairing Model}
+\begin{equation}
+   -G(x_1 + \cdots + x_\Omega) = Ex_1 = Ex_2 = \cdots = Ex_\Omega
+\end{equation}
+\begin{itemize}
+   \item This has solutions
+   \begin{equation}
+      E = -G\Omega, \qquad \vec{x} = \frac{1}{\sqrt{\Omega}}(1,1,\cdots,1)
+      \label{eq:groundenergy}
+   \end{equation}
+   and
+   \begin{equation}
+      E=0, \qquad x_1+x_2+\cdots+x_\Omega = 0.
+      \label{eq:excitedenergy}
+   \end{equation}
+   \item Equation \ref{eq:groundenergy} refers to the $J=0$ state and the degerarate $J>0$ states have energy of equation \ref{eq:excitedenergy}.
+
+\end{itemize}
+}
+
+\frame{\frametitle{The Degenerate Pairing Model}
+\begin{itemize}
+   \item Now assume we have $n$ particles in the j-shell ($n\le2\Omega$), and $p$ pairs of particles, i.e. $J=0$ states.
+   \item Using equation \ref{eq:groundenergy} and the fact that $\Omega$ is the number of possible pairs we get
+   \begin{equation}
+      E(n,p)=-Gp\left(\Omega-n+p+1\right)
+   \end{equation}
+   \item Introduce \textit{seniority}, $S=n-2p$, the number of unpaired nucleons.
+   \begin{align}
+      E(n,S) &= -\frac{G}{4}(n-S)(2\Omega-n-S+2) \\
+      E(n,0) &= -\frac{1}{4}Gn(2\Omega-n+2) \mathrm{,~ lowest} \\
+      E(2,0) &= -G\Omega \mathrm{,~ what~ we~ got~ before} \\
+      E(2\Omega,0) &= -Gn/2 \mathrm{,~ what~ you~ expect~ from~ mean~ field}
+   \end{align}
+\end{itemize}
+}
+
+\frame{\frametitle{The Degenerate Pairing Model}
+\begin{itemize}
+   \item The pairing force creates as many pairs of particles as possible.
+   \item Even-even have zero spin.
+   \item Odd numbers of nuclei, spin is determined by unpaired nucleon.
+   \item Comparing odd-mass and even-mass nuclei we get,
+   \begin{equation}
+      E(2p+1,p)-E(2p,p) = Gp
+   \end{equation}
+   which seems to agree with experiment.
+   \item For even-even nuclei, the lowest excited state is that of one broken pair, which has symmetric energy
+   \begin{equation}
+      E(2p,p-1)-E(2p,p)=G\Omega
+   \end{equation}
+\end{itemize}
+}
+
+\frame{\frametitle{General Pairing Theory}
+\framesubtitle{The Model Hamiltonian}
+\begin{itemize}
+   \item For us to use degenerate perturbation theory we assume that the perturbed energy shifts should be small compared to the energy spacing. Since the shifts are $G\Omega$ this is not the case ($G$ is small but he says $G\Omega$ is much larger). So we have to do something else.
+   \item We generalize our residual interaction and write it with creation and destruction operators.
+   \begin{equation}
+      H_R=-G\sum\limits_{i,k} {}^{'} \akbd \akd \ai \aib
+   \end{equation}
+   Where the primed sum means a truncated sum around the fermi energy $\left|\varepsilon_k - \mu\right| \le S$.
+\end{itemize}
+}
+
+\frame{\frametitle{General Pairing Theory}
+\framesubtitle{The Model Hamiltonian}
+\begin{itemize}
+   \item Since now we can't assume $H_R \ll H_{MF}$ we have to do some fancy footwork.
+   \begin{equation}
+      H = H_0+\delta H
+   \end{equation}
+   \begin{align}
+      \label{equ:fullH0}
+      H_0 &= \sum_k \varepsilon_k \left(\akd \ak + \akbd \akb\right) - \Delta\sum_k {}^{'} \left(\akbd \akd + \ak \akb\right) \\
+      \delta H &= -G\sum_{i,k} {}^{'} \akbd \akd \ai \aib + \Delta\sum_k {}^{'} \left(\akbd \akd + \ak \akb\right)
+   \end{align}
+   \item We want eigenfunctions of both $H$ and $N$, but without $\delta H$ we can't have that.
+   \begin{equation}
+      N=\sum_k(\akd \ak + \akbd \akb)
+   \end{equation}
+   \item Thus we don't have conservation of particles and at most we can have a given average number particles. We account for this by modifying out Hamiltonian.
+\end{itemize}
+}
+
+\frame{\frametitle{General Pairing Theory}
+\framesubtitle{The Model Hamiltonian}
+\begin{itemize}
+   \item We then use the Lagrange multiplier $\mu$ (we will have a constraint on the expectation value of N) to write
+   \begin{equation}
+      H'=H-\mu N = H_0'+\delta H, \qquad H_0'=H_0-\mu N
+      \label{equ:H0prime}
+   \end{equation} 
+   \item Minimizing the expectation value of $H_0$ ($\delta \left<H_0'\right>$) gives us
+   \begin{equation}
+      \mu=\frac{\delta \left<H_0\right>}{\delta \left<N\right>}
+   \end{equation}
+   \item This is the amound of energy that is needed to remove one nucleon, i.e. the chemical potential.
+\end{itemize}
+}
+
+\frame{\frametitle{General Pairing Theory}
+\framesubtitle{Solving the Unperturbed Hamiltonian}
+\begin{itemize}
+   \item We can diagonalize $H_0'$ exactly, we only have to do so for the interval $\left|\varepsilon_k-\mu\right| \le S$.
+   \item Inside the interval we introduce new creation and annihilation operators.
+   \begin{equation}
+      \alk = \uk\ak+\vk\akbd \qquad \alkb=\uk\akb-\vk\akd
+   \end{equation}
+   \item This is called the Bogolyubov transformation and the variables $\uk$ and $\vk$ are used to minimize $\left<H_0'\right>$ with the normalization requirement
+   \begin{equation}
+      \uk^2+\vk^2=1,
+   \end{equation}
+   which ensures the same (anti)commutation relations between the $\alpha$'s as thos of the $a$'s.
+   \begin{equation}
+      \Big\{\ali,\alk\Big\} = \left\{\alid,\alkd\right\} = 0, \qquad \left\{\ali,\alkd\right\} = \delta_{ik}
+   \end{equation}
+\end{itemize}
+}
+
+\frame{\frametitle{General Pairing Theory}
+\framesubtitle{Solving the Unperturbed Hamiltonian}
+\begin{itemize}
+   \item The transformation for $a$ is then
+   \begin{equation}
+      \ak=\uk\alk-\vk\alkbd, \qquad \akb=\uk\alkb+\vk\alkd.
+   \end{equation}
+   \item Plugging this into equations~\ref{equ:fullH0} and \ref{equ:H0prime} gives us
+   \begin{equation}
+      H_0'=\Omega_{gs}+\sum_kH_k^{(1)}\left(\alkd\alk+\alkbd\alkb\right) + \sum_k {}^{'} H_k^{(2)}\left(\alkbd\alkd+\alk\alkb\right)
+   \end{equation}
+   \begin{align}
+      \Omega_{gs} &= 2\sum_k {}^{'} \left[(\varepsilon_k-\mu)\vk^2-\delta\uk\vk\right] \\
+      H_k^{(1)} &= (\varepsilon_k-\mu)(\uk^2-\vk^2)+2\uk\vk\Delta \\
+      H_k^{(2)} &= 2(\varepsilon_k-\mu)\uk\vk - (\uk^2-\vk^2)\Delta
+   \end{align}
+   \item Where for $\varepsilon_k-\mu>S, \uk=1, \vk=0$ and for $\varepsilon_k-\mu<-S, \uk=0, \vk=1$.
+\end{itemize}
+}
+
+\frame{\frametitle{General Pairing Theory}
+\framesubtitle{Solving the Unperturbed Hamiltonian}
+\begin{itemize}
+   \item To diagonalize $H_0'$ we require that $H_k^{(2)}$ be zero in the interval.
+   \begin{equation}
+      2(\varepsilon_k-\mu)\uk\vk=(\uk^2-\vk^2)\Delta
+   \end{equation}
+   \item This has the following solutions.
+   \begin{align}
+      \vk^2 &= \frac{1}{2}\left(1-\frac{\varepsilon_k-\mu}{\epsilon_k}\right) \le 1 \\
+      \uk^2 &= \frac{1}{2}\left(1+\frac{\varepsilon_k-\mu}{\epsilon_k}\right) \le 1 \\
+      \epsilon_k &= \sqrt{(\varepsilon_k-\mu)^2+\Delta^2}
+   \end{align}
+   \item With this we get
+   \begin{equation}
+      H_0' = \Omega_{gs}+\sum_k\epsilon_k\left(\alkd\alk+\alkbd\alkb\right)
+   \end{equation}
+\end{itemize}
+}
+
+\frame{\frametitle{General Pairing Theory}
+\framesubtitle{Solving the Unperturbed Hamiltonian}
+\begin{itemize}
+   \item The BCS wave function is given by
+   \begin{align}
+      \alk\ket{gs}&=\alkb\ket{gs}=0 \\
+      \ak\ket{vac}&=\akb\ket{vac}=0 \\
+      \ket{gs} &= \prod_k\left(\uk+\vk\akbd\akd\right)\ket{vac}.
+   \end{align}
+   \item Again, since we don't have a fixed number of particles we can get the average number of particles, and the fluctuation in the number.
+   \begin{align}
+      N_0 = \bra{gs}N\ket{gs}=2\sum_k\vk^2=\sum_k\left(1-\frac{\varepsilon_k-\mu}{\epsilon_k}\right) \\
+      \sigma^2 = \bra{gs}N^2\ket{gs}-(\bra{gs}N\ket{gs})^2 = 4\sum_k\uk^2\vk^2=\Delta^2\sum_k {}^{'}\frac{1}{\epsilon_k^2}
+   \end{align}
+\end{itemize}
+}
+
+\frame{\frametitle{General Pairing Theory}
+\framesubtitle{Solving the Unperturbed Hamiltonian}
+\begin{itemize}
+   \item The energy gain compared to the normal energy is
+   \begin{align}
+      \Delta E &= \bra{gs}H_0'+\mu N\ket{gs}-2\sum_{\varepsilon_k<\mu} \varepsilon_k \\
+      &= 2\sum_k\varepsilon_k\vk^2-\Delta^2\sum_k {}^{'}\frac{1}{\epsilon_k}-2\sum_{\varepsilon_k<\mu} \varepsilon_k
+   \end{align}
+   \item Looking at the BCS wave function we see that $\vk^2$ is the probability of one pair being in the original $\varepsilon_k$. This goes from 1 below $\mu$ to 0 above $\mu$.
+   \item The system is now described by quasi-particles, of energy $\epsilon_k$, which are created by the $\alkd$ and $\alkbd$ operators. These quasi-particles are linear combinations of ``old" holes and ``old" particles.
+\end{itemize}
+}
+
+\frame{\frametitle{General Pairing Theory}
+\framesubtitle{Solving the Unperturbed Hamiltonian}
+\begin{itemize}
+   \item We can determine $\Delta$ by minimizing $\bra{gs}H-\mu N\ket{gs}$ with respect to $\Delta$.
+   \item Doing this yields the condition
+   \begin{equation}
+      0=\Delta\left(1-\frac{1}{2}G\sum {}^{'}\frac{1}{\epsilon_k}\right),
+   \end{equation}
+   which has the solution $\Delta=0$, corresponding to the original Hartree-Fock solution with no pairing. For $\Delta \ne 0$ we get the condition
+   \begin{equation}
+      \frac{2}{G} = \sum {}^{'}\frac{1}{\epsilon_k}.
+   \end{equation}
+   \item This must be greater than
+   \begin{equation}
+      \sum \frac{1}{|\varepsilon_k-\mu|} = \frac{2}{G_c}.
+   \end{equation}
+   \item Thus to have non trivial solutions we must have $G\ge G_c$.
+\end{itemize}
+}
+
+\frame{\frametitle{The Uniform Model}
+\begin{itemize}
+   \item If we assume $\Delta$ to be large compared to the single-particle energy spacings near the Fermi energy we can then take the level density, $g$, to be continuous. I we also assume that $S \gg \Delta$, and that $g(\varepsilon)$ is constant around $\mu$, we get
+   \begin{align}
+      \frac{2}{G}&=\sum {}^{'}\frac{1}{\epsilon_k} = \int\limits^{\mu+S}_{\mu-S}\frac{\frac{1}{2}g(\varepsilon)d\varepsilon}{\sqrt{(\varepsilon-\mu)^2+\Delta^2}} \approx \int\limits_0^S \frac{d\varepsilon}{\sqrt{\varepsilon^2+\Delta^2}} \\
+      &=g(\mu) \ln\left(\frac{S}{\Delta}+\sqrt{1+\left(\frac{S}{\Delta}\right)^2}\right) \approx g(\mu) \ln \left(\frac{2S}{\Delta}\right),
+   \end{align}
+   which gives us
+   \begin{equation}
+      \Delta=2Se^{-2/Gg(\mu)}
+   \end{equation}
+\end{itemize}
+}
+
+\frame{\frametitle{The Uniform Model}
+\begin{itemize}
+   \item It will turn out that $\Delta$ is the physically relevant quantity, so in experiments it is reasonable to fix $\Delta$ and $g(\mu)$ to relate $S$ and $G$.
+   \item The energy gain and the fluctuation of particle number can be estimated in similar ways to get
+   \begin{align}
+      \Delta E &\approx -\frac{1}{4}g(\mu)\Delta^2 \\
+      \sigma^2 &\approx \frac{\pi}{2}g(\mu)\Delta.
+   \end{align}
+\end{itemize}
+}
+
+\frame{\frametitle{Relation to Experimental Information}
+\begin{itemize}
+   \item Let's now relate the Hamiltonian, $H_0'=\Omega_{gs}+\sum_k\epsilon_k\left(\alkd\alk+\alkbd\alkb\right)$ to experiment. The lowest excited state for even-even nuclei is the lowest possible two-quasiparticle excitation
+   \begin{equation}
+      2\epsilon_k=2\sqrt{(\varepsilon-\mu)^2+\Delta^2} \ge 2\Delta.
+   \end{equation}
+   This corresponds to the breaking of one pair.
+   \item If you take an odd nucleus as an even-even core plus an extra quasiparticle, then you can use this for odd systems as well. For this the ground state energy is $\Omega_{gs} + \epsilon_{k_0}$, giving the lowest excited state an energy of $\epsilon_k-\epsilon_{k_0}$.
+   \item This means that the binding energy for an odd mass nucleus is about $\epsilon_{k_0} \approx \Delta$ larger than for even-even nuclei. This is experimentally known from the liquid-drop model and is roughly
+   \begin{equation}
+      \Delta = \frac{2\delta}{\sqrt{A}}=\frac{12\mathrm{MeV}}{\sqrt{A}}
+   \end{equation}
+\end{itemize}
+}
+
+\frame{\frametitle{Relation to Experimental Information}
+\begin{itemize}
+   \item Figure 6.4 shows results for $\Delta$ values that match experiment pretty well, which is evidence that the strong force has two-body interactions similar to the pairing force.
+   \item The author then goes on to give some numerical estimates of $g(\mu)$, $S$, $G$, and $\sigma$.
+\end{itemize}
+}
+
+\end{document}

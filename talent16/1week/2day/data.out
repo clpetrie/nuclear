@@ -1,0 +1,363 @@
+Diffusion Monte Carlo
+Number of blocks for equilibration =                     10
+Number of blocks for statistics =                        50
+Number of steps for each block =                        100
+Walkers =                                              9232
+Alpha parameter of the trial wave function =        1.80000
+Omega strength of the potential =                   1.00000
+Time step =                                         0.00050
+Trial energy =                                      0.50000
+
+block =                                   1
+walker number =                        9232
+tau =                   0.55500E+01
+energy for block = 0.50054E+00 +/- 0.58540E-02
+growth energy for block = 0.71491E+00
+
+
+block =                                   2
+walker number =                        9248
+tau =                   0.56000E+01
+energy for block = 0.50571E+00 +/- 0.58056E-02
+growth energy for block = 0.71661E+00
+
+
+block =                                   3
+walker number =                        9225
+tau =                   0.56500E+01
+energy for block = 0.51035E+00 +/- 0.56319E-02
+growth energy for block = 0.71837E+00
+
+
+block =                                   4
+walker number =                        9226
+tau =                   0.57000E+01
+energy for block = 0.50934E+00 +/- 0.56894E-02
+growth energy for block = 0.71856E+00
+
+
+block =                                   5
+walker number =                        9238
+tau =                   0.57500E+01
+energy for block = 0.51131E+00 +/- 0.56861E-02
+growth energy for block = 0.71738E+00
+
+
+block =                                   6
+walker number =                        9215
+tau =                   0.58000E+01
+energy for block = 0.51321E+00 +/- 0.55349E-02
+growth energy for block = 0.71744E+00
+
+
+block =                                   7
+walker number =                        9209
+tau =                   0.58500E+01
+energy for block = 0.51927E+00 +/- 0.54098E-02
+growth energy for block = 0.72027E+00
+
+
+block =                                   8
+walker number =                        9208
+tau =                   0.59000E+01
+energy for block = 0.52062E+00 +/- 0.54262E-02
+growth energy for block = 0.72139E+00
+
+
+block =                                   9
+walker number =                        9209
+tau =                   0.59500E+01
+energy for block = 0.51903E+00 +/- 0.55713E-02
+growth energy for block = 0.71980E+00
+
+
+block =                                  10
+walker number =                        9188
+tau =                   0.60000E+01
+energy for block = 0.51641E+00 +/- 0.55899E-02
+growth energy for block = 0.71747E+00
+
+
+block =                                  11
+walker number =                        9169
+tau =                   0.60500E+01
+energy for block = 0.51655E+00 +/- 0.56172E-02
+growth energy for block = 0.71718E+00
+
+
+block =                                  12
+walker number =                        9169
+tau =                   0.61000E+01
+energy for block = 0.51490E+00 +/- 0.57811E-02
+growth energy for block = 0.71619E+00
+
+
+block =                                  13
+walker number =                        9160
+tau =                   0.61500E+01
+energy for block = 0.50989E+00 +/- 0.58597E-02
+growth energy for block = 0.71363E+00
+
+
+block =                                  14
+walker number =                        9155
+tau =                   0.62000E+01
+energy for block = 0.51124E+00 +/- 0.57444E-02
+growth energy for block = 0.71281E+00
+
+
+block =                                  15
+walker number =                        9133
+tau =                   0.62500E+01
+energy for block = 0.50645E+00 +/- 0.58228E-02
+growth energy for block = 0.71217E+00
+
+
+block =                                  16
+walker number =                        9157
+tau =                   0.63000E+01
+energy for block = 0.50732E+00 +/- 0.58310E-02
+growth energy for block = 0.71225E+00
+
+
+block =                                  17
+walker number =                        9148
+tau =                   0.63500E+01
+energy for block = 0.50302E+00 +/- 0.59205E-02
+growth energy for block = 0.70932E+00
+
+
+block =                                  18
+walker number =                        9142
+tau =                   0.64000E+01
+energy for block = 0.50012E+00 +/- 0.61036E-02
+growth energy for block = 0.70895E+00
+
+
+block =                                  19
+walker number =                        9152
+tau =                   0.64500E+01
+energy for block = 0.49753E+00 +/- 0.60733E-02
+growth energy for block = 0.70872E+00
+
+
+block =                                  20
+walker number =                        9169
+tau =                   0.65000E+01
+energy for block = 0.49720E+00 +/- 0.60243E-02
+growth energy for block = 0.70658E+00
+
+
+block =                                  21
+walker number =                        9152
+tau =                   0.65500E+01
+energy for block = 0.50190E+00 +/- 0.59308E-02
+growth energy for block = 0.70938E+00
+
+
+block =                                  22
+walker number =                        9155
+tau =                   0.66000E+01
+energy for block = 0.50051E+00 +/- 0.58997E-02
+growth energy for block = 0.70936E+00
+
+
+block =                                  23
+walker number =                        9159
+tau =                   0.66500E+01
+energy for block = 0.49761E+00 +/- 0.59476E-02
+growth energy for block = 0.70720E+00
+
+
+block =                                  24
+walker number =                        9148
+tau =                   0.67000E+01
+energy for block = 0.49920E+00 +/- 0.58425E-02
+growth energy for block = 0.70840E+00
+
+
+block =                                  25
+walker number =                        9151
+tau =                   0.67500E+01
+energy for block = 0.49609E+00 +/- 0.58851E-02
+growth energy for block = 0.70666E+00
+
+
+block =                                  26
+walker number =                        9150
+tau =                   0.68000E+01
+energy for block = 0.50555E+00 +/- 0.56968E-02
+growth energy for block = 0.70839E+00
+
+
+block =                                  27
+walker number =                        9116
+tau =                   0.68500E+01
+energy for block = 0.50635E+00 +/- 0.57624E-02
+growth energy for block = 0.70981E+00
+
+
+block =                                  28
+walker number =                        9125
+tau =                   0.69000E+01
+energy for block = 0.50338E+00 +/- 0.57543E-02
+growth energy for block = 0.70897E+00
+
+
+block =                                  29
+walker number =                        9129
+tau =                   0.69500E+01
+energy for block = 0.50653E+00 +/- 0.57835E-02
+growth energy for block = 0.71003E+00
+
+
+block =                                  30
+walker number =                        9126
+tau =                   0.70000E+01
+energy for block = 0.50578E+00 +/- 0.56729E-02
+growth energy for block = 0.70928E+00
+
+
+block =                                  31
+walker number =                        9113
+tau =                   0.70500E+01
+energy for block = 0.50484E+00 +/- 0.58490E-02
+growth energy for block = 0.70907E+00
+
+
+block =                                  32
+walker number =                        9118
+tau =                   0.71000E+01
+energy for block = 0.50100E+00 +/- 0.58389E-02
+growth energy for block = 0.70738E+00
+
+
+block =                                  33
+walker number =                        9122
+tau =                   0.71500E+01
+energy for block = 0.50162E+00 +/- 0.58393E-02
+growth energy for block = 0.70733E+00
+
+
+block =                                  34
+walker number =                        9121
+tau =                   0.72000E+01
+energy for block = 0.50536E+00 +/- 0.58330E-02
+growth energy for block = 0.70774E+00
+
+
+block =                                  35
+walker number =                        9098
+tau =                   0.72500E+01
+energy for block = 0.50702E+00 +/- 0.57709E-02
+growth energy for block = 0.70763E+00
+
+
+block =                                  36
+walker number =                        9083
+tau =                   0.73000E+01
+energy for block = 0.50471E+00 +/- 0.57981E-02
+growth energy for block = 0.70665E+00
+
+
+block =                                  37
+walker number =                        9081
+tau =                   0.73500E+01
+energy for block = 0.50916E+00 +/- 0.57156E-02
+growth energy for block = 0.70796E+00
+
+
+block =                                  38
+walker number =                        9070
+tau =                   0.74000E+01
+energy for block = 0.50363E+00 +/- 0.57752E-02
+growth energy for block = 0.70513E+00
+
+
+block =                                  39
+walker number =                        9071
+tau =                   0.74500E+01
+energy for block = 0.50657E+00 +/- 0.58640E-02
+growth energy for block = 0.70483E+00
+
+
+block =                                  40
+walker number =                        9051
+tau =                   0.75000E+01
+energy for block = 0.51259E+00 +/- 0.57011E-02
+growth energy for block = 0.70679E+00
+
+
+block =                                  41
+walker number =                        9030
+tau =                   0.75500E+01
+energy for block = 0.51007E+00 +/- 0.57741E-02
+growth energy for block = 0.70570E+00
+
+
+block =                                  42
+walker number =                        9033
+tau =                   0.76000E+01
+energy for block = 0.50714E+00 +/- 0.57728E-02
+growth energy for block = 0.70495E+00
+
+
+block =                                  43
+walker number =                        9045
+tau =                   0.76500E+01
+energy for block = 0.50285E+00 +/- 0.57992E-02
+growth energy for block = 0.70224E+00
+
+
+block =                                  44
+walker number =                        9030
+tau =                   0.77000E+01
+energy for block = 0.49893E+00 +/- 0.58563E-02
+growth energy for block = 0.69973E+00
+
+
+block =                                  45
+walker number =                        9018
+tau =                   0.77500E+01
+energy for block = 0.49173E+00 +/- 0.59578E-02
+growth energy for block = 0.69703E+00
+
+
+block =                                  46
+walker number =                        9023
+tau =                   0.78000E+01
+energy for block = 0.49979E+00 +/- 0.58379E-02
+growth energy for block = 0.70092E+00
+
+
+block =                                  47
+walker number =                        9031
+tau =                   0.78500E+01
+energy for block = 0.49553E+00 +/- 0.58826E-02
+growth energy for block = 0.69817E+00
+
+
+block =                                  48
+walker number =                        9018
+tau =                   0.79000E+01
+energy for block = 0.49791E+00 +/- 0.59440E-02
+growth energy for block = 0.69944E+00
+
+
+block =                                  49
+walker number =                        9020
+tau =                   0.79500E+01
+energy for block = 0.49609E+00 +/- 0.60175E-02
+growth energy for block = 0.69946E+00
+
+
+block =                                  50
+walker number =                        9036
+tau =                   0.80000E+01
+energy for block = 0.49960E+00 +/- 0.60064E-02
+growth energy for block = 0.70113E+00
+
+
+Finished!
+E = 0.50538E+00 +/- 0.94396E-03
+

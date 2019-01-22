@@ -1,0 +1,401 @@
+\documentclass[12pt]{extarticle}
+\usepackage[margin=1in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{cancel}
+
+%My commands
+\newcommand{\Oi}{\mathcal{O}_{i}}
+\newcommand{\Oij}{\mathcal{O}_{ij}}
+\newcommand{\Okl}{\mathcal{O}_{kl}}
+\newcommand{\Oijp}{\mathcal{O}^p_{ij}}
+\newcommand{\Oklp}{\mathcal{O}^p_{kl}}
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\braket}[2]{\left< #1 | #2 \right>}
+\newcommand{\ketbra}[2]{\left| #1 \right> \left< #2 \right|}
+\newcommand{\taui}{\bm{\tau}_i}
+\newcommand{\tauj}{\bm{\tau}_j}
+\newcommand{\sigmai}{\bm{\sigma}_i}
+\newcommand{\sigmaj}{\bm{\sigma}_j}
+\newcommand{\rij}{\hat{r}_{ij}}
+\newcommand{\sigmaia}{\sigma_{i\alpha}}
+\newcommand{\sigmaib}{\sigma_{i\beta}}
+\newcommand{\tauig}{\tau_{i\gamma}}
+\newcommand{\sigmaja}{\sigma_{j\alpha}}
+\newcommand{\sigmajb}{\sigma_{j\beta}}
+\newcommand{\taujg}{\tau_{j\gamma}}
+\newcommand{\tauij}{\taui \cdot \tauj}
+\newcommand{\sigmaij}{\sigmai \cdot \sigmaj}
+\newcommand{\mycolor}[1]{\textit{\textcolor{red}{#1}}}
+\newcommand{\longsi}{s_1, \ldots, s_{i-1} , s, s_{i+1}, \ldots, s_A}
+\newcommand{\longsij}{s_1, \ldots, s_{i-1} , s, s_{i+1}, \ldots, s_{j-1}, s', s_{j+1}, \ldots ,s_A}
+\newcommand{\Ot}{\mathcal{O}^\tau_{n\alpha}}
+\newcommand{\Os}{\mathcal{O}^\sigma_{n}}
+\newcommand{\Ost}{\mathcal{O}^{\sigma\tau}_{n\alpha}}
+\newcommand{\detr}{\mathrm{det}}
+
+\title{Calculating the Trial Wave Function for AFDMC}
+\author{Cody L. Petrie}
+
+\begin{document}
+\maketitle
+
+\section{Trial Wave Function}
+The trial wave function for AFDMC must be simple to evaluate. In the past the simple Slater determinant with pair-wise correlations has been used as shown in \cite{gandolfi2014},
+\begin{equation}
+  \braket{RS}{\Psi_T} = \bra{RS} \left[ \prod_{i<j}f_c(r_{ij}) \right] \left[ 1+\sum_{i<j}\sum_p f_p(r_{ij})\Oijp \right] \ket{\Phi},
+  \label{equ:simpletrial}
+\end{equation}
+where the $\Oijp$'s are $\tauij$, $\sigmaij$, and $t_{ij}\tauij$, where $t_{ij} = 3\sigmai \cdot \hat{r}_{ij} \sigmaj \cdot \hat{r}_{ij}-\sigmaij$. The $\sigmaij$ and $t_{ij}$ terms were not included in this paper because in this original paper they looked at the terms that included the most important physics.
+
+My goal is to add the additional independent pair correlations.
+\begin{equation}
+  \braket{RS}{\Psi_T} = \bra{RS} \left[ \prod_{i<j}f_c(r_{ij}) \right] \left[ 1+\sum_{i<j}\sum_p f_p(r_{ij})\Oijp + \sum_{p,i<j}\sum_{p,k<l} f_p(r_{ij})\Oijp f_p(r_{kl})\Oklp \right] \ket{\Phi}
+\end{equation}
+The triple sum is called the independent pair correlation term because the sum over $k<l$ does not include any pairs that include $i$ or $j$. For example, if $i=1$ and $j=2$ then we could include the $kl$ pairs of $34, 45,$ etc., but would not include the pairs $13, 25,$ etc.
+
+\section{Evaluation of the Trial Wave Function}
+To understand how to to this I'm going to just assume that $\Oijp$ only contains the term $\sigmaij$ and I'll start by looking at the trial wave function, equation~\ref{equ:simpletrial}, with only the linear term. So now
+\begin{equation}
+  \braket{RS}{\Psi_T} = \bra{RS} \left[ \prod_{i<j}f_c(r_{ij}) \right] \left[ 1+\sum_{i<j} f_1(r_{ij})\sigmaij \right] \ket{\Phi}.
+\end{equation}
+Also since the central correlations don't change the states by any more than a multiplicative factor I am going to ignore that term as well. I will also just look at one term in the sum (a particular $i$ and $j$ value). So we are just looking at
+\begin{equation}
+  \bra{RS} \left[ 1+f_1(r_{ij})\sigmaij \right] \ket{\Phi}.
+  \label{equ:simpex}
+\end{equation}
+Now we also know that the Slater determinant is defined as
+\begin{equation}
+  \braket{RS}{\Phi} = \mathrm{det}(S) = \frac{1}{\sqrt{N!}} \begin{vmatrix}
+  \phi_1(R_1S_1) & \phi_2(R_1S_1) & \cdots & \psi_N(R_1S_1) \\ 
+  \phi_1(R_2S_2) & \phi_2(R_2S_2) & \cdots & \phi_N(R_2S_2) \\
+  \vdots & \vdots & \ddots &\vdots \\
+  \phi_1(R_NS_N)& \phi_2(R_NS_N) & \cdots & \phi_N(R_NS_N) \end{vmatrix},
+\end{equation}
+where $\phi_i(R_jS_j)=\phi^r_i(R_j)\phi^s_i(S_j)$ and $S$ is called the Slated Matrix.
+
+Now lets look at equation~\ref{equ:simpex} again for an example.
+\begin{align}
+  & ~ ~ ~ \bra{RS} \left[ 1+f_1(r_{ij})\sigmaij \right] \ket{\Phi} \\
+  &= \mathrm{det}(S) + f_1(r_{ij}) \bra{RS}\sigmaij\ket{\Phi} \\
+  &= \mathrm{det}(S) + f_1(r_{ij})\mathrm{det}(S'')
+\end{align}
+Here $S''$ is the updated matrix. It only has two columns different than $S$ and so we can get it's determinant of $S''$ easily once we have the determinant of $S$ by using the fact that
+\begin{equation}
+  \mathrm{det}(S^{-1}_{ij} S''_{jk}) = \frac{\mathrm{det}(S''_{jk})}{\mathrm{det}(S_{ij})},
+\end{equation}
+where there are two primes simply because there were two columns changed. When we solve for $\mathrm{det}(S)$ we finish solving for the inverse, $S^{-1}$ and the product $S^{-1}_{ij}S''_{jk}$ is $1$ on the diagonal and $0$ everywhere else except the two columns $i$ and $j$. This makes the $\mathrm{det}(S^{-1}_{ij}S''_{jk})$ easy to solve for since it is simply the determinant of the submatrix. Thus once we have $\mathrm{det}(S)$ it is easier to solve for $\mathrm{det}(S'')$. All that is left is to do this over the pair loops and over each operator.
+
+\section{Implimentation in the code}
+Now how is this implimented into the code. The element of the Slater martix that corresponds to the $k^{th}$ orbital and the $i^{th}$ particle is given by
+\begin{equation}
+  S_{ki} = \braket{k}{r_i,s_i} = \sum_{s=1}^4 \braket{k}{r_i,s}\braket{s}{s_i}.
+\end{equation}
+From this you can see that a general Slater matrix can be written as a linear combination of matrix elements $\braket{k}{r_i,s}$ and coefficients $\braket{s}{s_i}$.
+
+Therefore it's convenient to precompute
+\begin{equation}
+  \mathrm{sxz(s,i,j) = sxmallz(j,s,i)} = \sum_k S^{-1}_{jk} \braket{k}{r_i,s}.
+\end{equation}
+For example if we were computing the determinant of $S''_{ij} = \braket{k}{r_i,s'_i}$ where the $s'_i$ was changed is different from $s_i$ on the changed columns, then the product matrix could be computed as
+\begin{equation}
+  S^{-1}_{jk}S''_{ki} = \sum_{s=1}^4 \left(\sum_k S^{-1}_{jk} \braket{k}{r_i,s}\right) \left(\braket{s}{s_i}\right) = \sum_{s=1}^4 \mathrm{sxz(s,i,j)} \braket{s}{s_i}.
+  \label{equ:usesxz}
+\end{equation}
+\mycolor{Question 2: Is this how we use sxz?}
+
+I have looked at how to calculate the trial wave function with a correlation operator in the middle now lets look at how to do it with 1 and 2-body spin-isospin operators in the middle. Here I am mostly filling in gaps in my understanding of Kevin Schmidt's writeup.
+
+\subsection{1-body spin-isospin operators}
+Here the idea is we want to calculate expectation values like
+\begin{equation}
+ \left< \sum_i \Oi \right> = \frac{\bra{\Phi} \sum\limits_i \Oi \ket{R,S}}{\braket{\Phi}{R,S}}.
+\end{equation}
+Now let's expand this the numerator term
+\begin{align}
+  \bra{\Phi} \sum_i \Oi \ket{R,S} &= \bra{\Phi} \sum_i \Oi \ket{R,s_1,\ldots,s_A} \\
+  &= \bra{\Phi} \sum_i\sum_{s=1}^4  \ketbra{s}{s} \Oi \ket{R,s_1,\ldots,s_A} \\
+  &= \bra{\Phi} \sum_i\sum_{s=1}^4  \bra{s}\Oi\ket{s_i} \ket{R,\longsi} \\
+  &= \bra{\Phi} \sum_i\sum_{s=1}^4 \alpha_{is} \ket{R,\longsi} \\
+  &= \sum_i\sum_{s=1}^4 \alpha_{is} \braket{\Phi}{R,\longsi} \\
+  &= \sum_i\sum_{s=1}^4 \alpha_{is} \mathrm{d1b(s,i)} \braket{\Phi}{RS},
+\end{align}
+where $\alpha_{is} = \bra{s} \Oi \ket{s_i}$ and $\mathrm{d1b(s,i)} = \braket{\Phi}{R,\longsi}/\braket{\Phi}{R,s_1,\ldots,s_A}$. Rearranging this we can get the expectation value
+\begin{equation}
+  \left< \sum_i \Oi \right> = \sum_i \sum_{s=1}^4 \alpha_{is}\mathrm{d1b(s,i)}.
+\end{equation}
+Notice that when you match the notation we have
+\begin{align}
+  \mathrm{d1b(s,i)} &= \braket{\Phi}{R,\longsi} \braket{\Phi}{R,s_1,\ldots,s_A} \\
+  &= \sum_k \braket{k}{r_i,s} \braket{k}{r_i,s_i} \\
+  &= \sum_k S^{-1}_{ik} \braket{k}{r_i,s} \\
+  &= \mathrm{sxz(s,i,i)}.
+\end{align}
+%\mycolor{Question 3: I can't figure out why. Why are these two equal? If it is easier to answer with regards to the d2b case then that works too.}
+
+\subsection{2-body spin-isospin operators}
+Here the idea is we want to calculate expectation values like
+\begin{equation}
+ \left< \sum_{i<j} \Oij \right> = \frac{\bra{\Phi} \sum\limits_{i<j} \Oij \ket{R,S}}{\braket{\Phi}{R,S}}.
+\end{equation}
+Now let's expand this the numerator term
+\begin{align}
+  \bra{\Phi} \sum_{i<j} \Oij \ket{R,S} &= \bra{\Phi} \sum_{i<j} \Oij \ket{R,s_1,\ldots,s_A} \\
+  &= \bra{\Phi} \sum_{i<j}\sum_{s=1}^4\sum_{s'=1}^4  \ket{s}\braket{s}{s'}\bra{s'} \Oij \ket{R,s_1,\ldots,s_A} \\
+  &= \bra{\Phi} \sum_{i<j}\sum_{s=1}^4\sum_{s'=1}^4  \bra{s,s'}\Oij\ket{s_i,s_j} \ket{R,\longsij} \\
+  &= \bra{\Phi} \sum_{i<j}\sum_{s=1}^4\sum_{s'=1}^4 \alpha_{ijs} \ket{R,\longsij} \\
+  &= \sum_{i<j}\sum_{s=1}^4\sum_{s'=1}^4 \alpha_{ijs} \braket{\Phi}{R,\longsij} \\
+  &= \sum_{i<j}\sum_{s=1}^4\sum_{s'=1}^4 \alpha_{ijs} \mathrm{d2b(s,s',ij)} \braket{\Phi}{RS},
+\end{align}
+where $\alpha_{ijs} = \bra{s,s'} \Oij \ket{s_i,s_j}$ and
+\begin{equation}
+  \mathrm{d2b(s,s',ij)} = \braket{\Phi}{R,\longsij}/\braket{\Phi}{R,s_1,\ldots,s_A}.
+\end{equation}
+Rearranging this we can get the expectation value
+\begin{equation}
+  \left< \sum_{ij} \Oij \right> = \sum_{ij=1}^{((A-1)A)/2}\sum_{s=1}^4\sum_{s'=1}^4 \alpha_{ijs}\mathrm{d2b(s,s',ij)},
+\end{equation}
+and where the sum, $\sum\limits_{ij}^{((A-1)A)/2}$ is essentially doing the same thing as $\sum\limits_{i=1}^{A-1}\sum\limits_{j=i+1}^{A}$ or $\sum\limits_{i<j}$.
+Notice again that we have
+\begin{equation}
+  \mathrm{d2b(s,s',ij)} = \mathrm{det} \begin{pmatrix}
+  \mathrm{sxz(s,i,i)} & \mathrm{sxz(s,i,j)} \\
+  \mathrm{sxz(s',j,i)} & \mathrm{sxz(s',j,j)} \end{pmatrix}
+  =\mathrm{sxz(s,i,i)sxz(s',j,j) - sxz(s,i,j)sxz(s',j,i)}.
+\end{equation}
+You can see this if you notice that
+\begin{equation}
+  \mathrm{d2b(s,s',ij)} = \frac{\mathrm{det}(S''(s))}{\mathrm{det}(S)} = \mathrm{det}\left(S''(s)S^{-1}\right).
+\end{equation}
+Now comparing this to equation~\ref{equ:usesxz} and noting that since the two matricies only differ by columns $i$ and $j$, you can see that the determinant of the product,$\mathrm{d2b(s,s',ij)}$ , is just the determinant of the submatrix.
+
+\subsection{Inverse Update}
+Now in cases where we have two set's of operators like for example when we need to calculate the expectation value of the potential, there is the correlation operator and the potential operators. One of the operators is handled in the inner loop while the other is handeled in a more outer loop. We can include the second operator (set of operators) in the same way that the operators were included above except that we will now need the inverse of the new Slater Matrix, $S'^{-1}$. To do this we need to update $\mathrm{sxz(s,i,j)}$. The new $\mathrm{sxz}$ will be called $\mathrm{sxzi}$ and is shown here
+\begin{equation}
+  \mathrm{sxzi(s,n,m)} = \sum_k S'^{-1}_{mk}S'_{kn}(s),
+\end{equation}
+where
+\begin{equation}
+  S'_{km} = \begin{cases}
+    S_{km} & m \neq i \\
+    \bra{k} \Oi \ket{r_i,s_i} & m=i,
+  \end{cases}
+\end{equation}
+and
+\begin{equation}
+  S'_{km}(s) = \begin{cases}
+    \braket{k}{r_m,s} & m \neq i \\
+    \bra{k} \Oi \ket{r_i,s} & m=i.
+  \end{cases}
+\end{equation}
+
+For example, assume we needed to get something like
+\begin{equation}
+  \bra{R,S}(\sum_{i<j}v_{ij})(1+\sum_{i<j}\sum_p \Oijp) \ket{\Phi},
+\end{equation}
+where the first operator is part of the potential and the second is the correlation operator. I have left off any operators that don't depend on the spin. Now let's look at a single set of pairs for only one of the $p$ operators. This would look like
+\begin{equation}
+  \bra{R,S} v_{ij}(1+\Okl) \ket{\Phi} = \mathrm{det}(S'') + \mathrm{det}(S''''),
+\end{equation}
+where the number of primes is the number of changed columns (unless $i$ or $j$ was equal to $k$ or $l$). Let's look at how to get these ratio's of determinants one (single particle) operator at a time.
+\begin{align}
+  \frac{\mathrm{det}S''}{\mathrm{det}S} &= \frac{\detr S'}{\detr S}\frac{\detr S''}{\detr S'} \\
+  &= \frac{\detr S'}{\detr S}\sum_n S'^{-1}_{jn}S''_{nj} \label{equ:detrat1}
+\end{align}
+Here I have used the face that if the only difference between $S''$ and $S'$ is the column $j$, then the radio of determinants can be written as $\sum_n S'^{-1}_{jn}S''_{nj}$. If you can't see this try simple 2x2 matricies that only differ by one column and work it out (I had to use Mathematica to verify this). If this fact is again used on the first radio of determinants we can write
+\begin{equation}
+  \frac{\mathrm{det}S''}{\mathrm{det}S} = \begin{cases}
+  \sum_{nm} S^{-1}_{im}S''_{mi}S^{-1}_{jn}S''_{nj} - \sum_{nm}S^{-1}_{in}S''_{nj}S^{-1}_{jm}S''_{mi} & j \neq i \\
+  \sum_n S^{-1}_{in}S''_{ni} & j = i.
+  \end{cases}
+  \label{equ:detrat2}
+\end{equation}
+This $j=1$ case is easy to see, $S''$ and $S$ only differ by one column in this case, or you can work it out and recognize that the martix multiplication $C=A.B$ can be written $c_{ij} = a_{in}*b_{nj}$. The case where $j \neq i$ is a little harder to see. Just imagine taking the ratio of a 2x2 matrix where the components are come from the columns that were not inverted to be the unit matrix. Now let's compare the rhs of equation~\ref{equ:detrat2} to equation~\ref{equ:detrat1} for both cases, starting with the case where $j=i$.
+\begin{align}
+  &\frac{\detr S'}{\detr S}\cancel{\sum_n} S'^{-1}_{jn}\cancel{S''_{nj}} = \cancel{\sum_n} S^{-1}_{in}\cancel{S''_{ni}} \\
+  &\rightarrow S'^{-1}_{jn} = \frac{S^{-1}_{in}}{\sum\limits_l S^{-1}_{il}S'_{li}}
+\end{align}
+Now for the case $j\neq i$ we know that $S''_{mi} = S'_{mi}$.
+\begin{align}
+  &\frac{\detr S'}{\detr S}\cancel{\sum_n} S'^{-1}_{jn}\cancel{S''_{nj}} = \cancel{\sum_n}\sum_m S^{-1}_{im}S''_{mi}S^{-1}_{jn}\cancel{S''_{nj}} - \cancel{\sum_n}\sum_m S^{-1}_{in}\cancel{S''_{nj}}S^{-1}_{jm}S''_{mi} \\
+  &\rightarrow S'^{-1}_{jn} = \frac{\cancel{\sum_m S^{-1}_{im}S'_{mi}}S^{-1}_{jn}}{\cancel{\sum_l S^{-1}_{il}S'_{li}}} - \frac{\sum_m S^{-1}_{jm}S'_{mi}}{\sum_l S^{-1}_{il}S'_{li}}S^{-1}_{in} \\
+  &= S^{-1}_{jn} - \frac{\sum_m S^{-1}_{jm}S'_{mi}}{\sum_l S^{-1}_{il}S'_{li}}S^{-1}_{in}
+\end{align}
+Thus overall we get for the new inverse
+\begin{equation}
+  S'^{-1}_{jn} = \begin{cases}
+  S^{-1}_{jn} - \frac{\sum_m S^{-1}_{jm}S'_{mi}}{\sum_l S^{-1}_{il}S'_{li}}S^{-1}_{in} & j \neq i \\
+  \frac{S^{-1}_{in}}{\sum\limits_l S^{-1}_{il}S'_{li}} & j = i.
+  \end{cases}
+  \label{equ:updatedinverse}
+\end{equation}
+Now we can use these to find the new $\mathrm{sxzi(s,n,m)}$ from the old $\mathrm{sxz(s,n,m)}$. Here we have for cases. I'll start with the case $n,m\neq i$.
+For all of these remember that
+\begin{equation}
+  \mathrm{sxz(s,n,m)} = \sum_k S^{-1}_{mk} \braket{k}{\mathbf{r}_n,s}.
+\end{equation}
+Let's start with the expression for $\mathrm{sxzi(s,n,m)}$ and use equation~\ref{equ:updatedinverse} to proceed.
+\begin{align}
+  \mathrm{sxzi(s,n,m)} &= \sum_k S'^{-1}_{mk}\braket{k}{\mathbf{r}_n,s} \\
+  &= \sum_kS^{-1}_{mk}\braket{k}{\mathbf{r}_n,s} - \sum_k \frac{\sum_l S^{-1}_{ml} S'_{li}}{\sum_l S^{-1}_{il} S'_{li}} S^{-1}_{ik}\braket{k}{\mathbf{r}_n,s} \\
+  &= \mathrm{sxz(s,n,m)} - \frac{\sum_k S^{-1}_{mk}\bra{k}\Oi\ket{\mathbf{r}_i,s_i}}{\sum_k S^{-1}_{ik}\bra{k}\Oi\ket{\mathbf{r}_i,s_i}} \mathrm{sxz(s,n,i)}
+\end{align}
+Here I have used the fact that $S'_{li} = \bra{k}\Oi\ket{\mathbf{r}_i,s_i}$. Now let's look at the case $n\neq i, m=i$.
+\begin{align}
+  \mathrm{sxzi(s,n,m)} &= \sum_k S'^{-1}_{mk}\braket{k}{\mathbf{r}_n,s} \\
+  &= \sum_k \frac{S^{-1}_{ik}}{\sum_l S^{-1}_{il}S'_{li}} \braket{k}{\mathbf{r}_n,s} \\
+  &= \frac{\mathrm{sxz(s,n,i)}}{\sum_k S^{-1}_{ik} \bra{k}\Oi\ket{\mathbf{r}_i,s_i}}
+\end{align}
+Now let's do the case where $n=i,m\neq i$.
+\begin{align}
+  \mathrm{sxzi(s,n,m)} &= \sum_k S'^{-1}_{mk}\bra{k}\Oi\ket{\mathbf{r}_i,s} \\
+  &= \sum_kS^{-1}_{mk}\bra{k}\Oi\ket{\mathbf{r}_i,s} - \sum_k \frac{\sum_l S^{-1}_{ml} S'_{li}}{\sum_l S^{-1}_{il} S'_{li}} S^{-1}_{ik}\bra{k}\Oi\ket{\mathbf{r}_i,s} \\
+  &= \sum_kS^{-1}_{mk}\bra{k}\Oi\ket{\mathbf{r}_i,s} - \frac{\sum_k S^{-1}_{mk} \bra{k}\Oi\ket{\mathbf{r}_i,s_i}}{\sum_k S^{-1}_{ik} \bra{k}\Oi\ket{\mathbf{r}_i,s_i}} \sum_k S^{-1}_{ik}\bra{k}\Oi\ket{\mathbf{r}_i,s}
+\end{align}
+Now let's do the case where $n=m=i$.
+\begin{align}
+  \mathrm{sxzi(s,n,m)} &= \sum_k S'^{-1}_{mk}\bra{k}\Oi\ket{\mathbf{r}_i,s} \\
+  &= \sum_k \frac{S^{-1}_{ik}}{\sum_l S^{-1}_{il}S'_{li}} \bra{k}\Oi\ket{\mathbf{r}_i,s} \\
+  &= \frac{\sum_k S^{-1}_{ik}\bra{k}\Oi\ket{\mathbf{r}_i,s}}{\sum_k S^{-1}_{ik} \bra{k}\Oi\ket{\mathbf{r}_i,s_i}}
+\end{align}
+Now puting all of these together we can write it for all 4 cases.
+\begin{equation}
+  \mathrm{sxzi(s,n,m)} = \begin{cases}
+  \mathrm{sxz(s,n,m)} - \frac{\sum_k S^{-1}_{mk}\bra{k}\Oi\ket{\mathbf{r}_i,s_i}}{\sum_k S^{-1}_{ik}\bra{k}\Oi\ket{\mathbf{r}_i,s_i}} \mathrm{sxz(s,n,i)} & n,m \neq i \\
+  \frac{\mathrm{sxz(s,n,i)}}{\sum_k S^{-1}_{ik} \bra{k}\Oi\ket{\mathbf{r}_i,s_i}} & n \neq i,m = i \\
+  \sum_kS^{-1}_{mk}\bra{k}\Oi\ket{\mathbf{r}_i,s} - \frac{\sum_k S^{-1}_{mk} \bra{k}\Oi\ket{\mathbf{r}_i,s_i}}{\sum_k S^{-1}_{ik} \bra{k}\Oi\ket{\mathbf{r}_i,s_i}} \sum_k S^{-1}_{ik}\bra{k}\Oi\ket{\mathbf{r}_i,s} & n=1, m \neq i \\
+  \frac{\sum_k S^{-1}_{ik}\bra{k}\Oi\ket{\mathbf{r}_i,s}}{\sum_k S^{-1}_{ik} \bra{k}\Oi\ket{\mathbf{r}_i,s_i}} & n=m=i \\
+  \end{cases}
+\end{equation}
+To simplify the expression and calculations even more let's make two more definitions.
+\begin{equation}
+  \mathrm{opi(s,m)} = \sum_k S^{-1}_{mk}\bra{k}\Oi\ket{\mathbf{r}_i,s} = \sum_{s'}\sum_k S^{-1}_{mk} \braket{k}{\mathbf{r}_i,s'}\bra{s'}\Oi\ket{s} = \sum_{s'} \mathrm{sxz(s',i,m)}\bra{s'}\Oi\ket{s}
+\end{equation}
+\begin{equation}
+  \mathrm{di(m)} = \sum_k S^{-1}_{mk}\bra{k}\Oi\ket{\mathbf{r}_i,s_i} = \sum_s\sum_k S^{-1}_{mk}\bra{k}\Oi\ket{\mathbf{r}_i,s}\braket{s}{s_i} = \sum_s \mathrm{opi(s,m)}\braket{s}{s_i}
+\end{equation}
+With these new definitions we can more easily write
+\begin{equation}
+  \mathrm{sxzi(s,n,m)} = \begin{cases}
+  \mathrm{sxz(s,n,m)} - \frac{\mathrm{di(m)}}{\mathrm{di(i)}} \mathrm{sxz(s,n,i)} & n,m \neq i \\
+  \frac{\mathrm{sxz(s,n,i)}}{\mathrm{di(i)}} & n \neq i,m = i \\
+  \mathrm{opi(s,m)} - \frac{\mathrm{di(m)}}{\mathrm{di(i)}} \mathrm{opi(s,i)} & n=1, m \neq i \\
+  \frac{\mathrm{opi(s,i)}}{\mathrm{di(i)}} & n=m=i \\
+  \end{cases}
+\end{equation}
+
+\section{Breakup of correlation operator in Cartesian}
+\subsection{Linear Term Only}
+Here I am going to show how we have broken up the correlation operator in Cartesian coordinates. The correlation operator is
+\begin{equation}
+  \sum_{p=1}^6 f^p(r_{ij}) \Oijp
+\end{equation}
+where here I'm going to drop the subscripts $ij$ and the argument $(r_{ij})$. Here I am going to break these up into Cartesian components. The first three are simple.
+\begin{equation}
+  \mathcal{O}^1 = f^1
+  \label{equ:central}
+\end{equation}
+\begin{equation}
+  \mathcal{O}^2 = f^2 \taui \cdot \tauj = f^2 \tauig \taujg
+  \label{equ:At}
+\end{equation}
+So the first piece of the breakup comes from the $\tauig \taujg$ term. The next two come from sums and terms so I will try to show those here.
+\begin{equation}
+  \mathcal{O}^3 = f^3\sigmai\cdot\sigmaj = f^3\sigmaia\sigmaja
+\end{equation}
+\begin{equation}
+  \mathcal{O}^5 = f^5 \left( 3\sigmai\cdot\rij\sigmaj\cdot\rij - \sigmai\cdot\sigmaj \right) = f^5 3\sigmaia r_\alpha\sigmajb r_\beta - f^5 \sigmaia\sigmaja
+\end{equation}
+\begin{align}
+  \mathcal{O}^3 + \mathcal{O}^5 &= f^3 \sigmaia\sigmaja + f^5 3\sigmaia r_\alpha\sigmajb r_\beta - f^5 \sigmaia\sigmaja \\
+  &= \sigmaia\sigmajb \left[ (f^3-f^5)\delta_{\alpha\beta} + f^5 3r_\alpha r_\beta \right]
+  \label{equ:As}
+\end{align}
+This is the $\sigmaia\sigmajb$ breakup term. The last term is
+\begin{equation}
+  \mathcal{O}^4 = f^4\sigmai\cdot\sigmaj\taui\cdot\tauj = f^4\sigmaia\sigmaja\tauig\taujg
+\end{equation}
+\begin{equation}
+  \mathcal{O}^6 = f^6 \left( 3\sigmai\cdot\rij\sigmaj\cdot\rij - \sigmai\cdot\sigmaj \right)(\taui\cdot\tauj) = f^5 3\sigmaia r_\alpha\sigmajb r_\beta\tauig\taujg - f^5 \sigmaia\sigmaja\tauig\taujg
+\end{equation}
+\begin{align}
+  \mathcal{O}^4 + \mathcal{O}^6 &= f^4 \sigmaia\sigmaja\tauig\taujg + f^6 3\sigmaia r_\alpha\sigmajb r_\beta\tauig\taujg - f^6 \sigmaia\sigmaja\tauig\taujg \\
+  &= \sigmaia\sigmajb\tauig\taujg \left[ (f^4-f^6)\delta_{\alpha\beta} + f^6 3r_\alpha r_\beta \right].
+  \label{equ:Ast}
+\end{align}
+The $\sigmaia\sigmajb\tauig\taujg$ term is the third term in the breakup. These three terms together require 39 operations. $\tauig\taujg$ requires 3, $\sigmaia\sigmajb$ 9, and $\sigmaia\sigmajb\tauig\taujg$ 27, where the $\alpha, \beta$ and $\gamma$ are summer over the three Cartesian coordinates and $i$ and $j$ refer to particles.
+\subsection{Independent Pair Term Addition}
+The trial wave function with the independent pair terms is
+\begin{equation}
+  \braket{RS}{\Psi_T} = \bra{RS} \left[ \prod_{i<j}f_c(r_{ij}) \right] \left[ 1+\sum_{i<j}\sum_p f_p(r_{ij})\Oijp + \sum_{p,i<j}\sum_{p,k<l} f_p(r_{ij})\Oijp f_p(r_{kl})\Oklp \right] \ket{\Phi}.
+\end{equation}
+
+\section{V6 Potential}
+Now let's look at the v6 potential, which is
+\begin{equation}
+V = \sum_{i<j}\sum_p v_p(r_{ij}) \Oijp,
+\end{equation}
+where the $\Oijp$ are given by the same six operators discussed in the trial wave function correlations above. Now let's look at equations \ref{equ:central}, \ref{equ:At}, \ref{equ:As}, and \ref{equ:Ast}. Using these but changing the $f$'s to $v$'s we can write
+\begin{equation}
+V = V_c + \frac{1}{2}\sum_{ij}\sum_{\alpha}\tau_{i \alpha}A^\tau_{ij}\tau_{j \alpha} + \frac{1}{2}\sum_{ij}\sum_{\alpha \beta}\sigma_{i \alpha}A^\sigma_{ij\alpha\beta}\sigma_{j \beta} + \frac{1}{2}\sum_{ij}\sum_{\alpha \beta} \sigma_{i \alpha} \tau_{i \alpha} A^{\sigma \tau}_{ij\alpha\beta} \tau_{j \alpha}\sigma_{j \beta},
+\end{equation}
+where
+\begin{align}
+  V_c &= \sum_{i<j} u^1_{ij} \\
+  A^\tau_{ij} &= u^2_{ij} \\
+  A^\sigma_{ij\alpha\beta} &= (u^3_{ij}-u^5_{ij})\delta_{\alpha\beta} + u^5_{ij} 3r^\alpha_{ij} r^\beta_{ij} \\
+  A^{\sigma \tau}_{ij\alpha\beta} &= (u^4_{ij}-u^6_{ij})\delta_{\alpha\beta} + u^6_{ij} 3r^\alpha_{ij} r^\beta_{ij},
+\end{align}
+and the $1/2$'s come from the fact that we are not summing over all $i$ and $j$, not just $i<j$. Now we can diagonalize these matricies (find their eigenvalues and eigenvectors). and rewrite $V$ in terms of those.
+\begin{align}
+  \sum_{j} A^\tau_{ij} \psi^{\tau n}_j &= \lambda^\tau_n \psi^{\tau n}_i \\
+  \sum_{j \beta} A^\sigma_{ij\alpha\beta} \psi^{\sigma n}_j &= \lambda^\sigma_n \psi^{\sigma n}_i \\
+  \sum_{j \beta} A^{\sigma\tau}_{ij\alpha\beta} \psi^{\sigma\tau n}_j &= \lambda^{\sigma\tau}_n \psi^{\sigma\tau n}_i.
+\end{align}
+And since we know that the eigenvectors are orthogonal we know that
+\begin{equation}
+  \sum_j \psi ^n_j \psi^m_j = \delta_{nm},
+\end{equation}
+we can rewrite the $A$ matricies as
+\begin{align}
+  \sum_{j} A^\tau_{ij} \psi^{\tau n}_j \psi^{\tau m}_j &= \lambda^\tau_n \psi^{\tau n}_i \psi^{\tau m}_j \\
+  A^\tau_{ij} \delta_{nm} &= \lambda^\tau_n \psi^{\tau n}_i \psi^{\tau m}_j \\
+  A^\tau_{ij} &= \sum_n \psi^{\tau n}_i \lambda^\tau_n \psi^{\tau n}_j,
+\end{align}
+and similarely
+\begin{align}
+  A^\sigma_{ij} &= \sum_{n \alpha} \psi^{\sigma n}_{i \alpha} \lambda^\sigma_n \psi^{\sigma n}_{j \alpha} \\
+  A^{\sigma\tau}_{ij} &= \sum_{n \alpha} \psi^{\sigma\tau n}_{i \alpha} \lambda^{\sigma\tau}_n \psi^{\sigma\tau n}_{j \alpha}.
+\end{align}
+This allowes us to rewrite the potential as 
+\begin{equation}
+\begin{split}
+  V &= V_c \\
+  &+ \frac{1}{2}\sum_{ij}\sum_{\alpha}\sum_{n}\tau_{i\alpha}\psi^{\tau n}_{i}\lambda^\tau_n\psi^{\tau n}_{j}\tau_{j\alpha} \\
+  &+ \frac{1}{2}\sum_{ij}\sum_{\alpha\beta}\sum_{n}\sigma_{i\alpha}\psi^{\sigma n}_{i\alpha}\lambda^\sigma_n\psi^{\sigma n}_{j\beta}\sigma_{j\beta} \\
+  &+ \frac{1}{2}\sum_{ij}\sum_{\alpha\beta}\sum_{n}\sigma_{i\alpha}\tau_{i\alpha}\psi^{\sigma\tau n}_{i\alpha}\lambda^{\sigma\tau}_n\psi^{\sigma\tau n}_{j\beta}\tau_{j\alpha}\sigma_{j\beta}.
+\end{split}
+\end{equation}
+Now if you write 
+\begin{align}
+  \Ot &= \sum_i \psi_i^{\tau n} \tau_{i\alpha} \\
+  \Os &= \sum_{i\alpha} \psi_{i\alpha}^{\sigma n} \sigma_{i\alpha} \\
+  \Ost &= \sum_{i\alpha} \psi_{i\alpha}^{\sigma\tau n} \sigma_{i\alpha}\tau_{i\alpha},
+\end{align}
+we can then write the potential as
+\begin{equation}
+  V = V_c + \frac{1}{2}\sum_{\alpha=1}^3\sum_{n=1}^A \lambda^\tau_n (\Ot)^2 + \frac{1}{2}\sum_{n=1}^{3A} \lambda^\sigma_n (\Os)^2 + \frac{1}{2}\sum_{\alpha=1}^3\sum_{n=1}^{3A} \lambda^{\sigma\tau}_n (\Ost)^2.
+\end{equation}
+Now once we are here with the v6 potential we can then use the Hubbard-Stratanovich transformation to linearise these quadratic operators once they are in the exponential for the propogators. The Hubbard-Stratanovich transformation is
+\begin{equation}
+  e^{\frac{\mathcal{O}^2}{2}} = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} dx e^{-\frac{x^2}{2} + x\mathcal{O}}
+\end{equation}
+
+\bibliographystyle{unsrt}
+\bibliography{../../papers/references.bib}
+
+\end{document}

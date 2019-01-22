@@ -1,0 +1,76 @@
+\section{Trial wave function}
+The trial wave function is used in both the diffusion and branching algorithms and thus it is important that it be close to the ground state wave function of the system. Propagation in imaginary time removes the excited states from the trial wave function and so a larger overlap between the trial wave function and the ground state wave function means quicker convergence in imaginary time. One of the simplest many particle wave functions is an antisymmetrized product of single particle orbitals,
+\begin{equation}
+   \psi_{T} = \mathcal{A} \prod\limits_{i=1}^A \phi_i(\mathbf{r}_\alpha,s_\alpha) = \frac{1}{A!} \mathrm{det}~\phi_i(\mathbf{r}_\alpha,s_\alpha),
+\end{equation}
+where $\mathcal{A}$ is an antisymmetrization operator with $\mathcal{A}^2=\mathcal{A}$. This is often called a Slater determinant. This wave function represents the long range part of the interactions leaving out short range correlations. The simplest short range correlation that can be formed is a spin-isospin independent Jastrow-like correlation only dependent on space,
+\begin{equation}
+   \ket{\psi_T} = \prod\limits_{i<j}f(r_{ij}) \ket{\phi},
+\end{equation}
+where $r_{ij}$ are operators. %This does not include any spin-isospin correlations, and also is not cluster decomposable. A system that obeys cluster decomposition is a system that obeys locality. It manifests itself in the independence of systems that are separated in space. If the system of particles is split into two subsystems, $\Phi_A$ and $\Phi_B$, that are far apart, the wave function of the physical system would be the product of the two wave functions, $\ket{\Phi_A+\Phi_B} = \ket{\Phi_A}\ket{\Phi_B}$. That is because real physical systems are cluster decomposable. A completely uncorrelated Slater determinant is a cluster decomposable wave function. 
+The most general way to include spin-isospin dependent correlations to a Slater determinant, while maintaining the cluster decomposability of the system, is to use an exponential of the correlation operators.
+\begin{equation}
+   \ket{\psi_T} = \prod\limits_{i<j}f_c(r_{ij}) e^{\sum\limits_p\fpij\Opij} \ket{\phi}
+   \label{equ:exppsi}
+\end{equation}
+The calculation of this trial wave function grows exponentially with particle number, however a symmetrized product of pair operators has nearly the same form at second order, and exactly the same form in the independent pair condition, which we will describe in more detail shortly. The symmetrized product wave function is
+\begin{equation}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[\mathcal{S}\prod\limits_{i<j}\left(1+\sum\limits_p\fpij\Opij\right)\right] \ket{\phi},
+   \label{equ:prodpsi}
+\end{equation}
+where the symmetrization operator $\mathcal{S}$ is
+\begin{equation}
+   \mathcal{S}\ket{R} = \frac{1}{N!} \sum\limits_{\ket{R^p}} \ket{R^p},
+\end{equation}
+and $\ket{R^p}$ are all permutations of the particles coordinates. If you expand this to second order you can write this as
+\begin{equation}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}\f{c}{ij}\right] \left[1+\fOpij+\frac{1}{2}\fOpij\fOqklquad\right] \ket{\phi}.
+\end{equation}
+Notice that the quadratic correlations include all sets of pairs except those with the exact same two particles. The exponential wave function in equation \ref{equ:exppsi} has these terms, with a different factor. Also notice that the quadratic terms are symmetrized by summing over each $ij$ pair and each $kl$ pair and then dividing by two. If instead of taking all possible quadratic pairs, only sets of pairs where the same particle does not appear twice are taken, this is called the independent pair correlation.
+\begin{equation}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}\f{c}{ij}\right] \left[1+\fOpij+\fOpij\fOqklip\right] \ket{\phi}.
+\end{equation}
+Here the sum over independent pairs means that no particle is included in both pairs $ij$ and $kl$, and you do not get the symmetric pair terms, i.e. if you have the set of pairs $ijkl=1234$, you do not include $3412$. This is because the operators in the quadratic terms commute and do not need to be symmetrized. We have done calculations with both of these wave functions and compared the results to calculations done with the linear wave function
+\begin{equation}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[1+\fOpij\right] \ket{\phi}.
+\end{equation}
+We have added a variational parameter to the quadratic terms, but for most of the results shown here that parameter was set to one, however we do show that the results improve as the variational parameter is optimized.
+
+
+
+
+
+
+
+
+
+
+
+\if false
+This is an infinite sum, and is impossible to calculate directly on a computer and so if we then assume that the correlations are small, we can then expand the exponential to first order getting
+\begin{equation}
+   \ket{\psi_T} = \prod\limits_{i<j}f_c(r_{ij}) \left(1+\sum\limits_p\fpij\Opij\right) \ket{\phi}.
+   \label{equ:fullprod}
+\end{equation}
+We further expand this and truncate this product to first order, keeping only linear terms in the expansion. To improve this estimation we have included the quadratic terms from this expansion into the calculation, as well as a subset of the quadratic terms called independent pair terms. I'll show this expansion with the example of $A=3$ for convenience. Expanding equation \ref{equ:fullprod} we get
+\begin{equation}
+%\begin{align}
+\begin{split}
+   &\f{c}{12}\left(1+\fO{p}{12}\right)\f{c}{13}\left(1+\fO{p}{13}\right)\f{c}{23}\left(1+\fO{p}{23}\right) \\
+   &~~=\f{c}{12}\f{c}{13}\f{c}{23}\left(1+\fO{p}{12}+\fO{p}{13}+\fO{p}{23}\right. \\
+   &~~~~~+\fO{p}{12}\fO{q}{13}+\fO{p}{12}\fO{q}{23} \\
+   &~~~~~+\left.\fO{p}{13}\fO{q}{23}\right) \\
+   &~~= \left[\prod\limits_{i<j}\f{c}{ij}\right]\left[1+\fOpij+\frac{1}{2}\fOpij\fOqklquad + \ldots \right].
+\end{split}
+%\end{align}
+\end{equation}
+In the example with $A=3$ we only get up to triplet terms, of which there is only one, but for larger values of $A$ there are many more terms. With previous calculations we have approximated this by only taking up to the linear term,
+\begin{equation}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[1+\fOpij\right] \ket{\phi}.
+\end{equation}
+We have included the quadratic correlations above, but we have also done a calculation with a subset of these correlations called independent pair terms. These independent pair terms only include pairs where there is no common particle among the two sets of pairs. Calculations were done with these independent pairs because we believed that they would capture most of the physics of the quadratic terms. \red{Look up nuclear matter calculations with FHNC by John Owen around 1980, like you have here.}
+\begin{equation}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[1+\fOpij\left(1 + \fOqklip\right)\right] \ket{\phi}
+\end{equation}
+The sum $\sum\limits_{\mathrm{k<l,ip}}$ is a sum over all of the $kl$ pairs that do not have a particle that matches either the $i^\mathrm{th}$ or the $j^\mathrm{th}$ particle. This is the independent pair sum.
+\fi

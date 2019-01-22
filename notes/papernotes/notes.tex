@@ -1,0 +1,59 @@
+\documentclass[12pt]{extarticle}
+\usepackage[margin=1in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{cancel}
+
+%My commands
+\newcommand{\Oi}{\mathcal{O}_{i}}
+\newcommand{\Oij}{\mathcal{O}_{ij}}
+\newcommand{\Okl}{\mathcal{O}_{kl}}
+\newcommand{\Oijp}{\mathcal{O}^p_{ij}}
+\newcommand{\Oklp}{\mathcal{O}^p_{kl}}
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\braket}[2]{\left< #1 | #2 \right>}
+\newcommand{\ketbra}[2]{\left| #1 \right> \left< #2 \right|}
+\newcommand{\taui}{\bm{\tau}_i}
+\newcommand{\tauj}{\bm{\tau}_j}
+\newcommand{\sigmai}{\bm{\sigma}_i}
+\newcommand{\sigmaj}{\bm{\sigma}_j}
+\newcommand{\rij}{\hat{r}_{ij}}
+\newcommand{\sigmaia}{\sigma_{i\alpha}}
+\newcommand{\sigmaib}{\sigma_{i\beta}}
+\newcommand{\tauig}{\tau_{i\gamma}}
+\newcommand{\sigmaja}{\sigma_{j\alpha}}
+\newcommand{\sigmajb}{\sigma_{j\beta}}
+\newcommand{\taujg}{\tau_{j\gamma}}
+\newcommand{\tauij}{\taui \cdot \tauj}
+\newcommand{\sigmaij}{\sigmai \cdot \sigmaj}
+\newcommand{\mycolor}[1]{\textit{\textcolor{red}{#1}}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\longsi}{s_1, \ldots, s_{i-1} , s, s_{i+1}, \ldots, s_A}
+\newcommand{\longsij}{s_1, \ldots, s_{i-1} , s, s_{i+1}, \ldots, s_{j-1}, s', s_{j+1}, \ldots ,s_A}
+\newcommand{\Ot}{\mathcal{O}^\tau_{n\alpha}}
+\newcommand{\Os}{\mathcal{O}^\sigma_{n}}
+\newcommand{\Ost}{\mathcal{O}^{\sigma\tau}_{n\alpha}}
+\newcommand{\detr}{\mathrm{det}}
+
+\title{Notes from papers}
+\author{Cody L. Petrie}
+
+\begin{document}
+\maketitle
+
+\section{Joel Lynn PhD Thesis 2013 \cite{lynn2013}}
+\subsection{Motivation/Questions}
+   \begin{itemize}
+      \item ``Furthermore, with such an understanding, we could make predictions about nuclei and processes which are experimentally difficult to probe, or point experiment in the direction of new and interesting nuclear phenomena." \red{Determine the properties you can find using QMC, and then ask Ricardo (or other experimentalists) what they can measure, and what makes those measurements difficult.}
+      \item How to arrive at an inner-nucleon potential? QCD is probably the correct way, but at low energies the strength of the strong interaction increases (asymptotic freedom).
+      \item Potential from chiral effective field theory. Why? Because it uses symmetries similat to low-energy QCD (broken chiral symmetry). Problem is that it's a non-local potential.
+   \end{itemize}
+
+\bibliographystyle{unsrt}
+\bibliography{../../papers/references.bib}
+
+\end{document}

@@ -1,0 +1,136 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Notes on orbital correlations}
+\author{Ale}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+In these notes we work out the implementation of Joe's orbital correlations.
+\end{abstract}
+
+Using the notation from Kevin's notes we will denote the Slater matrix with
+\begin{equation}
+S_{ki}=\langle k \vert \vec{r}_i s_i\rangle = \sum^4_{s=1} \langle k \vert \vec{r}_i s\rangle \langle s\vert s_i \rangle \equiv \sum^4_{s=1} \Phi(k,s,i) sp(s,i)
+\end{equation}
+where we introduced matrices $\Phi$ and $sp$ that are used in the code. The first one is returned by $getphi$ the second represents the spinor.
+
+Joe's idea is to apply correlations (tensor in this case) to the orbitals such that $\forall k$ we have
+\begin{equation}
+\begin{split}
+S_{ki} \to S'_{ki}(x) &= \left[ 1 + x \sum_j^A f(r_{ji}) \hat{r}_{ji}\cdot\vec{\sigma}_i\right]S_{ki}\\
+&= \left[ 1 + x \vec{t}_i\cdot\vec{\sigma}_i\right]S_{ki}= \sum^4_{s=1} \Phi(k,s,i) \left[ 1 + x \vec{t}_i\cdot\vec{\sigma}_i\right] sp(s,i)\\
+\end{split}
+\end{equation}
+
+The $x=\pm1$ field is summed over after antisymmetrization. It's effect is to remove terms that are odd in the correlation operator. For two  particles we have in fact
+\begin{equation}
+\begin{split}
+\sum_x det\left[S'\right] &= \sum_x \left[ S'_{11}(x)S'_{22}(x) - S'_{12}(x)S'_{21}(x) \right]\\
+&= \sum_x \left[ 1 + x \vec{t}_1\cdot\vec{\sigma}_1\right]\left[ 1 + x \vec{t}_2\cdot\vec{\sigma}_2\right]\left[ S_{11}S_{22} - S_{12}S_{21} \right]\\
+&= \sum_x \left[ 1 + x \left( \vec{t}_1\cdot\vec{\sigma}_1+\vec{t}_2\cdot\vec{\sigma}_2\right) + \vec{t}_1\cdot\vec{\sigma}_1 \vec{t}_2\cdot\vec{\sigma}_2\right]\left[ S_{11}S_{22} - S_{12}S_{21} \right]\\
+&= 2\left[ 1 + \vec{t}_1\cdot\vec{\sigma}_1 \vec{t}_2\cdot\vec{\sigma}_2\right]\left[ S_{11}S_{22} - S_{12}S_{21} \right]\\
+&= 2\left[ 1 + f^2(r_{21})\hat{r}_{21}\cdot\vec{\sigma}_1 \hat{r}_{12}\cdot\vec{\sigma}_2\right]det\left[S\right]\\
+&= 2\left[ 1 - f^2(r_{21})\hat{r}_{12}\cdot\vec{\sigma}_1 \hat{r}_{12}\cdot\vec{\sigma}_2\right]det\left[S\right]\\
+\end{split}
+\end{equation}
+where the minus sign in the last line comes from the opposite sign of $\hat{r}_{12}$ and $\hat{r}_{21}$.
+We can use the same strategy to implement $\vec{\sigma}\cdot\vec{\sigma}$ correlations using 8 more auxiliary fields
+\begin{equation}
+\begin{split}
+S_{ki} \to S'_{ki}(x) &= \left[ 1 + \sum_d^3 \sum_j^A g(r_{ji}) y_d\sigma^d_i\right]S_{ki}\\
+\end{split}
+\end{equation}
+which for 2 particles results in
+\begin{equation}
+\begin{split}
+\sum_{y_d} det\left[S'\right] = 8\left[ 1 + g^2(r_{21})\vec{\sigma}_1\cdot\vec{\sigma}_2\right]det\left[S\right]\;.
+\end{split}
+\end{equation}
+In the same way we can implement the isospin dependent tensor correlation using
+\begin{equation}
+\begin{split}
+S_{ki} \to S'_{ki}(x) &= \left[ 1 + \sum_d^3 \sum_j^A f_t(r_{ji}) \hat{r}_{ji}\cdot\vec{\sigma}_i y_d\tau^d_i\right]S_{ki}\;.
+\end{split}
+\end{equation}
+
+The current implementation increases the number of determinant so that we have one for every value of the auxiliary field:
+\begin{itemize}
+\item 2 determinants for tensor: $\hat{r}_{12}\cdot\vec{\sigma}_1 \hat{r}_{12}\cdot\vec{\sigma}_2$
+\item 16 determinant for tensor plus sigma: $\hat{r}_{12}\cdot\vec{\sigma}_1 \hat{r}_{12}\cdot\vec{\sigma}_2$ + $\vec{\sigma}_1\cdot\vec{\sigma}_2$
+\item 8 determinants for tensor tau: $\hat{r}_{12}\cdot\vec{\sigma}_1 \hat{r}_{12}\cdot\vec{\sigma}_2\vec{\tau}_1\cdot\vec{\tau}_2$
+\end{itemize}
+
+\subsection{Off diagonal correlations}
+This ansatz for the correlations has however the drawback of adding spurious correlations among all particles, for instance for the $\vec{\sigma}_1\cdot\vec{\sigma}_2$ term we get
+\begin{equation}
+\left[1+\vec{\sigma}_i\cdot\vec{\sigma}_j \sum_{k\neq i}g(r_{ik})\sum_{l\neq j}g(r_{jl})\right]=\left[1+\vec{\sigma}_i\cdot\vec{\sigma}_jg(r_{ij})^2+\vec{\sigma}_i\cdot\vec{\sigma}_j \sum_{l,k\neq j,i}g(r_{ik})g(r_{jl})\right]
+\end{equation}
+
+In order to cancel the last terms we add additional phases to the single-particle correlators that then we sum over. We start by defining a unique pair index as
+\begin{equation}
+P(i,j)=\bigg\{\begin{matrix}
+\frac{(i-1)(i-2)}{2}+j-1 & i>j \\
+\frac{-(j-1)(j-2)}{2}-i+1 & i<j
+\end{matrix}
+\end{equation}
+which for $A$ particle takes values in
+\begin{equation}
+P(i,j) \in \left[-\frac{A(A-1)}{2}+1,\frac{A(A-1)}{2}-1\right]\;.
+\end{equation}
+Note that the shift by $1$ is only used to remove redundancy but is not strictly needed.
+We now define a new single-particle correlator of the form (using the tensor interaction for instance)
+\begin{equation}
+\begin{split}
+S_{ki} \to S'_{ki}(x) &= \left[ 1 + x \sum_j^A e^{i\frac{2\pi}{A(A-1)}P(i,j)m} f(r_{ji}) \hat{r}_{ji}\cdot\vec{\sigma}_i\right]S_{ki}
+\end{split}
+\end{equation}
+
+By summing now over $m$ we effectively cancel all off-diagonal contributions in the pair correlators while leaving a few for higher order correlations. In fact from the completeness of plane waves on an interval we have
+\begin{equation}
+\begin{split}
+\sum_m^{A(A-1)}e^{i\frac{2\pi}{A(A-1)}\left(P(i,j)+P(k,l)\right)m} &= P\sum_{n=-\infty}^{n=\infty}\delta\left(P(i,j)+P(k,l)+nA(A-1)\right)\\
+&\equiv P\delta_{i,l}\delta_{j,k}
+\end{split}
+\end{equation}
+where the last line follows from our definition of $P(i,j)=-P(j,i)$ and from the fact the for pairs only the terms with $n=0$ are contributing in the infinite series on the first line.
+For $4$ particle correlations also the terms with $n=\pm1$ will contribute leaving some spurious off-diagonal correlations. These however can be removed by increasing the number of phases used $A(A-1)\to 2A(A-1)$ and eventually using $A^2(A-1)$ phases we effectively remove all off-diagonal correlations up to A-body. This is however probably to expensive to do and in general shouldn't be needed since the importance of higher-order correlations should become small.
+
+An alternative is to cancel the off-diagonal terms only approximately by using a fixed number of phases using a Dirichlet kernel
+\begin{equation}
+D(x+y)=\sum_{k=-n}^n e^{ik(x+y)} = \frac{sin\left((n+1/2)(x+y)\right)}{sin\left((x+y)/2\right)}\xrightarrow{n\to\infty}\delta(x+y)
+\end{equation}
+where the convergence with $n$ is unfortunately rather slow and in any case $n$ should scale as $A^2$ to maintain a given accuracy though the prefactor could be smaller than 1. Our previous strategy is essentially equivalent to using $D$ but making sure that the possible values of $(x+y)$ are always on the nodes of $sin\left((n+1/2)(x+y)\right)$.
+
+\subsection{Issues}
+For the alpha particle all of the above correlations work fine while for O$^{16}$
+\begin{itemize}
+\item the tensor is fine
+\item $\vec{\tau}_1\cdot\vec{\tau}_2$ breaks $T^2$ and $T_z$
+\item $\vec{\sigma}_1\cdot\vec{\sigma}_2$ breaks $J^2$ and $J_z$
+\item the tensor tau again breaks $T^2$ and $T_z$
+\end{itemize}
+
+The plot Fig.1 shows the magnitude of the breaking for $\vec{\tau}_1\cdot\vec{\tau}_2$ correlation in O$^{16}$ as a function of the magnitude of the correlation coupling. I tried to fit the initial rise and is approximately compatible with $<g(r)>^6$ suggesting issues in the 6-body correlations that clearly are missing in the alpha particle. It remains to understand why this is happening.
+
+\begin{figure}[htb]
+\includegraphics[width=1.0\columnwidth]{o16_issue.eps}
+\caption{Absolute value of isospin breaking in O$^{16}$}
+\label{fig:o16issue}
+\end{figure}
+\end{document}

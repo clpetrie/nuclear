@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: comp.aux
+The style file: unsrt.bst
+Database file #1: ../../papers/references.bib
+I was expecting a `,' or a `}'---line 189 of file ../../papers/references.bib
+ :   
+ :   annote={No-core shell model.}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Name 2 in "R.B. Wiringa and R.A. Smith, and T.L. Ainsworth" has a comma at the end for entry wiringa1984
+while executing---line 944 of file unsrt.bst
+You've used 29 entries,
+            1791 wiz_defined-function locations,
+            628 strings with 7544 characters,
+and the built_in function-call counts, 6273 in all, are:
+= -- 515
+> -- 325
+< -- 0
++ -- 120
+- -- 91
+* -- 458
+:= -- 1084
+add.period$ -- 88
+call.type$ -- 29
+change.case$ -- 29
+chr.to.int$ -- 0
+cite$ -- 29
+duplicate$ -- 258
+empty$ -- 597
+format.name$ -- 91
+if$ -- 1354
+int.to.chr$ -- 0
+int.to.str$ -- 29
+missing$ -- 29
+newline$ -- 149
+num.names$ -- 29
+pop$ -- 30
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 96
+stack$ -- 0
+substring$ -- 405
+swap$ -- 29
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 55
+width$ -- 31
+write$ -- 322
+(There were 2 error messages)

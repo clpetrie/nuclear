@@ -1,0 +1,54 @@
+\section{Wave function with independent pair correlations}
+One of the simplest many particle wave functions is a antisymmetrized product of single particle orbitals. This is often called a Slater Determinant. This wave function represents that long range part of the interactions leaving our short range correlations. The simplest short range correlation that can be formed is Jastrow-like correlation only dependent on space \red{Add reference here}.
+\begin{equation}
+   \ket{\psi_T} = \prod\limits_{i<j}f(r_{ij}) \ket{\phi}
+\end{equation}
+This does not include any spin-isospin correlations, and also is not cluster decomposable. The most general form for correlations that can be spin-isospin dependent and are cluster decomposable is an exponential form.
+\begin{equation}
+   \ket{\psi_T} = \prod\limits_{i<j}f_c(r_{ij}) e^{\sum\limits_p\fpij\Opij} \ket{\phi}
+\end{equation}
+If we then assume that the correlations are small we can then expand the exponential to first order getting
+\begin{equation}
+   \ket{\psi_T} = \prod\limits_{i<j}f_c(r_{ij}) \left(1+\sum\limits_p\fpij\Opij\right) \ket{\phi}.
+\end{equation}
+From here I'm going to expand this out showing why we previously have use the wave function that we did, and why we are adding the independent pair terms as we have. I will do this by assuming $A=3$ for convenience. Expanding this out we get
+\begin{align}
+   &\left[\f{c}{12}\left(1+\fO{p}{12}\right)\right]\left[\f{c}{13}\left(1+\fO{p}{13}\right)\right]\left[\f{c}{23}\left(1+\fO{p}{23}\right)\right] \\
+   &=\f{c}{12}\f{c}{13}\f{c}{23}\left(1+\fO{p}{12}+\fO{p}{13}+\fO{p}{23}\right. \\
+   &~~~~~+\left.\fO{p}{12}\fO{q}{13}+\fO{p}{12}\fO{q}{23}+\fO{p}{13}\fO{q}{23}\right) \\
+   &= \left[\prod\limits_{i<j}\f{c}{ij}\right]\left[1+\fOpij+\fOpij\fOqkl + \ldots \right].
+\end{align}
+In the example with $A=3$ we only get up to quadratic terms, but you can imagine many more terms if you have more particles. With previous calculations we have approximated this by only taking up to the linear term.
+\begin{equation}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[1+\fOpij\right] \ket{\phi}.
+\end{equation}
+What I have done here is kept some, but not all, of the quadratic terms.
+\begin{equation}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[1+\fOpij\left(1 + \fOqklip\right)\right] \ket{\phi}
+\end{equation}
+The sum $\sum\limits_{\mathrm{k<l,ip}}$ is a sum over all of the $kl$ pairs that don't have a particle that matches either the $i^\mathrm{th}$ or the $j^\mathrm{th}$ particle. This is the independent pair sum.
+
+\subsection{Fully Quadratic, and why there is a $\frac{1}{2}$}
+It turns out that if you take all of the quadratic terms you get something like
+\begin{equation}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[1+\fOpij + \frac{1}{2}\fOpij\sum\limits_{k<l,ij\ne kl}\sum\limits_q \fqkl\Oqkl\right] \ket{\phi}.
+\end{equation}
+You can see when when you work out the symmetrization operator (along with the sum over $i<j$ particle pairs. You have something like
+\begin{equation}
+   \mathcal{S} \prod\limits_{i<j} \left(1+\mathcal{O}_{ij}\right) = \frac{1}{A!}\sum\limits_{\{p\}}^{A!}\prod\limits_{i<j} \left(1+\mathcal{O}_{ij}\right),
+\end{equation}
+where $A!$ are the number of possible permutations for A particles. The product works out to look like
+\begin{equation}
+   (1+\mathcal{O}_{12})(1+\mathcal{O}_{13})\ldots(1+\mathcal{O}_{(A-1)(A)}).
+\end{equation}
+Since you never get the operators on the same particles before the permutations you will never get the same particles afterwards (so 1213 will never turn into 2525 or 2552 (which would be 2525)), and since operators on different particles commute you will always get sums like $i<j$. There will be $A!$ permutations and each permutation of the products will produce 1 of each of the sets of pairs. Each permutation will produce a 1246 for example, but they will be produced from different terms. The factor of a $\frac{1}{2}$ is simply because of the way I have written the sums. The way I've written the sums I get 1246 and 4612, but those are the same. If I was to write 
+\begin{equation}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[1+\fOpij + \sum\limits_{ij<kl}\sum\limits_p \fpij\Opij \sum\limits_q \fqkl\Oqkl\right] \ket{\phi}.
+\end{equation}
+then the factor of a half goes away. \textit{The only problem is I've \textbf{ignored commutation terms} that come from switching 2412 to 1224 (wince the $f$ functions for the 2's don't commute)}. Notice that both quadratic wave functions scale as $A^4$ but with different factors. The number of 2-body terms in the fully quadratic scales as $\frac{1}{8}(A^4-2A^3-A^2+2A)$. You can figure this out by saying that there are $A(A-2)/2$ pairs, then there are $N(N-1)/2$ of those pairs, where $N$ is the number of pairs $N=A(A-1)/2$. The number of independent pair terms also scales as $A^4$, but as $\frac{1}{8}A(A-1)(A-2)(A-3)=\frac{1}{8}(A^4-6A^3+11A^2-6A)$.
+\subsection{$f^p(r_{ij})$ functions in the correlations}
+In the 2015 review they mention that the $f_{S,T}(r)$ functions are calculated from a Schr\"odinger-like equation
+\begin{equation*}
+   \left[-\frac{\hbar^2}{2\mu}\nabla^2+v_{S,T}(r)+\lambda_{S,T}(r)\right] = 0.
+\end{equation*}
+This equation comes from the fact that when two particles get close to eachother the potential get's really large, think Lennard-Jones potential that is infinite at 0. This gives large energies in the local energy unless something cancels it. The above equation is the result of trying to cancel these large potential terms. If particles 1 and 2 get close then $v(r_{ij})$ gets large and the corresponding derivative terms must cancel this. The dominant derivative term \red{I don't see where other terms would even come from} is the $\nabla^2$ term and the $\lambda$ encodes all the rest.

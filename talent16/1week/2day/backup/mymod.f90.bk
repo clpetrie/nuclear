@@ -1,0 +1,93 @@
+module mymod
+   implicit none
+   integer, private, parameter :: i4=selected_int_kind(9)
+   integer, private, parameter :: r8=selected_real_kind(15,9)
+   real(kind=r8) :: delta,alpha,omega,dt,etrial
+contains
+   subroutine setmod(deltain,alphain,omegain,dtin,etrialin)
+   real(kind=r8) :: deltain,alphain,omegain,dtin,etrialin
+   delta=deltain
+   alpha=alphain
+   omega=omegain
+   dt=dtin
+   etrial=etrialin
+   end subroutine setmod
+
+   function psit(x)
+   real(kind=r8) :: x
+   real(kind=r8) :: psit
+   psit=exp(-0.5*alpha*x**2)
+   end function psit
+
+   function eloc(x)
+   real(kind=r8) :: x
+   real(kind=r8) :: eloc
+   eloc=0.5*alpha*(1-alpha*x**2)+0.5*omega**2*x**2
+   end function eloc
+
+   subroutine metropolis(x,acceptance)
+   real(kind=r8), dimension(:) :: x
+   real(kind=r8), allocatable :: xnew(:)
+   real(kind=r8) :: rand1,ratio,acceptance
+   integer(kind=i4) :: n,accepted,nwalk
+   nwalk=size(x)
+   allocate(xnew(nwalk))
+   accepted=0
+   do n=1,nwalk
+      call random_number(rand1)
+      xnew(n)=x(n)+delta*(rand1-0.5)
+      ratio=(psit(xnew(n))/psit(x(n)))**2
+      call random_number(rand1)
+      if (rand1.lt.ratio) then
+         x(n)=xnew(n)
+         accepted=accepted+1
+      endif
+   enddo
+   acceptance=float(accepted)/nwalk
+   end subroutine metropolis
+
+   subroutine step(x,tau)
+   real(kind=r8) :: x,randg,tau
+   call rgauss(randg)
+   x=x-dt*alpha*x+sqrt(dt)*randg
+   tau=tau+dt
+   end subroutine step
+
+   subroutine branch(x,n,nwalk,nwalk0)
+   real(kind=r8), dimension(:) :: x
+   integer(kind=i4) :: n,nwalk,nw,i,nwalk0
+   real(kind=r8) :: weight,rand1
+   weight=exp(-dt*(eloc(x(n))-etrial))*nwalk0/nwalk !weight with population control
+   call random_number(rand1)
+   nw=weight+rand1
+   if (nw.eq.0) then
+      do i=n,nwalk-1
+         x(i)=x(i+1)
+      enddo
+      nwalk=nwalk-1
+      elseif (nw.gt.1) then
+      do i=1,nw
+         x(nwalk+i)=x(n)
+         nwalk=nwalk+1
+      enddo
+   endif
+   end subroutine branch
+
+   subroutine stat(obs,ave,err)
+   real(kind=r8), dimension(:) :: obs
+   real(kind=r8), intent(out) :: ave,err
+   integer(kind=i4) :: num
+   num=size(obs)
+   ave=sum(obs)/num
+   err=sqrt(sum((obs-ave)**2)/num)
+   end subroutine stat
+
+   subroutine rgauss(rout)
+   implicit none
+   real(kind=r8) :: pi,rand1,rand2,rout
+   pi=4.0*atan(1.0)
+   call random_number(rand1)
+   call random_number(rand2)
+   rout=sqrt(-2.0*log(rand1))*cos(2.0*pi*rand2)
+   end subroutine rgauss
+end module mymod

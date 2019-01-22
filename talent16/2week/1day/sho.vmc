@@ -1,0 +1,10 @@
+17              # a random number
+1.0             # omega
+2.0             # alpha
+1               # idmc, 1=VMC, 2=DMC
+0.001           # time step
+0.5             # trial energy
+5000            # walkers
+20              # equilibrating blocks
+50              # averaging blocks
+1000            # steps

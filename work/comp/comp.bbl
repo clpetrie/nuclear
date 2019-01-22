@@ -1,0 +1,165 @@
+\begin{thebibliography}{10}
+
+\bibitem{lattimer2001}
+J.~M. Lattimer and M.~Prakash.
+\newblock Neutron star structure and the equation of state.
+\newblock {\em Astrophys. J.}, 550:426, 2001.
+
+\bibitem{lattimer2004}
+J.~M. Lattimer and M.~Prakash.
+\newblock The physics of neutron stars.
+\newblock {\em Science}, 304:536, 2004.
+
+\bibitem{stone2003}
+J.~Rikovska Stone, J.~C. Miller, R.~Koncewicz, P.~D. Stevenson, and M.~R.
+  Strayer.
+\newblock Nuclear matter and neutron-star properties calculated with the
+  {S}kyrme interaction.
+\newblock {\em Phys. Rev. C}, 68, 2003.
+
+\bibitem{douchin2001}
+F.~Douchin and P.~Haensel.
+\newblock A unified equation of state of dense matter and neutron star
+  structure.
+\newblock {\em Astron. Astrophys.}, 380:151, 2001.
+
+\bibitem{heiselberg2000}
+Henning Heiselberg and Vijay Pandharipande.
+\newblock Recent progresses in neutron star theory.
+\newblock {\em Annu. Rev. Nucl. Part. Sci.}, 50:481, 2000.
+
+\bibitem{yukawa1935}
+H.~Yukawa.
+\newblock On the interaction of elementary particles. i.
+\newblock {\em Proc. Phys. Math. Soc. Japan.}, 17:48, 1935.
+
+\bibitem{lattes1947}
+C.~M.~G. Lattes, H.~Muirhead, G.~P.~S. Occhialini, and C.~F. Powell.
+\newblock Processes involving charged mesons.
+\newblock {\em Nature}, 159:694--697, 1947.
+
+\bibitem{kisslinger2016}
+Leonard~S. Kisslinger and Debasish Das.
+\newblock Review of {QCD}, quark-gluon plasma, heavy quark hybrids, and heavy
+  quard state productino in p-p and {A-A} collisions.
+\newblock {\em Int. J. Mod. Phys. A}, 31, 2016.
+
+\bibitem{savage2016}
+Martin~J. Savage.
+\newblock Nuclear physics.
+\newblock {\em Proc. Sci.}, 2016.
+
+\bibitem{navratil2009}
+Petr Navrátil, Sofia Quaglioni, Ionel Stetcu, and Bruce~R Barrett.
+\newblock Recent developments in no-core shell-model calculations.
+\newblock {\em Journal of Physics G: Nuclear and Particle Physics},
+  36(8):083101, 2009.
+
+\bibitem{barrett2013}
+Bruce~R. Barrett, Petr Navr\'{a}til, and James~P. Vary.
+\newblock \textit{Ab initio} no core shell model.
+\newblock {\em Prog. Part. Nucl. Phys.}, 69:131--181, 2013.
+
+\bibitem{hagen2014}
+G~Hagen, T~Papenbrock, M~Hjorth-Jensen, and D~J Dean.
+\newblock Coupled-cluster computations of atomic nuclei.
+\newblock {\em Rep. Prog. Phys.}, 77(9):096302, 2014.
+
+\bibitem{dickhoff2004}
+W.H. Dickhoff and C.~Barbieri.
+\newblock Self-consistent {G}reen's function method for nuclei and nuclear
+  matter.
+\newblock {\em Prog. Part. Nucl. Phys.}, 52(2):377 -- 496, 2004.
+
+\bibitem{soma2014}
+V.~Som\`a, A.~Cipollone, C.~Barbieri, P.~Navr\'atil, and T.~Duguet.
+\newblock Chiral two- and three-nucleon forces along medium-mass isotope
+  chains.
+\newblock {\em Phys. Rev. C}, 89:061301, Jun 2014.
+
+\bibitem{hergert2016}
+H.~Hergert, S.K. Bogner, T.D. Morris, A.~Schwenk, and K.~Tsukiyama.
+\newblock The in-medium similarity renormalization group: A novel ab initio
+  method for nuclei.
+\newblock {\em Phys. Rep.}, 621:165--222, 2016.
+\newblock Memorial Volume in Honor of Gerald E. Brown.
+
+\bibitem{carlson2015}
+J.~Carlson, S.~Gandolfi, F.~Pederiva, Steven~C. Pieper, R.~Schiavilla, K.E.
+  Schmidt, and R.B. Wiringa.
+\newblock Quantum {M}onte {C}arlo methods for nuclear physics.
+\newblock {\em Rev. Mod. Phys.}, 87:1067, 2015.
+
+\bibitem{lynn2012}
+J.~E. Lynn and K.~E. Schmidt.
+\newblock Real-space imaginary-time propagators for non-local nucleon-nucleon
+  potentials.
+\newblock {\em Phys. Rev. C}, 86:014324, Jul 2012.
+
+\bibitem{slater1951}
+J.~C. Slater.
+\newblock A simplification of the {H}artree-{F}ock method.
+\newblock {\em Phys. Rev.}, 81:385, 1951.
+
+\bibitem{jastrow1955}
+Robert Jastrow.
+\newblock Many-body problem with strong forces.
+\newblock {\em Phys. Rev.}, 98:1479, 1955.
+
+\bibitem{kalos1962}
+M.~H. Kalos.
+\newblock Monte {C}arlo calculations of the ground state of three- and
+  four-body nuclei.
+\newblock {\em Phys. Rev.}, 128:1791, 1962.
+
+\bibitem{schmidt1999}
+K.~E. Schmidt and S.~Fantoni.
+\newblock A quantum {M}onte {C}arlo method for nucleon systems.
+\newblock {\em Phys. Lett. B}, 446:99--103, 1999.
+
+\bibitem{foulkes2001}
+W.~M.~C. Foulkes, L.~Mitas, R.~J. Needs, and G.~Rajagopal.
+\newblock Quantum {M}onte {C}arlo simulations of solids.
+\newblock {\em Rev. Mod. Phys.}, 73:33--83, 2001.
+
+\bibitem{wiringa1984}
+R.B. Wiringa, R.A. Smith, and T.L. Ainsworth.
+\newblock Nucleon-nucleon potentials with and without {$\Delta(1232)$} degrees
+  of freedom.
+\newblock {\em Phys. Rev. C}, 29:1207, 1984.
+
+\bibitem{schuck2007}
+P.~Schuck, Y.~Funaki, H.~Horiuchi, G.~R\"opke, A.~Tohsaki, and T.~Yamada.
+\newblock {$\alpha$}-particle condensation in nuclear systems.
+\newblock {\em Nucl. Phys. A}, 788:293c--300c, 2007.
+
+\bibitem{schuck2013_1}
+P.~Schuck, Y.~Funaki, H.~Horiuchi, G.~R\"opke, A.~Tohsaki, and T.~Yamada.
+\newblock Alpha-particle condensation in nuclear systems.
+\newblock {\em J. Phys.: Conf. Ser.}, 413:012009, 2013.
+
+\bibitem{schuck2013_2}
+P.~Schuck.
+\newblock Alpha-particle condensation in nuclear systems: present status and
+  perspectives.
+\newblock {\em J. Phys.: Conf. Ser.}, 436:012065, 2013.
+
+\bibitem{avancini2010}
+S.~S. Avancini, C.~C. Barros, D.~P. Menezes, and C.~Provid\^encia.
+\newblock $\ensuremath{\alpha}$ particles and the ``pasta'' phase in nuclear
+  matter.
+\newblock {\em Phys. Rev. C}, 82:025808, Aug 2010.
+
+\bibitem{avancini2012}
+S.S. Avancini, C.C.~Barros Jr., L.~Brito, S.~Chiacchiera, D.P. Menezes, and
+  C.~Provid\^{e}ncia.
+\newblock Light clusters in nuclear matter and the ``pasta" phase.
+\newblock {\em Phys. Rev. C}, 85:035806--1, 2012.
+
+\bibitem{raduta2014}
+Ad.R. Raduta, F.~Aymard, and F.~Gulminelli.
+\newblock Clusterized nuclear matter in the \\(proto-)neutron star crust and
+  the symmetry energy.
+\newblock {\em Eur. Phys. J. A}, 50:24, 2014.
+
+\end{thebibliography}

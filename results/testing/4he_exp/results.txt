@@ -1,0 +1,22 @@
+System: 4He
+Linear
+Evmc=       -23.20(11)
+Edmc=       -26.48(9)
+Exponential with 1 auxiliary field
+Evmc=       -23.27(9)
+Edmc=       -45.0(6)
+Exponential with 10 auxiliary fields
+Evmc=       -23.41(8)
+Edmc=       -31.8(3)
+Exponential with 100 auxiliary fields
+Evmc=       -23.39(9)
+Edmc=       -29.4(2)
+Exponential with 200 auxiliary fields
+Evmc=       -23.40(9)
+Edmc=       -29.15(8)
+Exponential with 500 auxiliary fields
+Evmc=       -23.40(9)
+Edmc=       -28.68(18)
+Exponential with 1000 auxiliary fields
+Evmc=       -23.40(9)
+Edmc=       -28.7(2)

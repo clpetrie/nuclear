@@ -1,0 +1,13 @@
+rho   =  0.001:
+Linear Correlations
+E14n0p   =  0.777(2)
+E14n2p   =  0.037(14)
+E38n0p   =  0.705(4)
+E38n2p   =  0.338(6)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -8.7(2)
+EHe4_38  =  40*E38n2p-36*E38n0p  = -11.8(3)
+Quadratic Correlations
+rho      =  0.001
+E38n0p   =  0.696(4)
+E38n2p   =  0.339(7)
+EHe4_38  =  40*E38n2p-36*E38n0p  = -11.5(3)

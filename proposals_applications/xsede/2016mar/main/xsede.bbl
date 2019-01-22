@@ -1,0 +1,60 @@
+\begin{thebibliography}{10}
+
+\bibitem{car15}
+J.~Carlson, S.~Gandolfi, F.~Pederiva, Steven~C. Pieper, R.~Schiavilla, K.~E.
+  Schmidt, and R.~B. Wiringa.
+\newblock Quantum monte carlo methods for nuclear physics.
+\newblock {\em Rev. Mod. Phys.}, 87:1067--1118, Sep 2015.
+
+\bibitem{gan14}
+S.~Gandolfi, A.~Lovato, J.~Carlson, and Kevin~E. Schmidt.
+\newblock From the lightest nuclei to the equation of state of asymmetric
+  nuclear matter with realistic nuclear interactions.
+\newblock {\em Phys. Rev. C}, 90:061306, Dec 2014.
+
+\bibitem{gez08}
+Alexandros Gezerlis and J.~Carlson.
+\newblock Strongly paired fermions: Cold atoms and neutron matter.
+\newblock {\em Phys. Rev. C}, 77:032801, Mar 2008.
+
+\bibitem{gez10}
+Alexandros Gezerlis and J.~Carlson.
+\newblock Low-density neutron matter.
+\newblock {\em Phys. Rev. C}, 81:025803, Feb 2010.
+
+\bibitem{bro13}
+J.~Carlson, S.~Gandolfi, and A.~Gezerlis.
+\newblock {\em Fifty Years of Nuclear BCS}.
+\newblock World Scientific Publishing Company, 2013.
+
+\bibitem{car12}
+J.~Carlson, Stefano Gandolfi, and Alexandros Gezerlis.
+\newblock {Quantum Monte Carlo approaches to nuclear and atomic physics}.
+\newblock {\em PTEP}, 2012:01A209, 2012.
+
+\bibitem{mad15}
+Lucas Madeira, Silvio~A. Vitiello, Stefano Gandolfi, and Kevin~E. Schmidt.
+\newblock A vortex line in the unitary fermi gas.
+\newblock {\em arXiv pre-print}, 2015.
+\newblock \href{http://arxiv.org/abs/1510.07952}{arXiv:1510.07952
+  [cond-mat.quant-gas]}.
+
+\bibitem{gan09}
+S.~Gandolfi, A.~Yu. Illarionov, F.~Pederiva, K.~E. Schmidt, and S.~Fantoni.
+\newblock Equation of state of low-density neutron matter, and the
+  ${}^{1}{S}_{0}$ pairing gap.
+\newblock {\em Phys. Rev. C}, 80:045802, Oct 2009.
+
+\bibitem{gan12}
+S.~Gandolfi, J.~Carlson, and Sanjay Reddy.
+\newblock Maximum mass and radius of neutron stars, and the nuclear symmetry
+  energy.
+\newblock {\em Phys. Rev. C}, 85:032801, Mar 2012.
+
+\bibitem{cas04}
+Michele Casula, Claudio Attaccalite, and Sandro Sorella.
+\newblock Correlated geminal wave function for molecules: An efficient
+  resonating valence bond approach.
+\newblock {\em The Journal of Chemical Physics}, 121(15):7110--7126, 2004.
+
+\end{thebibliography}

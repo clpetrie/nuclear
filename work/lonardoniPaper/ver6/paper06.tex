@@ -1,0 +1,1592 @@
+\documentclass[aps,prc,twocolumn,superscriptaddress,showpacs,floatfix,nofootinbib]{revtex4-1}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{bm,bbm,amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage{multirow,booktabs}
+\usepackage{isotope}
+\usepackage{physics}
+\usepackage[capitalize]{cleveref}
+\newcommand{\crefrangeconjunction}{--}
+
+\setlength{\tabcolsep}{10pt}
+\newcommand{\red}[1]{\protect\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\protect\textcolor{blue}{#1}}
+\newcommand{\green}[1]{\protect\textcolor{green}{#1}}
+
+
+\begin{document}
+
+\title{Auxiliary field diffusion Monte Carlo calculations of light- and medium-mass nuclei with local chiral interactions}
+
+\author{S. Gandolfi}
+\author{J. Carlson}
+\affiliation{Theoretical Division, Los Alamos National Laboratory, Los Alamos, New Mexico 87545, USA}
+
+\author{D. Lonardoni}
+\affiliation{National Superconducting Cyclotron Laboratory, Michigan State University, East Lansing, Michigan 48824, USA}
+\affiliation{Theoretical Division, Los Alamos National Laboratory, Los Alamos, New Mexico 87545, USA}
+
+\author{C.~Petrie}
+\author{K.~E.~Schmidt}
+\affiliation{Department of Physics, Arizona State University, Tempe, Arizona 85287, USA}
+
+\begin{abstract}
+\red{Blablabla\ldots}
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+A long-standing goal of nuclear physics is to understand the structure and dynamics 
+of nuclear systems, from finite nuclei to infinite nuclear matter, within a single 
+coherent picture based on realistic interactions among their constituents.
+A direct approach starting from the fundamental theory of nuclear force, Quantum Chromodynamics (QCD), 
+would fulfill this expectation. However, the amount of computational effort required prevents 
+Lattice QCD---the only practical way to solve QCD in the non perturbative regime of low energy 
+nuclear physics---to be extended to many-body systems within the currently available computing frameworks.
+On the other hand, during the last decades, the problem has been rephrased by the emergence of 
+effective theories of the nuclear force, that involve baryons and mesons as active degrees of 
+freedom~\cite{Wiringa:1995,Epelbaum:2009,Machleidt:2011,Ekstrom:2013,Gezerlis:2014,Entem:2015,
+Epelbaum:2015,Ekstrom:2015,Piarulli:2015,Lynn:2016,Ekstrom:2017}. These have been 
+employed in different many-body techniques for the calculation of properties of 
+nuclei~\cite{Barrett:2013,Hagen:2013,Carlson:2015,Hergert:2015} 
+and nuclear matter~\cite{Akmal:1998,Hebeler:2013,Carlson:2015}
+\blue{\bf REF CC}.
+
+The solution of the many-body Schr\"odinger equation describing a system of individual 
+interacting baryons is however challenging because of the non-perturbative 
+nature and the strong spin-isospin dependence of realistic nuclear interactions. 
+Quantum Monte Carlo (QMC) methods provide a powerful tool to tackle the nuclear 
+many-body problem in a non-perturbative fashion. They have been proven to be 
+remarkably successful in describing the properties of strongly correlated 
+Fermions in a large variety of physical conditions~\cite{Carlson:2015}. 
+
+Historically, QMC methods have made use of phenomenological nuclear interactions, 
+such as the Argonne $v_{18}$ (AV18) nucleon-nucleon potential combined
+with Urbana/Illinois models for the three-body forces~\cite{Carlson:2015}.
+By construction, these potentials are nearly local, meaning that the dominant parts 
+of the interaction depend only on the relative distance, spin, and isospin of the
+two interacting nucleons, and not upon their momenta.
+This feature has been one of the keys to success
+for the application of QMC algorithms to the study of nuclear systems. Green's function
+Monte Carlo (GFMC) and auxiliary filed diffusion Monte Carlo (AFDMC) have been employed 
+to derive properties of nuclei, neutron drops, and neutron star matter~\cite{Carlson:2015} \blue{\bf ADD REFS, also Alex}. 
+Despite the large success of such models, phenomenological interactions are not free of
+drawbacks. They do not provide a systematic way to estimate theoretical uncertainties, 
+and it is not clear how to improve their quality. In addition, some models of the 
+three-body force provide a too soft equation of state of neutron matter~\cite{Sarsa:2003,Maris:2013},
+with the consequence that the predicted neutron star maximum mass is not compatible
+with the observation of heavy neutron stars~\cite{Demorest:2010,Antoniadis:2013}.
+
+An alternative approach to nuclear interactions that overcomes the limitations
+of the phenomenological models is provided by chiral effective field theory 
+(EFT)~\cite{Epelbaum:2009,Machleidt:2011}.
+In chiral EFT nuclear interactions are systematically derived accordingly with 
+the underlying theory of the strong interaction. The most general 
+Lagrangian consistent with the symmetries of low-energy QCD is written in terms 
+of the relevant degrees of freedom at low energies, i.e., nucleons and pions.
+A power counting scheme is then chosen to order the resulting contributions according 
+to their importance. The result is a low-energy effective field theory according
+to which the nuclear interaction is written as an expansion on the ratio of a 
+soft scale (the pion mass or a typical momentum scale in the nucleus) to a
+hard scale (the chiral breakdown scale). The long-range part of the potential
+is given by pion-exchange contributions, that are determined by pion-nucleon 
+couplings. The short-range terms are instead characterized by contact
+interactions described by the so-called low-energy constants (LECs), that are fit to 
+reproduce experimental data. Among the advantages of such an 
+expansion compared to traditional approaches, are the ability of 
+systematically improve the quality of the interaction order by order, 
+the possibility of estimate theoretical uncertainties, the fact that
+many-body forces arise naturally, and that electroweak currents can 
+be derived consistently.
+
+In the last decade intense effort has been devoted to the 
+development of chiral EFT interactions, as testified by the 
+availability of different potential models in the 
+literature~\cite{Epelbaum:2009,Machleidt:2011,Ekstrom:2013,Entem:2015,
+Epelbaum:2015,Ekstrom:2015,Ekstrom:2017}, typically written in momentum 
+space. It is only in recent
+years that chiral EFT interactions have been equivalently formulated 
+in coordinate space. New potentials are now available, including 
+next-to-next-to-leading-order (N$^2$LO) local 
+forces~\cite{Gezerlis:2013,Gezerlis:2014}, supported by consistent
+three-body potentials~\cite{Tews:2016,Lynn:2016}, as
+well as chiral interactions with explicit delta degrees of
+freedom~\cite{Piarulli:2015,Piarulli:2016,Piarulli:2017}
+\blue{\bf ADD REF CC}.
+
+The local version of chiral forces can be written using the same operator
+structure as the phenomenological potentials, providing for the first time
+the opportunity to combine EFT derived interactions and exact QMC methods.
+GFMC has been used to study the ground state of light nuclei employing 
+the local chiral forces~\cite{Gezerlis:2013,Gezerlis:2014,Tews:2016,Lynn:2016,Lynn:2017}.
+The same potentials have been used in AFDMC calculations of pure neutron systems, 
+ranging from few-body systems~\cite{Lynn:2014,Klos:2016,Zhao:2016,Gandolfi:2017}, to pure
+neutron matter~\cite{Gezerlis:2013,Gezerlis:2014,Tews:2016}
+\blue{\bf ADD REFS, also Alex}.
+More recently, the first AFDMC study of $p$-shell nuclei employing local
+chiral forces has been reported~\cite{Lonardoni:2017afdmc}.
+In this work we provide a comprehensive description of the AFDMC algorithm 
+for the study of ground state properties of light- and medium-mass nuclei 
+employing the local version of chiral interactions at N$^2$LO, extending
+the findings of Ref.~\cite{Lonardoni:2017afdmc}.
+
+The structure of this paper is as follows. 
+In~\cref{sec:ham} we introduce the nuclear Hamiltonian employed in this work.
+In~\cref{sec:vmc,sec:afdmc} we review the main features of the VMC and AFDMC methods.
+\Cref{sec:wf} is devoted to the description of the employed wave function. 
+In~\cref{sec:res} we present a collection of results for nuclei
+with $3\le A\le 16$. 
+Finally, we give a summary in~\cref{sec:summ}.
+
+
+\section{Hamiltonian}
+\label{sec:ham}
+Nuclei are described as a collection of point-like particles of mass $m_N$ interacting 
+via two- and three-body forces accordingly to the nonrelativistic Hamiltonian
+\begin{align}
+	H=-\frac{\hbar^2}{2m_N}\sum_i \nabla_i^2+\sum_{i<j}v_{ij}+\sum_{i<j<k}V_{ijk} ,
+\end{align}
+where the two-body interaction $v_{ij}$ also includes the Coulomb force.
+
+In QMC calculations it is convenient to express the interactions
+in terms of radial functions multiplying spin and isospin operators. The commonly 
+employed Argonne $v_8'$ (AV8') potential~\cite{Wiringa:2002}, as well as the two-body
+part of the recently developed chiral interactions in local form~\cite{Gezerlis:2013}, 
+can be expressed as:
+\begin{align}
+	v_{ij} = \sum_{p=1}^8 v_p(r_{ij}) \mathcal O_{ij}^{p},
+	\label{eq:v_ij}
+\end{align}
+with
+\begin{align}
+	\mathcal O_{ij}^{p=1,8} = \big[\mathbbm 1,\bm\sigma_i\cdot\bm\sigma_j,S_{ij},\vb{L}\cdot\vb{S}\big]
+	\otimes\big[\mathbbm 1,\bm\tau_i\cdot\bm\tau_j\big],
+\end{align}
+where
+\begin{align}
+	S_{ij}=3\,\bm\sigma_i\cdot\hat{\vb{r}}_{ij}\,\bm\sigma_j\cdot\hat{\vb{r}}_{ij}-\bm\sigma_i\cdot\bm\sigma_j,
+\end{align}
+is the tensor operator, and
+\begin{align}
+	\vb{L}&=\frac{1}{2i}(\vb{r}_i-\vb{r}_j)\times(\bm\nabla_i-\bm\nabla_j), \label{eq:L} \\
+	\vb{S}&=\frac{1}{2}(\bm\sigma_i+\bm\sigma_j), \label{eq:S}
+\end{align}
+$\vb{L}$ and $\vb{S}$ being the relative angular momentum and the total spin of the pair $ij$, respectively.
+The radial functions of~\cref{eq:v_ij} are fitted to nucleon-nucleon scattering data.
+At N$^2$LO, the operator structure of the local chiral interactions is the same as 
+above, with the only exception for the missing $\vb{L}\cdot\vb{S}\,\bm\tau_i\cdot\bm\tau_j$ term
+(see Ref.~\cite{Gezerlis:2014} for more details).
+
+The three-body force $V_{ijk}$ is written as a sum of contributions coming from two-pion
+exchange (TPE), plus short range terms. In the case of local chiral forces at N$^2$LO, $P$- and $S$-wave
+TPE contributions are included, and they are characterized by the same LECs involved in the two-body sector. 
+The short range part of the three-body force is instead parametrized by two contact terms, 
+the LECs of which have been fit to the alpha particle binding energy and to the spin-orbit splitting in 
+the neutron-$\alpha$ $P$-wave phase shifts (see Refs.~\cite{Lynn:2016,Lynn:2017} for more details).
+
+The chiral three-body interaction at N$^2$LO can be conveniently written as
+\begin{align}
+V=V_a^{2\pi,P}+V_c^{2\pi,P}+V^{2\pi,S}+V_D+V_E,
+\label{eq:v_ijk}
+\end{align}
+where the first three terms correspond to the TPE diagrams in $P$ and $S$ waves (Eqs. (A.1b),
+(A.1c) and (A.1a) of Ref.~\cite{Lynn:2017}, respectively). The subscripts $a$ and $c$ refer 
+to the operator structure of such contributions, that can written in terms of anticommutators 
+or commutators, respectively. $V_D$ and $V_E$ involve contact terms. In this work we employ
+the form (A.2b) of Ref.~\cite{Lynn:2017} for $V_D$, and we consider two choices for $V_E$, 
+namely $E\tau$ and $E\mathbbm1$ (Eqs.~(A.3a) and (A.3b) of Ref.~\cite{Lynn:2017}).
+
+By defining the following quantities:
+\begin{align}
+\delta_{R_0}(r)&=\frac{n}{4\pi R_0^3\Gamma(3/n)}\,e^{-(r/R_0)^n}
+\nonumber, \\
+T(r)&=\left(1+\frac{3}{m_\pi r}+\frac{9}{m_\pi^2r^2}\right)\frac{e^{-m_\pi r}}{m_\pi r} T_c(r)
+\nonumber, \\
+Y(r)&=\frac{e^{-m_\pi r}}{m_\pi r}\,Y_c(r) 
+\nonumber, \\
+Z(r)&=\frac{m_\pi r}{3}\Big(Y(r)-T(r)\Big)
+\nonumber, \\
+Y_c(r)&=1-e^{-(r/R_0)^n}
+\nonumber, \\
+T_c(r)&=\left(1-e^{-(r/R_0)^n}\right)^{n_t}
+\nonumber, \\
+X_{i\alpha j\beta}&=(3\,\hat{\vb{x}}_\alpha\cdot\hat{\vb{r}}_{ij}\;\hat{\vb{x}}_\beta\cdot\hat{\vb{r}}_{ij}-\delta_{\alpha\beta})\,T(r_{ij})
++\delta_{\alpha\beta}\,Y(r_{ij}) 
+\nonumber, \\
+{\cal X}_{i\alpha j\beta}&=X_{i\alpha j\beta}(\vb{r}_{ij})-\delta_{\alpha\beta}\frac{4\pi}{m_\pi^3}\delta_{R_0}(r_{ij})
+\nonumber, \\
+{\cal Z}_{ij\alpha}&=Z(r_{ij})\,\hat{\vb{x}}_\alpha\cdot\hat{\vb{r}}_{ij},
+\end{align}
+we can recast the contributions of~\cref{eq:v_ijk} in a form that is suitable for QMC calculations:
+\begin{widetext}
+\begin{align}
+V_a^{2\pi,P}&=A_a^{2\pi,P}\sum_{i<j<k}\sum_{cyc}\Big\{\bm{\tau}_i\cdot\bm{\tau}_k,\bm{\tau}_j\cdot\bm{\tau}_k\Big\}
+\Big\{\sigma_i^\alpha\sigma_k^\gamma,\sigma_k^\mu\sigma_j^\beta\Big\}
+{\cal X}_{i\alpha k\gamma}\,{\cal X}_{k\mu j\beta}
+\nonumber \\
+&=4\,A_a^{2\pi,P}\sum_{i<j}\bm{\tau}_i\cdot\bm{\tau}_j\,\sigma_i^\alpha\sigma_j^\beta
+\sum_{k\neq i,j}{\cal X}_{i\alpha k\gamma}\,{\cal X}_{k\mu j\beta} 
+\nonumber \\
+&=4\,A_a^{2\pi,P}\sum_{i<j}\bm{\tau}_i\cdot\bm{\tau}_j\,\sigma_i^\alpha\sigma_j^\beta
+\sum_{k\neq i,j}\left(X_{i\alpha k\gamma}-\delta_{\alpha\gamma}\frac{4\pi}{m_\pi^3}\delta_{R_0}(r_{ik})\right)
+\left(X_{k\mu j\beta}-\delta_{\mu\beta}\frac{4\pi}{m_\pi^3}\delta_{R_0}(r_{kj})\right)
+\nonumber \\
+&=V_a^{XX}+V_a^{X\delta}+V_a^{\delta\delta} ,
+\label{eq:anti}
+\\
+V_c^{2\pi,P}&=A_c^{2\pi,P}\sum_{i<j<k}\sum_{cyc}\Big[\bm{\tau}_i\cdot\bm{\tau}_k,\bm{\tau}_j\cdot\bm{\tau}_k\Big]
+\Big[\sigma_i^\alpha\sigma_k^\gamma,\sigma_k^\mu\sigma_j^\beta\Big]
+{\cal X}_{i\alpha k\gamma}\,{\cal X}_{k\mu j\beta}
+\nonumber \\
+&=-4\,A_c^{2\pi,P}\sum_{i<j<k}\sum_{cyc}\tau_i^\eta\tau_j^\xi\tau_k^\phi\,\epsilon_{\eta\xi\phi}\,
+\sigma_i^\alpha\sigma_j^\beta\sigma_k^\nu\,\epsilon_{\nu\gamma\mu}\,{\cal X}_{i\alpha k\gamma}\,{\cal X}_{k\mu j\beta} 
+\nonumber \\
+&=A_c^{2\pi,P}\sum_{i<j<k}\sum_{cyc}\Big[\bm{\tau}_i\cdot\bm{\tau}_k,\bm{\tau}_j\cdot\bm{\tau}_k\Big]
+\Big[\sigma_i^\alpha\sigma_k^\gamma,\sigma_k^\mu\sigma_j^\beta\Big]
+\left(X_{i\alpha k\gamma}-\delta_{\alpha\gamma}\frac{4\pi}{m_\pi^3}\delta_{R_0}(r_{ik})\right)
+\left(X_{k\mu j\beta}-\delta_{\mu\beta}\frac{4\pi}{m_\pi^3}\delta_{R_0}(r_{kj})\right) 
+\nonumber \\
+&=V_c^{XX}+V_c^{X\delta}+V_c^{\delta\delta} ,
+\label{eq:comm}
+\\
+V^{2\pi,S}&=A^{2\pi,S}\sum_{i<j<k}\sum_{cyc}
+\bm{\tau}_i\cdot\bm{\tau}_j\,\sigma_i^\alpha\sigma_j^\beta\,{\cal Z}_{ik\alpha}\,{\cal Z}_{jk\alpha}
+\nonumber \\
+&=A^{2\pi,S}\sum_{i<j}\bm{\tau}_i\cdot\bm{\tau}_j\,\sigma_i^\alpha\sigma_j^\beta
+\sum_{k\neq i,j}{\cal Z}_{ik\alpha}\,{\cal Z}_{jk\alpha} ,
+\label{eq:tm}
+\\
+V_D&=A_D\sum_{i<j}\bm{\tau}_i\cdot\bm{\tau}_j\,\sigma_i^\alpha\sigma_j^\beta
+\sum_{k\neq i,j}{\cal X}_{i\alpha j\beta}\Big[\delta_{R_0}(r_{ik})+\delta_{R_0}(r_{jk})\Big] , 
+\nonumber \\
+&=A_D\sum_{i<j}\bm{\tau}_i\cdot\bm{\tau}_j\,\sigma_i^\alpha\sigma_j^\beta
+\sum_{k\neq i,j}\left(X_{i\alpha j\beta}-\delta_{\alpha\beta}\frac{4\pi}{m_\pi^3}\delta_{R_0}(r_{ij})\right) \Big[\delta_{R_0}(r_{ik})+\delta_{R_0}(r_{jk})\Big] , 
+\nonumber \\
+&=V_D^{X\delta}+V_D^{\delta\delta}
+\label{eq:vd}
+\\
+V_E&=A_E\sum_{i<j}\bm{\tau}_i\cdot\bm{\tau}_j\sum_{k\neq i,j}\delta_{R_0}(r_{ik})\delta_{R_0}(r_{jk}) ,
+\label{eq:ve}
+\end{align}
+\end{widetext}
+where the sum over the coordinate projections (Greek letter indexes) is implicit.
+\Cref{eq:ve} is the expression for the $E\tau$ parametrization of the contact term $V_E$.
+The $E\mathbbm1$ form is recovered setting $\bm{\tau}_i\cdot\bm{\tau}_j=\mathbbm1$.
+For the local chiral interactions at N$^2$LO, we have
+\begin{align}
+A_a^{2\pi,P}&=\frac{1}{2}\left(\frac{g_A}{f_\pi^2}\right)^2\left(\frac{1}{4\pi}\right)^2
+\frac{m_\pi^6}{9}c_3 \nonumber, \\
+A_c^{2\pi,P}&=-\frac{c_4}{2c_3}A_a^{2\pi,P} \nonumber, \\
+A^{2\pi,S}&=\left(\frac{g_A}{2f_\pi}\right)^2\left(\frac{m_\pi}{4\pi}\right)^2\frac{4m_\pi^6}{f_\pi^2}c_1
+\nonumber, \\
+A_D&=\frac{m_\pi^3}{12\pi}\frac{g_A}{8f_\pi^2}\frac{1}{f_\pi^2\Lambda_\chi}c_D
+\nonumber, \\
+A_E&=\frac{c_E}{f_\pi^4\Lambda_\chi}.
+\end{align}
+Note that, using these definitions, the structure of the phenomenological Urbana IX (UIX) model
+is recovered by imposing $\delta_{R_0}(r)=0$, $n=2$, $n_t=2$, and $A_c^{2\pi,P}=\frac{1}{4}A_a^{2\pi,P}$.
+
+
+\section{Review of VMC}
+\label{sec:vmc}
+In variational Monte Carlo (VMC), given a trial wave function $\Psi_T$,
+the expectation value of the Hamiltonian $H$ is given by
+\begin{align}
+\!\!\!E_0\leq\langle H\rangle=\frac{\langle\Psi_T|H|\Psi_T\rangle}{\langle\Psi_T|\Psi_T\rangle}
+=\frac{\displaystyle\int\!dR\,\Psi_T^*(R)H\Psi_T(R)}
+{\displaystyle\int\!dR\,\Psi_T^*(R)\Psi_T(R)} ,
+\label{eq:<h>}
+\end{align}
+where $R=\{\vb{r}_1\dots\vb{r}_A\}$ are the coordinates of the particles, and there is an 
+implicit sum over all the particle spin and isospin states. 
+$E_0$ is the energy of the true ground-state with the same quantum numbers as $\Psi_T$, 
+and the equality in the above relation is valid only if the wave function is the exact
+ground state wave function $\Psi_0$. In VMC one typically minimizes the energy expectation 
+value of~\cref{eq:<h>} with respect to changes in the variational parameters, in order to 
+obtain $\Psi_T$ as close as possible to $\Psi_0$. 
+
+The integral of~\cref{eq:<h>} can be rewritten as
+\begin{align}
+\langle H\rangle=\frac{\displaystyle\int dR\,P(R) \frac{H\Psi_T(R)}{\Psi_T(R)}}{\displaystyle\int dR\,P(R)} ,
+\end{align}
+where $P(R)=|\Psi_T(R)|^2$ can be interpreted as a probability distribution of points $R$ in a $3A$ 
+dimensional space.
+The above multi-dimensional integral can be solved using Monte Carlo sampling.
+In practice, a number of configurations $R_i$ are sampled using the Metropolis algorithm~\cite{Metropolis:1953}, 
+and the local energy of the system is calculated as:
+\begin{align}
+\langle E\rangle=\frac{1}{A}\sum_{i=1}^A \frac{\langle R_i|H|\Psi_T\rangle}{\langle R_i|\Psi_T\rangle} ,
+\end{align}
+where $\langle R|\Psi_T\rangle=\Psi_T(R)$.
+More details on the sampling procedure and on the calculation of statistical errors can be found 
+for example in Ref.~\red{\cite{??}}.
+
+For spin/isospin dependent interactions the generalization of~\cref{eq:<h>} is straightforward:
+\begin{align}
+\langle H\rangle=\frac{\displaystyle\int dR\,\sum_{S,S'}\Psi_T^*(R,S')H_{S,S'}\Psi_T(R,S)}
+{\displaystyle\int dR\,\sum_S|\Psi_T(R,S)|^2} ,
+\end{align}
+where now the wave function also depends upon spin and isospin states $S$, and
+\begin{align}
+H_{S,S'}=\langle S'|S\rangle\left[-\frac{\hbar^2}{2m}\sum_i\nabla_i^2\right]+\langle RS'|V|RS\rangle .
+\end{align}
+In this case, VMC can be implemented with either explicit sum over all the spins/isospin states
+\begin{align}
+&\langle H\rangle=\displaystyle\int dR\,E_L(R)P(R) ,\nonumber \\
+&P(R)=\frac{\sum_S|\Psi_T(R,S)|^2}{\displaystyle\int dR\,\sum_S|\Psi_T(R,S)|^2} ,\nonumber \\
+&E_L(R)=\frac{\sum_{S,S'}\Psi_T^*(R,S')H_{S,S'}\Psi_T(R,S)}{\sum_S|\Psi_T(R,S)|^2} ,
+\end{align}
+or with spin/isospin samples:
+\begin{align}
+&\langle H\rangle=\displaystyle\int dR\,\sum_S\,E_L(R,S)P(R,S) ,\nonumber \\
+&P(R,S)=\frac{|\Psi_T(R,S)|^2}{\displaystyle\int dR\,|\Psi_T(R,S)|^2} ,\nonumber \\
+&E_L(R,S)=\frac{\sum_{S'}\Psi_T^*(R,S')H_{S,S'}\Psi_T(R,S)}{|\Psi_T(R,S)|^2} .
+\end{align}
+The Metropolis algorithm can be then used to sample either $R$ from $P(R)$ in the first case, 
+or $R$ and $S$ from $P(R,S)$ in the latter case.
+
+
+\section{Review of AFDMC}
+\label{sec:afdmc}
+Diffusion Monte Carlo (DMC) methods are used to project out the ground state
+with a particular set of quantum numbers. The starting point is a trial wave
+function $|\Psi_T\rangle$, typically the result of a VMC minimization, that is
+propagated in imaginary-time $\tau$:
+\begin{align}
+|\Psi_0\rangle\propto \lim_{\tau\rightarrow\infty} e^{-(H-E_T)\tau}|\Psi_T\rangle ,
+\end{align}
+where $H$ is the Hamiltonian describing the system, and $E_T$ is a parameter that 
+controls the normalization. 
+For spin/isospin independent interactions, the object to be propagated 
+is given by the overlap between the wave function and a set of configurations in 
+coordinate space $\langle R|\Psi_T\rangle=\Psi_T(R)$. 
+By using the completeness relation $\int dR |R\rangle\langle R|=\mathbbm1$,
+we can write the propagation in imaginary time as
+\begin{align}
+\langle R'|\Psi(\tau)\rangle=\displaystyle\int dR\,G(R',R,\tau)\,\langle R|\Psi_T(0)\rangle ,
+\label{eq:imtimeprop}
+\end{align}
+where the propagator (or Green's function) $G$ is defined as the matrix element between
+the two points $R$ and $R'$ in the volume
+\begin{align}
+G(R',R,\tau)=\langle R'|e^{-(H-E_T)\tau}|R\rangle,
+\end{align}
+and $\langle R'|\Psi(\tau)\rangle$ approaches the true ground-state 
+for large imaginary time.
+
+In practice, it is not possible to directly compute
+the propagator $G(R',R,\tau)$. 
+However, one can use the short-time propagator $G(R',R,d\tau)$:
+\begin{align}
+\langle R'|\Psi(\tau)\rangle=
+\int dR_n\,dR_{n-1}\ldots\,dR_1\,dR\,G(R',R_n,\delta\tau)\times\nonumber \\
+\times G(R_{n-1},R_{n-2},\delta\tau)\ldots\,G(R_1,R,\delta\tau)
+\langle R|\Psi_T(0)\rangle,
+\end{align}
+and then employ Monte Carlo techniques to sample the paths $R_i$ in the
+imaginary time evolution. The method is accurate for small values of 
+the time step $\delta\tau$, and the exact result 
+can be determined by using different values of $\delta\tau$ 
+and extrapolating for $\delta\tau\to0$.
+
+By using the Trotter-Suzuki relation to order $d\tau^3$,
+the short-time propagator can be approximated with:
+\begin{align}
+G(R',R,\delta\tau)&\equiv\langle R'|e^{-(H-E_T)\delta\tau}|R\rangle \nonumber \\
+&\approx \langle R'|e^{-(V-E_T)\frac{\delta\tau}{2}}e^{-T\delta\tau}e^{-(V-E_T)\frac{\delta\tau}{2}}
+|R\rangle ,
+\end{align}
+where $T$ is the non-relativistic kinetic energy, and $V$ is the employed potential.
+The propagator for the kinetic energy alone corresponds to the free particle propagator:
+\begin{align} 
+G_0(R',R)&=\langle R'|e^{-T\delta\tau}|R\rangle\nonumber \\
+&=\left(\frac{m}{2\pi\hbar^2\delta\tau}\right)^{\frac{3A}{2}}e^{-\frac{m(R-R')^2}{2\hbar^2\delta\tau}} ,
+\label{eq:g0}
+\end{align}
+that yields a Gaussian diffusion for the paths in coordinate space, with
+$\sigma^2 = 4 \frac{\hbar^2}{2m} \delta\tau$.
+The propagator for spin/isospin independent potentials is simply given by: 
+\begin{align}
+\langle R'|e^{-(V-E_T)\delta\tau}|R\rangle \approx
+\prod_{i<j}e^{-[V(r_{ij})-E_T]\delta\tau}\,\delta_{R'R} ,
+\label{eq:p_vr}
+\end{align}
+where, each pair interaction can be simply evaluated as a function of the coordinates of the 
+system, and the energy $E_T$ results in a normalization factor. 
+Note that the addition of spin/isospin independent three- and many-body interactions
+is straightforward.
+
+For spin/isospin dependent interactions, the propagation of the potential becomes more complicated.
+In general, this is because quadratic operators like $\bm\sigma_i\cdot\bm\sigma_j$
+generates amplitudes along the singlet and the triplet states of a pair. 
+The propagator~(\ref{eq:p_vr}) generalizes in this case to
+\begin{align}
+\langle R'|e^{-(V-E_T)\delta\tau}|R\rangle  \rightarrow
+\langle R'S'|e^{-(V-E_T)\delta\tau}|RS\rangle \nonumber \\
+ \approx \langle S'|\prod_{i<j}e^{-(V(r_{ij})-E_T)\delta\tau}|S\rangle\,\delta_{RR'} ,
+\label{eq:p_vrs}
+\end{align}
+where now the matrix $\exp[(-(V-E_T)\delta\tau)]$ is not diagonal in the spin of each pair.
+One possible strategy to compute the propagator~(\ref{eq:p_vrs}) is to include all the  
+spin/isospin states in the trial wave function, as done in GFMC~\cite{Carlson:2015}.  
+This, however, implies a number of wave function components proportional to $2^A$, 
+that currently limits GFMC calculations to $A=12$.
+
+The idea of auxiliary field diffusion Monte Carlo is to start from a trial wave function
+whose computational cost is polynomial with $A$, rather than exponential.
+Such a wave function can be written in the single particle representation:
+\begin{align}
+\langle S|\Psi\rangle\propto\xi_{\alpha_1}(s_1)\,\xi_{\alpha_2}(s_2)\dots\,\xi_{\alpha_A}(s_A) ,
+\label{eq:wf_s}
+\end{align}
+where $\xi_{\alpha_i}(s)$ are functions of the spinor $s_i$ with state $\alpha_i$,
+and $S=\{s_1\dots s_A\}$. In the above expression, the radial orbitals are omitted for simplicity, 
+and the antisymmetrization is trivial.
+
+A quadratic operator in the spin acting on the wave function above generates two different amplitudes:
+\begin{align}
+\langle S|\bm\sigma_1\cdot\bm\sigma_2|\Psi\rangle & =\langle S|2\,\mathcal P_{12}^\sigma-\mathbbm1|\Psi\rangle \nonumber \\
+& =2\,\xi_{\alpha_1}(s_2)\,\xi_{\alpha_2}(s_1)\,\xi_{\alpha_3}(s_3)\dots\,\xi_{\alpha_A}(s_A) \nonumber \\
+& \quad\,-\xi_{\alpha_1}(s_1)\,\xi_{\alpha_2}(s_2)\,\xi_{\alpha_3}(s_3)\dots\,\xi_{\alpha_A}(s_A) \nonumber \\
+& =\langle S'|\Psi\rangle+\langle S''|\Psi\rangle .
+\nonumber
+\end{align}
+In general, the action of all pairwise spin/isospin operators (or propagators) generates $A!$ amplitudes \blue{\bf OR MAYBE $2^{A(A-1)/2}$???}.
+This largely increases the number of components with respect to the initial wave function, loosing thus the 
+computational advantage of the polynomial scaling with $A$.
+However, linear spin/isospin operators do not break the single particle representation. 
+They simply imply rotations of the initial spinors, without generating new amplitudes, as for instance:
+\begin{align}
+\langle S|\sigma_1^\alpha|\Psi\rangle &=
+\sigma_1^\alpha\,\xi_{\alpha_1}(s_1)\,\xi_{\alpha_2}(s_2)\,\xi_{\alpha_3}(s_3)\dots\,\xi_{\alpha_A}(s_A) \nonumber \\
+& =\xi_{\alpha_1}(s'_1)\,\xi_{\alpha_2}(s_2)\,\xi_{\alpha_3}(s_3)\dots\,\xi_{\alpha_A}(s_A) \nonumber \\
+& =\langle S'|\Psi\rangle .
+\nonumber
+\end{align}
+Quadratic operators can be linearized by using the Hubbard-Stratonovich transformation:
+\begin{align}
+e^{-\frac{1}{2}\lambda \mathcal O^2}=\frac{1}{\sqrt{2\pi}}\int dx\, e^{-\frac{x^2}{2}+\sqrt{-\lambda}x\mathcal O} ,
+\label{eq:hs}
+\end{align}
+where $x$ are usually called \emph{auxiliary fields}, and the integral above can
+be computed with Monte Carlo techniques, i.e. by sampling points $x$ with  
+probability distribution $P(x)=\exp(-x^2/2)$. By using the transformation~(\ref{eq:hs}),
+Hamiltonians involving up to quadratic operators in spin and isospin can be efficiently
+employed in the imaginary time propagation of a trial wave function of the form~(\ref{eq:wf_s}),
+retaining the good polynomial scaling with $A$.
+
+\subsection{Propagation of spin/isospin quadratic operators}
+\label{sec:p2}
+Let's consider the two-body interaction of~\cref{eq:v_ij} up to $p=6$:
+\begin{widetext}
+%\begin{align}
+%v_6(r_{ij})&=v_c(r_{ij})+v_\tau(r_{ij})
+%+\Big[v_\sigma(r_{ij})+v_{\sigma\tau}(r_{ij})\Big]\bm\sigma_i\cdot\bm\sigma_j
+%+\Big[v_t(r_{ij})+v_{t\tau}(r_{ij})\Big]S_{ij}
+%\nonumber \\
+%&=V_{SI}+(v_\sigma+v_{\sigma\tau})\,\bm\sigma_i\cdot\bm\sigma_j+(v_t+v_{t\tau})(3\,\bm\sigma_i\cdot
+%\hat{\vb{r}}_{ij}\,\bm\sigma_j\cdot\hat{\vb{r}}_{ij}-\bm\sigma_i\cdot\bm\sigma_j)
+%\nonumber \\
+%&=V_{SI}+\sum_{\alpha\beta}\Big[(v_\sigma+v_{\sigma\tau})\,\sigma_i^\alpha\sigma_j^\beta
+%\delta_{\alpha\beta}+ (v_t+v_{t\tau})(3\,\sigma_i^\alpha\hat{r}_{ij}^\alpha\,\sigma_j^\beta\hat{r}_{ij}^\beta
+%-\sigma_i^\alpha\sigma_j^\beta\delta_{\alpha\beta})\Big]
+%\nonumber \\
+%&=V_{SI}+\sum_{\alpha\beta}\sigma_i^{\alpha}\sigma_j^{\beta}\Big[(v_\sigma+v_{\sigma\tau}-v_t-v_{t\tau})\,\delta_{\alpha\beta}+
+%3(v_t+v_{t\tau})\,\hat{r}_{ij}^{\alpha}\hat{r}_{ij}^{\beta}\Big]
+%\nonumber \\
+%&=V_{SI}+\sum_{\alpha\beta}\sigma_i^{\alpha}\sigma_j^{\beta}\,A_{i\alpha j\beta}
+%\nonumber
+%\end{align}
+\begin{align}
+V_{NN}^6&=\sum_{i<j}\Big\{	
+ \Big[v_1(r_{ij})+v_2(r_{ij})\,\bm\tau_i\cdot\bm\tau_j\Big]\mathbbm1
++\Big[v_3(r_{ij})+v_4(r_{ij})\,\bm\tau_i\cdot\bm\tau_j\Big]\bm\sigma_i\cdot\bm\sigma_j
++\Big[v_5(r_{ij})+v_6(r_{ij})\,\bm\tau_i\cdot\bm\tau_j\Big]S_{ij}\Big\} , \nonumber \\
+&=\sum_{i<j}v_1(r_{ij})+\sum_{i<j}\Big[v_2(r_{ij})\Big]\bm\tau_i\cdot\bm\tau_j
++\sum_{i<j}\sum_{\alpha\beta}\Big[v_3(r_{ij})\,\delta_{\alpha\beta}
++v_5(r_{ij})(3\,\hat{r}_{ij}^\alpha\,\hat{r}_{ij}^\beta-\delta_{\alpha\beta})\Big]\sigma_i^\alpha\sigma_j^\beta \nonumber \\ 
+&\quad+\sum_{i<j}\sum_{\alpha\beta}\Big[v_4(r_{ij})\,\delta_{\alpha\beta}
++v_6(r_{ij})(3\,\hat{r}_{ij}^\alpha\,\hat{r}_{ij}^\beta-\delta_{\alpha\beta})\Big]\bm\tau_i\cdot\bm\tau_j\,\sigma_i^\alpha\sigma_j^\beta , \nonumber \\
+&=V_{SI}(R)+{1\over2}\sum_{i\ne j}A^{(\tau)}_{ij}\,\bm\tau_i\cdot\bm\tau_j
++{1\over2}\sum_{i\ne j}\sum_{\alpha\beta}A^{(\sigma)}_{i\alpha j\beta}\,\sigma_i^{\alpha}\sigma_j^{\beta}
++{1\over2}\sum_{i\ne j}\sum_{\alpha\beta}A^{(\sigma\tau)}_{i\alpha j\beta} \,\bm\tau_i\cdot\bm\tau_j\,\sigma_i^{\alpha}\sigma_j^{\beta} , \nonumber \\
+&=V_{SI}(R)+V_{SD} \, \label{eq:v_si+sd}
+\end{align}
+\end{widetext}
+where $V_{SI}(V_{SD})$ is the spin/isospin-independent(-dependent) part of the interaction, 
+and $A^{(\tau)}_{ij}\;(A\times A)$, $A^{(\sigma)}_{i\alpha j\beta}\;(3A\times 3A)$, 
+and $A^{(\sigma\tau)}_{i\alpha j\beta}\;(3A\times 3A)$
+are real and symmetric matrices.
+As such, these matrices can be diagonalized:
+\begin{align}
+\sum_{j}A^{(\tau)}_{ij}\,\psi_{n,j}^{(\tau)}&=\lambda_n^{(\tau)}\,\psi_{n,i}^{(\tau)} , \nonumber \\
+\sum_{j\beta}A^{(\sigma)}_{i\alpha j\beta}\,\psi_{n,j\beta}^{(\sigma)}&=\lambda_n^{(\sigma)}\,\psi_{n,i\alpha}^{(\sigma)} , \nonumber \\
+\sum_{j\beta}A^{(\sigma\tau)}_{i\alpha j\beta}\,\psi_{n,j\beta}^{(\sigma\tau)}&=\lambda_n^{(\sigma\tau)}\,\psi_{n,i\alpha}^{(\sigma\tau)} , \nonumber
+\end{align}
+and it is possible to define a new set of operators expressed in terms of their eigenvectors: 
+\begin{align}
+\mathcal O_{n\alpha}^{(\tau)}&=\sum_{j}\tau_j^\alpha\,\psi_{n,j}^{(\tau)} , \nonumber \\
+\mathcal O_{n}^{(\sigma)}&=\sum_{j\beta}\sigma_j^\beta\,\psi_{n,j\beta}^{(\sigma)} , \nonumber \\
+\mathcal O_{n\alpha}^{(\sigma\tau)}&=\sum_{j\beta}\tau_j^\alpha\sigma_j^\beta\,\psi_{n,j\beta}^{(\sigma\tau)} , \nonumber 
+\end{align}
+such that the spin/isospin-dependent part of~\cref{eq:v_si+sd} can be recast as:
+\begin{align}
+V_{SD}&= 
+ {1\over2}\sum_{\alpha=1}^3\sum_{n=1}^{A} \lambda_n^{(\tau)}\Big(\mathcal O_{n\alpha}^{(\tau)}\Big)^2
++{1\over2}\sum_{n=1}^{3A} \lambda_n^{(\sigma)}\Big(\mathcal O_n^{(\sigma)}\Big)^2 \nonumber \\
+&\quad+{1\over2}\sum_{\alpha=1}^3\sum_{n=1}^{3A} \lambda_n^{(\sigma\tau)}\Big(\mathcal O_{n\alpha}^{(\sigma\tau)}\Big)^2 .
+\end{align}
+
+The potential written in this form contains only quadratic operators in spin/isospin. 
+We can thus use the Hubbard-Stratonovich transformation~(\ref{eq:hs}) to write the
+propagator of the $V_{NN}^6$ interaction acting on a configuration $|RS\rangle$ as:
+\begin{widetext}
+\begin{align}
+e^{-V_{NN}^6\delta\tau}|RS\rangle=e^{-V_{SI}(R)\delta\tau}\prod_{m=1}^{15A}\frac{1}{\sqrt{2\pi}}
+\displaystyle\int dx_m\,e^{\frac{x_m^2}{2}}\,e^{\sqrt{-\lambda_m\delta\tau}\,x_m \mathcal O_m}|RS\rangle
+=|RS'\rangle ,
+\end{align}
+\end{widetext}
+where 15 auxiliary fields are needed for each nucleon, 3 for $\tau$ operators, 3 for $\sigma$,
+and 9 for $\sigma\tau$. The propagation (rotation) of spinors depends upon the sampling
+of the auxiliary fields $X=\{x_m\}$, so as the new spin/isospin configurations $S'$, that, for this 
+reason, will be indicated as $S'(X)$ .
+The full short-time propagator, that includes both kinetic energy and potential, can be 
+finally expressed as:
+\begin{widetext}
+\begin{align}
+G(R',R,S'(X),S,\delta\tau)=\langle R'S'|\Big({m\over2\pi\hbar^2\delta\tau}\Big)^{3A\over2}e^{-{m(R-R')^2\over2\hbar^2\delta\tau}}
+e^{-(V_{SI}(R)-E_T)\delta\tau}
+\prod_{m=1}^{15A}{1\over\sqrt{2\pi}}\int dx_m\,e^{-{x_m^2\over2}}
+e^{\sqrt{-\lambda_m\delta\tau}\,x_m \mathcal O_m}|RS\rangle,
+\label{eq:prop}
+\end{align}
+\end{widetext}
+
+Note that the above expressions refer to the simple propagator $\exp[-T\delta\tau]\exp[-(V-E_T)\delta\tau]$.
+In practice, we sample the more accurate propagator 
+$\exp[-(V-E_T)\delta\tau/2]\exp[-T\delta\tau]\exp[-(V-V_T)\delta\tau/2]$, that implies
+two sets of rotations in $\delta\tau/2$, the first depending on $R$ and the second on 
+the diffused $R'$, for a total of 30 auxiliary fields.
+Compared to GFMC, where the coordinates are sampled and the spin and isospin states are 
+explicitly included and summed, in AFDMC spin and isospin are also sampled via 
+Hubbard-Stratonovich rotations. This largely reduce the computational cost of the
+imaginary time propagation of a many-body wave function, allowing one to calculate 
+more efficiently nuclei up \isotope[12]{C}, and to go beyond $A=12$.
+
+
+\subsection{Propagation of spin-orbit operators}
+\label{sec:pls}
+The spin-orbit operator reads
+\begin{align}
+%v_{LS}(i,j)=v_{LS}(r_{ij})\,\vb{L}\cdot\vb{S} ,
+v_{LS}(r_{ij})=v_7(r_{ij})\,\vb{L}\cdot\vb{S} ,
+\end{align}
+where $\vb{L}$ and $\vb{S}$ are defined in~\cref{eq:L,eq:S}, respectively.
+As shown in Ref.~\cite{Pieper:1998}, one way to evaluate
+the propagator for spin-orbit operators is to consider the expansion at firs order in $\delta\tau$
+\begin{align}
+	e^{-v_7(r_{ij})\,\vb{L}\cdot\vb{S}\,\delta\tau}\approx\mathbbm1-v_7(r_{ij})\,\vb{L}\cdot\vb{S}\,\delta\tau ,
+\end{align}
+acting on the free propagator $G_0$ of~\cref{eq:g0}.
+The resulting propagator is
+\begin{align}
+%G_{LS}=e^{\sum_{i\ne j}\frac{1}{8i}\frac{2m}{\hbar^2}v_{LS}(r_{ij})(\vb{r}_i-\vb{r}_j)
+%\times(\bm\Delta\vb{r}_i-\bm\Delta\vb{r}_j)\cdot(\bm\sigma_i+\bm\sigma_j)} ,
+G_{LS}\approx e^{\sum_{i\ne j}\frac{1}{8i}\frac{2m}{\hbar^2}v_7(r_{ij})(\vb{r}_i-\vb{r}_j)
+\times(\bm\Delta\vb{r}_i-\bm\Delta\vb{r}_j)\cdot(\bm\sigma_i+\bm\sigma_j)} ,
+\end{align}
+where $\bm\Delta\vb{r}_i=\vb{r}_i-\vb{r}_i'$ is the difference of the particle position before and after the
+action of the free propagator $G_0$.
+Note that the above propagator is only linear in the spin, i.e. it does not require any
+auxiliary field to be sampled.
+However, it can be shown that it induces spurious counter terms~\cite{Sarsa:2003}.
+These can be removed by using the modified propagator:
+\begin{align}
+G_{LS}\approx &\,e^{\sum_{i\neq j}\frac{1}{4i}\frac{m}{\hbar^2\delta\tau}v_7(r_{ij})
+[\vb{r}_{ij}\times\bm\Delta\vb{r}_{ij}]\cdot\bm\sigma_i}
+\nonumber \\
+&\times e^{-\frac{1}{2}\left[\sum_{i\neq j}\frac{1}{4i}\frac{m}{\hbar^2}v_7(r_{ij})
+[\vb{r}_{ij}\times\bm\Delta\vb{r}_{ij}]\cdot\bm\sigma_i\right]^2} .
+%&e^{\sum_{i\neq j}\frac{1}{4i}\frac{m}{\hbar^2\delta\tau}v_{LS}(r_{ij})
+%[\vb{r}_{ij}\times\bm\Delta\vb{r}_{ij}]\cdot\bm\sigma_i}
+%\nonumber \\
+%&\times e^{-\frac{1}{2}\left[\sum_{i\neq j}\frac{1}{4i}\frac{m}{\hbar^2}v_{LS}(r_{ij})
+%[\vb{r}_{ij}\times\bm\Delta\vb{r}_{ij}]\cdot\bm\sigma_i\right]^2} .
+\end{align}
+This alternative version of the spin-orbit propagator contains quadratic spin operators,
+and thus it requires additional Hubbard-Stratonovich fields to be sampled, but it is 
+correct at order $\delta\tau$.
+
+
+\subsection{Propagation of three-body forces}
+\label{sec:p3}
+Several terms of the three-body interaction~(\ref{eq:v_ijk}) can be directly included in the AFDMC propagator. 
+These are $V_a^{2\pi,P}$, $V^{2\pi,S}$, $V_D$, and $V_E$ of~\cref{eq:anti,eq:tm,eq:vd,eq:ve},
+that correspond to terms involving only quadratic spin and isospin operators.
+These have the same operator structure of the spin/isospin-dependent part of the
+two-body potential~(\ref{eq:v_si+sd}). The dependence on the third particle $k$ enters only in the radial
+functions ${\cal X}_{i\alpha j\beta}$, ${\cal Z}_{ij\alpha}$, and $\delta_{R_0}(r)$,
+that can be absorbed in the definition of the
+matrices $A^{(\tau)}_{ij}$ and $A^{(\sigma\tau)}_{i\alpha j\beta}$.
+
+The structure of $V_c^{2\pi,P}$ contains instead cubic spin and isospin operators, 
+and the Hubbard-Stratonovich transformation of~\cref{eq:hs} cannot be applied.
+It follows that these terms cannot be exactly included in the AFDMC propagation.
+However, their expectation value can be calculated, and it can be used to derive
+an approximate three-body propagator for $V_c^{2\pi,P}$.
+
+Let's define an effective Hamiltonian $H'$ that can be exactly included in 
+the AFDMC propagation:
+\begin{align}
+H'=H-V_c^{2\pi,P}+\alpha_1 V_a^{XX}+\alpha_2 V_D^{X\delta}+\alpha_3 V_E .
+\label{eq:h'}
+\end{align}
+The three constants $\alpha_i$ are adjusted in order to have:
+\begin{align}
+\langle V_c^{XX}\rangle & \approx\langle\alpha_1 V_a^{XX}\rangle , \nonumber \\
+\langle V_c^{X\delta}\rangle & \approx\langle\alpha_2 V_D^{X\delta}\rangle , \nonumber  \\
+\langle V_c^{\delta\delta}\rangle & \approx\langle\alpha_3 V_E\rangle , 
+\label{eq:pert}
+\end{align}
+where $\langle\,\cdots\rangle$ indicates the average over the wave function
+(see~\cref{sec:obs}), and the identifications are suggested by the similar 
+ranges and functional forms.
+
+Once the ground state $\Psi_0'$ of $H'$ is calculated via the AFDMC imaginary
+time propagation, the expectation value of the Hamiltonian $H$ is given by
+\begin{align}
+\!\!\langle H\rangle &\approx\langle\Psi_0'|H'|\Psi_0'\rangle+\langle\Psi_0'|H-H'|\Psi_0'\rangle \nonumber \\
+& \approx\langle H'\rangle+\langle V_c^{2\pi,P}\!-\alpha_1V_a^{XX}\!-\alpha_2V_D^{X\delta}\!-\alpha_3V_E\rangle ,
+\label{eq:<h3b>}
+\end{align}
+where the last term is evaluated perturbatively, meaning that its expectation
+value is calculated, even though not all the operators are included in the propagator $(V_c^{2\pi,P})$.
+The correction introduced in~\cref{eq:<h3b>} is actually perturbative as long as 
+it is small compared to $\langle H'\rangle$, and this is ensured by opportunely adjusting 
+the constants $\alpha_i$ as in~\cref{eq:pert}.
+A similar approach is used in GFMC to calculate the small non-local terms that are 
+present in the $v_{18}$ interaction. In that case the difference $v_8'-v_{18}$
+is calculated as a perturbation~\cite{Pudliner:1997}.
+
+
+\subsection{Importance sampling}
+\label{sec:is}
+DMC algorithms, such as GFMC and AFDMC, are much more efficient when the \emph{importance sampling}
+techniques is also implemented.
+In fact, sampling spacial and spin/isospin configurations according to $G(R',R,S'(X),S,\delta\tau)$ 
+might not always be efficient. For instance, consider the case of a strongly repulsive interaction 
+at short distances. In such a situation, sampling the spacial coordinates according to the kinetic 
+energy only is not an optimal choice because no information about the interaction is included in 
+sampling the paths, but only through the weight associated to the configurations. 
+As a result, an inefficiently sampled path might have a very small weight, making its contribution 
+very small along the imaginary time.
+
+Suppose to know a positive definite wave function $\Psi_G$ close to that of the true ground state of
+the Hamiltonian $H$. $\Psi_G$ can be used to guide the imaginary time evolution by defining a
+better propagator compared to that of~\cref{eq:imtimeprop}, to be used to sample coordinates and 
+spin/isospin configurations:
+\begin{widetext}
+\begin{align}
+\langle\Psi_G|R'S'\rangle\langle R'S'|\Psi(\delta\tau)\rangle
+&=\displaystyle\int dR\,G(R',R,S'(X),S,\delta\tau)\,\langle\Psi_G|R'S'\rangle\langle RS|\Psi_T(0)\rangle
+\nonumber \\
+&=\displaystyle\int dR\,G(R',R,S'(X),S,\delta\tau)\frac{\langle\Psi_G|R'S'(X)\rangle}{\langle\Psi_G|RS\rangle}
+\langle\Psi_G|RS\rangle\langle RS|\Psi_T(0)\rangle .
+\end{align}
+\end{widetext}
+Note that if $\Psi_G$ is positive definite, the above propagation does not change the 
+variance of the computed observables.
+
+In usual DMC calculations the modified propagator is sampled by shifting the Gaussian in
+the free propagator, and then including the local energy in the weight of the configuration
+(see for example~\red{\cite{XXX}}). A similar approach has also been used in AFDMC in the past. 
+However, in the latest implementation of AFDMC, a much more efficient way to implement the
+importance sampling propagator is used.
+
+The goal is to sample the modified propagator:
+\begin{align}
+G(R',R,S'(X),S,\delta\tau)\frac{\langle\Psi_G|R'S'(X)\rangle}{\langle\Psi_G|RS\rangle} .
+\end{align}
+We first sample a set of coordinate displacements $\Delta R$ according
+to Eq.~\ref{eq:prop} and a
+set of auxiliary fields $X$ from Gaussian distributions.
+Since the propagator $G$ implies the Gaussian sampling for the kinetic energy and 
+for the auxiliary fields, sampling $\Delta R$ and $X$ has the same probability
+of sampling $-\Delta R$ and $-X$.
+Driven by this observation, we calculate the ratios:
+\begin{align}
+w_1&=\frac{\langle\Psi_G|R+\Delta R,S'(X)\rangle}{\langle\Psi_G|RS\rangle}e^{-[V_{SI}(R+\Delta R)-E_T]\delta\tau},
+\nonumber \\
+w_2&=\frac{\langle\Psi_G|R-\Delta R,S'(X)\rangle}{\langle\Psi_G|RS\rangle}e^{-[V_{SI}(R-\Delta R)-E_T]\delta\tau},
+\nonumber \\
+w_3&=\frac{\langle\Psi_G|R+\Delta R,S'(-X)\rangle}{\langle\Psi_G|RS\rangle}e^{-[V_{SI}(R+\Delta R)-E_T]\delta\tau},
+\nonumber \\
+w_4&=\frac{\langle\Psi_G|R-\Delta R,S'(-X)\rangle}{\langle\Psi_G|RS\rangle}e^{-[V_{SI}(R-\Delta R)-E_T]\delta\tau},
+\label{eq:w_i}
+\end{align}
+where $V_{SI}$ is the spin/isospin independent part of the interaction.
+We then sample one of the above choices according to the ratios $w_i$.
+Finally, the total weight of the new configuration is given by
+\begin{align}
+W=\frac{1}{4}\sum_i w_i ,
+\end{align}
+and $W$ is used for branching as in standard DMC~\cite{Carlson:2015}.
+
+
+\subsection{Observables}
+\label{sec:obs}
+Observables are calculated by using the sampled configurations $R_iS_i$ as
+\begin{align}
+\langle \mathcal O\rangle=\frac{\sum_i \frac{\langle R_iS_i|\mathcal O|\Psi_T\rangle}{W}\frac{W}{\langle R_iS_i|\Psi_T\rangle}}
+{\sum_i\frac{W}{\langle R_iS_i|\Psi_T\rangle}}
+\label{eq:obs}
+\end{align}
+\blue{\bf Write more, mixed estimates, extrapolation, etc...}
+
+
+
+\subsection{Constrained-path approximation and unconstrained evolution}
+\label{sec:cp}
+the fact that $W$ is always real and positive and that $\Psi_T$ is complex, makes the denominator in the 
+above expression averaging quickly to zero. This is the well known sign problem in DMC.
+One way to avoid the sign problem is called \emph{constrained-path} approximation. In practice,
+a configuration is given zero weight (thus it is dropped during branching) 
+if its real part change sign.
+
+In our implementation of AFDMC, we follow Ref.~\cite{Zhang:2003}. 
+In sampling the propagator we calculate the weights $w_i$ described in the previous section as
+\begin{align}
+\frac{\langle\Psi_G|(R',S'(X)\rangle}{\langle\Psi_G|RS\rangle}\rightarrow
+\Re\left\{\frac{\langle\Psi_T|(R',S'(X)\rangle}{\langle\Psi_T|RS\rangle}\right\}\,
+\end{align}
+and we then apply the constrained-path approximation by associating zero weight to a move
+that results in a negative ratio.
+
+The constrained-path evolution does not suffer of sign problem, but it makes the final result
+dependent to the choice of $\Psi_T$. Moreover, it implies that the calculated energy is not necessarily
+an upperbound to the true ground state energy, as instead is the case of fixed-node approximation 
+for real wave functions.
+
+The results given by the constrained-path approximation can be improved by releasing the 
+constraint and following the unconstrained-path evolution.
+After a set of configurations is generated using constrained-path, the guiding function
+is taken as
+\begin{align}
+\langle\Psi_G|RS\rangle=\Re\{\langle\Psi_G|RS\rangle\}+\alpha\Im\{\langle\Psi_G|RS\rangle\}
+\end{align}
+where $\alpha$ is a small arbitrary constant.
+This ensures that the ratio in the weights $w_i$ of~\cref{eq:w_i} is always positive and real.
+The propagation continues then according to the modified $\langle\Psi_G|RS\rangle$, and 
+observables are calculated as before accordingly to~\cref{eq:obs}.
+In several cases the expectation value $\langle O\rangle$ reaches a stable value independently
+to the imaginary-time before the signal-to-noise ratio goes to zero, and the result is exact 
+within the statistical uncertainty.
+\red{(Considering that in all the plots for the unconstrained evolution we never see the
+plateaux, but there is always extrapolation, should we spend few more words here?)}
+\blue{\bf YES, ADD A PARAGRAPH!}
+
+
+\section{Trial wave function}
+\label{sec:wf}
+The AFDMC trial wave function takes the form:
+\begin{widetext}
+\begin{align}
+\langle RS|\Psi\rangle=\langle RS|\prod_{i<j}f^1_{ij}\,\prod_{i<j<k}f^{3c}_{ijk}\,
+\left[1+\sum_{i<j}\sum_{p=2}^6 f^p_{ij}\,\mathcal O_{ij}^p\, f_{ij}^{3p}
++\sum_{i<j<k}U_{ijk}\right]|\Phi\rangle_{JT} ,
+\label{eq:psi}
+\end{align}
+\end{widetext}
+where $|RS\rangle$ represents the sampled $3A$ spacial coordinates and the $4A$ spin/isospin amplitudes
+for each nucleon, and the pair correlation functions $f^{p=1,6}_{ij}\equiv f^{p=1,6}(r_{ij})$ are obtained as the solution
+of Schr\"odinger-like equations in the relative distance between two particles, as explained in Ref.~\cite{Carlson:2015}. 
+The two spin/isospin-independent functions $f^{3c}_{ijk}$ and $f^{3p}_{ij}$ are defined as
+\begin{align}
+f^{3c}_{ijk}&=1+q_1^c\,\vb{r}_{ij}\cdot\vb{r}_{ik}\,\vb{r}_{ji}\cdot\vb{r}_{jk}\,
+\vb{r}_{ki}\cdot\vb{r}_{kj}\,e^{-q_2^c(r_{ij}+r_{ik}+r_{jk})} ,
+\nonumber \\
+f_{ij}^{3p}&=\prod_k\left[1-q_1^p(1-\vb{r}_{ik}\cdot\vb{r}_{jk})\,e^{-q_2^p(r_{ij}+r_{ik}+r_{jk})}\right] ,
+\end{align}
+and they are introduced to reduce the strength of the spin/isospin-dependent pair correlation functions when 
+other particles are nearby~\cite{Pudliner:1997}.
+Finally, three-body spin/isospin-dependent correlations are also included as 
+\begin{align}
+U_{ijk}=\sum_n \epsilon_n V_{ijk}^n(\alpha_n r_{ij},\alpha_n r_{ik},\alpha_n r_{jk}) ,
+\end{align}
+where the terms $V^n_{ijk}$ are the same of the three-body interactions of~\cref{eq:v_ijk}, 
+$\epsilon_n$ are potential quenching factors, and $\alpha_n$ coordinate scaling factors.
+In the correlations above, we include the four terms $V_a^{2\pi,P}$, $V^{2\pi,S}$,
+$V_D$, and $V_E$. $V_c^{2\pi,P}$ can also be implemented in the trial wave function,
+but since its structure involves three-body spin/isospin operators, its inclusion 
+results in a severely larger computational cost.
+
+The term $|\Phi\rangle$ is taken as a shell-model-like wave function. 
+It consists of a sum of Slater determinants constructed using single particle orbitals:
+\begin{align} 
+\langle RS|\Phi\rangle_{JT} = \sum_n\Big[c_n\Big[\sum D\{\phi_\alpha(\vb{r}_i,s_i)\}\Big]_{J,M}\Big] ,
+\end{align}
+where $\vb{r}_i$ are the spacial coordinates of nucleons, and $s_i$ represents their spinor.
+Each single particle orbital $\phi_\alpha$ consists in a radial function multiplied by the spin and
+isospin trial states:
+\begin{align}
+\phi_\alpha(\vb{r}_i,s_i)=\Phi_{nj}(r_i)\left[Y_{l,m_l}(\hat{\vb{r}}_i)\xi_\alpha(s_i)\right]_{j,m_j} ,
+\end{align}
+where the spherical harmonics $Y_{l,m_l}(\hat{\vb{r}}_i)$ are coupled to the spin state $\xi_\alpha(s_i)$
+in order to have single particle orbitals in the $j$ basis.
+The radial parts $\Phi(r)$ are obtained from the bound-state solutions of the Woods-Saxon 
+wine-bottle potential:
+\begin{align}
+v(r)=V_s\left[\frac{1}{1+e^{(r-r_s)/a_s}}+\alpha_s\,e^{-(r/{\rho_s})^2}\right] ,
+\end{align}
+where the five parameters $V_s$, $r_s$, $a_s$, $\alpha_s$, and $\rho_s$ can be different for orbitals
+belonging to different states, like $1S_{1/2}$, $1P_{3/2}$, $1P_{1/2}$,\ldots, and they are 
+optimized in order to minimize the variational energy.
+Finally, the spin/isospin trial states are represented in the $|p\uparrow\rangle$, $|p\downarrow\rangle$,
+$|n\uparrow\rangle$, $|n\downarrow\rangle$ basis. The spinor are specified as:
+\begin{align}
+|s_i\rangle \equiv \left(\begin{array}{c} 
+a_i \\ b_i \\ c_i \\ d_i
+\end{array}\right)
+=a_i|p\uparrow\rangle+b_i|p\downarrow\rangle+c_i|n\uparrow\rangle+d_i|n\downarrow\rangle ,
+\end{align}
+and the trial spin/isospin states are taken to be:
+\begin{align}
+&\langle s_i|\xi_{\alpha_1}\rangle=\langle s_i|(1,0,0,0)\rangle=a_i,
+\nonumber \\
+&\langle s_i|\xi_{\alpha_2}\rangle=\langle s_i|(0,1,0,0)\rangle=b_i,
+\nonumber \\
+&\langle s_i|\xi_{\alpha_3}\rangle=\langle s_i|(0,0,1,0)\rangle=c_i,
+\nonumber \\
+&\langle s_i|\xi_{\alpha_4}\rangle=\langle s_i|(0,0,0,1)\rangle=d_i .
+\end{align}
+Let's consider a system with $K$ states. According to the definitions above, 
+the Slater determinant is constructed as:
+\begin{align}
+\langle RS|\Phi\rangle=
+\left|
+\begin{array}{cccc}
+a_1\phi_1(\vb{r}_1) & a_2\phi_1(\vb{r}_2) & \dots & a_N\phi_1(\vb{r}_A) \\
+a_1\phi_2(\vb{r}_1) & a_2\phi_2(\vb{r}_2) & \dots & a_N\phi_2(\vb{r}_A) \\
+\dots & \dots & \dots & \dots \\
+b_1\phi_1(\vb{r}_1) & b_2\phi_1(\vb{r}_2) & \dots & b_N\phi_1(\vb{r}_A) \\
+b_1\phi_2(\vb{r}_1) & b_2\phi_2(\vb{r}_2) & \dots & b_N\phi_2(\vb{r}_A) \\
+\dots & \dots & \dots & \dots \\
+d_1\phi_1(\vb{r}_1) & d_2\phi_1(\vb{r}_2) & \dots & d_N\phi_1(\vb{r}_A) \\
+\dots & \dots & \dots & \dots \\
+d_1\phi_K(\vb{r}_1) & d_2\phi_K(\vb{r}_2) & \dots & d_N\phi_K(\vb{r}_A) \\
+\end{array}
+\right| .
+\nonumber
+\end{align}
+For \isotope[16]{O}, for instance, the above $1\ldots K$ states would be four: 
+one in $1S_{1/2}$, two in $1P_{3/2}$, and one in $1P_{1/2}$, where each state can 
+accommodate two spins and two isospin states.
+
+\red{Add some more details on how correlations act on the Slater determinant, how
+operators and energies are calculated, info on open-shell systems etc\ldots}
+\green{Here is a bit about independent pair correlations. CODY \\}
+We have also investigated an improved two-body trial wave function including quadratically correlated pairs of particles, while ignoring 3-body correlations. This wave function takes the form
+\begin{widetext}
+\begin{align}
+\langle RS|\Psi\rangle=\langle RS|\prod_{i<j}f^1_{ij}\,
+\left[1+\sum_{i<j}\sum_{p=2}^6 f^p_{ij}\,\mathcal O_{ij}^p\,
++\sum_{i<j}\sum_{p=2}^6 f^p_{ij}\,\mathcal O_{ij}^p\, \sum_{\substack{k<l\\ij\ne kl}}\sum_{q=2}^6 f^q_{kl}\,\mathcal O_{kl}^q\,\right]|\Phi\rangle_{JT} ,
+\label{eq:psi}
+\end{align}
+\end{widetext}
+where the sum over $kl$ pairs includes all pairs of particles except where $k=i$ and $l=j$. The $f^p_{ij}$ function are solved for as before, and the operators, $\mathcal{O}^p_{ij}$ are the same as the $v6'$ operators. Most of the relevant physics is captured with a subset of these correlations called the independent pair correlations where the correlation operators operate on 4 distinct particles. Since the correlations operators never operate on the same particle all correlation operators commute removing the need for an explicit symmetrization of the wave function operators.
+
+\section{Results}
+\label{sec:res}
+
+
+\subsection{Test of constrained- and unconstrained-path}
+As introduced in \cref{sec:cp}, the energy (and other observables) calculated with AFDMC
+employing the constrained-path approximation is dependent to the choice of $\Psi_T$.
+This is shown in~\cref{tab:tr} where the energy of \isotope[4]{He} 
+is calculated for the Argonne v6$^\prime$ (AV6$^\prime$) potential~\cite{Wiringa:2002} 
+employing different trial wave functions. 
+\textit{Full w.f.} refers to the wave function of~\cref{eq:psi} where all the two-body 
+correlations are included.
+\textit{Simple w.f.} is instead a simplified wave function where only the central and
+$p=2,5$ operator correlations are used, the strength of the latter 
+$(\mathcal O_{ij}^5=S_{ij}\,\bm\tau_i\cdot\bm\tau_j)$ being artificially reduced by 
+a factor 3 after the optimization process. At the variational level it is evident how
+the simplified wave function is not the optimal choice for $\Psi_T$, being the energy
+expectation value much higher than for the fully optimized wave function. For both choices
+of $\Psi_T$, the constrained-path reduces the binding energy, moving towards the
+GFMC reference value for the same potential (see Tab.~\ref{tab:av6c}), but the results are still inconsistent.
+It is only the unconstrained-path evolution that brings the results for both wave functions 
+in agreement within statistical errors. This is also shown in~\cref{fig:tr_he4}, where the 
+AFDMC energy is plotted as function of the imaginary time step for the unconstrained evolution. 
+Even though the starting constrained-path energies are different, the final result is the same, the 
+variance of which depends however on the quality of the employed trial wave function. 
+
+\begin{table}[htb]
+\centering
+\caption[]{\isotope[4]{He} ground state energies for the AV6$^\prime$ potential and different 
+trial wave functions (see text for details). Results are in MeV.
+$E_{\rm AFDMC}^{CP}$ refers to the constrained-path calculation, while
+$E_{\rm AFDMC}$ to the unconstrained-path one.}
+\begin{tabular}{lcc}
+\hline\hline
+Energy & simple w.f. & full w.f. \\
+\hline
+$E_{\rm VMC}$        & $-9.49(5)$   & $-23.35(1)$ \\
+$E_{\rm AFDMC}^{CP}$ & $-25.28(3)$  & $-26.45(1)$ \\
+$E_{\rm AFDMC}$      & $-26.34(12)$ & $-26.31(4)$ \\
+\hline\hline
+\end{tabular}
+\label{tab:tr}
+\end{table}
+
+\begin{figure}[htb]
+\includegraphics[width=\linewidth]{tr_he4.pdf}
+\caption[]{Energy of \isotope[4]{He} as a function of the
+imaginary time after releasing the constrain for the AV6$^\prime$ potential.
+The two data sets refer to the two different wave functions of~\cref{tab:tr}. 
+Red lines are exponential fits to the Monte Carlo results.}
+\label{fig:tr_he4}
+\end{figure}
+
+We report in~\cref{tab:av6c} the constrained- and unconstrained-path 
+energies for $A=3,4,6$ 
+employing the AV6' potential, in comparison with the GFMC results for the same
+interaction~\cite{Wiringa:2002}. It is interesting to note that constrained-path energies do not always satisfy 
+the variational principle, as anticipated in~\cref{sec:cp}. This is seen, for example, in \isotope[3]{H}
+and \isotope[4]{He}, for which the constrained-path energy is below the GFMC prediction, considered to be the 
+exact solution for the given potential. However, once the unconstrained evolution is performed, 
+AFDMC and GFMC results agree within 1\% or less.
+
+\begin{table}[htb]
+\centering
+\caption[]{Ground state energies for $A=3,4,6$ employing the AV6$^\prime$ potential. Results are in MeV.}
+\begin{tabular}{lccc}
+\hline\hline
+$\isotope[Z]{A}\,(J^\pi,T)$ & $E^{CP}_{\rm AFDMC}$ & $E_{\rm AFDMC}$ & $E_{\rm GFMC}$ \\
+\hline
+\isotope[3]{H}\,$(\frac{1}{2}^+,\frac{1}{2})$ & $-8.08(1)$  & $-7.95(2)$   & $-7.95(2)$  \\
+\isotope[4]{He}\,$(0^+,0)$                    & $-26.45(1)$ & $-26.31(4)$  & $-26.15(2)$ \\
+\isotope[6]{Li}\,$(1^+,0)$                    & $-28.09(4)$ & $-28.26(10)$ & $-28.37(4)$ \\
+\hline\hline
+\end{tabular}
+\label{tab:av6c}
+\end{table}
+
+In~\cref{fig:tr_he6,fig:tr_o16} we show two examples of unconstrained-path calculation for larger systems,
+\isotope[6]{He} and \isotope[16]{O} respectively, employing realistic two- plus three-body interactions. 
+We use the local chiral potential at N$^2$LO with cutoff $R_0=1.2\,\rm fm$ for 
+\isotope[6]{He} and $R_0=1.0\,\rm fm$ for \isotope[16]{O}. The employed wave functions include 
+all two- and three-body correlations, and for \isotope[6]{He} we include single particle orbitals 
+up to the $sd$ shell for a total of 15 Slater determinants. In general, the larger the system, the shorter 
+the imaginary time evolution that can be followed before the variance becomes 
+too large. 
+This is particularly evident in \isotope[16]{O} for which the unconstrained-path 
+can be satisfactorily performed up to $2.5\times10^{-4}\,\rm MeV^{-1}$, 
+compared to the $4\times10^{-4}\,\rm MeV^{-1}$
+for \isotope[6]{He} of~\cref{fig:tr_he6}, and to the $5\times10^{-3}\,\rm MeV^{-1}(10^{-2}\,\rm MeV^{-1})$ 
+for \isotope[4]{He} with the same interaction (with AV6', \cref{fig:tr_he4}).
+For example, at $\tau=2\times10^{-4}\,\rm MeV^{-1}$ the statistical error per nucleon is  
+$0.01\,\rm MeV$ for \isotope[4]{He} and \isotope[6]{Li}, and $0.19\,\rm MeV$ for \isotope[16]{O}.
+This is a direct consequence of the quality of the employed wave function. 
+For small nuclei, the wave function of~\cref{eq:psi} provides a good description of the
+system, and the constrained-path energy expectation value is already close to the expected result. 
+In \isotope[6]{He} the difference between constrained and unconstrained energy is of 
+the order of $1\,\rm MeV$, roughly $3\%$ of the final result. 
+In \isotope[16]{O} instead, the constrained-path energy is sensibly higher, 
+and the unconstrained-path lowers 
+its value of about $25\,\rm MeV$, $\approx22\%$ of the total energy.
+This could be improved by employing more sophisticated wave functions including higher order
+correlations, and/or using more refined techniques to perform the unconstrained evolution. 
+Studies along this directions are underway.
+
+%It has to be noted that the energies reported in~\cref{fig:tr_he6,fig:tr_o16} correspond to the
+%expectation values of the effective Hamiltonian $H'$ (\cref{eq:h'}). 
+%These need to be adjusted with the perturbative correction of~\cref{eq:<h3b>}---also extracted 
+%from the unconstrained evolution---in order to obtain the final results reported in~\cref{tab:10,tab:12}. 
+%Once the optimal set of parameters $\alpha_i$ is found, these corrections are small,
+%almost consistent with zero within Monte Carlo statistical uncertainties.
+
+Unless differently specified, in the following all ground state energies will 
+correspond to the final expectation value $\langle H\rangle$, extracted from 
+the unconstrained Monte Carlo results for $\langle H'\rangle$ with an exponential fit, 
+and adjusted with the perturbative correction of~\cref{eq:<h3b>} when three-body forces are employed.
+
+\begin{figure}[htb]
+\includegraphics[width=\linewidth]{tr_he6.pdf}
+\caption[]{Energy of \isotope[6]{He} for the local chiral potential at
+N$^2$LO $(E\tau)$ with cutoff $R_0=1.2\,\rm fm$ using the simpler $H'$ Hamiltonian.}
+\label{fig:tr_he6}
+\end{figure}
+
+\begin{figure}[htb]
+\includegraphics[width=\linewidth]{tr_o16.pdf}
+\caption[]{Energy of \isotope[16]{O} for the local chiral potential at
+N$^2$LO $(E\tau)$ with cutoff $R_0=1.0\,\rm fm$ using the simpler $H'$ Hamiltonian.}
+\label{fig:tr_o16}
+\end{figure}
+
+\subsection{Test of the three-body calculation}
+\blue{\bf Add numbers, and few examples}
+\red{Diego is working on this}
+
+
+\subsection{Ground state energies and charge radii}
+We consider local chiral Hamiltonians at leading-order (LO), 
+next-to-leading-order (NLO), and N$^2$LO, the latter including both two- and three-body forces.
+At each order we can assign theoretical uncertainties to observables coming from the 
+truncation of the chiral expansion~\cite{Epelbaum:2015epja}. For an observable $X$ at N$^2$LO, 
+the theoretical uncertainty is obtained as
+\begin{align}
+\Delta X^{\text{N}^2\text{LO}}=&\max(Q^4\times|X^{\text{LO}}|,\nonumber \\ 
+&\phantom{\max(\,}Q^2\times|X^{\text{NLO}}-X^{\text{LO}}|, \nonumber \\
+&\phantom{\max(\,}Q^{\phantom{2}}\times|X^{\text{N}^2\text{LO}}-X^{\text{NLO}}|),
+\label{eq:err}
+\end{align}
+where we take $Q=m_\pi/\Lambda_b$ with $m_\pi\approx140\,\rm MeV$ and $\Lambda_b=600$~MeV, 
+as done in~\cite{Lynn:2016,Lonardoni:2017afdmc}.
+
+\begin{table*}[htb]
+\centering
+\caption[]{Ground state energies and charge radii for $A=3,4$ employing the local chiral potential at N$^2$LO. 
+The $E\tau$ parametrization is used for the three-body force.
+GFMC results are from Refs.~\cite{Lynn:2014,Lynn:2016}.}
+\begin{tabular}{lllcccc}
+\hline\hline
+$\isotope[Z]{A}\,(J^\pi,T)$ & Cutoff & Potential & \multicolumn{2}{c}{AFDMC}      & \multicolumn{2}{c}{GFMC} \\
+                            &        &           &  $E$ (MeV) & $r_{\rm ch}$ (fm) & $E$ (MeV) & $r_{\rm ch}$ (fm) \\     
+\hline
+\isotope[3]{H}\,$(\frac{1}{2}^+,\frac{1}{2})$  & $R_0=1.0\,\rm fm$ & 2b    & $-7.54(4)$   & $1.75(2)$ & $-7.55(1)$  & $1.78(2)$ \\
+   	  	                                       &                   & 2b+3b & $-8.33(7)$   & $1.72(2)$ & $-8.34(1)$  & $1.72(3)$ \\
+                                               & $R_0=1.2\,\rm fm$ & 2b    & $-7.76(3)$   & $1.74(2)$ & $-7.74(1)$  & $1.75(2)$ \\
+   	  	                                       &                   & 2b+3b & $-8.27(5)$   & $1.73(2)$ & $-8.35(4)$  & $1.72(4)$ \\
+\hline                                                                                
+\isotope[3]{He}\,$(\frac{1}{2}^+,\frac{1}{2})$ & $R_0=1.0\,\rm fm$ & 2b    & $-6.89(5)$   & $2.02(2)$ & $-6.78(1)$  & $2.06(2)$ \\
+                                               &                   & 2b+3b & $-7.55(8)$   & $1.96(2)$ & $-7.65(2)$  & $1.97(2)$ \\
+                                               & $R_0=1.2\,\rm fm$ & 2b    & $-7.12(3)$   & $1.98(2)$ & $-7.01(1)$  & $2.01(1)$ \\
+                                               &                   & 2b+3b & $-7.64(4)$   & $1.95(5)$ & $-7.63(4)$  & $1.97(1)$ \\
+\hline                                 
+\isotope[4]{He}\,$(0^+,0)$                     & $R_0=1.0\,\rm fm$ & 2b    & $-23.96(8)$  & $1.72(2)$ & $-23.72(1)$ & $1.73(1)$ \\
+                                               &                   & 2b+3b & $-27.64(13)$ & $1.68(2)$ & $-28.30(1)$ & $1.65(2)$ \\
+                                               & $R_0=1.2\,\rm fm$ & 2b    & $-25.17(5)$  & $1.69(1)$ & $-24.86(1)$ & $1.69(1)$ \\
+                                               &                   & 2b+3b & $-28.37(8)$  & $1.65(1)$ & $-28.30(1)$ & $1.64(1)$ \\
+\hline\hline
+\end{tabular}
+\label{tab:afdmc-gfmc}
+\end{table*}
+
+The expectation value of the charge radius is derived from the point-proton radius using the relation:
+\begin{align}
+	\left\langle r_{\rm ch}^2\right\rangle=
+	\left\langle r_{\rm pt}^2\right\rangle+
+	\left\langle R_p^2\right\rangle+
+	\frac{A-Z}{Z}\left\langle R_n^2\right\rangle+
+	\frac{3\hbar^2}{4M_p^2c^2},
+	\label{eq:rch}
+\end{align}
+where $r_{\rm pt}$ is the calculated point-proton radius,
+$\left\langle R_p^2\right\rangle=0.770(9)\,\rm{fm}^2$~\cite{Beringer:2012} the proton radius, 
+$\left\langle R_n^2\right\rangle=-0.116(2)\,\rm{fm}^2$~\cite{Beringer:2012} the neutron radius,
+and $(3\hbar^2)/(4M_p^2c^2)\approx0.033\,\rm{fm}^2$ the Darwin-Foldy correction~\cite{Friar:1997}.
+For \isotope[6]{He} a spin-orbit correction 
+$\left\langle r_{\rm so}^2\right\rangle=-0.08\,\rm{fm}^2$~\cite{Ong:2010} is also included.
+The point-nucleon radius $r_{\rm pt}$ is calculated as
+\begin{align}
+	\left\langle r_N^2\right\rangle=\frac{1}{{\cal N}}\big\langle\Psi\big|\sum_i\mathcal P_{N_i} |\vb{r}_i-\vb{R}_{\rm cm}|^2\big|\Psi\big\rangle,
+\end{align}
+where $\vb{R}_{\rm cm}$ is the coordinate of the center of mass of the system,
+${\cal N}$ is the number of protons or neutron, and 
+\begin{align}
+	\mathcal P_{N_i}=\frac{1\pm\tau_{z_i}}{2},
+	\label{eq:proj}
+\end{align}
+is the projector operator onto protons or neutrons.
+
+The ground state energies and charge radii for light systems $(A=3,4)$ employing 
+the local chiral potential at N$^2$LO are shown in~\cref{tab:afdmc-gfmc}. 
+Results with ($E\tau$ parametrization) and without the three-body force are shown 
+for different choices of the cutoff $R_0$. For all the $s_{1/2}$ systems we used the same 
+parameters $\alpha_i$ for the propagation of the three-body force (\cref{eq:h'}), 
+determined in order to minimize the perturbative correction of~\cref{eq:<h3b>}.
+The final result $\langle H\rangle$ is, however, nearly independent to variations
+of the $\alpha_i$ parameters up to 10\%. The same conclusion holds for larger
+systems, for which variations of such parameters result in a few MeV energy 
+differences, consistent with the overall Monte Carlo statistical uncertainties. 
+The agreement with the GFMC results of Ref.~\cite{Lynn:2016,Lynn:2017},
+where the three-body interactions are fully included in the propagation, 
+is within few percent both at the two- and three-body level, providing a good
+benchmark for the AFDMC propagation technique described in~\cref{sec:p3}.
+
+In~\cref{fig:ene_10,fig:ene_12} we present the ground state energies per nucleon
+of nuclei with $3\le A\le16$, calculated at LO, NLO, and N$^2$LO using
+the $E\tau$ parametrization of the three-body force, for cutoffs $R_0=1.0\,\rm fm$ 
+and $R_0=1.2\,\rm fm$, respectively. Error bars are estimated by 
+including both the Monte Carlo uncertainties and the errors given by 
+the truncation of the chiral expansion, the latter being the dominant ones.
+For the hard interaction $(R_0=1.0\,\rm fm)$, the predicted binding energies at N$^2$LO 
+are in good agreement with experimental data all the way up to $A=16$, with 
+\isotope[12]{C} slightly underbound.
+This is most likely a consequence of the employed wave function that results 
+in a too high constrained-path energy. 
+This could be due to the complicated clustering structure of $^{12}$C not included
+in $\Psi_T$, that would require a much longer unconstrained-path propagation
+to filter out the corresponding low excitation from $\Psi_T$.
+For $A=6$ the wave
+function is constructed using up to $sd$ shell single-particle orbitals. For \isotope[12]{C} 
+instead, coupling $p$ shell orbitals only
+already results in a sum of 119 Slater determinants. Including orbitals in the $sd$ shell could 
+in principle result in a better wave function for this open-shell system, but it will 
+sizable increase the number of determinants to consider, making the calculation prohibitively 
+time consuming. Another possible improvement would be to include quadratic terms in
+the pair correlations of~\cref{eq:psi}. However, first attempts in
+\isotope[16]{O} lead to just a $\approx3-4\,\rm MeV$ reduction of the total 
+energy, with a noticeably increase of computational cost. 
+
+The full calculation of \isotope[12]{C} at N$^2$LO required 
+order of $10^6$ CPU hours (on Intel Broadwell cores @ 2.1GHz) for a single cutoff and
+three-body parametrization $(E\tau)$. 
+Considering that for the hard interaction the truncation error estimate at N$^2$LO
+for $3\le A\le 16$ with the chosen scale $Q$ is dominated by the last term of~\cref{eq:err}, 
+we only performed calculations for $A=12$ at N$^2$LO and NLO. With the lack of the LO energy, 
+the theoretical uncertainty at NLO is simply (under)estimated by $Q\times|X^{\rm NLO}|$.
+
+\begin{figure}[t]
+\includegraphics[width=\linewidth]{ene_10.pdf}
+\caption[]{Ground state energies per nucleon for $3\le A\le16$ with the local chiral potential 
+for the $R_0=1.0\,\rm fm$ cutoff and the $E\tau$ parametrization of the three-body force. 
+Results at different order of the chiral expansion are shown.
+Smaller error bars (indistinguishable from the symbols up to $A=6$) 
+indicate the statistical Monte Carlo uncertainty,
+while larger error bars are the uncertainties from the truncation of
+the chiral expansion. Adapted from Ref.~\cite{Lonardoni:2017afdmc}.}
+\label{fig:ene_10}
+\end{figure}
+
+\begin{figure}[t]
+\includegraphics[width=\linewidth]{ene_12.pdf}
+\caption[]{Same of~\cref{fig:ene_10} but for the $R_0=1.2\,\rm fm$ cutoff.}
+\label{fig:ene_12}
+\end{figure}
+
+For the soft interaction $(R_0=1.2\,\rm fm)$, NLO and in particular LO results are 
+typically more bound compared to the $R_0=1.0\,\rm fm$ case, with the three-body 
+force bringing the N$^2$LO energies compatible with the experimental values up to $A=6$,
+and consistent with those obtained with the hard potential. 
+
+Different is the case of \isotope[16]{O} that at LO is dramatically overbound
+$(\approx -1\,\rm GeV)$, implying huge theoretical errors at NLO and N$^2$LO coming from 
+the prescription of Eq.~(\ref{eq:err}). Within these uncertainties, NLO and N$^2$LO two-body energies 
+are compatible with the corresponding results for the hard interaction (see~\cref{tab:10,tab:12}).
+However, the three-body force for the soft potential is very attractive,
+adding almost $10$ MeV per nucleon to the total energy, and thus
+predicting a severe overbinding with a ground state energy of $\approx -260\,\rm MeV$.
+This is an indication that interactions with soft cutoffs probably need information from 
+medium-mass nuclei to be constructed, as pointed out for example in Ref.~\cite{Ekstrom:2015}.
+No results for \isotope[12]{C} have been obtained with the soft potential due to the high 
+computational cost of the calculations for $A=12$. 
+
+\Cref{fig:rch_10,fig:rch_12} show the charge radii at different orders of the chiral 
+expansion and for different cutoffs. The $E\tau$ parametrization of the three-body force
+is considered.
+The agreement with experimental data for the hard interaction at N$^2$LO is remarkably
+good all the way up to oxygen. Exception is \isotope[6]{Li}, for which the charge radius
+is somewhat underpredicted. However, a similar conclusion is found in GFMC calculations
+employing the AV18+IL7 potential, where charge radii of lithium isotopes is underestimated. 
+For \isotope[12]{C}, only NLO and N$^2$LO results are available for the hard interaction. 
+Theoretical uncertainties are estimated as described above, the NLO one 
+being most likely overestimated in this case.
+
+For the soft interaction, the description of charge radii resembles order by order 
+that for the hard potential up to \isotope[4]{He}, with the N$^2$LO results in agreement 
+with experimental data (also shown in~\cref{tab:afdmc-gfmc}). 
+The picture changes instead for $A\ge6$, with radii progressively smaller at each order
+compared to the $R_0=1.0\,\rm fm$ case, and no longer compatible at N$^2$LO with experimental 
+values. The charge radius of \isotope[16]{O} turns out to be close to $2.2\,\rm fm$ with the 
+soft interaction, smaller than that of \isotope[6]{Li} for the same potential, 
+but consistent with the severe overbinding predicted for $A=16$.
+
+\begin{figure}[htb]
+\includegraphics[width=\linewidth]{rch_10.pdf}
+\caption[]{Charge radii for $3\le A\le16$ with the local chiral potential 
+for the $R_0=1.0\,\rm fm$ cutoff and the $E\tau$ parametrization of the three-body force. 
+Error bars are as in~\cref{fig:ene_10}. Adapted from Ref.~\cite{Lonardoni:2017afdmc}.}
+\label{fig:rch_10}
+\end{figure}
+
+\begin{figure}[htb]
+\includegraphics[width=\linewidth]{rch_12.pdf}
+\caption[]{Same as~\cref{fig:rch_10} but for the $R_0=1.2\,\rm fm$ cutoff.}
+\label{fig:rch_12}
+\end{figure}
+
+The details of LO, NLO, and N$^2$LO calculations for $A\ge6$ are reported in~\cref{tab:10,tab:12}
+for $R_0=1.0\,\rm fm$ and $R_0=1.2\,\rm fm$, respectively. Results for the constrained-path and 
+unconstrained evolution energies are both shown, together with the charge radius.
+Both Monte Carlo uncertainties and theoretical errors coming from the truncation of the chiral 
+expansion are reported (where available). At N$^2$LO the two-body energy is shown together with
+that of two different parametrizations of the three-body force ($E\tau$ and $E\mathbbm{1}$)
+for the hard potential. 
+%Both energies and radii 
+%agree for all the systems within the total errors, suggesting that the theoretical 
+%uncertainties coming from the truncation of the chiral expansion are sufficient to account 
+%for the violation of the Fierz rearrangement~\cite{Lynn:2016,Huth:2017}.
+
+\begin{table*}[htb]
+\centering
+\caption[]{Ground state energies and charge radii for $A\ge6$ with the local chiral potential. 
+Results at different order of the chiral expansion and for different three-body parametrizations are shown. 
+$E_{\rm CP}$ is the constrained-path energy, while $E$ refers to the unconstrained evolution.
+The first error is statistical, the second systematic.
+The employed cutoff is $R_0=1.0\,\rm fm$.}
+\begin{tabular}{llccc}
+\hline\hline
+$\isotope[Z]{A}\,(J^\pi,T)$ & Potential & $E_{\rm CP}$ (MeV) & $E$ (MeV) & $r_{\rm ch}$ (fm) \\
+\hline
+%\isotope[3]{H}\,$(\frac{1}{2}^+,\frac{1}{2})$  & LO                     & $-$         & $-$             & $-$       \\
+%                                               & NLO                    & $-$         & $-$             & $-$       \\
+%                                               & N$^2$LO 2b             & $-7.51(2)$  & $-7.54(4)$      & $1.75(2)$ \\
+%   	  	                                    & N$^2$LO $E\tau$        & $-8.10(3)$  & $-8.33(7)$      & $1.72(2)$ \\
+%   	  	                                    & N$^2$LO $E\mathbbm{1}$ & $-$         & $-$             & $-$       \\
+%                                               & exp                    &             & $-8.48$         & $1.76(4)$ \\
+%\hline                                                                  
+%\isotope[3]{He}\,$(\frac{1}{2}^+,\frac{1}{2})$ & LO                     & $-$         & $-$             & $-$       \\
+%                                               & NLO                    & $-$         & $-$             & $-$       \\
+%                                               & N$^2$LO 2b             & $-6.92(2)$  & $-6.89(5)$      & $2.02(2)$ \\
+%                                               & N$^2$LO $E\tau$        & $-7.51(2)$  & $-7.55(8)$      & $1.96(2)$ \\
+%   	  	                                    & N$^2$LO $E\mathbbm{1}$ & $-$         & $-$             & $-$       \\
+%                                               & exp                    &             & $-7.72$         & $1.97$    \\
+%\hline                                                                  
+%\isotope[4]{He}\,$(0^+,0)$                     & LO                     & $-$         & $-$             & $-$       \\
+%                                               & NLO                    & $-$         & $-$             & $-$       \\
+%                                               & N$^2$LO 2b             & $-23.75(3)$ & $-23.96(8)$     & $1.72(2)$ \\
+%                                               & N$^2$LO $E\tau$        & $-27.53(6)$ & $-27.64(13)$    & $1.68(2)$ \\
+%   	  	                                    & N$^2$LO $E\mathbbm{1}$ & $-27.57(3)$ & $-28.19(14)$    & $1.67(2)$ \\
+%                                               & exp                    &             & $-28.30$        & $1.68$    \\
+\hline                                         
+\isotope[6]{He}\,$(0^+,1)$                     & LO                     & $-42.1(1)$  & $-41.3(1)(9.6)$ & $1.67(4)(39)$ \\
+                                               & NLO                    & $-7.86(9)$  & $-8.8(2)(7.6)$  & $2.68(6)(24)$ \\
+                                               & N$^2$LO 2b             & $-22.24(4)$ & $-23.1(2)(3.3)$ & $2.11(4)(13)$ \\
+   	  	                                       & N$^2$LO $E\tau$        & $-26.58(6)$ & $-28.4(4)(4.6)$ & $1.99(4)(16)$ \\
+   	  	                                       & N$^2$LO $E\mathbbm{1}$ & $-26.33(8)$ & $-28.2(5)(4.5)$ & $2.01(4)(16)$ \\
+                                               & exp                    &             & $-29.3$         & $2.07$        \\
+\hline                                                                  
+\isotope[6]{Li}\,$(1^+,0)$                     & LO                     & $-42.8(1)$  & $-42.4(1)(9.9)$ & $2.03(6)(47)$ \\
+                                               & NLO                    & $-19.2(2)$  & $-21.5(3)(4.9)$ & $2.76(8)(17)$ \\
+                                               & N$^2$LO 2b             & $-24.3(1)$  & $-25.5(4)(1.1)$ & $2.46(4)(7)$  \\
+   	  	                                       & N$^2$LO $E\tau$        & $-28.9(1)$  & $-31.5(5)(2.3)$ & $2.33(4)(10)$ \\
+   	  	                                       & N$^2$LO $E\mathbbm{1}$ & $-28.9(1)$  & $-30.7(4)(2.1)$ & $2.33(4)(10)$ \\
+                                               & exp                    &             & $-32.0$         & $2.59(4)$     \\
+\hline                                                                  
+\isotope[12]{C}\,$(0^+,0)$                     & LO                     & $-$         & $-$             & $-$           \\
+                                               & NLO                    & $-31.1(2)$  & $-41(2)(10)$    & $3.25(5)(76)$ \\
+                                               & N$^2$LO 2b             & $-63.5(2.4)$& $-66(3)(6)$     & $2.66(4)(14)$ \\
+   	  	                                       & N$^2$LO $E\tau$        & $-70.2(5)$  & $-78(3)(9)$     & $2.48(4)(18)$ \\
+   	  	                                       & N$^2$LO $E\mathbbm{1}$ & $-$         & $-$             & $-$           \\
+                                               & exp                    &             & $-92.2$         & $2.47$        \\
+\hline                                                                  
+\isotope[16]{O}\,$(0^+,0)$                     & LO                     & $-251.7(2)$ & $-247(1)(58)$   & $1.44(3)(34)$ \\
+                                               & NLO                    & $-37.3(2)$  & $-49(2)(46)$    & $3.27(5)(43)$ \\
+                                               & N$^2$LO 2b             & $-72.8(2)$  & $-87(3)(11)$    & $2.76(5)(12)$ \\
+   	  	                                       & N$^2$LO $E\tau$        & $-91.8(6)$  & $-117(5)(16)$   & $2.71(5)(13)$ \\
+   	  	                                       & N$^2$LO $E\mathbbm{1}$ & $-84.5(5)$  & $-107(6)(13)$   & $2.79(5)(11)$ \\
+                                               & exp                    &             & $-127.6$        & $2.70$        \\
+\hline\hline
+\end{tabular}
+\label{tab:10}
+\end{table*}
+
+\begin{table*}[htb]
+\centering
+\caption[]{Same as~\cref{tab:10} but for the $R_0=1.2\,\rm fm$ cutoff.}
+\begin{tabular}{llccc}
+\hline\hline
+$\isotope[Z]{A}\,(J^\pi,T)$ & Potential & $E_{\rm CP}$ (MeV) & $E$ (MeV) & $r_{\rm ch}$ (fm) \\
+%\hline
+%\isotope[3]{H}\,$(\frac{1}{2}^+,\frac{1}{2})$  & LO              & $-$         & $-$         & $-$       \\
+%                                               & NLO             & $-$         & $-$         & $-$       \\
+%                                               & N$^2$LO 2b      & $-7.79(2)$  & $-7.76(3)$  & $1.74(2)$ \\
+%   	  	                                    & N$^2$LO $E\tau$ & $-8.27(2)$  & $-8.27(5)$  & $1.73(2)$ \\
+%                                               & exp             &             & $-8.48$     & $1.76(4)$ \\
+%\hline                                                           
+%\isotope[3]{He}\,$(\frac{1}{2}^+,\frac{1}{2})$ & LO              & $-$         & $-$         & $-$       \\
+%                                               & NLO             & $-$         & $-$         & $-$       \\
+%                                               & N$^2$LO 2b      & $-7.17(2)$  & $-7.12(3)$  & $1.98(2)$ \\
+%                                               & N$^2$LO $E\tau$ & $-7.63(1)$  & $-7.64(4)$  & $1.95(5)$ \\
+%                                               & exp             &             & $-7.72$     & $1.97$    \\
+%\hline                                                           
+%\isotope[4]{He}\,$(0^+,0)$                     & LO              & $-$         & $-$         & $-$       \\
+%                                               & NLO             & $-$         & $-$         & $-$       \\
+%                                               & N$^2$LO 2b      & $-25.20(2)$ & $-25.17(5)$ & $1.69(2)$ \\
+%                                               & N$^2$LO $E\tau$ & $-28.23(3)$ & $-28.37(8)$ & $1.65(1)$ \\
+%                                               & exp              &             & $-28.30$    & $1.68$    \\
+\hline                                                            
+\isotope[6]{He}\,$(0^+,1)$                     & LO              & $-55.65(6)$ & $-54.9(2)(12.8)$ & $1.31(2)(31)$ \\
+                                               & NLO             & $-16.08(7)$ & $-16.6(1)(8.9)$  & $2.32(5)(24)$ \\
+                                               & N$^2$LO 2b      & $-24.25(5)$ & $-24.3(1)(2.1)$  & $2.02(4)(7)$  \\
+   	  	                                       & N$^2$LO $E\tau$ & $-28.37(5)$ & $-29.3(1)(3.0)$  & $1.92(4)(9)$  \\
+                                               & exp             &             & $-29.3$          & $2.07$        \\
+\hline                                                           
+\isotope[6]{Li}\,$(1^+,0)$                     & LO              & $-56.84(3)$ & $-56.0(1)(13.1)$ & $1.59(2)(37)$ \\
+                                               & NLO             & $-23.64(8)$ & $-25.2(2)(7.2)$  & $2.47(4)(21)$ \\
+                                               & N$^2$LO 2b      & $-26.76(3)$ & $-27.0(2)(1.7)$  & $2.41(4)(5)$  \\
+   	  	                                       & N$^2$LO $E\tau$ & $-30.8(1)$  & $-32.3(3)(1.7)$  & $2.24(4)(6)$  \\
+                                               & exp             &             & $-32.0$          & $2.59(4)$     \\
+\hline                                                           
+\isotope[16]{O}\,$(0^+,0)$                     & LO              & $-1158.8(5)$ & $-1110(31)(259)$  & $1.15(5)(27)$ \\
+                                               & NLO             & $-72.3(1)$   & $-77.5(7)(240.8)$ & $2.65(5)(35)$ \\
+                                               & N$^2$LO 2b      & $-98.6(1)$   & $-106(4)(56)$     & $2.47(5)(8)$  \\
+   	  	                                       & N$^2$LO $E\tau$ & $-169(2)$    & $-263(26)(56)$    & $2.17(5)(11)$ \\
+                                               & exp             &              & $-127.6$          & $2.70$        \\
+\hline\hline
+\end{tabular}
+\label{tab:12}
+\end{table*}
+
+
+\subsection{Charge form factors and Coulomb sum rules}
+One- and two-body point-nucleon densities are calculated as
+\begin{align}
+	\!\!\rho_{N}(r) &=\frac{1}{4\pi r^2}\big\langle\Psi\big|\sum_i    \mathcal P_{N_i}\delta(r-|\vb{r}_i-\vb{R}_{\rm cm}|)\big|\Psi\big\rangle, \label{eq:rho_N} \\
+	\!\!\rho_{NN}(r)&=\frac{1}{4\pi r^2}\big\langle\Psi\big|\sum_{i<j}\mathcal P_{N_i}P_{N_j}\delta(r-|\vb{r}_i-\vb{r}_j|)\big|\Psi\big\rangle, \label{eq:rho_NN}
+\end{align}
+where $\mathcal P_{N_i}$ is the projector operator of~\cref{eq:proj}.
+With the current definitions, $\rho_N$ and $\rho_{NN}$ integrate to the number 
+of nucleons and the number of nucleon pairs, respectively.
+
+Differently from the charge radius, densities are not observables themselves, 
+but they can be related to physical quantities experimentally accessible via 
+electron-nucleon scattering processes, such as the longitudinal elastic (charge) form factor.
+In fact, the charge form factor can be expressed as the ground state expectation value of 
+the one-body charge operator~\cite{Mcvoy:1962},
+that, ignoring small spin-orbit contributions in the one-body current, 
+results in the following expression:
+\begin{align}
+	F_L(q)=\frac{1}{Z}\frac{G_E^p(Q_{\rm el}^2)\,\tilde{\rho}_p(q)+G_E^n(Q_{\rm el}^2)\,\tilde{\rho}_n(q)}{\sqrt{1+Q_{\rm el}^2/(4 m_N^2)}},
+	\label{eq:ff}
+\end{align}
+where $\tilde{\rho}_{N}(q)$ is the Fourier transform of the one-body point-nucleon density defined in~\cref{eq:rho_N}, 
+and $Q^2_{\rm el}=\vb{q}^2-\omega_{\rm el}^2$ is the four momentum squared, 
+with $\omega_{\rm el}=\sqrt{q^2+m_A^2}-m_A$ the energy transfer corresponding to the elastic peak,
+$m_A$ being the mass of the target nucleus.
+$G_E^N(Q^2)$ are the nucleon electric form factors, for which we adopt the Kelly's parametrization~\cite{Kelly:2004}.
+
+The charge form factor of \isotope[6]{Li}, \isotope[12]{C}, and \isotope[16]{O} are shown 
+in~\cref{fig:ff_li6,fig:ff_c12,fig:ff_o16}, respectively. In all the plots, the red curve
+is the AFDMC result for the N$^2$LO $E\tau$ potential with cutoff $R_0=1.0\,\rm fm$.
+Monte Carlo error bars are typically of the size of the lines within the momentum 
+range considered here. Lighter shaded areas indicate the uncertainties from 
+the truncation of the chiral expansion, accordingly to~\cref{eq:err}.
+Darker shaded areas are instead the theoretical error bands only considering the last
+term of the prescription, i.e. taking into account the NLO and N$^2$LO results only.
+AFDMC results are compared to experimental data and to available Monte
+Carlo calculations employing the phenomenological potentials and one-body charge operators only.
+No two-body operators are included in the calculation of the charge form factors in the 
+current work. However, as shown in Refs.~\cite{Wiringa:1998,Lovato:2013,Mihaila:2000} for the three
+different systems, such operators gives a measurable contribution only 
+for $q>2\,\rm fm^{-1}$, as they basically include relativistic corrections.
+\red{Comment: for the hard interaction, the corresponding cutoff in momentum space is 
+$\approx 500\,\rm MeV$ or $\approx2.5\,\rm fm^{-1}$, so there is not much room to see 
+two-body currents effect anyway. Also, all the plots for the charge form factor seem to provide 
+the same description as the phenomenological potentials for one-body operators up to
+$q=3\,\rm fm^{-3}$, already above the cutoff of the theory. Should we elaborate on this?}
+
+\begin{figure}[htb]
+\includegraphics[width=\linewidth]{ff_li6.pdf}
+\caption[]{Charge form factor in \isotope[6]{Li}. The solid red line is the AFDMC result for the
+N$^2$LO $E\tau$ potential with cutoff $R_0=1.0\,\rm fm$.
+Lighter shaded areas indicate the uncertainties from the truncation of the chiral expansion.
+Darker shaded areas are the theoretical error bands only taking into account NLO and N$^2$LO results. 
+Blu triangles are the VMC one-body results for AV18+UIX~\cite{Wiringa:1998}.
+The experimental data are taken from Ref.~\cite{Li:1971}.
+\blue{\bf NO RESULTS FOR THE SOFTER CUTOFF???}
+\red{Diego is working on this}}
+\label{fig:ff_li6}
+\end{figure}
+
+\begin{figure}[htb]
+\includegraphics[width=\linewidth]{ff_c12.pdf}
+\caption[]{Charge form factor in \isotope[12]{C}. 
+In red the AFDMC results as in~\cref{fig:ff_li6}.
+Blu triangles are the GFMC one-body results for AV18+IL7~\cite{Lovato:2013}.
+The experimental data are taken from Ref.~\cite{Devries:1987}.
+Adapted from Ref.~\cite{Lonardoni:2017afdmc}.
+\blue{\bf NO RESULTS FOR THE SOFTER CUTOFF???}
+\red{nope}}
+\label{fig:ff_c12}
+\end{figure}
+
+\begin{figure}[htb]
+\includegraphics[width=\linewidth]{ff_o16.pdf}
+\caption[]{Charge form factor in \isotope[16]{O}.
+In red the AFDMC results as in~\cref{fig:ff_li6}.
+Blu triangles are the cluster-VMC one-body results for AV18+UIX~\cite{Lonardoni:2017cvmc}.
+Experimental data are from I. Sick, based on Refs.~\cite{Sick:1970,Schuetz:1975,Sick:1975}.
+Adapted from Ref.~\cite{Lonardoni:2017afdmc}.
+\blue{\bf NO RESULTS FOR THE SOFTER CUTOFF???}
+\red{Diego is working on this}}
+\label{fig:ff_o16}
+\end{figure}
+
+The charge form factor of \isotope[6]{Li} for the chiral interaction is compatible
+with experimental data at low momentum. The discrepancy for $q\gtrsim2\,\rm fm^{-1}$ could be
+due to the missing two-body currents. Similar physical picture is given for \isotope[12]{C} and
+\isotope[16]{O}, for which the position of the first diffraction peak in the form factor 
+is well reproduced within the band given by the statistical plus theoretical uncertainties, 
+and deviations from the experimental data occur at high momentum only.
+For \isotope[12]{C}, only NLO and N$^2$LO results are available. The theoretical 
+uncertainty (dark red band) is then given by the last term of~\cref{eq:err}.
+For \isotope[16]{O} instead, the full truncation error estimate is provided
+(light red band). The difference between lighter and darker areas in \isotope[16]{O}
+is determined by LO contributions to the theoretical error estimate.
+It is interesting to note that for all three systems, the local chiral interaction with 
+cutoff $R_0=1.0\,\rm$ fm gives the same physical description of the charge form factor as 
+the phenomenological potentials.
+
+Two-body densities are related to the Coulomb sum rule, that is defined as the energy integral 
+of the electromagnetic longitudinal response function. As the charge form factor, the Coulomb sum rule
+can be written as a ground state expectation value~\cite{Mcvoy:1962}, leading to the relation:
+\begin{align}
+	S_L(q)&=\frac{1}{Z} \frac{1}{G_E^{p\,2}(Q_{\rm qe}^2)}\frac{1}{1+Q_{\rm qe}^2/(4 m_N^2)} \nonumber \\
+    & \times\Big\{ G_E^{p\,2}(Q_{\rm qe}^2)\,\Big[\tilde{\rho}_{pp}(q)+Z\Big] \nonumber \\
+    &        +G_E^{n\,2}(Q_{\rm qe}^2)\,\Big[\tilde{\rho}_{nn}(q)+(A-Z)\Big] \nonumber \\
+    &        +2\,G_E^p(Q_{\rm qe}^2)\,G_E^n(Q_{\rm qe}^2)\,\tilde{\rho}_{np}(q) \nonumber \\ 
+    & -\Big[G_E^p(Q_{\rm qe}^2)\,\tilde{\rho}_p(q)+G_E^n(Q_{\rm qe}^2)\,\tilde{\rho}_n(q)\Big]^2 \Big\}, 
+	\label{eq:sl}
+\end{align}
+where $\tilde{\rho}_{\rm{NN}}(q)$ is the Fourier transform of the two-body point-nucleon densities defined in \cref{eq:rho_NN},
+and $Q^2_{\rm qe}=\vb{q}^2-\omega^2_{\rm qe}$, with $\omega_{\rm qe}$ the energy transfer 
+corresponding to the quasielastic peak.
+Although the Coulomb sum rule is not directly an experimental observable (experimental information can be however
+extracted from the longitudinal response function, as done in Ref.~\cite{Lovato:2016} for \isotope[12]{C}), it is
+still an interesting observable for the study of integral properties of the response of a nuclear many-body system to an
+external probe.
+
+We report in~\cref{fig:sl} the Coulomb sum rule for $4\le A\le16$ using the N$^2$LO potential
+with cutoff $R_0=1.0\,\rm fm$. The GFMC results for \isotope[4]{He} 
+and \isotope[12]{C}~\cite{Lovato:2013,Lonardoni:2017cvmc} employing the AV18+IL7 potential are also shown for comparison.
+The discrepancy between AFDMC and GFMC above $\approx 3\,\rm fm^{-1}$ is probably due
+to the missing two-body currents in the present calculation. For lower momenta the description of the sum rule 
+is remarkably consistent with that provided by phenomenological potentials. 
+Moreover, the results for \isotope[12]{C} are 
+compatible with the available experimental data as extracted in Ref.~\cite{Lovato:2016}, 
+as shown already in~\cite{Lonardoni:2017afdmc}. 
+All $p$-shell nuclei show a similar profile for $S_L(q)$, with a peak around 
+$1.6\,\rm fm^{-1}$ slightly more pronounced for open-shell systems $(A=6,12)$.
+
+\begin{figure}[htb]
+\includegraphics[width=\linewidth]{sl.pdf}
+\caption[]{Coulomb sum rule for $4\le A\le16$.
+Lines refer to AFDMC results for the N$^2$LO $E\tau$ potential with cutoff $R_0=1.0\,\rm fm$.
+Solid symbols are the GFMC one- plus two-body results for AV18+IL7~\cite{Lovato:2013,Lonardoni:2017cvmc}. 
+Shaded areas indicate the statistical Monte Carlo uncertainty.}
+\label{fig:sl}
+\end{figure}
+
+\subsection{Improved two-body trial wave function}
+\green{Here are some results for the independent pair correlations CODY \\}
+We have done ground state energy calculations using three different two-body trial wave functions, the two improved two-body correlations and we've compared these with the previously used linear correlations. We have done energy calculations for $^4$He, $^{16}$O, and symmetric nuclear matter (SNM) with 28 particles of density $\rho=0.16$ fm$^{-3}$ in a box with periodic boundary conditions. The results, compared to calculations with only linear two-body correlations, are shown in table~\ref{tab:indpairresults}.
+\begin{table}[h!]
+   \centering
+   \caption{Energy in MeV for $^4$He, $^{16}$O, and SNM with 28 particles in a periodic box with density $\rho=0.16$ fm$^{-3}$as calculated with all three types of correlations compared to experimental energies. Energies for SNM are in MeV per particle.}
+   \label{tab:indpairresults}
+   \begin{tabular}{ccccc}
+      \hline \hline
+       & Linear & IndPair & Quadratic \\
+      \hline
+      $^4$He & -27.17(4) & -27.24(4) & -27.12(4) \\
+      $^{16}$O & -115.7(9) & -121.5(1.5) & -120.0(1.4) \\
+      SNM & -13.92(6) & -14.80(7) & -14.70(11) \\
+      \hline \hline
+   \end{tabular}
+\end{table}
+The ground state energies for each system were decreased with respect to the linear correlations. The variational parameters were reoptimized for $^4$He in order for the energy to decrease, however both $^{16}$O and SNM results were obtained without reoptimization due to the computational cost to reoptimize the wave function.
+
+
+
+\section{Summary}
+\label{sec:summ}
+
+\red{The N$^2$LO potential for $R_0=1.0\,\rm fm$ give a good physical description 
+of nuclei up to \isotope[16]{O}, consistent with experimental data and compatible 
+with that of phenomenological potentials, where available
++ neutron matter
++ truncation error estimate}
+
+
+\acknowledgments{We thank J.~E.~Lynn, A.~Schwenk, I.~Tews, A.~Lovato, 
+\red{ADD OTHERS} for many valuable discussions. 
+The work of S.G. and J.C. was supported by the NUCLEI SciDAC program,
+by the U.S. Department of Energy, Office of Science, Office of Nuclear
+Physics, under contract No. DE-AC52-06NA25396, and by the LDRD program
+at LANL.
+The work of D.L. was was supported by the U.S. Department of Energy, 
+Office of Science, Office of Nuclear Physics, under the FRIB Theory 
+Alliance Grant Contract No. DE-SC0013617 titled ``FRIB Theory Center 
+- A path for the science at FRIB'', and by the NUCLEI SciDAC program.
+The work of C.P. and K.E.S. was supported by \red{ADD OTHERS}.
+Computational resources have been provided by Los Alamos Open
+Supercomputing via the Institutional Computing (IC) program, and by the
+National Energy Research Scientific Computing Center (NERSC), which is
+supported by the U.S. Department of Energy, Office of Science, under
+contract DE-AC02-05CH11231 \red{ADD OTHERS}}
+
+\appendix %CODY
+
+\section{Calculating linear and quadratic two-body correlations}
+The two-body correlations are calculated using the walkers, which contain the positions, spins and isospins of each particle. They are used to build a Slater matrix
+\begin{equation}
+   S_{ki} = \left<k|\mathbf{r}_i s_i\right> = \sum\limits_{s=1}^4\left<k|\mathbf{r}_i s\right>\left<s|s_i\right>,
+\end{equation}
+where $\left|\mathbf{r}_i s_i\right>$ are the walkers and $\left|k\right>$ contains the radial model states and $ls$ or $j$ angular momentum states. The Slater matrix is updated by each of the correlation operators. These updates are done with the aid of the identity $\det S^{-1}S' = \frac{\det S'}{\det S}$, where $S'$ is the matrix that has been updated by one operator. To reduce the number of operations done in the inner loops the ratio of determinants for a pair of operators, $\mathcal{O}_{ij}=\mathcal{O}_i\mathcal{O}_j$, is written in the form
+\begin{equation}
+   \frac{\left<\Phi\right|O_{ij}\left|R,S\right>}{\left<\Phi|R,S\right>} = \sum\limits_{s=1}^4\sum\limits_{s'=1}^4 d_{2b}(s,s',ij)\left<ss'\right|O_{ij}\left|s_is_j\right>,
+\end{equation}
+where
+\begin{equation}
+   d_{2b}(s,s',ij)=\frac{\left<\Phi|R,s_1,\ldots,s,s_{i+1},\ldots,s',s_{j+1},\ldots,s_A\right>}{\left<\Phi|RS\right>},
+\end{equation}
+with $R=\mathbf{r}_1,\ldots,\mathbf{r}_A$, $S=s_1,\ldots,s_A$, and $s$ and $s'$ are one of the four spin-isospin states neutron-up, neutron-down, proton-up, proton-down. The $d_{2b}$ are calculated in an outer loop from the precalculated matrix elements $P_{s,ij}$,
+\begin{equation}
+   d_{2b}(s,s',ij) = \det\begin{pmatrix}P_{s,ii} & P_{s,ij} \\ P_{s',ji} & P_{s',jj}\end{pmatrix}
+\end{equation}
+where
+\begin{equation}
+   P_{s,ij}=\sum\limits_k S^{-1}_{jk}S_{ki}(s_i\rightarrow s).
+\end{equation}
+Though this only addressed two-body operators this method can be generalized to other N-body operators as well. To include additional operators the matrix elements $P_{s,ij}$ need to be updated
+\begin{equation}
+   P'_{s,mn}=\sum\limits_k S'^{-1}_{nk}S'_{km}(s_m\rightarrow s)
+\end{equation}
+where
+\begin{equation}
+   S'_{km}(s) = \left\{
+   \begin{array}{cc}
+      S_{km} & m \ne i\\
+      \left<k\right|O_i\left|\mathbf{r}_i,s_i\right> & m = i
+   \end{array}.
+   \right.
+\end{equation}
+To calculate the updated inverse matrix the identity $\det(S^{-1}S'')=\det S''/\det S$ is used. Both sides of the identity are expanded and like terms are grouped noting that when $j \ne i$, $S''_{mi}=S'_{mi}$.
+
+The wave function with linear correlations is calculated by first operating on the walkers with each possible operator and calculating the sum of each term $\sum\limits_{ss'}d_{2b}(s,s',ij)\left<ss'\right|f(\mathbf{r}_{ij})\mathcal{O}_{ij}\left|s_is_j\right>$. The expectation value of the potential with the linear wave function includes correlation and potential operators, where one term in the sum may have the form $\left(1+\mathcal{O}^c_{ij}\right)\mathcal{O}^p_{kl}$ where the correlation, $\mathcal{O}^c_{ij}$, and potential operators, $\mathcal{O}^p_{ij}$, are four potentially distinct operators. For this calculation the $P$ matrix is updated twice, once for $\mathcal{O}^c_i$ and once for $\mathcal{O}^c_j$, where $\mathcal{O}^c_{ij}=\mathcal{O}^c_i\mathcal{O}^c_j$. The ratio of determinants is calculated in a similar way as the wave function above, except that the updated distribution, $d\,''_{2b}$, is used.
+
+The quadratic wave function includes all of the pieces from the linear wave function and a piece with two additional operators. One possible term in the sum of correlations is $1+\mathcal{O}^c_{ij}+\mathcal{O}^c_{ij}\mathcal{O}^c_{kl}$. The operators up to linear terms are handled identically to the method described above. The quadratic product of operators is handled in practically the same was as the potential with the linear wave function, as described above. That is, the $P$ matrix is updated twice, once for $\mathcal{O}^c_i$ and once for $\mathcal{O}^c_j$ and the ratio of determinants is calculated with the updated distributions. The calculation of the correlation operators for the quadratic wave function requires $\mathcal{O}(A^4)$ operations whereas the linear correlations requires $\mathcal{O}(A^2)$.
+
+The expectation value of the potential with the quadratic wave function requires a product of six operators $\mathcal{O}^c_{ij}\mathcal{O}^c_{kl}\mathcal{O}^p_{mn}$. As a results a total of four updates are used to calculate the quadratically correlated term for the potential. The linear terms are handled as before. After including the updated distributions for the $\mathcal{O}^c_{ij}$ term, the same distributions were updated two more times for the $\mathcal{O}^c_{kl}$ term. These quadratically updated distributions are then used to calculate the expectation value of the potential in the usual way. To calculate the potential with the quadratic wave function required $\mathcal{O}(A^6)$ operations compared to the $\mathcal{O}(A^4)$ operations required for the linear wave function.
+
+\green{Here is some stuff about the operator breakups CODY \\}
+\red{Maybe a little more on how you get those specific operators.} The simplest operator breakup for the $v6'$ operators is the cartesian breakup where $\vec{\sigma} = \sigma_x\hat{i} + \sigma_y\hat{j} + \sigma_z\hat{k}$. With this breakup there are 39 $v6'$ operators, 9 for the $\sigma_{ai}\sigma_{bj}$ operators, 3 for the $\tau_{ci}\tau_{cj}$ operators, and 27 for the $\sigma_{ai}\sigma_{bj}\tau_{ci}\tau_{cj}$ operators. Here $a$, $b$, and $c$ each sum over the cartesian coordinate and the $i$ and $j$ represent particles. The operators for the 
+
+
+
+
+The number of operators can be reduced to \red{15} if, instead of cartesian coordinates, one coordinate is the $\hat{r}_{ij}$ and the other two are orthogonal. This reduces the number of operations used in the spatially dependent part of the tensor term, $3\sigma_i\cdot\hat{r}_{ij}\sigma_j\hat{r}_{ij}$, from \red{9} to \red{3}. The functional part of the operators are now different for each particle, but this does decrease the number of required operations from 39 to \red{15}.
+
+
+\bibliography{biblio}
+\end{document}

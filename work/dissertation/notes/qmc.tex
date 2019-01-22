@@ -1,0 +1,137 @@
+\section{Quantum Monte Carlo}
+Quantum Monte Carlo (QMC) calculations use statistical sampling to solve large integrals that would otherwise be intractable. There are many good resources from which to learn about the many different QMC methods, \red{List some here}. Here I will describe the methods that I have used in this dissertation, those being Variational, Diffusion, and auxiliary Field Diffusion Monte Carlo methods. 
+
+\subsection{Variational Monte Carlo}
+Before I describe Variational Monte Carlo (VMC), I need to introduce the ideas of Monte Carlo Integration, and the Metropolis algorithm, which will both be used later. to understand VMC.
+
+\subsubsection{Monte Carlo Integration}
+I will illustrate Monte Carlo Integration by imagining that we want to integrate the function $g(\mathbf{R})$ where $\mathbf{R}=\mathbf{r}_1,\mathbf{r}_2,\ldots,\mathbf{r}_n$i, so 
+\begin{equation}
+   I=\int g(\mathbf{R}) d\mathbf{R}.
+\end{equation}
+We can rewrite this integral in terms of a probability density called an importance function $P(\mathbf{R})$, and $f(\mathbf{R}) = g(\mathbf{R})/P(\mathbf{R})$.
+\begin{equation}
+   I=\int f(\mathbf{R}) P(\mathbf{R}) d\mathbf{R}
+\end{equation}
+Now if the $\mathbf{R}$ are distributed according to $P(\mathbf{R})$ then this integral is the expectation value of $f(\mathbf{R})$, which can be computed by drawing an infinite number of samples of $f(\mathbf{R})$ and taking the average.
+\begin{equation}
+   I=\lim\limits_{N\rightarrow\infty} \frac{1}{N} \sum\limits_{n=1}^N f(\mathbf{R}_n)
+\end{equation}
+The integral can then be approximated by taking a large number of samples giving us
+\begin{equation}
+   I \approx \frac{1}{N} \sum\limits_{n=1}^N f(\mathbf{R}_n).
+\end{equation}
+
+This method of integration is useful especially when the dimensions of the integration increase. In many-body quantum mechanics the dimension of the integrals can be quite large, including several dimensions for each particle in the calculation. Monte Carlo Integration only needs to sample each of these dimension decreasing the work required by a substantial amount.
+
+\subsubsection{Metropolis Algorithm}
+Let's assume that we are doing Monte Carlo Integration as described above, but the importance function, $P(\mathbf{R})$, from which the random variables $\mathbf{R}$ are drawn is a simple invertible function. We can then simply generate a random variable from the uniform distribution, $u$, and then figure out what value of $x$ gives us that value given $P(x)=u$. This works quite well assuming the function $P(x)$ is invertible. But let's say that we can't invert it. This is where the Matropolis algorithm comes in, allowing us to get random samples from $P(x)$ even if it's noninvertible. The Metropolis algorithm is a Markov Chain method that uses only the previous point to determine where the next move will be, i.e. the step doesn't depend on history other than the previous step. These are the steps to the algorithm.
+\begin{enumerate}
+   \item Start at a random position, $\mathbf{R}$.
+   \item Propose a move to a new position $\mathbf{R}'$, pulled from a distribution $T(\mathbf{R}'|\mathbf{R})$, where $T$ can be a Gaussian centered on the current position. This makes sure that too large of steps aren't taken.
+   \item The probability of accepting the move is given by
+   \begin{equation}
+      A(\mathbf{R}'|\mathbf{R}) = \frac{P(\mathbf{R}')}{P(\mathbf{R})}
+   \end{equation}
+   \item If $A\ge1$, then the move is accepted. Otherwise a random number, $u$,is generated from a uniform distribution between 0 and 1, and the move is accepted if $A>u$.
+\end{enumerate}
+
+\subsubsection{VMC}
+Variational Monte Carlo starts with a trial wave function, $\psi_T$, that should have some non-zero overlap with the actual ground state wave function, and a Hamiltonian, $\hat{H}$. The expectation value of the Hamiltonian in the trial state gives what is called the variational energy. This variational energy is then an upper bound on the true ground state wave function.
+\begin{equation}
+   E_V = \frac{\int\psi_T^*(\mathbf{R})\hat{H}\psi_T(\mathbf{R})d\mathbf{R}}{\int\psi_T^*(\mathbf{R})\psi_T(\mathbf{R})d\mathbf{R}} \le E_0
+\end{equation}
+Multiplying the top integrand by $\psi_T(\mathbf{R})\psi_T^{-1}(\mathbf{R})$ we can rewrite the variational energy as
+\begin{equation}
+   E_V = \frac{\int\left|\psi_T(\mathbf{R})\right|^2\psi_T^{-1}(\mathbf{R})\hat{H}\psi_T(\mathbf{R})d\mathbf{R}}{\int\left|\psi_T(\mathbf{R})\right|^2d\mathbf{R}} \le E_0.
+\end{equation}
+
+Random walkers are generated, $\{\mathbf{R}_n: n=1,N\}$, from the distribution $P(\mathbf{R}) = |\Psi_T(\mathbf{R})|^2/\int|\Psi_T(\mathbf{R})|^2d\mathbf{R}$. The local energy at each point is found using $E_L(\mathbf{R}) = \Psi_T^{-1}(\mathbf{R}) \hat{H} \Psi_T(\mathbf{R})$. Now rewriting $E_V$ in terms of $E_L$ we get 
+\begin{equation} 
+  E_V = \int P(\mathbf{R}) E_L(\mathbf{R}) d\mathbf{R}. 
+\end{equation} 
+The local energy can then be sampled using the Metropolis method described above to give the energy. 
+\begin{equation} 
+  E_V \approx \frac{1}{N} \sum\limits_{n=1}^N E_L({\mathbf{R}_n}). 
+\end{equation} 
+ 
+At this point certain parameters in $\Psi_T$ can be varied until a minimum in the energy is found. A minimum in the energy will be produced when $\Psi_T \rightarrow \Psi_0$.
+
+\subsection{Diffusion Monte Carlo}
+Diffusion Monte Carlo (DMC) solves for the ground state by letting the walkers diffuse in imaginary time. You start with the Schr\"odinger equation
+\begin{equation}
+   \hat{H}\Psi = i\hbar\frac{\partial\Psi}{\partial t}.
+\end{equation}
+Now we substitute time for imaginary time using $\tau=it/\hbar$ and notice that this looks similar to the diffusion equation.
+\begin{equation}
+   \hat{H}\Psi = -\frac{\partial\Psi}{\partial\tau}
+\end{equation}
+At this point we assume that the solution will consist of exponentials, but we shift the energies by the ground state energy, $V\rightarrow V - E_0$ and $E_n \rightarrow E_n-E_0$.
+\begin{equation}
+   \Psi(\mathbf{R},\tau) = \sum\limits_{n=0}^\infty c_n\phi_n(\mathbf{R})e^{-\tau(E_n-E_0)}
+\end{equation}
+Then one of the key parts of DMC is that as you let $\tau\rightarrow\infty$ all of the states higher than the ground state die because the difference $E_n-E_0$ is non-zero and the intinity $\tau$ kills the exponential. This leaves only the ground state.
+\begin{equation}
+   \lim\limits_{\tau\rightarrow\infty}\Psi(\mathbf{R},\tau) = \sum\limits_{n=0}^\infty c_n\phi_n(\mathbf{R})e^{-\tau(E_n-E_0)}
+\end{equation}
+
+\subsubsection{Model states: $\ket{\Phi}$}
+The Slater determinants in the trial wave function are overlaps of the walkers with single particle model states. For a system with spin
+\begin{equation}
+   \ket{s_i} = \begin{pmatrix} a_i \\ b_i \\ c_i \\ d_i \end{pmatrix}
+   = a_i\ket{p\uparrow} + b_i \ket{p\downarrow} + c_i\ket{n\uparrow} + d_i\ket{n\downarrow},
+\end{equation}
+and $K$ single particle states this would be
+\begin{equation}
+   D = 
+   \begin{vmatrix}
+      a_1\phi_1(\r_1) & a_2\phi_1(\r_2) & \ldots & a_A\phi_1(\r_A) \\
+      a_1\phi_2(\r_1) & a_2\phi_2(\r_2) & \ldots & a_A\phi_2(\r_A) \\
+      \ldots & \ldots & \ldots & \ldots \\
+      b_1\phi_1(\r_1) & b_2\phi_1(\r_2) & \ldots & b_A\phi_1(\r_A) \\
+      b_1\phi_2(\r_1) & b_2\phi_2(\r_2) & \ldots & b_A\phi_2(\r_A) \\
+      \ldots & \ldots & \ldots & \ldots \\
+      d_1\phi_1(\r_1) & d_2\phi_1(\r_2) & \ldots & d_A\phi_1(\r_A) \\
+      \ldots & \ldots & \ldots & \ldots \\
+      d_1\phi_K(\r_1) & d_2\phi_K(\r_2) & \ldots & d_A\phi_K(\r_A) \\
+\end{vmatrix}.
+\end{equation}
+The single particle model states are made up of a radial and spin, iso-spin dependent parts,
+\begin{equation}
+   \phi_k = \Phi_{nj}\left[C_{c_l,m_s}^j Y_{l,m_l}(\hat{r}_i)\chi_s(s_i)\right]_{j,m_j},
+\end{equation}
+where $\Phi_{nj}$ is the radial part and the rest contains the spherical harmonics $Y_{l,m_l}(\hat{r}_I)$ and spin and iso-spin states where the Clebsch-Gordan coefficients ensure the correct $j$ and $m_j$ quantum numbers, and the different states are given by the index $k$. To accurately describe the wave function of an open shell nuclei each state with the correct total angular momentum and parity $J^\pi$ and isospin $T$ is included as a seperate Slater determinant.
+\begin{equation}
+   \braket{RS}{\Phi}_{J^\pi,T} = \sum\limits_n c_n D\{\phi_k(\r_i,s_i)\}
+\end{equation}
+Here the $c_n$ coefficients are variational parameters used to minimize the energy given a set of possible state configurations. One of the simplest examples of an open shell nuclei would be $^6$He whose ground state is a $J^\pi = 0^+$ state. The two protons and two of the neutrons could be in the full $(1S_{1/2})^2$ shell while the two remaining neutrons could be in the $(1P_{3/2})^2$ shell with their $m_j=\pm 3/2, \pm 1/2$ values being equal an opposite to ensure that $J=0$. This state given two possible determinants. Other possible configurations for the two remaining neutrons would be $(1P_{1/2})^2$ with one possible determinant, $(1D_{5/2})^2$ with three possible determinants, $(2S_{1/2})^2$ with one possible determinant and $(1D_{3/2})^2$ with two possible determinants giving a total of nine possible determinants. Notice that the two neutrons could be in a combination of $S$ and $D$ shells but never an $S$ and $P$ or $D$ and $P$ to ensure the parity of the state is positive. The number of determinants used for open shell nuclei will control how accurate the trial wave function is but for closed shell nuclei such as $^4$He or $^{16}$O a single slater determinant describing the full shell configuration is sufficient.
+
+The radial part $\Phi_{nj}$ of the single particle states are obtained as bound state solutions to the single particle Schr\"odinger equation with a Woods-Saxon potential wine-bottle potential \red{add reference here maybe}.
+\begin{equation}
+   v(r) = V_s\left[\frac{1}{1+e^{(r-r_s)/a_s}} + \alpha_se^{(-r/\rho_s)^2}\right]
+\end{equation}
+Here the parameters, $V_s, r_s, a_s, \alpha_s$ and $\rho_s$ are variational parameters used to shape the potential to obtain a minimum in energy.
+
+A simple example of this would be the deuteron. The deuteron is in a iso-spin singlet state, $\frac{1}{\sqrt{2\pi}}(\ket{pn}-\ket{np})$. To show how the model state, $\ket{\Phi}$ would be built for this I will assume all entries are 1, though in practice the could all take on different numbers to account for the different spacial and spin dependencies of the state. Let's assume that both the neutron and the proton are in a spin up state. In this case the $\Phi(k,i)$ terms, where $k,i=1,2$, would take on the following values.
+\begin{align}
+   \phi(1,1)&=(1,0,0,0)=p\uparrow_1 \\
+   \phi(2,1)&=(0,0,1,0)=n\uparrow_1 \\
+   \phi(1,2)&=(1,0,0,0)=p\uparrow_2 \\
+   \phi(2,2)&=(0,0,1,0)=n\uparrow_2
+\end{align}
+The determinant of the Slater matrix can then be written as
+\begin{equation}
+\Psi_T=\det(S)=
+\begin{vmatrix}
+    \braket{k_1}{s_1} & \braket{k_1}{s_2} \\
+    \braket{k_2}{s_1} & \braket{k_2}{s_2}
+\end{vmatrix}
+=
+\begin{vmatrix}
+    p_1 & p_2 \\
+    n_1 & n_2
+\end{vmatrix}
+=
+p_1n_2-n_1p_2,
+\end{equation}
+which is the singlet state that we wanted to start with.

@@ -1,0 +1,32 @@
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{mindmap}
+%\pagestyle{empty}
+\begin{document}
+%\begin{tikzpicture}[grow cyclic, text width=2.7cm, align=flush center,
+\begin{tikzpicture}[mindmap, grow cyclic, every node/.style=concept, concept color=orange!40]
+\tikzset{level 1 concept/.append style={sibling angle=-60,level distance = 27mm}}
+\tikzset{level 2 concept/.append style={sibling angle=-45,level distance = 17mm}}
+\tikzset{level 3 concept/.append style={sibling angle=-45,level distance = 12mm}}
+\tikzset{level 4 concept/.append style={sibling angle=-45,level distance = 10mm}}
+\tikzset{every node/.append style={scale=0.6}}
+
+\node[scale=1.0]{INT Talk}
+   child[concept color=red!40]{node{Introduction}}
+   child[concept color=blue!40]{node{Wave function}
+      child{node{Properties}
+         child{node{Cluster Decomposable}}
+         child{node{Antisymmetric}}
+      }
+      child{node{Exponential}}
+      child{node{Symmetrized Product}}
+      child{node{Approximations}
+         child{node{Linear}}
+         child{node{Quadratic}}
+      }
+   }
+   child[concept color=green!40]{node{Applications}}
+;
+
+\end{tikzpicture}
+\end{document}

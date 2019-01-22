@@ -1,0 +1,139 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{graphicx}
+
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\braket}[2]{\left< #1 | #2 \right>}
+\newcommand{\ketbra}[2]{\left| #1 \right> \left< #2 \right|}
+\newcommand{\fpij}{f_p(r_{ij})}
+\newcommand{\vpij}{v_p(r_{ij})}
+\newcommand{\Opij}{\mathcal{O}_{ij}^p}
+\newcommand{\fOpij}{\sum\limits_{i<j}\sum\limits_p \fpij\Opij}
+\newcommand{\fqkl}{f_q(r_{kl})}
+\newcommand{\Oqkl}{\mathcal{O}_{kl}^q}
+\newcommand{\fOqkl}{\sum\limits_{k<l}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\fOqklip}{\sum\limits_{k<l,\mathrm{ip}}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\fOqklquad}{\sum_{\substack{k<l\\ij \ne kl}}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\f}[2]{f_{#1}(r_{#2})}
+\renewcommand{\O}[2]{\mathcal{O}_{#2}^{#1}}
+\newcommand{\fO}[2]{\sum\limits_{#1} f_{#1}(r_{#2})\mathcal{O}_{#2}^{#1}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\dt}{\Delta\tau}
+\newcommand{\ti}{\bm{\tau}_i}
+\newcommand{\tj}{\bm{\tau}_j}
+\newcommand{\si}{\bm{\sigma}_i}
+\newcommand{\sj}{\bm{\sigma}_j}
+\newcommand{\longsi}{s_1, \ldots, s_{i-1} , s, s_{i+1}, \ldots, s_A}
+\newcommand{\longsij}{s_1, \ldots, s_{i-1} , s, s_{i+1}, \ldots, s_{j-1}, s', s_{j+1}, \ldots ,s_A}
+\newcommand{\longsijkl}{s_1, \ldots, s_{i-1} , s'', s_{i+1}, \ldots, s_{j-1}, s''', s_{j+1}, \ldots ,s_A}
+
+\title{Notes on quadratic correlations}
+\author{Cody L. Petrie}
+
+\begin{document}
+\maketitle
+
+\section{Where the quardatic terms come from}
+To maintain the cluster decomposability of correlations in the trial wave function, they would need to be exponential.
+\begin{equation}
+   \ket{\psi_T} = \prod\limits_{i<j}f_c(r_{ij}) e^{\sum\limits_p\fpij\Opij} \ket{\phi}
+\end{equation}
+This is then expanded in small correlations to get
+\begin{equation}
+   \ket{\psi_T} = \prod\limits_{i<j}f_c(r_{ij}) \left(1+\sum\limits_p\fpij\Opij\right) \ket{\phi}.
+\end{equation}
+To get what we call ``linear" correlations we then write out the terms of this product and only keep terms that are linear. What I have done is kept all of the quadratic terms as well. I'll show you what this means for $A=3$ so that you can see it.
+\begin{equation}
+%\begin{align}
+\begin{split}
+   &\left[\f{c}{12}\left(1+\fO{p}{12}\right)\right]\left[\f{c}{13}\left(1+\fO{p}{13}\right)\right]\left[\f{c}{23}\left(1+\fO{p}{23}\right)\right] \\
+   &~~=\f{c}{12}\f{c}{13}\f{c}{23}\left(1+\fO{p}{12}+\fO{p}{13}+\fO{p}{23}\right. \\
+   &~~~~~+\left.\fO{p}{12}\fO{q}{13}+\fO{p}{12}\fO{q}{23}+\fO{p}{13}\fO{q}{23}\right) \\
+   &~~= \left[\prod\limits_{i<j}\f{c}{ij}\right]\left[1+\fOpij+\frac{1}{2}\fOpij\fOqklquad + \ldots \right]
+\end{split}
+%\end{align}
+\end{equation}
+So what I have called ``full quadratic" in the code just means
+\begin{equation}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}\f{c}{ij}\right]\left[1+\fOpij+\frac{1}{2}\fOpij\fOqklquad \right].
+\end{equation}
+At first we thought that just keeping terms with the independent pairs (where none of the pairs have single matching particle, so if $i,j = 1,2$ then $k\ne1$ or $2$ and $l\ne1$ or $2$. This is what I have called ``independent pair" in the code.
+\begin{equation}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}\f{c}{ij}\right]\left[1+\fOpij+\fOpij\fOqklip \right],
+\end{equation}
+Where the sum $\sum\limits_{\mathrm{k<l,ip}}$ is a sum over all of the $kl$ pairs that don't have a particle that matches either the $i^\mathrm{th}$ or the $j^\mathrm{th}$ particle.
+There is no $1/2$ in the independent pair sum because I force the code to not repeat pairs like 12-34 and 34-12, whereas in the quadratic code I just include both and then divide by 2.
+
+\section{Implementation}
+The code already does calculations using the linear correlations. To calculate the wave function the code currently does something like \texttt{psi=sum(d2b*f2b)}, where \texttt{d2b} and \texttt{f2b} are something like
+\begin{align}
+   &\texttt{d2b}(s,s',ij)=\frac{\braket{\Phi}{R,\longsij}}{\braket{\Phi}{RS}}, \\
+   &\texttt{f2b}(s,s',ij)=\sum\limits_{kop=1}^{15}f^{kop}_{ij}\bra{ss'}\mathcal{O}^{kop}_{ij}\ket{s_is_j}.
+\end{align}
+However to calculate the potential we need to include 4 single particle operators at a time. In the code this is done using the subroutine \texttt{sxzupdate}. Essentially this subroutine is taking the current \texttt{sxz}, which is
+\begin{equation}
+   \texttt{sxz}(s,i,j)=\sum\limits_k S^{-1}_{jk}\braket{k}{\mathbf{r}_i,s},
+\end{equation}
+and updating it so that it is the new sxz assuming the previous two correlations were already completed. The \texttt{sxz} is what is used to calculate \texttt{d2b}. To add the quadratic, and the independent pair, correlations operators I have just added two additional calls to \texttt{sxzupdate} within a new subroutine which I call \texttt{paircorrelation}. Here is a rough sketch of the old algorithm to calculate the potential.
+\begin{enumerate}
+   \item Update \texttt{sxz} to include one of the correlation operators using \texttt{sxzupdate}.
+   \item Update \texttt{sxz} again to include the second correlation operator using \texttt{sxzupdate}.
+   \item Add the appropriate terms to \texttt{d2b}, this and the last two steps are done in the subroutine \texttt{caldist}.
+   \item Now calculate the \texttt{tz}, \texttt{sz}, or \texttt{stz}, which are like the \texttt{f2b} from before, but without the factor $f^{kop}_{ij}$, using the subroutine \texttt{op2}. This is then used along with the \texttt{d2b} calculated above as \texttt{sum(d2b*f2b)}, where the \texttt{f2b} here are one of the \texttt{tz}, \texttt{sz}, or \texttt{stz}.
+   \item Then multiply by the appropriate factors \texttt{v2} through \texttt{v6}, which is done directly in the subroutine \texttt{vnpsi2}.
+\end{enumerate}
+Now what I'm wanting to calculate looks something like
+\begin{equation}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}\f{c}{ij}\right]\left[1+\fOpij+\fOpij\fOqklip \right],
+\end{equation}
+or
+\begin{equation}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}\f{c}{ij}\right]\left[1+\fOpij\left(1+\fOqklip\right) \right].
+\end{equation}
+So to the \texttt{d2b} values I am wanting to add the original correlations (thus I have left the original calls to \texttt{addtod2b} in the code, and then I want to add the quadratic terms, which are just updated twice from \texttt{d2b} for the linear correlations. Here is the algorithm with the additional quadratic terms added in.
+\begin{enumerate}
+   \item Update \texttt{sxz} to include one of the correlation operators using \texttt{sxzupdate}.
+   \item Update \texttt{sxz} again to include the second correlation operator using \texttt{sxzupdate}.
+   \item Add the appropriate terms to \texttt{d2b}, this and the last two steps are done in the subroutine \texttt{caldist}.
+   \item \red{Added step:} Now call \texttt{paircorrelation} which does the following.
+   \begin{enumerate}
+      \item Update \texttt{sxz} to include the third correlation operator using \texttt{sxzupdate}.
+      \item Update \texttt{sxz} again to include the forth correlation operator using \texttt{sxzupdate}. These last two steps are only done if the conditions on the pairs are met (for example independent pair conditions).
+      \item The \texttt{sxz} that now has the quadratic updates includes is used to add the new appropriate terms to \texttt{d2b}.
+   \end{enumerate}
+   \item Now calculate the \texttt{tz}, \texttt{sz}, or \texttt{stz}, which are like the \texttt{f2b} from before, but without the factor $f^{kop}_{ij}$, using the subroutine \texttt{op2}. This is then used along with the \texttt{d2b} calculated above as \texttt{sum(d2b*f2b)}, where the \texttt{f2b} here are one of the \texttt{tz}, \texttt{sz}, or \texttt{stz}.
+   \item Then multiply by the appropriate factors \texttt{v2} through \texttt{v6}, which is done directly in the subroutine \texttt{vnpsi2}.
+\end{enumerate}
+
+Calculating the trial wave function with quadratic correlations is similar. Here there are four total single particle operators that need to be included. The first two are added with a call to \texttt{paircorrelation}, which prepares the \texttt{d2b} for the quadratic correlations, which is then used with \texttt{sum(d2b*f2b)} to get the trail wave function like normal. The logical input called \texttt{dopot} is to determine where you are updating \texttt{sxz} with the quadratic terms, to be used to calculate the potential, or with the linear terms to be used to calculate the wave function. The \texttt{i} and \texttt{j} inputs are used when doing the independent pair (or full quadratic) conditions, and thus are not used when calculating the wave function (because you are updating the first two pairs which includes all pairs). However, the independent pair condition needs to then be taken care of when adding to \texttt{d2b}. That is what the new subroutine \texttt{addtod2bquad} does.
+
+\section{Results}
+Here are some of the results that we have so far.
+\begin{table}[h!]
+   \centering
+   \caption{Binding energies in MeV for $^4$He and $^{16}$O as calculated with all three types of correlations compared to experimental energies.}
+   \label{tab:indpairresults}
+   \begin{tabular}{ccccc}
+      \hline \hline
+       & Linear & IndPair & Quadratic & Expt.\\
+      \hline
+      $^4$He & -27.0(3) & -26.3(3) & -25.4(3) & -28.295\\
+      $^{16}$O & -115(3) & -122(3) & -121(3) & -127.619\\
+      \hline \hline
+   \end{tabular}
+\end{table}
+
+From what I can tell it seems like $^{16}$O did what we would expect, that is, the energy decreases a little bit. However the energy for $^4$He went up. We are still trying to understand this. I am currently trying to do an unconstrained calculation for $^4$He using all three correlations, hoping that they all go to the same value. I am having a hard time getting good enough statistics to see this right now, but that's what I'm working on.
+
+%\clearpage
+%\bibliographystyle{unsrt}
+%\bibliography{../../papers/references}
+
+\end{document}

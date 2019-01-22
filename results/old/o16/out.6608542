@@ -1,0 +1,708 @@
+TACC: Starting up job 6608542
+TACC: Setting up parallel environment for MVAPICH2+mpispawn.
+TACC: Starting parallel tasks...
+Variational Monte Carlo Run
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+MPI parameters:
+Number of boss cpus =                          32
+Number of worker cpus for each boss =           0
+Total number of cpus =                         32
+Simulation parameters:
+random number seed =                           17
+hbar^2/2m =                              20.73554
+start from sites =                              T
+nwalk =                                     10000
+equilibration blocks =                         50
+averaging blocks =                            100
+nsteps/blocks =                               100
+time step =                          0.0007000000
+time step rotations (vmc) =          0.0500000000
+trial energy =                         -100.00000
+drift cutoff =                            0.00000
+drastic population control up =           1.10000
+drastic population control down =         0.90000
+rebalance if walkers fluctuate more than      1.00 %
+weight cut off =                         20.00000
+table size =                                 8000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+System parameters:
+lpot =                                         11
+lpotpr =                                       11
+potential  =                           argonne v6'         
+potentialpr =                          argonne v6'         
+multiply central v by =                   1.00000
+multiply tau v by =                       1.00000
+multiply sigma v by =                     1.00000
+multiply sigma tau v by =                 1.00000
+multiply tensor v by =                    1.00000
+multiply tensor tau v by =                1.00000
+multiply spin-orbit v by =                0.00000
+multiply spin-orbit tau v by =            0.00000
+three-body potential =                 no3
+ibox = (0 is nearest image)                     0
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Calculate LS =                                  F
+scale orbital   1 with factor    0.97500
+scale orbital   2 with factor    0.97500
+scale orbital   3 with factor    0.97500
+determinant # 1
+coefficient                     1.00000   0.00000
+1  1  0  1  o16.n1s1_2.orb  # 2J,2M,L,tau radial_file for state                 
+1 -1  0  1  o16.n1s1_2.orb  # 2J,2M,L,tau radial_file for state                 
+3  3  1  1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+3  1  1  1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+3 -1  1  1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+3 -3  1  1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+1  1  1  1  o16.n1p1_2.orb  # 2J,2M,L,tau radial_file for state                 
+1 -1  1  1  o16.n1p1_2.orb  # 2J,2M,L,tau radial_file for state                 
+1  1  0 -1  o16.n1s1_2.orb  # 2J,2M,L,tau radial_file for state                 
+1 -1  0 -1  o16.n1s1_2.orb  # 2J,2M,L,tau radial_file for state                 
+3  3  1 -1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+3  1  1 -1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+3 -1  1 -1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+3 -3  1 -1  o16.n1p3_2.orb  # 2J,2M,L,tau radial_file for state                 
+1  1  1 -1  o16.n1p1_2.orb  # 2J,2M,L,tau radial_file for state                 
+1 -1  1 -1  o16.n1p1_2.orb  # 2J,2M,L,tau radial_file for state                 
+rescaled coefficient            1.00000   0.00000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+No external potential
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+rcut in pair sampling =                   1.00000
+acut in pair sampling =                   5.00000
+a constant in psig =                      0.00000
+Number of protons =                             8
+Number of neutrons =                            8
+Range of the potential =   20.00000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Do V3                                           F
+Three body force                              no3
+three body a2piPWa  =                        0.000000000000
+three body a2piPwc =                         0.000000000000
+three body a2piSw =                          0.000000000000
+three body Vd,C,c3 =                         0.000000000000
+three body Ve,C,c3 =                         0.000000000000
+three body A_R =                          0.000000000000000
+three body Vd1 =                             0.000000000000
+three body Vd2 =                             0.000000000000
+three body Ve =                              0.000000000000
+propagator: multiply the antic by this    0.000000000000000
+propagator: multiply the antic-xd by th   0.000000000000000
+propagator: multiply the antic-dd by th   0.000000000000000
+propagator three body a2piPW =            0.00000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+jastrow healing distance dc =             2.36663
+jastrow healing distance dtn =            6.46608
+jastrow rho =                             0.01000
+potential quencher acn (v1)=              1.63021
+potential quencher at  (v2)=              6.51012
+potential quencher as  (v3)=              1.32466
+potential quencher ast (v4)=              0.86880
+potential quencher atn (v5)=              0.21943
+potential quencher atn (v6)=              0.08764
+potential quencher als (v7 v8)=           1.00000
+correlation quencher bt (f2)=             0.05594
+correlation quencher bs (f3)=             0.46670
+correlation quencher bst (f4)=            0.45270
+correlation quencher btn (f5)=            3.90188
+correlation quencher btn (f6)=            6.11769
+correlation quencher bls (f7)=            0.00000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+q1c parameter in f3c =                    0.05315
+q2c parameter in f3c =                    0.82912
+q1p parameter in f3p =                    0.57799
+q2p parameter in f3p =                    1.90138
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+rscal parameter in Uijk cent =            1.00000
+rscal parameter in Uijk xpi =             1.00000
+rscal parameter in Uijk delta =           1.00000
+eps_c parameter in Uijk =                 0.00000
+eps_anti parameter in Uijk =              0.00000
+eps_tm parameter in Uijk =                0.00000
+eps_vd1 parameter in Uijk =               0.00000
+eps_vd2 parameter in Uijk =               0.00000
+eps_vdc3 parameter in Uijk =              0.00000
+eps_vec3 parameter in Uijk =              0.00000
+eps_ve parameter in Uijk =                0.00000
+eps_comm parameter in Uijk =              0.00000
+eps_comm-XD parameter in Uijk =           0.00000
+eps_comm-DD parameter in Uijk =           0.00000
+TNI-comm correlation included =                 F
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+CSB correlation rscalpp =                 0.00000
+CSB correlation rscalnn =                 0.00000
+CSB correlation quencher pp =             0.00000
+CSB correlation quencher nn =             0.00000
+CSB correlation included =                      F
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+jastrow initialized
+Coulomb included in the energy (and propagation)          F
+Initial walkers from sites
+Configurations at tau =              0.0000000000
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Time for reading configurations (sec.) =       0.44
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Initial configurations:
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Psi**2 of initial configurations  =   0.2917068E-70  0.0000000E+00  +-    0.1028808E-71  0.0000000E+00
+Psig**2 of initial configurations =   0.2629274E-70  0.0000000E+00  +-    0.9920132E-72  0.0000000E+00
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+T**2 of initial configurations  =   0.1600306E-09  0.9926314E-10
+Tz of initial configurations    =   0.6339562E-12 -0.8539093E-13
+J**2 of initial configurations  =   0.2119332E-09  0.1640989E-09
+Jz of initial configurations    =   0.1727873E-14  0.7746827E-13
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+Time to process initial configurations (sec.) =      50.24
+!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+
+iteration =                               1
+walker number =                       10000
+acceptance                     0.00000000E+00   6.1730600000E-01 +-    4.8604454772E-04   
+acceptance-spin                0.00000000E+00   7.0181900000E-01 +-    4.5745938753E-04   
+Time for propagation (sec) (min) =         954.244     15.904
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =               962.780     16.046
+Time for operators (sec) (min) =             0.001      0.000
+Elapsed block time (sec) (min) =           962.781     16.046
+
+iteration =                               2
+walker number =                       10000
+acceptance                     0.00000000E+00   5.8474900000E-01 +-    4.9276526562E-04   
+acceptance-spin                0.00000000E+00   6.9771800000E-01 +-    4.5924676643E-04   
+Time for propagation (sec) (min) =        1266.111     21.102
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.002      0.000
+Time for block (sec) (min) =              1277.648     21.294
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =          2240.429     37.340
+
+iteration =                               3
+walker number =                       10000
+acceptance                     0.00000000E+00   5.6121200000E-01 +-    4.9623894553E-04   
+acceptance-spin                0.00000000E+00   6.9854400000E-01 +-    4.5889027018E-04   
+Time for propagation (sec) (min) =        1447.436     24.124
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1464.899     24.415
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =          3705.329     61.755
+
+iteration =                               4
+walker number =                       10000
+acceptance                     0.00000000E+00   5.4086800000E-01 +-    4.9832700767E-04   
+acceptance-spin                0.00000000E+00   6.9844800000E-01 +-    4.5893179373E-04   
+Time for propagation (sec) (min) =        1544.017     25.734
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.005      0.000
+Time for block (sec) (min) =              1555.232     25.921
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =          5260.560     87.676
+
+iteration =                               5
+walker number =                       10000
+acceptance                     0.00000000E+00   5.2692300000E-01 +-    4.9927462590E-04   
+acceptance-spin                0.00000000E+00   6.9831400000E-01 +-    4.5898971383E-04   
+Time for propagation (sec) (min) =        1591.695     26.528
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1599.324     26.655
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =          6859.885    114.331
+
+iteration =                               6
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1977000000E-01 +-    4.9960899421E-04   
+acceptance-spin                0.00000000E+00   6.9837100000E-01 +-    4.5896508185E-04   
+Time for propagation (sec) (min) =        1614.088     26.901
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1620.323     27.005
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =          8480.208    141.337
+
+iteration =                               7
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1587000000E-01 +-    4.9974807964E-04   
+acceptance-spin                0.00000000E+00   6.9948400000E-01 +-    4.5848242468E-04   
+Time for propagation (sec) (min) =        1624.688     27.078
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1631.232     27.187
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         10111.440    168.524
+
+iteration =                               8
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1401000000E-01 +-    4.9980368136E-04   
+acceptance-spin                0.00000000E+00   6.9780800000E-01 +-    4.5920800857E-04   
+Time for propagation (sec) (min) =        1629.577     27.160
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1635.911     27.265
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         11747.351    195.789
+
+iteration =                               9
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1335800000E-01 +-    4.9982153199E-04   
+acceptance-spin                0.00000000E+00   6.9796600000E-01 +-    4.5913991641E-04   
+Time for propagation (sec) (min) =        1631.816     27.197
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1637.408     27.290
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         13384.759    223.079
+
+iteration =                              10
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1222100000E-01 +-    4.9985062485E-04   
+acceptance-spin                0.00000000E+00   6.9985300000E-01 +-    4.5832169749E-04   
+Time for propagation (sec) (min) =        1632.855     27.214
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.002      0.000
+Time for block (sec) (min) =              1638.986     27.316
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         15023.745    250.396
+
+iteration =                              11
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1198700000E-01 +-    4.9985629118E-04   
+acceptance-spin                0.00000000E+00   6.9887600000E-01 +-    4.5874648405E-04   
+Time for propagation (sec) (min) =        1633.311     27.222
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.005      0.000
+Time for block (sec) (min) =              1639.710     27.328
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         16663.455    277.724
+
+iteration =                              12
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1193800000E-01 +-    4.9985746384E-04   
+acceptance-spin                0.00000000E+00   6.9874500000E-01 +-    4.5880325301E-04   
+Time for propagation (sec) (min) =        1633.290     27.221
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.002      0.000
+Time for block (sec) (min) =              1640.780     27.346
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         18304.236    305.071
+
+iteration =                              13
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1235600000E-01 +-    4.9984730595E-04   
+acceptance-spin                0.00000000E+00   6.9804000000E-01 +-    4.5910800298E-04   
+Time for propagation (sec) (min) =        1633.729     27.229
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1641.233     27.354
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         19945.469    332.424
+
+iteration =                              14
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1249000000E-01 +-    4.9984397556E-04   
+acceptance-spin                0.00000000E+00   6.9805300000E-01 +-    4.5910239510E-04   
+Time for propagation (sec) (min) =        1633.389     27.223
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1641.049     27.351
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         21586.518    359.775
+
+iteration =                              15
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1060400000E-01 +-    4.9988754254E-04   
+acceptance-spin                0.00000000E+00   6.9843200000E-01 +-    4.5893871200E-04   
+Time for propagation (sec) (min) =        1634.036     27.234
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.005      0.000
+Time for block (sec) (min) =              1641.154     27.353
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         23227.673    387.128
+
+iteration =                              16
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1173500000E-01 +-    4.9986227081E-04   
+acceptance-spin                0.00000000E+00   6.9808100000E-01 +-    4.5909031512E-04   
+Time for propagation (sec) (min) =        1634.010     27.233
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.005      0.000
+Time for block (sec) (min) =              1640.341     27.339
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         24868.015    414.467
+
+iteration =                              17
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1257900000E-01 +-    4.9984174371E-04   
+acceptance-spin                0.00000000E+00   6.9824400000E-01 +-    4.5901995214E-04   
+Time for propagation (sec) (min) =        1633.758     27.229
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1640.392     27.340
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         26508.407    441.807
+
+iteration =                              18
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1213200000E-01 +-    4.9985279291E-04   
+acceptance-spin                0.00000000E+00   6.9813400000E-01 +-    4.5906744389E-04   
+Time for propagation (sec) (min) =        1633.809     27.230
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1640.363     27.339
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         28148.770    469.146
+
+iteration =                              19
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1196100000E-01 +-    4.9985691401E-04   
+acceptance-spin                0.00000000E+00   6.9891300000E-01 +-    4.5873044201E-04   
+Time for propagation (sec) (min) =        1633.907     27.232
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1639.424     27.324
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         29788.194    496.470
+
+iteration =                              20
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1183300000E-01 +-    4.9985996050E-04   
+acceptance-spin                0.00000000E+00   6.9837600000E-01 +-    4.5896292075E-04   
+Time for propagation (sec) (min) =        1634.045     27.234
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1640.138     27.336
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         31428.332    523.806
+
+iteration =                              21
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1183200000E-01 +-    4.9985998417E-04   
+acceptance-spin                0.00000000E+00   6.9840700000E-01 +-    4.5894952048E-04   
+Time for propagation (sec) (min) =        1633.765     27.229
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.001      0.000
+Time for block (sec) (min) =              1639.955     27.333
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         33068.287    551.138
+
+iteration =                              22
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1104800000E-01 +-    4.9987792679E-04   
+acceptance-spin                0.00000000E+00   6.9814100000E-01 +-    4.5906442262E-04   
+Time for propagation (sec) (min) =        1633.321     27.222
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1639.905     27.332
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         34708.193    578.470
+
+iteration =                              23
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1256200000E-01 +-    4.9984217125E-04   
+acceptance-spin                0.00000000E+00   6.9853600000E-01 +-    4.5889373138E-04   
+Time for propagation (sec) (min) =        1633.907     27.232
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1641.794     27.363
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         36349.986    605.833
+
+iteration =                              24
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1192900000E-01 +-    4.9985767870E-04   
+acceptance-spin                0.00000000E+00   6.9835200000E-01 +-    4.5897329345E-04   
+Time for propagation (sec) (min) =        1633.585     27.226
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1641.400     27.357
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         37991.387    633.190
+
+iteration =                              25
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1146700000E-01 +-    4.9986849062E-04   
+acceptance-spin                0.00000000E+00   6.9897200000E-01 +-    4.5870485414E-04   
+Time for propagation (sec) (min) =        1633.739     27.229
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1640.949     27.349
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         39632.336    660.539
+
+iteration =                              26
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1230800000E-01 +-    4.9984849018E-04   
+acceptance-spin                0.00000000E+00   6.9796800000E-01 +-    4.5913905407E-04   
+Time for propagation (sec) (min) =        1633.714     27.229
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1640.531     27.342
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         41272.868    687.881
+
+iteration =                              27
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1298400000E-01 +-    4.9983138731E-04   
+acceptance-spin                0.00000000E+00   6.9908000000E-01 +-    4.5865799197E-04   
+Time for propagation (sec) (min) =        1633.549     27.226
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1641.256     27.354
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         42914.123    715.235
+
+iteration =                              28
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1210200000E-01 +-    4.9985352014E-04   
+acceptance-spin                0.00000000E+00   6.9817200000E-01 +-    4.5905104119E-04   
+Time for propagation (sec) (min) =        1633.682     27.228
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1640.940     27.349
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         44555.063    742.584
+
+iteration =                              29
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1235600000E-01 +-    4.9984730595E-04   
+acceptance-spin                0.00000000E+00   6.9816200000E-01 +-    4.5905535805E-04   
+Time for propagation (sec) (min) =        1633.955     27.233
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1640.162     27.336
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         46195.225    769.920
+
+iteration =                              30
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1156500000E-01 +-    4.9986623288E-04   
+acceptance-spin                0.00000000E+00   6.9867900000E-01 +-    4.5883183734E-04   
+Time for propagation (sec) (min) =        1634.061     27.234
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.002      0.000
+Time for block (sec) (min) =              1640.826     27.347
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         47836.052    797.268
+
+iteration =                              31
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1177200000E-01 +-    4.9986140081E-04   
+acceptance-spin                0.00000000E+00   6.9875100000E-01 +-    4.5880065388E-04   
+Time for propagation (sec) (min) =        1634.266     27.238
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1641.535     27.359
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         49477.586    824.626
+
+iteration =                              32
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1207500000E-01 +-    4.9985417311E-04   
+acceptance-spin                0.00000000E+00   6.9775000000E-01 +-    4.5923298825E-04   
+Time for propagation (sec) (min) =        1633.958     27.233
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1640.198     27.337
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         51117.785    851.963
+
+iteration =                              33
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1085600000E-01 +-    4.9988213337E-04   
+acceptance-spin                0.00000000E+00   6.9927400000E-01 +-    4.5857373772E-04   
+Time for propagation (sec) (min) =        1633.567     27.226
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.002      0.000
+Time for block (sec) (min) =              1640.205     27.337
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         52757.990    879.300
+
+iteration =                              34
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1199700000E-01 +-    4.9985605127E-04   
+acceptance-spin                0.00000000E+00   6.9887400000E-01 +-    4.5874735108E-04   
+Time for propagation (sec) (min) =        1634.030     27.234
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1640.179     27.336
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         54398.170    906.636
+
+iteration =                              35
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1221900000E-01 +-    4.9985067374E-04   
+acceptance-spin                0.00000000E+00   6.9755400000E-01 +-    4.5931733811E-04   
+Time for propagation (sec) (min) =        1633.684     27.228
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.002      0.000
+Time for block (sec) (min) =              1640.533     27.342
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         56038.703    933.978
+
+iteration =                              36
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1155900000E-01 +-    4.9986637166E-04   
+acceptance-spin                0.00000000E+00   6.9895900000E-01 +-    4.5871049292E-04   
+Time for propagation (sec) (min) =        1633.939     27.232
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1640.873     27.348
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         57679.577    961.326
+
+iteration =                              37
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1186600000E-01 +-    4.9985917821E-04   
+acceptance-spin                0.00000000E+00   6.9785400000E-01 +-    4.5918819092E-04   
+Time for propagation (sec) (min) =        1633.730     27.229
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1641.315     27.355
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         59320.893    988.682
+
+iteration =                              38
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1298400000E-01 +-    4.9983138731E-04   
+acceptance-spin                0.00000000E+00   6.9863600000E-01 +-    4.5885045440E-04   
+Time for propagation (sec) (min) =        1633.414     27.224
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.005      0.000
+Time for block (sec) (min) =              1641.123     27.352
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         60962.016   1016.034
+
+iteration =                              39
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1122700000E-01 +-    4.9987393858E-04   
+acceptance-spin                0.00000000E+00   6.9810500000E-01 +-    4.5907995924E-04   
+Time for propagation (sec) (min) =        1633.656     27.228
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1640.511     27.342
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         62602.527   1043.375
+
+iteration =                              40
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1195900000E-01 +-    4.9985696186E-04   
+acceptance-spin                0.00000000E+00   6.9820800000E-01 +-    4.5903549834E-04   
+Time for propagation (sec) (min) =        1633.835     27.231
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1641.259     27.354
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         64243.786   1070.730
+
+iteration =                              41
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1271600000E-01 +-    4.9983827719E-04   
+acceptance-spin                0.00000000E+00   6.9842200000E-01 +-    4.5894303559E-04   
+Time for propagation (sec) (min) =        1633.684     27.228
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.005      0.000
+Time for block (sec) (min) =              1641.094     27.352
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         65884.880   1098.081
+
+iteration =                              42
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1204900000E-01 +-    4.9985480052E-04   
+acceptance-spin                0.00000000E+00   6.9820300000E-01 +-    4.5903765727E-04   
+Time for propagation (sec) (min) =        1633.414     27.224
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1640.663     27.344
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         67525.543   1125.426
+
+iteration =                              43
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1267800000E-01 +-    4.9983924247E-04   
+acceptance-spin                0.00000000E+00   6.9911700000E-01 +-    4.5864193039E-04   
+Time for propagation (sec) (min) =        1633.616     27.227
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1640.189     27.336
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         69165.732   1152.762
+
+iteration =                              44
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1207500000E-01 +-    4.9985417311E-04   
+acceptance-spin                0.00000000E+00   6.9844300000E-01 +-    4.5893395576E-04   
+Time for propagation (sec) (min) =        1634.089     27.235
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1641.263     27.354
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         70806.995   1180.117
+
+iteration =                              45
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1138400000E-01 +-    4.9987038774E-04   
+acceptance-spin                0.00000000E+00   6.9799000000E-01 +-    4.5912956766E-04   
+Time for propagation (sec) (min) =        1633.455     27.224
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1641.175     27.353
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         72448.170   1207.469
+
+iteration =                              46
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1141800000E-01 +-    4.9986961228E-04   
+acceptance-spin                0.00000000E+00   6.9818200000E-01 +-    4.5904672407E-04   
+Time for propagation (sec) (min) =        1633.795     27.230
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1642.625     27.377
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         74090.796   1234.847
+
+iteration =                              47
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1168900000E-01 +-    4.9986334861E-04   
+acceptance-spin                0.00000000E+00   6.9906700000E-01 +-    4.5866363439E-04   
+Time for propagation (sec) (min) =        1633.965     27.233
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1640.896     27.348
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         75731.692   1262.195
+
+iteration =                              48
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1159000000E-01 +-    4.9986565385E-04   
+acceptance-spin                0.00000000E+00   6.9815200000E-01 +-    4.5905967466E-04   
+Time for propagation (sec) (min) =        1633.796     27.230
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1640.527     27.342
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         77372.219   1289.537
+
+iteration =                              49
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1316400000E-01 +-    4.9982667906E-04   
+acceptance-spin                0.00000000E+00   6.9828000000E-01 +-    4.5900440259E-04   
+Time for propagation (sec) (min) =        1633.424     27.224
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.004      0.000
+Time for block (sec) (min) =              1639.211     27.320
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         79011.431   1316.857
+
+iteration =                              50
+walker number =                       10000
+acceptance                     0.00000000E+00   5.1231100000E-01 +-    4.9984841630E-04   
+acceptance-spin                0.00000000E+00   6.9877500000E-01 +-    4.5879025641E-04   
+Time for propagation (sec) (min) =        1633.474     27.225
+Time for energies (sec) (min) =              0.000      0.000
+Time for load balancing (sec) (min) =        0.003      0.000
+Time for block (sec) (min) =              1640.641     27.344
+Time for operators (sec) (min) =             0.000      0.000
+Elapsed block time (sec) (min) =         80652.071   1344.201
+
+equilibration done

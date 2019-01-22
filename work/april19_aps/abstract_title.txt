@@ -1,0 +1,61 @@
+Title/Abstract:
+
+Nuclear Quantum Monte Carlo calculations with 4-body correlated trial wave functions
+Improved trial wave functions with 4-body correlations for Nuclear Quantum Monte Carlo
+
+Quantum Monte Carlo techniques are used to study various aspects of nuclear physics with great accuracy. A major difficulty with these methods is coming up with an accurate and tractable trial wave function. Until now Auxiliary Field Diffusion Monte Carlo calculations have been done with up to 2-body correlations in the trial wave function. We have extended this to include up to 4-body correlations using two slightly different expansions. Using these new wave functions we have done binding energy calculations for $^{4}$He, $^{16}$O, $^{40}$Ca, and symmetric nuclear matter at saturation density. For each calculation the energy decreased with respect to calculations with 2-body correlations. We also discuss applications of these new wave functions to physical systems such as particle clustering in neutron star crusts.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Talk:
+What do I want in the abstract?
+   -QMC
+   -Improved/expanded trial wave function
+      -Properties of trial wave functions that are needed (antisymmetric anddecomposable
+      -Results
+   -Application to alpha clustering for neutron star applicaitons
+      -Results
+   -Future work
+      -Exponential correlations using HS transformation
+      -**Come up with some other system to study
+
+What are good attention getters?
+   -Calculations that are just out of our reach
+      -Large nuclei (bigger than 40Ca)
+      -Neutron star equation of state (maybe with hyperons)
+
+Abstract:
+What do I need in the abstract?
+   -Improved trial wave functions
+   -Decreased nuclear ground state energies at a cost
+   -Improved alpha particle formation in nearly-pure neutron matter
+
+Attention getters for abstract
+   -2QMC is extremely sensative to the choice in trial wave function
+   -1Advances in QMC and/or nuclear calculations depend on having an accurate and efficient trial wave function
+
+Abstract:
+ver 1.0 (from 4cs)
+Quantum Monte Carlo (QMC) calculations have given us insights into many aspects of nuclear physics, from the properties of atomic nuclei to the structure and formation of neutron stars. The combined accuracy and simplicity of the nuclear trial wave function plays a key role in QMC calculations. A more accurate trial wave function could open the door to larger systems and new physics for Auxiliary Field Diffusion Monte Carlo calculations. We have developed a new trial wave function which includes up to 4 correlated particles at a time. We have used this wave function to calculate the binding energies of $^{4}$He, $^{16}$O, $^{40}$Ca, and symmetric nuclear matter at saturation density and show that the energy is decreased for each system compared to calculations with only 2 correlated particles at a time. We also discuss the application of this improved wave function to alpha particle clustering in nearly neutron matter near the transition density between the inner crust and mantel of a neutron star.
+
+Title:
+ver 1.0 (from 4cs)
+Alpha particle formation in neutron star crusts with an improved trial wave function for nuclear Quantum Monte Carlo

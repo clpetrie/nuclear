@@ -1,0 +1,145 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{cite}
+
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\blue}[1]{{\color{blue}{#1}}}
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\braket}[2]{\left< #1 | #2 \right>}
+\newcommand{\ketbra}[2]{\left| #1 \right> \left< #2 \right|}
+\newcommand{\expect}[1]{\left< #1 \right>}
+\newcommand{\fpij}{f_p(r_{ij})}
+\newcommand{\vpij}{v_p(r_{ij})}
+\newcommand{\Opij}{\mathcal{O}_{ij}^p}
+\newcommand{\fOpij}{\sum\limits_{i<j}\sum\limits_p \fpij\Opij}
+\newcommand{\fqkl}{f_q(r_{kl})}
+\newcommand{\Oqkl}{\mathcal{O}_{kl}^q}
+\newcommand{\fOqkl}{\sum\limits_{k<l}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\fOqklip}{\sum\limits_{k<l,\mathrm{ip}}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\fOqklquad}{\sum_{\substack{k<l\\ij \ne kl}}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\f}[2]{f_{#1}(r_{#2})}
+\renewcommand{\O}[2]{\mathcal{O}_{#2}^{#1}}
+\newcommand{\fO}[2]{\sum\limits_{#1} f_{#1}(r_{#2})\mathcal{O}_{#2}^{#1}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\dt}{\Delta\tau}
+\newcommand{\ti}{\bm{\tau}_i}
+\newcommand{\tj}{\bm{\tau}_j}
+\newcommand{\si}{\bm{\sigma}_i}
+\newcommand{\sj}{\bm{\sigma}_j}
+
+\title{Quadratically Correlated Trial Wave Functions for Nuclear Quantum Monte Carlo Calculations}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Abstract
+\end{abstract}
+
+Story Outline:
+\begin{itemize}
+   \item Effective calculations of the nuclear force are difficult.
+   \begin{itemize}
+      \item Argonne v18 and Urbana 14? are good models for the 2 and 3 body interactions, with phase angles? fit to np? and pp? scattering data.
+   \end{itemize}
+   \item Calculations for nuclear systems is important for applications like
+   \begin{itemize}
+      \item Structure of nuclei
+      \item r-process in nucleosynthesis
+      \item Formation and structure of neutron stars
+   \end{itemize}
+   \item Finding believable answers for large nuclei and nuclear systems requires an efficient and a realistic wave function.
+   \begin{itemize}
+      \item Explain here the structure of the trial wave function (long and short range interactions etc.)
+   \end{itemize}
+   \begin{itemize}
+      \item No free lunch.
+   \end{itemize}
+   \item Expanding the exponential correlations does introduce statistically important information.
+   \item Future work could include sampling the pairs or using the HS transformation to include the entire exponential.
+\end{itemize}
+
+The study of the nuclear force has proven to be one of the more difficult problems to solve in physics. This is due to the complex nature of the nuclear force. There have been a number of phenomenological models that have had good success describing the strong force. Some of these are the CD-Bonn \cite{machleidt2001}, Nijmegen \cite{nagels1975,stoks1994} and Argonne \cite{wiringa1995} two-body potentials and the Urbana \cite{pudliner1997} and Illinois \cite{pieper2001} three-body potentials. There are a variety of methods that use these models to solve for properties of nuclear systems. Two main classes of methods are basis set methods like the no core shell model \cite{navratil2009,barrett2013}, the coupled-cluster method \cite{hagen2014} and the self-consistent Green's function methods \cite{dickhoff2004,soma2014} and Quantum Monte Carlo methods such as Green's Function Monte Carlo and Auxiliary Fields Diffusion Monte Carlo \cite{carlson2015}. Basis set methods have had good success in calculating the properties of nuclei but are limited only to soft potentials like the CD-Bonn and Nijmegen models. We use the Auxiliary Field Diffusion Monte Carlo (AFDMC) method which is well suited for a variety of local potentials with hard and soft cuttoffs. It is currently limited to mostly local (velocity independent) potentials, but some recent progress has been made with non-local potentials \cite{lynn2012,roggero2014a,roggero2014b}. This makes the Argonne potentials good candidates for AFDMC. All calculations for this work were done with the AFDMC method using the Argonne AV6$'$ which is a refitting of the first six operators of the two-body Argone AV18 potential, the first six operators being $\left[1,\si\cdot\sj,S_{ij}\right]\otimes\left[1,\ti\cdot\tj\right]$.
+
+The AFDMC methods evolves a trial wave function in imaginary time to extract out the ground state properties of the system using the imaginary time propogator. 
+\begin{equation}
+   \Psi(\tau) = e^{-(H-E_T)\tau}\Psi_T(0)
+\end{equation}
+Currently the AFDMC method has been able to do statistically significant calculations for nuclei as large $^{40}$Ca and nuclear matter with 66 particles and periodic boundary conditions \cite{carlson2015}. The accuracy of the AFDMC method depends heavily on the accuracy of the trail wave function. An accurate but low cost wave function could be used to do accurate calculation for much larger systems which could advance our understanding of nuclear structure, neutron star formation and struture as well as the r-process for nucleosynthesis that occurs in supernovae \cite{lattimer2001,lattimer2004,stone2003,douchin2001,heiselberg2000}.
+
+An accurate trial wave function would account for the complex nuclear correlations, but this can be difficult to do in practice. One of the simplest trial wave functions is a single or linear combination of slater determinants. This is an antisymmetrized product of single particle states. The single particle states ensure the right quantum numbers and the spatial components are obtained by a Hartree-Fock calculation with Skyrme forces \cite{gandolfi2014}. Short range correlations are taken into account with Jastrow-like spin-isospin independent and dependent corelation terms,
+\begin{equation}
+   \ket{\psi_T}_{exp} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[e^{\sum\limits_{i<j}\sum\limits_p\fpij\Opij}\right] \ket{\phi},
+\end{equation}
+   where the operators, $\Opij$, are the same six operators used for the potential. The $f_c(r_{ij})$ and $f_p(r_{ij})$ function come from solving Schr\"odinger-like equations as discussed in \cite{pandharipande1979}.
+
+It is not possible to directly calculate this wave function with exponential correlations. Previous work \cite{gandolfi2014} has done calculations of light and medium mass nuclei, symmetric and asymmetric nuclear matter with different two-body interactions using an expansion of these exponential correlations, truncated at the linear term. We have expanded a nearly equivalent symmetrized product trial wave function to include up to quadratic terms,
+\begin{equation}
+   \ket{\psi_T}_{sp} = \left[\prod\limits_{i<j}f_c(r_{ij})\right]\left[\mathcal{S}\prod\limits_{i<j}\left(1+\sum\limits_p \fpij\Opij\right)\right]\ket{\phi},
+\end{equation}
+where $\mathcal{S}$ is the symmetrization operator. The symmetrized product wave function and exponential correlations are exactly the same up to linear order.
+
+Expanding the symmetrized product wave function to quadratic order gives
+\begin{equation}
+\begin{split}
+   \ket{\psi_T}_{fq} &= \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[1+\fOpij\right. \\
+      & + \left.\frac{1}{2}\fOpij\fOqklquad + \ldots \right] \ket{\phi}.
+\end{split}
+\end{equation}
+This is called the full quadratic wave function. We have used this wave function in addition to a variation called the independent pair wave function given by
+\begin{equation}
+\begin{split}
+   \ket{\psi_T}_{ip} &= \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[1+\fOpij\right. \\
+   & + \left.\beta\fOpij\fOqklip + \ldots \right] \ket{\phi},
+\end{split}
+\end{equation}
+where the sum over $kl$ pairs only includes particles that are not included in the $ij$ pair. Since none of the operators act on the same particle all of the operators commute, removing the need for a symmetrization. This wave function reduces the numbers of operators needed while still capturing most of the relevant physics.
+
+We have calculated the ground state energy for $^4$He, $^{16}$O and symmetric nuclear matter (SNM) with 28 particles with periodic boundary conditions at the nuclear saturation density, $\rho=0.16$fm$^{-3}$. The results are reported in Table~\ref{tab:results}.
+\begin{table}[h!]
+   \centering
+   \caption{Energy (per particle*) in MeV for $^4$He, $^{16}$O and symmetric nuclear matter as calculated with all three types of correlations compared to experimental energies where available \cite{wang2012}.}
+   \label{tab:results}
+   \begin{tabular}{ccccc}
+      \hline \hline
+       & Linear & IndPair & Quadratic & Expt.\\
+      \hline
+%pre-optimization data      $^4$He & -27.17(4) & -26.33(3) & -25.35(3) & -28.295\\
+      $^4$He & -27.17(4) & -27.46(4) & -27.22(6) & -28.296\\
+      $^{16}$O & -115.7(9) & -121.5(1.5) & -120.0(1.4) & -127.619\\
+      SNM* & -13.92(6) & -14.80(7) & -14.70(11) & \\
+      \hline \hline
+   \end{tabular}
+\end{table}
+
+The energies for each system decreased as the new correlations were added, which was expected with an improved wave function. The optimization parameters for $^4$He had to be reoptimized using the new correlations to produce a decrease in energy, though the parameters use for $^{16}$O and SNM were only optimized for linear correlations due to the computational cost of optimization. To compare the efficiency of each wave function the scaling factor was calculated, which was the ratio of the average time to complete one block of calculation for each of the new wave functions compared to the linear wave function. The results are shown in Table~\ref{tab:scaling}.
+\begin{table}[h!]
+   \centering
+   \caption{Scaling for both quadratic wave functions as compared to the linear wave function. The scaling was calculated as the ratio of the average time it took to complete one block of calculation.}
+   \label{tab:scaling}
+   \begin{tabular}{ccc}
+      \hline \hline
+       & IndPair & Quadratic\\
+      \hline
+      $^4$He & 1.73 & 2.00\\
+      $^{16}$O & 30.74 & 58.83\\
+      SNM* & 64.77 & 133.59\\
+      \hline \hline
+   \end{tabular}
+\end{table}
+Scaling for the fully quadratic wave function was greater than that of the independent pair wave function, and for $^{16}$O and SNM it was approximately twice as large. This is duein part to the explicit symmetrization that is required for the quadratic wave funciton. The scaling for the fully quadratic wave function could be improved if the symmetrization was only done on non-independent pair terms. However, given that the energies of each system were similar for both the independent pair and the fully quadratic wave functions this indicated that the independent pair wave function captures most of the relevant physics.
+
+In conclusion, we were able to improve on the simple linearly expanded wave function by expanding to quadratic terms. Two wave function were formed from these quadratic terms, one which included all the terms and one that only included independent pair terms. It was found that both wave functions decreased the binding energies of each of the nuclear systems investigated and the independent pair wave function required less computation while still capturing most of the relevant physics. Though both wave function improved the accuracy of the trial wave function, both require large computational cost. Including these additional correlations, or the full exponential correlations, while maintaining a low computational cost will be the goal of future work.
+
+\clearpage
+\bibliographystyle{unsrt}
+\bibliography{../../papers/references}
+
+\end{document}

@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{amsmath}
+
+\title{This is the title}
+\author{Cody L. Petrie}
+
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\braket}[2]{\left<  #1 | #2 \right>}
+
+\begin{document}
+\maketitle
+
+\section{story}
+\begin{itemize}
+   \item Why are QMC calculations important to nuclear physics?
+   \item The issue we face with the linear correlations.
+   \item Why quadratic/ip correlations are needed.
+   \item The results you found from the quadratic correlations.
+\end{itemize}
+
+\section{Introduction}
+Using Quantum Monte Carlo (QMC) methods to solve problems in nuclear physics has allowed us to solve for the binding energies of many light to medium mass nuclei, as well as other properties of nuclei and nuclear matter. However, the statistical sampling involved in QMC simulations introduces an uncertainty. To keep this uncertainty down and to get more accurate results the simulations are guided by a trial wave function. The accuracy of a QMC calculation depends on how close the trial wave function is to the actual wave function.
+
+In the past we have used a trial wave function with linear correlations \cite{gandolfi2014}. In this case the number of pairs correlations is
+\begin{equation}
+   \frac{A(A-1)}{2}
+\end{equation}
+where $A$ is the number of nucleons. This is only the linear term in an infinite expansion. Here we have included the independent pair subset of the quadratic correlation terms into the trial wave function. With these extra correlations the trial wave function takes the following form:
+\begin{multline}
+   \braket{R,S}{\psi_T} = \bra{R,S} \left[\prod\limits_{i<j} f_c(r_{ij}\right]\left[1+\sum\limits_p\sum\limits_{i<j} f_p(r_{ij})O^p_{ij} \right. \\
++ \left. \sum\limits_{p,p'}\sum\limits_{\mathrm{indpair}} f_p(r_{ij})O^p_{ij} f_{p'}(r_{kl})O^{p'}_{kl} \right] \ket{\Phi},
+\end{multline}
+where the independent pair sum is over all pairs where the same particle isn't repeated \red{do this explanation better later, maybe look at diagrams like in stat mech}. The number of independent pair terms is
+\begin{equation}
+   \frac{A(A-1)(A-2)(A-3)}{8}.
+\end{equation}
+
+\section{Results}
+We have used Auxiliary Field Diffusion Monte Carlo (AFDMC) to solve for the binding energies for ${}^4$He, ${}^{16}$O and for symmetric nuclear matter with a density of $\rho=0.16$ fm$^{-3}$. The symmetric nuclear matter calculations with done with 28 particles in a periodic box. The binding energies are compared to AFDMC calculations without the independent pair correlations and to \red{fill this in here} in table \red{fill this in as well}.
+
+\begin{table}[h!]
+\centering
+\caption{Binding energy in MeV for ${}^4$He, ${}^{16}$O and symmetric nuclear matter (SNM) with $\rho=0.16$ fm$^{-3}$ with and without independent pair (IP) correlations.}
+\label{table:1}
+\begin{tabular}{c c c c} 
+ \hline\hline
+  & Without IP & With IP & Expt. \\ %[0.5ex] 
+ \hline
+ ${}^4$He & -27.0(3) & -26.3(3) & -28.295 \\ 
+ $^{16}$O & -114(3) & -132(3) & -127.619\\
+ SNM ($\rho=0.16$) & -14.3(2) & -16.6(2) & \\ %[1ex]
+ \hline\hline
+\end{tabular}
+\end{table}
+
+\bibliographystyle{unsrt}
+\bibliography{ref}
+
+\end{document}

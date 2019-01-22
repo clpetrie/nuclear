@@ -1,0 +1,10 @@
+2        !idmc 1=vmc, 2=dmc
+10       !equilibrium blocks
+50       !averaging blocks
+100     !steps/block
+10000     !walkers
+3.0      !delta parameter (vmc)
+1.3      !alpha (for wavefunction)
+1.0      !omega (for wavefunction)
+0.001    !time step
+0.5      !trial energy

@@ -1,0 +1,61 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: diss.aux
+The style file: abbrv.bst
+Database file #1: ../../papers/references.bib
+I was expecting a `,' or a `}'---line 189 of file ../../papers/references.bib
+ :   
+ :   annote={No-core shell model.}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 331 of file ../../papers/references.bib
+ :   
+ :   %url={http://stacks.iop.org/0034-4885/77/i=9/a=096302},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field part---line 525 of file ../../papers/references.bib
+ :   annote = 
+ :            ={Non-local potential stuff.}
+I'm skipping whatever remains of this entry
+You've used 1 entry,
+            2118 wiz_defined-function locations,
+            504 strings with 3822 characters,
+and the built_in function-call counts, 254 in all, are:
+= -- 23
+> -- 7
+< -- 0
++ -- 3
+- -- 2
+* -- 15
+:= -- 52
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 1
+duplicate$ -- 11
+empty$ -- 22
+format.name$ -- 2
+if$ -- 49
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 1
+newline$ -- 8
+num.names$ -- 2
+pop$ -- 2
+preamble$ -- 1
+purify$ -- 3
+quote$ -- 0
+skip$ -- 7
+stack$ -- 0
+substring$ -- 11
+swap$ -- 1
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 3
+width$ -- 2
+write$ -- 13
+(There were 3 error messages)

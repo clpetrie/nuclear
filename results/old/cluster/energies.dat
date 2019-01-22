@@ -1,0 +1,11 @@
+#density=0.16 fm-3
+15.50 0.03 #14n, lin
+0.61 0.06 #14n2p, lin
+15.48 0.04 #14n, ip
+0.61 0.06 #14n2p, ip
+
+#density=0.016 fm-3
+#14n, lin
+#14n2p, lin
+#14n, ip
+#14n2p, ip

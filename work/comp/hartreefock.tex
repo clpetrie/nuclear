@@ -1,0 +1,23 @@
+\subsection{Hartree-Fock Method}
+\label{sec:hf}
+Hartree-Fock (HF) is a method used to solve quantum many body problems. One can assume, as inspired by the independent particle model, that the wave function is an antisymmetrized product of unknown single particle orbitals,
+\begin{equation}
+   \psi_{\mathrm{HF}} = \mathcal{A} \prod\limits_{i=1}^A \phi_i(\mathbf{r}_i,s_i) = \frac{1}{A!} \mathrm{det}~\phi_i(\mathbf{r}_i,s_i),
+\end{equation}
+where the determinant is called a Slater determinant. This simple wave function assumes that the particles have no interaction other than some potential given by the average of all the other particles, as in mean field theory. HF is then used to determine the single-particle orbitals by minimizing the total energy, i.e. the expectation value of the Hamiltonian. We assume a Hamiltonian with kinetic energy for each particle and a two-body interaction potential of the form
+\begin{equation}
+   H=-\frac{\hbar^2}{2m}\sum\limits_{i=1}^A \nabla_i^2 + \sum\limits_{i<j} \hat{V}_{ij}.
+\end{equation}
+The variational principle is then used to minimize the expectation value of the energy, $E = \bra{\psi_{\mathrm{HF}}} H \ket{\psi{_\mathrm{HF}}}$. This is done by varying the single particle orbitals until a minimum in the energy is reached. The minimum energy is an upper bound on the true energy of the system, as given by the variational principle, and the set of orbitals that give the minimum energy gives an estimate to the true wave function of the system.
+
+To do this you can first write the Hamiltonian in terms of single and pair particle operators.
+\begin{equation}
+   H = \sum\limits_{i=1}^A \hat{h}_i + \sum\limits_{i<j} \hat{V}_{ij}
+\end{equation}
+Then we will write the energy in terms of single particle states $\phi_i(x_i)$ and the operators above. You start with $E_\mathrm{HF}=\bra{\phi_\mathrm{HF}}H\ket{\phi_\mathrm{HF}}$, and after some algebra you can show that
+\begin{equation}
+   E_\mathrm{HF} = \sum\limits_{i} \bra{i}\sum\limits_j\hat{h}_j\ket{i} + \sum\limits_{i<j} \left(\bra{ii}\sum\limits_{k<l}V_{kl}\ket{jj}-\bra{ij}\sum\limits_{k<l}V_{kl}\ket{ji}\right).
+\end{equation}
+We then use the method of Lagrange's undetermined multipliers to minimize the above energy. If we allow the orbitals to vary, $\phi_i \rightarrow \phi_i + \delta\phi_i$, it can be shown that you get the Hartree-Fock equations, which are Schr\"odinger-like equations for the single-particle orbitals, $\phi_i$.
+
+Two of the main limitations to this method lie in the trial wave function. The first limitation is the completeness of the basis used. Obviously the more complete the basis the more accurate the solution, however an approximately complete basis is often used. The second limitation is the fact that, due to the trial wave function, the solutions often look like non-interacting particles that are in the presence of a mean field, created by the rest of the particles. We also use the ansatz of a Slater determinant for our trial wave function, but we have included pair correlations between all pairs of particles. This allows us to go beyond the mean-field approximation.

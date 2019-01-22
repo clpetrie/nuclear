@@ -1,0 +1,352 @@
+%% ****** Start of file apstemplate.tex ****** %
+%%
+%%
+%%   This file is part of the APS files in the REVTeX 4 distribution.
+%%   Version 4.1r of REVTeX, August 2010
+%%
+%%
+%%   Copyright (c) 2001, 2009, 2010 The American Physical Society.
+%%
+%%   See the REVTeX 4 README file for restrictions and more information.
+%%
+%
+% This is a template for producing manuscripts for use with REVTEX 4.0
+% Copy this file to another name and then work on that file.
+% That way, you always have this original template file to use.
+%
+% Group addresses by affiliation; use superscriptaddress for long
+% author lists, or if there are many overlapping affiliations.
+% For Phys. Rev. appearance, change preprint to twocolumn.
+% Choose pra, prb, prc, prd, pre, prl, prstab, prstper, or rmp for journal
+%  Add 'draft' option to mark overfull boxes with black boxes
+%  Add 'showpacs' option to make PACS codes appear
+%  Add 'showkeys' option to make keywords appear
+%\documentclass[aps,prl,preprint,groupedaddress]{revtex4-1}
+%\documentclass[aps,prl,preprint,superscriptaddress]{revtex4-1}
+%\documentclass[aps,prl,reprint,groupedaddress]{revtex4-1}
+\documentclass[aps,prl,reprint,superscriptaddress]{revtex4-1}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{color}
+
+% You should use BibTeX and apsrev.bst for references
+% Choosing a journal automatically selects the correct APS
+% BibTeX style file (bst file), so only uncomment the line
+% below if necessary.
+%\bibliographystyle{apsrev4-1}
+
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\blue}[1]{{\color{blue}{#1}}}
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\braket}[2]{\left< #1 | #2 \right>}
+\newcommand{\ketbra}[2]{\left| #1 \right> \left< #2 \right|}
+\newcommand{\expect}[1]{\left< #1 \right>}
+\newcommand{\fpij}{f_p(r_{ij})}
+\newcommand{\vpij}{v_p(r_{ij})}
+\newcommand{\Opij}{\mathcal{O}_{ij}^p}
+\newcommand{\fOpij}{\sum\limits_{i<j}\sum\limits_p \fpij\Opij}
+\newcommand{\fqkl}{f_q(r_{kl})}
+\newcommand{\Oqkl}{\mathcal{O}_{kl}^q}
+\newcommand{\fOqkl}{\sum\limits_{k<l}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\fOqklip}{\sum\limits_{k<l,\mathrm{ip}}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\fOqklquad}{\sum_{\substack{k<l\\ij \ne kl}}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\f}[2]{f_{#1}(r_{#2})}
+\renewcommand{\O}[2]{\mathcal{O}_{#2}^{#1}}
+\newcommand{\fO}[2]{\sum\limits_{#1} f_{#1}(r_{#2})\mathcal{O}_{#2}^{#1}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\dt}{\Delta\tau}
+\newcommand{\ti}{\bm{\tau}_i}
+\newcommand{\tj}{\bm{\tau}_j}
+\newcommand{\si}{\bm{\sigma}_i}
+\newcommand{\sj}{\bm{\sigma}_j}
+\newcommand{\eO}{\left<\mathcal{O}\right>}
+\renewcommand{\r}{\mathbf{r}}
+\renewcommand{\O}{\mathcal{O}}
+
+\begin{document}
+
+% Use the \preprint command to place your local institutional report
+% number in the upper righthand corner of the title page in preprint mode.
+% Multiple \preprint commands are allowed.
+% Use the 'preprintnumbers' class option to override journal defaults
+% to display numbers if necessary
+%\preprint{}
+
+%Title of paper
+\title{Quadratically Correlated Trial Wave Functions for Nuclear Quantum Monte Carlo Calculations}
+
+% repeat the \author .. \affiliation  etc. as needed
+% \email, \thanks, \homepage, \altaffiliation all apply to the current
+% author. Explanatory text should go in the []'s, actual e-mail
+% address or url should go in the {}'s for \email and \homepage.
+% Please use the appropriate macro foreach each type of information
+
+% \affiliation command applies to all authors since the last
+% \affiliation command. The \affiliation command should follow the
+% other information
+% \affiliation can be followed by \email, \homepage, \thanks as well.
+\author{Cody Petrie}
+%\email[]{Your e-mail address}
+%\homepage[]{Your web page}
+%\thanks{}
+%\altaffiliation{}
+\author{Kevin Schmidt}
+\affiliation{Department of Physics,
+Arizona State University, Tempe,
+AZ 85287}
+\author{Stefano Gandolfi}
+\affiliation{Theoretical Division,
+Los Alamos National Laboratory, Los Alamos,
+NM 87545}
+
+%Collaboration name if desired (requires use of superscriptaddress
+%option in \documentclass). \noaffiliation is required (may also be
+%used with the \author command).
+%\collaboration can be followed by \email, \homepage, \thanks as well.
+%\collaboration{}
+%\noaffiliation
+
+\date{\today}
+
+\begin{abstract}
+We have done binding energy calculations for $^4$He, $^{16}$O, $^{40}$Ca and symmetric nuclear matter. The calculations have been done using Auxiliary Field Diffusion Monte Carlo with two improved trial wave functions, both including up to quadratic correlations. We show that these wave functions decrease the binding energy of each system as compared to the previously used wave function with up to linear correlations. We show that though these wave function cost more in terms of computation time, they do improve the binding energy estimates for nuclear systems.
+\end{abstract}
+
+% insert suggested PACS numbers in braces on next line
+\pacs{}
+% insert suggested keywords - APS authors don't need to do this
+%\keywords{}
+
+%\maketitle must follow title, authors, abstract, \pacs, and \keywords
+\maketitle
+
+% body of paper here - Use proper section commands
+% References should be done using the \cite, \ref, and \label commands
+%\section{}
+% Put \label in argument of \section for cross-referencing
+%\section{\label{}}
+%\subsection{}
+%\subsubsection{}
+
+\section{Introduction}
+The study of the nuclear force has proven to be one of the more difficult problems to solve in physics. This is due to the complex nature of the nuclear interaction. There have been a number of phenomenological models that have had good success describing the strong force. Some of these are the CD-Bonn \cite{machleidt2001}, Nijmegen \cite{nagels1975,stoks1994} and Argonne \cite{wiringa1995} two-body potentials and the Urbana \cite{pudliner1997} and Illinois \cite{pieper2001} three-body potentials. There are a variety of methods that use these models to solve for properties of nuclear systems. Two main classes of methods are basis set methods like the no core shell model \cite{navratil2009,barrett2013}, the coupled-cluster method \cite{hagen2014}, the self-consistent Green's function methods \cite{dickhoff2004,soma2014} and Quantum Monte Carlo methods such as Green's Function Monte Carlo and Auxiliary Fields Diffusion Monte Carlo \cite{carlson2015}. Basis set methods have had good success in calculating the properties of nuclei but are limited only to soft potentials like the CD-Bonn and Nijmegen models. We use the Auxiliary Field Diffusion Monte Carlo (AFDMC) method which is well suited for a variety of local potentials with hard and soft cutoffs. It is currently limited to mostly local (velocity independent) potentials, but some recent progress has been made with non-local potentials \cite{lynn2012,roggero2014a,roggero2014b}. This makes the Argonne potentials good candidates for AFDMC. All calculations for this work were done with the AFDMC method using the Argonne AV6$'$ which is a refitting of the first six operators of the two-body Argonne AV18 potential, the first six operators being $\left[1,\si\cdot\sj,S_{ij}\right]\otimes\left[1,\ti\cdot\tj\right]$.
+
+The AFDMC methods evolves a trial wave function in imaginary time to extract out the ground state properties of the system using the imaginary time propagator. 
+\begin{equation}
+   \Psi(\tau) = e^{-(H-E_T)\tau}\Psi_T(0)
+\end{equation}
+Currently the AFDMC method has been able to do statistically significant calculations for nuclei as large $^{40}$Ca and neutron matter with 66 particles and periodic boundary conditions \cite{carlson2015}. The accuracy of the AFDMC method depends heavily on the accuracy of the trial wave function. This is the case due to the constraint used to solve the fermion sign problem \cite{wiringa2000}, without which the exact solution could be obtained with a bad wave function. In either case a good wave function will decrease the variance of the calculation. An accurate but low cost wave function could be used to do accurate calculation for much larger systems which could advance our understanding of nuclear structure, neutron star formation and structure as well as the r-process for nucleosynthesis that occurs in supernovae \cite{lattimer2001,lattimer2004,stone2003,douchin2001,heiselberg2000}.
+
+\section{Trial Wave Function}
+An accurate trial wave function would account for the complex nuclear correlations, but this can be difficult to do in practice. One of the simplest trial wave functions is a single or linear combination of a few Slater determinants. This is an antisymmetrized product of single particle states. The single particle states ensure the right quantum numbers and the spatial components are obtained by a Hartree-Fock calculation with Skyrme forces \cite{gandolfi2014}. Short range correlations are taken into account with Jastrow-like spin-isospin independent and dependent correlation terms,
+\begin{equation}
+   \ket{\psi_T}_{exp} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[e^{\sum\limits_{i<j}\sum\limits_p\fpij\Opij}\right] \ket{\phi},
+\end{equation}
+   where the operators, $\Opij$, are the same six operators used for the potential. The $f_c(r_{ij})$ and $f_p(r_{ij})$ function come from solving Schr\"odinger-like equations as discussed in \cite{pandharipande1979}.
+
+The calculation of the exponential correlations scales exponentially with the number of particles and so to directly calculate this wave function can be very difficult. Previous work \cite{gandolfi2014} has done calculations of light and medium mass nuclei, symmetric and asymmetric nuclear matter with different two-body interactions using an expansion of these exponential correlations, truncated at the linear term. We have expanded a nearly equivalent symmetrized product trial wave function to include up to quadratic terms,
+\begin{equation}
+   \ket{\psi_T}_{sp} = \left[\prod\limits_{i<j}f_c(r_{ij})\right]\left[\mathcal{S}\prod\limits_{i<j}\left(1+\sum\limits_p \fpij\Opij\right)\right]\ket{\phi},
+\end{equation}
+where $\mathcal{S}$ is the symmetrization operator. The symmetrized product wave function and exponential correlations are exactly the same up to linear order.
+
+Expanding the symmetrized product wave function to quadratic order gives
+\begin{equation}
+\begin{split}
+   \ket{\psi_T}_{fq} &= \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[1+\fOpij\right. \\
+      & + \left.\frac{1}{2}\fOpij\fOqklquad \right] \ket{\phi}.
+\end{split}
+\end{equation}
+This is called the full quadratic wave function. We have used this wave function in addition to a variation called the independent pair wave function given by
+\begin{equation}
+\begin{split}
+   \ket{\psi_T}_{ip} &= \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[1+\fOpij\right. \\
+   & + \left.\frac{1}{2}\fOpij\fOqklip \right] \ket{\phi},
+\end{split}
+\end{equation}
+where the sum over $kl$ pairs only includes particles that are not included in the $ij$ pair. For example, if the $ij$ pair includes particles 12 then the $kl$ pairs 13 and 24 would not be permitted, while pairs 34 and 56 would be included. Since none of the operators act on the same particle all of the operators commute, removing the need for a symmetrization. Thus the terms $\frac{1}{2}(f_p(r_{12})\mathcal{O}^p_{12}f_q(r_{34})\mathcal{O}^q_{34}+f_q(r_{34})\mathcal{O}^q_{34}f_p(r_{12})\mathcal{O}^p_{12})$ is calculated as $f_p(r_{12})\mathcal{O}^p_{12}f_q(r_{34})\mathcal{O}^q_{34}$. This wave function reduces the numbers of operators needed while still capturing most of the relevant physics.
+
+\section{Calculations}
+To do these calculations the walkers, which contains the positions, spins and isospins of each particle, are used to build a Slater matrix
+\begin{equation}
+   S_{ki} = \braket{k}{\r_i s_i} = \sum\limits_{s=1}^4\braket{k}{\r_i s}\braket{s}{s_i},
+\end{equation}
+where $\ket{\r_i s_i}$ are the walkers and $\ket{k}$ contain the radial model states and $ls$ or $j$ angular momentum states. The Slater matrix is updated by each of the operators. These updates are done with the aid of the identity $\det S^{-1}S' = \frac{\det S'}{\det S}$, where $S'$ is the matrix that has been updated by one operator. To reduce the number of operations done in the inner loops the ratio of determinants for a pair of operators, $\mathcal{O}_{ij}=\mathcal{O}_i\mathcal{O}_j$, is written in the form
+\begin{equation}
+   \frac{\bra{\Phi}O_{ij}\ket{R,S}}{\braket{\Phi}{R,S}} = \sum\limits_{s=1}^4\sum\limits_{s'=1}^4 d_{2b}(s,s',ij)\bra{ss'}O_{ij}\ket{s_is_j},
+\end{equation}
+where
+\begin{equation}
+   d_{2b}(s,s',ij)=\frac{\braket{\Phi}{R,s_1,\ldots,s,s_{i+1},\ldots,s',s_{j+1},\ldots,s_A}}{\braket{\Phi}{RS}},
+\end{equation}
+with $R=\r_1,\ldots,\r_A$, $S=s_1,\ldots,s_A$, and $s$ and $s'$ are one of the four spin-isospin states neutron-up, neutron-down, proton-up, proton-down. The $d_{2b}$ are calculated in an outer loop from the precalculated matrix elements $P_{s,ij}$,
+\begin{equation}
+   d_{2b}(s,s',ij) = \det\begin{pmatrix}P_{s,ii} & P_{s,ij} \\ P_{s',ji} & P_{s',jj}\end{pmatrix}
+\end{equation}
+where
+\begin{equation}
+   P_{s,ij}=\sum\limits_k S^{-1}_{jk}S_{ki}(s_i\rightarrow s).
+\end{equation}
+Though this only addressed two-body operators this method can be generalized to other N-body operators as well. To include additional operators the matrix elements $P_{s,ij}$ need to be updated
+\begin{equation}
+   P'_{s,mn}=\sum\limits_k S'^{-1}_{nk}S'_{km}(s_m\rightarrow s)
+\end{equation}
+where
+\begin{equation}
+   S'_{km}(s) = \left\{
+   \begin{array}{cc}
+      S_{km} & m \ne i\\
+      \bra{k}O_i\ket{\r_i,s_i} & m = i
+   \end{array}.
+   \right.
+\end{equation}
+To calculate the updated inverse matrix the identity $\det(S^{-1}S'')=\det S''/\det S$ is used. Both sides of the identity are expanded and like terms are grouped noting that when $j \ne i$, $S''_{mi}=S'_{mi}$.
+
+\subsection{Calculations with Linear and Quadratic Wave Functions}
+The wave function with linear correlations is calculated by first operating on the walkers with each possible operator and calculating the sum of each term $\sum\limits_{ss'}d_{2b}(s,s',ij)\bra{ss'}f(\r_{ij})\mathcal{O}_{ij}\ket{s_is_j}$. The expectation value of the potential with the linear wave function includes correlation and potential operators, where one term in the sum may have the form $\left(1+\O^c_{ij}\right)\O^p_{kl}$ where the correlation, $\O^c_{ij}$, and potential operators, $\O^p_{ij}$, are four potentially distinct operators. For this calculation the $P$ matrix is updated twice, once for $\O^c_i$ and once for $O^c_j$, where $O^c_{ij}=O^c_iO^c_j$. The ratio of determinants is calculated in a similar way as the wave function above, except that the updated distribution, $d''_{2b}$, is used.
+
+The quadratic wave function includes all of the pieces from the linear wave function and a piece with two additional operators. One possible term in the sum of correlations is $1+\O^c_{ij}+\O^c_{ij}\O^c_{kl}$. The operators up to linear terms are handled identically to the method described above. The quadratic product of operators is handled in practically the same was as the potential with the linear wave function, as described above. That is, the $P$ matrix is updated twice, once for $\O^c_i$ and once for $\O^c_j$ and the ratio of determinants is calculated with the updated distributions. The calculation of the correlation operators for the quadratic wave function requires $\mathcal{O}(A^4)$ operations whereas the linear correlations requires $\mathcal{O}(A^2)$.
+
+The only part with the expectation value of the potential with the quadratic wave function that is different than above is the product of six operators $\O^c_{ij}\O^c_{kl}\O^p_{mn}$. A total of four updates are used to calculate this term. 
+
+A total of four updates are used to calculate the quadratically correlated term for the potential, $\O^c_{ij}\O^c_{kl}\O^p_{mn}$. The linear terms are handled as before. After including the updated distributions for the $\O^c_{ij}$ term, the same distributions were updated two more times for the $\O^c_{kl}$ term. These quadratically updated distributions are then used to calculate the expectation value of the potential in the usual way. To calculate the potential with the quadratic wave function required $\mathcal{O}(A^6)$ operations compared to the $\mathcal{O}(A^4)$ operations required for the linear wave function.
+
+\subsection{Mixed Expectation Values}
+We have calculated the ground state energy for $^4$He, $^{16}$O, $^{40}$Ca and symmetric nuclear matter (SNM) with 28 particles with periodic boundary conditions at the nuclear saturation density, $\rho=0.16$fm$^{-3}$. Ideally the expectation value would be calculated with fully propagated states, however operating though the propagator can be difficult and so in practice mixed expectation values are used.
+\begin{equation}
+   \eO_m = \frac{\bra{\Psi(\tau)}\mathcal{O}\ket{\Psi_T}}{\braket{\Psi(\tau)}{\Psi_T}}
+\end{equation}
+If the operator commutes with the Hamiltonian, and thus the unconstrained propagator, the mixed expectation value gives the ground state energy in the large imaginary time limit and so the energy can be calculated as $\left<H\right> = \lim\limits_{\tau\rightarrow\infty} \left<H\right>_m$. If the operator does not commute with the propagator the real expectation value is written as a perturbation of the variational expectation value, $\eO_T=\bra{\Psi_T}\mathcal{O}\ket{\Psi_T}/\braket{\Psi_T}{\Psi_T}$ and the expectation value can be approximated as
+\begin{equation}
+   \eO \approx \frac{\bra{\Psi(\tau)}\mathcal{O}\ket{\Psi_T}}{\braket{\Psi(\tau)}{\Psi_T}} + \frac{\bra{\Psi_T}\mathcal{O}\ket{\Psi_(\tau)}}{\braket{\Psi_T}{\Psi(\tau)}} - \eO_T,
+\end{equation}
+which for diagonal matrix elements is simply $\eO \approx 2\eO_m - \eO_T$.
+
+Due to the fermion sign problem the propagation is constrained using the constrained-path method \cite{wiringa2000}. This approximation limits the propagation of the wave function to regions where the propagated and trial wave function have non-zero overlap. As a result the propagator and the Hamiltonian do not commute anymore and the resulting energy estimates are not strict upper bounds to the ground state energy. This can accounted for by using a method such as the forward walking method to release the constraint and check the accuracy of the constrained calculation.
+
+\section{Results}
+The results for the energy calculations are reported in Table~\ref{tab:results}. 
+\begin{table}[h!]
+   \centering
+   \caption{Energy (per particle*) in MeV for $^4$He, $^{16}$O, $^{40}$Ca and symmetric nuclear matter as calculated with all three types of correlations compared to experimental energies where available \cite{wang2012}.}
+   \label{tab:results}
+   \begin{tabular}{ccccc}
+      \hline \hline
+       & Linear & IndPair & Quadratic & Expt.\\
+      \hline
+%pre-optimization data      $^4$He & -27.17(4) & -26.33(3) & -25.35(3) & -28.295\\
+      $^4$He & -27.17(4) & -27.46(4) & -27.22(6) & -28.296\\
+      $^{16}$O & -115.7(9) & -121.5(1.5) & -120.0(1.4) & -127.619\\
+      $^{40}$Ca & -320(5) & -358(4) & -354(6) & -348.464\\
+      SNM* & -13.92(6) & -14.80(7) & -14.70(11) & \\
+      \hline \hline
+   \end{tabular}
+\end{table}
+The energies for each system decreased as the new correlations were added, which was expected with an improved wave function. The optimization parameters for $^4$He had to be re-optimized using the new correlations to produce a decrease in energy, though the parameters used for $^{16}$O, $^{40}$Ca and SNM were only optimized for linear correlations due to the computational cost of optimization. To compare the efficiency of each wave function the scaling factor was calculated, which was the ratio of the average time to complete one block of calculation for each of the new wave functions compared to the linear wave function. The results are shown in Table~\ref{tab:scaling}.
+\begin{table}[h!]
+   \centering
+   \caption{Scaling for both quadratic wave functions as compared to the linear wave function. The scaling was calculated as the ratio of the average time it took to complete one block of calculation.}
+   \label{tab:scaling}
+   \begin{tabular}{ccc}
+      \hline \hline
+       & IndPair & Quadratic\\
+      \hline
+      $^4$He & 1.73 & 2.00\\
+      $^{16}$O & 30.74 & 58.83\\
+      $^{40}$Ca & 720.91 & 1473.94\\
+      SNM & 64.77 & 133.59\\
+      \hline \hline
+   \end{tabular}
+\end{table}
+Scaling for the fully quadratic wave function was greater than that of the independent pair wave function, and for $^{16}$O, $^{40}$Ca and SNM it was approximately twice as large. This is due in part to the explicit symmetrization that is required for the quadratic wave function. The scaling for the fully quadratic wave function could be improved if the symmetrization was only done on non-independent pair terms. However, given that the energies of each system were similar for both the independent pair and the fully quadratic wave functions this indicates that the independent pair wave function captures most of the relevant physics.
+
+\section{Conclusion}
+In conclusion, we were able to improve on the simple linearly expanded wave function by expanding to quadratic terms. Two wave function were formed from these quadratic terms, one which included all the terms and one that only included independent pair terms. Binding energy calculations were done for $^4$He, $^{16}$O, $^{40}$Ca and SNM and it was found that both wave functions decreased the binding energies of each system. The independent pair wave function required less computation while still capturing most of the relevant physics. Though both wave function improved the accuracy of the trial wave function, both require large computational cost. Including these additional correlations, or the full exponential correlations, while maintaining a low computational cost will be the goal of future work.
+
+% If in two-column mode, this environment will change to single-column
+% format so that long equations can be displayed. Use
+% sparingly.
+%\begin{widetext}
+% put long equation here
+%\end{widetext}
+
+% figures should be put into the text as floats.
+% Use the graphics or graphicx packages (distributed with LaTeX2e)
+% and the \includegraphics macro defined in those packages.
+% See the LaTeX Graphics Companion by Michel Goosens, Sebastian Rahtz,
+% and Frank Mittelbach for instance.
+%
+% Here is an example of the general form of a figure:
+% Fill in the caption in the braces of the \caption{} command. Put the label
+% that you will use with \ref{} command in the braces of the \label{} command.
+% Use the figure* environment if the figure should span across the
+% entire page. There is no need to do explicit centering.
+
+% \begin{figure}
+% \includegraphics{}%
+% \caption{\label{}}
+% \end{figure}
+
+% Surround figure environment with turnpage environment for landscape
+% figure
+% \begin{turnpage}
+% \begin{figure}
+% \includegraphics{}%
+% \caption{\label{}}
+% \end{figure}
+% \end{turnpage}
+
+% tables should appear as floats within the text
+%
+% Here is an example of the general form of a table:
+% Fill in the caption in the braces of the \caption{} command. Put the label
+% that you will use with \ref{} command in the braces of the \label{} command.
+% Insert the column specifiers (l, r, c, d, etc.) in the empty braces of the
+% \begin{tabular}{} command.
+% The ruledtabular enviroment adds doubled rules to table and sets a
+% reasonable default table settings.
+% Use the table* environment to get a full-width table in two-column
+% Add \usepackage{longtable} and the longtable (or longtable*}
+% environment for nicely formatted long tables. Or use the the [H]
+% placement option to break a long table (with less control than 
+% in longtable).
+% \begin{table}%[H] add [H] placement to break table across pages
+% \caption{\label{}}
+% \begin{ruledtabular}
+% \begin{tabular}{}
+% Lines of table here ending with \\
+% \end{tabular}
+% \end{ruledtabular}
+% \end{table}
+
+% Surround table environment with turnpage environment for landscape
+% table
+% \begin{turnpage}
+% \begin{table}
+% \caption{\label{}}
+% \begin{ruledtabular}
+% \begin{tabular}{}
+% \end{tabular}
+% \end{ruledtabular}
+% \end{table}
+% \end{turnpage}
+
+% Specify following sections are appendices. Use \appendix* if there
+% only one appendix.
+%\appendix
+%\section{}
+
+% If you have acknowledgments, this puts in the proper section head.
+\begin{acknowledgments}
+\red{Thank people and mention grants and stuff.}
+\end{acknowledgments}
+
+% Create the reference section using BibTeX:
+\bibliography{../../papers/references}
+
+\end{document}
+%
+% ****** End of file apstemplate.tex ******
+

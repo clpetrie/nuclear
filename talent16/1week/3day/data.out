@@ -1,0 +1,217 @@
+Variational Monte Carlo
+Number of blocks for equilibration =                     10
+Number of blocks for statistics =                        50
+Number of steps for each block =                        100
+Walkers =                                              1000
+Density =                                           0.02160
+Time step =                                         0.00010
+Trial energy =                                     -6.85000
+
+equilibium done!
+
+***********************************************
+
+block =                      1
+energy for block = -.25176E+11 +/- 0.95331E+09
+acceptance =            0.91700E+00
+
+block =                      2
+energy for block = -.19198E+11 +/- 0.66568E+09
+acceptance =            0.90600E+00
+
+block =                      3
+energy for block = -.16274E+11 +/- 0.59594E+09
+acceptance =            0.92700E+00
+
+block =                      4
+energy for block = -.14216E+11 +/- 0.53223E+09
+acceptance =            0.92900E+00
+
+block =                      5
+energy for block = -.12742E+11 +/- 0.54551E+09
+acceptance =            0.94100E+00
+
+block =                      6
+energy for block = -.11574E+11 +/- 0.49413E+09
+acceptance =            0.92800E+00
+
+block =                      7
+energy for block = -.92247E+10 +/- 0.39444E+09
+acceptance =            0.93900E+00
+
+block =                      8
+energy for block = -.81964E+10 +/- 0.36011E+09
+acceptance =            0.94000E+00
+
+block =                      9
+energy for block = -.71813E+10 +/- 0.36564E+09
+acceptance =            0.95400E+00
+
+block =                     10
+energy for block = -.65487E+10 +/- 0.29149E+09
+acceptance =            0.93600E+00
+
+block =                     11
+energy for block = -.56111E+10 +/- 0.30407E+09
+acceptance =            0.95300E+00
+
+block =                     12
+energy for block = -.59326E+10 +/- 0.32508E+09
+acceptance =            0.93300E+00
+
+block =                     13
+energy for block = -.52474E+10 +/- 0.30367E+09
+acceptance =            0.95400E+00
+
+block =                     14
+energy for block = -.47680E+10 +/- 0.28733E+09
+acceptance =            0.95500E+00
+
+block =                     15
+energy for block = -.37944E+10 +/- 0.20945E+09
+acceptance =            0.95600E+00
+
+block =                     16
+energy for block = -.43438E+10 +/- 0.27790E+09
+acceptance =            0.95500E+00
+
+block =                     17
+energy for block = -.36981E+10 +/- 0.26963E+09
+acceptance =            0.96300E+00
+
+block =                     18
+energy for block = -.33136E+10 +/- 0.20607E+09
+acceptance =            0.96300E+00
+
+block =                     19
+energy for block = -.33080E+10 +/- 0.21175E+09
+acceptance =            0.96600E+00
+
+block =                     20
+energy for block = -.32025E+10 +/- 0.23487E+09
+acceptance =            0.96900E+00
+
+block =                     21
+energy for block = -.27767E+10 +/- 0.18168E+09
+acceptance =            0.95800E+00
+
+block =                     22
+energy for block = -.28743E+10 +/- 0.20381E+09
+acceptance =            0.95300E+00
+
+block =                     23
+energy for block = -.25309E+10 +/- 0.16170E+09
+acceptance =            0.96300E+00
+
+block =                     24
+energy for block = -.22909E+10 +/- 0.16650E+09
+acceptance =            0.97300E+00
+
+block =                     25
+energy for block = -.23094E+10 +/- 0.16749E+09
+acceptance =            0.96100E+00
+
+block =                     26
+energy for block = -.23398E+10 +/- 0.19512E+09
+acceptance =            0.96100E+00
+
+block =                     27
+energy for block = -.21614E+10 +/- 0.19846E+09
+acceptance =            0.96100E+00
+
+block =                     28
+energy for block = -.18734E+10 +/- 0.15517E+09
+acceptance =            0.96700E+00
+
+block =                     29
+energy for block = -.18510E+10 +/- 0.14080E+09
+acceptance =            0.97100E+00
+
+block =                     30
+energy for block = -.16728E+10 +/- 0.13342E+09
+acceptance =            0.95600E+00
+
+block =                     31
+energy for block = -.18656E+10 +/- 0.15282E+09
+acceptance =            0.97500E+00
+
+block =                     32
+energy for block = -.17572E+10 +/- 0.14316E+09
+acceptance =            0.95800E+00
+
+block =                     33
+energy for block = -.14483E+10 +/- 0.12172E+09
+acceptance =            0.98000E+00
+
+block =                     34
+energy for block = -.14647E+10 +/- 0.11354E+09
+acceptance =            0.97800E+00
+
+block =                     35
+energy for block = -.14229E+10 +/- 0.13482E+09
+acceptance =            0.97000E+00
+
+block =                     36
+energy for block = -.14730E+10 +/- 0.14529E+09
+acceptance =            0.96500E+00
+
+block =                     37
+energy for block = -.12333E+10 +/- 0.12781E+09
+acceptance =            0.97100E+00
+
+block =                     38
+energy for block = -.12429E+10 +/- 0.11114E+09
+acceptance =            0.98100E+00
+
+block =                     39
+energy for block = -.13020E+10 +/- 0.17037E+09
+acceptance =            0.97600E+00
+
+block =                     40
+energy for block = -.11778E+10 +/- 0.18552E+09
+acceptance =            0.97300E+00
+
+block =                     41
+energy for block = -.13208E+10 +/- 0.13483E+09
+acceptance =            0.97400E+00
+
+block =                     42
+energy for block = -.10571E+10 +/- 0.91822E+08
+acceptance =            0.98100E+00
+
+block =                     43
+energy for block = -.10650E+10 +/- 0.10575E+09
+acceptance =            0.97600E+00
+
+block =                     44
+energy for block = -.10437E+10 +/- 0.11328E+09
+acceptance =            0.98000E+00
+
+block =                     45
+energy for block = -.97915E+09 +/- 0.11205E+09
+acceptance =            0.97900E+00
+
+block =                     46
+energy for block = -.99509E+09 +/- 0.12318E+09
+acceptance =            0.97800E+00
+
+block =                     47
+energy for block = -.76122E+09 +/- 0.69243E+08
+acceptance =            0.98600E+00
+
+block =                     48
+energy for block = -.90473E+09 +/- 0.16897E+09
+acceptance =            0.98300E+00
+
+block =                     49
+energy for block = -.86953E+09 +/- 0.11219E+09
+acceptance =            0.97800E+00
+
+block =                     50
+energy for block = -.90516E+09 +/- 0.16040E+09
+acceptance =            0.98300E+00
+
+
+Finished!
+E = -.44104E+10 +/- 0.72661E+09
+

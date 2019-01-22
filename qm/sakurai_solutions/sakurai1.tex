@@ -1,0 +1,30 @@
+\documentclass[12pt]{extarticle}
+\usepackage[margin=1in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%My commands
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\braket}[2]{\left< #1 | #2 \right>}
+\newcommand{\ketbra}[2]{\left| #1 \right> \left< #2 \right|}
+
+\title{Solutions to Sakurai Chapter 1}
+\author{Cody Petrie}
+
+\begin{document}
+
+\maketitle
+
+\subsection*{1.1}
+Start by adding and subracting three terms to the commutation relation.
+\begin{align}
+   [A&B,CD] = ABCD-CDAB \\
+      &= ABCD-CDAB + ACBD-ACBD + CADB-CADB + ACDB-ACDB \\
+      &= ABCD+ACBD - ACBD-ACDB - CDAB-CADB + CADB+ACDB \\
+      &= A{C,B}D - AC{D,B} - C{D,A}B + {CA}DB
+\end{align}
+
+\subsection*{1.2}
+
+\end{document}

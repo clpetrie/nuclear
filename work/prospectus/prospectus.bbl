@@ -1,0 +1,199 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.5 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{barrett2013}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Barrett}{B.}%
+     {Bruce~R.}{B.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Navr\'{a}til}{N.}%
+     {Petr}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vary}{V.}%
+     {James~P.}{J.~P.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BBRNPVJP1}
+  \strng{fullhash}{BBRNPVJP1}
+  \field{sortinit}{B}
+  \field{pages}{131\bibrangedash 181}
+  \field{title}{\textit{Ab initio} no core shell model}
+  \field{volume}{69}
+  \field{journaltitle}{Prog. Part. Nucl. Phys.}
+  \field{annotation}{%
+  Recent review of the no core shell model.%
+  }
+  \field{year}{2013}
+\endentry
+
+\entry{hagen2014}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Hagen}{H.}%
+     {G}{G}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Papenbrock}{P.}%
+     {T}{T}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hjorth-Jensen}{H.-J.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dean}{D.}%
+     {D~J}{D.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{HG+1}
+  \strng{fullhash}{HGPTHJMDDJ1}
+  \field{sortinit}{H}
+  \field{abstract}{%
+  In the past decade, coupled-cluster theory has seen a renaissance in nuclear
+  physics, with computations of neutron-rich and medium-mass nuclei. The method
+  is efficient for nuclei with product-state references, and it describes many
+  aspects of weakly bound and unbound nuclei. This report reviews the technical
+  and conceptual developments of this method in nuclear physics, and the
+  results of coupled-cluster calculations for nucleonic matter, and for exotic
+  isotopes of helium, oxygen, calcium, and some of their neighbors.%
+  }
+  \field{number}{9}
+  \field{pages}{096302}
+  \field{title}{Coupled-cluster computations of atomic nuclei}
+  \field{volume}{77}
+  \field{journaltitle}{Rep. Prog. Phys.}
+  \field{annotation}{%
+  Recent review of the coupled-cluster method.%
+  }
+  \field{year}{2014}
+\endentry
+
+\entry{schuck2013_1}{article}{}
+  \name{author}{6}{}{%
+    {{}%
+     {Schuck}{S.}%
+     {P.}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Funaki}{F.}%
+     {Y.}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Horiuchi}{H.}%
+     {H.}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {R\"opke}{R.}%
+     {G.}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tohsaki}{T.}%
+     {A.}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yamada}{Y.}%
+     {T.}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SP+1}
+  \strng{fullhash}{SPFYHHRGTAYT1}
+  \field{sortinit}{S}
+  \field{pages}{012009}
+  \field{title}{Alpha-Particle Condensation in Nuclear Systems}
+  \field{volume}{413}
+  \field{journaltitle}{J. Phys.: Conf. Ser.}
+  \field{annotation}{%
+  Paper that describes the clustering of alpha particles into quartetts.%
+  }
+  \field{year}{2013}
+\endentry
+
+\entry{wiringa1995}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Wiringa}{W.}%
+     {R.B.}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Stoks}{S.}%
+     {V.~G.~J.}{V.~G.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schiavilla}{S.}%
+     {R.}{R.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{WRSVGJSR1}
+  \strng{fullhash}{WRSVGJSR1}
+  \field{sortinit}{W}
+  \field{pages}{38\bibrangedash 51}
+  \field{title}{Accurate Nucleon-Nucleon Potential with Charge-Independent
+  Breaking}
+  \field{volume}{51}
+  \field{journaltitle}{Phys. Rev. C}
+  \field{annotation}{%
+  Paper that describes the Argonne v18 potential.%
+  }
+  \field{year}{1995}
+\endentry
+
+\entry{yukawa1935}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Yukawa}{Y.}%
+     {H.}{H.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{YH1}
+  \strng{fullhash}{YH1}
+  \field{sortinit}{Y}
+  \field{pages}{48}
+  \field{series}{3}
+  \field{title}{On the Interaction of Elementary Particles. I.}
+  \field{volume}{17}
+  \field{journaltitle}{Proc. Phys. Math. Soc. Japan.}
+  \field{annotation}{%
+  Yukawa's first paper publishing his theory for the strong interaction.%
+  }
+  \field{year}{1935}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

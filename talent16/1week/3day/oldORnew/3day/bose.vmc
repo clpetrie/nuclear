@@ -1,0 +1,13 @@
+17       ! random seed
+1        !idmc 1=vmc, 2=dmc
+10       !equilibrium blocks
+100       !averaging blocks
+10     !steps/block
+10     !walkers
+.false.  ! start from file?
+14       !number of particles
+0.4      !delta parameter (vmc)
+0.02186  !rho (density)
+6.059    !hbar^2/(2m)
+0.0001    !time step
+-6.85      !trial energy

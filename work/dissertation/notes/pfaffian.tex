@@ -1,0 +1,109 @@
+\section{Some notes about the Pfaffian wave function}
+\red{Explain why it would be nice to have a pfaffian instead of a determinant and maybe mention some of the results related to superfluidity etc.}
+Here are a few useful properties of the pfaffian of a skew-symmetric matrix.
+\begin{enumerate}
+   \item If you multiply row i and column i by a constant the resulting pfaffian will be multiplied by that constant. Just a row or column will multiply the pfaffian by the square root of that constant.
+   \item Simultaneously interchanging two rows (and corresponding columns) will change the sign of the pfaffian.
+   \item Adding the multiple of a row (and a corresponding addition with a column) to another row (and column) will not change the pfaffian.
+\end{enumerate}
+
+In the code there are a few things that I want to make sure I understand before I continue on.
+\begin{enumerate}
+   \item How they build the $\phi_{ij}$.
+   \item How they calculate the pfaffian.
+   \item How they calculate the potential
+   \begin{enumerate}
+      \item How do they do $\mathcal{O}_i\phi{ij}$, etc?
+   \end{enumerate}
+\end{enumerate}
+To address how they build $\phi_{ij}$ let's start in wavebcs.f90 in the hpsi subroutine. The pf(2,2,A,A) parameter in the code I think would be best as pf(si,sj,i,j), where i and j are the particles and si and sj are the spins (up and down) of each neutron. The pf for 2 specific particles is passed to pairfn in orbital.f90, where it's calculated as
+\begin{equation}
+   pf(1,2)=vk(1)+\sum\limits_{i=2}^{nk} 2vk(i)\cos(\mathbf{k}_i\cdot\mathbf{r}),
+\end{equation}
+where the $vk$ are the amplitudes for each $k$ vector, and the factor of 2 accounts for the fact that each $i$ has a positive and a negative value, except for the zero case, $vk(1)$. For each set of particles the pf(2,1)=-pf(1,2) which is assume comes in when forming the singlet state. This is done when the radial part of the pair-state, pf is dotted with the spin states with dotsp in wavebcs.f90. It calculates for each particle i
+\begin{align}
+   dotsp(j) &= \ket{\uparrow}_i\ket{\uparrow}_j\phi(1,1)+\ket{\uparrow}_i\ket{\downarrow}_j\phi(1,2)+\ket{\downarrow}_i\ket{\uparrow}_j\phi(2,1)+\ket{\downarrow}_i\ket{\downarrow}_j\phi(2,2) \\
+   &= \left(\ket{\uparrow}_i\ket{\downarrow}_j-\ket{\downarrow}_i\ket{\uparrow}_j\right)\phi(1,2) \\
+   &= \text{spin-singlet * radial ij function},
+\end{align}
+where we have used $\phi(1,1)$ and $\phi(2,2)$ are zero and $\phi(1,2)=-\phi(2,1)$. Also, the $1$ and $2$ in $\phi$ refer to spin up and down respectively.
+
+The $k$ vectors are stored in the code as $ak$ and are calculated, along with their weights in setupk in kshell.f90. It calculated $ak$ as $ak=2\pi/L*ik$ where $ik$ is the standard $k$ vectors (0,0,0), (0,0,1), etc, so the ak are ready to dot into the $\mathbf{r}$ vectors. The $vk$ are read into setupk.
+
+The calculate the pfaffian the skew-symmetric matrix is first formed. In this case it's simply the dotsp calculated above for each particle i. In the code they also include single particle terms which are then used to build a determinant I believe. The pfaffian is then calculated using the subroutine pfaf from pfaffian.f90. \red{See Kevin's notes about how to calculate the pfaffian and decide how much to include in this, since it seems semi-complicated.}
+
+\subsection{Calculate the Pfaffian}
+First of all the pfaffian is defined as $\text{Pf}(A) = \mathcal{A}[\phi_{12}\phi_{34}\ldots\phi_{N-1,N}]$, where $A$ is the skew symmetrix matrix
+\begin{equation}
+   A = \begin{pmatrix} 
+      0           &  \phi_{12}   &  \phi_{13}   &  \ldots   &  \phi_{1N} \\
+      -\phi_{12}  &  0           &  \phi_{23}   &  \ldots   &  \phi_{2N} \\
+      -\phi_{13}  &  -\phi_{23}  &  0           &  \ldots   &  \phi_{3N} \\
+      \vdots      &  \vdots      &  \vdots      &  \ddots   &  \vdots    \\
+      -\phi_{1N}  &  -\phi_{2N}  &  \phi_{3N}   &  \ldots   &  0         \\
+\end{pmatrix}.
+\end{equation}
+To calculate the pfaffian the code uses the property that for block diagonal (each skew-symmetric) matricies the pfaffian can be written as
+\begin{equation}
+   \text{Pf}(A) = \text{Pf}\begin{pmatrix} 
+      A_1   &  0 \\
+      0     &  A_2
+\end{pmatrix}
+   = \text{Pf}(A_1)\text{Pf}(A_2).
+\end{equation}
+So if you can use Gaussian elemination to write the matrix $A_1$ as something like
+\begin{equation}
+   A_1 = \begin{pmatrix} 
+      0           &  \phi_{12} \\
+      -\phi_{12}  &  0
+\end{pmatrix},
+\end{equation}
+and then Pf$(A)$ will be $\phi_{12}\text{Pf}(A_2)$. If the matrix is more than 4x4 then you could then use the process again to calculate the pfaffian of $A_2$.
+
+Kevin showed this for a 4x4 matrix. He showed that you could write the Gaussian eliminated block matrix as
+
+\begin{equation}
+A'' = \left (
+\begin{array}{cccc}
+0 & a_{12} & 0 & 0 \\
+-a_{12}& 0 & 0 & 0 \\
+0& 0 & 0 &
+ a_{34}+\frac{a_{14}a_{23}}{a_{12}}-\frac{a_{13}a_{24}} {a_{12}} \\
+0& 0 &
+ -a_{34}-\frac{a_{14}a_{23}}{a_{12}}+\frac{a_{13}a_{24}} {a_{12}}
+ &0 \\
+\end{array}
+\right )  \,.
+\end{equation}
+
+He also points out that this operation can be calculated as
+\begin{equation}
+\label{trans}
+A'' =
+\left (
+\begin{array}{cccc}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+\frac{a_{23}}{a_{12}} &-\frac{a_{13}}{a_{12}}& 1 & 0\\
+\frac{a_{24}}{a_{12}} & -\frac{a_{14}}{a_{12}}&0 & 1\\
+\end{array}
+\right )
+\underbrace{
+\left (
+\begin{array}{cccc}
+0 & a_{12} & a_{13} & a_{14} \\
+-a_{12}& 0 & a_{23} & a_{24} \\
+-a_{13}& -a_{23} & 0 & a_{34} \\
+-a_{14}& -a_{24} & -a_{34} &0 \\
+\end{array}
+\right )
+}_{A}
+\left (
+\begin{array}{cccc}
+1 & 0 & \frac{a_{23}}{a_{12}} & \frac{a_{24}}{a_{12}}\\
+0 & 1 & -\frac{a_{13}}{a_{12}} & -\frac{a_{14}}{a_{12}}\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1\\
+\end{array}
+\right )  \,.
+\end{equation}

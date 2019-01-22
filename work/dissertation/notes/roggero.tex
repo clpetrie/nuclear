@@ -1,0 +1,164 @@
+\section{Alessandro Roggero's Correlations}
+A possible form for spin iso-spin dependent correlations (tensor-tau only here) could be written as
+\begin{equation}
+   S_{ki} \rightarrow S'_{ki} = \left[1+\sum\limits_d^3\sum\limits_j^A f_{t\tau}(r_{ji})\hat{r}_{ji}\cdot\mathbf{\sigma}_i\tau_i^d\right]S_{ki},
+\end{equation}
+where the $S_{ki}$ is the usual Slater matrix, and the wave function is given by
+\begin{equation}
+   \Psi_T = \sum\limits_{y_d=\pm1} det[S'],
+\end{equation}
+there being a 6 total auxiliary fields ($\pm1$ for each of the three $y_d$). One of the main motivations for these correlations (I think) is their improvement on the 2-particle only coupling of the linear correlations, which still being relatively resonable to evaluate. Notice that when taking the determinant for an $A$ nucleon system there will be terms that couple from 1 to $A$ nucleons.
+
+One of the issues with this wave function are the off diagonal correlations that are induced in the correlations function. For example with the 
+
+\red{Add a little bit about Alessandro's correlations here}
+One of the problems with the Alessandro's correlations is that they break $T^2$ and $T_z$ symmetry. That is, there are terms like \red{explain here how it breaks $T^2$ and $T_z$ and explain how linear or other correlations don't. Also explain how $J^2$ and $J_z$ are only broken if you include the $\sigma_i\cdot\sigma_j$ terms, which aren't included for now.}
+
+One solution to this is to multiply the correlations by a term $e^{-\alpha T^2}$ such that alpha is large enough to exponentially reduce the $T^2$ and $T_z$ breaking. This added piece to the correlations would take the form
+\begin{equation}
+   \exp{\left(-\alpha T^2\right)} = \exp{\left(-\alpha \sum\limits_\beta \sum\limits_{i,j} \tau_{i\beta}\tau_{j\beta}\right)}.
+\end{equation}
+The Hubbard-Stratanovich transformation can be used on these operators by writting them as an exponential of squared one-body operators.
+\begin{equation}
+   \exp{\left(-\alpha T^2\right)} = \exp{\left(-\alpha \sum\limits_\beta \left(\sum\limits_{j} \tau_{j\beta}\right)^2\right)}.
+\end{equation}
+In a standard AFDMC calculation the sum over $\beta$ would then be approximated by a product over $\beta$ where the commutator terms are small as long as the factor $\alpha$ is small. However, $\alpha$ must be large in order to eliminate $T^2$ breaking terms from the wave function and thus this approximation can't be used. Instead we have used the identity
+\begin{equation}
+   \exp{\left(\sum\limits_\beta A_\beta\right)} = \mathcal{S}\prod\limits_\beta \exp(A_\beta),
+\end{equation}
+where the symmetrization operator $\mathcal{S}=\frac{1}{N!}\sum\limits_\pi P_\pi$, permutes the cartesian coordinates $\beta=xyz$. With this identity and the Hubbard-Stratanovich transformation we can write the correlations as
+\begin{align}
+   \exp{\left(-\alpha \sum\limits_\beta \left(\sum\limits_{j} \tau_{j\beta}\right)^2\right)}  &= \mathcal{S} \prod\limits_\beta \exp{\left(-\alpha \left(\sum\limits_{j} \tau_{j\beta}\right)^2\right)} \\
+   &= \mathcal{S} \prod\limits_\beta \int dx_\beta \exp{\left(-x_\beta^2/2\right)}\exp{\left(i\sqrt{2\alpha}x_\beta \sum\limits_{j} \tau_{j\beta}\right)} \\
+   &\approx \mathcal{S} \prod\limits_\beta \frac{1}{N}\sum\limits_{n=1}^N \exp{\left(i\sqrt{2\alpha}x_{n\beta} \sum\limits_{j} \tau_{j\beta}\right)},
+\end{align}
+where the sum over $n$ is a sum over the $N$ sampled configurations of the 3 auxiliary fields. The sum over $i$ can be brought out of the exponential as a product because the operators on different particles all commute. Also the symmetrization operator can be written as a sum over the $3!=6$ permutations of the $\beta$ coordinates giving us
+\begin{equation}
+   \frac{1}{6N} \prod\limits_j \sum\limits_{P(xyz)} \sum\limits_{n=1}^N \exp{\left(i\sqrt{2\alpha}x_{nx} \tau_{jx}\right)} \exp{\left(i\sqrt{2\alpha}x_{ny} \tau_{jy}\right)} \exp{\left(i\sqrt{2\alpha}x_{nz} \tau_{jz}\right)}
+\end{equation}
+The exponential operators on each particle look identical and can be written in a matrix representation as
+\begin{align}
+\exp\left(i\sqrt{2\alpha}x_{nx}\tau_{jx}\right) &=
+\begin{pmatrix}
+    \cos(a_{xn}) & 0 & i\sin(a_{xn}) & 0 \\
+    0 & \cos(a_{xn}) & 0 & i\sin(a_{xn}) \\
+    i\sin(a_{xn}) & 0 & \cos(a_{xn}) & 0 \\
+    0 & i\sin(a_{xn}) & 0 & \cos(a_{xn}) \\
+\end{pmatrix} \\
+\exp\left(i\sqrt{2\alpha}x_{ny}\tau_{jy}\right) &=
+\begin{pmatrix}
+    \cos(a_{yn}) & 0 & \sin(a_{yn}) & 0 \\
+    0 & \cos(a_y) & 0 & \sin(a_{yn}) \\
+    -\sin(a_{yn}) & 0 & \cos(a_{yn}) & 0 \\
+    0 & -\sin(a_{yn}) & 0 & \cos(a_{yn}) \\
+\end{pmatrix} \\
+\exp\left(i\sqrt{2\alpha}x_{nz}\tau_{jz}\right) &=
+\begin{pmatrix}
+    e^{ia_{zn}} & 0 & 0 & 0 \\
+    0 & e^{ia_{zn}} & 0 & 0 \\
+    0 & 0 & e^{-ia_{zn}} & 0 \\
+    0 & 0 & 0 & e^{-ia_{zn}}
+\end{pmatrix},
+\end{align}
+where $a_{xn}=\sqrt{2\alpha}x_{xn}$, $a_{yn}=\sqrt{2\alpha}x_{yn}$, $a_{zn}=\sqrt{2\alpha}x_{zn}$ and in our basis the iso-spin matricies are
+\begin{equation}
+\tau_x=
+\begin{pmatrix}
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0
+\end{pmatrix}
+~~~~~~~\tau_y=
+\begin{pmatrix}
+    0 & 0 & -i & 0 \\
+    0 & 0 & 0 & -i \\
+    i & 0 & 0 & 0 \\
+    0 & i & 0 & 0
+\end{pmatrix}
+~~~~~~~\tau_z=
+\begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & -1 & 0 \\
+    0 & 0 & 0 & -1
+\end{pmatrix}.
+\end{equation}
+Owing to the clean matrix representation of these operators the symmetrized product of exponential operators can be written as one matrix,
+\begin{equation}
+   \mathcal{M}_{jn} = \frac{1}{6} \sum\limits_{P(xyz)} =
+\begin{pmatrix}
+   A & 0 & B & 0 \\
+   0 & A & 0 & B \\
+   C & 0 & D & 0 \\
+   0 & C & 0 & D
+%    e^{ia_z}\cos(a_x)\sin(a_y) & 0 & \cos(a_z)\left(i\cos(a_y)\sin(a_x)+\cos(a_x)\sin(a_y)\right) & 0 \\
+%    0 & e^{ia_z}\cos(a_x)\sin(a_y) & 0 & \cos(a_z)\left(i\cos(a_y)\sin(a_x)+\cos(a_x)\sin(a_y)\right) \\
+%    \cos(a_z)\left(i\cos(a_y)\sin(a_x)-\cos(a_x)\sin(a_y)\right) & 0 & e^{-a_z}\cos(a_x)\cos(a_y) & 0 \\
+%    0 & \cos(a_z)\left(i\cos(a_y)\sin(a_x)-\cos(a_x)\sin(a_y)\right) & 0 & e^{-a_z}\cos(a_x)\cos(a_y) \\
+\end{pmatrix},
+\end{equation}
+where
+\begin{align}
+   A &= e^{ia_{zn}}\cos(a_{xn})\sin(a_{yn}) \\
+   B &= \cos(a_{zn})\left(i\cos(a_{yn})\sin(a_{xn})+\cos(a_{xn})\sin(a_{yn})\right) \\
+   C &= \cos(a_{zn})\left(i\cos(a_{yn})\sin(a_{xn})-\cos(a_{xn})\sin(a_{yn})\right) \\
+   D &= e^{-a_{zn}}\cos(a_{xn})\cos(a_{yn}).
+\end{align}
+This matrix can then be build and operated on each of the particles.
+\begin{equation} 
+   \exp{\left(-\alpha T^2\right)} \approx \frac{1}{N} \prod\limits_{j=1}^A \sum\limits_{n=1}^N \mathcal{M}_{jn}
+\end{equation}
+\red{get rid of page break here}
+\newpage
+
+Equation 6 in Kevin's notes is
+\begin{equation}
+   P(J,M)\ket{\psi_T} = \frac{2J+1}{16\pi^2} \int_0^{4\pi} d\alpha \int_0^{\pi} d\beta \int_0^{2\pi} d\gamma \sin(\beta)D^{J*}_{M,M}(\alpha,\beta,\gamma)R(\alpha,\beta,\gamma)\ket{\psi_T}.
+\end{equation}
+For the isospin case where $T$=0 and $M$=0 this can be written as
+\begin{equation}
+   P(0,0)\ket{\psi_T} = \frac{1}{16\pi^2} \int_0^{4\pi} d\alpha \int_0^{\pi} d\beta \int_0^{2\pi} d\gamma \sin(\beta) e^{-i\sum\limits_i \tau_{zi}\alpha} e^{-i\sum\limits_i \tau_{yi}\beta} e^{-i\sum\limits_i \tau_{zi}\gamma} \ket{\psi_T},
+\end{equation}
+where $D^0_{0,0}(\alpha,\beta,\gamma)=1$ and the general rotation is $R(\alpha,\beta,\gamma)=e^{-\frac{i}{\hbar}T_z\alpha} e^{-\frac{i}{\hbar}T_y\beta} e^{-\frac{i}{\hbar}T_z\gamma}$, where $T_\delta = \hbar\sum\limits_i \tau_{\delta i}$.
+
+Since the exponential of the pauli operators can be written easily as a matrix I have done this in the code.
+\begin{equation}
+   M_y(\beta)=ety=e^{-i\beta\tau_y} = \begin{pmatrix}
+    \cos(\beta) & 0 & -\sin(\beta) & 0 \\
+    0 & \cos(\beta) & 0 & -\sin(\beta) \\
+    \sin(\beta) & 0 & \cos(\beta) & 0 \\
+    0 & \sin(\beta) & 0 & \cos(\beta)
+   \end{pmatrix}
+\end{equation}
+\begin{equation}
+   M_z(\alpha)=etz=e^{-i\alpha\tau_z} = \begin{pmatrix}
+   e^{-i\alpha} & 0 & 0 & 0 \\
+   0 & e^{-i\alpha} & 0 & 0 \\
+   0 & 0 & e^{i\alpha} & 0 \\
+   0 & 0 & 0 & e^{i\alpha}
+   \end{pmatrix}
+\end{equation}
+where the pauli matricies are
+\begin{equation}
+   ty= \begin{pmatrix}
+   0 & 0 & -i & 0 \\
+   0 & 0 & 0 & -i \\
+   i & 0 & 0 & 0 \\
+   0 & i & 0 & 0
+   \end{pmatrix}, ~~~
+   ty= \begin{pmatrix}
+   1 & 0 & 0 & 0 \\
+   0 & 1 & 0 & 0 \\
+   0 & 0 & -1 & 0 \\
+   0 & 0 & 0 & -1
+   \end{pmatrix}.
+\end{equation}
+With these matricies defined this way the isospin projection can be written as
+\begin{equation}
+   P(0,0)\ket{\psi_T} = \frac{1}{16\pi^2} \int_0^{4\pi} d\alpha \int_0^{\pi} d\beta \int_0^{2\pi} d\gamma \sin(\beta) \prod_iM_z(\alpha,i) \prod_iM_y(\beta,i) \prod_iM_z(\gamma,i) \ket{\psi_T}.
+\end{equation}
+
+
+\newpage
+\red{get rid of page break here}

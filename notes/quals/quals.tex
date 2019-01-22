@@ -1,0 +1,326 @@
+\documentclass[12pt]{extarticle}
+\usepackage[margin=1in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\def\dbar{{\mathchar'26\mkern-12mu d}}
+
+
+%My commands
+\renewcommand{\AA}{\buildrel _\circ \over {\mathrm{A}}}
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\braket}[2]{\left< #1 | #2 \right>}
+\newcommand{\ketbra}[2]{\left| #1 \right> \left< #2 \right|}
+\newcommand{\E}{\mathbf{E}}
+\newcommand{\B}{\mathbf{B}}
+\newcommand{\D}{\mathbf{D}}
+\renewcommand{\H}{\mathbf{H}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\J}{\mathbf{J}}
+\newcommand{\K}{\mathbf{K}}
+\newcommand{\F}{\mathbf{F}}
+\renewcommand{\P}{\mathbf{P}}
+\newcommand{\M}{\mathbf{M}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\wavr}{\left|\r-\r'\right|}
+
+\title{Study guide for qualifying exams}
+\author{Cody L. Petrie}
+
+\begin{document}
+\maketitle
+
+\section{Classical Mechanics Equations}
+\subsection*{Newtonian Mechanics}
+\textbf{Newton's Laws:}
+\begin{enumerate}
+  \item{An object will maintain it's current motion unless acted upon by an external force.}
+  \item{$\vec{F} = m\vec{a}$}
+  \item{All forces occur in equal but directionally opposite pairs.}
+\end{enumerate}
+\textbf{Second Law:} $\vec{F} = m\vec{a} = \dot{\vec{p}}$ \\
+\textbf{Angular Position/Velocity/Acceleration:} $\theta = s/r$, $\omega = v/r$, $\alpha = a/r$ \\
+\textbf{Angular Momentum x2:} $\vec{L} = \vec{r} \times \vec{p} = I\vec{\omega}$ \\
+\textbf{Torque:} $\vec{\tau} = \vec{r} \times \vec{F} = \dot{\vec{L}}$ \\
+\textbf{Centripital Acceleration: } $a_c = v^2/r$ \\
+\textbf{Centrifugal/Coriolis Forces: } $\vec{F}_{cent} = -m\vec{\omega} \times (\vec{\omega} \times \vec{r'})$, $\vec{F}_{cor} = -2m\vec{\omega} \times \dot{\vec{r'}}$ \\
+\textbf{Work to go from positions $\vec{a}$ to $\vec{b}$:} $W_{ab} = \int\limits_{\vec{a}}^{\vec{b}} \vec{F} \cdot d\vec{s}$ \\
+\textbf{Conservative Force Field (2 eq):} $W_{ab}$ is the same regardless of path so $\oint \vec{F} \cdot d\vec{s} = 0$, and thus we can write the force as $\vec{F} = -\nabla V(\vec{r})$.
+
+\subsection*{Lagrangian Formalism}
+\textbf{Functional Derivative:} $\frac{\delta F}{\delta u}[x_0] = \lim\limits_{\epsilon \rightarrow 0} \frac{F[x_0+\epsilon u] - F[x_0]}{\epsilon} \rightarrow \frac{\delta F}{\delta x(t)}[x(t')] = \lim\limits_{\epsilon \rightarrow 0} \frac{F[x(t')+\epsilon \delta(t'-t)] - F[x(t')]}{\epsilon}$ \\
+\textbf{Principle of Least Action:} $\delta S = 0$, where $S=\int_{t_i}^{t_f} L(\vec{q},\dot{\vec{q}},t) dt$ \\
+\textbf{Lagranges Equation:} $\frac{d}{dt}\frac{\partial L}{\partial \dot{x}^A}-\frac{\partial L}{\partial x^A} = 0$ \\
+\textbf{Holonomic Constraints: } $f_\alpha(x^A,t) = 0$, $L' = L(x^A,\dot{x}^A) + \lambda_\alpha f_\alpha(x^A,t)$ $\rightarrow \frac{d}{dt}\frac{\partial L}{\partial \dot{x}^A}-\frac{\partial L}{\partial x^A} = \lambda_\alpha \frac{\partial f_\alpha}{\partial x^A}$ \\
+\textbf{Noether's Theorem: } A continuous symmetry in the Action (and thus Lagrangian) result in a conserved quantity. \\
+\textbf{Moment of Inertia Tensor: } $\vec{L} = \overleftrightarrow{I} \vec{\omega}$, $T = \frac{1}{2} \omega_a I_{ab} \omega_b$, $I_{ab} = \sum_i m_i(r_i^2\delta_{\alpha\beta} - r_{i\alpha}r_{i\beta})$ \\
+\textbf{Euler's Equations:} Only look at rotation, not translation. Conservation of Angular Momentum gives $I_i\dot{\omega}_i +\omega_j\omega_k(I_k-I_j) = 0$, for $i$,$j$,$k$ being cyclic permutations of 1,2,3. \\
+
+\subsection*{Hamiltonian Formalism}
+\textbf{Generalized Momenta: } $p_i = \frac{\partial L}{\partial \dot{q}_i}$, $\dot{p}_i = \frac{\partial L}{\partial q_i}$ \\
+\textbf{Hamiltonian: } $H(q_i,p_i,t) = \sum\limits_{i=1}^n p_i\dot{q}_i - L(q_i,\dot{q}_i,t)$ \\
+\textbf{Hamilton's Equations:}
+\begin{enumerate}
+  \item $\dot{p}_i = -\frac{\partial H}{\partial q_i}$
+  \item $\dot{q}_i = \frac{\partial H}{\partial p_i}$
+  \item $-\frac{\partial L}{\partial t} = \frac{\partial H}{\partial t}$
+\end{enumerate}
+\textbf{Cyclic/Ignorable Coordinates:} $q$ is ignorable if $\frac{\partial L}{\partial q} = 0$, i.e. if $q$ does not appear in $L$. Thus $p=\frac{\partial L}{\partial \dot{q}}$ is conserved. \\
+\textbf{Liousille's Theorem: } A volume of a region of phase space remains the same, even when the refion changes. $V=dq_1 \ldots dq_ndp_1 \ldots dp_n$. \\
+\textbf{Poisson Bracket: } $\{f,g\} = \frac{\partial f}{\partial q_i}\frac{\partial g}{\partial p_i} - \frac{\partial f}{\partial p_i}\frac{\partial g}{\partial q_i}$. \\
+\textbf{Constant of Motion from Poisson Bracket: } $\frac{df}{dt} = \{f,H\}+\frac{\partial f}{\partial t}$. If ${I,H}=0$, then $I$ is a constant of motion. \\
+\textbf{Canonical Transformation: } Transformation ($q_i \rightarrow Q_i(q,p), p_i \rightarrow P_i(q,p)$) that leaves Hamilton's equations invariant. \\
+
+\section{Statistical Mechanics Equations}
+\subsection{Thermodynamics}
+\textbf{Laws of Thermodynamics:}
+\begin{enumerate}
+  \item Energy conservation. $dE = \dbar Q - pdV$. $\dbar Q$ just means that the heat is an inexact differential and the integral depends on the path.
+  \item $\Delta S \geq \int \frac{\dbar Q}{T}$, where equality is for a process that is reversible (never leaves equilibrium).
+  \item{Entropy at zero temperature is zero. In stat mech this means that the ground state is nondegenerate and $S \propto \ln (\mathrm{W})$, where $W$ is the number of available states.}
+\end{enumerate}
+\textbf{Intensive vs Extensive Variables:} Intensive variables do NOT scale with system size ($T, p, \mu$), while extensive do scale ($E, S, V, N$). \\
+\textbf{Thermodynamic Potentials:}
+\begin{itemize}
+  \item Internal Energy: $U(S,V,N)$
+  \item Helmholtz Free Energy: $F(T,V,N) = U-TS$
+  \item Enthalpy: $H(S,p,N) = U+pV$
+  \item Gibbs Free Energy: $G(T,p,N) = U-TS+pV$
+  \item Landau(Grand) Potential: $\Omega(T,V,\mu) = U-TS-\mu_iN_i$
+\end{itemize}
+\textbf{Thermodynamic Ensembles:}
+\begin{enumerate}
+  \item Microcanonical: Does not exchange energy or particles with environment. Fixed $E,N$
+  \item Canonical: Does not exchange particles, but can exchange energy (heat bath). Fixed $N,T$
+  \item Grand canonical: Can exchange energy and particles with environment. Fixed $T, \mu$.
+\end{enumerate}
+\textbf{Maxwell's Relations (4 main):}
+\begin{itemize}
+  \item $\frac{\partial^2 U}{\partial S \partial V} = -\left(\frac{\partial p}{\partial S}\right)_V = \left(\frac{\partial T}{\partial V}\right)_S$
+  \item $\frac{\partial^2 F}{\partial T \partial V} = \left(\frac{\partial p}{\partial T}\right)_V = \left(\frac{\partial S}{\partial V}\right)_T$
+  \item $\frac{\partial^2 H}{\partial S \partial p} = \left(\frac{\partial V}{\partial S}\right)_p = \left(\frac{\partial T}{\partial p}\right)_S$
+  \item $\frac{\partial^2 G}{\partial T \partial p} = \left(\frac{\partial V}{\partial T}\right)_p = -\left(\frac{\partial S}{\partial p}\right)_T$
+\end{itemize}
+\textbf{Engine Efficience:} $\eta = \frac{Q_{in}-Q_{out}}{Q_{in}} = 1-\frac{T_{out}}{T_{in}}$ \\
+\textbf{Isobaric Thermal Expansion Coeffieicnt: } $\alpha = \frac{1}{V} \left(\frac{\partial V}{\partial T}\right)_P$, How much the volume changes with a change in termperature. \\
+\textbf{Isothermal Compressibility:} $\kappa_T = -\frac{1}{V} \left(\frac{\partial V}{\partial P}\right)_T$, How much the volume changes when the pressure changes. \\
+\textbf{Isentropic(Adiabatic) Compressibility:} $\kappa_S = -\frac{1}{V} \left(\frac{\partial V}{\partial P}\right)_S$, Same as above. \\
+\textbf{Specific Heat at Constant V:} $C_V = \left(\frac{\partial Q}{\partial T}\right)_V = \left(\frac{\partial U}{\partial T}\right)_V$, Amount of heat per unit mass to raise the temp by 1 degree. \\
+\textbf{Specific Heat at Constant p:} $C_p = \left(\frac{\partial Q}{\partial T}\right)_p = \left(\frac{\partial H}{\partial T}\right)_p$, Same as above. \\
+\textbf{Fermi Energy/Temperature: } Chemical potential at $T=0$. $\epsilon_F = \mu(T=0)$
+
+\subsection{Statistical Mechanics}
+\textbf{Number of microstates in a mactostate (ways to get n heads):} $\Omega = \frac{N!}{\prod_i n_i!}$ \\
+\textbf{Stirling's Approximation:} $\ln n! = n\ln n - n$ \\
+\textbf{How many order important ways to order n things:} $n!$ \\
+\textbf{How many order important waus to order n things r at a time:} $\frac{n!}{(n-r)!}$ \\
+\textbf{How many NOT order important ways to order n things r at a time:} $\binom{n}{r} = \frac{n!}{r!(n-r)!}$ \\
+\textbf{Microcanonical(Classical) Partition Function:} $Z_m = \sum_s g_s e^{-\beta E_s}$ \\
+\textbf{Canonical Partition Function:} $Z_c = \mathrm{tr}\left( e^{-\beta \hat{H}} \right)$ \\
+\textbf{Grand Canonical Partition Function:} $Z_{gc} = \mathrm{tr}\left( e^{-\beta (\hat{H}-\mu\hat{N})} \right)$ \\
+\textbf{Geometric Series:} $\sum\limits_{n=0}^\infty x^n = \frac{1}{1-x}$ \\
+\textbf{Classical limit of the trace of an operator:} $\mathrm{tr}(\mathcal{O}) = \frac{1}{N!(2\pi\hbar)^{3N}} \int d^3r_1 \ldots d^3r_N \int d^3p_1 \ldots d^3p_N \mathcal{O}$, $N!$ is for identical particles. \\
+\textbf{Thermodynamic Limit:} $T \rightarrow \infty, V \rightarrow \infty, N/V = const$ \\
+\textbf{Expectation value for pure/mixed:} $\left<\mathcal{O}\right>_p = \bra{\psi}\mathcal{O}\ket{\psi}, \left<\mathcal{O}\right>_m = \sum_i P_i \bra{\psi_i}\mathcal{O}\ket{\psi_i}$ \\
+\textbf{Density Matrix (ex. Canonical Ensemble):} $\rho = \sum_n P_n \ket{\psi_n}\bra{\psi_n}, \rho_{c} = \frac{e^{-\beta \hat{H}}}{\mathrm{tr}e^{-\beta\hat{H}}}$ \\
+\textbf{Expectation value with Density Matrix:} $\left<\mathcal{O}\right> = \mathrm{tr}(\mathcal{O} \rho)$ \\
+\textbf{Trace of Density matrix:} $\mathrm{tr}(\rho) = 1$ \\
+\textbf{Time evolution of density matrix:} $\frac{\partial}{\partial t} \rho = \frac{1}{i\hbar}\left[\hat{H},\hat{\rho}\right]$ \\
+\textbf{$Z_{gc}$ for an ideal gas:} $Z_{gc} = \frac{V^N(2mT\pi)^{3N/2}}{N!(2\pi\hbar)^{3N}} e^{\beta\mu}$ \\
+\textbf{$Z_{gc}$ for ideal fermi gas:} $Z_{gc} = \prod\limits_k \left(1+e^{-\beta(\epsilon_k-\mu)}\right)$ \\
+\textbf{$Z_{gc}$ for ideal bose gas:} $Z_{gc} = \prod\limits_k \frac{1}{\left(1-e^{-\beta(\epsilon_k-\mu)}\right)}$ \\
+\textbf{Stuff here for black-body and phonons and bose condensates.} \\
+\textbf{Explain Bose-Condensates with Bose statistics:} $\lim\limits_{T->0}n(p) = \lim\limits_{\beta->\infty} \frac{1}{1-e^{\beta(\epsilon-\mu)}} \rightarrow 0$ unless $\epsilon \rightarrow \mu$, which happens at the ground state. \\
+\textbf{What is cluster expansion used for?:} Systems of interacting particles. \\
+
+\section{Quantum Mechanics Equations}
+\textbf{Properties of a vector space:}
+\begin{itemize}
+  \item Sum $\ket{V} + \ket{W}$
+  \item Scalar product with properties
+  \begin{enumerate}
+    \item closure: results in another vector in the space.
+    \item distributive: $a(\ket{V}+\ket{W} = a\ket{V}+a\ket{W})$, $(a+b)\ket{V}=a\ket{V}+b\ket{V}$
+    \item associative: $a(b\ket{V}) = ab\ket{V}$, $\ket{V}+(\ket{W}+\ket{Z})=(\ket{V}+\ket{W})+\ket{Z}$
+    \item commutative: $\ket{V} + \ket{W} = \ket{W} + \ket{V}$
+    \item addative inverse: $\ket{V} + \ket{-V} = \ket{0}$
+    \item null vector: $\ket{V} + \ket{0} = \ket{V}$
+  \end{enumerate}
+\end{itemize}
+\textbf{Hilbert space:} Vector space with defined inner product. \\
+\textbf{Expand in orthonormal basis:}  $\ket{V} = \sum\limits_i vi \ket{i}$ \\
+\textbf{Hermitian operator:} $\mathcal{O}^\dagger = \mathcal{O}$ \\
+\textbf{Anti-Hermitian operator:} $\mathcal{O}^\dagger = \mathcal{O}$ \\
+\textbf{Unitary operator:} $UU^\dagger = \mathbb{I}$ \\
+\textbf{Orthogonality:} $\braket{i}{j} = \delta_{ij}$ \\
+\textbf{Completeness:} $\sum\limits_ii = \mathbb{I}$ \\
+\textbf{Postulates of QM: }
+\begin{enumerate}
+  \item  The state of a physical system, at some fixed time, is given by a normalized ray in a Hilbert space over the complex numbers. (ray is vector whose norm doesn't matter)
+  \item The ray evolves deterministically in time according to Schr\"odinger’s equation.
+  \item Observables correspond to self-adjoint (hermitian) operators.
+  \item If a particle is in the state $\ket{\psi}$ then a measurement of $\mathcal{O}$ will yield one of the eigenvalues of $\mathcal{O}$, $\omega$. The state of the system changes to an eigenstate of $\mathcal{O}$, $\ket{\omega}$.
+\end{enumerate}
+\textbf{Schr\"odinger equation:} $i\hbar\frac{\partial}{\partial t} \Psi = \hat{H} \Psi$ \\
+\textbf{Free particle $\psi_p$ and $E_p$:} $\psi_p = Ae^{ikx}+Be^{-ikx}$, $k^2=\frac{2mE_n}{\hbar^2}$, $E_p = \frac{p^2}{2m}$ \\
+\textbf{Particle in a box $\psi_n$ and $E_n$:} $\psi_n = \sqrt{\frac{2}{L}}\sin{(k_nx)}$, $k_n = \frac{n\pi}{L}$, $E_n = \frac{\hbar^2\pi^2n^2}{2mL^2}$ \\
+\textbf{Harmonic Oscillator $\hat{H}$, $\psi_n$ and $E_n$:} $\hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2}m\omega^2\hat{x}^2$, $\psi_n = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4}\frac{1}{2^nn!}H_n(x)e^{-x^2/2}$, $E_n = (n+\frac{1}{2})\hbar\omega$ \\
+\textbf{Raising and lowering operators and how to affect $\ket{n}$ (3-2):}
+\begin{itemize}
+  \item $a = \left(\frac{m\omega}{2\hbar}\right)^{1/2}\left(\hat{x}+\frac{i}{m\omega}\hat{p}\right)$, $a\ket{n} = \sqrt{n}\ket{n-1}$, $a\ket{0} = 0$
+  \item $a^\dagger = \left(\frac{m\omega}{2\hbar}\right)^{1/2}\left(\hat{x}-\frac{i}{m\omega}\hat{p}\right)$, $a^\dagger\ket{n} = \sqrt{n+1}\ket{n+1}$
+\end{itemize}
+\textbf{$\hat{H}$ in terms of $a$ and $a^\dagger$:} $\hat{H} = \hbar\omega (a^\dagger a + 1/2)$ \\
+\textbf{Commutation relations for $\hat{H}$, $a$, $a^\dagger$:}
+\begin{itemize}
+  \item $[ \hat{H}, a ] = -a$
+  \item $[ \hat{H}, a^\dagger ] = a^\dagger$
+  \item $[ a, a^\dagger ] = 1$
+\end{itemize}
+\textbf{$\mathbf{J}^2$ and $J_z$ on the angular momentum state $\ket{jm_j}$:}
+\begin{itemize}
+  \item $\mathbf{J}^2\ket = j(j+1)\hbar^2\ket{jm_j}$
+  \item $J_z\ket{jm_j} = m_j\hbar\ket{jm_j}$
+\end{itemize}
+\textbf{Commutation relations for $J_i$ and $J_j$ and for $\mathbf{J}^2$ and $J_i$:}
+\begin{itemize}
+  \item $[J_i, J_j] = i\hbar J_k$
+  \item $[\mathbf{J}^2, J_i] = 0$
+\end{itemize}
+\textbf{$J_z$ and $\mathbf{J}^2$ in position basis:}
+\begin{itemize}
+  \item $J_z = -i\hbar \frac{\partial}{\partial t}$
+  \item $\mathbf{J}^2 = -\hbar^2\left[ \frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right) + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial\phi^2} \right]$
+\end{itemize}
+\textbf{Raising and Lowering Angular Momentum Operators on $\ket{j,m}$:} \\
+$J_{\pm}\ket{j,m} = \hbar[j(j+1)-m(m\pm1)]^1/2\ket{j,m\pm1}$ \\
+\textbf{$J_x$ and $J_y$ in terms of $J_+$ and $J_-$:} $J_x = \frac{1}{2}(J_++J_-)$, $J_y = \frac{1}{2i}(J_+-J_i)$\\
+\textbf{Momentum eigenstate, $\braket{x}{p}$:} $\braket{x}{p} = \frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}$ \\
+\textbf{Hydrogen Atom $V(r)$, $\psi_n$, $E_n$(x4):} $V(r) = -\frac{Ze^2}{4\pi\epsilon_0r}$, $\psi_n = stuff*L^{2l+1}_{n-l-1}(\rho)Y_l^m(\theta,\phi)$(Laguerre) \\
+$E_n = -\frac{1}{2n^2}\left(\frac{Ze^2}{4\pi\epsilon_0\hbar}\right)^2m_e = -\frac{1}{2n^2}\alpha^2m_e c^2 = -\frac{1}{n^2}13.6eV = -\frac{1}{2n^2}\left(\frac{1}{4\pi\epsilon_0}\frac{e^2}{a_0}\right)$, \\
+$\alpha = \frac{e^2}{4\pi\epsilon_0\hbar c}$, $a_0 = \frac{4\pi\epsilon_0\hbar^2}{m_ee^2}$ \\
+\textbf{Pauli matricies and commutation relations:} \\
+$\sigma_x = \begin{pmatrix} 0&1 \\ 1&0 \end{pmatrix}$ \\
+$\sigma_y = \begin{pmatrix} 0&-i \\ i&0 \end{pmatrix}$ \\
+$\sigma_z = \begin{pmatrix} 1&0 \\ 0&-1 \end{pmatrix}$ \\
+$\left[\sigma_a\sigma_b\right] = 2i\epsilon_{abc}\sigma_c$ \\
+\textbf{Non-Deg Time-Ind Perturbation, $E_n^{(1)}$, $\ket{n^{(1)}}$, $E_n^{(2)}$:} \\
+$E_n^{(1)} = H'_{nn} = \bra{n^{(0)}}H'\ket{n^{(0)}}$ \\
+$\ket{n^{(1)}} = \sum\limits_{m\neq n} \frac{\bra{n^{(0)}}H'\ket{n^{(0)}}}{(E_n^{(0)}-E_m^{(0))}} \ket{m^{(0)}}$ \\
+$E_n^{(2)} = \sum\limits_{m\neq n} \frac{\left|\bra{n^{(0)}}H'\ket{n^{(0)}}\right|^2}{(E_n^{(0)}-E_m^{(0))}}$ \\
+\textbf{Deg Time-Ind Perturbation, $E_n^{(1)}$:} Diagonalize the perturbation hamiltonian in the degenerate subspace. \\
+\textbf{Time-Dep Perturbation, $P_{i\rightarrow f}(t)$:} $P_{i\rightarrow f}(t) = \frac{1}{\hbar^2}\left| \int_0^t dt' \bra{f}H'(t')\ket{i} e^{i(E_f-E_i)t'/\hbar}\right|^2$ \\
+\textbf{Fermi's golder rule, and $g(E_f) as \delta$:} $R_{i\rightarrow f} = \frac{2\pi}{\hbar}\left|\bra{f}H'\ket{i}\right|^2 g(E_f)$, $g(E_f) \approx \delta(E_f^{(0)}-E_f^{(0)} - \hbar\omega)$ \\
+\textbf{Einstein's Stimulated/Spontaneous emission coeffients:} \\
+Stimulated: $B_{if} = \frac{\pi e^2}{3\epsilon_0\hbar^2}\left|\bra{f}\mathbf{r}\ket{i}\right|^2$ \\
+Spontaneous: $A_{if} = \frac{e^2\omega_{21}^3}{3\pi\epsilon_0\hbar c^3}\left|\bra{f}\mathbf{r}\ket{i}\right|^2$\\
+\textbf{Total $\psi(\mathbf{r})$ in scattering problem:} \\
+$\psi(\mathbf{r}) = \psi_{inc}(\mathbf{r})+\psi_s(\mathbf{r}) = \psi_{inc}(\mathbf{r}) + f(\theta,\phi)\frac{e^{i\mathbf{k}\cdot\mathbf{r}}}{r}$ \\
+$f(\theta,\phi) = -\frac{m}{2\pi\hbar^2} \int d^3r' e^{-i\mathbf{k}'\cdot\mathbf{r}'}V(\mathbf{r}')\psi(\mathbf{r}')$ \\
+\textbf{Differential Cross Section:} $\frac{d\sigma}{d\Omega} = \left|f(\theta,\phi)\right|^2$ \\
+\textbf{Born Approximation:} In the above integral for $f(\theta,\phi)$ let $\psi \rightarrow \psi_{inc}$. \\
+\textbf{Dirac Equation:} \\
+$(i\hbar\gamma^\mu\partial_\mu-mc)\psi = 0$ \\
+$\gamma^0 = \beta$, $\gamma^i = \beta\alpha_i$ \\
+$\beta = \begin{pmatrix} \mathbb{I}&0 \\ 0&-\mathbb{I} \end{pmatrix}$, $\alpha_i = \begin{pmatrix} 0&\sigma_i \\ -\sigma_i&0 \end{pmatrix}$\\
+
+\section{Electricity and Magnetism Equations}
+\textbf{Maxwell's Equations in Vacuum (SI):} \\
+$\nabla \cdot \E = \rho/\epsilon_0$, $\nabla \cdot \B = 0$ \\
+$\nabla \times \E = -\frac{\partial \B}{\partial t}$, $\nabla \times \B = \mu_0\J + \mu_0\epsilon_0\frac{\partial \E}{\partial t}$ \\
+\textbf{Maxwell's Equations in Matter (SI), and $\D$ and $\H$:} \\
+$\nabla \cdot \D = \rho$, $\nabla \cdot \B = 0$ \\
+$\nabla \times \E = -\frac{\partial \B}{\partial t}$, $\nabla \times \H = \J + \frac{\partial D}{\partial t}$ \\
+$\D = \epsilon_0\E$, $\B = \mu_0\H$ \\
+\textbf{Continuity Equation:} $\frac{\partial \rho}{\partial t}+\nabla\cdot\J = 0$ \\ 
+\textbf{Lorentz Force:} $\F = q(\E+\mathbf{v}\times\B)$ \\
+\textbf{Coulomb's Law (x2):} $\F = \frac{1}{4\pi\epsilon_0}\frac{q_1q_2}{r^2}$, $\F=Q\E$ \\
+\textbf{Gauss' Law:} $\oint \E\cdot d\A = q/\epsilon_0$ \\
+\textbf{Electrostatic Potential (x2):} $\E = -\nabla\Phi$, $\Phi = \frac{1}{4\pi\epsilon_0} \int d^3r' \frac{\rho(\r')}{\wavr}$ \\
+\textbf{Laplace's Equation \& General Solution(Spherical Coordinates, no $\phi$):} $\nabla^2\Phi = 0$ \\
+$\Phi(r,\theta) = \sum\limits_{l=0}^\infty \left( A_lr^l+\frac{B_l}{r^{l+1}} \right) P_l(\cos\theta)$ \\
+\textbf{Poisson's Equation:} $\nabla^2\Phi = -\rho/\epsilon_0$ \\
+\textbf{Explain the Method of Images:} Because of the uniqueness theorem you can add charges OUTSIDE of the computational area to meet the same boundary conditions. A solution to this new configuration is also a solution to the initial configuration. \\
+\textbf{Method of Images (plane, sphere, hem boss):} \\
+plane: add one charge below plane. \\
+sphere: 1 test charge inside sphere. \\
+hem boss: 3 test charges. \\
+\textbf{Multipole Expansion of $\Phi(\mathbf{r})$:} $\Phi(\mathbf{r}) = \frac{1}{4\pi\epsilon_0}\sum\limits_{n=0}^\infty \int d^3r' \frac{P_n(\cos\alpha)}{r^{n+1}} \rho(\mathbf{r}')$ \\
+\textbf{Work and Energy in Electrostatics:} The Energy of a system is the work it requires to assemble the system. \\
+\textbf{Atomic Polarizability ($\alpha$):} $\mathbf{p} = \alpha \E$ \\
+\textbf{Polarization:} Electric dipole moment per unit volume. $\D = \epsilon_0\E+\P$ \\
+\textbf{Magnetization:} Magnetic dipole moment per unit volume $\H = \frac{1}{\mu_0}\B - \M$ \\
+\textbf{Bound Charge:} $\rho_b = -\nabla\cdot\P$ \\
+\textbf{Bound Current:} $\J_b = \nabla \times \M$ \\
+\textbf{Linear Media x2:} $\P = \epsilon_0 \chi_e \E$, $\M = \chi_m\H$\\
+\textbf{Biot-Savart Law:} $\B(\r) = \frac{\mu_0}{4\pi} \int d^3r' \frac{\J(\r')\times\wavr}{\wavr}$ \\
+\textbf{Ohm's Law:} $\J = \sigma\E$, where $\sigma$ is the conductivity \\
+\textbf{Resistivity:} $\rho = 1/\sigma$ \\
+\textbf{Boundary Conditions:} \\
+$D_1^\perp-D_2^\perp = \sigma_f$ \\
+$B_1^\perp-B_2^\perp = 0$ \\
+$\E_1^\parallel-\E_2^\parallel = \mathbf{0}$ \\
+$\H_1^\parallel-\H_2^\parallel = \K_f\times\hat{\mathbf{n}}$ \\
+\textbf{Poynting's Theorem, units of $\mathbf{S}$:} $\mathbf{S} = \frac{energy}{time \cdot energy}$\\
+$\frac{dW}{dt} = -\frac{d}{dt}\int d^3r \frac{1}{2}\left( \epsilon_0 E^2 + \frac{1}{\mu_0}B^2 \right) - \frac{1}{\mu_0}\oint d\mathbf{a} \cdot (\E\times\B) = -\frac{d}{dt}(W_e+W_m) - \oint d\mathbf{a}\cdot\mathbf{S}$ \\
+\textbf{Maxwell Stress Tensor and Static Force:} \\
+$T_{ij} = \epsilon_0\left(E_iE_j-\frac{1}{2}\delta_{ij}E^2\right) + \frac{1}{\mu_0}\left(B_iB_j-\frac{1}{2}\delta_{ij}B^2\right)$ \\
+$\F = \oint d\mathbf{a}\cdot\overleftrightarrow{T}$ \\
+\textbf{Index of Refraction:} $n = \sqrt{\frac{\epsilon\mu}{\epsilon_0\mu_0}}$ \\
+\textbf{What is a Waveguide:} A waveguide is a conductor pipe such that $\E^\parallel = \mathbf{0}$ and $B^\perp = 0$ on the surface. Also the transverse components of the fields (x and y) can be determined from derivatives of the axial components (z). \\
+\textbf{Transverse electric/magnetic and TEM} \\
+TE: $E_z = 0$ \\
+TM: $B_z = 0$ \\
+TEM: both \\
+\textbf{$\E$ and $\B$ in terms of $\A$ and $\Phi$:} $\E = -\nabla\Phi - \frac{\partial\A}{\partial t}$, $\B = \nabla\times\A$ \\
+\textbf{Coulomb/Lorentz Gauge:} $\nabla\cdot\A = 0$, $\nabla\cdot\A = -\mu_0\epsilon_0\frac{\partial\Phi}{\partial t}$ \\
+\textbf{Retarted Scalar and Vector Potentials:} $\Phi = \frac{1}{4\pi\epsilon_0} \int d^3r' \frac{\rho(\r',t-\wavr/c)}{\wavr}$, $\A = \frac{\mu_0}{4\pi} \int d^3r' \frac{\J(\r',t-\wavr/c)}{\wavr}$ \\
+\textbf{What are the Li\'enard-Wiechert Potentials?:} Retarted potentials of a point charge with a specific trajectory. \\
+\textbf{Radiation Estimate $\wavr$ and $\frac{1}{\wavr}$:} $\wavr \approx r-\frac{\r\cdot\r'}{r}$, $\frac{1}{\wavr} \approx \frac{1}{r} + \frac{\r\cdot\r'}{r^3}$ \\
+\textbf{Radiation Dipole Approximation} $e^{-i\omega\hat{\r}\cdot\r'/c} \approx 1$ \\
+\textbf{Electric Dipole Moment:} $\mathbf{p}(\r,t) = \int d^3r'\r'\rho(\r',t)$ \\
+\textbf{Larmor Formula:} $P = \frac{\mu_0}{6\pi c}q^2a^2$ \\
+\textbf{Helmholtz Theorem:} If you know the divergence ($D$) and the curl ($\mathbf{C}$) of a function $\mathbf{F}$ then $\mathbf{F} = -\nabla U + \nabla\times\mathbf{W}$ where \\
+$U(\r) = \frac{1}{4\pi} \int d^3r' \frac{D(\r')}{\wavr}$ \\
+$W(\r) = \frac{1}{4\pi} \int d^3r' \frac{\mathbf{C}(\r')}{\wavr}$ \\
+\textbf{Einstein's Postulates of Special Relativity:} \\
+1. The laws of physics are the same in all inertial frames of reference. \\
+2. The speed of light in free space has the same value c in all inertial frames of reference. \\
+\textbf{Boost in the x-direction in terms of $x_i$, $\gamma$ and $\beta$:} \\
+$x'_0 = \gamma(x_0-\beta x_1)$ \\
+$x'_1 = \gamma(x_1-\beta x_0)$ \\
+$x'_2 = x_2$ \\
+$x'_3 = x_3$ \\
+$\gamma = \frac{1}{\sqrt{1-\beta^2}}$, $\beta = \frac{v}{c}$ \\
+\textbf{Boost in the x-direction in matrix form:} $x'^\mu = \Lambda^\mu_\nu x^\nu$, $\Lambda = \begin{pmatrix} \gamma&-\gamma\beta&0&0 \\ -\gamma\beta&\gamma&0&0 \\ 0&0&1&0 \\ 0&0&0&1 \end{pmatrix}$ \\
+\textbf{Covariant vs. Contravariant:} covariant: $a_\mu$, contravariant: $a^\mu$, $(a_0,a_1,a_2,a_3) = (-a^0,a^1,a^2,a^3)$ \\
+\textbf{Minkowski metric:} $a_\mu = g_{\mu\nu} a^\nu$, $g_{\mu\nu} = \begin{pmatrix} -1&0&0&0 \\ 0&1&0&0 \\ 0&0&1&0 \\ 0&0&0&1 \end{pmatrix}$ \\
+\textbf{Four-(v, p, J, A):} \\
+$v^\mu=\frac{dx^\mu}{d\tau}=(\gamma c, \gamma \mathbf{v})$ \\
+$p^\mu=mv^\mu=(E/c,\mathbf{p})$ \\
+$J^\mu=(c\rho,\J)$ \\
+$A^\mu=(\Phi/c,\A)$ \\
+\textbf{Relativistic Energy x2:} $E=\gamma mc^2=\sqrt{p^2c^2+m^2c^4}$ \\
+\textbf{Field Tensor and Transformation:} $F^{\mu\nu} = \begin{pmatrix} 0&E_x/c&E_y/c&E_z/c \\-E_x/c&0&B_z&-B_y \\ -E_y/c&-B_z&0&B_x \\ -E_z/c&B_y&-B_x&0 \end{pmatrix}$, $F'^{ij} = \Lambda^i_k\Lambda^j_l F^{kl} \rightarrow F'=\Lambda F \Lambda^\mathrm{T}$ \\
+\textbf{Maxwell's Equations with d'Alenbertian:} $\square^2A^\mu = -\mu_0J^\mu, \square^2 = \nabla^2-\frac{1}{c^2}\frac{\partial^2}{\partial t^2}$ \\
+
+\section{Miscellaneous Physics}
+\textbf{Taylor Expansion:} $f(\vec{x}+\vec{a}) = f(\vec{x}) + a_i\partial_i f(\vec{x}) + \mathcal{O}(\vec{a}^2)$ \\
+\textbf{Gaussian Integral:} $\int\limits_{-\infty}^\infty dx e^{-ax^2+bx+c} = \sqrt{\frac{\pi}{a}}e^{b^2/(4a)+c}$ \\
+\textbf{3 types of Boundary Conditions:} \\
+Dirichlet: $\Phi(\mathbf{a}) = const$ \\
+Neumann: $\frac{\partial \Phi(\mathbf{a})}{\partial \mathbf{n}} = \hat{\mathbf{n}}\cdot\nabla\Phi = const$ \\
+Robin: Linear combination of the first two \\
+\textbf{Value of fine structure constant:} $\alpha \approx \frac{1}{137}$ \\
+\textbf{Mass of electron in eV:} $m_ec^2 = 0.511 eV$ \\
+\textbf{Value of the Bohr radius:} $a_0 = 0.529 \AA$ \\
+\textbf{Wave Equation:} $\nabla^2 u - \frac{1}{c^2}\frac{\partial^2 u}{\partial t^2} = 0$ \\
+\textbf{Diffusion Equation:} $\nabla^2 u - \frac{1}{D}\frac{\partial u}{\partial t} = 0$ \\
+
+\end{document}

@@ -1,0 +1,35 @@
+Talk:
+What do I want in the abstract?
+   -QMC
+   -Improved/expanded trial wave function
+      -Properties of trial wave functions that are needed (antisymmetric anddecomposable
+      -Results
+   -Application to alpha clustering for neutron star applicaitons
+      -Results
+   -Future work
+      -Exponential correlations using HS transformation
+      -**Come up with some other system to study
+
+What are good attention getters?
+   -Calculations that are just out of our reach
+      -Large nuclei (bigger than 40Ca)
+      -Neutron star equation of state (maybe with hyperons)
+
+Abstract:
+What do I need in the abstract?
+   -Improved trial wave functions
+   -Decreased nuclear ground state energies at a cost
+   -Improved alpha particle formation in nearly-pure neutron matter
+
+Attention getters for abstract
+   -2QMC is extremely sensative to the choice in trial wave function
+   -1Advances in QMC and/or nuclear calculations depend on having an accurate and efficient trial wave function
+
+ver 3: removed last sentance about exponential corr. minor spelling errors fixed.
+Quantum Monte Carlo (QMC) calculations have given us insights into many aspects of nuclear physics, from the properties of atomic nuclei to the structure and formation of neutron stars. The combined accuracy and simplicity of the nuclear trial wave function plays a key role in QMC calculations. A more accurate trial wave function could open the door to larger systems and new physics for Auxiliary Field Diffusion Monte Carlo calculations. We have developed a new trial wave function which includes up to 4 correlated particles at a time. We have used this wave function to calculate the binding energies of $^{4}$He, $^{16}$O, $^{40}$Ca, and symmetric nuclear matter at saturation density and show that the energy is decreased for each system compared to calculations with only 2 correlated particles at a time. We also discuss the application of this improved wave function to alpha particle clustering in nearly neutron matter near the transition density between the inner crust and mantel of a neutron star.
+
+ver 2:
+Quantum Monte Carlo (QMC) calculations have given us insights into many aspects of nuclear physics, from the properties of atomic nuclei to the stucture and formation of neutron stars. The combined accuracy and simplicity of the nuclear trial wave function plays a key role in QMC calculations. A more accurate trial wave function could open the door to larger systems and new physics for Auxiliary Field Diffusion Monte Carlo calculations. We have developed a new trial wave function which includes up to 4 correlated partices at a time. We have used this wave function to calculate the binding energies of $^{4}$He, $^{16}$O, $^{40}$Ca, and symmetric nuclear matter at saturation density and show that the energy is decreased for each system compared to calculations with only 2 correlated particles at a time. We also discuss the application of this improved wave function to alpha particle clustering in nearly neutron matter near the transition density between the inner crust and mantel of a neutron star. We will also discuss the development of other improved trial wave functions.
+
+ver 1:
+Quantum Monte Carlo (QMC) calculations have given us insights into many aspects of nuclear physics including the stucture and formation of neutron stars, properties of atomic nuclei, and hyperon systems. The accuracy of a QMC calculations is influenced by the trial wave function, which must be calculated many time in a QMC calculation. QMC, and AFDMC in particular would benefit greatly by an accurate and computationally inexpensive trial wave function. We have developed a new trial wave function which includes up to 4 correlated partices at a time. We then use this wave function to calculate the binding energies of $^{4}$He, $^{16}$O, $^{40}$Ca, and symmetric nuclear matter at saturation density and show that the energy is decreased for each system. We also discuss the application of this improved wave function to alpha particle clustering in nearly neutron matter at low densities as well as the development of other improved trial wave functions.

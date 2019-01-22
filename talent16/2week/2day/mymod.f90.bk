@@ -1,0 +1,211 @@
+module mymod
+   use random
+   implicit none
+   integer, private, parameter :: i4=selected_int_kind(9)
+   integer, private, parameter :: i8=selected_int_kind(15)
+   integer, private, parameter :: r8=selected_real_kind(15,9)
+   real(kind=r8), parameter :: dx=0.0005
+   real(kind=r8) :: delta,dt,etrial,h2o2m,l
+   integer(kind=i4) :: npart
+   integer(kind=i8) :: irn
+contains
+   subroutine setmod(deltain,dtin,h2o2min,lin,etrialin,npartin)
+   real(kind=r8) :: deltain,dtin,etrialin,h2o2min,lin
+   integer(kind=i4) :: npartin
+   delta=deltain
+   dt=dtin
+   h2o2m=h2o2min
+   l=lin
+   etrial=etrialin
+   npart=npartin
+   end subroutine setmod
+
+!   function psit(x)
+!   real(kind=r8), parameter :: b=2.99
+!   real(kind=r8), dimension(:,:) :: x
+!   real(kind=r8) :: psit,r
+!   integer(kind=i4) :: i,j,c
+!   psit=1
+!   do i=1,npart-1
+!      do j=i+1,npart
+!         r=sqrt(sum((x(i,:)-x(j,:))**2.0_r8))
+!         r=sqrt(sum((x(i,:)-x(j,:)-nint((x(i,:)-x(j,:))/l)*l)**2.0_r8))
+!         psit=psit*exp(-0.5_r8*(b/r)**5.0_r8)
+!         psit=psit*exp(-0.5_r8*(b/r)**5.0_r8-0.5_r8*(b/(l-r))**5.0_r8-0.5_r8*(b/(0.5_r8*l))**5.0_r8)
+!      enddo
+!   enddo
+!   end function psit
+
+   function lpsit(x)
+   real(kind=r8), parameter :: b=2.99
+   real(kind=r8), dimension(:,:) :: x
+   real(kind=r8) :: lpsit,r
+   integer(kind=i4) :: i,j,c
+   lpsit=0.0_r8
+   do i=1,npart-1
+      do j=i+1,npart
+         r=sqrt(sum((x(i,:)-x(j,:)-nint((x(i,:)-x(j,:))/l)*l)**2.0_r8))
+         lpsit=lpsit+(b/r)**5.0_r8
+!         lpsit=lpsit+(b/r)**5.0_r8+(b/(l-r))**5.0_r8+(b/(0.5_r8*l))**5.0_r8
+      enddo
+   enddo
+   lpsit=-lpsit*0.5_r8
+   end function lpsit
+
+   function ddlpsit(x,i)
+   real(kind=r8), dimension(:,:) :: x
+   real(kind=r8), allocatable :: xsave(:,:)
+   real(kind=r8) :: ddlpsit
+   integer(kind=i4) :: i,c
+   allocate(xsave(npart,3))
+   ddlpsit=0.0_r8
+   xsave=x
+   do c=1,3
+      x(i,c)=x(i,c)+dx
+      ddlpsit=ddlpsit+lpsit(x)
+      x=xsave
+   enddo
+   do c=1,3
+      ddlpsit=ddlpsit-2.0_r8*lpsit(x)
+   enddo
+   do c=1,3
+      x(i,c)=x(i,c)-dx
+      ddlpsit=ddlpsit+lpsit(x)
+      x=xsave
+   enddo
+   ddlpsit=ddlpsit/dx**2.0_r8
+   end function ddlpsit
+
+   function dlpsit(x,i)
+   real(kind=r8), dimension(:,:) :: x
+   real(kind=r8), allocatable :: xsave(:,:)
+   real(kind=r8),dimension(3) :: dlpsit
+   integer(kind=i4) :: i,c
+   allocate(xsave(npart,3))
+   dlpsit=0.0_r8
+   xsave=x
+   do c=1,3
+      x(i,c)=x(i,c)+dx
+      dlpsit(c)=dlpsit(c)+lpsit(x)
+      x=xsave
+      x(i,c)=x(i,c)-dx
+      dlpsit(c)=dlpsit(c)+lpsit(x)
+      x=xsave
+   enddo
+   dlpsit=dlpsit/(2.0_r8*dx)
+   end function dlpsit
+
+   function eloc(x)
+   real(kind=r8), parameter :: eps=10.22
+   real(kind=r8), parameter :: sigma=2.556
+   real(kind=r8), dimension(:,:) :: x
+   real(kind=r8), dimension(3) :: eloc !total, kinetic, potential energies
+   real(kind=r8) :: r
+   integer(kind=i4) :: i,j,c
+   real(kind=r8),dimension(npart,3) :: grad
+   eloc=0.0_r8
+   do i=1,npart
+      grad(i,:)=dlpsit(x,i)
+      eloc(2)=eloc(2)-h2o2m*(ddlpsit(x,i)+dot_product(grad(i,:),grad(i,:)))
+   enddo
+   do i=1,npart-1
+      do j=i+1,npart
+         r=sqrt(sum((x(i,:)-x(j,:)-nint((x(i,:)-x(j,:))/l)*l)**2.0_r8))
+         eloc(3)=eloc(3)+4.0_r8*eps*((sigma/r)**12.0_r8-(sigma/r)**6.0_r8)
+      enddo
+   enddo
+   eloc(1)=eloc(2)+eloc(3)
+   end function eloc
+
+   function egrowth(x)
+   real(kind=r8), dimension(:,:,:) :: x
+   real(kind=r8) :: egrowth,weight,aw,ew
+   real(kind=r8), dimension(size(x)) :: nweight
+   integer(kind=i4) :: n
+   real(kind=r8), dimension(3) :: en
+   do n=1,size(x(:,1,1))
+      en=eloc(x(n,:,:))
+      nweight(n)=exp(-dt*(en(1)-etrial))
+   enddo
+   call stat(nweight,aw,ew)
+   egrowth=etrial-1.0_r8/dt*log(aw)
+   end function egrowth
+
+   subroutine metropolis(x,nwalk,acceptance)
+   real(kind=r8), dimension(:,:,:) :: x
+   real(kind=r8), allocatable :: xnew(:,:,:)
+   real(kind=r8) :: rand1,ratio,acceptance
+   integer(kind=i4) :: i,c,n,accepted,nwalk
+   allocate(xnew(nwalk,npart,3))
+   accepted=0.0_r8
+   do n=1,nwalk
+      do i=1,npart
+         do c=1,3
+            xnew(n,i,c)=x(n,i,c)+delta*(ran(irn)-0.5_r8)
+            !boundary conditions
+            if (xnew(n,i,c).gt.0.5_r8*l) xnew(n,i,c)=xnew(n,i,c)-l
+            if (xnew(n,i,c).lt.0.5_r8*l) xnew(n,i,c)=xnew(n,i,c)+l
+         enddo
+      enddo
+      ratio=exp(2.0_r8*(lpsit(xnew(n,:,:))-lpsit(x(n,:,:))))
+      if (ran(irn).lt.ratio) then
+         x(n,:,:)=xnew(n,:,:)
+         accepted=accepted+1
+      endif
+   enddo
+   acceptance=float(accepted)/nwalk
+   end subroutine metropolis
+
+   subroutine step(x)
+   real(kind=r8), dimension(:,:) :: x
+   real(kind=r8) :: randg
+   integer(kind=i4) :: i,c
+   real(kind=r8), dimension(npart,3) :: grad
+   do i=1,npart
+      grad(i,:)=dlpsit(x,i)
+      do c=1,3
+         x(i,c)=x(i,c)+2.0_r8*h2o2m*dt*grad(i,c)+rgauss(irn)*sqrt(2.0_r8*h2o2m*dt)
+         !boundary conditions
+         if (x(i,c).gt.0.5_r8*l) x(i,c)=x(i,c)-l
+         if (x(i,c).lt.0.5_r8*l) x(i,c)=x(i,c)+l
+      enddo
+   enddo
+   end subroutine step
+
+   subroutine branch(x,n,nwalk,nwalk0)
+   real(kind=r8), dimension(:,:,:) :: x
+   integer(kind=i4) :: n,nwalk,nw,iw,nwalk0
+   real(kind=r8) :: weight,rand1
+   real(kind=r8),dimension(3) :: en
+   en=eloc(x(n,:,:))
+   if (nwalk.gt.1.2*nwalk0 .or. nwalk.lt.0.8*nwalk0) then
+      weight=exp(-dt*(en(1)-etrial))*nwalk0/nwalk !weight with population control
+   else
+      weight=exp(-dt*(en(1)-etrial))
+   endif
+   nw=weight+ran(irn)
+   if (nw.eq.0) then
+      do iw=n,nwalk-1
+         x(iw,:,:)=x(iw+1,:,:)
+      enddo
+      nwalk=nwalk-1
+      elseif (nw.gt.1) then
+      do iw=1,nw-1
+         x(nwalk+iw,:,:)=x(n,:,:)
+         nwalk=nwalk+1
+      enddo
+   endif
+   end subroutine branch
+
+   subroutine stat(obs,ave,err)
+   real(kind=r8), dimension(:) :: obs
+   real(kind=r8), intent(out) :: ave,err
+   real(kind=r8) :: ave2
+   integer(kind=i4) :: num
+   num=size(obs)
+   ave=sum(obs)/num
+   ave2=0.0_r8
+   ave2=sum(obs**2.0_r8)/num
+   err=sqrt(abs(ave2-ave**2.0_r8)/num)
+   end subroutine stat
+end module mymod

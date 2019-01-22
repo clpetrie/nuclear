@@ -1,0 +1,45 @@
+\documentclass[12pt,letterpaper]{article}
+\begin{document}
+
+\subsection*{Short progress report}
+In the past year we have been able to add quadratic correlations to the trial wave function that we use in nuclear Monte Carlo calculations. These additional correlations have caused the energies to decrease for the nuclei $^4$He and $^{16}$O as well as for symmetric nuclear matter. We plan to publish these results shortly.
+These linear and quadratic correlations come from an expansion of the exponential correlation. We plan to include the full set of exponential correlations in the nuclear trial wave function. We then plan to use these improved wave function to investigate the clustering of nucleons into alpha particles in mostly neutron matter.
+
+\subsection*{Longer progress report}
+Auxiliary Field Diffusion Monte Carlo (AFDMC) calculation depend heavily on having a good estimate to the ground state wave function of your system. This estimate is called the trial wave function. The ideal set spin-isospin dependent correlations are an exponential of spin-isospin operators. In the past this exponential was expanded and truncated at linear correlations \cite{gandolfi2014}. We have expanded the trial wave function to include quadratic correlations. The addition of these correlations has lowered the energies for each system that we have calculated compared to the same calculation with linear correlations. We have currently done correlations for the nuclei $^4$He and $^{16}$O and for symmetric nuclear matter including 28 nucleons in a periodic box.
+
+It would be benifitial to include the full exponential correlations in the trial wave function if possible. To propogate the positions and spins of the configurations of particles we use a Green's function or propogator. The propagator involves the exponential of the Hamiltonian, which contains the same spin-isospin dependent operators as the wave function correlations. Currently the spin-isospin dependent propagator is calculated with the aid of the Hubbard-Stratanovich transformation as described in \cite{carlson2015}. We plan to use the Hubbard-Stratanovich transformation to calculate the full exponential correlation operator. This should improve the trial wave function even furthan than the quadratic correlations.
+
+With this improved trial wave function we will investigate the clustering of two neutrons and two protons into alpha particles in mostly neutron matter. Alpha particle clustering has been investigated and has shown a dependence on density in mostly nuclear matter \cite{schuck2013}. We plan to show that AFDMC is a viable tool to investigate this clustering.
+
+\subsection*{Bio}
+Cody Petrie is a PhD student at Arizona State University. He received a BS in Physics from Brigham Young University in 2014. He has been doing computational nuclear physics for the past two and a half years.
+
+\subsection*{Allocation Request}
+We want to do energy calculations on three systems, $^4$He, $^{16}$O and symmetric nuclear matter using the new exponential correlations to compare the trial wave function with the linear and quadratic correlations. To do this we will need to optimize a new set of parameters. We estimate that this will require 10,000 SU's for development, 20,000 SU's to optimize the variational parameters for the new correlations, and 50,000 SU's to calculate the energies for the three nuclear systems mentioned above.
+
+With this improved wave function we will be investigating the clustering of alpha particles in mostly neutron matter. We will be doing calculations for a variety of densities to investigate the clustering dependence on density. We estimate that this will require 10,000 SU's for development, 20,000 SU's to optimize the code for mostly neutron matter and 90,000 SU's to calculate the clustering at a variety of densities.
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{|c|c|c|}
+      \hline
+       & Exponential Correlations & Alpha Particle Clustering\\
+      \hline \hline
+      Development & 10,000 & 10,000\\
+      \hline
+      Variational Optimization & 20,000 & 20,000\\
+      \hline
+      Production & 50,000 & 90,000\\
+      \hline
+      Subtotal & 80,000 & 120,000\\
+      \hline \hline
+      \multicolumn{3}{|c|}{\textbf{Total: 200,000 SU's}} \\
+      \hline
+   \end{tabular}
+\end{table}
+
+
+\newpage
+\bibliographystyle{unsrt}
+\bibliography{refs}
+\end{document}

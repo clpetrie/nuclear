@@ -1,0 +1,403 @@
+\section{Derive Exponential Wave Function}
+The most general form of the fully correlated wave function is the exponentially correlated wave function given by
+\begin{equation}
+   \ket{\Psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j,p}f_p(r_{ij})\Oijp} \ket{\Phi}
+\end{equation}
+The exponential is to maintain cluster decomposition of the wave function. The Jastrow spin-isospin independent correlations are handeled independent of my piece of the code and so I will ignore them here which effectively leaves me with
+\begin{equation}
+   \ket{\Psi_T} = e^{\sum\limits_{i<j,p}f_p(r_{ij})\Oijp} \ket{\Phi},
+\end{equation}
+where the operators in the sum are the standard $v6'$ operators, $\si\cdot\sj$, $\ti\cdot\tj$, $\si\cdot\sj \ti\cdot\tj$, $S_{ij}$ and $S_{ij} \ti\cdot\tj$, where $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$. In an effort to write this an a sum of squared single particle operators (to be used with the Hubbard Stratanovich transformation) these operators can be written in the form
+\begin{equation}
+   \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Oijp\right) = \exp\left(\frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}A^{\sigma}_{i\alpha,j\beta}\sigma_{j\beta}
+      + \frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}A^{\sigma\tau}_{i\alpha,j\beta}\sigma_{j\beta}\ti\cdot\tj
+      + \frac{1}{2}\sum\limits_{i,j} A^{\tau}_{i,j}\ti\cdot\tj\right).
+\end{equation}
+These matricies are simply another way to write the $f^p(r_{ij})$ function. Writting the operators in this form is discussed in more detail in appendix~\ref{app:hsprep}. In the code (in psicalc.f90) these matricies are actually called ``ftau(npart,npart)", ``fsig(3,npart,3,npart)" and ``fsigtau(3,npart,3,npart)". These matricies are zero when $i=j$, symmetric and can be written in terms of their eigenvalues and vectors.
+\begin{align}
+   &\sum\limits_{j\beta} A^{\sigma}_{i\alpha,j\beta}\psi^{\sigma}_{n,j\beta} = \lambda^{\sigma}_n\psi^{\sigma}_{n,i\alpha} \\
+   &\sum\limits_{j\beta} A^{\sigma\tau}_{i\alpha,j\beta}\psi^{\sigma\tau}_{n,j\beta} = \lambda^{\sigma\tau}_n\psi^{\sigma\tau}_{n,i\alpha} \\
+   &\sum\limits_{j} A^{\tau}_{i,j}\psi^{\tau}_{n,j} = \lambda^{\tau}_n\psi^{\tau}_{n,i}
+\end{align}
+The operators can then be written as
+\begin{equation}
+   \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Oijp\right) = \exp\left(\frac{1}{2}\sum\limits_{n=1}^{3A} \left(O_{n}^{\sigma}\right)^2 \lambda_n^{\sigma}
+      + \frac{1}{2}\sum\limits_{\alpha=1}^{3}\sum\limits_{n=1}^{3A} \left(O_{n\alpha}^{\sigma\tau}\right)^2 \lambda_n^{\sigma\tau}
+      + \frac{1}{2}\sum\limits_{\alpha=1}^{3}\sum\limits_{n=1}^{A} \left(O_{n\alpha}^{\tau}\right)^2 \lambda_n^{\tau}\right),
+\end{equation}
+where the operators are given by
+\begin{equation}
+\begin{split}
+   O_{n}^{\sigma} &= \sum\limits_{j,\beta} \sigma_{j,\beta}\psi_{n,j,\beta}^{\sigma} \\
+   O_{n\alpha}^{\sigma\tau} &= \sum\limits_{j,\beta} \tau_{j,\alpha}\sigma_{j,\beta}\psi_{n,j,\beta}^{\sigma\tau} \\
+   O_{n\alpha}^{\tau} &= \sum\limits_{j} \tau_{j,\alpha}\psi_{n,j}^{\tau}.
+\end{split}
+\end{equation}
+Now this is ready to use with the Hubbard Stratanovich transformation
+\begin{equation}
+   e^{-\frac{1}{2}\lambda O^2} = \frac{1}{\sqrt{2\pi}} \int dx e^{-\frac{x^2}{2} + \sqrt{-\lambda}x O}.
+\end{equation}
+Writting this set of correlation operators in a more compact way,
+\begin{equation}
+    \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Oijp\right) = \exp\left(\frac{1}{2}\sum\limits_{n=1}^{15A} \left(O_{n}\right)^2 \lambda_n^{\sigma}\right)
+\end{equation}
+allows for the application of the HS transformation, after breaking it into $15A$ exponentials and ignoring the commutation terms.
+\begin{equation}
+   \exp\left(\frac{1}{2}\sum\limits_{n=1}^{15A} \left(O_{n}\right)^2 \lambda_n^{\sigma}\right) = \prod\limits_{n=1}^{15A} \frac{1}{\sqrt{2\pi}}\int dx_n e^{-x_n^2/2}e^{\sqrt{\lambda_n}x_nO_n}.
+\end{equation}
+
+The auxiliary fields can then be drawn from the gaussian distribution, $\exp\left(-x_n^2/2\right)$ and the correlations can be written as follows.
+\begin{equation}
+   \Psi_T(R,S) = \bra{RS}\prod\limits_{n=1}^{15A} \frac{1}{N} \sum\limits_{\{x_n\}}^N\frac{1}{\sqrt{2\pi}}e^{\sqrt{\lambda_n}x_nO_n}\ket{\Phi}.
+\end{equation}
+
+\subsection{Cluster Decomposability}
+A physical multi-particle system has the property of cluster decomposability. This is that when two systems $A_1$ and $A_2$, are separated by large distances their composite wavefunction will asymptotically approach
+\begin{equation}
+   \ket{A_1 + A_2} \rightarrow \ket{A_1}\ket{A_2}.
+   \label{eq:clusterdecomposition}
+\end{equation}
+The exponentially correlated trial wave function is cluster decomposable. If a system were split into two parts $A_1$ and $A_2$, any pair correlation with a particle in each system would have no contribution to the total wave function because any such correlation would be zero inside the exponential. This is not a property held by the linear or quadratically correlated wave functions.
+
+For example, a system of four particles split into two subsystems and separated by a large distance where the two systems are $A_{12}$ containing particles 1 and 2, and $A_{34}$ containing particles 3 and 4. Any correlations that correlate particles in different subsystems will be zero. For the linear correlated wave function this will leave the correlationsof the form
+\begin{equation}
+   \bra{RS}\left[1+f_p(r_{12})\mathcal{O}^p_{12}+f_p(r_{34})\mathcal{O}^p_{34}\right]\ket{\Phi},
+\end{equation}
+where there is an implicit sum over $p$ operators. This is not of the form $\ket{A_{12} + A_{34}} = \ket{A_{12}}\ket{A_{34}}$ and is thus not cluster decomposable. A similar analysis can be done for the quadratically correlated wave function.
+
+One of the advantages to the exponentially correlated wave function is that is maintains cluster decomposibility. The most basic form for the exponentially correlated wave function ignoring spin-isospin independent Jastrow correlations is
+\begin{equation}
+   \Psi_T = \bra{RS} e^{\sum\limits_{i<j} f_p(r_{ij})\mathcal{O}^p_{ij}} \ket{\Phi}.
+\end{equation}
+Again, any correlations that correlate particles from the two different systems will be zero and the wave function becomes
+\begin{align}
+   \Psi_T &= \bra{RS} e^{f_p(r_{12})\mathcal{O}^p_{12} + f_p(r_{34})\mathcal{O}^p_{34}} \ket{\Phi} \\
+   &= \bra{RS} e^{f_p(r_{12})\mathcal{O}^p_{12}} e^{f_p(r_{34})\mathcal{O}^p_{34}} \ket{\Phi}.
+\end{align}
+The walkers $\ket{RS}$ and states $\ket{Phi}$ can be broken up into parts that correspond to the different subsystems and so the wave function can be written as
+\begin{equation}
+   \Psi_T = {}_{12}\bra{RS}e^{f_p(r_{12})\mathcal{O}^p_{12}}\ket{\Phi}_{12} {}_{34}\bra{RS}e^{f_p(r_{34})\mathcal{O}^p_{34}}\ket{\Phi}_{34}.
+\end{equation}
+This is the same form as equation~\ref{eq:clusterdecomposition} and is thus a sully cluster decomposed wave function.
+
+\section{Exponential of an Operator}
+To start I'll write down the exponential correlations in their full form. They look something like this
+\begin{equation}
+   \prod\limits_{n=1}^{15A} \frac{1}{\sqrt{2\pi}}\int dx_n e^{-x_n^2/2}e^{\sqrt{-\lambda_n}x_nO_n}.
+\end{equation}
+This is after the Hubbard-Staratanovich transformation has been applied to the correlations so that the correlations can be sampled from single-particle operators. If they are sampled they take a form something like
+\begin{equation}
+   \prod\limits_{n=1}^{15A} \frac{1}{\sqrt{2\pi}}\sum\limits_{x_n}^N\frac{1}{N}e^{\sqrt{-\lambda_n}x_nO_n}.
+\end{equation}
+It might also be important to note that we have added plus-minus sampling to this\ldots but I'll add that and the square root of the matrix stuff in later.
+
+Now I will talk about each individual operator that we have in the correlations. The 15A operators are $\tau_{\alpha i}$ (3A), $\sigma_{\alpha i}$ (3A), and $\sigma_{\alpha i}\tau_{\beta j}$ (9A). Assuming the basis is $\left|p\uparrow,p\downarrow,n\uparrow,n\downarrow\right>$ and stored as a column vector we can write the operators in matrix form as follows.
+\begin{equation*}
+\tau_x=
+\begin{pmatrix}
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0
+\end{pmatrix}
+~~~~~~~\tau_y=
+\begin{pmatrix}
+    0 & 0 & -i & 0 \\
+    0 & 0 & 0 & -i \\
+    i & 0 & 0 & 0 \\
+    0 & i & 0 & 0
+\end{pmatrix}
+~~~~~~~\tau_z=
+\begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & -1 & 0 \\
+    0 & 0 & 0 & -1
+\end{pmatrix}
+\end{equation*}
+\begin{equation*}
+\sigma_x=
+\begin{pmatrix}
+    0 & 1 & 0 & 0 \\
+    1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 0
+\end{pmatrix}
+~~~~~~~\sigma_y=
+\begin{pmatrix}
+    0 & -i & 0 & 0 \\
+    i & 0 & 0 & 0 \\
+    0 & 0 & 0 & -i \\
+    0 & 0 & i & 0
+\end{pmatrix}
+~~~~~~~\sigma_z=
+\begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & -1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & -1
+\end{pmatrix}
+\end{equation*}
+\begin{equation*}
+\sigma_x\tau_x=
+\begin{pmatrix}
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 0 \\
+    0 & 1 & 0 & 0 \\
+    1 & 0 & 0 & 0
+\end{pmatrix}
+~~~~~~~\sigma_x\tau_y=
+\begin{pmatrix}
+    0 & 0 & 0 & -i \\
+    0 & 0 & -i & 0 \\
+    0 & i & 0 & 0 \\
+    i & 0 & 0 & 0
+\end{pmatrix}
+~~~~~~~\sigma_x\tau_z=
+\begin{pmatrix}
+    0 & 1 & 0 & 0 \\
+    1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & -1 \\
+    0 & 0 & -1 & 0
+\end{pmatrix}
+\end{equation*}
+\begin{equation*}
+\sigma_y\tau_x=
+\begin{pmatrix}
+    0 & 0 & 0 & -i \\
+    0 & 0 & i & 0 \\
+    0 & -i & 0 & 0 \\
+    i & 0 & 0 & 0
+\end{pmatrix}
+~~~~~~~\sigma_y\tau_y=
+\begin{pmatrix}
+    0 & 0 & 0 & -1 \\
+    0 & 0 & 1 & 0 \\
+    0 & 1 & 0 & 0 \\
+    -1 & 0 & 0 & 0
+\end{pmatrix}
+~~~~~~~\sigma_y\tau_z=
+\begin{pmatrix}
+    0 & -i & 0 & 0 \\
+    i & 0 & 0 & 0 \\
+    0 & 0 & 0 & i \\
+    0 & 0 & -i & 0
+\end{pmatrix}
+\end{equation*}
+\begin{equation*}
+\sigma_z\tau_x=
+\begin{pmatrix}
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & -1 \\
+    1 & 0 & 0 & 0 \\
+    0 & -1 & 0 & 0
+\end{pmatrix}
+~~~~~~~\sigma_z\tau_y=
+\begin{pmatrix}
+    0 & 0 & -i & 0 \\
+    0 & 0 & 0 & i \\
+    i & 0 & 0 & 0 \\
+    0 & -i & 0 & 0
+\end{pmatrix}
+~~~~~~~\sigma_z\tau_z=
+\begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & -1 & 0 & 0 \\
+    0 & 0 & -1 & 0 \\
+    0 & 0 & 0 & 1
+\end{pmatrix}
+\end{equation*}
+
+Now those are easy enough to figure out if you just look at the pauli matricies on a simple spin-1/2 system. But what we really want is the exponential of these matricies with an extra factor up top that looks something like
+\begin{equation}
+   e^{\sqrt{-\lambda_n}x_nO_n}.
+\end{equation}
+I'm going to rewrite this with an $i$ in it as
+\begin{equation}
+   e^{i\gamma O_n},
+\end{equation}
+where the $\gamma=\sqrt{\lambda_n}x_n$, for each particular operator. In this way the exponentiated matricies can be written in terms of regular matricies. Plugging this into Mathematica I get the following.
+\footnotesize
+\begin{equation*}
+e^{i\gamma\tau_x}=
+\begin{pmatrix}
+    \cos\gamma & 0 & i\sin\gamma & 0 \\
+    0 & \cos\gamma & 0 & i\sin\gamma \\
+    i\sin\gamma & 0 & \cos\gamma & 0 \\
+    0 & i\sin\gamma & 0 & \cos\gamma
+\end{pmatrix}
+e^{i\gamma\tau_y}=
+\begin{pmatrix}
+    \cos\gamma & 0 & \sin\gamma & 0 \\
+    0 & \cos\gamma & 0 & \sin\gamma \\
+    -\sin\gamma & 0 & \cos\gamma & 0 \\
+    0 & -\sin\gamma & 0 & \cos\gamma
+\end{pmatrix}
+e^{i\gamma\tau_z}=
+\begin{pmatrix}
+    e^{i\gamma} & 0 & 0 & 0 \\
+    0 & e^{i\gamma} & 0 & 0 \\
+    0 & 0 & e^{-i\gamma} & 0 \\
+    0 & 0 & 0 & e^{-i\gamma}
+\end{pmatrix}
+\end{equation*}
+\begin{equation*}
+e^{i\gamma\sigma_x}=
+\begin{pmatrix}
+    \cos\gamma & i\sin\gamma & 0 & 0 \\
+    i\sin\gamma & \cos\gamma & 0 & 0 \\
+    0 & 0 & \cos\gamma & i\sin\gamma \\
+    0 & 0 & i\sin\gamma & \cos\gamma
+\end{pmatrix}
+e^{i\gamma\sigma_y}=
+\begin{pmatrix}
+    \cos\gamma & \sin\gamma & 0 & 0 \\
+    -\sin\gamma & \cos\gamma & 0 & 0 \\
+    0 & 0 & \cos\gamma & \sin\gamma \\
+    0 & 0 & -\sin\gamma & \cos\gamma
+\end{pmatrix}
+e^{i\gamma\sigma_z}=
+\begin{pmatrix}
+    e^{i\gamma} & 0 & 0 & 0 \\
+    0 & e^{-i\gamma} & 0 & 0 \\
+    0 & 0 & e^{i\gamma} & 0 \\
+    0 & 0 & 0 & e^{-i\gamma}
+\end{pmatrix}
+\end{equation*}
+\scriptsize
+\begin{equation*}
+e^{i\gamma\sigma_x\tau_x}=
+\begin{pmatrix}
+    \cos\gamma & 0 & 0 & i\sin\gamma \\
+    0 & \cos\gamma & i\sin\gamma & 0 \\
+    0 & i\sin\gamma & \cos\gamma & 0 \\
+    i\sin\gamma & 0 & 0 & \cos\gamma
+\end{pmatrix}
+e^{i\gamma\sigma_x\tau_y}=
+\begin{pmatrix}
+    \cos\gamma & 0 & 0 & \sin\gamma \\
+    0 & \cos\gamma & \sin\gamma & 0 \\
+    0 & -\sin\gamma & \cos\gamma & 0 \\
+    -\sin\gamma & 0 & 0 & \cos\gamma
+\end{pmatrix}
+e^{i\gamma\sigma_x\tau_z}=
+\begin{pmatrix}
+    \cos\gamma & i\sin\gamma & 0 & 0 \\
+    i\sin\gamma & \cos\gamma & 0 & 0 \\
+    0 & 0 & \cos\gamma & -i\sin\gamma \\
+    0 & 0 & -i\sin\gamma & \cos\gamma
+\end{pmatrix}
+\end{equation*}
+\begin{equation*}
+e^{i\gamma\sigma_y\tau_x}=
+\begin{pmatrix}
+    \cos\gamma & 0 & 0 & \sin\gamma \\
+    0 & \cos\gamma & -\sin\gamma & 0 \\
+    0 & \sin\gamma & \cos\gamma & 0 \\
+    -\sin\gamma & 0 & 0 & \cos\gamma
+\end{pmatrix}
+e^{i\gamma\sigma_y\tau_y}=
+\begin{pmatrix}
+    \cos\gamma & 0 & 0 & -i\sin\gamma \\
+    0 & \cos\gamma & i\sin\gamma & 0 \\
+    0 & i\sin\gamma & \cos\gamma & 0 \\
+    -i\sin\gamma & 0 & 0 & \cos\gamma
+\end{pmatrix}
+e^{i\gamma\sigma_y\tau_z}=
+\begin{pmatrix}
+    \cos\gamma & \sin\gamma & 0 & 0 \\
+    -\sin\gamma & \cos\gamma & 0 & 0 \\
+    0 & 0 & \cos\gamma & -\sin\gamma \\
+    0 & 0 & \sin\gamma & \cos\gamma
+\end{pmatrix}
+\end{equation*}
+\begin{equation*}
+e^{i\gamma\sigma_z\tau_x}=
+\begin{pmatrix}
+    \cos\gamma & 0 & i\sin\gamma & 0 \\
+    0 & \cos\gamma & 0 & -i\sin\gamma \\
+    i\sin\gamma & 0 & \cos\gamma & 0 \\
+    0 & -i\sin\gamma & 0 & \cos\gamma
+\end{pmatrix}
+e^{i\gamma\sigma_z\tau_y}=
+\begin{pmatrix}
+    \cos\gamma & 0 & \sin\gamma & 0 \\
+    0 & \cos\gamma & 0 & -\sin\gamma \\
+    -\sin\gamma & 0 & \cos\gamma & 0 \\
+    0 & \sin\gamma & 0 & \cos\gamma
+\end{pmatrix}
+e^{i\gamma\sigma_z\tau_z}=
+\begin{pmatrix}
+    e^{i\gamma} & 0 & 0 & 0 \\
+    0 & e^{-i\gamma} & 0 & 0 \\
+    0 & 0 & e^{-i\gamma} & 0 \\
+    0 & 0 & 0 & e^{i\gamma}
+\end{pmatrix}
+\end{equation*}
+\normalsize
+
+\section{Write potential as squared ops for AFDMC}
+\label{app:hsprep}
+The spin-isospin dependent potential can be written in the form
+\begin{equation}
+   V = \sum\limits_p\sum\limits_{i<j} u^p(\rij)\Oijp.
+\end{equation}
+I'm going to just write this out in terms of the simplest set of terms, the $\ti\cdot\tj$ terms.
+\begin{align}
+   V &= \sum\limits_{i<j} u^\tau(\rij)\Oijp \\
+   &= \sum\limits_{i<j} u^\tau(\rij)\left(\tau_{ix}\tau_{jx}+\tau_{iy}\tau_{jy}+\tau_{iz}\tau_{jz}\right) \\
+   &= \sum\limits_{i<j} u^\tau(\rij)\ti\cdot\tj \\
+   &= \sum\limits_\alpha\sum\limits_{i<j} u^\tau(\rij)\tia\tja.
+\end{align}
+These can be rewritten in terms in a martix made of of the $u$ values. In the case of the $\tau$ operators this is simple because $\Aijt=u^\tau(\rij)$. If I rewrite the potential using this, and doing a full sum over all i and j and then dividing by 2 I get
+\begin{equation}
+   V = \frac{1}{2}\sum\limits_{\alpha,i,j} \Aijt\tia\tja
+\end{equation}
+Now I want to write this matrix in terms of it's eigenvalues and eigenvectors, which are defined as
+\begin{equation}
+   A^{\tau}\psi_n^\tau=\lambda_n^\tau\psi_n^\tau,
+\end{equation}
+or if you want to write them in the matrix multiplication form
+\begin{equation}
+   \sum\limits_j\Aijt\psi_{n,j}^\tau = \lambda_n^\tau\psi_{n,i}^\tau.
+\end{equation}
+Now I want to write out the $A$ matrix in terms of it's eigenvalues and eigenvectors. I do this using eigenvector decompositon. This is defined as
+\begin{equation}
+   A=Q\Lambda Q^{-1},
+\end{equation}
+where $Q$ is the matrix of eigenvectors (so $Q_{ab}=\psi_{ab}$, the $a^{th}$ eigenvector for the $b^{th}$ particle, for example), and $\Lambda$ is the diagonal matrix of eigenvalues (so $\Lambda_{ab}=\delta_{ab}\lambda_a$). I didn't prove this, but it's roughly believable when you consider the eigenvalue equation, and doing it for each component. Also, if $Q$ is a symmetric square matrix, which it is for us, then you can write $Q^{-1}=Q^T$i. What we have in the potential is $\Aijt$, so we need to write the eigenvector decomposition in terms of the $ij^{th}$ entry. This can be done by using the definitions of matrix multiplication.
+\begin{equation}
+   (A\psi)_i = \sum\limits_jA_{ij}\psi_j
+\end{equation}
+\begin{equation}
+   (AB)_{ij}=\sum\limits_\alpha A_{i\alpha} B_{\alpha j}
+\end{equation}
+I'll now use these two equations to get $A_{ij}$ from the definition of eigenvalue decomposition.
+\begin{align}
+   A_{ij} &= \left(Q\Lambda Q^T\right)_{ij} \\
+   &=\sum\limits_\alpha\sum\limits_\beta Q_{i\beta}\Lambda_{\beta\alpha}Q^T_{\alpha j} \\
+   &=\sum\limits_\alpha\sum\limits_\beta Q_{i\beta}\delta_{\beta\alpha}\lambda_\alpha Q^T_{\alpha j} \\
+   &=\sum\limits_\alpha \lambda_\alpha Q_{i\alpha}Q^T_{\alpha j} \\
+   &=\sum\limits_\alpha \lambda_\alpha \psi_{i\alpha}\psi_{j\alpha}
+\end{align}
+Now plug this into the equation that we had earlier for the potential to get
+\begin{align}
+   V &= \frac{1}{2}\sum\limits_{\alpha,i,j} \Aijt\tia\tja \\
+   &= \frac{1}{2}\sum\limits_{\alpha,i,j}\sum\limits_n\lambda_n^\tau\psi_{i,n}\psi_{j,n}\tia\tja \\
+   &= \frac{1}{2}\sum\limits_\alpha\sum\limits_n\left(\Ot\right)^2\lambda^\tau_n,
+   \label{equ:Vtau}
+\end{align}
+where
+\begin{equation}
+   \Ot = \sum\limits_i \tau_{i\alpha}\psi^\tau_n.
+\end{equation}
+A similar analysis can be done for the $\Os$ and $\Ost$ operators.
+
+\subsection{Importance Sampling}
+\red{Fill in here!}
+
+\subsection{Controlling the run away kinetic energy}
+
+
+\section{One Pion Exchange potential}
+\red{When I get a little for QFT under my belt I'll tackle this.}

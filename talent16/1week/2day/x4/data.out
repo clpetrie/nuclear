@@ -1,0 +1,313 @@
+Diffusion Monte Carlo
+Number of blocks for equilibration =                     10
+Number of blocks for statistics =                        50
+Number of steps for each block =                        100
+Walkers =                                             10000
+Alpha parameter of the trial wave function =        1.30000
+Omega strength of the potential =                   1.00000
+Time step =                                         0.00100
+Trial energy =                                      0.50000
+
+block =                                   1
+walker number =                       10000
+tau =                   0.10193E+04
+energy for block = 0.35477E+00 +/- 0.42427E+00
+
+
+block =                                   2
+walker number =                       10419
+tau =                   0.20788E+04
+energy for block = 0.39025E+00 +/- 0.37594E+00
+
+
+block =                                   3
+walker number =                       10784
+tau =                   0.31714E+04
+energy for block = 0.41281E+00 +/- 0.34263E+00
+
+
+block =                                   4
+walker number =                       11000
+tau =                   0.42713E+04
+energy for block = 0.43149E+00 +/- 0.31090E+00
+
+
+block =                                   5
+walker number =                       11000
+tau =                   0.53713E+04
+energy for block = 0.44755E+00 +/- 0.28413E+00
+
+
+block =                                   6
+walker number =                       11000
+tau =                   0.64713E+04
+energy for block = 0.45993E+00 +/- 0.26725E+00
+
+
+block =                                   7
+walker number =                       11000
+tau =                   0.75712E+04
+energy for block = 0.46423E+00 +/- 0.25912E+00
+
+
+block =                                   8
+walker number =                       11000
+tau =                   0.86712E+04
+energy for block = 0.46936E+00 +/- 0.25180E+00
+
+
+block =                                   9
+walker number =                       11000
+tau =                   0.97712E+04
+energy for block = 0.47689E+00 +/- 0.24058E+00
+
+
+block =                                  10
+walker number =                       11000
+tau =                   0.10871E+05
+energy for block = 0.48220E+00 +/- 0.23286E+00
+
+
+block =                                  11
+walker number =                       10999
+tau =                   0.11971E+05
+energy for block = 0.48596E+00 +/- 0.22896E+00
+
+
+block =                                  12
+walker number =                       10999
+tau =                   0.13071E+05
+energy for block = 0.48886E+00 +/- 0.22542E+00
+
+
+block =                                  13
+walker number =                       11000
+tau =                   0.14171E+05
+energy for block = 0.49334E+00 +/- 0.21859E+00
+
+
+block =                                  14
+walker number =                       10999
+tau =                   0.15271E+05
+energy for block = 0.49568E+00 +/- 0.21611E+00
+
+
+block =                                  15
+walker number =                       10998
+tau =                   0.16371E+05
+energy for block = 0.49724E+00 +/- 0.21584E+00
+
+
+block =                                  16
+walker number =                       11000
+tau =                   0.17471E+05
+energy for block = 0.50152E+00 +/- 0.20973E+00
+
+
+block =                                  17
+walker number =                       11000
+tau =                   0.18571E+05
+energy for block = 0.50148E+00 +/- 0.21462E+00
+
+
+block =                                  18
+walker number =                       10999
+tau =                   0.19671E+05
+energy for block = 0.50177E+00 +/- 0.21442E+00
+
+
+block =                                  19
+walker number =                       11001
+tau =                   0.20771E+05
+energy for block = 0.50179E+00 +/- 0.21262E+00
+
+
+block =                                  20
+walker number =                       11000
+tau =                   0.21871E+05
+energy for block = 0.50207E+00 +/- 0.20996E+00
+
+
+block =                                  21
+walker number =                       10997
+tau =                   0.22970E+05
+energy for block = 0.50380E+00 +/- 0.20314E+00
+
+
+block =                                  22
+walker number =                       11000
+tau =                   0.24070E+05
+energy for block = 0.50404E+00 +/- 0.20593E+00
+
+
+block =                                  23
+walker number =                       11000
+tau =                   0.25170E+05
+energy for block = 0.50545E+00 +/- 0.20518E+00
+
+
+block =                                  24
+walker number =                       11000
+tau =                   0.26270E+05
+energy for block = 0.50341E+00 +/- 0.20749E+00
+
+
+block =                                  25
+walker number =                       10998
+tau =                   0.27370E+05
+energy for block = 0.50188E+00 +/- 0.20892E+00
+
+
+block =                                  26
+walker number =                       11000
+tau =                   0.28470E+05
+energy for block = 0.50439E+00 +/- 0.20377E+00
+
+
+block =                                  27
+walker number =                       10998
+tau =                   0.29570E+05
+energy for block = 0.50689E+00 +/- 0.20005E+00
+
+
+block =                                  28
+walker number =                       11000
+tau =                   0.30670E+05
+energy for block = 0.50684E+00 +/- 0.20143E+00
+
+
+block =                                  29
+walker number =                       11000
+tau =                   0.31770E+05
+energy for block = 0.50252E+00 +/- 0.20935E+00
+
+
+block =                                  30
+walker number =                       11000
+tau =                   0.32870E+05
+energy for block = 0.50311E+00 +/- 0.20690E+00
+
+
+block =                                  31
+walker number =                       10999
+tau =                   0.33970E+05
+energy for block = 0.50270E+00 +/- 0.21245E+00
+
+
+block =                                  32
+walker number =                       10999
+tau =                   0.35070E+05
+energy for block = 0.50477E+00 +/- 0.20830E+00
+
+
+block =                                  33
+walker number =                       11000
+tau =                   0.36170E+05
+energy for block = 0.50518E+00 +/- 0.20707E+00
+
+
+block =                                  34
+walker number =                       11000
+tau =                   0.37269E+05
+energy for block = 0.50711E+00 +/- 0.20463E+00
+
+
+block =                                  35
+walker number =                       10998
+tau =                   0.38369E+05
+energy for block = 0.50476E+00 +/- 0.20819E+00
+
+
+block =                                  36
+walker number =                       11000
+tau =                   0.39469E+05
+energy for block = 0.50491E+00 +/- 0.20460E+00
+
+
+block =                                  37
+walker number =                       10999
+tau =                   0.40569E+05
+energy for block = 0.50687E+00 +/- 0.20119E+00
+
+
+block =                                  38
+walker number =                       11000
+tau =                   0.41669E+05
+energy for block = 0.50692E+00 +/- 0.20112E+00
+
+
+block =                                  39
+walker number =                       11000
+tau =                   0.42769E+05
+energy for block = 0.50721E+00 +/- 0.20140E+00
+
+
+block =                                  40
+walker number =                       11000
+tau =                   0.43869E+05
+energy for block = 0.50450E+00 +/- 0.20732E+00
+
+
+block =                                  41
+walker number =                       10999
+tau =                   0.44969E+05
+energy for block = 0.50367E+00 +/- 0.20950E+00
+
+
+block =                                  42
+walker number =                       11000
+tau =                   0.46069E+05
+energy for block = 0.50227E+00 +/- 0.20839E+00
+
+
+block =                                  43
+walker number =                       11000
+tau =                   0.47169E+05
+energy for block = 0.50301E+00 +/- 0.20994E+00
+
+
+block =                                  44
+walker number =                       10999
+tau =                   0.48269E+05
+energy for block = 0.50165E+00 +/- 0.21085E+00
+
+
+block =                                  45
+walker number =                       11000
+tau =                   0.49369E+05
+energy for block = 0.50273E+00 +/- 0.20582E+00
+
+
+block =                                  46
+walker number =                       11000
+tau =                   0.50469E+05
+energy for block = 0.50509E+00 +/- 0.19864E+00
+
+
+block =                                  47
+walker number =                       11000
+tau =                   0.51569E+05
+energy for block = 0.50544E+00 +/- 0.19671E+00
+
+
+block =                                  48
+walker number =                       11000
+tau =                   0.52668E+05
+energy for block = 0.50724E+00 +/- 0.19613E+00
+
+
+block =                                  49
+walker number =                       10995
+tau =                   0.53768E+05
+energy for block = 0.50838E+00 +/- 0.19428E+00
+
+
+block =                                  50
+walker number =                       10996
+tau =                   0.54868E+05
+energy for block = 0.50841E+00 +/- 0.19478E+00
+
+
+Finished!
+E = 0.49009E+00 +/- 0.31358E-01
+
