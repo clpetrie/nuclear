@@ -2,20 +2,20 @@
 set terminal png enhanced font 'Verdana,11'
 
 sys=1 #1=alpha, 2=14n, 3=14n2p, 4=all_together
-datafile='plotdata.txt'
+#datafile='plotdata.txt'
 #datafile='vke.txt'
 #datafile='vc.txt'
 #datafile='vt.txt'
 #datafile='vs.txt'
 #datafile='vst.txt'
 #datafile='vten.txt'
-#datafile='vtent.txt'
+datafile='vtent.txt'
 if (sys==1) imin="4"
-if (sys==1) imax="9"
-if (sys==2) imin="12"
-if (sys==2) imax="17"
-if (sys==3) imin="20"
-if (sys==3) imax="25"
+if (sys==1) imax="14"
+if (sys==2) imin="17"
+if (sys==2) imax="27"
+if (sys==3) imin="30"
+if (sys==3) imax="40"
 
 if (sys==1) set output 'alpha.png'
 if (sys==2) set output '14n.png'
