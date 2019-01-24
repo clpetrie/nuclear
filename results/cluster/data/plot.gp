@@ -1,15 +1,15 @@
 #set terminal pngcairo enhanced font 'Verdana,11'
 set terminal png enhanced font 'Verdana,11'
 
-sys=1 #1=alpha, 2=14n, 3=14n2p, 4=all_together
+sys=3 #1=alpha, 2=14n, 3=14n2p, 4=all_together
 #datafile='plotdata.txt'
 #datafile='vke.txt'
-#datafile='vc.txt'
+datafile='vc.txt'
 #datafile='vt.txt'
 #datafile='vs.txt'
 #datafile='vst.txt'
 #datafile='vten.txt'
-datafile='vtent.txt'
+#datafile='vtent.txt'
 if (sys==1) imin="4"
 if (sys==1) imax="14"
 if (sys==2) imin="17"
@@ -26,7 +26,7 @@ lsize=2
 psize=1.2
 
 set xlabel "Density"
-set ylabel "Alpha Particle Energy (MeV)"
+set ylabel "Energy (MeV)"
 
 if (sys<=3) \
    plot "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:2:3 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "red" title 'Linear', \
