@@ -1,19 +1,19 @@
 #set terminal pngcairo enhanced font 'Verdana,11'
 set terminal png enhanced font 'Verdana,11'
 
-corr=3 #1=linear, 2=ip (lin opt), 3=ip (ip opt)
-sys=2 #1=alpha, 2=14n, 3=14n2p
+corr=2 #1=linear, 2=ip (lin opt), 3=ip (ip opt)
+sys=1 #1=alpha, 2=14n, 3=14n2p
 if (sys==1) \
    imin="4"; \
-   imax="9"; \
+   imax="14"; \
    set output 'av6_alpha.png'
 if (sys==2) \
-   imin="12"; \
-   imax="17"; \
+   imin="17"; \
+   imax="27"; \
    set output 'av6_14n.png'
 if (sys==3) \
-   imin="20"; \
-   imax="25"; \
+   imin="30"; \
+   imax="40"; \
    set output 'av6_14n2p.png'
 if (corr==1) \
    cmin=2; \
@@ -42,8 +42,6 @@ set ylabel "Energy (MeV)"
 
 plot "<(sed -n '".imin.",".imax."p' ".fileenergy.")" u 1:cmin:cmax with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "red" title 'Etotal', \
    "<(sed -n '".imin.",".imax."p' ".fileenergy.")" u 1:cmin with lines linetype 2 linewidth lsize lc rgb "red" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".fileke.")" u 1:cmin:cmax with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "blue" title 'vke', \
-   "<(sed -n '".imin.",".imax."p' ".fileke.")" u 1:cmin with lines linetype 2 linewidth lsize lc rgb "blue" notitle, \
    "<(sed -n '".imin.",".imax."p' ".filec.")" u 1:cmin:cmax with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "green" title 'vc', \
    "<(sed -n '".imin.",".imax."p' ".filec.")" u 1:cmin with lines linetype 2 linewidth lsize lc rgb "green" notitle, \
    "<(sed -n '".imin.",".imax."p' ".filet.")" u 1:cmin:cmax with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "orange" title 'vt', \
@@ -56,3 +54,5 @@ plot "<(sed -n '".imin.",".imax."p' ".fileenergy.")" u 1:cmin:cmax with yerrorba
    "<(sed -n '".imin.",".imax."p' ".fileten.")" u 1:cmin with lines linetype 2 linewidth lsize lc rgb "black" notitle, \
    "<(sed -n '".imin.",".imax."p' ".filetent.")" u 1:cmin:cmax with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "yellow" title 'vtent', \
    "<(sed -n '".imin.",".imax."p' ".filetent.")" u 1:cmin with lines linetype 2 linewidth lsize lc rgb "yellow" notitle
+#   "<(sed -n '".imin.",".imax."p' ".fileke.")" u 1:cmin:cmax with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "blue" title 'vke', \
+#   "<(sed -n '".imin.",".imax."p' ".fileke.")" u 1:cmin with lines linetype 2 linewidth lsize lc rgb "blue" notitle, \
