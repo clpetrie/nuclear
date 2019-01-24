@@ -2,7 +2,7 @@
 set terminal png enhanced font 'Verdana,11'
 
 sys=3 #1=alpha, 2=14n, 3=14n2p, 4=all_together
-#datafile='plotdata.txt'
+#datafile='data.txt'
 #datafile='vke.txt'
 datafile='vc.txt'
 #datafile='vt.txt'

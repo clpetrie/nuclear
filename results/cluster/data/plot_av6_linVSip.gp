@@ -36,7 +36,7 @@ if (corr2==3) \
    cmax2=7
 
 
-fileenergy='plotdata.txt'
+fileenergy='data.txt'
 fileke='vke.txt'
 filec='vc.txt'
 filet='vt.txt'

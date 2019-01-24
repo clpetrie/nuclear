@@ -1,0 +1,15 @@
+#vst
+#density, Elin, dElin, Eip, dEip #All ip calculations were optimized with ip correlations
+#alpha energy 4*E2n2p
+0.00025  
+0.0005   -54.7 0.4
+0.00075  
+0.001    
+0.0015   
+0.002    
+0.0025   
+0.003    
+0.004    
+0.005    
+0.007    
+0.01     -23.9 0.5

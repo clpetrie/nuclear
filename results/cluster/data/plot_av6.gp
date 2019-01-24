@@ -25,7 +25,7 @@ if (corr==3) \
    cmin=6; \
    cmax=7
 
-fileenergy='plotdata.txt'
+fileenergy='data.txt'
 fileke='vke.txt'
 filec='vc.txt'
 filet='vt.txt'
