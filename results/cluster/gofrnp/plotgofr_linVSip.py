@@ -2,25 +2,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #set up input parameters
-corrtype=2 #1=lin, 2=ip
 sys=5 #np0=1, np1=3, pp=5, nn=7
-density=('0.0005','0.001','0.002','0.003','0.005','0.01')
-pltstyle=('ko','ro','mo','yo','go','bo')
+density=('0.0005','0.01','0.0005','0.01')
+pltstyle=('ko','bo','go','ro')
+density=('0.0005','0.0005','0.01','0.01')
+pltstyle=('ko','co','bo','ro')
 
 #build other parameters
 lenfiles=len(density)
-if(corrtype==1):
-   corr='lin'
-elif(corrtype==2):
-   corr='ip'
-else:
-   print ''
-   print 'Invalid choice for corrtype! Valid choices are 1 and 2. Exiting!'
-   print ''
-   exit()
-#if(not(sys==1 or sys==3 or sys==5 or sys==7)):
-#   print 'Invalid choice for system! Valid choices are 1, 3, 5, and 7. Exiting!'
-#   exit()
+corr=('lin','ip','lin','ip')
 if(sys==1):
    sysname='np0'
 elif(sys==3):
@@ -39,7 +29,7 @@ else:
 data=[None]*lenfiles
 for n in range(0,lenfiles):
    #build data and remove unwanted pieces
-   f=open('gofrnp_'+density[n]+'_'+corr+'.dmc')
+   f=open('gofrnp_'+density[n]+'_'+corr[n]+'.dmc')
    data[n]=[]
    for line in f.readlines():
       data[n].append(line.split())
@@ -68,7 +58,7 @@ plt.xlabel('r(fm)')
 plt.ylabel(r'g$_{'+sysname+'}(r)$')
 plt.axhline(linewidth=2, color='k')
 for n in range(0,lenfiles):
-   plt.errorbar(data[n][:][0],data[n][:][sys],yerr=data[n][:][sys+1],fmt=pltstyle[n],label=r'$\rho$ = '+density[n]+r' fm$^{-3}$')
+   plt.errorbar(data[n][:][0],data[n][:][sys],yerr=data[n][:][sys+1],fmt=pltstyle[n],label=r'$\rho$ = '+density[n]+r' fm$^{-3}$, '+corr[n])
 plt.legend(loc='upper right',numpoints=1)
 f1.savefig("plot1.pdf", bbox_inches='tight')
 
@@ -78,7 +68,7 @@ plt.ylim([0,0.05])
 plt.xlabel('r(fm)')
 plt.ylabel(r'g$_{'+sysname+'}(r)$')
 for n in range(0,lenfiles):
-   plt.errorbar(data[n][:][0],data[n][:][sys],yerr=data[n][:][sys+1],fmt=pltstyle[n],label=r'$\rho$ = '+density[n]+r' fm$^{-3}$')
+   plt.errorbar(data[n][:][0],data[n][:][sys],yerr=data[n][:][sys+1],fmt=pltstyle[n],label=r'$\rho$ = '+density[n]+r' fm$^{-3}$, '+corr[n])
 plt.legend(loc='upper right',numpoints=1)
 f2.savefig("plot2.pdf", bbox_inches='tight')
 plt.show()
