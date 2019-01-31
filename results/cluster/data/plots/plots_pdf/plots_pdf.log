@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.22)  29 JAN 2019 14:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.22)  31 JAN 2019 14:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -426,77 +426,77 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<../alpha.png, id=42, 481.8pt x 361.35pt>
+<../alpha.png, id=47, 481.8pt x 361.35pt>
 File: ../alpha.png Graphic file (type png)
  <use ../alpha.png>
 Package pdftex.def Info: ../alpha.png used on input line 61.
 (pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
 
-<../14n.png, id=43, 481.8pt x 361.35pt>
+<../14n.png, id=48, 481.8pt x 361.35pt>
 File: ../14n.png Graphic file (type png)
  <use ../14n.png>
 Package pdftex.def Info: ../14n.png used on input line 66.
 (pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
 
-<../14n2p.png, id=44, 481.8pt x 361.35pt>
+<../14n2p.png, id=49, 481.8pt x 361.35pt>
 File: ../14n2p.png Graphic file (type png)
  <use ../14n2p.png>
 Package pdftex.def Info: ../14n2p.png used on input line 71.
 (pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
- [2 <../alpha.png> <../14n.png> <../14n2p.png>] <../av6_alpha_lin.png, id=58, 4
+ [2 <../alpha.png> <../14n.png> <../14n2p.png>] <../av6_alpha_lin.png, id=63, 4
 81.8pt x 361.35pt>
 File: ../av6_alpha_lin.png Graphic file (type png)
 
 <use ../av6_alpha_lin.png>
 Package pdftex.def Info: ../av6_alpha_lin.png used on input line 119.
 (pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
- <../av6_14n_lin.png, id=59, 481.8pt x 361.35pt>
+ <../av6_14n_lin.png, id=64, 481.8pt x 361.35pt>
 File: ../av6_14n_lin.png Graphic file (type png)
 
 <use ../av6_14n_lin.png>
 Package pdftex.def Info: ../av6_14n_lin.png used on input line 124.
 (pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
- <../av6_14n2p_lin.png, id=60, 481.8pt x 361.35pt>
+ <../av6_14n2p_lin.png, id=65, 481.8pt x 361.35pt>
 File: ../av6_14n2p_lin.png Graphic file (type png)
 
 <use ../av6_14n2p_lin.png>
 Package pdftex.def Info: ../av6_14n2p_lin.png used on input line 129.
 (pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
  [3 <../av6_alpha_lin.png> <../av6_14n_lin.png> <../av6_14n2p_lin.png>] <../av6
-_alpha_ip.png, id=69, 481.8pt x 361.35pt>
+_alpha_ip.png, id=74, 481.8pt x 361.35pt>
 File: ../av6_alpha_ip.png Graphic file (type png)
 
 <use ../av6_alpha_ip.png>
 Package pdftex.def Info: ../av6_alpha_ip.png used on input line 139.
 (pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
- <../av6_14n_ip.png, id=70, 481.8pt x 361.35pt>
+ <../av6_14n_ip.png, id=75, 481.8pt x 361.35pt>
 File: ../av6_14n_ip.png Graphic file (type png)
 
 <use ../av6_14n_ip.png>
 Package pdftex.def Info: ../av6_14n_ip.png used on input line 144.
 (pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
- <../av6_14n2p_ip.png, id=71, 481.8pt x 361.35pt>
+ <../av6_14n2p_ip.png, id=76, 481.8pt x 361.35pt>
 File: ../av6_14n2p_ip.png Graphic file (type png)
 
 <use ../av6_14n2p_ip.png>
 Package pdftex.def Info: ../av6_14n2p_ip.png used on input line 149.
 (pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
  [4 <../av6_alpha_ip.png> <../av6_14n_ip.png> <../av6_14n2p_ip.png>] <../av6_al
-pha_linVSip.png, id=80, 481.8pt x 361.35pt>
+pha_linVSip.png, id=85, 481.8pt x 361.35pt>
 File: ../av6_alpha_linVSip.png Graphic file (type png)
 
 <use ../av6_alpha_linVSip.png>
 Package pdftex.def Info: ../av6_alpha_linVSip.png used on input line 159.
 (pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
 
-<../av6_14n_linVSip.png, id=81, 481.8pt x 361.35pt>
+<../av6_14n_linVSip.png, id=86, 481.8pt x 361.35pt>
 File: ../av6_14n_linVSip.png Graphic file (type png)
 
 <use ../av6_14n_linVSip.png>
 Package pdftex.def Info: ../av6_14n_linVSip.png used on input line 164.
 (pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
 
-<../av6_14n2p_linVSip.png, id=82, 481.8pt x 361.35pt>
+<../av6_14n2p_linVSip.png, id=87, 481.8pt x 361.35pt>
 File: ../av6_14n2p_linVSip.png Graphic file (type png)
 
 <use ../av6_14n2p_linVSip.png>
@@ -504,39 +504,39 @@ Package pdftex.def Info: ../av6_14n2p_linVSip.png used on input line 169.
 (pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
  [5 <../av6_alpha_linVSip.png> <../av6_14n_linVSip.png> <../av6_14n2p_linVSip.p
 ng>]
-<../gpp_lin.pdf, id=91, 522.94904pt x 405.16997pt>
+<../gpp_lin.pdf, id=96, 522.94904pt x 405.16997pt>
 File: ../gpp_lin.pdf Graphic file (type pdf)
  <use ../gpp_lin.pdf>
 Package pdftex.def Info: ../gpp_lin.pdf used on input line 179.
 (pdftex.def)             Requested size: 286.84306pt x 222.2383pt.
 
-<../gpp_lin_small.pdf, id=92, 524.90948pt x 405.16997pt>
+<../gpp_lin_small.pdf, id=97, 524.90948pt x 405.16997pt>
 File: ../gpp_lin_small.pdf Graphic file (type pdf)
 
 <use ../gpp_lin_small.pdf>
 Package pdftex.def Info: ../gpp_lin_small.pdf used on input line 184.
 (pdftex.def)             Requested size: 286.84306pt x 221.40985pt.
- <../gpp_ip.pdf, id=93, 522.94904pt x 405.16997pt>
+ <../gpp_ip.pdf, id=98, 522.94904pt x 405.16997pt>
 File: ../gpp_ip.pdf Graphic file (type pdf)
 
 <use ../gpp_ip.pdf>
 Package pdftex.def Info: ../gpp_ip.pdf used on input line 189.
 (pdftex.def)             Requested size: 286.84306pt x 222.2383pt.
- <../gpp_ip_small.pdf, id=94, 524.90948pt x 405.16997pt>
+ <../gpp_ip_small.pdf, id=99, 524.90948pt x 405.16997pt>
 File: ../gpp_ip_small.pdf Graphic file (type pdf)
 
 <use ../gpp_ip_small.pdf>
 Package pdftex.def Info: ../gpp_ip_small.pdf used on input line 194.
 (pdftex.def)             Requested size: 286.84306pt x 221.40985pt.
 
-<../gpp_linVSip.pdf, id=95, 522.94904pt x 405.16997pt>
+<../gpp_linVSip.pdf, id=100, 522.94904pt x 405.16997pt>
 File: ../gpp_linVSip.pdf Graphic file (type pdf)
 
 <use ../gpp_linVSip.pdf>
 Package pdftex.def Info: ../gpp_linVSip.pdf used on input line 199.
 (pdftex.def)             Requested size: 286.84306pt x 222.2383pt.
 
-<../gpp_linVSip_small.pdf, id=96, 524.90948pt x 405.16997pt>
+<../gpp_linVSip_small.pdf, id=101, 524.90948pt x 405.16997pt>
 File: ../gpp_linVSip_small.pdf Graphic file (type pdf)
 
 <use ../gpp_linVSip_small.pdf>
@@ -574,42 +574,117 @@ s with page group included in a single page
 
 pdfTeX warning: pdflatex (file ../gpp_linVSip_small.pdf): PDF inclusion: multip
 le pdfs with page group included in a single page
->] <../av6_2n2p_lin.png, id=6819, 481.8pt x 361.35pt>
+>] <../gpp_lin_alpha.pdf, id=6824, 522.94904pt x 405.16997pt>
+File: ../gpp_lin_alpha.pdf Graphic file (type pdf)
+
+<use ../gpp_lin_alpha.pdf>
+Package pdftex.def Info: ../gpp_lin_alpha.pdf used on input line 215.
+(pdftex.def)             Requested size: 286.84306pt x 222.2383pt.
+
+<../gpp_lin_small_alpha.pdf, id=6825, 524.90948pt x 405.16997pt>
+File: ../gpp_lin_small_alpha.pdf Graphic file (type pdf)
+
+<use ../gpp_lin_small_alpha.pdf>
+Package pdftex.def Info: ../gpp_lin_small_alpha.pdf used on input line 220.
+(pdftex.def)             Requested size: 286.84306pt x 221.40985pt.
+
+<../gpp_ip_alpha.pdf, id=6826, 522.94904pt x 405.16997pt>
+File: ../gpp_ip_alpha.pdf Graphic file (type pdf)
+
+<use ../gpp_ip_alpha.pdf>
+Package pdftex.def Info: ../gpp_ip_alpha.pdf used on input line 225.
+(pdftex.def)             Requested size: 286.84306pt x 222.2383pt.
+
+<../gpp_ip_small_alpha.pdf, id=6827, 524.90948pt x 405.16997pt>
+File: ../gpp_ip_small_alpha.pdf Graphic file (type pdf)
+
+<use ../gpp_ip_small_alpha.pdf>
+Package pdftex.def Info: ../gpp_ip_small_alpha.pdf used on input line 230.
+(pdftex.def)             Requested size: 286.84306pt x 221.40985pt.
+
+<../gpp_linVSip_alpha.pdf, id=6828, 522.94904pt x 405.16997pt>
+File: ../gpp_linVSip_alpha.pdf Graphic file (type pdf)
+
+<use ../gpp_linVSip_alpha.pdf>
+Package pdftex.def Info: ../gpp_linVSip_alpha.pdf used on input line 235.
+(pdftex.def)             Requested size: 286.84306pt x 222.2383pt.
+
+<../gpp_linVSip_small_alpha.pdf, id=6829, 524.90948pt x 405.16997pt>
+File: ../gpp_linVSip_small_alpha.pdf Graphic file (type pdf)
+
+<use ../gpp_linVSip_small_alpha.pdf>
+Package pdftex.def Info: ../gpp_linVSip_small_alpha.pdf used on input line 240.
+
+(pdftex.def)             Requested size: 286.84306pt x 221.40985pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8]
+
+LaTeX Warning: Text page 9 contains only floats.
+
+
+Overfull \vbox (3.05241pt too high) has occurred while \output is active []
+
+
+[9 <../gpp_lin_alpha.pdf> <../gpp_lin_small_alpha.pdf
+
+pdfTeX warning: pdflatex (file ../gpp_lin_small_alpha.pdf): PDF inclusion: mult
+iple pdfs with page group included in a single page
+> <../gpp_ip_alpha.pdf
+
+pdfTeX warning: pdflatex (file ../gpp_ip_alpha.pdf): PDF inclusion: multiple pd
+fs with page group included in a single page
+> <../gpp_ip_small_alpha.pdf
+
+pdfTeX warning: pdflatex (file ../gpp_ip_small_alpha.pdf): PDF inclusion: multi
+ple pdfs with page group included in a single page
+> <../gpp_linVSip_alpha.pdf
+
+pdfTeX warning: pdflatex (file ../gpp_linVSip_alpha.pdf): PDF inclusion: multip
+le pdfs with page group included in a single page
+> <../gpp_linVSip_small_alpha.pdf
+
+pdfTeX warning: pdflatex (file ../gpp_linVSip_small_alpha.pdf): PDF inclusion: 
+multiple pdfs with page group included in a single page
+>] <../av6_2n2p_lin.png, id=13549, 481.8pt x 361.35pt>
 File: ../av6_2n2p_lin.png Graphic file (type png)
 
 <use ../av6_2n2p_lin.png>
-Package pdftex.def Info: ../av6_2n2p_lin.png used on input line 215.
+Package pdftex.def Info: ../av6_2n2p_lin.png used on input line 250.
 (pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
-File: ../av6_2n2p_lin.png Graphic file (type png)
- <use ../av6_2n2p_lin.png>
-Package pdftex.def Info: ../av6_2n2p_lin.png used on input line 220.
-(pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
+ <../av6_2n2p_ip.png, id=13550, 481.8pt x 361.35pt>
+File: ../av6_2n2p_ip.png Graphic file (type png)
 
-<../alpha_and_2n2p.png, id=6820, 481.8pt x 361.35pt>
+<use ../av6_2n2p_ip.png>
+Package pdftex.def Info: ../av6_2n2p_ip.png used on input line 255.
+(pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
+ <../alpha_and_2n2p.png, id=13551, 481.8pt x 361.35pt>
 File: ../alpha_and_2n2p.png Graphic file (type png)
 
 <use ../alpha_and_2n2p.png>
-Package pdftex.def Info: ../alpha_and_2n2p.png used on input line 225.
+Package pdftex.def Info: ../alpha_and_2n2p.png used on input line 260.
 (pdftex.def)             Requested size: 286.84306pt x 215.1355pt.
- [8 <../av6_2n2p_lin.png> <../alpha_and_2n2p.png>]
+ [10 <../av6_2n2p_lin.png> <../av6_2n2p_ip.png> <../alpha_and_2n2p.png>]
 No file plots_pdf.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 235.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 235.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 270.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 270.
 (./plots_pdf.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 235.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 235.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 270.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 270.
 Package rerunfilecheck Info: File `plots_pdf.out' has not changed.
-(rerunfilecheck)             Checksum: 178B5A3383DB80AC196D3FABFC5852C4;502.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 235.
+(rerunfilecheck)             Checksum: 842DAEC83B1AC9F1A2DA8B328E3FB050;637.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 270.
  ) 
 Here is how much of TeX's memory you used:
- 7830 strings out of 493308
- 116716 string characters out of 6140092
+ 7870 strings out of 493308
+ 117687 string characters out of 6140092
  205443 words of memory out of 5000000
- 11150 multiletter control sequences out of 15000+600000
+ 11179 multiletter control sequences out of 15000+600000
  19788 words of font info for 73 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 36i,8n,38p,266b,524s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,8n,38p,223b,524s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
@@ -619,9 +694,9 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
 type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb>
-Output written on plots_pdf.pdf (8 pages, 2026668 bytes).
+Output written on plots_pdf.pdf (10 pages, 3829331 bytes).
 PDF statistics:
- 6864 PDF objects out of 7423 (max. 8388607)
- 22 named destinations out of 1000 (max. 500000)
- 149 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 13597 PDF objects out of 15390 (max. 8388607)
+ 26 named destinations out of 1000 (max. 500000)
+ 192 words of extra memory for PDF output out of 10000 (max. 10000000)
 

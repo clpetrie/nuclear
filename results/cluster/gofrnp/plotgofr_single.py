@@ -2,9 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #set up input parameters
+calc=1 #1=14n2p 2=2n2p
 corrtype=('lin','ip')
 sys=7 #np0=1, np1=3, pp=5, nn=7
 density=('0.0005','0.001','0.002','0.003','0.005','0.01')
+#density=('0.00025','0.0005','0.001','0.002','0.003','0.01')
 #density='0.0005'
 pltstyle=('bo','ro')
 
@@ -27,12 +29,22 @@ else:
    print 'Invalid choice for system! Valid choices are 1, 3, 5, and 7. Exiting!'
    print ''
    exit()
+if(calc==1):
+   calcname=''
+elif(calc==2):
+   calcname='_alpha'
+else:
+   print ''
+   print 'Invalid choice for calculation! Valid choices are 1 and 2. Exiting!'
+   print ''
+   exit()
+
    
 for m in range(0,lendensity):
    data=[None]*lencorr
    for n in range(0,lencorr):
       #build data and remove unwanted pieces
-      f=open('gofrnp_'+density[m]+'_'+corrtype[n]+'.dmc')
+      f=open('gofrnp_'+density[m]+'_'+corrtype[n]+calcname+'.dmc')
       data[n]=[]
       for line in f.readlines():
          data[n].append(line.split())

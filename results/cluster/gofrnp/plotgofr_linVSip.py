@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #set up input parameters
+calc=1 #1=14n2p 2=2n2p
 sys=5 #np0=1, np1=3, pp=5, nn=7
-density=('0.0005','0.01','0.0005','0.01')
-pltstyle=('ko','bo','go','ro')
 density=('0.0005','0.0005','0.01','0.01')
+#density=('0.00025','0.00025','0.01','0.01')
 pltstyle=('ko','co','bo','ro')
 
 #build other parameters
@@ -24,12 +24,22 @@ else:
    print 'Invalid choice for system! Valid choices are 1, 3, 5, and 7. Exiting!'
    print ''
    exit()
+if(calc==1):
+   calcname=''
+elif(calc==2):
+   calcname='_alpha'
+else:
+   print ''
+   print 'Invalid choice for calculation! Valid choices are 1 and 2. Exiting!'
+   print ''
+   exit()
+
    
 
 data=[None]*lenfiles
 for n in range(0,lenfiles):
    #build data and remove unwanted pieces
-   f=open('gofrnp_'+density[n]+'_'+corr[n]+'.dmc')
+   f=open('gofrnp_'+density[n]+'_'+corr[n]+calcname+'.dmc')
    data[n]=[]
    for line in f.readlines():
       data[n].append(line.split())
@@ -64,7 +74,7 @@ f1.savefig("plot1.pdf", bbox_inches='tight')
 
 f2=plt.figure(2)
 plt.xlim([4,10])
-plt.ylim([0,0.05])
+plt.ylim([0,0.07])
 plt.xlabel('r(fm)')
 plt.ylabel(r'g$_{'+sysname+'}(r)$')
 for n in range(0,lenfiles):
