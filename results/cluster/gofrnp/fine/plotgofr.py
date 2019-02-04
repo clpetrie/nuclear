@@ -3,15 +3,14 @@ import matplotlib.pyplot as plt
 
 #set up input parameters
 calc=2 #1=14n2p 2=2n2p
-corrtype=1 #1=lin, 2=ip
+corrtype=2 #1=lin, 2=ip
 sys=5 #np0=1, np1=3, pp=5, nn=7
-#filenames=('gofrnp_continuum_lin.dmc','gofrnp_0.00025_lin_alpha.dmc','gofrnp_0.00025_ip_alpha.dmc','gofrnp_0.0005_lin.dmc','gofrnp_0.0005_ip.dmc')
-filenames=('gofrnp_continuum_ip.dmc','fine/gofrnp_0.00025_lin_alpha_fine.dmc','fine/gofrnp_0.00025_ip_alpha_fine.dmc','fine/gofrnp_0.0005_lin_alpha_fine.dmc','fine/gofrnp_0.0005_ip_alpha_fine.dmc')
-titles=('Continuum Alpha','0.00025 lin Alpha','0.00025 ip Alpha','0.00025 lin Cluster','0.00025 ip Cluster')
+density=('0.0005','0.001','0.002','0.003','0.005','0.01')
+density=('0.00025','0.0005','0.001','0.002','0.003','0.01')
 pltstyle=('ko','ro','mo','yo','go','bo')
 
 #build other parameters
-lenfiles=len(filenames)
+lenfiles=len(density)
 if(corrtype==1):
    corr='lin'
 elif(corrtype==2):
@@ -50,7 +49,7 @@ else:
 data=[None]*lenfiles
 for n in range(0,lenfiles):
    #build data and remove unwanted pieces
-   f=open(filenames[n])
+   f=open('gofrnp_'+density[n]+'_'+corr+calcname+'.dmc')
    data[n]=[]
    for line in f.readlines():
       data[n].append(line.split())
@@ -79,7 +78,7 @@ plt.xlabel('r(fm)')
 plt.ylabel(r'g$_{'+sysname+'}(r)$')
 plt.axhline(linewidth=2, color='k')
 for n in range(0,lenfiles):
-   plt.errorbar(data[n][:][0],data[n][:][sys],yerr=data[n][:][sys+1],fmt=pltstyle[n],label=titles[n])
+   plt.errorbar(data[n][:][0],data[n][:][sys],yerr=data[n][:][sys+1],fmt=pltstyle[n],label=r'$\rho$ = '+density[n]+r' fm$^{-3}$')
 plt.legend(loc='upper right',numpoints=1)
 f1.savefig("plot1.pdf", bbox_inches='tight')
 
@@ -89,7 +88,7 @@ plt.ylim([0,0.05])
 plt.xlabel('r(fm)')
 plt.ylabel(r'g$_{'+sysname+'}(r)$')
 for n in range(0,lenfiles):
-   plt.errorbar(data[n][:][0],data[n][:][sys],yerr=data[n][:][sys+1],fmt=pltstyle[n],label=titles[n])
+   plt.errorbar(data[n][:][0],data[n][:][sys],yerr=data[n][:][sys+1],fmt=pltstyle[n],label=r'$\rho$ = '+density[n]+r' fm$^{-3}$')
 plt.legend(loc='upper right',numpoints=1)
 f2.savefig("plot2.pdf", bbox_inches='tight')
 plt.show()
