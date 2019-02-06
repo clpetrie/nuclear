@@ -10,7 +10,7 @@ datafile='data.txt'
 #datafile='vten.txt'
 #datafile='vtent.txt'
 imin="4"
-imax="14"
+imax="15"
 
 set output 'alpha_and_2n2p.png'
 

@@ -3,18 +3,18 @@ set terminal png enhanced font 'Verdana,11'
 
 corr1=1 #1=linear, 2=ip (lin opt), 3=ip (ip opt)
 corr2=3 #1=linear, 2=ip (lin opt), 3=ip (ip opt)
-sys=3 #1=alpha, 2=14n, 3=14n2p
+sys=1 #1=alpha, 2=14n, 3=14n2p
 if (sys==1) \
    imin="4"; \
-   imax="14"; \
+   imax="15"; \
    set output 'av6_alpha.png'
 if (sys==2) \
-   imin="17"; \
-   imax="27"; \
+   imin="18"; \
+   imax="29"; \
    set output 'av6_14n.png'
 if (sys==3) \
-   imin="30"; \
-   imax="40"; \
+   imin="32"; \
+   imax="43"; \
    set output 'av6_14n2p.png'
 if (corr1==1) \
    cmin1=2; \
