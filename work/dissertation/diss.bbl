@@ -1,29 +1,35 @@
 \begin{thebibliography}{10}
 
+\bibitem{navratil2009}
+Petr Navr{\'a}til, Sofia Quaglioni, Ionel Stetcu, and Bruce~R Barrett.
+\newblock Recent developments in no-core shell-model calculations.
+\newblock {\em Journal of Physics G: Nuclear and Particle Physics},
+  36(8):083101, 2009.
+
 \bibitem{barrett2013}
-B.~R. Barrett, P.~Navr\'{a}til, and J.~P. Vary.
+Bruce~R. Barrett, Petr Navr\'{a}til, and James~P. Vary.
 \newblock \textit{Ab initio} no core shell model.
 \newblock {\em Prog. Part. Nucl. Phys.}, 69:131--181, 2013.
 
-\bibitem{carlson2015}
-J.~Carlson, S.~Gandolfi, F.~Pederiva, S.~C. Pieper, R.~Schiavilla, K.~Schmidt,
-  and R.~Wiringa.
-\newblock Quantum {M}onte {C}arlo methods for nuclear physics.
-\newblock {\em Rev. Mod. Phys.}, 87:1067, 2015.
+\bibitem{hagen2014}
+G~Hagen, T~Papenbrock, M~Hjorth-Jensen, and D~J Dean.
+\newblock Coupled-cluster computations of atomic nuclei.
+\newblock {\em Rep. Prog. Phys.}, 77(9):096302, 2014.
 
 \bibitem{dickhoff2004}
-W.~Dickhoff and C.~Barbieri.
+W.H. Dickhoff and C.~Barbieri.
 \newblock Self-consistent {G}reen's function method for nuclei and nuclear
   matter.
 \newblock {\em Prog. Part. Nucl. Phys.}, 52(2):377 -- 496, 2004.
 
-\bibitem{hagen2014}
-G.~Hagen, T.~Papenbrock, M.~Hjorth-Jensen, and D.~J. Dean.
-\newblock Coupled-cluster computations of atomic nuclei.
-\newblock {\em Rep. Prog. Phys.}, 77(9):096302, 2014.
+\bibitem{soma2014}
+V.~Som\`a, A.~Cipollone, C.~Barbieri, P.~Navr\'atil, and T.~Duguet.
+\newblock Chiral two- and three-nucleon forces along medium-mass isotope
+  chains.
+\newblock {\em Phys. Rev. C}, 89:061301, Jun 2014.
 
 \bibitem{hergert2016}
-H.~Hergert, S.~Bogner, T.~Morris, A.~Schwenk, and K.~Tsukiyama.
+H.~Hergert, S.K. Bogner, T.D. Morris, A.~Schwenk, and K.~Tsukiyama.
 \newblock The in-medium similarity renormalization group: A novel ab initio
   method for nuclei.
 \newblock {\em Phys. Rep.}, 621:165--222, 2016.
@@ -35,26 +41,36 @@ J.~E. Lynn and K.~E. Schmidt.
   potentials.
 \newblock {\em Phys. Rev. C}, 86:014324, Jul 2012.
 
-\bibitem{navratil2009}
-P.~Navr{\'a}til, S.~Quaglioni, I.~Stetcu, and B.~R. Barrett.
-\newblock Recent developments in no-core shell-model calculations.
-\newblock {\em Journal of Physics G: Nuclear and Particle Physics},
-  36(8):083101, 2009.
+\bibitem{carlson2015}
+J.~Carlson, S.~Gandolfi, F.~Pederiva, Steven~C. Pieper, R.~Schiavilla, K.E.
+  Schmidt, and R.B. Wiringa.
+\newblock Quantum {M}onte {C}arlo methods for nuclear physics.
+\newblock {\em Rev. Mod. Phys.}, 87:1067, 2015.
 
 \bibitem{schmidt1999}
 K.~E. Schmidt and S.~Fantoni.
 \newblock A quantum {M}onte {C}arlo method for nucleon systems.
 \newblock {\em Phys. Lett. B}, 446:99--103, 1999.
 
-\bibitem{soma2014}
-V.~Som\`a, A.~Cipollone, C.~Barbieri, P.~Navr\'atil, and T.~Duguet.
-\newblock Chiral two- and three-nucleon forces along medium-mass isotope
-  chains.
-\newblock {\em Phys. Rev. C}, 89:061301, Jun 2014.
-
 \bibitem{yukawa1935}
 H.~Yukawa.
 \newblock On the interaction of elementary particles. i.
 \newblock {\em Proc. Phys. Math. Soc. Japan.}, 17:48, 1935.
+
+\bibitem{madeira2018}
+Lucas Madeira, Alessandro Lovato, Francesco Pederiva, and Kevin~E. Schmidt.
+\newblock Quantum monte carlo formalism for dynamical pions and nucleons.
+\newblock {\em Phys. Rev. C}, 98:034005, Sep 2018.
+
+\bibitem{huron1973}
+B.~Huron, J.~P. Malrieu, and P.~Rancurel.
+\newblock Iterative perturbation calculations of ground and excited state
+  energies from multiconfigurational zeroth‐order wavefunctions.
+\newblock {\em The Journal of Chemical Physics}, 58(12):5745--5759, 1973.
+
+\bibitem{li2018}
+Junhao Li, Matthew Otten, Adam~A. Holmes, Sandeep Sharma, and C.~J. Umrigar.
+\newblock Fast semistochastic heat-bath configuration interaction.
+\newblock {\em The Journal of Chemical Physics}, 149(21):214110, 2018.
 
 \end{thebibliography}
