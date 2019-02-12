@@ -6,8 +6,20 @@ calc=2 #1=14n2p 2=2n2p
 corrtype=1 #1=lin, 2=ip
 sys=5 #np0=1, np1=3, pp=5, nn=7
 #filenames=('gofrnp_continuum_lin.dmc','gofrnp_0.00025_lin_alpha.dmc','gofrnp_0.00025_ip_alpha.dmc','gofrnp_0.0005_lin.dmc','gofrnp_0.0005_ip.dmc')
-filenames=('gofrnp_continuum_ip.dmc','fine/gofrnp_0.00025_lin_alpha_fine.dmc','fine/gofrnp_0.00025_ip_alpha_fine.dmc','fine/gofrnp_0.0005_lin_alpha_fine.dmc','fine/gofrnp_0.0005_ip_alpha_fine.dmc')
-titles=('Continuum Alpha','0.00025 lin Alpha','0.00025 ip Alpha','0.00025 lin Cluster','0.00025 ip Cluster')
+#filenames=('gofrnp_continuum_ip.dmc','fine/gofrnp_0.00025_lin_alpha_fine.dmc','fine/gofrnp_0.00025_ip_alpha_fine.dmc','fine/gofrnp_0.0005_lin_alpha_fine.dmc','fine/gofrnp_0.0005_ip_alpha_fine.dmc')
+#titles=('Continuum Alpha','0.00025 lin Alpha','0.00025 ip Alpha','0.00025 lin Cluster','0.00025 ip Cluster')
+filenames=('gofrnp_continuum_lin.dmc','fine/gofrnp_0.00025_lin_fine.dmc','fine/gofrnp_0.00025_lin_alpha_fine.dmc')
+titles=('Continuum 4He - lin','0.00025 Cluster - lin','0.00025 Alpha - lin')
+
+filenames=('gofrnp_continuum_lin.dmc','fine/gofrnp_0.00025_lin_fine.dmc','fine/gofrnp_0.00025_ip_fine.dmc')
+titles=('Continuum 4He - lin','0.00025 Cluster - lin','0.00025 Cluster - ip')
+
+#filenames=('gofrnp_continuum_lin.dmc','gofrnp_continuum_ip.dmc','fine/gofrnp_0.00025_lin_fine.dmc','fine/gofrnp_0.00025_ip_fine.dmc')
+#titles=('Continuum 4He - lin','Continuum 4He - ip','0.00025 Cluster - lin','0.00025 Cluster - ip')
+
+filenames=('gofrnp_continuum_lin.dmc','fine/gofrnp_0.0005_lin_fine.dmc','fine/gofrnp_0.0005_ip_fine.dmc')
+titles=('Continuum 4He - lin','0.0005 Cluster - lin','0.0005 Cluster - ip')
+
 pltstyle=('ko','ro','mo','yo','go','bo')
 
 #build other parameters

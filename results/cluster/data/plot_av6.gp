@@ -2,7 +2,7 @@
 set terminal png enhanced font 'Verdana,11'
 
 corr=3 #1=linear, 2=ip (lin opt), 3=ip (ip opt)
-sys=3 #1=alpha, 2=14n, 3=14n2p
+sys=1 #1=alpha, 2=14n, 3=14n2p
 if (sys==1) \
    imin="4"; \
    imax="14"; \
