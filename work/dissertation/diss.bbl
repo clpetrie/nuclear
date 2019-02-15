@@ -73,4 +73,25 @@ Junhao Li, Matthew Otten, Adam~A. Holmes, Sandeep Sharma, and C.~J. Umrigar.
 \newblock Fast semistochastic heat-bath configuration interaction.
 \newblock {\em The Journal of Chemical Physics}, 149(21):214110, 2018.
 
+\bibitem{cooper1956}
+Leon~N. Cooper.
+\newblock Bound electron pairs in a degenerate fermi gas.
+\newblock {\em Phys. Rev.}, 104:1189--1190, Nov 1956.
+
+\bibitem{bardeen1957}
+J.~Bardeen, L.~N. Cooper, and J.~R. Schrieffer.
+\newblock Microscopic theory of superconductivity.
+\newblock {\em Phys. Rev.}, 106:162--164, Apr 1957.
+
+\bibitem{bardeen1957_2}
+J.~Bardeen, L.~N. Cooper, and J.~R. Schrieffer.
+\newblock Theory of superconductivity.
+\newblock {\em Phys. Rev.}, 108:1175--1204, Dec 1957.
+
+\bibitem{bouchaud1988}
+{Bouchaud, J.P.}, {Georges, A.}, and {Lhuillier, C.}
+\newblock Pair wave functions for strongly correlated fermions and their
+  determinantal representation.
+\newblock {\em J. Phys. France}, 49(4):553--559, 1988.
+
 \end{thebibliography}
