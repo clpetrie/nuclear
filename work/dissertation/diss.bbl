@@ -78,6 +78,12 @@ Leon~N. Cooper.
 \newblock Bound electron pairs in a degenerate fermi gas.
 \newblock {\em Phys. Rev.}, 104:1189--1190, Nov 1956.
 
+\bibitem{leggett1975}
+Anthony~J. Leggett.
+\newblock A theoretical description of the new phases of liquid
+  $^{3}\mathrm{He}$.
+\newblock {\em Rev. Mod. Phys.}, 47:331--414, Apr 1975.
+
 \bibitem{bardeen1957}
 J.~Bardeen, L.~N. Cooper, and J.~R. Schrieffer.
 \newblock Microscopic theory of superconductivity.
@@ -93,5 +99,21 @@ J.~Bardeen, L.~N. Cooper, and J.~R. Schrieffer.
 \newblock Pair wave functions for strongly correlated fermions and their
   determinantal representation.
 \newblock {\em J. Phys. France}, 49(4):553--559, 1988.
+
+\bibitem{madeira2018_diss}
+Lucas Madeira.
+\newblock {\em Quantum Monte Carlo Studies of Strongly Interacting Fermionic
+  Systems}.
+\newblock PhD thesis, Arizona State University, June 2018.
+
+\bibitem{pandharipande1979}
+V.~R. Pandharipande and R.~B. Wiringa.
+\newblock Variations on a theme of nuclear matter.
+\newblock {\em Rev. Mod. Phys.}, 51:821--861, Oct 1979.
+
+\bibitem{pandharipande1977}
+V.~R. Pandharipande and K.~E. Schmidt.
+\newblock Variational calculations of simple bose systems.
+\newblock {\em Phys. Rev. A}, 15:2486--2495, Jun 1977.
 
 \end{thebibliography}

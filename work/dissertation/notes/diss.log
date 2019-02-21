@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2019.2.12)  13 FEB 2019 15:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2019.2.12)  19 FEB 2019 09:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -404,7 +404,7 @@ sfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msbm7.pfb>
-Output written on diss.pdf (25 pages, 356630 bytes).
+Output written on diss.pdf (25 pages, 356498 bytes).
 PDF statistics:
  181 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

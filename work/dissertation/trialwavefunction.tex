@@ -1,5 +1,5 @@
 \section{Trial Wave Function}
-An accurate trial wave function can drastically improve the accuracy of a variational QMC method such as VMC. Most highly accurate trial wave functions are entirely computationally intractable and are never implemented in QMC methods. In addition to being accurate and computationally tractable we seek for wave functions that satisfy known physical properties such as cluster decomposition as well as having an overall antisymmetry with respect to particle exchange due to nucleons obeying fermi statistics.
+An accurate trial wave function can drastically improve the accuracy of a variational QMC method such as VMC. Most highly accurate trial wave functions are entirely computationally intractable and are never implemented in QMC methods. In addition to being accurate and computationally tractable we need wave functions that satisfy known physical properties such as cluster decomposition as well as having an overall antisymmetry with respect to particle exchange due to nucleons obeying fermi statistics.
 
 Cluster decomposition arises from the physical intuition that the wave function of two separate, non-interacting systems, $A$ and $B$ as in Figure~\ref{fig:cluster}, can be written as the product of their respective wave functions.
 \begin{figure}[h]
@@ -29,7 +29,7 @@ The second property is that the wave function be antisymmetric overall. Since nu
 \subsection{Slater Determinant}
 One of the simplest wave functions that satisfies the two properties specified above is the Slater determinant. The Slater determinant has been the starting place for a variety of many-body calculations in nuclear and condensed matter physics alike. In condensed matter the many-body wave functions will often be written in terms of a sum of weighted Slater determinants, where some methods have been able to use a sum of up to 2 billion determinants \cite{huron1973,li2018}. In nuclear physics a single determinant is often used for closed shell calculations and a sum of a small number, $\mathcal{O}(10)$, of weighted determinants is used for open shell systems. A Slater determinant is an antisymmetrized product of single particle (non-interacting) wave functions
 \begin{equation}
-   \Psi_{SD} = \mathcal{A} \left[\phi_1(\r_1)\phi_2(\r_2) \ldots \phi_A(\r_A)\right] =
+   \Psi_{SD}(\R,S) = \mathcal{A} \left[\phi_1(\r_1)\phi_2(\r_2) \ldots \phi_A(\r_A)\right] =
    \begin{vmatrix}
       \phi_1(\r_1) & \phi_1(\r_2) & \ldots & \phi_1(\r_A) \\
       \phi_2(\r_1) & \phi_2(\r_2) & \ldots & \phi_2(\r_A) \\
@@ -37,13 +37,13 @@ One of the simplest wave functions that satisfies the two properties specified a
       \phi_K(\r_1) & \phi_K(\r_2) & \ldots & \phi_K(\r_A) \\
    \end{vmatrix},
 \end{equation}
-where the $\mathcal{A}$ is the antisymitrization operator and the $\phi_i(\r_j)$ are the overlap of the walker positions with the model single particle states. The single particle model states are made up of a radial and spin, iso-spin dependent parts,
+where $\R$ and $S$ are the spatial and spin coordinates of the walkers, $\mathcal{A}$ is the antisymitrization operator, and the $\phi_i(\r_j)$ are the overlap of the walker positions with the model single particle states. The single particle model states are made up of a radial and spin, iso-spin dependent parts,
 \begin{equation}
    \phi_k = \Phi_{nj}\left[C_{c_l,m_s}^j Y_{l,m_l}(\hat{r}_i)\chi_s(s_i)\right]_{j,m_j},
 \end{equation}
 where $\Phi_{nj}$ is the radial part and the rest contains the spherical harmonics $Y_{l,m_l}(\hat{r}_I)$ and spin and iso-spin states where the Clebsch-Gordan coefficients ensure the correct $j$ and $m_j$ quantum numbers, and the different states are given by the index $k$. To accurately describe the wave function of an open shell nuclei each state with the correct total angular momentum and parity $J^\pi$ and isospin $T$ is included as a seperate Slater determinant.
 \begin{equation}
-   \braket{RS}{\Phi}_{J^\pi,T} = \sum\limits_n c_n D\{\phi_k(\r_i,s_i)\}
+   \braket{\R S}{\Phi}_{J^\pi,T} = \sum\limits_n c_n D\{\phi_k(\r_i,s_i)\}
 \end{equation}
 Here the $c_n$ coefficients are variational parameters used to minimize the energy given a set of possible state configurations. One of the simplest examples of an open shell nuclei would be $^6$He whose ground state is a $J^\pi = 0^+$ state. The two protons and two of the neutrons could be in the full $(1S_{1/2})^2$ shell while the two remaining neutrons could be in the $(1P_{3/2})^2$ shell with their $m_j=\pm 3/2, \pm 1/2$ values being equal and opposite to ensure that $J=0$. This state has two possible determinants. Other possible configurations for the two remaining neutrons would be $(1P_{1/2})^2$ with one possible determinant, $(1D_{5/2})^2$ with three possible determinants, $(2S_{1/2})^2$ with one possible determinant and $(1D_{3/2})^2$ with two possible determinants giving a total of nine possible determinants. Notice that the two neutrons could be in a combination of $S$ and $D$ shells but never an $S$ and $P$ or $D$ and $P$ to ensure the parity of the state is positive. The number of determinants used for open shell nuclei will control how accurate the trial wave function is but for closed shell nuclei such as $^4$He or $^{16}$O a single slater determinant describing the full shell configuration is sufficient.
 
@@ -79,19 +79,48 @@ Here the parameters, $V_s, r_s, a_s, \alpha_s$ and $\rho_s$ are variational para
 
 The Slater determinant is a mean-field wave function and is often used with Jastrow type short range correlations.
 \begin{equation}
-   \braket{RS}{\psi_T} = \bra{RS}\prod\limits_{i<j}f(r_{ij}) \ket{\phi}
+   \braket{\R S}{\psi_T} = \bra{\R S}\prod\limits_{i<j}f(r_{ij}) \ket{\phi}_{SD}
+   \label{equ:jastrow}
 \end{equation}
 These correlations are spin-isospin independent and depend only on the particle separation and improve upon the uncorrelated Slater determinant wave function significantly. To maintain the cluster decomposition the functions $f(r_{ij})$ must go to unity for large particle seperations. In this work we have used Slater determinant wave functions with a Jastrow factor and spin-isospin dependent correlations which will be discussed in a later section. \red{ADD PLOT AND CITATION BACKING THIS CLAIM HERE}.
 
 \subsection{Pfaffian Wave Function}
-Another wave function that obeys these properties is the paired Pfaffian wave function. This wave function was developed to describe Cooper pairs which form when, at low temperature, paired fermions, such as electrons or liquid $^3$He, are energetically favorable to free particles. \cite{cooper1956}. This idea was then expanded and used to explain superconductivity as the condensation of these bosonic cooper pairs into the ground state \cite{bardeen1957,bardeen1957_2}. A Pfaffian wave function was then introduced to describe these paired systems by Bouchaud {\it et al.} in 1988 \cite{bouchaud1988}.
+\red{Explain why it would be nice to have a pfaffian instead of a determinant and maybe mention some of the results related to superfluidity etc. \\}
+Another wave function that obeys these properties is the paired Pfaffian wave function. This wave function was developed to describe Cooper pairs which form when, at low temperature, paired fermions, such as electrons or liquid $^3$He, are energetically favorable to free particles \cite{cooper1956,leggett1975}. This idea was then expanded and used to explain superconductivity as the condensation of these bosonic cooper pairs into the ground state \cite{bardeen1957,bardeen1957_2}. A Pfaffian wave function was then introduced to describe these paired systems by Bouchaud {\it et al.} in 1988 \cite{bouchaud1988}.
 
-The BCS, or Pfaffian, pairing wave function can be written as an antisymmetrized product of pairing wave functions, thus keeping the antisymmetry of the constituent fermions explicitly.
-\red{\\ Explain what it is.}
-\red{\\ Explain why it's useful.}
+The BCS, or Pfaffian, pairing wave function can be written as an antisymmetrized product of pairing wave functions, thus keeping the antisymmetry of the constituent fermions explicitly. That is,
+\begin{equation}
+   \Psi_{BCS}(\R S) = \mathcal{A}\left[\phi(\r_1,s_1,\r_2,s_2)\phi(\r_3,s_3,\r_4,s_4)\ldots\phi(\r_{A-1},s_{A-1},\r_A,s_A)\right],
+\end{equation}
+where $\mathcal{A}$ is the antisymmetrization operator, $\r_i$ and $s_i$ are the walkers positions and spins, and $\phi$ are the pairing functions which can be separated into a spatial part, whose form is determined by the system, and a spin-isospin part, which are often written in terms of singlet and triplet states.
+
+This wave function, like the Slater determinant, can be used with additional Jastrow-like correlations as in equation~\ref{equ:jastrow}.
+\begin{equation}
+   \braket{\R S}{\psi_T} = \bra{\R S}\prod\limits_{i<j}f(r_{ij}) \ket{\phi}_{BCS}
+\end{equation}
+For more information and a more detailed use and description of this wave function we refer the reader to \cite{madeira2018_diss}.
 
 \subsection{Spin-Isospin Dependent Correlations}
 \red{Explain what properties you need, etc.}
+The nuclear Hamiltonian has a strong spin-isospin dependent part and to ensure good overlap with the trial wave function, the wave function must include spin-isospin dependent correlations. From here on I will be using the Slater determinant for the long-range part of the wave function. To improve on the Jastrow correlations in equation~\ref{equ:jastrow}, spin-isospin dependent correlations can be included that obey the properties of cluster decomposability and overall antisymmetry.
+
+We have come up with two such correlations, the exponentially,
+\begin{equation}
+   \Psi_{\text{exp}}(\R, S) = \bra{\R S}\left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j}\sum\limits_{p}f_p(r_{ij})\Opij}\ket{\phi}
+   \label{equ:exppsi}
+\end{equation}
+and the symmetrized product wave functions,
+\begin{equation}
+   \Psi_{\text{SP}}(\R, S) = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[\mathcal{S}\prod\limits_{i<j}\left(1+\sum\limits_p\fpij\Opij\right)\right] \ket{\phi}.
+   \label{equ:prodpsi}
+\end{equation}
+where the $S$ is the symmetrization operator, the $f_c(r_{ij}$ are the same Jastrow correlations as before, and the $\Opij$ are the operators from the AV6' potential, $(1,\si\cdot\sj,S_{ij})\otimes(1,\ti\cdot\tj)$, where the tensor term is $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$. The $f_p(r_{ij})$ functions contain variational parameters and the functional form is determined by solving a Schr\"odinger-type equation with the constraint that the wave function be continuous at the healing distance \cite{pandharipande1979,pandharipande1977}.
+
+The exponentially correlated wave function explicitely obeys cluster decomposition given that the correlating functions, $f_p(r_{ij})$ go to zero as the particle seperation increases. \red{Start here, and give a better description of this last sentence.}
+
+The symmetrized product wave function, introduced by Pandharipande and Wiringa in 1979 \cite{pandharipande1979}, \ldots
+\red{\\ Explain the similar properties like the variables and then dive into each of them to explain how they fit the properties that we want.}
+
 
 \subsubsection{Quadratic Correlations}
 \red{Be sure to include results}
