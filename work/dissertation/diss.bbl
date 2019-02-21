@@ -55,7 +55,7 @@ K.~E. Schmidt and S.~Fantoni.
 \bibitem{yukawa1935}
 H.~Yukawa.
 \newblock On the interaction of elementary particles. i.
-\newblock {\em Proc. Phys. Math. Soc. Japan.}, 17:48, 1935.
+\newblock {\em Proc. Phys. Math. Soc. Japan.}, 17:48--57, 1935.
 
 \bibitem{madeira2018}
 Lucas Madeira, Alessandro Lovato, Francesco Pederiva, and Kevin~E. Schmidt.
@@ -115,5 +115,17 @@ V.~R. Pandharipande and R.~B. Wiringa.
 V.~R. Pandharipande and K.~E. Schmidt.
 \newblock Variational calculations of simple bose systems.
 \newblock {\em Phys. Rev. A}, 15:2486--2495, Jun 1977.
+
+\bibitem{gandolfi2007}
+S.~Gandolfi, F.~Pederiva, S.~Fantoni, and K.E. Schmidt.
+\newblock Auxiliary field diffusion {M}onte {C}arlo calculation of nuclei with
+  {$A \leq 40$} with tensor interactions.
+\newblock {\em Phys. Rev. Lett.}, 99:022507--1, 2007.
+
+\bibitem{gandolfi2014}
+S.~Gandolfi, A.~Lovato, J.~Carlson, and Kevin~E. Schmidt.
+\newblock From the lightest nuclei to the equation of state of symmetric
+  nuclear matter with realistic nuclear interactions.
+\newblock {\em Phys. Rev. C}, 90, 2014.
 
 \end{thebibliography}

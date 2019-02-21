@@ -3,59 +3,59 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: diss.aux
 The style file: unsrt.bst
 Database file #1: ../../../../Dropbox/nuclear/papers/references.bib
-I was expecting a `,' or a `}'---line 189 of file ../../../../Dropbox/nuclear/papers/references.bib
+I was expecting a `,' or a `}'---line 190 of file ../../../../Dropbox/nuclear/papers/references.bib
  :   
  :   annote={No-core shell model.}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 331 of file ../../../../Dropbox/nuclear/papers/references.bib
+I was expecting a `,' or a `}'---line 332 of file ../../../../Dropbox/nuclear/papers/references.bib
  :   
  :   %url={http://stacks.iop.org/0034-4885/77/i=9/a=096302},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field part---line 525 of file ../../../../Dropbox/nuclear/papers/references.bib
+You're missing a field part---line 526 of file ../../../../Dropbox/nuclear/papers/references.bib
  :   annote = 
  :            ={Non-local potential stuff.}
 I'm skipping whatever remains of this entry
-You've used 21 entries,
+You've used 23 entries,
             1791 wiz_defined-function locations,
-            591 strings with 6648 characters,
-and the built_in function-call counts, 4965 in all, are:
-= -- 436
-> -- 227
+            602 strings with 7046 characters,
+and the built_in function-call counts, 5432 in all, are:
+= -- 475
+> -- 255
 < -- 0
-+ -- 84
-- -- 63
-* -- 401
-:= -- 825
-add.period$ -- 64
-call.type$ -- 21
-change.case$ -- 20
++ -- 94
+- -- 71
+* -- 436
+:= -- 905
+add.period$ -- 70
+call.type$ -- 23
+change.case$ -- 22
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 187
-empty$ -- 473
-format.name$ -- 63
-if$ -- 1066
+cite$ -- 23
+duplicate$ -- 204
+empty$ -- 514
+format.name$ -- 71
+if$ -- 1168
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 20
-newline$ -- 109
-num.names$ -- 21
-pop$ -- 21
+int.to.str$ -- 23
+missing$ -- 22
+newline$ -- 119
+num.names$ -- 23
+pop$ -- 23
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 66
+skip$ -- 73
 stack$ -- 0
-substring$ -- 429
-swap$ -- 21
+substring$ -- 462
+swap$ -- 23
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 47
-width$ -- 23
-write$ -- 235
+while$ -- 50
+width$ -- 25
+write$ -- 257
 (There were 3 error messages)
