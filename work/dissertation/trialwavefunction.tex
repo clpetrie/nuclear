@@ -276,25 +276,31 @@ and the independent pair sum can be visualized as in figure~\ref{fig:ipdiagrams}
 \end{figure}
 All terms where a particle is included twice in the correlation are ignored, as a results, all correlation operators commute and the correlations are explicitly symmetric. Neither of these of these correlations maintains cluster decomposability, however an effort to build an antisymmetric and cluster decomposable wave function from the exponentially correlated wave function will be discussed.
 
-The energy and it's uncertainty are used to judge the convergence of a propagated wave function in QMC and so a good wave function needs to be able to reproduce known binding energies. To this end I have done binding energy calculations with the quadratic correlations derived from the symmetrized product for $^4$He, $^{16}$O, $^{40}$Ca, and symmetric nuclear matter (SNM) at saturation density, $\rho_0=0.16$ fm$^{-3}$, in a period box with 28 particles. The energy per particle for nuclei is plotted in figure~\ref{tab:energies} and the specific energies can be found in table~\ref{tab:energies}.
+The energy and it's uncertainty are used to judge the convergence of a propagated wave function in QMC and so a good wave function needs to be able to reproduce known binding energies. To this end I have done binding energy calculations with the quadratic correlations derived from the symmetrized product for $^4$He, $^{16}$O, $^{40}$Ca, and symmetric nuclear matter (SNM) at saturation density, $\rho_0=0.16$ fm$^{-3}$, in a period box with 28 particles. The energy per particle for nuclei is plotted in figure~\ref{fig:energies} and the specific energies can be found in table~\ref{tab:energies}.
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.7\textwidth]{figures/energy.eps}
+   \caption{Energy per particle for small and medium closed shell nuclei with no Coulomb interaction with the AV6$'$ interaction. Each calculations was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included.}
+   \label{fig:energies}
+\end{figure}
 \begin{table}[htb]
    \centering
    \begin{tabular}{ccccc}
       \hline\hline
-      System & Linear & Ind-Pair & Quadratic \\
+      System & Linear & Ind-Pair & Quadratic & Experimental \\
       \hline
-      $^4${He}    & -6.79(1)  & -6.81(1)  & -6.78(1)   \\   
-      $^{16}${O}  & -7.23(6)  & -7.59(9)  & -7.50(9)   \\   
-      SNM         & -13.92(6) & -14.80(7) & -14.70(11) \\
+      $^4${He}    & -6.785(10)   & -6.798(8) & -6.778(8)    & -7.074 \\   
+      $^{16}${O}  & -7.23(6)     & -7.65(9)  & -7.55(8)     & -7.98  \\   
+      $^{40}${Ca} & -8.05(8)     & -8.8(3)   & -8.78(15)    & -8.55  \\
+      SNM         & -13.97(3)    & -14.87(4) & -14.70(11)   &        \\
       \hline\hline
    \end{tabular}
    \label{tab:energies}
-   \caption{Energy per particle calculated with no Coulomb interaction with the AV6$'$ interaction. Each calculations was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included. \red{CHECK THESE AND ADD THE RESULTS FOR $^{40}$CA!} \blue{THEN PUT THE PLOT ABOVE THIS!}}
+   \caption{Energy per particle calculated with no Coulomb interaction with the AV6$'$ interaction. Each calculations was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included. \blue{THEN PUT THE PLOT ABOVE THIS!}}
 \end{table}
+\red{Talk about the energy data and then make sure to include scaling and add a brief discussion about scaling (maybe even an estimate about how much the scaling ``would" be if quadratic correlations weren't fully symmetrized.}
 \red{ALSO ADD THE PLOT FOR THE FIT TO SATURATION DONE WHEN TALKING TO ACHIM}
 \red{\\After showing results make sure to state and all further calculations will be with the IP correlation, even if you say ``quadratic" correlations.}
-\red{\\Show or mention explicitly the different terms between the SP and the exp correlations.}
-\red{\\Be sure to include results}
 
 \subsubsection{Exponential Correlations}
 \red{Why aren't they working}
