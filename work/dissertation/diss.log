@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2019.2.12)  22 FEB 2019 13:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2019.2.12)  25 FEB 2019 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -542,24 +542,24 @@ Package epstopdf Info: Source file: <figures/energy_jaslin.eps>
 (epstopdf)                    size: 7384 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/energy_jaslin-eps-
 converted-to.pdf figures/energy_jaslin.eps>
-(epstopdf)             \includegraphics on input line 130.
+(epstopdf)             \includegraphics on input line 131.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figures/energy_jaslin-eps-converted-to.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.4> allowed
-<figures/energy_jaslin-eps-converted-to.pdf, id=40, 361.35pt x 252.945pt>
+<figures/energy_jaslin-eps-converted-to.pdf, id=41, 361.35pt x 252.945pt>
 File: figures/energy_jaslin-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/energy_jaslin-eps-converted-to.pdf>
 Package pdftex.def Info: figures/energy_jaslin-eps-converted-to.pdf used on inp
-ut line 130.
+ut line 131.
 (pdftex.def)             Requested size: 328.82707pt x 230.18031pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7] [8 <./figures/energy_jaslin-eps-converted-to.pdf>] [9]
+[7] [8 <./figures/energy_jaslin-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/energy.eps>
 (epstopdf)                    date: 2019-02-22 13:30:32
 (epstopdf)                    size: 23399 bytes
@@ -568,53 +568,132 @@ Package epstopdf Info: Source file: <figures/energy.eps>
 (epstopdf)                    size: 8521 bytes
 (epstopdf)             Command: <repstopdf --outfile=figures/energy-eps-convert
 ed-to.pdf figures/energy.eps>
-(epstopdf)             \includegraphics on input line 282.
+(epstopdf)             \includegraphics on input line 283.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file ./figures/energy-eps-converted-to.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.4> allowed
-<figures/energy-eps-converted-to.pdf, id=58, 361.35pt x 252.945pt>
+<figures/energy-eps-converted-to.pdf, id=55, 361.35pt x 252.945pt>
 File: figures/energy-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/energy-eps-converted-to.pdf>
 Package pdftex.def Info: figures/energy-eps-converted-to.pdf used on input line
- 282.
+ 283.
 (pdftex.def)             Requested size: 328.82707pt x 230.18031pt.
-) (./alphaformation.tex [10 <./figures/energy-eps-converted-to.pdf>]) (./conclu
-sion.tex) (./diss.bbl [11]
+ [9] [10 <./figures/energy-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/scaling.eps>
+(epstopdf)                    date: 2019-02-25 10:14:14
+(epstopdf)                    size: 21857 bytes
+(epstopdf)             Output file: <figures/scaling-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-25 10:14:26
+(epstopdf)                    size: 7067 bytes
+(epstopdf)             Command: <repstopdf --outfile=figures/scaling-eps-conver
+ted-to.pdf figures/scaling.eps>
+(epstopdf)             \includegraphics on input line 307.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./figures/scaling-eps-converted-to.pdf): PDF inc
+lusion: found PDF version <1.7>, but at most version <1.4> allowed
+<figures/scaling-eps-converted-to.pdf, id=67, 361.35pt x 252.945pt>
+File: figures/scaling-eps-converted-to.pdf Graphic file (type pdf)
+
+<use figures/scaling-eps-converted-to.pdf>
+Package pdftex.def Info: figures/scaling-eps-converted-to.pdf used on input lin
+e 307.
+(pdftex.def)             Requested size: 328.82707pt x 230.18031pt.
+ [11 <./figures/scaling-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/scaling_theory.eps>
+(epstopdf)                    date: 2019-02-25 12:51:37
+(epstopdf)                    size: 22597 bytes
+(epstopdf)             Output file: <figures/scaling_theory-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2019-02-25 12:51:40
+(epstopdf)                    size: 10036 bytes
+(epstopdf)             Command: <repstopdf --outfile=figures/scaling_theory-eps
+-converted-to.pdf figures/scaling_theory.eps>
+(epstopdf)             \includegraphics on input line 337.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./figures/scaling_theory-eps-converted-to.pdf): 
+PDF inclusion: found PDF version <1.7>, but at most version <1.4> allowed
+<figures/scaling_theory-eps-converted-to.pdf, id=76, 361.35pt x 252.945pt>
+File: figures/scaling_theory-eps-converted-to.pdf Graphic file (type pdf)
+
+<use figures/scaling_theory-eps-converted-to.pdf>
+Package pdftex.def Info: figures/scaling_theory-eps-converted-to.pdf used on in
+put line 337.
+(pdftex.def)             Requested size: 328.82707pt x 230.18031pt.
+Package epstopdf Info: Source file: <figures/saturation.eps>
+(epstopdf)                    date: 2019-02-25 13:17:44
+(epstopdf)                    size: 21118 bytes
+(epstopdf)             Output file: <figures/saturation-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-25 13:17:47
+(epstopdf)                    size: 7915 bytes
+(epstopdf)             Command: <repstopdf --outfile=figures/saturation-eps-con
+verted-to.pdf figures/saturation.eps>
+(epstopdf)             \includegraphics on input line 345.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex (file ./figures/saturation-eps-converted-to.pdf): PDF 
+inclusion: found PDF version <1.7>, but at most version <1.4> allowed
+<figures/saturation-eps-converted-to.pdf, id=77, 361.35pt x 252.945pt>
+File: figures/saturation-eps-converted-to.pdf Graphic file (type pdf)
+
+<use figures/saturation-eps-converted-to.pdf>
+Package pdftex.def Info: figures/saturation-eps-converted-to.pdf used on input 
+line 345.
+(pdftex.def)             Requested size: 328.82707pt x 230.18031pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12 <./figures/scaling_theory-eps-converted-to.pdf>]
+Overfull \hbox (20.78247pt too wide) detected at line 362
+[] [] \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 :
+ []
+
+[13 <./figures/saturation-eps-converted-to.pdf>]
+Overfull \hbox (1.39377pt too wide) detected at line 374
+[] [] \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 ;
+ []
+
+[14]) (./alphaformation.tex) (./conclusion.tex) (./diss.bbl [15]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ê in font cmr12!
- [12])
-[13] (./diss.aux) ) 
+ [16]) [17]
+(./diss.aux) ) 
 Here is how much of TeX's memory you used:
- 11545 strings out of 493308
- 208885 string characters out of 6140092
- 265680 words of memory out of 5000000
- 14721 multiletter control sequences out of 15000+600000
+ 11566 strings out of 493308
+ 209561 string characters out of 6140092
+ 271586 words of memory out of 5000000
+ 14739 multiletter control sequences out of 15000+600000
  21696 words of font info for 80 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,20n,55p,2427b,665s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on diss.pdf (13 pages, 266086 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
+x12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on diss.pdf (17 pages, 303245 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
+ 164 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 29 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 44 words of extra memory for PDF output out of 10000 (max. 10000000)
 

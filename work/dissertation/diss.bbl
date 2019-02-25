@@ -128,4 +128,16 @@ S.~Gandolfi, A.~Lovato, J.~Carlson, and Kevin~E. Schmidt.
   nuclear matter with realistic nuclear interactions.
 \newblock {\em Phys. Rev. C}, 90, 2014.
 
+\bibitem{drischler2017}
+C.~Drischler, K.~Hebeler, and A.~Schwenk.
+\newblock Chiral interactions up to next-to-next-to-next-to-leading order and
+  nuclear saturation.
+\newblock {\em Phys. Rev. Lett.}, 122:042501, Jan 2019.
+
+\bibitem{bouadani2009_dissertation}
+M.~Y. {Bouadani}.
+\newblock {\em {Monte Carlo calculations of pion condensate in highly dense
+  neutron matter and a new auxiliary fields correlated wavefunction}}.
+\newblock PhD thesis, Arizona State University, 2009.
+
 \end{thebibliography}

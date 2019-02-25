@@ -4,8 +4,8 @@ myps=2.5
 idmc=1 #0=vmc 1=dmc
 set terminal postscript eps enhanced color font 'Helvetica, 23'
 set output 'plot.eps'
-set xlabel "density [fm^{-3}]"
-set ylabel "Energy per nucleon (MeV)"
+set xlabel "{/Symbol r} (fm^{-3})" enhanced
+set ylabel "E/A (MeV)"
 set xrange [0.148:0.172]
 #set yrange [-16.5:-7.0] #for vmc
 set yrange [-16.5:-13.0] #for dmc
