@@ -17,45 +17,45 @@ You're missing a field part---line 526 of file ../../../../Dropbox/nuclear/paper
  :   annote = 
  :            ={Non-local potential stuff.}
 I'm skipping whatever remains of this entry
-You've used 25 entries,
+You've used 29 entries,
             1791 wiz_defined-function locations,
-            612 strings with 7375 characters,
-and the built_in function-call counts, 5782 in all, are:
-= -- 506
-> -- 270
+            640 strings with 7934 characters,
+and the built_in function-call counts, 6657 in all, are:
+= -- 590
+> -- 290
 < -- 0
-+ -- 100
-- -- 75
-* -- 459
-:= -- 968
-add.period$ -- 76
-call.type$ -- 25
-change.case$ -- 23
++ -- 109
+- -- 80
+* -- 530
+:= -- 1104
+add.period$ -- 88
+call.type$ -- 29
+change.case$ -- 27
 chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 220
-empty$ -- 547
-format.name$ -- 75
-if$ -- 1242
+cite$ -- 29
+duplicate$ -- 256
+empty$ -- 642
+format.name$ -- 80
+if$ -- 1432
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 23
-newline$ -- 129
-num.names$ -- 25
-pop$ -- 26
+int.to.str$ -- 29
+missing$ -- 27
+newline$ -- 149
+num.names$ -- 29
+pop$ -- 30
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 78
+skip$ -- 91
 stack$ -- 0
-substring$ -- 480
-swap$ -- 25
+substring$ -- 569
+swap$ -- 29
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 53
-width$ -- 27
-write$ -- 279
+while$ -- 63
+width$ -- 31
+write$ -- 323
 (There were 3 error messages)
