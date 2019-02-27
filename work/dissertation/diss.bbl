@@ -1,5 +1,33 @@
 \begin{thebibliography}{10}
 
+\bibitem{hartree1928}
+D.~R. Hartree.
+\newblock The wave mechanics of an atom with a non-coulomb central field. part
+  i. theory and methods.
+\newblock {\em Mathematical Proceedings of the Cambridge Philosophical
+  Society}, 24(1):89–110, 1928.
+
+\bibitem{fock1930}
+V.~Fock.
+\newblock N{\"a}herungsmethode zur l{\"o}sung des quantenmechanischen
+  mehrk{\"o}rperproblems.
+\newblock {\em Zeitschrift f{\"u}r Physik}, 61(1):126--148, Jan 1930.
+
+\bibitem{slater1951}
+J.~C. Slater.
+\newblock A simplification of the {H}artree-{F}ock method.
+\newblock {\em Phys. Rev.}, 81:385, 1951.
+
+\bibitem{zofka1970}
+J.~{\v{Z}}ofka.
+\newblock Application of the hartree-fock method in nuclear theory.
+\newblock {\em Czechoslovak Journal of Physics B}, 20(8):926--938, Aug 1970.
+
+\bibitem{gogny1986}
+{Gogny, D.} and {Lions, P. L.}
+\newblock Hartree-fock theory in nuclear physics.
+\newblock {\em ESAIM: M2AN}, 20(4):571--637, 1986.
+
 \bibitem{navratil2009}
 Petr Navr{\'a}til, Sofia Quaglioni, Ionel Stetcu, and Bruce~R Barrett.
 \newblock Recent developments in no-core shell-model calculations.
@@ -51,11 +79,6 @@ J.~Carlson, S.~Gandolfi, F.~Pederiva, Steven~C. Pieper, R.~Schiavilla, K.E.
 K.~E. Schmidt and S.~Fantoni.
 \newblock A quantum {M}onte {C}arlo method for nucleon systems.
 \newblock {\em Phys. Lett. B}, 446:99--103, 1999.
-
-\bibitem{yukawa1935}
-H.~Yukawa.
-\newblock On the interaction of elementary particles. i.
-\newblock {\em Proc. Phys. Math. Soc. Japan.}, 17:48--57, 1935.
 
 \bibitem{madeira2018}
 Lucas Madeira, Alessandro Lovato, Francesco Pederiva, and Kevin~E. Schmidt.
