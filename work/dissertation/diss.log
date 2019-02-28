@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2019.2.12)  26 FEB 2019 15:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2019.2.12)  27 FEB 2019 17:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -418,18 +418,18 @@ LaTeX Warning: Label `fig:energy_jaslin' multiply defined.
 )
 \openout1 = `diss.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -523,12 +523,12 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+msa on input line 62.
+LaTeX Font Info:    Try loading font information for U+msa on input line 65.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 62.
+LaTeX Font Info:    Try loading font information for U+msb on input line 65.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -540,10 +540,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: figures/gfmc_energies.png Graphic file (type png)
 
 <use figures/gfmc_energies.png>
-Package pdftex.def Info: figures/gfmc_energies.png used on input line 10.
+Package pdftex.def Info: figures/gfmc_energies.png used on input line 9.
 (pdftex.def)             Requested size: 375.80544pt x 217.64609pt.
-) [3 <./figures/gfmc_energies.png>]
-(./trialwavefunction.tex [4] [5] [6]
+ [3 <./figures/gfmc_energies.png>]) (./qmc.tex
+[4]) (./trialwavefunction.tex [5] [6] [7]
 Package epstopdf Info: Source file: <figures/energy_jaslin.eps>
 (epstopdf)                    date: 2019-02-21 11:45:08
 (epstopdf)                    size: 23471 bytes
@@ -559,18 +559,21 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./figures/energy_jaslin-eps-converted-to.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.4> allowed
-<figures/energy_jaslin-eps-converted-to.pdf, id=44, 361.35pt x 252.945pt>
+<figures/energy_jaslin-eps-converted-to.pdf, id=48, 361.35pt x 252.945pt>
 File: figures/energy_jaslin-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/energy_jaslin-eps-converted-to.pdf>
 Package pdftex.def Info: figures/energy_jaslin-eps-converted-to.pdf used on inp
 ut line 128.
 (pdftex.def)             Requested size: 328.82707pt x 230.18031pt.
+ [8]
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+[9 <./figures/energy_jaslin-eps-converted-to.pdf>]
 
-[7] [8 <./figures/energy_jaslin-eps-converted-to.pdf>]
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 Package epstopdf Info: Source file: <figures/energy.eps>
 (epstopdf)                    date: 2019-02-22 13:30:32
 (epstopdf)                    size: 23399 bytes
@@ -585,14 +588,14 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./figures/energy-eps-converted-to.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.4> allowed
-<figures/energy-eps-converted-to.pdf, id=58, 361.35pt x 252.945pt>
+<figures/energy-eps-converted-to.pdf, id=61, 361.35pt x 252.945pt>
 File: figures/energy-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/energy-eps-converted-to.pdf>
 Package pdftex.def Info: figures/energy-eps-converted-to.pdf used on input line
  280.
 (pdftex.def)             Requested size: 328.82707pt x 230.18031pt.
- [9] [10 <./figures/energy-eps-converted-to.pdf>]
+ [10] [11 <./figures/energy-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/scaling.eps>
 (epstopdf)                    date: 2019-02-25 10:14:14
 (epstopdf)                    size: 21857 bytes
@@ -607,14 +610,14 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./figures/scaling-eps-converted-to.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.4> allowed
-<figures/scaling-eps-converted-to.pdf, id=70, 361.35pt x 252.945pt>
+<figures/scaling-eps-converted-to.pdf, id=73, 361.35pt x 252.945pt>
 File: figures/scaling-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/scaling-eps-converted-to.pdf>
 Package pdftex.def Info: figures/scaling-eps-converted-to.pdf used on input lin
 e 304.
 (pdftex.def)             Requested size: 328.82707pt x 230.18031pt.
- [11 <./figures/scaling-eps-converted-to.pdf>]
+ [12 <./figures/scaling-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/scaling_theory.eps>
 (epstopdf)                    date: 2019-02-25 12:51:37
 (epstopdf)                    size: 22597 bytes
@@ -630,13 +633,17 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./figures/scaling_theory-eps-converted-to.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.4> allowed
-<figures/scaling_theory-eps-converted-to.pdf, id=79, 361.35pt x 252.945pt>
+<figures/scaling_theory-eps-converted-to.pdf, id=82, 361.35pt x 252.945pt>
 File: figures/scaling_theory-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/scaling_theory-eps-converted-to.pdf>
 Package pdftex.def Info: figures/scaling_theory-eps-converted-to.pdf used on in
 put line 334.
 (pdftex.def)             Requested size: 328.82707pt x 230.18031pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 Package epstopdf Info: Source file: <figures/saturation.eps>
 (epstopdf)                    date: 2019-02-25 13:17:44
 (epstopdf)                    size: 21118 bytes
@@ -651,7 +658,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: pdflatex (file ./figures/saturation-eps-converted-to.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.4> allowed
-<figures/saturation-eps-converted-to.pdf, id=80, 361.35pt x 252.945pt>
+<figures/saturation-eps-converted-to.pdf, id=83, 361.35pt x 252.945pt>
 File: figures/saturation-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figures/saturation-eps-converted-to.pdf>
@@ -662,37 +669,44 @@ line 342.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12 <./figures/scaling_theory-eps-converted-to.pdf>]
+[13] [14 <./figures/scaling_theory-eps-converted-to.pdf> <./figures/saturation-
+eps-converted-to.pdf>]
 Overfull \hbox (20.78247pt too wide) detected at line 359
 [] [] \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 ;
  []
 
-[13 <./figures/saturation-eps-converted-to.pdf>]
+
 Overfull \hbox (1.39377pt too wide) detected at line 371
 [] [] \OT1/cmr/m/n/12 = [] [] \OML/cmm/m/it/12 ;
  []
 
-[14]) (./diss.bbl
+[15]) (./diss.bbl
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ì in font cmr12!
- [15]
+ [16]
+Missing character: There is no Œ in font cmti12!
+Missing character: There is no õ in font cmti12!
+ [17]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no à in font cmr12!
+Missing character: There is no û in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ê in font cmr12!
- [16]) [17] (./diss.aux)
+ [18]) [19] (./diss.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 11569 strings out of 493308
- 209651 string characters out of 6140092
- 269639 words of memory out of 5000000
- 14749 multiletter control sequences out of 15000+600000
+ 11587 strings out of 493308
+ 209880 string characters out of 6140092
+ 285748 words of memory out of 5000000
+ 14764 multiletter control sequences out of 15000+600000
  21696 words of font info for 80 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,20n,55p,1668b,665s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,20n,55p,1774b,665s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/
@@ -709,9 +723,9 @@ r6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on diss.pdf (17 pages, 482217 bytes).
+Output written on diss.pdf (19 pages, 491537 bytes).
 PDF statistics:
- 167 PDF objects out of 1000 (max. 8388607)
+ 174 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  49 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -80,6 +80,101 @@ K.~E. Schmidt and S.~Fantoni.
 \newblock A quantum {M}onte {C}arlo method for nucleon systems.
 \newblock {\em Phys. Lett. B}, 446:99--103, 1999.
 
+\bibitem{gandolfi2007}
+S.~Gandolfi, F.~Pederiva, S.~Fantoni, and K.~E. Schmidt.
+\newblock Auxiliary field diffusion monte carlo calculation of nuclei with
+  $a\ensuremath{\le}40$ with tensor interactions.
+\newblock {\em Phys. Rev. Lett.}, 99:022507, Jul 2007.
+
+\bibitem{lonardoni2017_2}
+D.~Lonardoni, A.~Lovato, Steven~C. Pieper, and R.~B. Wiringa.
+\newblock Variational calculation of the ground state of closed-shell nuclei up
+  to $a=40$.
+\newblock {\em Phys. Rev. C}, 96:024326, Aug 2017.
+
+\bibitem{gandolfi2014_2}
+S.~Gandolfi, J.~Carlson, S.~Reddy, A.~W. Steiner, and R.~B. Wiringa.
+\newblock The equation of state of neutron matter, symmetry energy and neutron
+  star structure.
+\newblock {\em The European Physical Journal A}, 50(2):10, Feb 2014.
+
+\bibitem{gandolfi2012}
+S.~Gandolfi, J.~Carlson, and Sanjay Reddy.
+\newblock Maximum mass and radius of neutron stars, and the nuclear symmetry
+  energy.
+\newblock {\em Phys. Rev. C}, 85:032801, Mar 2012.
+
+\bibitem{tews2018}
+I.~Tews, J.~Carlson, S.~Gandolfi, and S.~Reddy.
+\newblock Constraining the speed of sound inside neutron stars with chiral
+  effective field theory interactions and observations.
+\newblock {\em The Astrophysical Journal}, 860(2):149, jun 2018.
+
+\bibitem{lonardoni2015}
+Diego Lonardoni, Alessandro Lovato, Stefano Gandolfi, and Francesco Pederiva.
+\newblock Hyperon puzzle: Hints from quantum monte carlo calculations.
+\newblock {\em Phys. Rev. Lett.}, 114:092301, Mar 2015.
+
+\bibitem{gandolfi2017_2}
+Stefano Gandolfi and Diego Lonardoni.
+\newblock {\em The EOS of Neutron Matter and the Effect of Λ Hyperons to
+  Neutron Star Structure}.
+
+\bibitem{gandolfi2007_2}
+Stefano Gandolfi, Francesco Pederiva, Stefano Fantoni, and Kevin~E. Schmidt.
+\newblock Quantum monte carlo calculations of symmetric nuclear matter.
+\newblock {\em Phys. Rev. Lett.}, 98:102503, Mar 2007.
+
+\bibitem{gandolfi2014}
+S.~Gandolfi, A.~Lovato, J.~Carlson, and Kevin~E. Schmidt.
+\newblock From the lightest nuclei to the equation of state of symmetric
+  nuclear matter with realistic nuclear interactions.
+\newblock {\em Phys. Rev. C}, 90, 2014.
+
+\bibitem{lonardoni2017}
+D.~Lonardoni, J.~Carlson, S.~Gandolfi, J.~E. Lynn, K.~E. Schmidt, A.~Schwenk,
+  and X.~B. Wang.
+\newblock Properties of nuclei up to $a=16$ using local chiral interactions.
+\newblock {\em Phys. Rev. Lett.}, 120:122502, Mar 2018.
+
+\bibitem{lonardoni2018}
+D.~Lonardoni, S.~Gandolfi, J.~E. Lynn, C.~Petrie, J.~Carlson, K.~E. Schmidt,
+  and A.~Schwenk.
+\newblock Auxiliary field diffusion monte carlo calculations of light and
+  medium-mass nuclei with local chiral interactions.
+\newblock {\em Phys. Rev. C}, 97:044318, Apr 2018.
+
+\bibitem{lynn2019}
+J.E. Lynn, I.~Tews, S.~Gandolfi, and A.~Lovato.
+\newblock Quantum monte carlo methods in nuclear physics: Recent advances.
+
+\bibitem{wiringa1995}
+R.~B. Wiringa, V.~G.~J. Stoks, and R.~Schiavilla.
+\newblock Accurate nucleon-nucleon potential with charge-independence breaking.
+\newblock {\em Phys. Rev. C}, 51:38--51, Jan 1995.
+
+\bibitem{carlson1983}
+J.~Carlson, V.R. Pandharipande, and R.B. Wiringa.
+\newblock Three-nucleon interaction in 3-, 4- and ∞-body systems.
+\newblock {\em Nuclear Physics A}, 401(1):59 -- 85, 1983.
+
+\bibitem{pieper2001}
+Steven~C. Pieper, V.~R. Pandharipande, R.~B. Wiringa, and J.~Carlson.
+\newblock Realistic models of pion-exchange three-nucleon interactions.
+\newblock {\em Phys. Rev. C}, 64:014001, Jun 2001.
+
+\bibitem{epelbaum2009}
+E.~Epelbaum, H.-W. Hammer, and Ulf-G. Mei\ss{}ner.
+\newblock Modern theory of nuclear forces.
+\newblock {\em Rev. Mod. Phys.}, 81:1773--1825, Dec 2009.
+
+\bibitem{gezerlis2013}
+A.~Gezerlis, I.~Tews, E.~Epelbaum, S.~Gandolfi, K.~Hebeler, A.~Nogga, and
+  A.~Schwenk.
+\newblock Quantum monte carlo calculations with chiral effective field theory
+  interactions.
+\newblock {\em Phys. Rev. Lett.}, 111:032501, Jul 2013.
+
 \bibitem{madeira2018}
 Lucas Madeira, Alessandro Lovato, Francesco Pederiva, and Kevin~E. Schmidt.
 \newblock Quantum monte carlo formalism for dynamical pions and nucleons.
@@ -138,18 +233,6 @@ V.~R. Pandharipande and R.~B. Wiringa.
 V.~R. Pandharipande and K.~E. Schmidt.
 \newblock Variational calculations of simple bose systems.
 \newblock {\em Phys. Rev. A}, 15:2486--2495, Jun 1977.
-
-\bibitem{gandolfi2007}
-S.~Gandolfi, F.~Pederiva, S.~Fantoni, and K.E. Schmidt.
-\newblock Auxiliary field diffusion {M}onte {C}arlo calculation of nuclei with
-  {$A \leq 40$} with tensor interactions.
-\newblock {\em Phys. Rev. Lett.}, 99:022507--1, 2007.
-
-\bibitem{gandolfi2014}
-S.~Gandolfi, A.~Lovato, J.~Carlson, and Kevin~E. Schmidt.
-\newblock From the lightest nuclei to the equation of state of symmetric
-  nuclear matter with realistic nuclear interactions.
-\newblock {\em Phys. Rev. C}, 90, 2014.
 
 \bibitem{drischler2017}
 C.~Drischler, K.~Hebeler, and A.~Schwenk.
