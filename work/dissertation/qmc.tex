@@ -1,6 +1,35 @@
 \section{Quantum Monte Carlo}
+Many problems in nuclear physics involve a large number of particles and a complicated interaction between the particles. The Schr\"odinger equation used to solve these problems then involves a large dimensional integral with a complicated integrand. This is unfeasible to solve using standard numerical methods. Quantum Monte Carlo was designed to tackle these problems by sampling the large dimensional integrals in a way that reduces the necessary computation while still converging to an accurate answer. With an infinite number of samples QMC calculations are exact, but a sufficiently large number of samples the integrals can converge with controlled statistical errors. Two main ingredients to these QMC methods are Monte Carlo integration and the Metropolis algorithm. I will first describe these two techniques after which I will describe the QMC methods used in this work. I will then conclude by describing the Hamiltonians used with these methods.
+
+\subsection{Monte Carlo Integration}
+Solving for properties of many-body quantum systems often involves solving a large dimensional integral such as
+\begin{equation}
+   I=\int g(\mathbf{R}) d\mathbf{R},
+\end{equation}
+where the $\mathbf{R}=\mathbf{r}_1,\mathbf{r}_2,\ldots,\mathbf{r}_N$ could be the positions of each particle in the system. Monte Carlo integration involves writing this integral in terms of a probability distribution called the importance function $P(\mathbf{R})$,
+\begin{equation}
+   I=\int f(\mathbf{R}) P(\mathbf{R}) d\mathbf{R},
+\end{equation}
+where $f(\mathbf{R}) = g(\mathbf{R})/P(\mathbf{R})$. This integral is defined to be the expectation value of $f(\mathbf{R})$ with respect to the importance function $P(\mathbf{R})$. The expectation value can also be determined by averaging an infinite number of $f(\mathbf{R}_n)$ where $\mathbf{R}_n$ are sampled directly from the importance function $P(\mathbf{R})$.
+\begin{equation}
+   I \equiv \left<f\right> = \lim\limits_{N\rightarrow\infty} \frac{1}{N} \sum\limits_{n=1}^N f(\mathbf{R}_n)
+\end{equation}
+This expectation value can be approximated by averaging over a sufficiently large number of samples
+\begin{equation}
+   I \approx \frac{1}{N} \sum\limits_{n=1}^N f(\mathbf{R}_n),
+\end{equation}
+where the statistical uncertainties can be estimated in the usual way
+\begin{equation}
+   \sigma_{I} = \sqrt{\frac{\expect{f^2}-\expect{f}^2}{N}} \approx \sqrt{\frac{\left(\frac{1}{N}\sum\limits_{n=1}^Nf^2(\R_n)\right) - \left(\frac{1}{N}\sum\limits_{n=1}^Nf(\R_n)\right)^2}{N-1}}.
+\end{equation}
+
+The scaling is independent of the dimension, and thus this method is useful especially when the dimensions of the integration become large. In many-body quantum mechanics the dimension of the integrals can be quite large, including several dimensions for each particle in the calculation. Monte Carlo integration only needs to sample each of these dimensions, decreasing the work required by a substantial amount for large dimensional integrals.
+
+\subsection{Metropolis Algorithm}
+
 
 \subsection{Variational Monte Carlo}
+Variational Monte Carlo is a variational method that provides an upper bound to quantum calculations.
 
 \subsection{Diffusion Monte Carlo}
 
@@ -9,5 +38,5 @@
 
 \subsubsection{\red{Mixed Expectation Values and Operator Breakup}}
 
-\section{Hamiltonian}
+\subsection{Hamiltonian}
 \red{Phenomenological plus $\chi$EFT potentials, and compare the two. What makes them different at NN (same operator structure)?}

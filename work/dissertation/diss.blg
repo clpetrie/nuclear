@@ -8,54 +8,68 @@ I was expecting a `,' or a `}'---line 190 of file ../../../../Dropbox/nuclear/pa
  :   annote={No-core shell model.}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 332 of file ../../../../Dropbox/nuclear/papers/references.bib
+Repeated entry---line 249 of file ../../../../Dropbox/nuclear/papers/references.bib
+ : @article{wiringa1995
+ :                     ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 337 of file ../../../../Dropbox/nuclear/papers/references.bib
  :   
  :   %url={http://stacks.iop.org/0034-4885/77/i=9/a=096302},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field part---line 526 of file ../../../../Dropbox/nuclear/papers/references.bib
+You're missing a field part---line 531 of file ../../../../Dropbox/nuclear/papers/references.bib
  :   annote = 
  :            ={Non-local potential stuff.}
 I'm skipping whatever remains of this entry
-You've used 29 entries,
+I was expecting an "="---line 1014 of file ../../../../Dropbox/nuclear/papers/references.bib
+ :    
+ :    annote = {The dense matter equation of state (EOS) determines neutron star (NS) structure but can be calculated reliably only up to one to two times the nuclear saturation density, using accurate many-body methods that employ nuclear interactions from chiral effective field theory constrained by scattering data. In this work, we use physically motivated ansatzes for the speed of sound}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty chapter and pages in gandolfi2017_2
+Warning--empty publisher in gandolfi2017_2
+Warning--empty year in gandolfi2017_2
+Warning--empty journal in lynn2019
+Warning--empty year in lynn2019
+You've used 44 entries,
             1791 wiz_defined-function locations,
-            640 strings with 7934 characters,
-and the built_in function-call counts, 6657 in all, are:
-= -- 590
-> -- 290
+            718 strings with 10600 characters,
+and the built_in function-call counts, 10198 in all, are:
+= -- 858
+> -- 512
 < -- 0
-+ -- 109
-- -- 80
-* -- 530
-:= -- 1104
-add.period$ -- 88
-call.type$ -- 29
-change.case$ -- 27
++ -- 188
+- -- 144
+* -- 846
+:= -- 1705
+add.period$ -- 131
+call.type$ -- 44
+change.case$ -- 41
 chr.to.int$ -- 0
-cite$ -- 29
-duplicate$ -- 256
-empty$ -- 642
-format.name$ -- 80
-if$ -- 1432
+cite$ -- 49
+duplicate$ -- 392
+empty$ -- 961
+format.name$ -- 144
+if$ -- 2174
 int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 27
-newline$ -- 149
-num.names$ -- 29
-pop$ -- 30
+int.to.str$ -- 44
+missing$ -- 43
+newline$ -- 222
+num.names$ -- 44
+pop$ -- 59
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 91
+skip$ -- 136
 stack$ -- 0
-substring$ -- 569
-swap$ -- 29
+substring$ -- 793
+swap$ -- 43
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 63
-width$ -- 31
-write$ -- 323
-(There were 3 error messages)
+warning$ -- 5
+while$ -- 93
+width$ -- 46
+write$ -- 480
+(There were 5 error messages)

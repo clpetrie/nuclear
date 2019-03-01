@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
-\usepackage[margin=1in]{geometry}
+%\usepackage[margin=1.25in]{geometry}
+\usepackage[margin=1.00in]{geometry}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{url}
@@ -8,12 +9,15 @@
 \usepackage{graphicx}
 \usepackage{tikz} %For drawing figures
 
+%\renewcommand{\baselinestretch}{1.5}
+
 \newcommand{\red}[1]{{\color{red}{#1}}}
 \newcommand{\blue}[1]{{\color{blue}{#1}}}
 \newcommand{\ket}[1]{\left| #1 \right>}
 \newcommand{\bra}[1]{\left< #1 \right|}
 \newcommand{\braket}[2]{\left< #1 | #2 \right>}
 \newcommand{\ketbra}[2]{\left| #1 \right> \left< #2 \right|}
+\newcommand{\expect}[1]{\left< #1 \right>}
 \newcommand{\fpij}{f_p(r_{ij})}
 \newcommand{\Opij}{\mathcal{O}_{ij}^p}
 \newcommand{\Oijp}{\mathcal{O}^p_{ij}}
@@ -66,7 +70,7 @@
 
 \input{motivation}
 
-%\input{qmc}
+\input{qmc}
 
 \input{trialwavefunction}
 
