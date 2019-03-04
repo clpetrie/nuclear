@@ -5,9 +5,12 @@ import matplotlib.pyplot as plt
 calc=2 #1=14n2p 2=2n2p
 corrtype=1 #1=lin, 2=ip
 sys=5 #np0=1, np1=3, pp=5, nn=7
-filenames=('temp.dmc','gofrnp_0.00025_lin_alpha.dmc','gofrnp_0.00025_ip_alpha.dmc','gofrnp_0.0005_lin.dmc','gofrnp_0.0005_ip.dmc')
-titles=('Continuum Alpha','0.00025 lin Alpha','0.00025 ip Alpha','0.00025 lin Cluster','0.00025 ip Cluster')
-pltstyle=('ko','ro','mo','yo','go','bo')
+#filenames=('temp.dmc','gofrnp_0.00025_lin_alpha.dmc','gofrnp_0.00025_ip_alpha.dmc','gofrnp_0.0005_lin.dmc','gofrnp_0.0005_ip.dmc')
+#titles=('Continuum Alpha','0.00025 lin Alpha','0.00025 ip Alpha','0.00025 lin Cluster','0.00025 ip Cluster')
+#pltstyle=('ko','ro','mo','yo','go','bo')
+filenames=('gofrnp_0.00025_ip_fine.dmc','gofrnp_0.00025_lin_fine.dmc','../gofrnp_continuum_ip.dmc')
+titles=('0.00025 ip','0.00025 lin','alpha continuum')
+pltstyle=('ko','ro','mo','bo')
 
 #build other parameters
 lenfiles=len(filenames)

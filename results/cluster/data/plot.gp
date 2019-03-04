@@ -31,10 +31,10 @@ set ylabel "Energy (MeV)"
 if (sys<=3) \
    plot "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:2:3 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "red" title 'Linear', \
       "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:2 with lines linetype 2 linewidth lsize lc rgb "red" notitle, \
-      "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:6:7 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "green" title 'IP Quadratic', \
-      "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:6 with lines linetype 2 linewidth lsize lc rgb "green" notitle
-#      "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:4:5 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "blue" title 'IP Quadratic - bad', \
-#      "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:4 with lines linetype 2 linewidth lsize lc rgb "blue" notitle
+      "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:6:7 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "blue" title 'IP Quadratic', \
+      "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:6 with lines linetype 2 linewidth lsize lc rgb "blue" notitle
+#      "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:4:5 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "green" title 'IP Quadratic - bad', \
+#      "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:4 with lines linetype 2 linewidth lsize lc rgb "green" notitle
 
 #      "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:4:5 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "green" title 'IP Quadratic', \
 #      "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:4 with lines linetype 2 linewidth lsize lc rgb "green" notitle, \

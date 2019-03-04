@@ -84,6 +84,14 @@ again covered={\opaqueness<1->{100}}} %This changes the opaqueness of each bulle
 I was told that that my lesson can't have any effect on your grades
 \end{frame}
 
+\begin{frame}{Questions}
+\begin{center}
+   Which student do you think will learn the most here?
+   ~\\~\\~
+   \includegraphics[width=0.9\textwidth]{figures/asking_questions.jpg}
+\end{center}
+\end{frame}
+
 \begin{frame}[t]{Radiation}
 What do you think of when you hear the word radiation?
 \only<2->{
@@ -118,34 +126,33 @@ What do you think of when you hear the word radiation?
 
 \begin{frame}[t]{Review}
 \begin{itemize}
-   \item Before we talk more about radiation let's all get on the same page.
-   \item<2-> What is {\bf internal energy}?
+   \item<1-> What is {\bf internal energy}?
    \begin{itemize}
-      \item<3-> The energy of all of the internal pieces (atoms and molecules) of an object, as seen at rest.
+      \item<2-> The energy of all of the internal pieces (atoms and molecules) of an object, as seen at rest.
    \end{itemize}
-   \item<4-> What about {\bf work} and {\bf heat}?
+   \item<3-> What about {\bf work} and {\bf heat}?
    \begin{itemize}
-      \item<5-> Work is energy being transfered by some force.
+      \item<4-> Work is energy being transfered by some force.
       \begin{align*}
          dW&=\mathbf{F}\cdot d\mathbf{r}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
          dW&=-PdV~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       \end{align*}
       \vspace{-0.8cm}
-      \item<6-> Heat is the flow of energy from one thing to \\ another, usually because of a temperature \\ difference.
+      \item<5-> Heat is the flow of energy from one thing to \\ another, usually because of a temperature \\ difference.
    \end{itemize}
 \end{itemize}
-\only<3->{
+\only<2->{
    \begin{textblock*}{\textwidth}(9.5cm,3.5cm) % {block width} (coords)
       \includegraphics[width=3.0cm]{figures/vibrating_solid.jpg}
    \end{textblock*}
 }
-\only<5->{
-   \begin{textblock*}{\textwidth}(1.0cm,7.3cm) % {block width} (coords)
+\only<4->{
+   \begin{textblock*}{\textwidth}(1.0cm,6.6cm) % {block width} (coords)
       \includegraphics[width=3.0cm]{figures/work.png}
    \end{textblock*}
 }
-\only<6->{
-   \begin{textblock*}{\textwidth}(4.0cm,6.9cm) % {block width} (coords)
+\only<5->{
+   \begin{textblock*}{\textwidth}(5.0cm,6.2cm) % {block width} (coords)
       \includegraphics[width=5.0cm]{figures/heat_flow.jpg}
    \end{textblock*}
 }
@@ -175,10 +182,10 @@ What do you think of when you hear the word radiation?
       \includegraphics[width=3.0cm]{figures/mypiston.png}
    \end{textblock*}
    \begin{enumerate}[A.]
-      \item Push the piston down, $\Delta E\text{int} = \int\limits_{V_i}^{V_f} PdV$
-      \item Push the piston down, $\Delta E\text{int} = -\int\limits_{V_i}^{V_f} PdV$
-      \item Pull the piston up, $\Delta E\text{int} = \int\limits_{V_i}^{V_f} PdV$
-      \item Pull the piston up, $\Delta E\text{int} = -\int\limits_{V_i}^{V_f} PdV$
+      \item Move the piston down, $\Delta E\text{int} = \int\limits_{V_i}^{V_f} PdV$
+      \item Move the piston down, $\Delta E\text{int} = -\int\limits_{V_i}^{V_f} PdV$
+      \item Move the piston up, $\Delta E\text{int} = \int\limits_{V_i}^{V_f} PdV$
+      \item Move the piston up, $\Delta E\text{int} = -\int\limits_{V_i}^{V_f} PdV$
       \item Quit and give up
    \end{enumerate}
 \only<2>{\checkl{0.5cm}{4.0cm}}
@@ -222,13 +229,23 @@ What do you think of when you hear the word radiation?
 \begin{frame}[t]{Thermal Radiaton}
 \begin{itemize}
    \item The third way in which an object can transfer/move energy is through {\bf radiation}.
-   \item All things radiate, but only things that radiate in the visible part of the spectrum ``glow."
-\end{itemize}
-\begin{center}
+   \item<2-> All things radiate, but only things that radiate in the visible part of the spectrum ``glow."
+%\begin{center}
+%   \includegraphics[width=8.0cm]{figures/EMspectrum.jpg}
+%   ~ 
+%   \only<2->{
+%   \includegraphics[width=4.5cm]{figures/pan_on_stove.jpg}
+%   }
+%\end{center}
+\begin{textblock*}{\textwidth}(0.25cm,3.3cm) % {block width} (coords)
    \includegraphics[width=8.0cm]{figures/EMspectrum.jpg}
-   ~ 
+\end{textblock*}
+\only<2->{
+\begin{textblock*}{\textwidth}(8.5cm,5.0cm) % {block width} (coords)
    \includegraphics[width=4.5cm]{figures/pan_on_stove.jpg}
-\end{center}
+\end{textblock*}
+}
+\end{itemize}
 \end{frame}
 
 \begin{frame}[t]{Thermal Radiation}
@@ -254,7 +271,7 @@ What do you think of when you hear the word radiation?
 \begin{frame}{Thermal Radiation}
 \begin{itemize}
    \item But how much energy does something radiate?
-   \item Question for your group: Do you think a ``hotter" object will radiate more of less {\bf and why}?
+   \item Question for your group: Do you think a ``hotter" object will radiate more or less {\bf and why}?
    \item<2-> In 1879 Josef Stefan studied how much power was radiated by hot platinum filaments and found that $P \propto T^4$.
 \begin{center}
    \includegraphics[width=0.20\textwidth]{figures/stefan.jpg}
@@ -281,7 +298,7 @@ What do you think of when you hear the word radiation?
    \item<2> \underline{$P$} is the power radiated. The power contained in the EM waves. Remember that power is energy/time so the units are Watts (Joules/sec).
    \item<3> \underline{$\sigma$} is a constant of proportionality. $\sigma = 5.6696 \times 10^{-8}$ W/m$^2\cdot$K$^4$.
    \item<4> \underline{$A$} is the objects surface area in meters$^2$. This makes sense because more ``stuff" means more things to radiate.
-   \item<5> \underline{$e$} is called the emissivity and it takes values from 0 to 1. Not all things are good at absorbing and radiating EM energy, so to account for this we experimentally determine how well things radiate, 1 being a ``perfect" radiator and 0 doesn't radiate at all.
+   \item<5> \underline{$e$} is called the {\bf emissivity} and it takes values from 0 to 1. Not all things are good at absorbing and radiating EM energy, so to account for this we experimentally determine how well things radiate, 1 being a ``perfect" radiator and 0 doesn't radiate at all.
    \item<6> \underline{$T$} is temperature in K.
 \end{itemize}
 \end{frame}
@@ -290,7 +307,7 @@ What do you think of when you hear the word radiation?
 \begin{itemize}
    \item Another name for the emissivity is the absorptivity, which is the fraction of absorbed energy to indicent energy.
    \begin{equation*}
-      e = A = \frac{\text{Amount of radiation that is absorbed}}{\text{Amount of radiation that hits the surface}}
+      e = a = \frac{\text{Amount of radiation that is absorbed}}{\text{Amount of radiation that hits the surface}}
    \end{equation*}
    \item<2> If an object is good at absorbing light then it must be good at radiating it (otherwise you would get a build up of energy).
 \end{itemize}
@@ -317,7 +334,7 @@ What do you think of when you hear the word radiation?
 \end{frame}
 
 \begin{frame}{Check for Understanding}
-Why don't things just radiate all of their energy and end up at absolute zero, i.e. $T=0$K?
+Why don't things just radiate all of their energy and end up at absolute zero, i.e. $T=0$ K?
 \uncover<2>{
 \begin{enumerate}[A.]
    \item Nothing is allowed to be at absolute zero, so it's just not allowed.
@@ -339,7 +356,7 @@ Why don't things just radiate all of their energy and end up at absolute zero, i
 
 \begin{frame}{Check for Understanding - Cool Nights}
 \begin{center}
-   Why does the earth cool down at night given?
+   Why does the earth cool down at night, given
    \begin{equation*}
       P_\text{net} = \sigma A e \left(T^4-T_0^4\right)?
    \end{equation*}
@@ -373,6 +390,31 @@ Why don't things just radiate all of their energy and end up at absolute zero, i
       \\~\\ The {\bf earth} is made mostly of these things and so the earth can also be considered a black body. The {\bf sun} is also very close to being a black body
    }
 \end{center}
+\end{frame}
+
+\begin{frame}[t]{Black Body Spectrum}
+\begin{center}
+   \includegraphics[width=0.8\textwidth]{figures/bb_spectrum.jpg}
+\end{center}
+\only<1-2>{
+\begin{center}
+   ~\\~
+   Does the $\lambda_\text{peak}$ of radiation increase or decrease with temperature?
+   ~\\~
+   A.$)$ Increase ~~~~~ B.$)$ Decrease
+\end{center}
+}
+\only<2>{\checkl{6.6cm}{7.8cm}}
+\only<3-4>{
+\begin{center}
+   ~\\~
+   Do high or low $T$ objects radiate more IR radiation?
+   ~\\~
+   A.$)$ High ~~~~~ B.$)$ Low
+\end{center}
+}
+\only<4>{\checkl{4.5cm}{7.4cm}}
+
 \end{frame}
 
 \begin{frame}{Check for Understanding - Sun Spots}
@@ -440,6 +482,7 @@ Why don't things just radiate all of their energy and end up at absolute zero, i
 
 \begin{frame}{Picture References}
 \tiny
+Student asking question, accessed 4 Mar 2019: \href{https://www.mnn.com/family/family-activities/blogs/app-lets-students-ask-questions-anonymously}{https://www.mnn.com/family/family-activities/blogs/app-lets-students-ask-questions-anonymously}
 Trinity bomb, accessed 28 Feb 2019: \href{https://www.newscientist.com/article/2120748-glass-from-nuclear-test-site-shows-the-moon-was-born-dry/}{https://www.newscientist.com/article/2120748-glass-from-nuclear-test-site-shows-the-moon-was-born-dry/}\\
 Pan on stove, accessed 28 Feb 2019: \href{https://stockarch.com/images/business-and-industry/energy/pan-red-hot-hotplate-8009}{https://stockarch.com/images/business-and-industry/energy/pan-red-hot-hotplate-8009}\\
 Light bulb, accessed 28 Feb 2019: \href{https://www.independent.co.uk/news/science/old-fashioned-light-bulbs-could-be-set-for-comeback-after-light-recycling-breakthrough-a6806446.html}{https://www.independent.co.uk/news/science/old-fashioned-light-bulbs-could-be-set-for-comeback-after-light-recycling-breakthrough-a6806446.html}\\
@@ -458,11 +501,12 @@ Millenium Falcon, accessed 1 Mar 2019: \href{https://reggiocomics.wordpress.com/
 Earth's soil, accessed 1 Mar 2019: \href{https://naturesabundance.wordpress.com/2012/05/02/composting_free_natural_fertilizer/soil-not-dirt/}{https://naturesabundance.wordpress.com/2012/05/02/composting\_free\_natural\_fertilizer/soil-not-dirt/}\\
 Black body pinhole, accessed 1 Mar 2019: \href{https://en.wikipedia.org/wiki/Black_body}{https://en.wikipedia.org/wiki/Black\_body}\\
 Ocean, accessed 1 Mar 2019: \href{https://www.livescience.com/32139-why-are-oceans-salty.html}{https://www.livescience.com/32139-why-are-oceans-salty.html}\\
-Road, accessed 1 Mar 2019: \href{https://www.livescience.com/32139-why-are-oceans-salty.html}{https://www.livescience.com/32139-why-are-oceans-salty.html}\\
 \end{frame}
 
 \begin{frame}{Picture References}
 \tiny
+Road, accessed 1 Mar 2019: \href{https://www.livescience.com/32139-why-are-oceans-salty.html}{https://www.livescience.com/32139-why-are-oceans-salty.html}\\
+Black body spectrum, accessed 4 Mar 2019: \href{https://phys.libretexts.org/Bookshelves/University_Physics/Book\%3A_University_Physics_(OpenStax)/Map\%3A_University_Physics_III_-_Optics_and_Modern_Physics_(OpenStax)/6\%3A_Photons_and_Matter_Waves/6.1\%3A_Blackbody_Radiation}{https://phys.libretexts.org/Bookshelves/University\_Physics/Book\%3A\_University\_Physics\_(OpenStax)/Map\%3A\_University\_Physics\_III\_-\_Optics\_and\_Modern\_Physics\_(OpenStax)/6\%3A\_Photons\_and\_Matter\_Waves/6.1\%3A\_Blackbody\_Radiation}
 Sun spots, accessed 1 Mar 2019: \href{https://spaceplace.nasa.gov/sunspot-cookies/en/}{https://spaceplace.nasa.gov/sunspot-cookies/en/}\\
 Thermos, accessed 1 Mar 2019: \href{https://www.reflectixinc.com/applications/shipping-products-oem/oem-mailers/how-does-it-work/}{https://www.reflectixinc.com/applications/shipping-products-oem/oem-mailers/how-does-it-work/}\\
 \end{frame}

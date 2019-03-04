@@ -40,6 +40,7 @@
 \usepackage{graphicx}
 
 \newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\blue}[1]{{\color{blue}{#1}}}
 \newcommand{\ket}[1]{\left| #1 \right>}
 \newcommand{\bra}[1]{\left< #1 \right|}
 \newcommand{\braket}[2]{\left< #1 | #2 \right>}
@@ -58,6 +59,7 @@
 \renewcommand{\O}[2]{\mathcal{O}_{#2}^{#1}}
 \newcommand{\fO}[2]{\sum\limits_{#1} f_{#1}(r_{#2})\mathcal{O}_{#2}^{#1}}
 \newcommand{\R}{\mathbf{R}}
+\renewcommand{\r}{\mathbf{r}}
 \newcommand{\dt}{\Delta\tau}
 \newcommand{\ti}{\bm{\tau}_i}
 \newcommand{\tj}{\bm{\tau}_j}
@@ -84,181 +86,352 @@
 %July 30 - September 7, 2018
 \end{frame}
 
-\begin{frame}{DELETE THIS OUTLINE}
-\begin{itemize}
-   \item Explain what kind of problem you are trying to solve
-   \begin{itemize}
-      \item Mix in a brief introduction to Quantum Mechanics
-   \end{itemize}
-   \item Explain how the problem is solved.
-   \item Explain what you have done {\bf and} what students could do with you in the future.
-\end{itemize}
-\end{frame}
-
 \begin{frame}{Outline}
 \begin{itemize}
-   \item Quantum Monte Carlo methods
-   \item Improved trial wave function
-   \item Alpha formation in nearly neutron matter - preliminary
-   \item Another Improved trial wave function - preliminary
+   \item What problems I work on + background
+   \item Method I use to solve problems
+   \item Specific work I've done
+   \item Results I've gotten
    \item Future work/Conclusion
 \end{itemize}
 \end{frame}
 
-\begin{frame}{DELETE THIS OUTLINE TOO}
-\begin{itemize}
-   \item \red{Fix frame total slide numbering in footer, it's right in pdinterview.pdf}
-   \item Start with a brief description of the atom, as described by Rutherford.
-   \item Compare EM force to nuclear force and show some of the crude models, explaining why we have the crude models. Mention that it actually depends on other QM properties like spin, etc.
-      \begin{itemize}
-         \item Talk about e- orbitals and how QM was able to describe the periodic table maybe.
-      \end{itemize}
-   \item Brief explanation of how QM works and a wave function
-   \item Schr\"odinger equation is the way to solve nuclear physics problems.
-   \item Show the integral that you're solving.
-   \item How QMC work to solve these kinds of problems.
-   \item What you've done.
-   \item What you think would be good to do in the future WITH SUU STUDENTS. Including non-nuclear computational projects (mention flexibility).
-   \item Mention of possible collaborations.
-\end{itemize}
+\begin{frame}{Questions}
+\begin{center}
+   \includegraphics[width=1.0\textwidth]{figures/questions_comic.png}
+\end{center}
 \end{frame}
 
-\section{Nuclear Physics}
-\begin{frame}{Nuclear Physics Problem}
+\begin{frame}[t]{Why Nuclear Physics?}
 \begin{itemize}
-   \item We all have this picture in our head of an atom: dense nucleus in the center that we mostly ignore except for it's protons charges and a bunch of electrons zipping around around it.
-   \item<2> We know how the calculate interactions between the electrons, and between the electrons and protons.
-   \item<3> What about the nucleons (neutrons and protons), how do they interact with eachother and with electrons?
-   \begin{center}
-      \includegraphics[width=0.7\textwidth]{figures/atom.jpg}
-   \end{center}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Picture References}
-\tiny
-Atomic model, accessed 1 mar 2019: \href{http://www.whoinventedfirst.com/who-discovered-the-atom/}{http://www.whoinventedfirst.com/who-discovered-the-atom/}\\
-\end{frame}
-
-\section{QMC Methods}
-\begin{frame}{Quantum Monte Carlo}
-\begin{itemize}
-   \item \textbf{VMC:}
-   \begin{equation*}
-      E_V = \frac{\bra{\Psi_T}H\ket{\Psi_T}}{\braket{\Psi_T}{\Psi_T}} \ge E_0
-   \end{equation*}
-   \item \textbf{AFDMC:}
-   \begin{equation*}
-      \braket{\R_N}{\Psi_T(\tau)} = \int d\R_1 \ldots d\R_N \left[\prod\limits_{i=1}^N G(\R_i,\R_{i-1},\Delta\tau)\right] \braket{\R_0}{\Psi_T(0)}
-   \end{equation*}
-   \begin{equation*}
-      G(\R',\R,\Delta\tau) = \bra{\R'}e^{-(H-E_0)\Delta\tau}\ket{\R}
-   \end{equation*}
-   \item $\Psi_T$ is calculated in practically every part of the calculation and plays an important role in guiding the propagation and diffusion of the calculation to the ground state.
-\end{itemize}
-\end{frame}
-
-\section{Trial Wave Function}
-\subsection{Spin-Dependent Correlations}
-\begin{frame}{Slater Determinant}
-\begin{itemize}
-   \item Properties:
+   \item Nuclear physics has been an important topic to study for over a century
    \begin{itemize}
-      \item Antisymmetric
-      \item Cluster Decomposable \\ $\ket{A+B} = \ket{A}\ket{B}$
+      \item Nuclear energy
+      \item Radiotherapy to kill cancer cells
+      \item Nuclear Magnetic Resonance (MRI imaging)
+      \item Radioactive dating
    \end{itemize}
-   \begin{textblock*}{\textwidth}(4.5cm,-6.1cm) % {block width} (coords)
-      \includegraphics[width=14.6cm]{figures/cluster.pdf}
-   \end{textblock*}
-   \item The simplest wave function for a many-fermion system obeying these properties is a Slater determinant where $\phi_i(\mathbf{r}_i,s_i)$ are single particle nucleon states.
-   \begin{equation*}
-      \psi_{T} = \braket{RS}{\phi}= \mathcal{A} \prod\limits_{i=1}^A \phi_i(\mathbf{r}_i,s_i) = \frac{1}{A!} \mathrm{det}~\phi_i(\mathbf{r}_i,s_i)
-   \end{equation*}
-   \item Short range correlations need to be put in by hand via Jastrow-like correlations.
-   \begin{equation*}
-      \ket{\psi_T} = \prod\limits_{i<j}f(r_{ij}) \ket{\phi}.
-   \end{equation*}
+   to name a few \ldots
 \end{itemize}
+\begin{textblock*}{\textwidth}(2.8cm,0.15cm) % {block width} (coords)
+   \includegraphics[width=4.0cm]{figures/radiotherapy.png}
+\end{textblock*}
+\begin{textblock*}{\textwidth}(-0.5cm,1.5cm) % {block width} (coords)
+   \includegraphics[width=4.0cm]{figures/nuclear_energy.jpg}
+\end{textblock*}
+\begin{textblock*}{\textwidth}(7.3cm,-0.8cm) % {block width} (coords)
+   \includegraphics[width=4.0cm]{figures/mummy.jpg}
+\end{textblock*}
+\begin{textblock*}{\textwidth}(6.0cm,1.6cm) % {block width} (coords)
+   \includegraphics[width=4.0cm]{figures/mri.jpg}
+\end{textblock*}
 \end{frame}
 
-\begin{frame}{Spin Dependent Correlations}
+\begin{frame}{Why Nuclear Physics?}
 \begin{itemize}
-   \item Two spin dependent wave functions that obey these two properties are the exponentially correlated and symmetrized product wave functions, where $\Opij$ are the AV6 operators, $\si\cdot\sj$, $\ti\cdot\tj$,     $\si\cdot\sj \ti\cdot\tj$, $S_{ij}$ and $S_{ij} \ti\cdot\tj$, where $S_{ij}     = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$.
-   \begin{equation*}
-      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j}\sum\limits_p\fpij\Opij} \ket{\phi}
-   \end{equation*}
-   \begin{equation*}
-      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \mathcal{S}\prod\limits_{i<j}\left(1+\sum\limits_p\fpij\Opij\right) \ket{\phi}
-   \end{equation*}
-   \item These two wave functions are the same up to second order except for  commutator terms.
+   \item Much of this was done without a good understanding of how nuclear particles interact with each other.
+   \item My research has to do with understanding that fundamental interaction between nuclear particles (called nucleons).
 \end{itemize}
+\begin{center}
+   \includegraphics[width=0.6\textwidth]{figures/atom.jpg}
+\end{center}
 \end{frame}
 
-\subsection{Quadratic Correlations}
-\begin{frame}{Expand to Linear Correlations}
+\begin{frame}{Nuclear Problem}
 \begin{itemize}
-   \item Because of the cost for larger systems in 2007 they only included Jastrow correlations.
+   \item We want to solve for the ground state energy of nuclei. This is also called the {\bf binding energy}, $B$.
    \begin{equation*}
-      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right]\ket{\phi}
+      B = Zm_pc^2 + Nm_nc^2 - m_\text{nuclei}c^2
    \end{equation*}
-   {\tiny S. Gandolfi et al. \textit{Phys. Rev. Lett.,} \textbf{99}, 022507, 2007.}
-   \item By 2014 they added spin-isospin correlations to improve overlap with tensor. This is a truncated expansion of either full wave function from before.
+   \item<2-> Quantum Mechanics tells us that this energy is equal to
    \begin{equation*}
-      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left(1+\sum\limits_{i<j}\sum\limits_p\fpij\Opij\right) \ket{\phi}
+      E_0 = -B = \int d\r_1\ldots d\r_A \Psi_0^*(\r_1,\ldots,\r_A) \hat{H} \Psi_0(\r_1,\ldots,\r_A)
    \end{equation*}
-   {\tiny S. Gandolfi et al. \textit{Phys. Rev. C.,} \textbf{90}, 061306(R), 2014.}
+   But let's break this down a bit.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Compare Jastrow to Jastrow+Linear}
+\begin{frame}{Nuclear Problem}
+\begin{equation*}
+   E_0 = \int d\r_1\ldots d\r_A \Psi_0^*(\r_1,\ldots,\r_A) \hat{H} \Psi_0(\r_1,\ldots,\r_A)
+\end{equation*}
+\begin{itemize}
+   \item $d\r_i = dx_idy_idz_i$ so really it's a $3A$ dimensional integral.
+   \item<2-> $\hat{H}$ is called the Hamiltonian. This is just a fancy way of saying the thing that tells us what the energy is. For the EM force it's something like
+   \begin{equation*}
+      H_\text{EM} = \sum\limits_{i=1}^N \frac{p_i^2}{2m} + \sum\limits_{i<j} k\frac{q_1q_2}{r_{ij}}
+   \end{equation*}
+   \item<3-> The last part, $\Psi_0$,  is called the wave function, and it deserves it's own slide.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Wave Function}
+\begin{itemize}
+   \item Ingredients to describe the state of a classical system:
+   \begin{itemize}
+      \item Position and momentum (velocity) of each particle.
+   \end{itemize}
+   \item If we knew those things for every particle we could (classically) predict everything in the universe.
+\end{itemize}
+\begin{center}
+   \includegraphics[width=0.5\textwidth]{figures/pos_vel.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Wave Function}
+\begin{itemize}
+   \item Quantum Mechanics tells us that particles don't have just a single position, but they can be in multiple places at the same time. The probability of finding a particle in a given place is given by the square of the {\bf wave function}, $\left|\Psi(\R)\right|^2$.
+   \item You've probably seen this idea before:
+\end{itemize}
+\begin{center}
+   \includegraphics[width=1.0\textwidth]{figures/ylm_orbitals.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Wave Functions}
+\begin{itemize}
+   \item The state that has the lowest energy is called the {\bf ground state}.
+   \item All we need to do now is plug in the ground state $\Psi_0(\r_1,\ldots,\r_A)$, the nuclear Hamiltonian $\hat{H}$, and solve the integral\ldots that's it!
+\end{itemize}
+\begin{equation*}
+   E_0 = \int d\r_1\ldots d\r_A \Psi_0^*(\r_1,\ldots,\r_A) \hat{H} \Psi_0(\r_1,\ldots,\r_A)
+\end{equation*}
+\begin{itemize}
+   \item<2-> There are only a couple of small problems:
+   \begin{itemize}
+      \item<3-> We don't actually know a great way to write $\hat{H}$ for nuclear physics.
+      \item<4-> We don't know what the ground state is.
+      \item<5-> The integrals are too big and complicated for our computers to solve using normal numerical integration methods.
+   \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Solving the Problems - $\hat{H}$}
+\begin{itemize}
+   \item Two methods we use to get approximations to $\hat{H}$:
+   \begin{itemize}
+      \item {\bf Phenomenological Approach:} Make an educated guess and then smash particles together and fit the guess to the data.
+         \begin{center}
+            \includegraphics[width=0.4\textwidth]{figures/lhc.jpg}
+         \end{center}
+      \item {\bf Quantum Field Theory Approach:} Make approximations to the ``true" theory to determine what the interaction will look like.
+         \begin{center}
+            \includegraphics[width=0.2\textwidth]{figures/pion_exchange.jpg}
+         \end{center}
+   \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Solving the Problems - $\Psi_0(\r_1,\ldots,\r_A)$}
+\begin{itemize}
+   \item One guess for the wave function would be to find ``single particle" states and put each particle in one of those;
+   \begin{equation*}
+      \Psi_0(\r_1,\ldots,\r_A) = \phi_1(\r_1)\phi_2(\r_2)\ldots\phi_A(\r_A)\footnotemark
+   \end{equation*}
+   \item<2-> This is a good start but notice that the particles don't interact in this wave function. Let's force this in.
+   \begin{equation*}
+      \Psi_0(\r_1,\ldots,\r_A) = \left[1+\sum\limits_{i<j}\mathcal{O}_{ij}\right]\Phi(\r_1,\ldots,\r_A)
+   \end{equation*}
 \begin{figure}[h]
+\newcommand\shift{2.2}
+\newcommand\vshift{-1.5} %vertical shift
+\newcommand\tshift{0.05} %tiny shift
+\newcommand\sep{0.75}
    \centering
-   \includegraphics[width=0.85\textwidth]{figures/energy_jaslin.eps}
+   \begin{tikzpicture}[>=latex,scale=1.0]
+      \filldraw[black] (0*\shift,0)          circle (2pt) node[anchor=east] {\large 1};
+      \filldraw[black] (0*\shift,\sep)       circle (2pt) node[anchor=east] {\large 2};
+      \filldraw[black] (0*\shift+\sep,0)     circle (2pt) node[anchor=west] {\large 3};
+      \filldraw[black] (0*\shift+\sep,\sep)  circle (2pt) node[anchor=west] {\large 4};
+      \draw[black, ultra thick] (0*\shift,\sep) -- (0*\shift,0); %i-j
+
+      \filldraw[black] (1*\shift,0)          circle (2pt) node[anchor=east] {\large 1};
+      \filldraw[black] (1*\shift,\sep)       circle (2pt) node[anchor=east] {\large 2};
+      \filldraw[black] (1*\shift+\sep,0)     circle (2pt) node[anchor=west] {\large 3};
+      \filldraw[black] (1*\shift+\sep,\sep)  circle (2pt) node[anchor=west] {\large 4};
+      \draw[black, ultra thick] (1*\shift,0) -- (1*\shift+\sep,0); %k-l
+
+      \filldraw[black] (2*\shift,0)          circle (2pt) node[anchor=east] {\large 1};
+      \filldraw[black] (2*\shift,\sep)       circle (2pt) node[anchor=east] {\large 2};
+      \filldraw[black] (2*\shift+\sep,0)     circle (2pt) node[anchor=west] {\large 3};
+      \filldraw[black] (2*\shift+\sep,\sep)  circle (2pt) node[anchor=west] {\large 4};
+      \draw[black, ultra thick] (2*\shift+\sep,\sep) -- (2*\shift,0); %k-l
+
+      \filldraw[black] (0*\shift,\vshift)             circle (2pt) node[anchor=east] {\large 1};
+      \filldraw[black] (0*\shift,\sep+\vshift)        circle (2pt) node[anchor=east] {\large 2};  
+      \filldraw[black] (0*\shift+\sep,\vshift)        circle (2pt) node[anchor=west] {\large 3}; 
+      \filldraw[black] (0*\shift+\sep,\sep+\vshift)   circle (2pt) node[anchor=west] {\large 4};
+      \draw[black, ultra thick] (0*\shift,\sep+\vshift) -- (0*\shift+\sep,\vshift); %i-j
+
+      \filldraw[black] (1*\shift,\vshift)       circle (2pt) node[anchor=east] {\large 1};
+      \filldraw[black] (1*\shift,\sep+\vshift)  circle (2pt) node[anchor=east] {\large 2};
+      \filldraw[black] (1*\shift+\sep,\vshift)  circle (2pt) node[anchor=west] {\large 3};  
+      \filldraw[black] (1*\shift+\sep,\sep+\vshift) circle (2pt) node[anchor=west] {\large 4};
+      \draw[black, ultra thick] (1*\shift,\sep+\vshift) -- (1*\shift+\sep,\sep+\vshift); %i-j
+
+      \filldraw[black] (2*\shift,\vshift)             circle (2pt) node[anchor=east] {\large 1};  
+      \filldraw[black] (2*\shift,\sep+\vshift)        circle (2pt) node[anchor=east] {\large 2};  
+      \filldraw[black] (2*\shift+\sep,\vshift)        circle (2pt) node[anchor=west] {\large 3};
+      \filldraw[black] (2*\shift+\sep,\sep+\vshift)   circle (2pt) node[anchor=west] {\large 4};
+      \draw[black, ultra thick] (2*\shift+\sep,\vshift) -- (2*\shift+\sep,\sep+\vshift); %i-j
+   \end{tikzpicture}
 \end{figure}
-\vspace{-0.5cm}
-{\tiny Data taken from each paper respectively.}
+\end{itemize}
+\footnotetext[1]{We technically antisymmetrize this with respect to particle exchange.}
 \end{frame}
 
-\begin{frame}{Symmetrized Product Wave Function}
+\begin{frame}{Solve the Problems - Monte Carlo Integration}
+\begin{center}
+   \includegraphics[width=0.5\textwidth]{figures/riemann_sum.png}
+\end{center}
 \begin{itemize}
-   \item The logical next step was to keep more terms in the expansion.
-   \begin{equation*}
-   \begin{split}
-      \ket{\psi_T} = \Bigg[\prod\limits_{i<j}&f_c(r_{ij})\Bigg] \Bigg[1+\fOpij \\
-      & + \frac{1}{2}\fOpij\fOqklquad \Bigg] \ket{\phi}
-   \end{split}
-   \end{equation*}
+   \item At 1000 samples per dimension that's $10^{15}$, $10^{51}$, and $10^{123}$ samples just to calculate the intergral for $^4$He, $^{16}$O, and $^{40}$Ca respectively. 
+   \item That's infeasible! We need something else.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Solve the Problems - Monte Carlo Integration}
+\begin{itemize}
+   \item Let's try the Monte Carlo method. Monte Carlo uses random samples instead of a defined number of grid points. Let's integrate to find the area of a circle.
+\end{itemize}
+\onslide<1>{
+\begin{textblock*}{\textwidth}(2.5cm,-0.3cm) % {block width} (coords)
+\begin{figure}[h]
+   \includegraphics[width=0.4\textwidth]{figures/circle_grid.pdf}
+\end{figure}
+\end{textblock*}
+}
+\only<1>{
+\vspace{5.5cm}
+\begin{equation*}
+   A_\text{circle} = \sum\limits_{i}\sum\limits_{j} dx_i dy_j
+\end{equation*}
+}
+\onslide<2>{
+\begin{textblock*}{\textwidth}(-3.3cm,1.0cm) % {block width} (coords)
+\begin{figure}[h]
+   \includegraphics[width=0.4\textwidth]{figures/monte_carlo_casino.jpg}
+\end{figure}
+\end{textblock*}
+\begin{textblock*}{\textwidth}(2.5cm,-0.3cm) % {block width} (coords)
+\begin{figure}[h]
+   \includegraphics[width=0.4\textwidth]{figures/circle_square_points.pdf}
+\end{figure}
+\end{textblock*}
+}
+\vspace{5.5cm}
+\only<2>{
+\begin{equation*}
+   \frac{A_\text{circle}}{A_\text{box}} = \frac{\text{\# points in the circle}}{\text{\# points in the box (total)}}
+\end{equation*}
+}
+\end{frame}
+
+\begin{frame}{Monte Carlo Example}
+\begin{itemize}
+   \item You can estimate $\pi=3.14159$ using the method above.
+\begin{equation*}
+   \frac{A_\text{circle}}{A_\text{box}} = \frac{\pi r^2}{(2r)(2r)} = \frac{\pi}{4} = \frac{\text{\# points in the circle}}{\text{\# points in the box (total)}}
+\end{equation*}
+\begin{equation*}
+   \pi=4\frac{\text{\# points in the circle}}{\text{\# points in the box (total)}}
+\end{equation*}
 \end{itemize}
 \begin{figure}[h]
-   \centering
+   \includegraphics[width=0.55\textwidth]{figures/pi_estimate.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Monte Carlo on a Supercomputer}
+\begin{textblock*}{\textwidth}(-3.6cm,0.0cm) % {block width} (coords)
+\begin{figure}[h]
+   \includegraphics[width=0.3\textwidth]{figures/circle_square_points.pdf}
+\end{figure}
+\end{textblock*}
+\begin{textblock*}{\textwidth}(2.2cm,-0.5cm) % {block width} (coords)
+\begin{figure}[h]
+   \includegraphics[width=0.7\textwidth]{figures/boss_worker.png}
+\end{figure}
+\end{textblock*}
+\vspace{4.0cm}
+\begin{equation*}
+   E = \int \Psi^*(\mathbf{R})H\Psi(\mathbf{R}) d\mathbf{r_1}d\mathbf{r_2}\ldots d\mathbf{r_N}
+\end{equation*}
+\begin{equation*}
+   \Psi^*(\mathbf{R}) H \Psi(\mathbf{R}) \text{ at each point}
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Quantum Monte Carlo - Variational Monte Carlo}
+\begin{itemize}
+   \item We call our ``guess" for the wave function the {\bf trial wave function}, $\Psi_T(\R)$.
+   \item It is a combination of the ground state and higher energy states.
+\end{itemize}
+\begin{equation*}
+   \Psi_T(\R) = c_0\Psi_0(\R) + \sum\limits_n c_n\Psi_n(\R)
+\end{equation*}
+\uncover<2>{
+\begin{equation*}
+   E_V = \int \Psi_T^*(\mathbf{R})H\Psi_T(\mathbf{R}) d\mathbf{r_1}d\mathbf{r_2}\ldots d\mathbf{r_N} \ge E_0
+\end{equation*}
+}
+\begin{itemize}
+   \item<2-> This idea is called the {\bf variational principle}.
+   \item<2-> It's very powerful because it guarantees an upper bound on the ground state energy.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Monte Carlo in Nuclear Physics}
+\begin{equation*}
+   E_V = \int \Psi_T^*(\mathbf{R})H\Psi_T(\mathbf{R}) d\mathbf{r_1}d\mathbf{r_2}\ldots d\mathbf{r_N}
+\end{equation*}
+\begin{itemize}
+   \item Guess $\Psi_T(\R)$
+   \item Get a good guess for $\hat{H}$ from somebody else
+   \item Put it on a supercomputer
+   \item Change $\Psi_T(\R)$ until you get the lowest energy you can (Variational Monte Carlo)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Improved Trial Wave Function - Quadratic Correlations}
+\begin{itemize}
+   \item In the past the wave function we use only ``correlates" 2 nucleons at a time. I added correlations that correlated 4 nucleons at a time.
+\end{itemize}
+   \begin{equation*}
+      \Psi_0(\r_1,\ldots,\r_A) = \left[1+\sum\limits_{i<j}\mathcal{O}_{ij}+\sum\limits_{i<j}\sum_{\substack{k<l\\ij \ne kl}}\mathcal{O}_{ij}\mathcal{O}_{kl}\right]\Phi(\r_1,\ldots,\r_A)
+   \end{equation*}
+~\\~
+\begin{center}
    \includegraphics[width=1.0\textwidth]{figures/pairing_fullquad.pdf}
-\end{figure}
+\end{center}
 \end{frame}
 
-\begin{frame}{Independent Pair Quadratic Correlations}
+\begin{frame}{Improved Trial Wave Function - Quadratic Correlations}
+\begin{center}
+   \includegraphics[width=0.6\textwidth]{figures/pairing_fullquad.pdf}
+\end{center}
 \begin{itemize}
-   \item Or it can be expanded to get independent pair quadratic terms
-   \begin{equation*}
-   \begin{split}
-      \ket{\psi_T} = \Bigg[\prod\limits_{i<j}&f_c(r_{ij})\Bigg] \Bigg[1+\fOpij \\
-      & + \fOpij\fOqklip \Bigg] \ket{\phi}
-   \end{split}
-   \end{equation*}
+   \item Calculation time can be saved by just looking at {\bf independent pairs} since they capture most of the physics.
 \end{itemize}
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=0.7\textwidth]{figures/pairing.pdf}
-\end{figure}
+\uncover<2>{
+\begin{equation*}
+   \Psi_0(\r_1,\ldots,\r_A) = \left[1+\sum\limits_{i<j}\mathcal{O}_{ij}+\sum\limits_{i<j}\sum_{\substack{k<l\\ij \ne kl}}\mathcal{O}_{ij}\mathcal{O}_{kl}\right]\Phi(\r_1,\ldots,\r_A)
+\end{equation*}
+\begin{center}
+   \includegraphics[width=0.6\textwidth]{figures/pairing.pdf}
+\end{center}
+}
 \end{frame}
 
 \begin{frame}{Results}
 \begin{textblock*}{\textwidth}(0.0cm,-0.6cm) % {block width} (coords)
 \begin{figure}[h]
    \centering
-   \includegraphics[width=0.6\textwidth]{figures/energy.eps}
+   \includegraphics[width=0.7\textwidth]{figures/energy.eps}
 \end{figure}
 \end{textblock*}
 ~\\~\\~\\~\\~\\~\\~\\~\\
+~\\~\\
 \tiny
 \begin{table}[htb]
 \centering
@@ -267,10 +440,6 @@ Atomic model, accessed 1 mar 2019: \href{http://www.whoinventedfirst.com/who-dis
 \hline\hline
 System & Linear & IP Quadratic & Quadratic & Experimental\\
 \hline
-%${}^{4}${He}   & -27.14(4) & -27.22(3)    & -27.11(3)    & -28.295   \\
-%${}^{16}${O}   & -115.7(9) & -121.5(1.5)  & -120.0(1.4)  & -127.62   \\
-%${}^{40}${Ca}  & -324(3)   & -347(8)      & -349(5)      & -342.1    \\
-%SNM*           & -13.92(6) & -14.80(7)    & -14.70(11)   &           \\
 ${}^{4}${He}   & -27.14(4) & -27.19(3)    & -27.11(3)    & -28.296   \\
 ${}^{16}${O}   & -115.7(9) & -122.4(1.5)  & -120.8(1.3)  & -127.62   \\
 ${}^{40}${Ca}  & -322(3)   & -350(10)     & -351(6)      & -342.1    \\
@@ -299,16 +468,6 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
       \hline \hline
    \end{tabular}
 \end{table}
-\end{frame}
-
-\subsection{Application to NS}
-\begin{frame}{Neutron Stars}
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=0.7\textwidth]{figures/mr.png}
-\end{figure}
-\vspace{-0.5cm}
-{\tiny Diego Lonardoni et al. \textit{Phys. Rev. Lett.,} \textbf{114}, 092301, 2015.}
 \end{frame}
 
 \begin{frame}{Neutron Stars - Preliminary}
@@ -366,12 +525,13 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
          \hline \hline
          $\rho$ (fm$^{-3}$) & lin & ip \\
          \hline
-         0.0005& -22.3(3)  & -24.2(2)  \\  
-         0.001 & -20.7(3)  & -23.2(3)  \\  
-         0.002 & -21.6(2)  & -23.5(3)  \\  
-         0.003 & -25.7(3)  & -25.26(18)\\
-         0.005 & -27.5(5)  & -27.9(2)  \\  
-         0.01  & -37.3(3)  & -37.6(7)  \\  
+         0.00025  & -23.5(5)  & -25.4(2)  \\
+         0.0005   & -22.3(3)  & -24.2(2)  \\  
+         0.001    & -20.7(3)  & -23.2(3)  \\  
+         0.002    & -21.6(2)  & -23.5(3)  \\  
+         0.003    & -25.7(3)  & -25.26(18)\\
+         0.005    & -27.5(5)  & -27.9(2)  \\  
+         0.01     & -37.3(3)  & -37.6(7)  \\  
          \hline \hline
       \end{tabular}
    \end{table}
@@ -389,120 +549,63 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
 \vspace{-0.4cm}
 \begin{figure}[h]
    \centering
-   \includegraphics[width=0.70\textwidth]{figures/gpp.png}
+   \includegraphics[width=0.80\textwidth]{figures/gpp.pdf}
 \end{figure}
 \end{frame}
 
-\subsection{Exponential Correlations}
-\begin{frame}{Exponential Correlations - Preliminary}
-\begin{itemize}
-   \item The quadratic correlations improved the trial wave function, but with a large computational cost. Can we do better with the exponential correlations?
-   \begin{equation*}
-      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j}\sum\limits_p\fpij\Opij} \ket{\phi}
-   \end{equation*}
-   \item We don't know how to calculate the exponential of two-body operators. But we have already tackled this exact problem with the spin sampling in AFDMC by using the Hubbard-Stratanovich transformation.
+\begin{frame}{Pair Correlation Function - Preliminary}
+\vspace{-0.1cm}
 \begin{equation*}
-      e^{-\frac{1}{2}\lambda O_i^2} = \frac{1}{\sqrt{2\pi}} \int dx e^{-\frac{x^2}{2} + \sqrt{-\lambda}xO_i}
-   \end{equation*}
-\end{itemize}
+   g_{pp}(r) = \frac{1}{4\pi r^2} \bra{\Psi}\sum\limits_{i<j}\hat{p}_i\hat{p}_j\delta(r-r_{ij})\ket{\Psi}
+\end{equation*}
+\vspace{-0.4cm}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.80\textwidth]{figures/gpp_continuum.pdf}
+\end{figure}
 \end{frame}
 
-\begin{frame}{Exponential Correlations - Preliminary}
-\begin{itemize}
-   \item Following the same procedure used in AFDMC spin sampling we can write the exponential correlations as
-   \begin{equation*}
-      \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Oijp\right) = \exp\left(\frac{1}{2}\sum\limits_{n=1}^{15A} \left(O_{n}\right)^2 \lambda_n^{\sigma}\right),
-%         &= \left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\frac{1}{2}\sum\limits_{n=1}^{3A} \left(O_{n}^{\sigma}\right)^2 \lambda_n^{\sigma}
-%         + \frac{1}{2}\sum\limits_{\alpha=1}^{3}\sum\limits_{n=1}^{3A} \left(O_{n\alpha}^{\sigma\tau}\right)^2 \lambda_n^{\sigma\tau}
-%         + \frac{1}{2}\sum\limits_{\alpha=1}^{3}\sum\limits_{n=1}^{A} \left(O_{n\alpha}^{\tau}\right)^2 \lambda_n^{\tau}} \ket{\phi}
-   \end{equation*}
-   where the $3A$ $O_{n}^{\sigma}$, $9A$ $O_{n\alpha}^{\sigma\tau}$, and $3A$ $O_{n\alpha}^{\tau}$ single particle operators are
-   \begin{equation*}
-   \begin{split}
-      O_{n}^{\sigma} &= \sum\limits_{j,\beta} \sigma_{j,\beta}\psi_{n,j,\beta}^{\sigma} \\
-      O_{n\alpha}^{\sigma\tau} &= \sum\limits_{j,\beta} \tau_{j,\alpha}\sigma_{j,\beta}\psi_{n,j,\beta}^{\sigma\tau} \\
-      O_{n\alpha}^{\tau} &= \sum\limits_{j} \tau_{j,\alpha}\psi_{n,j}^{\tau}.
-   \end{split}
-   \end{equation*}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Exponential Correlations - Preliminary}
-\begin{itemize}
-   \item Using the Hubbard-Stratanovich transformation this can then be written as
-   \begin{equation}
-      \exp\left(\frac{1}{2}\sum\limits_{n=1}^{15A} \left(O_{n}\right)^2 \lambda_n^{\sigma}\right) = \prod\limits_{n=1}^{15A} \frac{1}{\sqrt{2\pi}}\int dx_n e^{-x_n^2/2}e^{\sqrt{\lambda_n}x_nO_n},
-   \end{equation}
-   and the auxiliary fields can be sampled to be
-   \begin{equation}
-      \Psi_T(R,S) = \bra{RS}\prod\limits_{n=1}^{15A} \frac{1}{N} \sum\limits_{\{x_n\}}^N\frac{1}{\sqrt{2\pi}}e^{\sqrt{\lambda_n}x_nO_n}\ket{\Phi}.
-   \end{equation}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Exponential Correlations - Preliminary}
-\begin{itemize}
-   \item Problems with statistical errors related to the sampling.
-   \item Calculating the potential energy with exponential correlations and the rest with linear correlations.
-   \vspace{-0.2cm}
-   \begin{columns}
-   \begin{column}{0.5\textwidth}
-   \begin{figure}[h]
-      \centering
-      \includegraphics[width=\textwidth]{figures/expplot.png}
-   \end{figure}
-   \end{column}
-   \begin{column}{0.5\textwidth}
-   \begin{table}[h!]
-      \centering
-      \caption{$^{4}$He energy with exp correlations. E$_\text{linear}$=-26.48(9) MeV.}
-      \begin{tabular}{cc}
-         \hline \hline
-         \# fields & E (MeV) \\
-         \hline
-         1     & -45.0(6)  \\
-         10    & -31.8(3)  \\
-         100   & -29.4(2)  \\
-         200   & -29.15(8) \\
-         500   & -28.68(18)\\
-         1000  & -28.7(2)  \\
-         \hline \hline
-      \end{tabular}
-   \end{table}
-   \end{column}
-   \end{columns}
-   \item Currently looking into this problem.
-\end{itemize}
-\end{frame}
-
-\section{Conclusion}
 \begin{frame}{Future Work}
 \begin{itemize}
-   \item Neutron star equation of state
+   \item Other improvements to trial wave function
+   \item Neutron star equation of state, $E(\rho)$
    \begin{itemize}
       \item Using $\chi$EFT interaction
       \item Understanding the hyperon problem
    \end{itemize}
    \item Understand what is happening at higher nuclear densities
    \item Other interesting projects that push our understanding and application of nuclear physics
+   \item Any interesting physics, especially with applications to computation
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Summary/Conclusion}
+\begin{frame}{Future Work - Neutron Stars}
+\begin{center}
+   \includegraphics[height=0.7\textwidth]{figures/neutron_star.jpg}
+\end{center}
+\end{frame}
+
+\begin{frame}{Future Work - Hyperon Problem}
+\begin{center}
+   \includegraphics[width=0.3\textwidth]{figures/lambda.jpg}
+   ~\\
+   \includegraphics[width=0.5\textwidth]{figures/ns_eos.png}
+   ~
+   \includegraphics[width=0.5\textwidth]{figures/mr.png}
+\end{center}
+{\tiny Diego Lonardoni et al. \textit{Phys. Rev. Lett.,} \textbf{114}, 092301, 2015.}
+\end{frame}
+
+\begin{frame}{Conclusion/Summary}
 \begin{itemize}
-   \item We have improved the previously used two-body spin-isospin correlations.
-   \item The improved trial wave functions appear to make a significant difference in the energy of the calculations, but currently cost too much to use for large systems.
-   \item We have shown that our calculation can see what are probably alpha particles forming in mostly neutron matter around the density of neutron star crusts. These calculations appear to be even better when improved correlations are used.
+   \item Quantum Monte Carlo is a powerful method for studying nuclear systems.
+   \item We need to improve the wave function to study larger, more interesting systems.
+   \item There are a variety of interesting problems that would be fun to do in collaboration with SUU students and faculty.
 \end{itemize}
 \end{frame}
-
-%\note[itemize]{
-%   \item test1
-%   \item test2
-%}
 
 \begin{frame}{Thanks}
-Advisor: Kevin Schmidt (ASU) \\
+PhD Advisor: Kevin Schmidt (ASU) \\
 Collaborators: Stefano Gandolfi (LANL) and Joe Carlson (LANL)
 \\~\\
 \begin{figure}[h]
@@ -511,6 +614,22 @@ Collaborators: Stefano Gandolfi (LANL) and Joe Carlson (LANL)
    \includegraphics[width=0.36\textwidth]{figures/xsede-full-color.jpg}
    \includegraphics[width=0.30\textwidth]{figures/NSF_4-Color_bitmap_Logo.png}
 \end{figure}
+\end{frame}
+
+\begin{frame}{Picture References}
+\tiny
+Questions comic, accessed 2 Mar 2019: \href{https://socializingsciencevu.com/category/tips-tricks/}{https://socializingsciencevu.com/category/tips-tricks/}
+Atomic model, accessed 1 Mar 2019: \href{http://www.whoinventedfirst.com/who-discovered-the-atom/}{http://www.whoinventedfirst.com/who-discovered-the-atom/}\\
+Nuclear power plant, accessed 1 Mar 2019: \href{https://phys.org/news/2016-11-future-nuclear-energy.html}{https://phys.org/news/2016-11-future-nuclear-energy.html}\\
+Radiotherapy, accessed 1 Mar 2019: \href{https://www.bupa.co.uk/health-information/cancer/radiotherapy}{https://www.bupa.co.uk/health-information/cancer/radiotherapy}\\
+MRI, accessed 1 Mar 2019: \href{https://www.123rf.com/photo_20891118_mri-scan-of-the-human-brain.html}{https://www.123rf.com/photo\_20891118\_mri-scan-of-the-human-brain.html}
+Mummy, accessed 1 Mar 2019: \href{https://www.smithsonianmag.com/science-nature/carbon-dating-crucial-scientific-technique-jeopardy-thanks-our-pollution-heres-easy-way-fix-it-180961345/}{https://www.smithsonianmag.com/science-nature/carbon-dating-crucial-scientific-technique-jeopardy-thanks-our-pollution-heres-easy-way-fix-it-180961345/}\\
+Electron Orbitals, accessed 2 Mar 2019: \href{https://en.wikipedia.org/wiki/Atomic_orbital}{https://en.wikipedia.org/wiki/Atomic\_orbital}\\
+LHC, accessed 2 Mar 2019: \href{https://www.scientificamerican.com/article/proton-smashing-resumes-at-the-world-s-largest-particle-accelerator/}{https://www.scientificamerican.com/article/proton-smashing-resumes-at-the-world-s-largest-particle-accelerator/}\\
+Pion exchange feynman diagram, accessed 2 Mar 2019: \href{https://ati.tuwien.ac.at/research_areas/nuclear_and_particle_physics/research/fundamental_interactions/strong_interaction/EN/}{https://ati.tuwien.ac.at/research\_areas/nuclear\_and\_particle\_physics/research/fundamental\_interactions/strong\_interaction/EN/}\\
+Riemann sum, accessed 2 Mar 2019: \href{https://en.wikipedia.org/wiki/Riemann\_sum\#/media/File:Riemann\_sum\_convergence.png}{https://en.wikipedia.org/wiki/Riemann\_sum\#/media/File:Riemann\_sum\_convergence.png}\\
+Neutron star, accessed 4 Mar 2019: \href{https://www.researchgate.net/publication/23952027_Nuclear_Physics_of_Neutron_Stars/figures}{https://www.researchgate.net/publication/23952027\_Nuclear\_Physics\_of\_Neutron\_Stars/figures}\\
+Lambda hyperon formation, accessed 4 Mar 2019: \href{https://science.energy.gov/np/highlights/2015/np-2015-08-b/}{https://science.energy.gov/np/highlights/2015/np-2015-08-b/}\\
 \end{frame}
 
 \iffalse
