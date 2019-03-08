@@ -175,6 +175,59 @@ A.~Gezerlis, I.~Tews, E.~Epelbaum, S.~Gandolfi, K.~Hebeler, A.~Nogga, and
   interactions.
 \newblock {\em Phys. Rev. Lett.}, 111:032501, Jul 2013.
 
+\bibitem{foulkes2001}
+W.~M.~C. Foulkes, L.~Mitas, R.~J. Needs, and G.~Rajagopal.
+\newblock Quantum {M}onte {C}arlo simulations of solids.
+\newblock {\em Rev. Mod. Phys.}, 73:33--83, 2001.
+
+\bibitem{pudliner1997}
+B.~S. Pudliner, V.~R. Pandharipande, J.~Carlson, Steven~C. Pieper, and R.~B.
+  Wiringa.
+\newblock Quantum monte carlo calculations of nuclei with {$A \le 7$}.
+\newblock {\em Phys. Rev. C}, 56:1720--1750, Oct 1997.
+
+\bibitem{moskowitz1982}
+Jules~W. Moskowitz, K.~E. Schmidt, Michael~A. Lee, and M.~H. Kalos.
+\newblock A new look at correlation energy in atomic and molecular systems. ii.
+  the application of the green’s function monte carlo method to lih.
+\newblock {\em The Journal of Chemical Physics}, 77(1):349--355, 1982.
+
+\bibitem{wiringa2000}
+R.~B. Wiringa, Steven~C. Pieper, J.~Carlson, and V.~R. Pandharipande.
+\newblock Quantum monte carlo calculations of $a=8$ nuclei.
+\newblock {\em Phys. Rev. C}, 62:014001, Jun 2000.
+
+\bibitem{zhang2003}
+Shiwei Zhang and Henry Krakauer.
+\newblock Quantum monte carlo method using phase-free random walks with slater
+  determinants.
+\newblock {\em Phys. Rev. Lett.}, 90:136401, Apr 2003.
+
+\bibitem{lovato2013}
+A.~Lovato, S.~Gandolfi, Ralph Butler, J.~Carlson, Ewing Lusk, Steven~C. Pieper,
+  and R.~Schiavilla.
+\newblock Charge form factor and sum rules of electromagnetic response
+  functions in $^{12}\mathbf{C}$.
+\newblock {\em Phys. Rev. Lett.}, 111:092501, Aug 2013.
+
+\bibitem{lovato2014}
+A.~Lovato, S.~Gandolfi, J.~Carlson, Steven~C. Pieper, and R.~Schiavilla.
+\newblock Neutral weak current two-body contributions in inclusive scattering
+  from $^{12}\mathrm{C}$.
+\newblock {\em Phys. Rev. Lett.}, 112:182502, May 2014.
+
+\bibitem{lovato2015}
+A.~Lovato, S.~Gandolfi, J.~Carlson, Steven~C. Pieper, and R.~Schiavilla.
+\newblock Electromagnetic and neutral-weak response functions of
+  $^{4}\mathrm{He}$ and $^{12}\mathrm{C}$.
+\newblock {\em Phys. Rev. C}, 91:062501, Jun 2015.
+
+\bibitem{wiringa1984}
+R.B. Wiringa, R.A. Smith, and T.L. Ainsworth.
+\newblock Nucleon-nucleon potentials with and without {$\Delta(1232)$} degrees
+  of freedom.
+\newblock {\em Phys. Rev. C}, 29:1207, 1984.
+
 \bibitem{madeira2018}
 Lucas Madeira, Alessandro Lovato, Francesco Pederiva, and Kevin~E. Schmidt.
 \newblock Quantum monte carlo formalism for dynamical pions and nucleons.

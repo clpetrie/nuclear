@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: diss.aux
 The style file: unsrt.bst
@@ -31,45 +31,47 @@ Warning--empty publisher in gandolfi2017_2
 Warning--empty year in gandolfi2017_2
 Warning--empty journal in lynn2019
 Warning--empty year in lynn2019
-You've used 44 entries,
+Name 2 in "R.B. Wiringa and R.A. Smith, and T.L. Ainsworth" has a comma at the end for entry wiringa1984
+while executing---line 944 of file unsrt.bst
+You've used 53 entries,
             1791 wiz_defined-function locations,
-            718 strings with 10600 characters,
-and the built_in function-call counts, 10198 in all, are:
-= -- 858
-> -- 512
+            763 strings with 12093 characters,
+and the built_in function-call counts, 12433 in all, are:
+= -- 1036
+> -- 647
 < -- 0
-+ -- 188
-- -- 144
-* -- 846
-:= -- 1705
-add.period$ -- 131
-call.type$ -- 44
-change.case$ -- 41
++ -- 236
+- -- 183
+* -- 1039
+:= -- 2085
+add.period$ -- 158
+call.type$ -- 53
+change.case$ -- 50
 chr.to.int$ -- 0
-cite$ -- 49
-duplicate$ -- 392
-empty$ -- 961
-format.name$ -- 144
-if$ -- 2174
+cite$ -- 58
+duplicate$ -- 473
+empty$ -- 1161
+format.name$ -- 183
+if$ -- 2648
 int.to.chr$ -- 0
-int.to.str$ -- 44
-missing$ -- 43
-newline$ -- 222
-num.names$ -- 44
-pop$ -- 59
+int.to.str$ -- 53
+missing$ -- 52
+newline$ -- 267
+num.names$ -- 53
+pop$ -- 68
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 136
+skip$ -- 164
 stack$ -- 0
-substring$ -- 793
-swap$ -- 43
+substring$ -- 962
+swap$ -- 52
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 5
-while$ -- 93
-width$ -- 46
-write$ -- 480
-(There were 5 error messages)
+while$ -- 112
+width$ -- 55
+write$ -- 579
+(There were 6 error messages)

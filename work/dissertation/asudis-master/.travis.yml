@@ -1,0 +1,32 @@
+# This file is used by http://travis-ci.org/shumway/asudis
+# It causes the files to automatically build each time someone pushes
+# a change to GitHub, to help catch problems quickly.
+
+# Language should be latex, but we'll use python for now.
+language: python
+
+python:
+  - "2.7"
+
+# We need to install pdflatex in the build environment.
+# Copied from https://github.com/pussinboots/book/blob/master/.travis.yml
+before_install:
+ - yes "" | sudo apt-add-repository ppa:texlive-backports/ppa
+ - sudo apt-get update -qq
+ - sudo apt-get install texlive-xetex texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra
+
+script: 
+ - >
+   pdflatex -interaction=nonstopmode dis.tex
+   bibtex dis
+   pdflatex -interaction=nonstopmode dis.tex
+   pdflatex -interaction=nonstopmode dis.tex
+
+# Instructions to deploy dis.pdf as a release.
+deploy:
+  provider: releases
+  api_key:
+    secure: Kk2Cz2E2LLM8ehNDsEf0d97M2awm8tAFOq82SxY0QWvDcF31f5KcwRdyEQtfdgA66MQaErwyHUWKwfTEEKxaHrO019nZ+RQ4k/Qw6m2nL4BwPV2bK8N21i/YHBH7WjGLpv5PO7dspgwFG++9ZdX2agukz8KxoyV/aIf8/QIT2yg=
+  skip_cleanup: true
+  all_branches: true 
+  file: dis.pdf
