@@ -210,29 +210,16 @@ The spin-isospin dependant part of the potential can be written as
 \begin{equation}
    V_{SD} = \sum\limits_{p=2}^{M}\sum\limits_{i<j} \vpij\Opij,
 \end{equation}
-where M is the number of operators (e.g. $M=6$ for the AV6$'$ potential or $M=18$ for the Argonne AV18 two-body potential \cite{wiringa1984}). In this study I have used the standard AV6$'$ potential which includes the operators $\si\cdot\sj$, $\ti\cdot\tj$, $\si\cdot\sj \ti\cdot\tj$, $S_{ij}$ and $S_{ij} \ti\cdot\tj$, where $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$. Here the $\mathbf{\sigma}$ and $\mathbf{\tau}$ operators are the Pauli matrices applied to spin and isospin respectively.
+where M is the number of operators (e.g. $M=6$ for the AV6$'$ potential or $M=18$ for the Argonne AV18 two-body potential \cite{wiringa1984}). In this study I have used the standard AV6$'$ potential which includes the operators $\si\cdot\sj$, $\ti\cdot\tj$, $\si\cdot\sj \ti\cdot\tj$, $S_{ij}$ and $S_{ij} \ti\cdot\tj$, where $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$. Here the $\mathbf{\si}$ and $\mathbf{\ti}$ operators are the Pauli matrices applied to spin and isospin of the $i$-th particle respectively.
 
-
-
-
-
-
-
-
-
-
-
-
-
-\blue{START HERE TOMORROW!!!!!!!}
-This potential can be written in the more convenient form
+AFDMC samples the spin and isospin states by expressing the operators in terms of squared single-particle particle operators which are transformed via the Hubbard-Stratanovich transformation. This can be done if the operators are expressed in the more convenient form
 \begin{equation}
    V_{SD} = \frac{1}{2}\sum\limits_{i,\alpha,j,\beta} \sigma_{i,\alpha}A^{\sigma}_{i,\alpha,j,\beta}\sigma_{j,\beta}
       + \frac{1}{2}\sum\limits_{i,\alpha,j,\beta} \sigma_{i,\alpha}A^{\sigma\tau}_{i,\alpha,j,\beta}\sigma_{j,\beta}\ti\cdot\tj
       + \frac{1}{2}\sum\limits_{i,j} A^{\tau}_{i,j}\ti\cdot\tj,
    \label{equ:VwithA}
 \end{equation}
-where we have defined these new $A$ matrices. These matrices are written in terms of the $\vpij$ functions above. For example the simplest matrix is the $A^{\tau}_{i,j}$ matrix which can be shown to be $A^{\tau}_{i,j} = v_{\tau}(r_{ij})$. There is a factor of one half in Eq.~\ref{equ:VwithA} because the sums go over all $i$ and $j$ particles instead of pairs for which $i<j$. These matrices are zero when $i=j$ and they are symmetric. We can also write these matrices in terms of their eigenvalues and eigenvectors.
+where we have defined new $A$ matrices. The $A$ matrices are written in terms of the $\vpij$ functions above. For example the simplest matrix is the $A^{\tau}_{i,j}$ matrix which can be shown to be $A^{\tau}_{i,j} = v_{\tau}(r_{ij})$. There is a factor of one half in Eq.~\ref{equ:VwithA} because the sums go over all $i$ and $j$ particles instead of pairs for which $i<j$. These matrices are zero when $i=j$ and they are symmetric. We can also write these matrices in terms of their eigenvalues and eigenvectors.
 \begin{align}
    &\sum\limits_{j,\beta} A^{\sigma}_{i,\alpha,j,\beta}\psi^{\sigma}_{n,j,\beta} = \lambda^{\sigma}_n\psi^{\sigma}_{n,i,\alpha} \\
    &\sum\limits_{j,\beta} A^{\sigma\tau}_{i,\alpha,j,\beta}\psi^{\sigma\tau}_{n,j,\beta} = \lambda^{\sigma\tau}_n\psi^{\sigma\tau}_{n,i,\alpha} \\
@@ -258,13 +245,37 @@ These operators in the propagator now have the effect of rotating the spinors, a
 \end{equation}
 The variable $x$ is called an auxiliary field. Using the fact that there are $3A$ $O_{n}^{\sigma}$ operators, $9A$ $O_{n\alpha}^{\sigma\tau}$ operators and $3A$ $O_{n\alpha}^{\tau}$ operators, for a total of $15A$ operators, and by using the Hubbard-Stratanovich transformation we can write the spin-isospin dependent part of the propagator as
 \begin{equation}
-   \prod\limits_{n=1}^{15A}\frac{1}{\sqrt{2\pi}}\int dx_n e^{-\frac{x_n^2}{2}}e^{\sqrt{-\lambda_n\dt} x_nO_n}.
+   G_{SD}(\R'S',\R S,\dt) = \bra{\R'S'}\prod\limits_{n=1}^{15A}\frac{1}{\sqrt{2\pi}}\int dx_n e^{-\frac{x_n^2}{2}}e^{\sqrt{-\lambda_n\dt} x_nO_n}\ket{\R S}.
    \label{equ:GSD}
 \end{equation}
-The spinors are then rotated based on auxiliary fields sampled from the Gaussian with unit variance in Eq.~\ref{equ:GSD}.
-\red{\\Include bit about 4 different weights from Lonardoni2018 paper, page 7.}
+The spinors are then rotated based on auxiliary fields sampled from the Gaussian with unit variance in Eq.~\ref{equ:GSD}. The sampling of the auxiliary fields is done in exactly the same way as the sampling of the spatial walkers in DMC, with the Markov chain Metropolis algorithm. Each sampled auxiliary field depends only on the previous sample and no more history than that.
+
+Importance sampling can be included in the Auxiliary Field sampling in a similar way as described before with DMC. However, in practice it is done as follows. The $\Delta \R$ and $\Delta x_n$ are sampled by symmetric gaussians and so the probability of $\Delta \R$ and $-\Delta \R$, and $\Delta x_n$ and $-\Delta x_n$ are the same. As a result the weight for the four possible combinations are sampled as
+\begin{align}
+   w_1 &= \frac{\braket{\Psi_I}{\R+\Delta \R, S'(x_n)}}{\braket{\Psi_I}{\R S}} e^{\left(-V_{SI}(\R+\Delta\R) - E_0\right)\dt} \\
+   w_2 &= \frac{\braket{\Psi_I}{\R-\Delta \R, S'(x_n)}}{\braket{\Psi_I}{\R S}} e^{\left(-V_{SI}(\R-\Delta\R) - E_0\right)\dt} \\
+   w_3 &= \frac{\braket{\Psi_I}{\R+\Delta \R, S'(-x_n)}}{\braket{\Psi_I}{\R S}} e^{\left(-V_{SI}(\R+\Delta\R) - E_0\right)\dt} \\
+   w_4 &= \frac{\braket{\Psi_I}{\R-\Delta \R, S'(-x_n)}}{\braket{\Psi_I}{\R S}} e^{\left(-V_{SI}(\R-\Delta\R) - E_0\right)\dt},
+\end{align}
+and the sample with the largest weight is realized. The weight for the chosen configuration, which is used for branching, is the average of the four weights
+\begin{equation}
+   W = \frac{1}{4}\sum\limits_{n=1}^4 w_n.
+\end{equation}
 
 \subsubsection{\red{Mixed Expectation Values and Operator Breakup}}
 
 \subsection{Hamiltonian}
+One of the difficulties in many-body nuclear physics is finding an accurate Hamiltonian that is easy to calculate with the method you have selected. For QMC methods the Hamiltonian must be in configuration space and it must be local. Small degrees of non-locality can be adressed \cite{lynn2012,lynn2013}. Also, the nuclear physics Hamiltonian must be able to account for 2-body and 3-body interactions. The most generic form for the nuclear Hamiltonian then takes the form
+\begin{equation}
+   H = -\frac{\hbar^2}{2m}\sum\limits_i \nabla^2 + \sum\limits_{i<j} v_{ij} + \sum\limits_{i<j<k} V_{ijk} + \ldots.
+\end{equation}
+In principle there could be higher order terms included the in practice the three-nucleon NN interaction $v_{ij}$ and the three-nucleon interaction (TNI) $V_{ijk}$ are the only terms included as the importance of an $n$-nuclear potential decreases as $n$ increases. Calculations with only NN potentials will often underbind nuclei with $A>2$ and it has been shown that the includion of the TNI interaction improves this overbinding as well as level ordering in the excitation spectra of nuclei. This improvement has been shown in GFMC \cite{fantoni2008} as well as other methods such as the no-core shell model \cite{navratil2003}.
+
+The NN potential takes the form
+\begin{equation}
+   v_{ij} = \sum\limits_{p=1}^M v_p(\r_{ij})\mathcal{O}^p_{ij},
+\end{equation}
+where $M$ is the number of operators begin used.
+Two-nucleon potentials are often fit to NN scattering data and several very accurate models have been developed. One of the most accurate NN potentials is the Argonne $v$18 potential \cite{wiringa1984,wiringa1995}. 
 \red{Phenomenological plus $\chi$EFT potentials, and compare the two. What makes them different at NN (same operator structure)?}
+\red{\\Show the plot for the different potential operators.}

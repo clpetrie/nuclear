@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2015)
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: diss.aux
 The style file: unsrt.bst
@@ -26,6 +26,11 @@ I was expecting an "="---line 1014 of file ../../../../Dropbox/nuclear/papers/re
  :    annote = {The dense matter equation of state (EOS) determines neutron star (NS) structure but can be calculated reliably only up to one to two times the nuclear saturation density, using accurate many-body methods that employ nuclear interactions from chiral effective field theory constrained by scattering data. In this work, we use physically motivated ansatzes for the speed of sound}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 1169 of file ../../../../Dropbox/nuclear/papers/references.bib
+ :    
+ :    title = {Ab initio shell model with a genuine three-nucleon force for the p-shell nuclei},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--empty chapter and pages in gandolfi2017_2
 Warning--empty publisher in gandolfi2017_2
 Warning--empty year in gandolfi2017_2
@@ -33,45 +38,49 @@ Warning--empty journal in lynn2019
 Warning--empty year in lynn2019
 Name 2 in "R.B. Wiringa and R.A. Smith, and T.L. Ainsworth" has a comma at the end for entry wiringa1984
 while executing---line 944 of file unsrt.bst
-You've used 53 entries,
+Warning--empty author in navratil2003
+Warning--empty title in navratil2003
+Warning--empty journal in navratil2003
+Warning--empty year in navratil2003
+You've used 56 entries,
             1791 wiz_defined-function locations,
-            763 strings with 12093 characters,
-and the built_in function-call counts, 12433 in all, are:
-= -- 1036
-> -- 647
+            774 strings with 12410 characters,
+and the built_in function-call counts, 12926 in all, are:
+= -- 1072
+> -- 669
 < -- 0
-+ -- 236
-- -- 183
-* -- 1039
-:= -- 2085
-add.period$ -- 158
-call.type$ -- 53
-change.case$ -- 50
++ -- 245
+- -- 189
+* -- 1082
+:= -- 2162
+add.period$ -- 165
+call.type$ -- 56
+change.case$ -- 51
 chr.to.int$ -- 0
-cite$ -- 58
-duplicate$ -- 473
-empty$ -- 1161
-format.name$ -- 183
-if$ -- 2648
+cite$ -- 65
+duplicate$ -- 497
+empty$ -- 1210
+format.name$ -- 189
+if$ -- 2750
 int.to.chr$ -- 0
-int.to.str$ -- 53
-missing$ -- 52
-newline$ -- 267
-num.names$ -- 53
-pop$ -- 68
+int.to.str$ -- 56
+missing$ -- 54
+newline$ -- 280
+num.names$ -- 55
+pop$ -- 79
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 164
+skip$ -- 175
 stack$ -- 0
-substring$ -- 962
-swap$ -- 52
+substring$ -- 983
+swap$ -- 54
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 5
-while$ -- 112
-width$ -- 55
-write$ -- 579
-(There were 6 error messages)
+warning$ -- 9
+while$ -- 115
+width$ -- 58
+write$ -- 605
+(There were 7 error messages)
