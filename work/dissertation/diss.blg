@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: diss.aux
 The style file: unsrt.bst
@@ -8,25 +8,25 @@ I was expecting a `,' or a `}'---line 190 of file ../../../../Dropbox/nuclear/pa
  :   annote={No-core shell model.}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Repeated entry---line 249 of file ../../../../Dropbox/nuclear/papers/references.bib
- : @article{wiringa1995
- :                     ,
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 337 of file ../../../../Dropbox/nuclear/papers/references.bib
+I was expecting a `,' or a `}'---line 328 of file ../../../../Dropbox/nuclear/papers/references.bib
  :   
  :   %url={http://stacks.iop.org/0034-4885/77/i=9/a=096302},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field part---line 531 of file ../../../../Dropbox/nuclear/papers/references.bib
+Repeated entry---line 440 of file ../../../../Dropbox/nuclear/papers/references.bib
+ : @article{nagels1975
+ :                    ,
+I'm skipping whatever remains of this entry
+You're missing a field part---line 537 of file ../../../../Dropbox/nuclear/papers/references.bib
  :   annote = 
  :            ={Non-local potential stuff.}
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 1014 of file ../../../../Dropbox/nuclear/papers/references.bib
+I was expecting an "="---line 1020 of file ../../../../Dropbox/nuclear/papers/references.bib
  :    
  :    annote = {The dense matter equation of state (EOS) determines neutron star (NS) structure but can be calculated reliably only up to one to two times the nuclear saturation density, using accurate many-body methods that employ nuclear interactions from chiral effective field theory constrained by scattering data. In this work, we use physically motivated ansatzes for the speed of sound}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1169 of file ../../../../Dropbox/nuclear/papers/references.bib
+I was expecting a `,' or a `}'---line 1175 of file ../../../../Dropbox/nuclear/papers/references.bib
  :    
  :    title = {Ab initio shell model with a genuine three-nucleon force for the p-shell nuclei},
 (Error may have been on previous line)
@@ -42,45 +42,45 @@ Warning--empty author in navratil2003
 Warning--empty title in navratil2003
 Warning--empty journal in navratil2003
 Warning--empty year in navratil2003
-You've used 56 entries,
+You've used 61 entries,
             1791 wiz_defined-function locations,
-            774 strings with 12410 characters,
-and the built_in function-call counts, 12926 in all, are:
-= -- 1072
-> -- 669
+            800 strings with 13081 characters,
+and the built_in function-call counts, 14143 in all, are:
+= -- 1184
+> -- 717
 < -- 0
-+ -- 245
-- -- 189
-* -- 1082
-:= -- 2162
-add.period$ -- 165
-call.type$ -- 56
-change.case$ -- 51
++ -- 263
+- -- 202
+* -- 1180
+:= -- 2357
+add.period$ -- 180
+call.type$ -- 61
+change.case$ -- 56
 chr.to.int$ -- 0
-cite$ -- 65
-duplicate$ -- 497
-empty$ -- 1210
-format.name$ -- 189
-if$ -- 2750
+cite$ -- 70
+duplicate$ -- 542
+empty$ -- 1329
+format.name$ -- 202
+if$ -- 3013
 int.to.chr$ -- 0
-int.to.str$ -- 56
-missing$ -- 54
-newline$ -- 280
-num.names$ -- 55
-pop$ -- 79
+int.to.str$ -- 61
+missing$ -- 59
+newline$ -- 305
+num.names$ -- 60
+pop$ -- 84
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 175
+skip$ -- 191
 stack$ -- 0
-substring$ -- 983
-swap$ -- 54
+substring$ -- 1108
+swap$ -- 59
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 9
-while$ -- 115
-width$ -- 58
-write$ -- 605
+while$ -- 127
+width$ -- 63
+write$ -- 660
 (There were 7 error messages)

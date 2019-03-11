@@ -276,6 +276,11 @@ The NN potential takes the form
    v_{ij} = \sum\limits_{p=1}^M v_p(\r_{ij})\mathcal{O}^p_{ij},
 \end{equation}
 where $M$ is the number of operators begin used.
-Two-nucleon potentials are often fit to NN scattering data and several very accurate models have been developed. One of the most accurate NN potentials is the Argonne $v$18 potential \cite{wiringa1984,wiringa1995}. 
+Two-nucleon potentials are often fit to NN scattering data and several very accurate models have been developed including the Nijmengen \cite{nagels1975,stoks1994}, CD-Bonn \cite{machleidt1996,machleidt2001}, and the Argonne $v$18 (AV18) potential \cite{wiringa1984,wiringa1995}. The Argonne potential is one of the most accurate and will be used in this work. The AV18 potential has 18 operators coming from one- and two-pion exchange as well as phenomenological sources. Often a subset of the AV18 potential is used, for example AV4$'$, AV6$'$, or AV8$'$. These AV$n'$ potentials have kept only the top $n$ most important terms and are refit to scattering data. A study of the successive importance of these terms up to $n=8$ compared with the full AV18 with and without three-nucleon potentials is given in \cite{wiringa2002}. The first 8 operators of the Argonne potentials are
+\begin{equation}
+   \mathcal{O}_{ij}^{p=1,8} = \left[1,\si\cdot\sj,S_{ij},\mathbf{L}\cdot\mathbf{S}\right]\otimes\left[1,\ti\cdot\tj\right],
+\end{equation}
+where the tensor term is $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$ and the $\mathbf{L}\cdot\mathbf{S}$ term is the spin-orbit term, the exclusion of which constitutes the AV6$'$ potential, which is used in this work.
+
 \red{Phenomenological plus $\chi$EFT potentials, and compare the two. What makes them different at NN (same operator structure)?}
 \red{\\Show the plot for the different potential operators.}
