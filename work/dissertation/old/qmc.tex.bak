@@ -1,5 +1,5 @@
 \section{Quantum Monte Carlo}
-Many problems in nuclear physics involve a large number of particles in addition to a complicated interparticle interaction. The Schr\"odinger equation used to solve these problems involves a large dimensional integral with a complicated integrand. This is unfeasible to solve using standard numerical methods. Quantum Monte Carlo was designed to tackle these problems by sampling the large dimensional integrals in a way that reduces the necessary computation while still converging to an accurate answer. With an infinite number of samples QMC calculations are exact, but with a sufficiently large number of samples the integrals can converge with controlled statistical errors. Two main ingredients to these QMC methods are Monte Carlo integration and the Metropolis algorithm. I will first describe these two techniques after which I will describe the QMC methods used in this work. I will then conclude by describing the Hamiltonians used with these methods.
+Many problems in nuclear physics involve a large number of particles and a complicated interaction between the particles. The Schr\"odinger equation used to solve these problems then involves a large dimensional integral with a complicated integrand. This is unfeasible to solve using standard numerical methods. Quantum Monte Carlo was designed to tackle these problems by sampling the large dimensional integrals in a way that reduces the necessary computation while still converging to an accurate answer. With an infinite number of samples QMC calculations are exact, but a sufficiently large number of samples the integrals can converge with controlled statistical errors. Two main ingredients to these QMC methods are Monte Carlo integration and the Metropolis algorithm. I will first describe these two techniques after which I will describe the QMC methods used in this work. I will then conclude by describing the Hamiltonians used with these methods.
 
 \subsection{Monte Carlo Integration}
 Solving for properties of many-body quantum systems often involves solving a large dimensional integral such as
@@ -27,7 +27,7 @@ where the statistical uncertainties can be estimated in the usual way
 The scaling is independent of the dimension, and thus this method is useful especially when the dimensions of the integration become large. In many-body quantum mechanics the dimension of the integrals can be quite large, including several dimensions for each particle in the calculation. Monte Carlo integration only needs to sample each of these dimensions, decreasing the work required by a substantial amount for large dimensional integrals.
 
 \subsection{Metropolis Algorithm}
-Monte Carlo integration requires the sampling of the importance function, $P(\R)$. This is straight forward only for functions that have a readily invertible cumulative distribution function, $F^{-1}(\R)$, which is not the case in our application. For the one dimensional case where $F^{-1}(\R)$ is known, a random variables $x$ could be sampled by drawing a random variable $u$ from a uniform distribution from 0 to 1, which is then used as the argument of the inverse cumulative distribution function, $x=F^{-1}(u)$. The Metropolis algorithm provides a way to sample non-invertible probability distributions. The Metropolis algorithm is a Markov chain method that generates sequential samples of a probability distribution based on the previous sample alone, and not any other previous history. These are the steps to the algorithm.
+Monte Carlo integration requires the sampling of the importance function, $P(\R)$. This is straight forward only for functions that have a readily invertible cumulative distribution function, $F^{-1}(\R)$, which is not the case in our application. For the one dimensional case where $F^{-1}(\R)$ is known, a random variables $x$ could be sampled by drawing a random variable $u$ from a uniform distribution from 0 to 1, which is then used as an argument of the inverse cumulative distribution function, $x=F^{-1}(u)$. The Metropolis algorithm provides a way to sample non-invertible probability distributions. The Metropolis algorithm is a Markov chain method that generates sequential samples of a probability distribution based on the previous sample alone, and not any other previous history. These are the steps to the algorithm.
 \begin{enumerate}
    \item Start at a random position, $\R$.
    \item Propose a move to a new position $\R'$, pulled from a distribution $T(\R'|\R)$. $T$ could be, for example, a Gaussian centered on the current position, but could be optimized for efficiency.
@@ -45,12 +45,12 @@ Variational Monte Carlo starts with a trial wave function, $\psi_T$, that should
 \begin{equation}
    \Psi_T(\R) = c_0\Psi_0(\R) + \sum\limits_n c_n \Psi_n(\R)
 \end{equation}
-The expectation value of the Hamiltonian in the trial state gives what is called the variational energy. Due to the overlap with excited states the variational principle guarantees that the variational energy will be an upper bound to the true ground-state wave function.
+The expectation value of the Hamiltonian in the trial state gives what is called the variational energy. Due to the oberlap with excited states the variational principle guarantees that the variational energy will be an upper bound to the true ground-state wave function.
 \begin{equation}
    E_V = \frac{\int\psi_T^*(\R)H\psi_T(\R)d\R}{\int\psi_T^*(\R)\psi_T(\R)d\R} \ge E_0
 \end{equation}
 
-This integral is calculated using Monte Carlo integration and so it needs to be rewritten to match the form of Equation~\ref{equ:mci}. One way to get it into this form is to multiply the top integrand by $\psi_T(\R)\psi_T^{-1}(\R)$ which gives
+We want to do this integral using Monte Carlo integration and so we need it to look like Eq. \ref{equ:mci}. One way to get it into this form is to multiply the top integrand by $\psi_T(\R)\psi_T^{-1}(\R)$ which gives
 \begin{equation} 
   E_V = \int P(\R) E_L(\R) d\R,
 \end{equation}
@@ -63,7 +63,7 @@ where
 \end{equation}
 are the importance function and local energy respectively.
 
-Using the metropolis algorithm, a set of random configurations, $\{\R_n: n=1,N\}$, can be drawn from the probability distribution $P(\R)$ and used to sample the local energy. These random configurations are called walkers and contain the positions and often the spins and isospins of each particle. The variational energy and corresponding statistical error are then given by,
+Now using the metropolis algorithm a set of random configurations, $\{\R_n: n=1,N\}$, can be drawn from the probability distribution $P(\R)$ and used to sample the local energy. These random configurations are called walkers and contain the positions and often the spins and isospins of each particle. The variational energy and corresponding statistical error are then given by,
 \begin{equation} 
   E_V \approx \frac{1}{N} \sum\limits_{n=1}^N E_L({\R_n}),
 \end{equation}
@@ -71,7 +71,7 @@ Using the metropolis algorithm, a set of random configurations, $\{\R_n: n=1,N\}
   \sigma_{E_V} = \sqrt{\frac{\left<E_L^2\right>-\left<E_L\right>^2}{N}} \approx \sqrt{\frac{\left(\frac{1}{N}\sum\limits_{n=1}^NE_L^2(\R_n)\right) - \left(\frac{1}{N}\sum\limits_{n=1}^NE_L(\R_n)\right)^2}{N-1}}
 \end{equation}
 
-Once evaluated the variational energy will be an upper bound to the ground state energy of the system. The $\Psi_T(\R)$ is written in terms of variational parameters which are varied to minimize the variational energy. A minimum in the energy will be produced when $\Psi_T \rightarrow \Psi_0$. It is important to note however that the trial wave functions that we often use are not exactly the ground-state wave functions and so the energies that we produce are only the minimum energy for that specific trial wave function. As such, it is important to start with the best trial wave function possible. Also, this algorithm can converge to an incorrect local minimum, and so it is again important to start with a good initial trial wave function.
+Once evaluated the variational energy will be an upper bound to the ground state energy of the system. The $\Psi_T(\R)$ is written in terms of variational parameters which are varied to minimize the variational energy. A minimum in the energy will be produced when $\Psi_T \rightarrow \Psi_0$. It is important to note however that the trial wave functions that we often use are not exactly the ground-state wave functions and so the energies that we produce are only the minimum energy for that specific trial wave function. As such, it is important to start with the best trial wave function possible.
 
 \subsection{Diffusion Monte Carlo}
 Diffusion Monte Carlo (DMC) solves for the ground-state by letting the walkers diffuse in imaginary time. The Schr\"odinger equation
@@ -83,7 +83,7 @@ can be written in terms of the imaginary time by substituting $\tau=it/\hbar$. T
    H\Psi = -\frac{\partial\Psi}{\partial\tau},
    \label{equ:diffusion}
 \end{equation}
-where the wave function $\Psi$ is diffused with respect to $\tau$. By separating variables we can write the solution as eigenfunctions in spatial coordinates times an exponential in imaginary time where the energies have been shifted by a parameter, $E_0$ in order to control the normalization, $V\rightarrow V - E_0$ and $E_n \rightarrow E_n-E_0$.
+where the wave function $\Psi$ is diffused with respect to $\tau$. By separating variables we can write the solution as eigenfunctions in spatial coordinates times an exponential in imaginary time where we have shifted the energies by a parameter, $E_0$ that we can use to control the normalization, $V\rightarrow V - E_0$ and $E_n \rightarrow E_n-E_0$.
 \begin{equation}
    \Psi(\R,\tau) = \sum\limits_{n=0}^\infty c_n\phi_n(\R)e^{-\tau(E_n-E_0)}
 \end{equation}
@@ -97,19 +97,12 @@ The limit, $\lim\limits_{\tau\rightarrow\infty}\Psi(\R,\tau) = \lim\limits_{\tau
    \braket{\R'}{\Psi_T(\tau)} = \int d\R \bra{\R'}e^{-(H-E_0)\tau}\ket{\R}\braket{\R}{\Psi_T(0)}
 \end{equation}
 
-The propagator is broken up into $N$ short time propagators, $\dt = \tau/N$, and a complete set of states is inserted between each finite time propagator,
-\begin{equation}
-\begin{split}
-   \braket{\R_N}{\Psi_T(\tau)} = \int d\R_0 \ldots d\R_{N-1} \bra{\R_N}e^{-(H-E_0)\Delta\tau}\ket{\R_{N-1}} \times \ldots \\
-      \times \bra{\R_1}e^{-(H-E_0)\Delta\tau}\ket{\R_{0}} \braket{\R_0}{\Psi_t(0)},
-\end{split}
-\end{equation}
-where $\R_N=\R'$ and $\R_0=\R$. This can be written more conveniently in the form
+The propagator is then broken up into $N$ short time propagators, $\dt = \tau/N$, and a complete set of states is inserted between each finite time propagator,
 \begin{align}
-   \braket{\R_N}{\Psi_T(\tau)} &= \int d\R_0 \ldots d\R_{N-1} \left[\prod\limits_{i=1}^N \bra{\R_i}e^{-(H-E_0)\Delta\tau}\ket{\R_{i-1}}\right] \braket{\R_0}{\Psi_t(0)} \\
-   &= \int d\R_0 \ldots d\R_{N-1} \left[\prod\limits_{i=1}^N G(\R_i,\R_{i-1},\Delta\tau)\right] \braket{\R_0}{\Psi_t(0)},
+   \braket{\R_N}{\Psi_T(\tau)} &= \int d\R_1 \ldots d\R_N \left[\prod\limits_{i=1}^N \bra{\R_i}e^{-(H-E_0)\Delta\tau}\ket{\R_{i-1}}\right] \braket{\R_0}{\Psi_t(0)} \\
+   &= \int d\R_1 \ldots d\R_N \left[\prod\limits_{i=1}^N G(\R_i,\R_{i-1},\Delta\tau)\right] \braket{\R_0}{\Psi_t(0)},
 \end{align}
-where $G(\R',\R,\tau)=\bra{\R'}e^{-(H-E_0)\tau}\ket{\R}$, is often called the Green's function or the propagator. We cannot calculate the Green's function directly and so the kinetic and potential terms need to be broken up and calculated separately.
+where $\R_N=\R'$, $\R_0=\R$ and $G(\R',\R,\tau)=\bra{\R'}e^{-(H-E_0)\tau}\ket{\R}$, is often called the Green's function or the propagator. We cannot calculate the Green's function directly and so the kinetic and potential terms need to be broken up and calculated separetely.
 \begin{equation}
    G(\R',\R,\dt) = \bra{\R'}e^{-T\dt}e^{-(V-E_0)\dt}\ket{\R}
 \end{equation}
@@ -124,7 +117,7 @@ the finite-time propagator can be written as
 \end{align}
 This break up is equal to the original Green's function up to $\mathcal{O}(\dt^3)$. To minimize time step errors the step in imaginary time needs to be kept small.
 
-The kinetic term is used to move the walkers and the potential term is used to speed up convergence via a branching algorithm. The kinetic term is given by
+The kinetic term is used to move the walkers and the potential part is used to speed up convergence via a branching algorithm. The kinetic term is given by
 \begin{equation}
    G_0(\R',\R,\Delta \tau) = \bra{\R'}e^{-T\Delta \tau}\ket{\R},
 \end{equation}
@@ -148,7 +141,7 @@ There are various ways to do the branch algorithm, however the simplest way is t
 
 This sampling can have large uncertainties due to possible divergences in the branching weight in equation~\ref{equ:branchweight} as a result of particles getting too close or even coinciding. With the use of an importance function, $\Psi_I(\R)$ these fluctuations can be controlled without effecting the energy result. The importance function is used to bias the walker distributions toward $f(\R,t) = \Psi_T(\R,t)\Psi_I(\R)$ instead of $\Psi_T(\R,t)$ which effectively keeps the walkers away from locations where $\left|\Psi_T(\R,t)\right|^2$ is small.
 
-This can be seen by multiplying Equation~\ref{equ:diffusion} by $\Psi_I(\R)$ and rewriting it in terms of $f(\R)$ as
+This can be seen by multiplying equation~\ref{equ:diffusion} by $\Psi_I(\R)$ and rewriting it in terms of $f(\R)$ as
 \begin{equation}
    -\frac{1}{2}\nabla^2 f(\R,t) + \nabla\cdot\left[\mathbf{v}_D(\R) f(\R,t)\right] + \left[E_L(\R)-E_0\right]f(\R,t) = -\frac{\partial}{\partial t} f(\R,t),
 \end{equation}
@@ -156,9 +149,9 @@ where $\mathbf{v}_D(R)$ is the drift velocity, defined as
 \begin{equation}
    \mathbf{v}_D(\R) = \Psi_I(\R)^{-1}\nabla\Psi_I(\R) = \nabla \text{ln}\left|\Psi_I(\R)\right|.
 \end{equation}
-The drift velocity is responsible for pushing walkers away from areas of low $\left|\Psi_T(\R,t)\right|^2$. In practice the importance function is accounted for by directly sampling from
+The drift velocity is responsible for pushing walkers away from areas of low $\left|\Psi_T(\R,t)\right|^2$.In practice the importance function is accounted for by directly sampling from
 \begin{equation}
-   G(\R',\R,\Delta\tau)\frac{\braket{\R}{\Psi_I}}{\braket{\R'}{\Psi_I}}
+   G(\R',\R,\Delta\tau)\frac{\braket{\R}{\Psi_I}}{\braket{\R'}{\Psi_I}}.
 \end{equation}
 instead of from the Green's function.
 
@@ -179,7 +172,7 @@ is the variational expectation value. For the Hamiltonian and operators that com
    \lim\limits_{\tau\rightarrow\infty}\left<H\right>_\text{mixed} = \frac{\bra{\Psi_T}e^{-H\tau/2}He^{-H\tau/2}\ket{\Psi_T}}{\bra{\Psi_T}e^{-H\tau/2}e^{-H\tau/2}\ket{\Psi_T}} = E_0
 \end{equation}
 
-The nuclear wave function is antisymmetric and will change sign as particle interact and exchange. As a result the oscillatory nature of the wave function requires positive and negative terms to cancel in the integral. Very accurate calculations must be done to accurately calculate these cancellations, and as a result very large uncertainties can be obtained. One approximate solution to this is the fixed-node approximation \cite{moskowitz1982}. The basic idea is that the trial wave function defines a nodal surface that is zero at the surface and changes sign across the surface. The wave functions are not allowed to cross the nodal surface. This maintains the upper bound principle of VMC, and is exact if the trial wave function, from which the nodal surface is defined, is exactly the ground state. This method assumes that the wave function is real, which is usually not the case with spin-isospin interactions. A generalization called the constrained path method works for real and complex wave functions alike \cite{wiringa2000}. The general idea is that walker configurations that have negative or zero overlap with the propagated wave function are discarded. This is only an approximate approach that depends on the choice of $\Psi_T(\R)$ and does not guarantee an upper bound on the energy. To this day there is active research looking for efficient ways to solve the Fermi-sign problem in many-body quantum systems. In practice we follow the method used in \cite{zhang2003} by using the real part of the trial wave function as the importance function and setting the weight to zero for any configuration whose overlap with the propagated wave function is zero or negative. This guarantees that the weights will be real and positive.
+The nuclear wave function is antisymmetric and will change sign as particle interact and exchange. As a result the oscillatory nature of the wave function requires positive and negative terms to cancel in the integral. Very accurate calculations must be done to accurately calculate these these cancellations, and as a results very large uncertainties can be obtained. One approximate solution to this is the fixed-node approximation \cite{moskowitz1982}. The basic idea is that the trial wave function defines a nodal surface that is zero at the surface and changes sign across the surface. The wave functions are not allowed to cross the nodal surface. This maintains the upper bound principle of VMC, and is exact if the trial wave function is exactly the ground state. This method assumes that the wave function is real, which is usually not the case with spin-isospin interactions. A generalization called the constrained path method works for real and complex wave functions alike \cite{wiringa2000}. The general idea is that walker configurations that have negative or zero overlap with the propagated wave function are discarded. This is only an approximate approach that depends on the choice of $\Psi_T(\R)$ and does not guarantee an upper bound on the energy. To this day there is active research looking for efficient ways to solve the fermi-sign problem in many-body quantum systems. In practice we follow the method used in \cite{zhang2003} by using the real part of the trial wave function as the importance function. This gaurantees that the weights will be real and positive.
 
 The constraint gives a non-exact result, however better convergence to the exact answer can be obtained by generating a set of good configurations with the constraint and then releasing the constraint for typically 20 to 40 steps to calculate the energy. Small systems, $A\le4$, will often converge before the statistical error overwhelms the signal. For larger systems an exponential extrapolation is typically used to determine the final energy as in \cite{pudliner1997}.
 
@@ -188,30 +181,30 @@ The DMC algorithm can generally be written as follows.
    \item Generate a set of random walkers. These are typically from the results of a VMC calculation, which has no constraint and provides an upper bound in the energy.
    \item For each walker propose a move, $\R' = \R + \mathbf{\chi}$, where $\mathbf{\chi}$ is a vector of random numbers from the shifted Gaussian $\exp\left(\frac{m}{2\hbar^2\Delta\tau}\left(\R'-\R+2\frac{\nabla\Psi_I(\R')}{\Psi_I(\R')}\right)^2\right)$.
    \item For each walker calculate the weight $w(\R')=\exp\left(-\left(\frac{E_L(\R')+E_L(\R)}{2}-E_0\right)\Delta\tau\right)$.
-   \item Do branching.
+   \item Do the branching.
    \item Calculate and collect the observables and uncertainties needed and increase the imaginary time by $\Delta\tau$.
    \item Repeat steps 2 through 5 until the uncertainties are small enough.
 \end{enumerate}
 
-Good reviews of this method can be found in Refs. \cite{foulkes2001} and  \cite{carlson2015}. DMC only accounts for spin-isospin independent Hamiltonians, unlike Green's function Monte Carlo (GFMC) and auxiliary field diffusion Monte Carlo (AFDMC) which follow DMC for sampling spatial states but use two different methods to sample spin-isospin states. For each set of spatial integrals there is a sum over all of the spin and isospin states. GFMC evaluates this sum explicitly. This is inefficient as the number of spin states scales as
+Good reviews of this method can be found in Refs. \cite{foulkes2001} and  \cite{carlson2015}. DMC only accounts for spin-isospin independent Hamiltonians, unlike Green's function Monte Carlo (GFMC) and auxiliary field diffusion Monte Carlo (AFDMC) which follow DMC for sampling spatial states but use two different methods to sample spin-isospin states. For each set of spatial integrals there is a set of sums over all of the spin and isospin states. GFMC evaluates these sums explicitly. This is inefficnent as the number of spin states scales as
 \begin{equation}
    \frac{A!}{Z!(A-Z)!}2^A
 \end{equation}
 where $A$ is the number of nucleons and $Z$ is the number of protons.
 %The number of possible spin states given $A$ nucleons is $2^A$. The number of isospin states given $A$ nucleons and $Z$ protons can be reduced to ${A \choose Z}$ states leaving us with a total of $2^A {A \choose Z}$ spin-isospin states.
-The number of states and the number of operators required for the trial wave function increase exponentially as the number of nucleons increases. To date, the largest nuclei that can be calculated with GFMC is ${}^{12}C$ \cite{lovato2013,lovato2014,lovato2015}. AFDMC was developed as an alternative to the explicit sum over spin-isospin states that GFMC performs.
+The number of states and the number of operators required for the trial wave function increase exponentially as the number of nucleons increases. To date, the largest nuclei that can be calculated with GFMC is ${}^{12}C$ \cite{lovato2013,lovato2014,lovato2015}. AFDMC was developed as an alternative to the explicit sum over spin-isospin states and GFMC performs.
 
-\subsection{Auxiliary Field Diffusion Monte Carlo}
+\subsection{Auxiliary Field Difusion Monte Carlo}
 \label{sec:AFDMC}
-To overcome the exponentially large number of spin-isospin states that have to be summed in GFMC, AFDMC was developed in 1999 \cite{schmidt1999} to sample spin and isospin states and, in analogy to moving the position of each walker, rotate the spin and isospin of each walker. The walkers are defined by the three spatial positions and amplitude for each particle to be in each of the four possible spin-isospin states $\ket{s} = \ket{p\uparrow,p\downarrow,n\uparrow,n\downarrow}$. The Hamiltonian can then be broken up into spin-isospin independent $H_{SI}$ and spin-isospin dependent $H_{SD}$ parts. The spin-isospin dependent part only comes from the potential and can be written as $V_{SD}$. The propagator can be broken up to have the old propagator used in DMC, which is independent of spin and isospin, and a spin-isospin dependent piece.
+To overcome the exponentially large number of spin-isospin states that have to be summed in GFMC, AFDMC was developed in 1999 \cite{schmidt1999} to sample spin and isospin states and, in analogy to moving the position of each walker, rotate the spin and isospin of each walker. The walkers are defined by the three spatial positions and amplitude for each particle to be in each of the four possible spin-isospin states $\ket{s} = \ket{p\uparrow,p\downarrow,n\uparrow,n\downarrow}$. The Hamiltonian can then be broken up into spin-isospin independent $H_{SI}$ and spin-isospin dependent $H_{SD}$ parts. The spin-isospin dependant part only comes from the potential and can be written as $V_{SD}$. The propagator can be broken up to have the old propagator used in DMC, which is independent of spin and isospin, and a spin-isospin dependent piece.
 \begin{equation}
    G(\R'S',\R S,\tau)=\bra{\R'}e^{-(H-E_0)\tau}\ket{\R}G_{SD}(\R'S',\R S,\tau)
 \end{equation}
-where the spin-isospin dependent part of the propagator is
+where the spin-isospin dependant part of the propagator is
 \begin{equation}
    G_{SD}(\R'S',\R S,\dt) = \bra {\R'S'}e^{-V_{SD}\dt} \ket{\R S}.
 \end{equation}
-The spin-isospin dependent part of the potential can be written as
+The spin-isospin dependant part of the potential can be written as
 \begin{equation}
    V_{SD} = \sum\limits_{p=2}^{M}\sum\limits_{i<j} \vpij\Opij,
 \end{equation}
@@ -241,7 +234,7 @@ where the operators are given by
 \begin{split}
    O_{n}^{\sigma} &= \sum\limits_{j,\beta} \sigma_{j,\beta}\psi_{n,j,\beta}^{\sigma} \\
    O_{n\alpha}^{\sigma\tau} &= \sum\limits_{j,\beta} \tau_{j,\alpha}\sigma_{j,\beta}\psi_{n,j,\beta}^{\sigma\tau} \\
-   O_{n\alpha}^{\tau} &= \sum\limits_{j} \tau_{j,\alpha}\psi_{n,j}^{\tau}.
+   O_{n\alpha}^{\tau} &= \sum\limits_{j} \tau_{j,\alpha}\psi_{n,j}^{\tau}
 \end{split}
 \end{equation}
 These operators in the propagator now have the effect of rotating the spinors, analogous to diffusing the walkers in space. To reduce the order of the operators in the propagator from quadratic to linear we use the Hubbard-Stratanovich transformation.
@@ -253,33 +246,33 @@ The variable $x$ is called an auxiliary field. Using the fact that there are $3A
    G_{SD}(\R'S',\R S,\dt) = \bra{\R'S'}\prod\limits_{n=1}^{15A}\frac{1}{\sqrt{2\pi}}\int dx_n e^{-\frac{x_n^2}{2}}e^{\sqrt{-\lambda_n\dt} x_nO_n}\ket{\R S}.
    \label{equ:GSD}
 \end{equation}
-The spinors are rotated based on auxiliary fields sampled from the Gaussian with unit variance in Eq.~\ref{equ:GSD}. The sampling of the auxiliary fields is done in exactly the same way as the sampling of the spatial walkers in DMC, with the Markov chain Metropolis algorithm. Each sampled auxiliary field depends only on the previous sample and no more history than that.
+The spinors are then rotated based on auxiliary fields sampled from the Gaussian with unit variance in Eq.~\ref{equ:GSD}. The sampling of the auxiliary fields is done in exactly the same way as the sampling of the spatial walkers in DMC, with the Markov chain Metropolis algorithm. Each sampled auxiliary field depends only on the previous sample and no more history than that.
 
-Importance sampling can be included in the Auxiliary Field sampling in a similar way as described before with DMC. However, in practice it is done as follows. The $\Delta \R$ and $\Delta x_n$ are sampled by symmetric Gaussians and so the probability of $\Delta \R$ and $-\Delta \R$, and $\Delta x_n$ and $-\Delta x_n$ are the same. As a result the weight for the four possible combinations are sampled as
+Importance sampling can be included in the Auxiliary Field sampling in a similar way as described before with DMC. However, in practice it is done as follows. The $\Delta \R$ and $\Delta x_n$ are sampled by symmetric gaussians and so the probability of $\Delta \R$ and $-\Delta \R$, and $\Delta x_n$ and $-\Delta x_n$ are the same. As a result the weight for the four possible combinations are sampled as
 \begin{align}
    w_1 &= \frac{\braket{\Psi_I}{\R+\Delta \R, S'(x_n)}}{\braket{\Psi_I}{\R S}} e^{\left(-V_{SI}(\R+\Delta\R) - E_0\right)\dt} \\
    w_2 &= \frac{\braket{\Psi_I}{\R-\Delta \R, S'(x_n)}}{\braket{\Psi_I}{\R S}} e^{\left(-V_{SI}(\R-\Delta\R) - E_0\right)\dt} \\
    w_3 &= \frac{\braket{\Psi_I}{\R+\Delta \R, S'(-x_n)}}{\braket{\Psi_I}{\R S}} e^{\left(-V_{SI}(\R+\Delta\R) - E_0\right)\dt} \\
    w_4 &= \frac{\braket{\Psi_I}{\R-\Delta \R, S'(-x_n)}}{\braket{\Psi_I}{\R S}} e^{\left(-V_{SI}(\R-\Delta\R) - E_0\right)\dt},
 \end{align}
-and the sample with the largest weight is used. The weight for the chosen configuration, which is used for branching, is the average of the four weights
+and the sample with the largest weight is realized. The weight for the chosen configuration, which is used for branching, is the average of the four weights
 \begin{equation}
    W = \frac{1}{4}\sum\limits_{n=1}^4 w_n.
 \end{equation}
 
 \subsection{Hamiltonian}
-One of the difficulties in many-body nuclear physics is finding an accurate Hamiltonian that is easy to calculate with the method you have selected. For QMC methods the Hamiltonian must be in configuration space and it must be local. Small degrees of non-locality can be addressed \cite{lynn2012,lynn2013}. Also, the nuclear physics Hamiltonian must be able to account for 2-body and 3-body interactions. The most generic form for the nuclear Hamiltonian then takes the form
+One of the difficulties in many-body nuclear physics is finding an accurate Hamiltonian that is easy to calculate with the method you have selected. For QMC methods the Hamiltonian must be in configuration space and it must be local. Small degrees of non-locality can be adressed \cite{lynn2012,lynn2013}. Also, the nuclear physics Hamiltonian must be able to account for 2-body and 3-body interactions. The most generic form for the nuclear Hamiltonian then takes the form
 \begin{equation}
-   H = -\frac{\hbar^2}{2m}\sum\limits_i \nabla_i^2 + \sum\limits_{i<j} v_{ij} + \sum\limits_{i<j<k} V_{ijk} + \ldots.
+   H = -\frac{\hbar^2}{2m}\sum\limits_i \nabla^2 + \sum\limits_{i<j} v_{ij} + \sum\limits_{i<j<k} V_{ijk} + \ldots.
 \end{equation}
-In principle there could be higher order terms included the in practice the two-nucleon NN interaction $v_{ij}$ and the three-nucleon interaction (TNI) $V_{ijk}$ are the only terms included as the importance of an $n$-nuclear potential decreases as $n$ increases. Calculations with only NN potentials will often underbind nuclei with $A>2$ and it has been shown that the inclusion of the TNI interaction improves this underbinding as well as level ordering in the excitation spectra of nuclei. This improvement has been shown in GFMC \cite{fantoni2008} as well as other methods such as the no-core shell model \cite{navratil2003}.
+In principle there could be higher order terms included the in practice the three-nucleon NN interaction $v_{ij}$ and the three-nucleon interaction (TNI) $V_{ijk}$ are the only terms included as the importance of an $n$-nuclear potential decreases as $n$ increases. Calculations with only NN potentials will often underbind nuclei with $A>2$ and it has been shown that the includion of the TNI interaction improves this overbinding as well as level ordering in the excitation spectra of nuclei. This improvement has been shown in GFMC \cite{fantoni2008} as well as other methods such as the no-core shell model \cite{navratil2003}.
 
 The NN potential takes the form
 \begin{equation}
    v_{ij} = \sum\limits_{p=1}^M v_p(\r_{ij})\mathcal{O}^p_{ij},
 \end{equation}
 where $M$ is the number of operators begin used.
-Two-nucleon potentials are often fit to NN scattering data and several very accurate models have been developed including the Nijmengen \cite{nagels1975,stoks1994}, CD-Bonn \cite{machleidt1996,machleidt2001}, and Argonne $v$18 (AV18) potentials \cite{wiringa1984,wiringa1995}. The Argonne potential is one of the most accurate and will be used in this work. The AV18 potential has 18 operators coming from one- and two-pion exchange as well as phenomenological sources. Often a subset of the AV18 potential is used, e.g. AV4$'$, AV6$'$, AV8$'$ or AV14$'$. These AV$n'$ potentials have kept only the top $n$ most important terms and are refit to scattering data at that level. A study of the successive importance of these terms up to $n=8$ compared with the full AV18 with and without three-nucleon potentials is given in \cite{wiringa2002}. The operators of the AV18 potential are
+Two-nucleon potentials are often fit to NN scattering data and several very accurate models have been developed including the Nijmengen \cite{nagels1975,stoks1994}, CD-Bonn \cite{machleidt1996,machleidt2001}, and the Argonne $v$18 (AV18) potential \cite{wiringa1984,wiringa1995}. The Argonne potential is one of the most accurate and will be used in this work. The AV18 potential has 18 operators coming from one- and two-pion exchange as well as phenomenological sources. Often a subset of the AV18 potential is used, for example AV4$'$, AV6$'$, or AV8$'$. These AV$n'$ potentials have kept only the top $n$ most important terms and are refit to scattering data at that level. A study of the successive importance of these terms up to $n=8$ compared with the full AV18 with and without three-nucleon potentials is given in \cite{wiringa2002}. The operators of the AV18 potential are
 \begin{align}
    \mathcal{O}_{ij}^{p=1,8} &= \left[1,\si\cdot\sj,S_{ij},\mathbf{L}\cdot\mathbf{S}\right]\otimes\left[1,\ti\cdot\tj\right], \\
    \mathcal{O}_{ij}^{p=9,14} &= \left[\mathbf{L}^2,\mathbf{L}^2\si\cdot\sj,(\mathbf{L}\cdot\mathbf{S})^2\right]\otimes\left[1,\ti\cdot\tj\right], \\
@@ -295,25 +288,25 @@ In this work the AV6$'$ potential is used, which includes all of the same operat
    \label{fig:vij}
 \end{figure}
 
-The AV6$'$ can be broken up in Cartesian coordinates including 39 operators, 3 from $\tau$, 9 from $\sigma$, and 27 from $\sigma\tau$ terms. This can be done by writing the potential in the form
+The AV6$'$ can be broken up in cartesian coordinates and include 39 operators, 3 from $\tau$ 9 from $\sigma$, and 27 from $\sigma\tau$ terms. This can be done by writting the potential in the form
 \begin{equation}
    \sum\limits_p v_p(\r_{ij})\mathcal{O}^p_{ij} = v_1(\r_{ij}) + \sum\limits_\alpha \t_{i\alpha}A^\tau_{ij}\t_{j\alpha} + \sum\limits_{\alpha,\beta} \s_{i\alpha}A^\sigma_{ij}\s_{j\beta} + \sum\limits_{\alpha,\beta,\gamma} \s_{i\alpha}\t_{i\gamma}A^{\sigma\tau}_{ij}\s_{j\beta}\t_{j\gamma},
 \end{equation}
-where the matrices are given by
+where the matricies are given by
 \begin{align}
-   A^\tau_{ij} &= v_2(\r_{ij}), \\
-   A^\sigma_{ij} &= v_3(\r_{ij})\delta_{\alpha\beta} + v_5(\r_{ij})(3\rij^\alpha\rij^\beta-\delta_{\alpha\beta}), \\
-   A^{\sigma\tau}_{ij} &= v_5(\r_{ij})\delta_{\alpha\beta} + v_6(\r_{ij})(3\rij^\alpha\rij^\beta-\delta_{\alpha\beta}).
+   A^\tau_{ij} &= v^2(\r_{ij}), \\
+   A^\sigma_{ij} &= v^3(\r_{ij})\delta_{\alpha\beta} + v_5(\r_{ij})(3\rij^\alpha\rij^\beta-\delta_{\alpha\beta}), \\
+   A^{\sigma\tau}_{ij} &= v^5(\r_{ij})\delta_{\alpha\beta} + v_6(\r_{ij})(3\rij^\alpha\rij^\beta-\delta_{\alpha\beta}).
 \end{align}
-This is a simple way to break up the AV6$'$ potential but a more efficient breakup can be used in which only 15 operators are needed. This is achieved by using $\rij$ as the first basis function and then using two additional orthogonal basis functions. This reduces the $\rij^\alpha\rij^\beta$ term in the matrices to $\delta_{\alpha\beta}$. This potential can then be written as
+This is a simple way to break up the AV6$'$ potential but a more efficient breakup can be used in which only 15 operators are needed. This is achieved by using $\rij$ as the first basis function and then using two additional orthogonal basis functions. This reduces the $\rij^\alpha\rij^\beta$ term in the matricies to $\delta_{\alpha\beta}$. This potential can then be written as
 \begin{equation}
    \sum\limits_p v_p(\r_{ij})\mathcal{O}^p_{ij} = v_1(\r_{ij}) + \sum\limits_\alpha \t_{i\alpha}A^\tau_{ij}\t_{j\alpha} + \sum\limits_{\alpha} \s_{i\alpha}A^\sigma_{ij}\s_{j\alpha} + \sum\limits_{\alpha,\gamma} \s_{i\alpha}\t_{i\gamma}A^{\sigma\tau}_{ij}\s_{j\alpha}\t_{j\gamma},
 \end{equation}
-where the matrices are given by
+where the matricies are given by
 \begin{align}
-   A^\tau_{ij} &= v_2(\r_{ij}), \\
-   A^\sigma_{ij} &= v_3(\r_{ij}) + 2v_5(\r_{ij}), \\
-   A^{\sigma\tau}_{ij} &= v_5(\r_{ij}) + 2v_6(\r_{ij}),
+   A^\tau_{ij} &= v^2(\r_{ij}), \\
+   A^\sigma_{ij} &= v^3(\r_{ij}) + 2v_5(\r_{ij}), \\
+   A^{\sigma\tau}_{ij} &= v^5(\r_{ij}) + 2v_6(\r_{ij}),
 \end{align}
 where it is easy to see that there are 3 $\tau$, 3 $\sigma$, and 9 $\sigma\tau$ terms for a total of 15 operators in this basis.
 
@@ -325,15 +318,15 @@ Calculations with $A\le2$ are well described by the NN potentials, however for a
       + &B(\r_{12},\r_{13})\{\t_1\cdot\r_2,\t_1\cdot\t_3\}\{(S_{12}+\s_1\cdot\s_2),(S_{13}+\s_1\cdot\s_3)\},
 \end{split}
 \end{equation}
-where the sum is a cyclic sum over 1, 2, and 3. The $\{~,~\}$ and $[~,~]$ are anticommutators and commutators and the $Y(r)$ and $Y(r)$ are the radial Yukawa and one-pion exchange interactions as described in \cite{carlson1983},
+where the sum is a cyclic sym over 1, 2, and 3. The $\{~,~\}$ and $[~,~]$ are anticommutators and commutators and the $Y(r)$ and $Y(r)$ are the radial Yukawa and one-pion exchange interactions as described in \cite{carlson1983},
 \begin{align}
    Y(r) &= \frac{e^{-\mu r}}{\mu r} Y_\text{cut}(r) \\
    T(r) &= \left(1+\frac{3}{\mu r} + \frac{3}{\mu^2 r^2}\right)\frac{e^{-\mu r}}{\mu r} T_\text{cut}(r),
 \end{align}
-where $Y_\text{cut}(r)$ and $T_\text{cut}(r)$ are the cutoff functions for the Yukawa and one-pion exchange terms respectively. The $B(\r_{12},\r_{13})$ term comes from $\pi$N s-wave scattering. The UIX potential is fit to the ground states of $^3$H and $^4$He. For details about the construction and results obtained with this potential I refer the reader to \cite{carlson1983, pudliner1996, pudliner1997}.
+where $Y_\text{cut}(r)$ and $T_\text{cut}(r)$ are the cutoff functions for the Yukawa and one-pion exchange terms respectively. The $B(\r_{12},\r_{13}$ comes from $\pi$N s-wave scattering. The UIX potential was fit to the ground states of $^3$H and $^4$He. For details about the construction and results obtained with this potential I refer the reader to \cite{carlson1983, pudliner1996, pudliner1997}.
 
 The Illinois-7 (IL7) potential \cite{pieper2001} contains two-pion three-nucleon interactions in both the s-wave and p-wave, as well as a three-pion exchange and three-nucleon contact interactions. The IL7 potential has been fit to the low-lying spectra of nuclei with $A=3$ to nuclei with $A=10$. These phenomenological potentials have been used to calculate many properties of light nuclei with high accuracy using both the GFMC and AFDMC methods.
 
-Despite the accuracy of these potentials they have little direct connection to the underlying theory of QCD. In recent years a set of nuclear potentials has been developed from a chiral effective field theory ($\chi$EFT) framework that can be used with nuclear QMC methods such as GFMC and AFDMC \cite{epelbaum2009,machleidt2011}. These potentials are local up the next-to-next-to leading order (N$^2$LO) and so QMC calculations can use potentials up to this order. Good results using these potentials have been obtained with both GFMC \cite{lynn2014} and AFDMC \cite{lonardoni2018}.
+Despite the accuracy of these potentials they have little direct connection to the underlying theory of QCD. In recent years a set of nuclear potentials has been developed from a chiral effective field theory ($\chi$EFT) framework that can be used with nuclear QMC methods such as GFMC and AFDMC \cite{epelbaum2009,machleidt2011}. These potentials are local up the next-to-next-to leading order (N$^2$LO) and so QMC calculations can use potentials up to this order. Good results have been obtained with both GFMC \cite{lynn2014} and AFDMC \cite{lonardoni2018}.
 
 All calculations here have been done with the AV6$'$ potential to reduce computation requirements as well as to better focus on the improvements made by improved wave functions. It would be straightforward to do any of these calculations with the three-nucleon and the $\chi$EFT potentials.
