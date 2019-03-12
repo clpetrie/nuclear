@@ -2,12 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #set up input parameters
-calc=2 #1=14n2p 2=2n2p
+calc=1 #1=14n2p 2=2n2p
 corrtype=2 #1=lin, 2=ip
 sys=5 #np0=1, np1=3, pp=5, nn=7
 density=('0.0005','0.001','0.002','0.003','0.005','0.01')
-density=('0.00025','0.0005','0.001','0.002','0.003','0.01')
-pltstyle=('ko','ro','mo','yo','go','bo')
+density=('0.00025','0.0005','0.001','0.002','0.003','0.005','0.01')
+pltstyle=('ko','ro','mo','yo','go','co','bo')
 
 #build other parameters
 lenfiles=len(density)
@@ -49,7 +49,11 @@ else:
 data=[None]*lenfiles
 for n in range(0,lenfiles):
    #build data and remove unwanted pieces
-   f=open('gofrnp_'+density[n]+'_'+corr+calcname+'.dmc')
+   if(float(density[n])<0.00026):
+      f=open('fine/gofrnp_'+density[n]+'_'+corr+calcname+'_fine.dmc')
+   else:
+      f=open('gofrnp_'+density[n]+'_'+corr+calcname+'.dmc')
+#   f=open('gofrnp_'+density[n]+'_'+corr+calcname+'.dmc')
    data[n]=[]
    for line in f.readlines():
       data[n].append(line.split())

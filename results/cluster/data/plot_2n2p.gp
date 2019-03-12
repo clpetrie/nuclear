@@ -12,19 +12,17 @@ datafile='data.txt'
 imin="4"
 imax="15"
 
-set output 'alpha_and_2n2p.png'
+set output '2n2p.png'
 
 lsize=2
 psize=1.2
 
-set xlabel "Density"
-set ylabel "Energy (MeV)"
+set xlabel '{/Symbol r} (fm^{-3})' enhanced
+set ylabel 'E_{/Symbol a} (MeV)' enhanced
+set xrange[0:0.01]
 
-plot "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:2:3 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "red" title 'Linear - Cluster', \
-   "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:2 with lines linetype 2 linewidth lsize lc rgb "red" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:6:7 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "green" title 'IP - Cluster', \
-   "<(sed -n '".imin.",".imax."p' ".datafile.")" u 1:6 with lines linetype 2 linewidth lsize lc rgb "green" notitle, \
+plot -27.2 with lines linewidth lsize lc rgb "green" title 'E_{/Symbol a} from AFDMC', \
    "<(sed -n '".imin.",".imax."p' ../alpha/data/".datafile.")" u 1:2:3 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "orange" title 'Linear - 2n2p', \
    "<(sed -n '".imin.",".imax."p' ../alpha/data/".datafile.")" u 1:2 with lines linetype 2 linewidth lsize lc rgb "orange" notitle, \
-   "<(sed -n '".imin.",".imax."p' ../alpha/data/".datafile.")" u 1:4:5 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "blue" title 'IP - 2n2p', \
-   "<(sed -n '".imin.",".imax."p' ../alpha/data/".datafile.")" u 1:4 with lines linetype 2 linewidth lsize lc rgb "blue" notitle
+   "<(sed -n '".imin.",".imax."p' ../alpha/data/".datafile.")" u 1:4:5 with yerrorbars linetype 1 linewidth 1.2 pointtype 9 pointsize psize lc rgb "purple" title 'IP - 2n2p', \
+   "<(sed -n '".imin.",".imax."p' ../alpha/data/".datafile.")" u 1:4 with lines linetype 2 linewidth lsize lc rgb "purple" notitle
