@@ -1,5 +1,6 @@
 #set terminal pngcairo enhanced font 'Verdana,11'
-set terminal png enhanced font 'Verdana,11'
+#set terminal png enhanced font 'Verdana,11' size 640,480
+set terminal png enhanced font 'Verdana,11' size 740,480
 
 corr1=1 #1=linear, 2=ip (lin opt), 3=ip (ip opt)
 corr2=3 #1=linear, 2=ip (lin opt), 3=ip (ip opt)
@@ -48,37 +49,45 @@ filetent='vtent.txt'
 lsize=2
 psize=1.2
 
-set xlabel "Density"
-set ylabel "Energy (MeV)"
-set xrange[0:0.0135]
+set xlabel '{/Symbol r} (fm^{-3})' enhanced
+set ylabel 'E (MeV)' enhanced
+#set xrange[0:0.0140]
 
-plot "<(sed -n '".imin.",".imax."p' ".fileenergy.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "red" title 'Etotal_{lin}', \
+#set xrange[0:0.01]
+#set size 0.78,0.78
+#set key at 0.014,18
+
+set xrange[0:0.01]
+set size 0.85,1.00
+set key at 0.0128,18
+
+plot "<(sed -n '".imin.",".imax."p' ".fileenergy.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "red" title 'E_{total} - lin', \
    "<(sed -n '".imin.",".imax."p' ".fileenergy.")" u 1:cmin1 with lines linetype 2 linewidth lsize lc rgb "red" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".filec.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "blue" title 'vc_{lin}', \
+   "<(sed -n '".imin.",".imax."p' ".filec.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "blue" title 'v_{c} - lin', \
    "<(sed -n '".imin.",".imax."p' ".filec.")" u 1:cmin1 with lines linetype 2 linewidth lsize lc rgb "blue" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".filet.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "orange" title 'vt_{lin}', \
+   "<(sed -n '".imin.",".imax."p' ".filet.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "orange" title 'v_{{/Symbol t}} - lin', \
    "<(sed -n '".imin.",".imax."p' ".filet.")" u 1:cmin1 with lines linetype 2 linewidth lsize lc rgb "orange" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".files.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "violet" title 'vs_{lin}', \
+   "<(sed -n '".imin.",".imax."p' ".files.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "violet" title 'v_{{/Symbol s}} - lin', \
    "<(sed -n '".imin.",".imax."p' ".files.")" u 1:cmin1 with lines linetype 2 linewidth lsize lc rgb "violet" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".filest.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "cyan" title 'vst_{lin}', \
+   "<(sed -n '".imin.",".imax."p' ".filest.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "cyan" title 'v_{{/Symbol s}{/Symbol t}} - lin', \
    "<(sed -n '".imin.",".imax."p' ".filest.")" u 1:cmin1 with lines linetype 2 linewidth lsize lc rgb "cyan" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".fileten.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "black" title 'vten_{lin}', \
+   "<(sed -n '".imin.",".imax."p' ".fileten.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "black" title 'v_{S} - lin', \
    "<(sed -n '".imin.",".imax."p' ".fileten.")" u 1:cmin1 with lines linetype 2 linewidth lsize lc rgb "black" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".filetent.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "green" title 'vtent_{lin}', \
+   "<(sed -n '".imin.",".imax."p' ".filetent.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "green" title 'v_{S{/Symbol t}} - lin', \
    "<(sed -n '".imin.",".imax."p' ".filetent.")" u 1:cmin1 with lines linetype 2 linewidth lsize lc rgb "green" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".fileenergy.")" u 1:cmin2:cmax2 with yerrorbars linetype 1 linewidth 1.2 pointtype 3 pointsize psize lc rgb "red" title 'Etotal_{ip}', \
+   "<(sed -n '".imin.",".imax."p' ".fileenergy.")" u 1:cmin2:cmax2 with yerrorbars linetype 1 linewidth 1.2 pointtype 3 pointsize psize lc rgb "red" title 'E_{total} - ip', \
    "<(sed -n '".imin.",".imax."p' ".fileenergy.")" u 1:cmin2 with lines linetype 2 linewidth lsize lc rgb "red" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".filec.")" u 1:cmin2:cmax2 with yerrorbars linetype 1 linewidth 1.2 pointtype 3 pointsize psize lc rgb "blue" title 'vc_{ip}', \
+   "<(sed -n '".imin.",".imax."p' ".filec.")" u 1:cmin2:cmax2 with yerrorbars linetype 1 linewidth 1.2 pointtype 3 pointsize psize lc rgb "blue" title 'v_{c} - ip', \
    "<(sed -n '".imin.",".imax."p' ".filec.")" u 1:cmin2 with lines linetype 2 linewidth lsize lc rgb "blue" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".filet.")" u 1:cmin2:cmax2 with yerrorbars linetype 1 linewidth 1.2 pointtype 3 pointsize psize lc rgb "orange" title 'vt_{ip}', \
+   "<(sed -n '".imin.",".imax."p' ".filet.")" u 1:cmin2:cmax2 with yerrorbars linetype 1 linewidth 1.2 pointtype 3 pointsize psize lc rgb "orange" title 'v_{{/Symbol t}} - ip', \
    "<(sed -n '".imin.",".imax."p' ".filet.")" u 1:cmin2 with lines linetype 2 linewidth lsize lc rgb "orange" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".files.")" u 1:cmin2:cmax2 with yerrorbars linetype 1 linewidth 1.2 pointtype 3 pointsize psize lc rgb "violet" title 'vs_{ip}', \
+   "<(sed -n '".imin.",".imax."p' ".files.")" u 1:cmin2:cmax2 with yerrorbars linetype 1 linewidth 1.2 pointtype 3 pointsize psize lc rgb "violet" title 'v_{{/Symbol s}} - ip', \
    "<(sed -n '".imin.",".imax."p' ".files.")" u 1:cmin2 with lines linetype 2 linewidth lsize lc rgb "violet" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".filest.")" u 1:cmin2:cmax2 with yerrorbars linetype 1 linewidth 1.2 pointtype 3 pointsize psize lc rgb "cyan" title 'vst_{ip}', \
+   "<(sed -n '".imin.",".imax."p' ".filest.")" u 1:cmin2:cmax2 with yerrorbars linetype 1 linewidth 1.2 pointtype 3 pointsize psize lc rgb "cyan" title 'v_{{/Symbol s}{/Symbol t}} - ip', \
    "<(sed -n '".imin.",".imax."p' ".filest.")" u 1:cmin2 with lines linetype 2 linewidth lsize lc rgb "cyan" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".fileten.")" u 1:cmin2:cmax2 with yerrorbars linetype 1 linewidth 1.2 pointtype 3 pointsize psize lc rgb "black" title 'vten_{ip}', \
+   "<(sed -n '".imin.",".imax."p' ".fileten.")" u 1:cmin2:cmax2 with yerrorbars linetype 1 linewidth 1.2 pointtype 3 pointsize psize lc rgb "black" title 'v_{S} - ip', \
    "<(sed -n '".imin.",".imax."p' ".fileten.")" u 1:cmin2 with lines linetype 2 linewidth lsize lc rgb "black" notitle, \
-   "<(sed -n '".imin.",".imax."p' ".filetent.")" u 1:cmin2:cmax2 with yerrorbars linetype 1 linewidth 1.2 pointtype 3 pointsize psize lc rgb "green" title 'vtent_{ip}', \
+   "<(sed -n '".imin.",".imax."p' ".filetent.")" u 1:cmin2:cmax2 with yerrorbars linetype 1 linewidth 1.2 pointtype 3 pointsize psize lc rgb "green" title 'v_{S{/Symbol t}} - ip', \
    "<(sed -n '".imin.",".imax."p' ".filetent.")" u 1:cmin2 with lines linetype 2 linewidth lsize lc rgb "green" notitle
 
 #   "<(sed -n '".imin.",".imax."p' ".fileke.")" u 1:cmin1:cmax1 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "yellow" title 'vke', \

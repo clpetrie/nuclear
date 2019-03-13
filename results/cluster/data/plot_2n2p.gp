@@ -22,7 +22,7 @@ set ylabel 'E_{/Symbol a} (MeV)' enhanced
 set xrange[0:0.01]
 
 plot -27.2 with lines linewidth lsize lc rgb "green" title 'E_{/Symbol a} from AFDMC', \
-   "<(sed -n '".imin.",".imax."p' ../alpha/data/".datafile.")" u 1:2:3 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "orange" title 'Linear - 2n2p', \
-   "<(sed -n '".imin.",".imax."p' ../alpha/data/".datafile.")" u 1:2 with lines linetype 2 linewidth lsize lc rgb "orange" notitle, \
-   "<(sed -n '".imin.",".imax."p' ../alpha/data/".datafile.")" u 1:4:5 with yerrorbars linetype 1 linewidth 1.2 pointtype 9 pointsize psize lc rgb "purple" title 'IP - 2n2p', \
-   "<(sed -n '".imin.",".imax."p' ../alpha/data/".datafile.")" u 1:4 with lines linetype 2 linewidth lsize lc rgb "purple" notitle
+   "<(sed -n '".imin.",".imax."p' ../alpha/data/".datafile.")" u 1:2:3 with yerrorbars linetype 1 linewidth 1.2 pointtype 7 pointsize psize lc rgb "red" title 'Linear - 2n2p', \
+   "<(sed -n '".imin.",".imax."p' ../alpha/data/".datafile.")" u 1:2 with lines linetype 2 linewidth lsize lc rgb "red" notitle, \
+   "<(sed -n '".imin.",".imax."p' ../alpha/data/".datafile.")" u 1:4:5 with yerrorbars linetype 1 linewidth 1.2 pointtype 9 pointsize psize lc rgb "blue" title 'IP - 2n2p', \
+   "<(sed -n '".imin.",".imax."p' ../alpha/data/".datafile.")" u 1:4 with lines linetype 2 linewidth lsize lc rgb "blue" notitle
