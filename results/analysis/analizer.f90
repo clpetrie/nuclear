@@ -941,7 +941,7 @@
       write(99,'(a)') 'set terminal x11 1'//' title "autocorrelations"'
       write(99,'(a)') 'plot "tmp.dat" i 1 w lp'
       write(99,'(a)') 'set terminal x11 2'//' title "errors as a funcion of block size"'
-      write(99,'(a)') 'plot "tmp.dat" i 2 w lp'
+      write(99,'(a)') 'plot "tmp.dat" i 2 w lp notitle'
       write(99,'(a)') 'pause -1'
       write(99,'(a)') 'q'
       close(99)

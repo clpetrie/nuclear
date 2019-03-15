@@ -193,6 +193,14 @@ The DMC algorithm can generally be written as follows.
    \item Repeat steps 2 through 5 until the uncertainties are small enough.
 \end{enumerate}
 
+The uncertainties are calculated by block averaging. The data we generate is inherently autocorrelated because each step in the Markov chain depends on the last. This will underestimate the statistical error in our calculation. The idea of block averaging is to form blocks in our data such that the average over each block is not correlated with the last block. This gives us a good estimate for the statistical uncertainty. In practice the block size is chosen so that the error estimate will not increase as the block size is increased. This is illustrated in the sample data shown in Figure~\ref{fig:blockaverage}.
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.7\textwidth]{figures/blockaverage.png}
+   \caption{Sample data showing the convergence of the statistical uncertainty as the block size is increased. An appropriate block size for this data would be about 35, where the errors stop increasing with block size.}
+   \label{fig:blockaverage}
+\end{figure}
+
 Good reviews of this method can be found in Refs. \cite{foulkes2001} and  \cite{carlson2015}. DMC only accounts for spin-isospin independent Hamiltonians, unlike Green's function Monte Carlo (GFMC) and auxiliary field diffusion Monte Carlo (AFDMC) which follow DMC for sampling spatial states but use two different methods to sample spin-isospin states. For each set of spatial integrals there is a sum over all of the spin and isospin states. GFMC evaluates this sum explicitly. This is inefficient as the number of spin states scales as
 \begin{equation}
    \frac{A!}{Z!(A-Z)!}2^A
