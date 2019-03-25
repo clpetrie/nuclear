@@ -1,0 +1,431 @@
+\documentclass{beamer}
+\usepackage{pgfpages}
+\usepackage[backend=bibtex]{biblatex}
+\usepackage{multicol}
+\setbeameroption{hide notes} % Only slides
+%\setbeameroption{show only notes} % Only notes
+%\setbeameroption{show notes on second screen=right} % Both
+\bibliography{../../papers/references.bib}
+\setbeamerfont{footnote}{size=\small}
+%\AtEveryCitekey{\clearfield{title}}
+
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{Warsaw}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{default}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+} 
+
+\usepackage[english]{babel}
+%\usepackage[utf8x]{inputenc} %Doesn't play well with biblatex
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{graphicx}
+
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\braket}[2]{\left< #1 | #2 \right>}
+\newcommand{\ketbra}[2]{\left| #1 \right> \left< #2 \right|}
+\newcommand{\expect}[1]{\left< #1 \right>}
+\newcommand{\fpij}{f_p(r_{ij})}
+\newcommand{\vpij}{v_p(r_{ij})}
+\newcommand{\Opij}{\mathcal{O}_{ij}^p}
+\newcommand{\fOpij}{\sum\limits_{i<j}\sum\limits_p \fpij\Opij}
+\newcommand{\fqkl}{f_q(r_{kl})}
+\newcommand{\Oqkl}{\mathcal{O}_{kl}^q}
+\newcommand{\fOqkl}{\sum\limits_{k<l}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\fOqklip}{\sum\limits_{k<l,\mathrm{ip}}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\fOqklquad}{\sum_{\substack{k<l\\ij \ne kl}}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\f}[2]{f_{#1}(r_{#2})}
+\renewcommand{\O}[2]{\mathcal{O}_{#2}^{#1}}
+\newcommand{\fO}[2]{\sum\limits_{#1} f_{#1}(r_{#2})\mathcal{O}_{#2}^{#1}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\dt}{\Delta\tau}
+\newcommand{\ti}{\bm{\tau}_i}
+\newcommand{\tj}{\bm{\tau}_j}
+\newcommand{\si}{\bm{\sigma}_i}
+\newcommand{\sj}{\bm{\sigma}_j}
+\newcommand{\sfont}{9}
+\newcommand{\sspace}{10.2}
+
+\title[Dissertation Defense]{{\large Dissertation Defense:}\\Improved Trial Wave Functions for Quantum Monte Carlo Calculations of Nuclear Systems and Their Applications}
+\author[Cody L. Petrie]{Cody L. Petrie\\
+Advisor: Kevin Schmidt}
+\institute{Arizona State University}
+%\date{}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Uncomment these lines for an automatically generated outline.
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% Commands to include a figure:
+%\begin{figure}
+%\includegraphics[width=\textwidth]{your-figure's-file-name}
+%\caption{\label{fig:your-figure}Caption goes here.}
+%\end{figure}
+
+%\fontsize{\sfont}{\sspace}\selectfont
+\iffalse
+\begin{frame}{Outline}
+Story: Why do we need to have a good trial wave function? Here are some options to improve the wave function. Here are the results we have gotten including some applications of the wave function.
+\begin{itemize}
+   \item Methods to solve the nuclear problem and why we use QMC
+   \begin{itemize}\fontsize{\sfont}{\sspace}\selectfont
+      \item VMC \red{June 15}
+      \item DMC/AFDMC \red{June 15}
+   \end{itemize}
+   \item Trial wave function and why it's so important
+   \begin{itemize}\fontsize{\sfont}{\sspace}\selectfont
+      \item Slater Dets (and Pfaffians) \red{June 15}
+      \item Jastrow and linear correlations \red{June 15}
+      \item Quadratic correlations \red{June 30}
+      \begin{itemize}
+         \item Results \red{June 30}
+      \end{itemize}
+   \end{itemize}
+   \item Other correlations
+   \begin{itemize}\fontsize{\sfont}{\sspace}\selectfont
+      \item Exponential correlations \red{June 30}
+      \item Ale's correlations and $T^2$ fix \red{July 15}
+   \end{itemize}
+   \item Application to $\alpha$-clustering \red{July 15}
+   \begin{itemize}\fontsize{\sfont}{\sspace}\selectfont
+      \item Stefano's original results \red{July 15}
+      \item Results with quadratic correlations \red{July 15}
+   \end{itemize}
+\end{itemize}
+\end{frame}
+\fi
+
+\section{Motivation}
+\begin{frame}{Nuclear Many Body Problem}
+   \begin{equation*}
+      \left<H\right> = \bra{\Psi}H\ket{\Psi} = \int\Psi^*(\bm{R})H\Psi(\bm{R}) d\bm{R}
+   \end{equation*}
+   \begin{equation*}
+      H = \sum\limits_{i=1}^A \frac{\bm{p}^2}{2m} + \sum\limits_{i<j} v_{ij} + \sum\limits_{i<j<k} V_{ijk} + \ldots
+   \end{equation*}
+   \begin{itemize}
+      \item There are a number of ways to solve this problem.
+      \begin{itemize}
+         \item QCD
+         \begin{itemize}
+            \item Lattice QCD
+         \end{itemize}
+         \item No-core shell model
+         \item Coupled-cluster
+         \item Self consistent Green's function method
+         \item Quantum Monte Carlo
+      \end{itemize}
+   \end{itemize}
+   \red{Should I have a slide for each method or should I have some popup information about each and just describe them here?}
+   \\\red{Can they be clumped into different styles and talked about together on slides?}
+\end{frame}
+
+\begin{frame}{\red{Other Motivation Stuff}}
+
+\end{frame}
+
+\section{Research}
+\subsection{QMC Methods}
+\begin{frame}{Variational Monte Carlo}
+\begin{itemize}
+   \item VMC starts with a trial wave function which includes variable parameters.
+   \item The variational principle guarantees
+   \begin{equation*}
+      E_V = \frac{\int\psi_T^*(\R)H\psi_T(\R)d\R}{\int\psi_T^*(\R)\psi_T(\R)d\R} \ge E_0
+   \end{equation*}
+   \item To use what we learned above we want this to look like this
+   \begin{equation*}
+      E_V = \int f(\R)P(\R) d\R \approx \frac{1}{N}\sum\limits_{n=1}^N f(\R_n)
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Variational Monte Carlo}
+   \begin{equation*}
+      E_V = \int P(\R)E_L(\R) d\R
+   \end{equation*}
+\begin{itemize}
+   \item We can do that if we multiply by $\Psi_T(\R)\Psi_T^{-1}(\R)$.
+%   \begin{align*}
+%      P(\R) &= \frac{|\Psi_T(\R)|^2}{\int|\Psi_T(\R)|^2d\R} \\
+%      E_L(\R) &= \Psi_T^{-1}(\R) H \Psi_T(\R)
+%      E_L(\R) &= \frac{\Psi_T^*(\R) H \Psi_T(\R)}{\Psi_T^*(\R) \Psi_T(\R)}
+%   \end{align*}
+   \begin{equation*}
+      P(\R) = \frac{|\Psi_T(\R)|^2}{\int|\Psi_T(\R)|^2d\R}, ~~~
+%      E_L(\R) &= \Psi_T^{-1}(\R) H \Psi_T(\R)
+      E_L(\R) = \frac{\Psi_T^*(\R) H \Psi_T(\R)}{\Psi_T^*(\R) \Psi_T(\R)}
+   \end{equation*}
+   \item Now using Monte Carlo integration we can write
+   \begin{equation*}
+      E_V \approx \frac{1}{N} \sum\limits_{n=1}^N E_L(\mathbf{R_n}),
+   \end{equation*}
+   where the $\R_n$ are samples from $P(\R)$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Variational Monte Carlo}
+\begin{itemize}
+   \item The statistical error in the energy is then given in the typical way
+   \begin{equation*}
+      \sigma_{E_V} = \sqrt{\frac{\left<E_L^2\right>-\left<E_L\right>^2}{N}} \approx \sqrt{\frac{\left(\frac{1}{N}\sum\limits_{n=1}^NE_L^2(\R_n)\right) - \left(\frac{1}{N}\sum\limits_{n=1}^NE_L(\R_n)\right)^2}{N-1}}
+   \end{equation*}
+   \item We can then vary the parameters in the trial wave function and calculate this until we minimize the energy or statistical error, since $E_V \ge E_0$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diffusion Monte Carlo}
+\begin{itemize}
+   \item Diffusion Monte Carlo uses a Green's function to diffuse in imaginary time to estimate the ground state energy and wave function based on a trial wave function.
+   \begin{equation*}
+      H\Psi = i\hbar\frac{d\Psi}{dt} ~ \xrightarrow{\tau=it/\hbar} ~ H\Psi = -\frac{d\Psi}{d\tau}
+   \end{equation*}
+   Using separation of variables we can write
+   \begin{equation*}
+      \Psi(\R,\tau) = \sum\limits_{n=0}^{\infty} c_n\phi_n(\R) e^{-\tau(E_n-E_0)}
+   \end{equation*}
+   \item The long imaginary time limit of this goes to the ground state.
+   \begin{equation*}
+      \lim\limits_{\tau\rightarrow\infty} \Psi(\R,\tau) = c_0\phi_0(\R)
+   \end{equation*}
+\end{itemize}
+\end{frame}
+\note{We start DMC from the minimized $\psi_T$ and configurations from VMC.}
+
+\begin{frame}{Diffusion Monte Carlo}
+\begin{itemize}
+   \item The propagated wave function can be written
+   \begin{equation*}
+      \braket{\R'}{\Psi_T(\tau)} = \int d\R \bra{\R'}e^{-(H-E_0)\tau}\ket{\R}\braket{\R}{\Psi_T(0)}
+   \end{equation*}
+   \item Now we use $e^{-H\tau}=e^{-V\tau/2}e^{-T\tau}e^{-V\tau/2}+\mathcal{O}(\tau^3)$ and break up the propagator into small time steps $\dt = \tau/N$.
+   \begin{equation*}
+      \braket{\R_N}{\Psi_T(\tau)} = \int d\R_1 \ldots d\R_N \left[\prod\limits_{i=1}^N G(\R_i,\R_{i-1},\Delta\tau)\right] \braket{\R_0}{\Psi_T(0)}
+   \end{equation*}
+   \begin{equation*}
+      G(\R',\R,\Delta\tau) = \bra{\R'}e^{-(H-E_0)\Delta\tau}\ket{\R}
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diffusion Monte Carlo}
+\begin{itemize}
+   \item In the small $\dt$ limit this propagator can be split up with the kinetic term being used to diffuse the walkers along a random path.
+   \begin{equation*}
+      \bra{\R'}e^{-T\Delta \tau}\ket{\R} = \left(\frac{m}{2\pi\hbar^2\Delta\tau}\right)^{3A/2}e^{-m(\R'-\R)^2/2\hbar^2\Delta\tau}
+   \end{equation*}
+   \item The potential term can then be used as a weight in a branching algorithm.
+   \begin{equation*}
+      w(\R') = e^{-\left(V\left(\R'\right)+V\left(\R\right)-2E_0\right)\Delta\tau/2}%\bra{\R'}e^{-(V-E_0)\Delta\tau}\ket{\R}
+   \end{equation*}
+   \item Importance sampling improves the variance of the sampling and can be included with
+   \begin{equation*}
+      G(\R',\R,\Delta\tau) \rightarrow G(\R',\R,\Delta\tau)\frac{\braket{\R}{\Psi_I}}{\braket{\R'}{\Psi_I}}
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diffusion Monte Carlo}
+Branching: Each walker can be deleted or multiply. The number of walkers that continues is equal to $\mathrm{int}\left(w(\R')+\xi\right)$, where $\xi$ is a uniform random number from $[0,1]$.
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\begin{figure}
+   \includegraphics[width=0.9\textwidth]{../figures/branching.png}
+\end{figure}
+\end{column}
+\begin{column}{0.7\textwidth}
+   {\color{blue}{Figure:}} Reprinted from W.M.C. Foulkes et al. \textit{Rev. Mod. Phys.,} 73:33-83, 2001.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Estimating Expectation Values}
+We want to solve something like this
+\begin{equation*}
+   \left<\mathcal{O}\right> = \frac{\bra{\Psi(\tau)}\mathcal{O}\ket{\Psi(\tau)}}{\braket{\Psi(\tau)}{\Psi(\tau)}}.
+\end{equation*}
+In practice a linear extrapolation is used because $\mathcal{O}\Psi(\tau)$ is hard.
+\begin{equation*}
+   \left<\mathcal{O}\right> \approx 2\left<\mathcal{O}\right>_\text{mixed} - \left<\mathcal{O}\right>_\text{VMC}
+\end{equation*}
+\begin{equation*}
+   \left<\mathcal{O}\right>_\text{mixed} = \frac{\bra{\Psi(\tau)}\mathcal{O}\ket{\Psi_T}}{\braket{\Psi(\tau)}{\Psi_T}},
+   ~~~~
+   \left<\mathcal{O}\right>_\text{VMC} = \frac{\bra{\Psi_T}\mathcal{O}\ket{\Psi_T}}{\braket{\Psi_T}{\Psi_T}}
+\end{equation*}
+In the large $\tau$ limit when $\left[\mathcal{O},H\right]$=0
+\begin{equation*}
+   \lim\limits_{\tau\rightarrow\infty}\left<\mathcal{O}\right>_\text{mixed} = \left<\mathcal{O}\right>
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Estimating Error}
+Our energy estimates are correlated and so we estimate error using block averaging
+\begin{figure}
+   \includegraphics[width=0.77\textwidth]{../figures/blockaverage.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Green's Function Monte Carlo}
+\begin{itemize}
+   \item GFMC follows DMC exactly for the spatial integrals, but performs the sums of $2^A$ spin and $\frac{A!}{Z!(A-Z)!}$ isospin states, for $A$ nucleons with $Z$ protons explicitly.
+\end{itemize}
+\begin{figure}
+   \includegraphics[width=0.85\textwidth]{../figures/gfmc_energies.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Auxiliary Field Diffusion Monte Carlo - Spin Sampling}
+\begin{itemize}
+   \item AFDMC samples auxiliary fields to rotate the spins/isospins of the walkers.
+   \item The spin/isospin dependent part of the potential is what is used in the spin/isospin dependent part of the propagator.
+   \begin{equation*}
+      G_{SD}(R'S',RS,\dt) = \bra {R'S'}e^{-V_{SD}\dt} \ket{RS}
+   \end{equation*}
+   \begin{equation*}
+      V_{SD} = \sum\limits_{p=2}^6\sum\limits_{i<j}v_p(r_{ij})\Opij
+   \end{equation*}
+   \item For $v_6$, a truncation of the phenomenological Argonne $v_{18}$ potential, the operators are $\si\cdot\sj$, $\ti\cdot\tj$, $\si\cdot\sj \ti\cdot\tj$, $S_{ij}$ and $S_{ij} \ti\cdot\tj$, where $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Auxiliary Field Diffusion Monte Carlo - Spin Sampling}
+\begin{itemize}
+   \item The potential can be written in terms of matrices that are made of the $v_p(r_{ij})$, are symmetric, and 0 if $i=j$.
+   \begin{equation*}
+      V_{SD} = \frac{1}{2}\sum\limits_{i\alpha j\beta} \sigma_{i\alpha}A^{\sigma}_{i\alpha j\beta}\sigma_{j\beta}
+      + \frac{1}{2}\sum\limits_{i\alpha j\beta} \sigma_{i\alpha}A^{\sigma\tau}_{i\alpha j\beta}\sigma_{j\beta}\ti\cdot\tj
+      + \frac{1}{2}\sum\limits_{ij} A^{\tau}_{ij}\ti\cdot\tj
+   \end{equation*}
+   \item We can construct these matrices and then solve for their eigenvalues and eigenvectors.
+\begin{align*}
+   &\sum\limits_{j\beta} A^{\sigma}_{i\alpha j\beta}\psi^{\sigma}_{nj\beta} = \lambda^{\sigma}_n\psi^{\sigma}_{ni\alpha} \\
+   &\sum\limits_{j\beta} A^{\sigma\tau}_{i\alpha j\beta}\psi^{\sigma\tau}_{n j\beta} = \lambda^{\sigma\tau}_n\psi^{\sigma\tau}_{ni\alpha} \\
+   &\sum\limits_{j} A^{\tau}_{ij}\psi^{\tau}_{n,j} = \lambda^{\tau}_n\psi^{\tau}_{ni}
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Auxiliary Field Diffusion Monte Carlo - Spin Sampling}
+\begin{itemize}
+   \item The potential can then be written in terms of the square of new single particle operators.
+   \begin{equation*}
+      V_{SD} = \frac{1}{2}\sum\limits_{n=1}^{3A} \left(O_{n}^{\sigma}\right)^2 \lambda_n^{\sigma}
+      + \frac{1}{2}\sum\limits_{\alpha=1}^{3}\sum\limits_{n=1}^{3A} \left(O_{n\alpha}^{\sigma\tau}\right)^2 \lambda_n^{\sigma\tau}
+       + \frac{1}{2}\sum\limits_{\alpha=1}^{3}\sum\limits_{n=1}^{A} \left(O_{n\alpha}^{\tau}\right)^2 \lambda_n^{\tau}
+   \end{equation*}
+   \begin{equation*}
+   \begin{split}
+      O_{n}^{\sigma} &= \sum\limits_{j\beta} \sigma_{j\beta}\psi_{nj\beta}^{\sigma} \\
+      O_{n\alpha}^{\sigma\tau} &= \sum\limits_{j\beta} \tau_{j\alpha}\sigma_{j\beta}\psi_{nj\beta}^{\sigma\tau} \\
+      O_{n\alpha}^{\tau} &= \sum\limits_{j} \tau_{j\alpha}\psi_{nj}^{\tau}
+   \end{split}
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Auxiliary Field Diffusion Monte Carlo - Spin Sampling}
+\begin{itemize}
+   \item Since we have squared single particle operators in the propagator we can now rewrite the propagator in terms of the Hubbard-Stratanovich transformation.
+   \begin{equation*}
+      e^{-\frac{1}{2}\lambda O^2} = \frac{1}{\sqrt{2\pi}} \int dx e^{-\frac{x^2}{2} + \sqrt{-\lambda}xO}
+   \end{equation*}
+   \item Since we have 15A operators ($3A$ for $O_{n}^{\sigma}$, $9A$ for $O_{n\alpha}^{\sigma\tau}$, and $3A$ for $O_{n\alpha}^{\tau}$), the spin-isospin dependent part of the propagator becomes
+   \begin{equation*}
+      G_{SD}(R'S',RS,\dt) = \prod\limits_{n=1}^{15A}\frac{1}{\sqrt{2\pi}}\int dx_n e^{-\frac{x_n^2}{2}}e^{\sqrt{-\lambda_n\dt} x_nO_n}.
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Hamiltonian}
+%Meson+phenomonological terms with picture of scattering and maybe pion exchange
+%$\chi$EFT with picture of something related to that...
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{figure}
+   \includegraphics[width=0.75\textwidth]{../figures/pionexchange.png}
+\end{figure}
+\end{column}
+\begin{column}{0.5\textwidth}
+   Based on meson exchange and phenomenology
+   \begin{itemize}
+      \item Argonne $v_{18}$ (NN)
+      \item CD-Bonn (NN)
+      \item Urbana UIX (NNN)
+      \item Illinois ?? (NNN)
+   \end{itemize}
+\end{column}
+\end{columns}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{figure}
+   \includegraphics[width=0.75\textwidth]{../figures/chpt.png}
+\end{figure}
+\end{column}
+\begin{column}{0.5\textwidth}
+   Based on $\chi$EFT expansion in momentum (up to N2LO)
+   {\\ \tiny Figure from R. Machleidt and D.R. Entem, {\it Chiral effective field theory and nuclear forces}, Phys. Rep. {\bf 503}, 1 (2011)}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Hamilatonian - Argonne $v6'$ (AV6$'$)}
+\begin{itemize}
+   \item For this work I have used the NN AV6$'$ potential with no 3N interaction.
+   \item Most important 6 operators of the AV18 potential.
+   \begin{equation*}
+      v_{ij} = \sum\limits_{p=1}^6 v_p(\r_{ij})\mathcal{O}^p_{ij}
+   \end{equation*}
+   \begin{equation*}
+      \mathcal{O}^p_{ij} = 1,~\ti\cdot\tj,~\si\cdot\sj,~\si\cdot\sj\ti\cdot\tj,~S_{ij},~S_{ij}\ti\cdot\tj
+   \end{equation*}
+   where the tensor term is
+   \begin{equation*}
+      S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\subsection{Trial Wave Function}
+\begin{frame}{Placeholder}
+blah
+\end{frame}
+
+\subsection{Alpha Formation in NS}
+\begin{frame}{Placeholder}
+blah
+\end{frame}
+
+\section{Conclusion}
+\subsection{Conclusion}
+\begin{frame}{Placeholder}
+blah
+\end{frame}
+\subsection{Future Work}
+
+%\note[itemize]{
+%   \item test1
+%   \item test2
+%}
+
+\end{document}

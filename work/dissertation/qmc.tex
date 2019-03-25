@@ -169,12 +169,13 @@ It is difficult to operate through the Green's function and so often observables
 The true operator expectation value can approximately be written in terms of mixed expectation values \cite{pudliner1997} as
 \begin{equation}
    \left<\mathcal{O(\tau)}\right> \approx 2\left<\mathcal{O(\tau)}\right>_\text{mixed} - \left<\mathcal{O}\right>_T,
+   \label{equ:mixedexp}
 \end{equation}
 where
 \begin{equation}
    \left<\mathcal{O}\right>_T = \frac{\bra{\Psi_T}\mathcal{O}\ket{\Psi_T}}{\braket{\Psi_T}{\Psi_T}}
 \end{equation}
-is the variational expectation value. For the Hamiltonian and operators that commute with the Hamiltonian the mixed expectation value is exactly the true expectation value for large time step. This can be seen directly with the Hamiltonian by splitting the Green's function up, to be used on either side of the Hamiltonian.
+is the variational expectation value. Equation~\ref{equ:mixedexp} comes from a linear extrapolation of the mixed expectation value. For the Hamiltonian and operators that commute with the Hamiltonian the mixed expectation value is exactly the true expectation value for large time step. This can be seen directly with the Hamiltonian by splitting the Green's function up, to be used on either side of the Hamiltonian.
 \begin{equation}
    \lim\limits_{\tau\rightarrow\infty}\left<H\right>_\text{mixed} = \frac{\bra{\Psi_T}e^{-H\tau/2}He^{-H\tau/2}\ket{\Psi_T}}{\bra{\Psi_T}e^{-H\tau/2}e^{-H\tau/2}\ket{\Psi_T}} = E_0
 \end{equation}
