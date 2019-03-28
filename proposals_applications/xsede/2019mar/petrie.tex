@@ -1,0 +1,114 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[top=2cm,left=2cm,right=2cm,bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}  
+\usepackage{ae}               % Fonte "Almost European"
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{url}
+\usepackage{color}
+\usepackage{cite}
+\usepackage{gensymb}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{epigraph}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{epstopdf}
+
+\definecolor{red}{rgb}{1.0,0.0,0.0}
+\definecolor{green}{rgb}{0.01,0.75,0.24}
+\definecolor{blue}{rgb}{0.0,0.0,1.0}
+
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\blue}[1]{{\color{blue}{#1}}}
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\expected}[1]{ \langle #1 \rangle}
+\newcommand{\product}[2]{\langle #1 | #2 \rangle}
+\newcommand{\pib}{\boldsymbol{\pi}}
+\newcommand{\sigmab}{\boldsymbol{\sigma}}
+\newcommand{\taub}{\boldsymbol{\tau}}
+\newcommand{\kdotx}{\textbf{k}\cdot\textbf{x}} % k dot x
+
+\begin{document}
+\onehalfspacing
+%\doublespace
+\title{{\Large \textbf{Cody's contribution to the progress report and main document}} \vspace{-0.5cm}}
+\author{
+{\bf PIs: Kevin E. Schmidt}, Arizona State University \\
+{\bf Stefano Gandolfi}, Los Alamos National Laboratory
+}
+\date{\today}
+\maketitle
+
+\vspace{-1.5cm}
+\section{Progress Report}
+\subsection{Improved trial wave functions for nuclei and nuclear matter}
+The success of Quantum Monte Carlo calculations depend heavily on the accuracy of the trial wave function. Auxiliary Field Diffusion Monte Carlo (AFDMC) is an efficient method for studying nuclei with $A\le40$ and nuclear matter with $A>100$. Similar methods such as Green's Function Monte Carlo are confined by nuclei with $A\le12$ due to the expense of calculating the spin-isospin sums explicitely. AFDMC is able to sample these spins, which saves valuable computation time but sacrifices wave function accuracy. We have been able to improve the wave function correlations used in AFDMC and thus obtain more accurate energies for $^4$He, $^{16}$O, $^{40}$Ca, and symmetric nuclear matter at and around saturation density. This work has been published in Physical Review C \cite{lonardoni2018}.
+
+Through this work we were able to show that AFDMC calculations of nuclear systems, especially larger systems, are improved greatly by improved wave functions, however the current improvements are too expensive for practical calculations. We have investigated other possible correlations, including those based on an exponential operator. Though some progress has been made with those correlations, more work is needed.
+
+\subsection{Neutron star crusts with microscopic interactions}
+We have applied the AFDMC method to study the formation of small nuclei in low density nuclear matter with high neutron-proton ratios. Specifically we have studied the formation and dissolution of a single alpha particle in mostly neutron matter. We have done this by adding two protons to a solution of neutrons. The energy of a formed alpha particle then would be estimated by
+\begin{equation}
+   E_\alpha = E_{Nn,2p} - E_{(N-2)n},
+\end{equation}
+where $N$ is the number of neutrons, $n$, and $p$ represents the protons. Calculations done with previous wave function correlations at low density underbind the alpha particle by about 5-7 MeV. The improved wave function increases the binding by aproximately 1-2 MeV. At higher densities both correlations agree to withing uncertainties. We have also found that this alpha particle begins to dissolve into the remaining neutrons at about $\rho\approx0.0025$ fm$^{-3}$. The density at which nuclei have dissolved into a homogeneous liquid is often reported to be at about half saturation density $\rho_0/2 \approx 0.08$ fm$^{-3}$ \cite{chamel2015}. We have found that alpha particles begin to dissolve at a lower density than this.
+
+Though the crust of a neutron star provides a small percentage of the matter, it is responsible for many of the observable phenomena such as cooling, gamma ray flashes, and glitches. The study of small nuclei forming in neutron star crusts can give us insight into these important phenomena.
+
+\subsection{Scientific production}
+Our findings regarding the improved trial wave function can be found in the article ``Auxiliary field diffusion Monte Carlo calculations of light- and medium-mass nuclei with local chiral interactions" \cite{lonardoni2018}. We expect to have a paper regarding the alpha dissolution in neutron star crusts published shortly.
+
+\section{Main Document}
+\subsection{Improved trial wave functions for nuclei and nuclear matter}
+In QMC calculations, the results are dependent on the accuracy of the trial wave function employed to guide the random walk. We have recently introduced a pair-correlated wave function with up to quadratic correlations which has greatly improved the convergence of our results \cite{lonardoni2018}. We are now working on including multiple pair correlations to study their effect. We have written codes to efficiently handle the large number of matrix operations required to include these additional correlations.
+
+We have been able to add quadratic correlations to the trial wave function that we use in nuclear Monte Carlo calculations. These additional correlations have caused the energies to decrease for the nuclei $^4$He and $^{16}$O, as well as for symmetric nuclear matter. The quadratic correlations resulted in an improved trial wave function, but were too expensive to use to larger nuclear systems. Our results for this wave function have been submitted for review to the Physical Review C journal \cite{lon18}. Linear and quadratic correlations come from an expansion of the exponential correlation. We have begun to include the full set of exponential correlations in the nuclear trial wave function, though teaching and responsibilities have prevented us from fully implementing this trial wave function. This accounts for the decreased use of our previous allocation, though significant progress has been made, and we expect to be doing full production runs with this trial wave function shortly.
+
+We then plan to use these improved wave functions to investigate the clustering of nucleons into alpha particles in mostly neutron matter. We intend to study the convergence of variational and auxiliary field diffusion Monte Carlo with these new wave functions for nuclei and nuclear matter with up to $A=40$.
+
+\subsection{Resources: Improved QMC simulations for nuclei and nuclear matter}
+We want to do energy calculations on three systems, $^4$He, $^{16}$O, and
+symmetric nuclear matter using the new exponential correlations to compare the
+trial wave function with the linear and quadratic correlations. To do this we
+will need to optimize a new set of parameters. We estimate that this will
+require 20,000 SUs for development, 40,000 SUs to optimize the variational
+parameters for the new correlations, and 180,000 SUs to calculate the energies
+for the three nuclear systems mentioned above.
+
+With this improved wave function we will be investigating the clustering of
+alpha particles in mostly neutron matter. We will be doing calculations for a
+variety of densities to investigate the clustering dependence on density. We
+estimate that this will require 20,000 SUs for development, 40,000 SUs to
+optimize the code for mostly neutron matter, and 180,000 SUs to calculate the
+clustering at a variety of densities.
+
+\begin{table}[htbp]
+\centering
+\caption{Justification for the requested amount of SUs}
+\begin{tabular}{|l|r|r|}
+\hline
+% & \multicolumn{1}{c|}{\textbf{Explicit pion field}} 
+ & \multicolumn{ 2}{c|}{\textbf{Improved QMC simulations}} \\ \hline
+ & \multicolumn{1}{l|}{Exp. correlations} &
+ \multicolumn{1}{l|}{Alpha particle clustering} \\ \hline
+Development & 20,000 & 20,000 \\ \hline
+Variational optimization & 40,000 & 40,000 \\ \hline
+Production & 180,000 & 180,000 \\ \hline
+Subtotal & 240,000 & 240,000 \\ \hline\hline
+\multicolumn{ 3}{|c|}{\textbf{Total: 480,000 SUs}} \\ \hline
+\end{tabular}
+\label{tab:SUs}
+\end{table}
+
+{\color{red}{Lucas depending on how many SU's we want to apply for and how many you need we can adjust the above estimates.}}
+
+\vspace{-0.5cm}
+%\newpage
+\bibliographystyle{unsrt}
+\bibliography{xsede}
+\end{document}

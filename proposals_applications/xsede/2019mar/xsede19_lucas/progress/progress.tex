@@ -1,0 +1,155 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[top=2cm,left=2cm,right=2cm,bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}  
+\usepackage{ae}               % Fonte "Almost European"
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{url}
+\usepackage{color}
+\usepackage{cite}
+\usepackage{gensymb}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{epigraph}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{epstopdf}
+
+\definecolor{red}{rgb}{1.0,0.0,0.0}
+\definecolor{green}{rgb}{0.01,0.75,0.24}
+\definecolor{blue}{rgb}{0.0,0.0,1.0}
+
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\expected}[1]{ \langle #1 \rangle}
+\newcommand{\product}[2]{\langle #1 | #2 \rangle}
+\newcommand{\pib}{\boldsymbol{\pi}}
+\newcommand{\sigmab}{\boldsymbol{\sigma}}
+\newcommand{\taub}{\boldsymbol{\tau}}
+\newcommand{\kdotx}{\textbf{k}\cdot\textbf{x}} % k dot x
+
+\newcommand{\project}{\large Progress Report \vskip 0.1cm}
+\newcommand{\asu}{Physics Department \\ Arizona State University}
+
+\begin{document}
+\onehalfspacing
+%\doublespace
+\title{\project {\Large \textbf{Quantum Monte Carlo Calculations of Nucleon 
+Systems and Cold Atom Gases}} \vspace{-0.5cm}}
+\author{
+{\bf PIs: Kevin E. Schmidt}, Arizona State University \\
+{\bf Stefano Gandolfi}, Los Alamos National Laboratory
+}
+\date{\today}
+\maketitle
+
+\vspace{-1.5cm}
+\section*{Abstract}
+
+We present our progress on the projects we have been developing.
+We published our
+quantum Monte Carlo formalism for dynamical pions and nucleons
+in the
+Physical 
+Review C journal.
+Another manuscript is currently under review by the same journal,
+in which
+we summarized
+our findings regarding vortices in low-density neutron matter
+and cold atomic Fermi gases.
+
+\section{Scientific discoveries}%and accomplishments of the computational plan}
+
+\subsection{Improved trial wave functions for nuclei and nuclear matter}
+
+{\color{red} I only copied and pasted from last year's report}
+
+Efforts have been made recently to improve the trial wave function used in Quantum Monte Carlo calculations, particularly in Auxiliary Fields Diffusion Monte Carlo (AFDMC). The trial wave function has a large impact on the statistical propagation and accuracy of an AFDMC calculation. In addition, it is one of the most computationally expensive parts of the calculation due to the large number of times it must be calculated. The first major improvement in the AFDMC trial wave function was to include spin-isospin dependent correlations up to linear order, which did provide significant improvements for light nuclei \cite{gan14}. However, this wave function only correlated two particles at a time.
+
+To be accurate for larger systems of particles and to investigate alpha-particle clustering and the structure of neutron stars, many-body correlations need to be included. Our first attempt to improve on this wave function was to include spin-isospin correlations up to quadratic order. This is part of the subject of our recent paper which has been submitted for publication in the Physical Review C journal \cite{lon18}, ``Auxiliary field diffusion Monte Carlo calculations of light- and medium-mass nuclei with local chiral interactions". Though the addition of quadratic correlations did provide a noticeable improvement to the trial wave function, the computational cost was too large to be used on anything other than light to medium mass nuclei.
+
+Another way to include many-body correlations is to include the fully exponential correlations, from which previous approximations are taken. These correlations are symmetric and cluster decomposable, but cannot
+be calculated explicitly. We have used the Hubbard-Stratanovich transformation to transform the quadratic two-body operators to usable one-body operators in the exponential,
+\begin{equation}
+   e^{-\frac{1}{2}\lambda O^2} = \frac{1}{\sqrt{2\pi}} \int dx e^{-\frac{x^2}{2} + \sqrt{-\lambda}x O}.
+\end{equation}
+The integral, over the auxiliary fields $x$, has been done using a Monte Carlo sampling. Significant progress has been made toward their implementation and we expect to to perform a significant number of production runs using these improved correlations soon. With this improved trial wave function we will investigate alpha-clustering in nuclei with AFDMC, which to our knowledge has not been done before. This trial wave function will also be used to study the structure of neutron stars.
+
+\subsection{Strongly paired fermionic systems: cold atoms and neutron matter}
+
+Cold gas experiments can be tuned to achieve strongly-interacting
+regimes such as that of low-density neutron matter found in neutron
+stars crusts.
+We performed $T$=0 diffusion Monte Carlo simulations
+to obtain
+the ground state
+of both spin-1/2 fermions with short range interactions,
+and low-density neutron matter in a 
+cylindrical container, and properties
+of the systems with a vortex line excitation \cite{madeira19}.
+We calculated the equation of state for cold atoms and low-density
+neutron matter in the bulk systems, and we contrasted it to
+our results in the cylindrical container.
+We computed the vortex line excitation energy for different
+interaction strengths, and we found agreement between
+cold gases and neutron matter
+for very low densities.
+We also
+calculated density profiles which allowed us to determine the
+density depletion at the vortex core, which strongly
+depends on the short-ranged interaction in cold atomic gases, but it is of $\approx$ 25\% for neutron
+matter in the density regimes studied in this work.
+Our results can be used to constrain neutron matter properties
+by using measurements from cold Fermi gases experiments.
+
+\subsection{QMC simulations with explicit contributions from the pion field}
+
+In most simulations of nonrelativistic nuclear systems, the wave functions found solving
+the many-body Schr\"odinger equations describe the quantum-mechanical amplitudes of
+the nucleonic degrees of freedom. In those simulations the pionic contributions are
+encoded in nuclear potentials and electroweak currents, and they determine
+the low-momentum behavior.
+
+In Ref.~\cite{mad18} we presented a novel quantum Monte Carlo formalism in
+which both relativistic pions and nonrelativistic nucleons are explicitly included in the quantum-mechanical 
+states of the system.
+We reported the renormalization of the nucleon mass
+as a function of the momentum cutoff, a Euclidean time density
+correlation function that deals with the short-time nucleon diffusion, and the pion cloud density and
+momentum distributions. In the two nucleon sector we showed that the interaction of two static nucleons
+at large distances reduces to the one-pion exchange potential, and we fit the low-energy constants of the
+contact interactions to reproduce the binding energy of the deuteron and two neutrons in finite volumes.
+
+Although we focused on the one- and two-nucleon sector,
+we showed that the method can be readily applied to light-nuclei
+by providing expressions for the Hamiltonians and trial wave functions
+for $A$ nucleons. Now our efforts are concentrated on performing
+simulations of the triton and alpha-particle, $A=3$ and 4, respectively.
+We found evidences that these systems are overbound, even for
+relatively small cutoffs. Currently, we are investigating the source
+of this overbinding, and possible ways of circumventing it.
+
+\section{Scientific production}
+
+At the time of the last renewal request,
+our paper
+``Quantum Monte Carlo formalism for dynamical pions and nucleons''
+was under review by the
+Physical 
+Review C journal. During this current allocation it was published \cite{mad18}.
+Our findings regarding
+vortices in strongly interacting fermionic systems
+have been summarized into a manuscript entitled
+``Vortices in
+low-density neutron matter and cold Fermi gases''\cite{madeira19},
+which is
+under review by the Physical
+Review C journal.
+
+%\newpage
+\bibliographystyle{unsrt}
+\bibliography{xsede}
+\end{document}

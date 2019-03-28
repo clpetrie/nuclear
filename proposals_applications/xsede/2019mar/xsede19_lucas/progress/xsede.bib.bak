@@ -1,0 +1,567 @@
+% Encoding: UTF-8
+
+
+@Article{ber70,
+  Title                    = {{D}estruction of long range order in one-dimensional and two-dimensional systems having a continuous symmetry group. 1. {C}lassical systems},
+  Author                   = {Berezinsky, V. L.},
+  Journal                  = {Sov. Phys. JETP},
+  Year                     = {1971},
+  Pages                    = {493-500},
+  Volume                   = {32},
+
+  Owner                    = {lucas},
+  Slaccitation             = {%%CITATION = SPHJA,32,493;%%},
+  Timestamp                = {2017.03.03}
+}
+
+@Article{blo08,
+  Title                    = {{M}any-body physics with ultracold gases},
+  Author                   = {Bloch, Immanuel and Dalibard, Jean and Zwerger, Wilhelm},
+  Journal                  = {Rev. Mod. Phys.},
+  Year                     = {2008},
+
+  Month                    = {Jul},
+  Pages                    = {885--964},
+  Volume                   = {80},
+
+  Doi                      = {10.1103/RevModPhys.80.885},
+  Issue                    = {3},
+  Numpages                 = {0},
+  Owner                    = {lucas},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://link.aps.org/doi/10.1103/RevModPhys.80.885}
+}
+
+@Article{bot06,
+  Title                    = {{V}ortex-{A}ntivortex {L}attice in {U}ltracold {F}ermionic {G}ases},
+  Author                   = {Botelho, S. S. and S\'a de Melo, C. A. R.},
+  Journal                  = {Phys. Rev. Lett.},
+  Year                     = {2006},
+
+  Month                    = {Feb},
+  Pages                    = {040404},
+  Volume                   = {96},
+
+  Doi                      = {10.1103/PhysRevLett.96.040404},
+  Issue                    = {4},
+  Numpages                 = {4},
+  Owner                    = {lucas},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevLett.96.040404}
+}
+
+@Article{bul03,
+  Title                    = {{V}ortex {S}tate in a {S}trongly {C}oupled {D}ilute {A}tomic {F}ermionic {S}uperfluid},
+  Author                   = {Bulgac, Aurel and Yu, Yongle},
+  Journal                  = {Phys. Rev. Lett.},
+  Year                     = {2003},
+
+  Month                    = {Nov},
+  Pages                    = {190404},
+  Volume                   = {91},
+
+  Doi                      = {10.1103/PhysRevLett.91.190404},
+  Issue                    = {19},
+  Numpages                 = {4},
+  Owner                    = {lucas},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevLett.91.190404}
+}
+
+@Book{bro13,
+  Title                    = {{F}ifty {Y}ears of {N}uclear {BCS}},
+  Author                   = {J. Carlson and S. Gandolfi and A. Gezerlis},
+  Editor                   = {Ricardo A Broglia and Vladimir Zelevinsky},
+  Publisher                = {World Scientific Publishing Company},
+  Year                     = {2013},
+
+  Owner                    = {lucas},
+  Timestamp                = {2015.09.24}
+}
+
+@Article{car12,
+  Title                    = {{Q}uantum {M}onte {C}arlo approaches to nuclear and atomic physics},
+  Author                   = {Carlson, J. and Gandolfi, Stefano and Gezerlis, Alexandros},
+  Journal                  = {PTEP},
+  Year                     = {2012},
+  Pages                    = {01A209},
+  Volume                   = {2012},
+
+  Doi                      = {10.1093/ptep/pts031},
+  Primaryclass             = {nucl-th},
+  Slaccitation             = {%%CITATION = ARXIV:1210.6659;%%}
+}
+
+@Article{car15,
+  Title                    = {{Q}uantum {M}onte {C}arlo methods for nuclear physics},
+  Author                   = {Carlson, J. and Gandolfi, S. and Pederiva, F. and Pieper, Steven C. and Schiavilla, R. and Schmidt, K. E. and Wiringa, R. B.},
+  Journal                  = {Rev. Mod. Phys.},
+  Year                     = {2015},
+
+  Month                    = {Sep},
+  Pages                    = {1067--1118},
+  Volume                   = {87},
+
+  Doi                      = {10.1103/RevModPhys.87.1067},
+  Issue                    = {3},
+  Numpages                 = {52},
+  Publisher                = {American Physical Society},
+  Url                      = {http://link.aps.org/doi/10.1103/RevModPhys.87.1067}
+}
+
+@Article{cas04,
+  Title                    = {{C}orrelated geminal wave function for molecules: {A}n efficient resonating valence bond approach},
+  Author                   = {Casula, Michele and Attaccalite, Claudio and Sorella, Sandro},
+  Journal                  = {The Journal of Chemical Physics},
+  Year                     = {2004},
+  Number                   = {15},
+  Pages                    = {7110-7126},
+  Volume                   = {121},
+
+  Doi                      = {http://dx.doi.org/10.1063/1.1794632},
+  File                     = {cas04.pdf:qmc/cas04.pdf:PDF},
+  Owner                    = {madeira},
+  Timestamp                = {2015.07.02},
+  Url                      = {http://scitation.aip.org/content/aip/journal/jcp/121/15/10.1063/1.1794632}
+}
+
+@Article{gan12,
+  Title                    = {{M}aximum mass and radius of neutron stars, and the nuclear symmetry energy},
+  Author                   = {Gandolfi, S. and Carlson, J. and Reddy, Sanjay},
+  Journal                  = {Phys. Rev. C},
+  Year                     = {2012},
+
+  Month                    = {Mar},
+  Pages                    = {032801},
+  Volume                   = {85},
+
+  Doi                      = {10.1103/PhysRevC.85.032801},
+  Issue                    = {3},
+  Numpages                 = {5},
+  Publisher                = {American Physical Society},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevC.85.032801}
+}
+
+@Article{gan09,
+  Title                    = {{E}quation of state of low-density neutron matter, and the ${}^{1}{S}_{0}$ pairing gap},
+  Author                   = {Gandolfi, S. and Illarionov, A. Yu. and Pederiva, F. and Schmidt, K. E. and Fantoni, S.},
+  Journal                  = {Phys. Rev. C},
+  Year                     = {2009},
+
+  Month                    = {Oct},
+  Pages                    = {045802},
+  Volume                   = {80},
+
+  Doi                      = {10.1103/PhysRevC.80.045802},
+  File                     = {gan09.pdf:qmc/gan09.pdf:PDF},
+  Issue                    = {4},
+  Numpages                 = {11},
+  Owner                    = {madeira},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2015.07.01},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevC.80.045802}
+}
+
+@Article{gan14,
+  Title                    = {{F}rom the lightest nuclei to the equation of state of asymmetric nuclear matter with realistic nuclear interactions},
+  Author                   = {Gandolfi, S. and Lovato, A. and Carlson, J. and Schmidt, Kevin E.},
+  Journal                  = {Phys. Rev. C},
+  Year                     = {2014},
+
+  Month                    = {Dec},
+  Pages                    = {061306},
+  Volume                   = {90},
+
+  Doi                      = {10.1103/PhysRevC.90.061306},
+  Issue                    = {6},
+  Numpages                 = {5},
+  Publisher                = {American Physical Society},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevC.90.061306}
+}
+
+@Article{gez10,
+  Title                    = {{L}ow-density neutron matter},
+  Author                   = {Gezerlis, Alexandros and Carlson, J.},
+  Journal                  = {Phys. Rev. C},
+  Year                     = {2010},
+
+  Month                    = {Feb},
+  Pages                    = {025803},
+  Volume                   = {81},
+
+  Doi                      = {10.1103/PhysRevC.81.025803},
+  Issue                    = {2},
+  Numpages                 = {9},
+  Publisher                = {American Physical Society},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevC.81.025803}
+}
+
+@Article{gez08,
+  Title                    = {{S}trongly paired fermions: {C}old atoms and neutron matter},
+  Author                   = {Gezerlis, Alexandros and Carlson, J.},
+  Journal                  = {Phys. Rev. C},
+  Year                     = {2008},
+
+  Month                    = {Mar},
+  Pages                    = {032801},
+  Volume                   = {77},
+
+  Doi                      = {10.1103/PhysRevC.77.032801},
+  Issue                    = {3},
+  Numpages                 = {4},
+  Publisher                = {American Physical Society},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevC.77.032801}
+}
+
+@Article{gio08,
+  Title                    = {{T}heory of ultracold atomic {F}ermi gases},
+  Author                   = {Giorgini, Stefano and Pitaevskii, Lev P. and Stringari, Sandro},
+  Journal                  = {Rev. Mod. Phys.},
+  Year                     = {2008},
+
+  Month                    = {Oct},
+  Pages                    = {1215--1274},
+  Volume                   = {80},
+
+  Doi                      = {10.1103/RevModPhys.80.1215},
+  Issue                    = {4},
+  Numpages                 = {0},
+  Owner                    = {lucas},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://link.aps.org/doi/10.1103/RevModPhys.80.1215}
+}
+
+@Article{kos72,
+  Title                    = {{L}ong range order and metastability in two dimensional solids and superfluids. ({A}pplication of dislocation theory)},
+  Author                   = {J M Kosterlitz and D J Thouless},
+  Journal                  = {J. Phys. C},
+  Year                     = {1972},
+  Number                   = {11},
+  Pages                    = {L124},
+  Volume                   = {5},
+
+  Abstract                 = {Dislocation theory is used to define long range order for two dimensional solids. An ordered state exists at low temperatures, and the rigidity modulus is nonzero at the transition temperature. Similar arguments show that the superfluid density is nonzero at the transition temperature of a two dimensional superfluid.},
+  Owner                    = {lucas},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://stacks.iop.org/0022-3719/5/i=11/a=002}
+}
+
+@Article{lon18,
+  Title                    = {{A}uxiliary field diffusion {M}onte {C}arlo calculations of light and medium-mass nuclei with local chiral interactions},
+  Author                   = {D. Lonardoni and S. Gandolfi and J. E. Lynn and C. Petrie and J. Carlson and K. E. Schmidt and A. Schwenk},
+  Journal                  = {arXiv pre-print},
+  Year                     = {2018},
+  Note                     = {\href{https://arxiv.org/abs/1802.08932}{arXiv:1802.08932 [nucl-th]}},
+
+  Eprint                   = {1802.08932v1},
+  Eprinttype               = {arxiv},
+  Primaryclass             = {nucl-th}
+}
+
+@Article{mad17,
+  Title                    = {{C}ore structure of two-dimensional {F}ermi gas vortices in the {BEC}-{BCS} crossover region},
+  Author                   = {Madeira, Lucas and Gandolfi, Stefano and Schmidt, Kevin E.},
+  Journal                  = {Phys. Rev. A},
+  Year                     = {2017},
+
+  Month                    = {May},
+  Pages                    = {053603},
+  Volume                   = {95},
+
+  Doi                      = {10.1103/PhysRevA.95.053603},
+  Issue                    = {5},
+  Numpages                 = {9},
+  Publisher                = {American Physical Society},
+  Url                      = {https://link.aps.org/doi/10.1103/PhysRevA.95.053603}
+}
+
+@Article{mad16,
+  Title                    = {{V}ortex line in the unitary {F}ermi gas},
+  Author                   = {Madeira, Lucas and Vitiello, Silvio A. and Gandolfi, Stefano and Schmidt, Kevin E.},
+  Journal                  = {Phys. Rev. A},
+  Year                     = {2016},
+
+  Month                    = {Apr},
+  Pages                    = {043604},
+  Volume                   = {93},
+
+  Doi                      = {10.1103/PhysRevA.93.043604},
+  Issue                    = {4},
+  Numpages                 = {7},
+  Owner                    = {lucas},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2016.04.18},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevA.93.043604}
+}
+
+@Article{mak14,
+  Title                    = {{G}round-{S}tate {P}ressure of {Q}uasi-2{D} {F}ermi and {B}ose {G}ases},
+  Author                   = {Makhalov, Vasiliy and Martiyanov, Kirill and Turlapov, Andrey},
+  Journal                  = {Phys. Rev. Lett.},
+  Year                     = {2014},
+
+  Month                    = {Jan},
+  Pages                    = {045301},
+  Volume                   = {112},
+
+  Doi                      = {10.1103/PhysRevLett.112.045301},
+  Issue                    = {4},
+  Numpages                 = {5},
+  Owner                    = {lucas},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevLett.112.045301}
+}
+
+@Article{mar05,
+  Title                    = {{Q}uasi-{T}wo-{D}imensional {S}uperfluid {F}ermionic {G}ases},
+  Author                   = {Martikainen, J.-P. and T\"orm\"a, P.},
+  Journal                  = {Phys. Rev. Lett.},
+  Year                     = {2005},
+
+  Month                    = {Oct},
+  Pages                    = {170407},
+  Volume                   = {95},
+
+  Doi                      = {10.1103/PhysRevLett.95.170407},
+  Issue                    = {17},
+  Numpages                 = {4},
+  Owner                    = {lucas},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevLett.95.170407}
+}
+
+@Article{kir10,
+  Title                    = {{O}bservation of a {T}wo-{D}imensional {F}ermi {G}as of {A}toms},
+  Author                   = {Martiyanov, Kirill and Makhalov, Vasiliy and Turlapov, Andrey},
+  Journal                  = {Phys. Rev. Lett.},
+  Year                     = {2010},
+
+  Month                    = {Jul},
+  Pages                    = {030404},
+  Volume                   = {105},
+
+  Doi                      = {10.1103/PhysRevLett.105.030404},
+  Issue                    = {3},
+  Numpages                 = {4},
+  Owner                    = {lucas},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevLett.105.030404}
+}
+
+@Article{ore11,
+  Title                    = {{D}ensity distribution of a trapped two-dimensional strongly interacting {F}ermi gas},
+  Author                   = {Alexey A Orel and Paul Dyke and Marion Delehaye and Chris J Vale and Hui Hu},
+  Journal                  = {New Journal of Physics},
+  Year                     = {2011},
+  Number                   = {11},
+  Pages                    = {113032},
+  Volume                   = {13},
+
+  Abstract                 = {We calculated and measured the density distribution and cloud size of a trapped two-dimensional (2D) 6 Li Fermi gas near a Feshbach resonance at low temperatures. Density distributions and cloud sizes were calculated for a wide range of interaction parameters using a local density approximation (LDA) and a zero-temperature equation of state obtained from quantum Monte Carlo simulations reported by Bertaina and Giorgini (2011 Phys. Rev. Lett. 106 110403). We found that LDA predictions agree well with experimental measurements across a Feshbach resonance. Theoretical results for Tan's contact parameter in a trapped gas are reported here along with predictions for the static structure factor at large momentum which could be measured in future Bragg spectroscopy experiments on 2D Fermi gases.},
+  Owner                    = {lucas},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://stacks.iop.org/1367-2630/13/i=11/a=113032}
+}
+
+@Article{pet03,
+  Title                    = {{S}uperfluid transition in quasi-two-dimensional {F}ermi gases},
+  Author                   = {Petrov, D. S. and Baranov, M. A. and Shlyapnikov, G. V.},
+  Journal                  = {Phys. Rev. A},
+  Year                     = {2003},
+
+  Month                    = {Mar},
+  Pages                    = {031601},
+  Volume                   = {67},
+
+  Doi                      = {10.1103/PhysRevA.67.031601},
+  Issue                    = {3},
+  Numpages                 = {4},
+  Owner                    = {lucas},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevA.67.031601}
+}
+
+@Article{ran90,
+  Title                    = {{S}uperconductivity in a two-dimensional {F}ermi gas: {E}volution from {C}ooper pairing to {B}ose condensation},
+  Author                   = {Randeria, Mohit and Duan, Ji-Min and Shieh, Lih-Yir},
+  Journal                  = {Phys. Rev. B},
+  Year                     = {1990},
+
+  Month                    = {Jan},
+  Pages                    = {327--343},
+  Volume                   = {41},
+
+  Doi                      = {10.1103/PhysRevB.41.327},
+  Issue                    = {1},
+  Numpages                 = {0},
+  Owner                    = {lucas},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevB.41.327}
+}
+
+@Article{ran89,
+  Title                    = {{B}ound states, {C}ooper pairing, and {B}ose condensation in two dimensions},
+  Author                   = {Randeria, Mohit and Duan, Ji-Min and Shieh, Lih-Yir},
+  Journal                  = {Phys. Rev. Lett.},
+  Year                     = {1989},
+
+  Month                    = {Feb},
+  Pages                    = {981--984},
+  Volume                   = {62},
+
+  Doi                      = {10.1103/PhysRevLett.62.981},
+  Issue                    = {9},
+  Numpages                 = {0},
+  Owner                    = {lucas},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevLett.62.981}
+}
+
+@Article{reg04,
+  Title                    = {{O}bservation of {R}esonance {C}ondensation of {F}ermionic {A}tom {P}airs},
+  Author                   = {Regal, C. A. and Greiner, M. and Jin, D. S.},
+  Journal                  = {Phys. Rev. Lett.},
+  Year                     = {2004},
+
+  Month                    = {Jan},
+  Pages                    = {040403},
+  Volume                   = {92},
+
+  Doi                      = {10.1103/PhysRevLett.92.040403},
+  File                     = {reg04.pdf:unitary/reg04.pdf:PDF},
+  Issue                    = {4},
+  Numpages                 = {4},
+  Owner                    = {madeira},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2015.07.02},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevLett.92.040403}
+}
+
+@Article{sch13,
+  Title                    = {{A}lpha-{P}article {C}ondensation in {N}uclear {S}ystems},
+  Author                   = {P Schuck and Y Funaki and H Horiuchi and G Röpke and A Tohsaki and T Yamada},
+  Journal                  = {Journal of Physics: Conference Series},
+  Year                     = {2013},
+  Number                   = {1},
+  Pages                    = {012009},
+  Volume                   = {413},
+
+  Abstract                 = {The onset of quartetting, i.e. α-particle condensation, in symmetric and asymmetric nuclear matter is studied with the help of an in-medium modified four nucleon equation. It is found that at very low density quartetting wins over pairing, because of the strong binding of the α-particles. The critical temperature can reach values up to around 8 MeV. The disappearance of α-particles with increasing density, i.e. the Mott transition, is investigated. In finite nuclei the Hoyle state, that is the 0 2 + of 12 C is identified as an 'α-particle condensate' state. It is conjectured that such states also exist in heavier nα-nuclei, like 16 O, 20 Ne, etc. The sixth 0 + state in 16 O is proposed as an analogue to the Hoyle state. The Gross-Pitaevski equation is employed to make an estimate of the maximum number of α particles a condensate state can contain. Possible quartet condensation in other systems is discussed briefly.},
+  Url                      = {http://stacks.iop.org/1742-6596/413/i=1/a=012009}
+}
+
+@Article{sen06,
+  Title                    = {{V}ortices in {S}uperfluid {F}ermi {G}ases through the {BEC} to {BCS} {C}rossover},
+  Author                   = {Sensarma, Rajdeep and Randeria, Mohit and Ho, Tin-Lun},
+  Journal                  = {Phys. Rev. Lett.},
+  Year                     = {2006},
+
+  Month                    = {Mar},
+  Pages                    = {090403},
+  Volume                   = {96},
+
+  Doi                      = {10.1103/PhysRevLett.96.090403},
+  Issue                    = {9},
+  Numpages                 = {4},
+  Owner                    = {lucas},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevLett.96.090403}
+}
+
+@Article{tem07,
+  Title                    = {{I}mbalanced {F}ermi superfluid in a one-dimensional optical potential},
+  Author                   = {Tempere, J. and Wouters, M. and Devreese, J. T.},
+  Journal                  = {Phys. Rev. B},
+  Year                     = {2007},
+
+  Month                    = {May},
+  Pages                    = {184526},
+  Volume                   = {75},
+
+  Doi                      = {10.1103/PhysRevB.75.184526},
+  Issue                    = {18},
+  Numpages                 = {5},
+  Owner                    = {lucas},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevB.75.184526}
+}
+
+@Article{zha08,
+  Title                    = {{B}erezinskii-{K}osterlitz-{T}houless transition in a trapped quasi-two-dimensional {F}ermi gas near a {F}eshbach resonance},
+  Author                   = {Zhang, Wei and Lin, G.-D. and Duan, L.-M.},
+  Journal                  = {Phys. Rev. A},
+  Year                     = {2008},
+
+  Month                    = {Oct},
+  Pages                    = {043617},
+  Volume                   = {78},
+
+  Doi                      = {10.1103/PhysRevA.78.043617},
+  Issue                    = {4},
+  Numpages                 = {6},
+  Owner                    = {lucas},
+  Publisher                = {American Physical Society},
+  Timestamp                = {2017.03.03},
+  Url                      = {http://link.aps.org/doi/10.1103/PhysRevA.78.043617}
+}
+
+@Article{zwi05,
+  Title                    = {{V}ortices and superfluidity in a strongly interacting {F}ermi gas},
+  Author                   = {Zwierlein, M. W. and Abo-Shaeer, J. R. and Schirotzek, A. and Schunck, C. H. and Ketterle, W.},
+  Journal                  = {Nature},
+  Year                     = {2005},
+
+  Month                    = {Jun},
+  Number                   = {7045},
+  Pages                    = {1047-1051},
+  Volume                   = {435},
+
+  Day                      = {23},
+  Doi                      = {10.1038/nature03858},
+  File                     = {zwi05.pdf:qmc/zwi05.pdf:PDF},
+  ISSN                     = {0028-0836},
+  Owner                    = {madeira},
+  Publisher                = {Macmillian Magazines Ltd.},
+  Timestamp                = {2015.07.02},
+  Url                      = {http://dx.doi.org/10.1038/nature03858}
+}
+
+@Article{madeira19,
+  author       = {Lucas Madeira and Stefano Gandolfi and Kevin E. Schmidt and Vanderlei S. Bagnato},
+  title        = {Vortices in low-density neutron matter and cold {F}ermi gases},
+  journal      = {arXiv pre-print},
+  year         = {2019},
+  note         = {\href{https://arxiv.org/abs/1903.06724}{arXiv:1903.06724 [nucl-th]}},
+  eprint       = {1903.06724v1},
+  eprinttype   = {arxiv},
+  primaryclass = {nucl-th},
+}
+
+@Article{mad18,
+  author    = {Madeira, Lucas and Lovato, Alessandro and Pederiva, Francesco and Schmidt, Kevin E.},
+  title     = {Quantum {M}onte {C}arlo formalism for dynamical pions and nucleons},
+  journal   = {Phys. Rev. C},
+  year      = {2018},
+  volume    = {98},
+  pages     = {034005},
+  month     = {Sep},
+  doi       = {10.1103/PhysRevC.98.034005},
+  issue     = {3},
+  numpages  = {17},
+  publisher = {American Physical Society},
+  url       = {https://link.aps.org/doi/10.1103/PhysRevC.98.034005},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

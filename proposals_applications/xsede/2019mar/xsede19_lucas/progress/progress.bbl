@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{gan14}
+S.~Gandolfi, A.~Lovato, J.~Carlson, and Kevin~E. Schmidt.
+\newblock {F}rom the lightest nuclei to the equation of state of asymmetric
+  nuclear matter with realistic nuclear interactions.
+\newblock {\em Phys. Rev. C}, 90:061306, Dec 2014.
+
+\bibitem{lon18}
+D.~Lonardoni, S.~Gandolfi, J.~E. Lynn, C.~Petrie, J.~Carlson, K.~E. Schmidt,
+  and A.~Schwenk.
+\newblock {A}uxiliary field diffusion {M}onte {C}arlo calculations of light and
+  medium-mass nuclei with local chiral interactions.
+\newblock {\em arXiv pre-print}, 2018.
+\newblock \href{https://arxiv.org/abs/1802.08932}{arXiv:1802.08932 [nucl-th]}.
+
+\bibitem{madeira19}
+Lucas Madeira, Stefano Gandolfi, Kevin~E. Schmidt, and Vanderlei~S. Bagnato.
+\newblock Vortices in low-density neutron matter and cold {F}ermi gases.
+\newblock {\em arXiv pre-print}, 2019.
+\newblock \href{https://arxiv.org/abs/1903.06724}{arXiv:1903.06724 [nucl-th]}.
+
+\bibitem{mad18}
+Lucas Madeira, Alessandro Lovato, Francesco Pederiva, and Kevin~E. Schmidt.
+\newblock Quantum {M}onte {C}arlo formalism for dynamical pions and nucleons.
+\newblock {\em Phys. Rev. C}, 98:034005, Sep 2018.
+
+\end{thebibliography}
