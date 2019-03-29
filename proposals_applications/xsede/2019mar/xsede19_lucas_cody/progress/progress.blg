@@ -1,11 +1,11 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: progress.aux
 The style file: unsrt.bst
 Database file #1: xsede.bib
 You've used 4 entries,
             1791 wiz_defined-function locations,
-            471 strings with 4458 characters,
+            470 strings with 4410 characters,
 and the built_in function-call counts, 905 in all, are:
 = -- 66
 > -- 65

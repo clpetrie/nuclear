@@ -1,12 +1,11 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: petrie.aux
 The style file: unsrt.bst
 Database file #1: xsede.bib
-Warning--I didn't find a database entry for "lon18"
 You've used 2 entries,
             1791 wiz_defined-function locations,
-            461 strings with 3968 characters,
+            460 strings with 3963 characters,
 and the built_in function-call counts, 541 in all, are:
 = -- 38
 > -- 37
@@ -45,4 +44,3 @@ warning$ -- 0
 while$ -- 4
 width$ -- 3
 write$ -- 24
-(There was 1 warning)

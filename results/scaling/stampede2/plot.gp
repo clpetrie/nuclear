@@ -6,5 +6,6 @@ set xlabel "# of cores"
 set ylabel "1/t (sec^{-1})"
 slope=0.002376748427873042
 slope=0.00237606
+slope=0.002375837923291026
 plot 'prop.out' using ($1):(1/$2) with points pointtype 7 lc rgb "blue" notitle, \
    slope*x lc rgb "black" notitle

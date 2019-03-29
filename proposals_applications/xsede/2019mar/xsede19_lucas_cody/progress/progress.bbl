@@ -1,11 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{gan14}
-S.~Gandolfi, A.~Lovato, J.~Carlson, and Kevin~E. Schmidt.
-\newblock {F}rom the lightest nuclei to the equation of state of asymmetric
-  nuclear matter with realistic nuclear interactions.
-\newblock {\em Phys. Rev. C}, 90:061306, Dec 2014.
-
 \bibitem{lon18}
 D.~Lonardoni, S.~Gandolfi, J.~E. Lynn, C.~Petrie, J.~Carlson, K.~E. Schmidt,
   and A.~Schwenk.
@@ -13,6 +7,12 @@ D.~Lonardoni, S.~Gandolfi, J.~E. Lynn, C.~Petrie, J.~Carlson, K.~E. Schmidt,
   medium-mass nuclei with local chiral interactions.
 \newblock {\em arXiv pre-print}, 2018.
 \newblock \href{https://arxiv.org/abs/1802.08932}{arXiv:1802.08932 [nucl-th]}.
+
+\bibitem{cha15}
+N.~Chamel, A.~F. Fantina, J.~L. Zdunik, and P.~Haensel.
+\newblock Neutron drip transition in accreting and nonaccreting neutron star
+  crusts.
+\newblock {\em Phys. Rev. C}, 91:055803, May 2015.
 
 \bibitem{madeira19}
 Lucas Madeira, Stefano Gandolfi, Kevin~E. Schmidt, and Vanderlei~S. Bagnato.
