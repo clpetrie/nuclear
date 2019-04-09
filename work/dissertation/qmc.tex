@@ -1,16 +1,16 @@
 \section{Quantum Monte Carlo}
-Many problems in nuclear physics involve a large number of particles in addition to a complicated interparticle interaction. The Schr\"odinger equation used to solve these problems involves a large dimensional integral with a complicated integrand. This is unfeasible to solve using standard numerical methods. Quantum Monte Carlo was designed to tackle these problems by sampling the large dimensional integrals in a way that reduces the necessary computation while still converging to an accurate answer. With an infinite number of samples QMC calculations are exact, but with a sufficiently large number of samples the integrals can converge with controlled statistical errors. Two main ingredients to these QMC methods are Monte Carlo integration and the Metropolis algorithm. I will first describe these two techniques after which I will describe the QMC methods used in this work. I will then conclude by describing the Hamiltonians used with these methods.
+Many problems in nuclear physics involve a large number of particles in addition to a complicated interparticle interaction. The Schr\"odinger equation used to solve these problems involves a large dimensional integral with a complicated integrand. This is unfeasible to solve using standard numerical methods. Quantum Monte Carlo was designed to tackle these problems by sampling the large dimensional integrals in a way that reduces the necessary computation while still converging to an accurate answer. Without the fermion sign problem QMC calculations with an infinite number of samples are exact. Techniques are used to account for the sign and phase problems inherent in QMC calculations and with a sufficiently large number of samples the integrals can converge with controlled statistical errors. Two main ingredients to these QMC methods are Monte Carlo integration and the Metropolis algorithm. I will first describe these two techniques after which I will describe the QMC methods used in this work. I will then conclude by describing the Hamiltonians used with these methods. Useful references for all of the methods described herein include \cite{carlson2015, foulkes2001} and \cite{pederiva2017}.
 
 \subsection{Monte Carlo Integration}
-Solving for properties of many-body quantum systems often involves solving a large dimensional integral such as
+Calculating the properties of many-body quantum systems often involves solving a large dimensional integral such as
 \begin{equation}
    I=\int g(\mathbf{R}) d\mathbf{R},
 \end{equation}
-where the $\mathbf{R}=\mathbf{r}_1,\mathbf{r}_2,\ldots,\mathbf{r}_N$ could be the positions of each particle in the system. Monte Carlo integration involves writing this integral in terms of a probability distribution called the importance function $P(\mathbf{R})$,
+where the $\mathbf{R}=\mathbf{r}_1,\mathbf{r}_2,\ldots,\mathbf{r}_A$ could be the positions of each nucleon in the system, and $A$ is the total number of nucleons. Monte Carlo integration involves writing this integral in terms of a probability distribution called the importance function $P(\mathbf{R})$,
 \begin{equation}
    I=\int f(\mathbf{R}) P(\mathbf{R}) d\mathbf{R},
 \end{equation}
-where $f(\mathbf{R}) = g(\mathbf{R})/P(\mathbf{R})$. This integral is defined to be the expectation value of $f(\mathbf{R})$ with respect to the importance function $P(\mathbf{R})$. The expectation value can also be determined by averaging an infinite number of $f(\mathbf{R}_n)$ where $\mathbf{R}_n$ are sampled directly from the importance function $P(\mathbf{R})$.
+where $f(\mathbf{R}) = g(\mathbf{R})/P(\mathbf{R})$. This integral is defined to be the expectation value of $f(\mathbf{R})$ with respect to the normalized importance function $P(\mathbf{R})$. The expectation value can also be determined by averaging an infinite number of $f(\mathbf{R}_n)$ where $\mathbf{R}_n$ are sampled directly from the importance function $P(\mathbf{R})$.
 \begin{equation}
    I \equiv \left<f\right> = \lim\limits_{N\rightarrow\infty} \frac{1}{N} \sum\limits_{n=1}^N f(\mathbf{R}_n)
    \label{equ:mci}
@@ -27,23 +27,23 @@ where the statistical uncertainties can be estimated in the usual way
 The scaling is independent of the dimension, and thus this method is useful especially when the dimensions of the integration become large. In many-body quantum mechanics the dimension of the integrals can be quite large, including several dimensions for each particle in the calculation. Monte Carlo integration only needs to sample each of these dimensions, decreasing the work required by a substantial amount for large dimensional integrals.
 
 \subsection{Metropolis Algorithm}
-Monte Carlo integration requires the sampling of the importance function, $P(\R)$. This is straight forward only for functions that have a readily invertible cumulative distribution function, $F^{-1}(\R)$, which is not the case in our application. For the one dimensional case where $F^{-1}(\R)$ is known, a random variables $x$ could be sampled by drawing a random variable $u$ from a uniform distribution from 0 to 1, which is then used as the argument of the inverse cumulative distribution function, $x=F^{-1}(u)$. The Metropolis algorithm provides a way to sample non-invertible probability distributions. The Metropolis algorithm is a Markov chain method that generates sequential samples of a probability distribution based on the previous sample alone, and not any other previous history. These are the steps to the algorithm.
+Monte Carlo integration requires the sampling of the importance function, $P(\R)$. This is straight forward only for functions that have a readily invertible cumulative distribution function, $F^{-1}(\R)$, which is not the case in our application. For the one dimensional case where $F^{-1}(x)$ is known, a random variables $x$ could be sampled by drawing a random variable $u$ from a uniform distribution from 0 to 1, which is then used as the argument of the inverse cumulative distribution function, $x=F^{-1}(u)$. The Metropolis algorithm provides a way to sample non-invertible probability distributions. The Metropolis algorithm is a Markov chain method that generates sequential samples of a probability distribution based on the previous sample alone, and not any other previous history. These are the steps to the algorithm.
 \begin{enumerate}
    \item Start at a random position, $\R$.
-   \item Propose a move to a new position $\R'$, pulled from a distribution $T(\R'|\R)$. $T$ could be, for example, a Gaussian centered on the current position, but could be optimized for efficiency.
-   \item The probability of accepting the move is given by enforcing a detailed balance condition.
+   \item Propose a move to a new position $\R'$, sampled from a normalized distribution $T(\R'|\R)$. $T$ could be, for example, a Gaussian centered on the current position, but could be optimized for efficiency.
+   \item The probability of accepting the move is given by enforcing a detailed balance condition. Alternative methods have been used for the acceptance condition including the heat bath method as described in \cite{sethna2006}.
    \begin{equation}
       A(\R'|\R) = \mathrm{min}\left(1, \frac{P(\R')T(\R|\R')}{P(\R)T(\R'|\R)}\right)
    \end{equation}
-   \item A random number, $u$, is generated from a uniform distribution between 0 and 1, and the move is accepted if $A\ge u$.
+   \item A random number, $u$, is generated from a uniform distribution between 0 and 1, and the move is accepted if $A\ge u$, otherwise the original $\R$ is taken again as the sample.
 \end{enumerate}
 
-There are two conditions that need to be met to guarantee that this algorithm converges to the desired distribution. First, the transitions must be able to get from any allowed state to another in a finite number of steps. Second, the algorithm cannot include cycles between the same states. This second condition is guaranteed if there is a probability to reject transitions.
+These steps are repeated until equilibrium is reached and all previous samples are discarded and only new samples are used. There are two conditions that need to be met to guarantee that this algorithm converges to the desired distribution. First, the transitions must be able to get from any allowed state to another in a finite number of steps. Second, the algorithm cannot include cycles between the same states. This second condition is guaranteed if there is a probability to reject transitions.
 
 \subsection{Variational Monte Carlo}
-Variational Monte Carlo starts with a trial wave function, $\psi_T$, that should have some non-zero overlap with the actual ground-state wave function, and a Hamiltonian, $H$. The trial wave function can be written as an expansion in the basis functions of the Hamiltonian, and will often include contributions from excited states of the system.
+Variational Monte Carlo starts with a trial wave function, $\psi_T$, that should have some non-zero overlap with the actual ground-state wave function, and a Hamiltonian, $H$. The trial wave function can be written as an expansion in the basis functions of the Hamiltonian, and will almost always include contributions from excited states of the system
 \begin{equation}
-   \Psi_T(\R) = c_0\Psi_0(\R) + \sum\limits_n c_n \Psi_n(\R)
+   \Psi_T(\R) = c_0\Psi_0(\R) + \sum\limits_n c_n \Psi_n(\R).
 \end{equation}
 The expectation value of the Hamiltonian in the trial state gives what is called the variational energy. Due to the overlap with excited states the variational principle guarantees that the variational energy will be an upper bound to the true ground-state wave function.
 \begin{equation}
@@ -56,14 +56,14 @@ This integral is calculated using Monte Carlo integration and so it needs to be 
 \end{equation}
 where
 \begin{equation}
-   P(\R) = |\Psi_T(\R)|^2/\int|\Psi_T(\R)|^2d\R,
+   P(\R) = \frac{|\Psi_T(\R)|^2}{\int|\Psi_T(\R)|^2d\R},
 \end{equation}
 \begin{equation}
    E_L(\R) = \frac{\Psi_T^*(\R)H\Psi_T(\R)}{\Psi_T^*(\R)\Psi_T(\R)},%E_L(\R) = \Psi_T^{-1}(\R) H \Psi_T(\R),
 \end{equation}
 are the importance function and local energy respectively.
 
-Using the metropolis algorithm, a set of random configurations, $\{\R_n: n=1,N\}$, can be drawn from the probability distribution $P(\R)$ and used to sample the local energy. These random configurations are called walkers and contain the positions and often the spins and isospins of each particle. The variational energy and corresponding statistical error are then given by,
+Using the metropolis algorithm, a set of random configurations, $\{\R_n: n=1,A\}$, can be drawn from the probability distribution $P(\R)$ and used to sample the local energy. These sampled configurations are called walkers and contain the positions and often the spins and isospins of each particle. The variational energy and corresponding statistical error are then given by,
 \begin{equation} 
   E_V \approx \frac{1}{N} \sum\limits_{n=1}^N E_L({\R_n}),
 \end{equation}
@@ -71,14 +71,28 @@ Using the metropolis algorithm, a set of random configurations, $\{\R_n: n=1,N\}
   \sigma_{E_V} = \sqrt{\frac{\left<E_L^2\right>-\left<E_L\right>^2}{N}} \approx \sqrt{\frac{\left(\frac{1}{N}\sum\limits_{n=1}^NE_L^2(\R_n)\right) - \left(\frac{1}{N}\sum\limits_{n=1}^NE_L(\R_n)\right)^2}{N-1}}
 \end{equation}
 
-Once evaluated the variational energy will be an upper bound to the ground state energy of the system. The $\Psi_T(\R)$ is written in terms of variational parameters which are varied to minimize the variational energy. A minimum in the energy will be produced when $\Psi_T \rightarrow \Psi_0$. It is important to note however that the trial wave functions that we often use are not exactly the ground-state wave functions and so the energies that we produce are only the minimum energy for that specific trial wave function. As such, it is important to start with the best trial wave function possible. Also, this algorithm can converge to an incorrect local minimum, and so it is again important to start with a good initial trial wave function.
+The above description holds true for all spin-isospin dependent interactions. If the Hamiltonian depends on spin and isospin, which it does in nuclear physics, either the spin-isospin states can be explicitly summed over or the spin-isospin states can be sampled. For the case where the spin-isospin states are sampled the variational energy is evaluated as
+\begin{equation} 
+  E_V = \int d\R \sum\limits_S P(\R,S) E_L(\R,S),
+\end{equation}
+where
+\begin{equation}
+   P(\R,S) = \frac{|\Psi_T(\R,S)|^2}{\int|\Psi_T(\R,S)|^2d\R},
+\end{equation}
+and
+\begin{equation}
+   E_L(\R,S) = \frac{\sum_{S'}\Psi_T^*(\R,S')H_{S',S}\Psi_T(\R,S)}{\Psi_T^*(\R,S)\Psi_T(\R,S)},
+\end{equation}
+where the spin-isospin dependent Hamiltonian, $H_{S',S}$ can take a spin state from $S$ to $S'$. In the case where the spin-isospin states are explicitly summer over, the sums over states $S$ are done directly in the importance function and local energy, removing their explicit spin-isospin dependence.
+
+Once evaluated the variational energy will be an upper bound to the ground state energy of the system. The $\Psi_T(\R)$ is written in terms of variational parameters which are varied to minimize the variational energy. A minimum in the energy will be produced when $\Psi_T \rightarrow \Psi_0$. It is important to note however that the trial wave functions that we often use are not exactly the ground-state wave functions and so the energies that we produce are only the minimum energy for that form of the trial wave function. As such, it is important to start with the best trial wave function form possible. Also, this algorithm can converge to a local minimum, and so it is again important to start with a good initial trial wave function.
 
 \subsection{Diffusion Monte Carlo}
 Diffusion Monte Carlo (DMC) solves for the ground-state by letting the walkers diffuse in imaginary time. The Schr\"odinger equation
 \begin{equation}
    H\Psi = i\hbar\frac{\partial\Psi}{\partial t},
 \end{equation}
-can be written in terms of the imaginary time by substituting $\tau=it/\hbar$. The resulting equation is a diffusion equation,
+can be written in imaginary time by substituting $\tau=it/\hbar$. The resulting equation is a diffusion equation,
 \begin{equation}
    H\Psi = -\frac{\partial\Psi}{\partial\tau},
    \label{equ:diffusion}
