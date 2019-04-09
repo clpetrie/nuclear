@@ -10,8 +10,8 @@
 \defcounter {refsection}{0}\relax 
 \beamer@subsectionintoc {2}{1}{Slater Determinant}{4}{0}{2}
 \defcounter {refsection}{0}\relax 
-\beamer@subsectionintoc {2}{2}{Spin-Isospin Correlations}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{Spin-Isospin Correlations}{7}{0}{2}
 \defcounter {refsection}{0}\relax 
-\beamer@subsectionintoc {2}{3}{Application to NS}{7}{0}{2}
+\beamer@subsectionintoc {2}{3}{Results}{11}{0}{2}
 \defcounter {refsection}{0}\relax 
-\beamer@sectionintoc {3}{Conclusion}{10}{0}{3}
+\beamer@sectionintoc {3}{Conclusion}{13}{0}{3}

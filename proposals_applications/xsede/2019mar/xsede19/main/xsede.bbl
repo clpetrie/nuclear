@@ -1,0 +1,81 @@
+\begin{thebibliography}{10}
+
+\bibitem{bed09}
+Paulo~F. Bedaque and José~P. D’Incao.
+\newblock Superfluid phases of the three-species fermion gas.
+\newblock {\em Annals of Physics}, 324(8):1763 -- 1768, 2009.
+
+\bibitem{wil09}
+J.~R. Williams, E.~L. Hazlett, J.~H. Huckans, R.~W. Stites, Y.~Zhang, and K.~M.
+  O'Hara.
+\newblock Evidence for an {E}xcited-{S}tate {E}fimov {T}rimer in a
+  {T}hree-{C}omponent {F}ermi {G}as.
+\newblock {\em Phys. Rev. Lett.}, 103:130404, Sep 2009.
+
+\bibitem{nak10}
+Shuta Nakajima, Munekazu Horikoshi, Takashi Mukaiyama, Pascal Naidon, and
+  Masahito Ueda.
+\newblock Nonuniversal {E}fimov {A}tom-{D}imer {R}esonances in a
+  {T}hree-{C}omponent {M}ixture of $^{6}\mathrm{Li}$.
+\newblock {\em Phys. Rev. Lett.}, 105:023201, Jul 2010.
+
+\bibitem{mad16}
+Lucas Madeira, Silvio~A. Vitiello, Stefano Gandolfi, and Kevin~E. Schmidt.
+\newblock {V}ortex line in the unitary {F}ermi gas.
+\newblock {\em Phys. Rev. A}, 93:043604, Apr 2016.
+
+\bibitem{mad17}
+Lucas Madeira, Stefano Gandolfi, and Kevin~E. Schmidt.
+\newblock {C}ore structure of two-dimensional {F}ermi gas vortices in the
+  {BEC}-{BCS} crossover region.
+\newblock {\em Phys. Rev. A}, 95:053603, May 2017.
+
+\bibitem{mad18}
+Lucas Madeira, Alessandro Lovato, Francesco Pederiva, and Kevin~E. Schmidt.
+\newblock Quantum {M}onte {C}arlo formalism for dynamical pions and nucleons.
+\newblock {\em Phys. Rev. C}, 98:034005, Sep 2018.
+
+\bibitem{madeira19}
+Lucas Madeira, Stefano Gandolfi, Kevin~E. Schmidt, and Vanderlei~S. Bagnato.
+\newblock Vortices in low-density neutron matter and cold {F}ermi gases.
+\newblock {\em arXiv pre-print}, 2019.
+\newblock \href{https://arxiv.org/abs/1903.06724}{arXiv:1903.06724 [nucl-th]}.
+
+\bibitem{lon18}
+D.~Lonardoni, S.~Gandolfi, J.~E. Lynn, C.~Petrie, J.~Carlson, K.~E. Schmidt,
+  and A.~Schwenk.
+\newblock Auxiliary field diffusion {M}onte {C}arlo calculations of light and
+  medium-mass nuclei with local chiral interactions.
+\newblock {\em Phys. Rev. C}, 97:044318, Apr 2018.
+
+\bibitem{car15}
+J.~Carlson, S.~Gandolfi, F.~Pederiva, Steven~C. Pieper, R.~Schiavilla, K.~E.
+  Schmidt, and R.~B. Wiringa.
+\newblock {Q}uantum {M}onte {C}arlo methods for nuclear physics.
+\newblock {\em Rev. Mod. Phys.}, 87:1067--1118, Sep 2015.
+
+\bibitem{gan14}
+S.~Gandolfi, A.~Lovato, J.~Carlson, and Kevin~E. Schmidt.
+\newblock {F}rom the lightest nuclei to the equation of state of asymmetric
+  nuclear matter with realistic nuclear interactions.
+\newblock {\em Phys. Rev. C}, 90:061306, Dec 2014.
+
+\bibitem{gan12}
+S.~Gandolfi, J.~Carlson, and Sanjay Reddy.
+\newblock {M}aximum mass and radius of neutron stars, and the nuclear symmetry
+  energy.
+\newblock {\em Phys. Rev. C}, 85:032801, Mar 2012.
+
+\bibitem{cas04}
+Michele Casula, Claudio Attaccalite, and Sandro Sorella.
+\newblock {C}orrelated geminal wave function for molecules: {A}n efficient
+  resonating valence bond approach.
+\newblock {\em The Journal of Chemical Physics}, 121(15):7110--7126, 2004.
+
+\bibitem{con17}
+L.~Contessi, A.~Lovato, F.~Pederiva, A.~Roggero, J.~Kirscher, and U.~van Kolck.
+\newblock {G}round-state properties of $^4${H}e and $^{16}${O} extrapolated
+  from lattice {QCD} with pionless {EFT}.
+\newblock {\em Physics Letters B}, 772(Supplement C):839 -- 848, 2017.
+
+\end{thebibliography}

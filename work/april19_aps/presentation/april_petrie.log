@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  12 OCT 2018 17:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  8 APR 2019 21:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**4c.tex
-(./4c.tex
+**april_petrie.tex
+(./april_petrie.tex
 LaTeX2e <2015/01/01>
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/beamer/beamer.cls
@@ -1159,8 +1159,8 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count329
 \@quotereset=\count330
-(./4c.aux)
-\openout1 = `4c.aux'.
+(./april_petrie.aux)
+\openout1 = `april_petrie.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
 LaTeX Font Info:    ... okay on input line 76.
@@ -1255,9 +1255,9 @@ LaTeX Info: Redefining \ref on input line 76.
 LaTeX Info: Redefining \pageref on input line 76.
 LaTeX Info: Redefining \nameref on input line 76.
 
-(./4c.out) (./4c.out)
+(./april_petrie.out) (./april_petrie.out)
 \@outlinefile=\write6
-\openout6 = `4c.out'.
+\openout6 = `april_petrie.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 76.
@@ -1343,15 +1343,15 @@ Package biblatex Info: No input encoding detected.
 (biblatex)             Assuming 'ascii'.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'ascii'.
-\openout5 = `4c-blx.bib'.
+\openout5 = `april_petrie-blx.bib'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file '4c.bbl' not found.
+Package biblatex Info: ... file 'april_petrie.bbl' not found.
 
-No file 4c.bbl.
+No file april_petrie.bbl.
 Package biblatex Info: Reference section=0 on input line 76.
 Package biblatex Info: Reference segment=0 on input line 76.
-(./4c.nav)
+(./april_petrie.nav)
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 86.
@@ -1362,221 +1362,292 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 [2
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 109.
+LaTeX Font Info:    Try loading font information for U+msa on input line 110.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 109.
+LaTeX Font Info:    Try loading font information for U+msb on input line 110.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 109.
+line 110.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 ) [3
 
-] [4
+] <cluster.pdf, id=99, 796.9775pt x 597.23125pt>
+File: cluster.pdf Graphic file (type pdf)
+ <use cluster.pdf>
+Package pdftex.def Info: cluster.pdf used on input line 137.
+(pdftex.def)             Requested size: 415.4104pt x 311.29108pt.
 
-] <pairing.pdf, id=113, 614.295pt x 289.08pt>
-File: pairing.pdf Graphic file (type pdf)
- <use pairing.pdf>
-Package pdftex.def Info: pairing.pdf used on input line 138.
-(pdftex.def)             Requested size: 215.10196pt x 101.22362pt.
+Overfull \hbox (108.12053pt too wide) in paragraph at lines 137--137
+[]  
+ []
 
-Overfull \vbox (3.00705pt too high) detected at line 138
+
+Overfull \vbox (0.9048pt too high) detected at line 137
+ []
+
+[4
+
+ <./cluster.pdf>]
+File: cluster.pdf Graphic file (type pdf)
+ <use cluster.pdf>
+Package pdftex.def Info: cluster.pdf used on input line 137.
+(pdftex.def)             Requested size: 415.4104pt x 311.29108pt.
+
+Overfull \hbox (108.12053pt too wide) in paragraph at lines 137--137
+[]  
+ []
+
+
+Overfull \vbox (0.9048pt too high) detected at line 137
  []
 
 [5
 
+]
+File: cluster.pdf Graphic file (type pdf)
+ <use cluster.pdf>
+Package pdftex.def Info: cluster.pdf used on input line 137.
+(pdftex.def)             Requested size: 415.4104pt x 311.29108pt.
+
+Overfull \hbox (108.12053pt too wide) in paragraph at lines 137--137
+[]  
+ []
+
+
+Overfull \vbox (0.9048pt too high) detected at line 137
+ []
+
+[6
+
+] [7
+
+] [8
+
+] <pairing_fullquad.pdf, id=212, 614.295pt x 180.675pt>
+File: pairing_fullquad.pdf Graphic file (type pdf)
+
+<use pairing_fullquad.pdf>
+Package pdftex.def Info: pairing_fullquad.pdf used on input line 177.
+(pdftex.def)             Requested size: 307.28987pt x 90.37862pt.
+
+Overfull \vbox (3.93178pt too high) detected at line 177
+ []
+
+[9
+
+ <./pairing_fullquad.pdf>] <pairing.pdf, id=234, 614.295pt x 289.08pt>
+File: pairing.pdf Graphic file (type pdf)
+
+<use pairing.pdf>
+Package pdftex.def Info: pairing.pdf used on input line 193.
+(pdftex.def)             Requested size: 215.10196pt x 101.22362pt.
+
+Overfull \vbox (7.63622pt too high) detected at line 193
+ []
+
+[10
+
  <./pairing.pdf>]
 Package epstopdf Info: Source file: <energy.eps>
-(epstopdf)                    date: 2018-10-05 17:55:18
+(epstopdf)                    date: 2019-01-07 21:59:25
 (epstopdf)                    size: 23399 bytes
 (epstopdf)             Output file: <energy-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-10-05 17:55:18
+(epstopdf)                    date: 2019-01-07 21:59:25
 (epstopdf)                    size: 8447 bytes
 (epstopdf)             Command: <repstopdf --outfile=energy-eps-converted-to.pd
 f energy.eps>
-(epstopdf)             \includegraphics on input line 169.
+(epstopdf)             \includegraphics on input line 225.
 Package epstopdf Info: Output file is already uptodate.
 
-<energy-eps-converted-to.pdf, id=135, 361.35pt x 252.945pt>
+<energy-eps-converted-to.pdf, id=257, 361.35pt x 252.945pt>
 File: energy-eps-converted-to.pdf Graphic file (type pdf)
 
 <use energy-eps-converted-to.pdf>
-Package pdftex.def Info: energy-eps-converted-to.pdf used on input line 169.
+Package pdftex.def Info: energy-eps-converted-to.pdf used on input line 225.
 (pdftex.def)             Requested size: 184.3758pt x 129.062pt.
- [6
+ [11
 
  <./energy-eps-converted-to.pdf>]
-<neutronstar.png, id=155, 883.3pt x 742.775pt>
+Package epstopdf Info: Source file: <scaling.eps>
+(epstopdf)                    date: 2019-04-08 21:44:16
+(epstopdf)                    size: 21857 bytes
+(epstopdf)             Output file: <scaling-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-04-08 21:44:21
+(epstopdf)                    size: 6979 bytes
+(epstopdf)             Command: <repstopdf --outfile=scaling-eps-converted-to.p
+df scaling.eps>
+(epstopdf)             \includegraphics on input line 244.
+Package epstopdf Info: Output file is already uptodate.
+
+<scaling-eps-converted-to.pdf, id=276, 361.35pt x 252.945pt>
+File: scaling-eps-converted-to.pdf Graphic file (type pdf)
+
+<use scaling-eps-converted-to.pdf>
+Package pdftex.def Info: scaling-eps-converted-to.pdf used on input line 244.
+(pdftex.def)             Requested size: 199.73653pt x 139.81491pt.
+ [12
+
+ <./scaling-eps-converted-to.pdf>]
+[13
+
+]
+<asu_university_vert_rgb_maroongold_150.png, id=304, 197.538pt x 159.4758pt>
+File: asu_university_vert_rgb_maroongold_150.png Graphic file (type png)
+
+<use asu_university_vert_rgb_maroongold_150.png>
+Package pdftex.def Info: asu_university_vert_rgb_maroongold_150.png used on inp
+ut line 270.
+(pdftex.def)             Requested size: 92.1879pt x 74.42558pt.
+
+<xsede-full-color.jpg, id=306, 2584.65625pt x 978.65625pt>
+File: xsede-full-color.jpg Graphic file (type jpg)
+
+<use xsede-full-color.jpg>
+Package pdftex.def Info: xsede-full-color.jpg used on input line 270.
+(pdftex.def)             Requested size: 110.62453pt x 41.87233pt.
+
+<NSF_4-Color_bitmap_Logo.png, id=307, 1728.4575pt x 1737.49126pt>
+File: NSF_4-Color_bitmap_Logo.png Graphic file (type png)
+
+<use NSF_4-Color_bitmap_Logo.png>
+Package pdftex.def Info: NSF_4-Color_bitmap_Logo.png used on input line 270.
+(pdftex.def)             Requested size: 92.1879pt x 92.65926pt.
+ [14
+
+ <./asu_university_vert_rgb_maroongold_150.png> <./xsede-full-color.jpg> <./NSF
+_4-Color_bitmap_Logo.png>] [15
+
+] [16
+
+]
+<branch_full.png, id=332, 321.2pt x 410.53375pt>
+File: branch_full.png Graphic file (type png)
+ <use branch_full.png>
+Package pdftex.def Info: branch_full.png used on input line 309.
+(pdftex.def)             Requested size: 110.6219pt x 141.38998pt.
+ [17
+
+ <./branch_full.png>] [18
+
+] [19
+
+]
+Package epstopdf Info: Source file: <scaling.eps>
+(epstopdf)                    date: 2019-04-08 21:44:16
+(epstopdf)                    size: 21857 bytes
+(epstopdf)             Output file: <scaling-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-04-08 21:44:21
+(epstopdf)                    size: 6979 bytes
+(epstopdf)             Command: <repstopdf --outfile=scaling-eps-converted-to.p
+df scaling.eps>
+(epstopdf)             \includegraphics on input line 353.
+Package epstopdf Info: Output file is already uptodate.
+File: scaling-eps-converted-to.pdf Graphic file (type pdf)
+ <use scaling-eps-converted-to.pdf>
+Package pdftex.def Info: scaling-eps-converted-to.pdf used on input line 353.
+(pdftex.def)             Requested size: 199.73653pt x 139.81491pt.
+ [20
+
+]
+<neutronstar.png, id=361, 883.3pt x 742.775pt>
 File: neutronstar.png Graphic file (type png)
  <use neutronstar.png>
-Package pdftex.def Info: neutronstar.png used on input line 201.
+Package pdftex.def Info: neutronstar.png used on input line 384.
 (pdftex.def)             Requested size: 153.64493pt x 129.1942pt.
 
 
 Package textpos Warning: environment textblock* not in vertical mode. 
 (textpos)                Environment textblock* should not have any text
 (textpos)                or printable material appearing before it.
-(textpos)                Alignment may work out wrongly. on input line 201.
+(textpos)                Alignment may work out wrongly. on input line 384.
 
-[7
+[21
 
- <./neutronstar.png>] <alpha.png, id=174, 481.8pt x 361.35pt>
+ <./neutronstar.png>] <alpha.png, id=370, 481.8pt x 361.35pt>
 File: alpha.png Graphic file (type png)
 
 <use alpha.png>
-Package pdftex.def Info: alpha.png used on input line 240.
+Package pdftex.def Info: alpha.png used on input line 423.
 (pdftex.def)             Requested size: 184.3758pt x 138.27933pt.
 
-Overfull \hbox (19.71133pt too wide) in paragraph at lines 240--240
+Overfull \hbox (19.71133pt too wide) in paragraph at lines 423--423
  [] 
  []
 
-[8
+[22
 
- <./alpha.png>] <gpp.png, id=190, 578.16pt x 433.62pt>
+ <./alpha.png>] <gpp.png, id=380, 578.16pt x 433.62pt>
 File: gpp.png Graphic file (type png)
  <use gpp.png>
-Package pdftex.def Info: gpp.png used on input line 251.
+Package pdftex.def Info: gpp.png used on input line 434.
 (pdftex.def)             Requested size: 221.24907pt x 165.9352pt.
 
-Overfull \vbox (7.0448pt too high) detected at line 251
+Overfull \vbox (7.0448pt too high) detected at line 434
  []
 
-[9
+[23
 
- <./gpp.png>] [10
-
-]
-<asu_university_vert_rgb_maroongold_150.png, id=212, 197.538pt x 159.4758pt>
-File: asu_university_vert_rgb_maroongold_150.png Graphic file (type png)
-
-<use asu_university_vert_rgb_maroongold_150.png>
-Package pdftex.def Info: asu_university_vert_rgb_maroongold_150.png used on inp
-ut line 277.
-(pdftex.def)             Requested size: 92.1879pt x 74.42558pt.
-
-<xsede-full-color.jpg, id=213, 2584.65625pt x 978.65625pt>
-File: xsede-full-color.jpg Graphic file (type jpg)
-
-<use xsede-full-color.jpg>
-Package pdftex.def Info: xsede-full-color.jpg used on input line 277.
-(pdftex.def)             Requested size: 110.62453pt x 41.87233pt.
-
-<NSF_4-Color_bitmap_Logo.png, id=214, 1728.4575pt x 1737.49126pt>
-File: NSF_4-Color_bitmap_Logo.png Graphic file (type png)
-
-<use NSF_4-Color_bitmap_Logo.png>
-Package pdftex.def Info: NSF_4-Color_bitmap_Logo.png used on input line 277.
-(pdftex.def)             Requested size: 92.1879pt x 92.65926pt.
- [11
-
- <./asu_university_vert_rgb_maroongold_150.png> <./xsede-full-color.jpg> <./NSF
-_4-Color_bitmap_Logo.png>] [12
-
-]
-<branch_full.png, id=232, 321.2pt x 410.53375pt>
-File: branch_full.png Graphic file (type png)
- <use branch_full.png>
-Package pdftex.def Info: branch_full.png used on input line 310.
-(pdftex.def)             Requested size: 110.6219pt x 141.38998pt.
- [13
-
- <./branch_full.png>] [14
-
-] [15
-
-]
-File: pairing.pdf Graphic file (type pdf)
- <use pairing.pdf>
-Package pdftex.def Info: pairing.pdf used on input line 351.
-(pdftex.def)             Requested size: 215.10196pt x 101.22362pt.
-
-Overfull \vbox (7.63622pt too high) detected at line 351
- []
-
-[16
-
-] [17
-
-]
-Package epstopdf Info: Source file: <scaling.eps>
-(epstopdf)                    date: 2018-10-05 17:55:18
-(epstopdf)                    size: 21857 bytes
-(epstopdf)             Output file: <scaling-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-10-05 17:55:18
-(epstopdf)                    size: 6979 bytes
-(epstopdf)             Command: <repstopdf --outfile=scaling-eps-converted-to.p
-df scaling.eps>
-(epstopdf)             \includegraphics on input line 384.
-Package epstopdf Info: Output file is already uptodate.
- <scaling-eps-converted-to.pdf, id=269, 361.35pt x 252.945pt>
-File: scaling-eps-converted-to.pdf Graphic file (type pdf)
-
-<use scaling-eps-converted-to.pdf>
-Package pdftex.def Info: scaling-eps-converted-to.pdf used on input line 384.
-(pdftex.def)             Requested size: 199.73653pt x 139.81491pt.
- [18
-
- <./scaling-eps-converted-to.pdf>]
+ <./gpp.png>]
 File: gpp.png Graphic file (type png)
-
-<use gpp.png>
-Package pdftex.def Info: gpp.png used on input line 401.
+ <use gpp.png>
+Package pdftex.def Info: gpp.png used on input line 451.
 (pdftex.def)             Requested size: 184.3758pt x 138.27823pt.
- <gpp_small.png, id=281, 578.16pt x 433.62pt>
+ <gpp_small.png, id=388, 578.16pt x 433.62pt>
 File: gpp_small.png Graphic file (type png)
- <use gpp_small.png>
-Package pdftex.def Info: gpp_small.png used on input line 401.
+
+<use gpp_small.png>
+Package pdftex.def Info: gpp_small.png used on input line 451.
 (pdftex.def)             Requested size: 184.3758pt x 138.27823pt.
 
-Overfull \hbox (4.55623pt too wide) detected at line 401
+Overfull \hbox (4.55623pt too wide) detected at line 451
 [][][] $[]$[][][][][][][][] $[]$[][][][][][] 
  []
 
-[19
+[24
 
  <./gpp_small.png>]
 \tf@nav=\write7
-\openout7 = `4c.nav'.
+\openout7 = `april_petrie.nav'.
 
 \tf@toc=\write8
-\openout8 = `4c.toc'.
+\openout8 = `april_petrie.toc'.
 
 \tf@snm=\write9
-\openout9 = `4c.snm'.
+\openout9 = `april_petrie.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 405.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 405.
- (./4c.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 405.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 405.
-Package rerunfilecheck Info: File `4c.out' has not changed.
-(rerunfilecheck)             Checksum: 0A178130470B2CE076F8E2F6CC9DE684;393.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 455.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 455.
+ (./april_petrie.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 455.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 455.
+Package rerunfilecheck Info: File `april_petrie.out' has not changed.
+(rerunfilecheck)             Checksum: F2B4EA70D578FB388809653E60067B8F;384.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package logreq Info: Writing requests to '4c.run.xml'.
-\openout1 = `4c.run.xml'.
+Package logreq Info: Writing requests to 'april_petrie.run.xml'.
+\openout1 = `april_petrie.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 405.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 455.
  ) 
 Here is how much of TeX's memory you used:
- 25882 strings out of 493089
- 506953 string characters out of 6134842
- 688019 words of memory out of 5000000
- 28731 multiletter control sequences out of 15000+600000
+ 25918 strings out of 493089
+ 507787 string characters out of 6134842
+ 688033 words of memory out of 5000000
+ 28755 multiletter control sequences out of 15000+600000
  31313 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,20n,68p,929b,1432s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,21n,68p,939b,1432s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.
 pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
@@ -1600,10 +1671,10 @@ ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive
 015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on 4c.pdf (19 pages, 2250355 bytes).
+Output written on april_petrie.pdf (24 pages, 2352950 bytes).
 PDF statistics:
- 378 PDF objects out of 1000 (max. 8388607)
- 293 compressed objects within 3 object streams
- 47 named destinations out of 1000 (max. 500000)
- 190 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 486 PDF objects out of 1000 (max. 8388607)
+ 368 compressed objects within 4 object streams
+ 57 named destinations out of 1000 (max. 500000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -44,11 +44,11 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>4c.aux</file>
-      <file>4c-blx.bib</file>
+      <file>april_petrie.aux</file>
+      <file>april_petrie-blx.bib</file>
     </provides>
     <requires type="dynamic">
-      <file>4c.bbl</file>
+      <file>april_petrie.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-compat.def</file>
@@ -65,20 +65,20 @@
     <cmdline>
       <binary>bibtex</binary>
       <option>-min-crossrefs 2</option>
-      <infile>4c</infile>
+      <infile>april_petrie</infile>
     </cmdline>
     <input>
-      <file>4c.aux</file>
+      <file>april_petrie.aux</file>
     </input>
     <output>
-      <file>4c.bbl</file>
+      <file>april_petrie.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>4c.bbl</file>
+      <file>april_petrie.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>4c.aux</file>
-      <file>4c-blx.bib</file>
+      <file>april_petrie.aux</file>
+      <file>april_petrie-blx.bib</file>
     </requires>
     <requires type="editable">
       <file>../../papers/references.bib</file>

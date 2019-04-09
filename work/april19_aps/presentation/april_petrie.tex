@@ -67,7 +67,7 @@
 \newcommand{\sspace}{10.2}
 \newcommand{\Oijp}{\mathcal{O}^p_{ij}}
 
-\title[Alpha formation in QMC]{Alpha particle formation in neutron star crusts with an improved trial wave function for nuclear Quantum Monte Carlo}
+\title[Improved trial wave function for QMC]{Improved trial wave functions with 4-body correlations for Nuclear Quantum Monte Carlo}
 \author[Cody L. Petrie, cody.petrie@asu.edu]{Cody L. Petrie\\
 Advisor: Kevin Schmidt}
 \institute{Arizona State University \\ Tempe, AZ}
@@ -80,16 +80,17 @@ Advisor: Kevin Schmidt}
    \centering
    \vspace{-1.0cm}
    \small
-2018 Annual Meeting of the APS Four Corners Section \\
-Salt Lake City, Utah \\
-13 October 2018
+APS April Meeting 2019 \\
+Denver, Colorado \\
+15 April 2019
 \end{frame}
 
 \begin{frame}{Outline}
 \begin{itemize}
    \item Quantum Monte Carlo methods
-   \item Improved trial wave function
-   \item Alpha formation in nearly neutron matter - preliminary
+   \item Current trial wave function
+   \item Improved trial wave functions
+   \item Results/Conclusion
 \end{itemize}
 \end{frame}
 
@@ -112,31 +113,86 @@ Salt Lake City, Utah \\
 \subsection{Slater Determinant}
 \begin{frame}{Slater Determinant}
 \begin{itemize}
-   \item The simplest wave function for a many-fermion system obeying these properties is a Slater determinant where $\phi_i(\mathbf{r}_i,s_i)$ are single particle nucleon states.
-   \begin{equation*}
-      \psi_{T} = \braket{RS}{\phi}= \mathcal{A} \prod\limits_{i=1}^A \phi_i(\mathbf{r}_i,s_i) = \frac{1}{A!} \mathrm{det}~\phi_i(\mathbf{r}_i,s_i)
-   \end{equation*}
-%   \item Short range correlations need to be put in by hand via Jastrow-like correlations.
-%   \begin{equation*}
-%      \ket{\psi_T} = \prod\limits_{i<j}f(r_{ij}) \ket{\phi}.
-%   \end{equation*}
+   \item Properties:
+   \begin{itemize}
+      \item Antisymmetric
+      \item Cluster Decomposable \\ $\ket{A+B} = \ket{A}\ket{B}$
+   \end{itemize}
+   \begin{textblock*}{\textwidth}(4.5cm,-6.1cm) % {block width} (coords)
+      \includegraphics[width=14.6cm]{cluster.pdf}
+   \end{textblock*}
+   \uncover<2->{
+      \item The simplest wave function for a many-fermion system obeying these properties is a Slater determinant where $\phi_i(\mathbf{r}_i,s_i)$ are single particle nucleon states.
+      \begin{equation*}
+         \psi_{T} = \braket{RS}{\phi}= \mathcal{A} \prod\limits_{i=1}^A \phi_i(\mathbf{r}_i,s_i) = \frac{1}{A!} \mathrm{det}~\phi_i(\mathbf{r}_i,s_i)
+      \end{equation*}
+   }
+   \uncover<3->{
+      \item Short range correlations need to be put in by hand via Jastrow-like correlations.
+      \begin{equation*}
+         \ket{\psi_T} = \prod\limits_{i<j}f(r_{ij}) \ket{\phi}.
+      \end{equation*}
+   }
 \end{itemize}
 \end{frame}
 
 \subsection{Spin-Isospin Correlations}
+\begin{frame}{Spin Dependent Correlations}
+\begin{itemize}
+   \item Two spin dependent wave functions that obey these two properties are the exponentially correlated and symmetrized product wave functions, where $\Opij$ are the AV6 operators, $\si\cdot\sj$, $\ti\cdot\tj$,     $\si\cdot\sj \ti\cdot\tj$, $S_{ij}$ and $S_{ij} \ti\cdot\tj$, where $S_{ij}     = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$.
+   \begin{equation*}
+      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j}\sum\limits_p\fpij\Opij} \ket{\phi}
+   \end{equation*}
+   \begin{equation*}
+      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \mathcal{S}\prod\limits_{i<j}\left(1+\sum\limits_p\fpij\Opij\right) \ket{\phi}
+   \end{equation*}
+   \item These two wave functions are the same up to second order except for  commutator terms.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Linear Correlations}
+\begin{itemize}
+   \item Until recently these wave functions had been expanded only to linear order in $\mathcal{O}_{ij}$.
+   \begin{equation*}
+      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left(1+\sum\limits_{i<j}\sum\limits_p\fpij\Opij\right) \ket{\phi}
+   \end{equation*}
+   \item We have expanded this by including terms up to quadratic order, $\mathcal{O}_{ij}\mathcal{O}_{kl}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Quadratic Correlations}
+\begin{itemize}
+   \item Symmetrized product wave function up to quadratic order
+   \begin{equation*}
+   \begin{split}
+      \ket{\psi_T} = \Bigg[\prod\limits_{i<j}&f_c(r_{ij})\Bigg] \Bigg[1+\fOpij \\
+      & + \frac{1}{2}\fOpij\fOqklquad \Bigg] \ket{\phi}
+   \end{split}
+   \end{equation*}
+\end{itemize}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=1.0\textwidth]{pairing_fullquad.pdf}
+\end{figure}
+\end{frame}
+
 \begin{frame}{Independent Pair Quadratic Correlations}
-\begin{equation*}
-\begin{split}
-   \ket{\psi_T} = \Bigg[\prod\limits_{i<j}&f_c(r_{ij})\Bigg] \Bigg[1+\fOpij \\
-   & + \fOpij\fOqklip \Bigg] \ket{\phi}
-\end{split}
-\end{equation*}
+\begin{itemize}
+   \item Independent pair expansion to quadratic order
+   \begin{equation*}
+   \begin{split}
+      \ket{\psi_T} = \Bigg[\prod\limits_{i<j}&f_c(r_{ij})\Bigg] \Bigg[1+\fOpij \\
+      & + \fOpij\fOqklip \Bigg] \ket{\phi}
+   \end{split}
+   \end{equation*}
+\end{itemize}
 \begin{figure}[h]
    \centering
    \includegraphics[width=0.7\textwidth]{pairing.pdf}
 \end{figure}
 \end{frame}
 
+\subsection{Results}
 \begin{frame}{Results}
 \begin{textblock*}{\textwidth}(0.0cm,-0.6cm) % {block width} (coords)
 \begin{figure}[h]
@@ -168,7 +224,134 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
 {\tiny D. Lonardoni et al. \textit{Phys. Rev. C.,} \textbf{97}, 044318, 2018.}
 \end{frame}
 
-\subsection{Application to NS}
+\begin{frame}{Quadratic Correlation Cost}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.65\textwidth]{scaling.eps}
+\end{figure}
+\vspace{-0.2cm}
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{ccccc}
+      \hline \hline
+       & $^{4}$He & $^{16}$O & SNM(28) & $^{40}$Ca \\
+      \hline
+      IP Quadratic & 1.73 & 30.7 & 64.8 & 720.9 \\
+      Quadratic & 2.00 & 58.8 & 133.6 & 1473.9 \\
+      \hline \hline
+   \end{tabular}
+\end{table}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}{Summary/Conclusion}
+\begin{itemize}
+   \item We have improved the previously used two-body spin-isospin correlations.
+   \item The improved trial wave functions appear to make a significant difference in the energy of the calculations, but currently cost too much to use for large systems.
+   \item AFDMC is a powerful method for solving nuclear many-body problems, however more accurate wave functions are needed to accurately describe larger systems.
+\end{itemize}
+\end{frame}
+
+%\note[itemize]{
+%   \item test1
+%   \item test2
+%}
+
+\begin{frame}{Thanks}
+Advisor: Kevin Schmidt (ASU) \\
+Collaborators: Stefano Gandolfi (LANL) and Joe Carlson (LANL)
+\\~\\
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.30\textwidth]{asu_university_vert_rgb_maroongold_150.png}
+   \includegraphics[width=0.36\textwidth]{xsede-full-color.jpg}
+   \includegraphics[width=0.30\textwidth]{NSF_4-Color_bitmap_Logo.png}
+\end{figure}
+\end{frame}
+
+%\iffalse
+\iftrue
+\appendix
+\begin{frame}{Extra Slides}
+\begin{centering}
+   Extra Slides
+\end{centering}
+\end{frame}
+
+\begin{frame}{Variational Monte Carlo - Implementation}
+\begin{enumerate}
+   \item Generate N configurations (walkers) distributed randomly.
+   \item Loop over each walker and do the following
+   \begin{enumerate}
+      \setlength\itemsep{0.2em}
+      \item Calculate $P(\R) = \left|\braket{\Psi_T}{\R}\right|^2$.
+      \item Propose a move $\R' = \R + \Delta\xi$, where $\xi$ could be a vector of random variables from a Gaussian.
+      \item Calculate $P(\R') = \left|\braket{\Psi_T}{\R'}\right|^2$.
+      \item Calculate the probability of acceptance $A=\mathrm{min}\left(1,\frac{P(\R')}{P(\R)}\right)$.
+      \item If accepted then $\R \rightarrow \R'$, else the next position in the Markov Chain for that walker is the same as the last, namely $\R$.
+   \end{enumerate}
+   \item Calculate observables and repeat steps 2 until energy is minimized or uncertainties are low enough.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Diffusion Monte Carlo - Branching}
+Branching: Each walker can be deleted or multiply. The number of walkers that continues is equal to $\mathrm{int}\left(w(\R')+\xi\right)$, where $\xi$ is a uniform random number from $[0,1]$.
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\begin{figure}
+   \includegraphics[width=0.9\textwidth]{branch_full.png}
+\end{figure}
+\end{column}
+\begin{column}{0.7\textwidth}
+   {\color{blue}{Figure:}} Reprinted from W.M.C. Foulkes et al. \textit{Rev. Mod. Phys.,} 73:33-83, 2001.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Diffusion Monte Carlo - Short Time Propagator}
+   \begin{equation*}
+      \braket{\R_N}{\Psi_T(\tau)} = \int d\R_1 \ldots d\R_N \left[\prod\limits_{i=1}^N G(\R_i,\R_{i-1},\Delta\tau)\right] \braket{\R_0}{\Psi_T(0)}
+   \end{equation*}
+   \begin{equation*}
+      G(\R',\R,\Delta\tau) = \bra{\R'}e^{-(H-E_0)\Delta\tau}\ket{\R}
+   \end{equation*}
+\end{frame}
+
+\begin{frame}{Diffusion Monte Carlo - Implementation}
+\begin{enumerate}
+   \item Start with N configurations (walkers) from VMC
+   \item Loop over each walker and do the following
+   \begin{enumerate}
+      \setlength\itemsep{0.2em}
+      \item Propose a move, $\R' = \R + \chi$, where $\chi$ is a vector of random numbers from the shifted Gaussian $\exp\left(\frac{m}{2\hbar^2\Delta\tau}\left(\R'-\R+2\frac{\nabla\Psi_I(\R')}{\Psi_I(\R')}\right)^2\right)$.
+      \item The move is then accepted with the probability $A(\R'\leftarrow\R)=\mathrm{min}\left(1,\frac{\Psi_T^2(\R')}{\Psi_T^2(\R)}\right)$.
+      \item Calculate the weight $w(\R')=\exp\left(-\left(E_L(\R')+E_L(\R)-2E_0\right)\Delta\tau/2\right)$.
+      \item Do branching.
+      \item Calculate and collect the observables and uncertainties needed and increase the imaginary time by $\Delta\tau$.
+   \end{enumerate}
+   \item Repeat from step 2 to 6 until the uncertainties are small enough.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Quadratic Correlation Cost}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.65\textwidth]{scaling.eps}
+\end{figure}
+\vspace{-0.2cm}
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{ccccc}
+      \hline \hline
+       & $^{4}$He & $^{16}$O & SNM(28) & $^{40}$Ca \\
+      \hline
+      IP Quadratic & 1.73 & 30.7 & 64.8 & 720.9 \\
+      Quadratic & 2.00 & 58.8 & 133.6 & 1473.9 \\
+      \hline \hline
+   \end{tabular}
+\end{table}
+\end{frame}
+
 \begin{frame}{Neutron Stars - Preliminary}
 \begin{itemize}
    \item Use new wave function to study $\alpha$ formation in the inner crust of neutron stars.
@@ -248,139 +431,6 @@ W. Newton {\it Nature Physics} {\bf 9}, 396-397 (2013)
    \centering
    \includegraphics[width=0.72\textwidth]{gpp.png}
 \end{figure}
-\end{frame}
-
-\section{Conclusion}
-\begin{frame}{Summary/Conclusion}
-\begin{itemize}
-   \item We have improved the previously used two-body spin-isospin correlations.
-   \item The improved trial wave functions appear to make a significant difference in the energy of the calculations, but currently cost too much to use for large systems.
-   \item We have shown that our calculation can see what are probably alpha particles forming in mostly neutron matter around the density of neutron star crusts. These calculations appear to be even better when improved correlations are used.
-\end{itemize}
-\end{frame}
-
-%\note[itemize]{
-%   \item test1
-%   \item test2
-%}
-
-\begin{frame}{Thanks}
-Advisor: Kevin Schmidt (ASU) \\
-Collaborators: Stefano Gandolfi (LANL) and Joe Carlson (LANL)
-\\~\\
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=0.30\textwidth]{asu_university_vert_rgb_maroongold_150.png}
-   \includegraphics[width=0.36\textwidth]{xsede-full-color.jpg}
-   \includegraphics[width=0.30\textwidth]{NSF_4-Color_bitmap_Logo.png}
-\end{figure}
-\end{frame}
-
-%\iffalse
-\iftrue
-\appendix
-\begin{frame}{Variational Monte Carlo - Implementation}
-\begin{enumerate}
-   \item Generate N configurations (walkers) distributed randomly.
-   \item Loop over each walker and do the following
-   \begin{enumerate}
-      \setlength\itemsep{0.2em}
-      \item Calculate $P(\R) = \left|\braket{\Psi_T}{\R}\right|^2$.
-      \item Propose a move $\R' = \R + \Delta\xi$, where $\xi$ could be a vector of random variables from a Gaussian.
-      \item Calculate $P(\R') = \left|\braket{\Psi_T}{\R'}\right|^2$.
-      \item Calculate the probability of acceptance $A=\mathrm{min}\left(1,\frac{P(\R')}{P(\R)}\right)$.
-      \item If accepted then $\R \rightarrow \R'$, else the next position in the Markov Chain for that walker is the same as the last, namely $\R$.
-   \end{enumerate}
-   \item Calculate observables and repeat steps 2 until energy is minimized or uncertainties are low enough.
-\end{enumerate}
-\end{frame}
-
-\begin{frame}{Diffusion Monte Carlo - Branching}
-Branching: Each walker can be deleted or multiply. The number of walkers that continues is equal to $\mathrm{int}\left(w(\R')+\xi\right)$, where $\xi$ is a uniform random number from $[0,1]$.
-\begin{columns}
-\begin{column}{0.4\textwidth}
-\begin{figure}
-   \includegraphics[width=0.9\textwidth]{branch_full.png}
-\end{figure}
-\end{column}
-\begin{column}{0.7\textwidth}
-   {\color{blue}{Figure:}} Reprinted from W.M.C. Foulkes et al. \textit{Rev. Mod. Phys.,} 73:33-83, 2001.
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Diffusion Monte Carlo - Short Time Propagator}
-   \begin{equation*}
-      \braket{\R_N}{\Psi_T(\tau)} = \int d\R_1 \ldots d\R_N \left[\prod\limits_{i=1}^N G(\R_i,\R_{i-1},\Delta\tau)\right] \braket{\R_0}{\Psi_T(0)}
-   \end{equation*}
-   \begin{equation*}
-      G(\R',\R,\Delta\tau) = \bra{\R'}e^{-(H-E_0)\Delta\tau}\ket{\R}
-   \end{equation*}
-\end{frame}
-
-\begin{frame}{Diffusion Monte Carlo - Implementation}
-\begin{enumerate}
-   \item Start with N configurations (walkers) from VMC
-   \item Loop over each walker and do the following
-   \begin{enumerate}
-      \setlength\itemsep{0.2em}
-      \item Propose a move, $\R' = \R + \chi$, where $\chi$ is a vector of random numbers from the shifted Gaussian $\exp\left(\frac{m}{2\hbar^2\Delta\tau}\left(\R'-\R+2\frac{\nabla\Psi_I(\R')}{\Psi_I(\R')}\right)^2\right)$.
-      \item The move is then accepted with the probability $A(\R'\leftarrow\R)=\mathrm{min}\left(1,\frac{\Psi_T^2(\R')}{\Psi_T^2(\R)}\right)$.
-      \item Calculate the weight $w(\R')=\exp\left(-\left(E_L(\R')+E_L(\R)-2E_0\right)\Delta\tau/2\right)$.
-      \item Do branching.
-      \item Calculate and collect the observables and uncertainties needed and increase the imaginary time by $\Delta\tau$.
-   \end{enumerate}
-   \item Repeat from step 2 to 6 until the uncertainties are small enough.
-\end{enumerate}
-\end{frame}
-
-\begin{frame}{Spin-Isospin Correlations}
-\begin{itemize}
-   \item Or it can be expanded to get independent pair quadratic terms
-   \begin{equation*}
-   \begin{split}
-      \ket{\psi_T} = \Bigg[\prod\limits_{i<j}&f_c(r_{ij})\Bigg] \Bigg[1+\fOpij \\
-      & + \fOpij\fOqklip \Bigg] \ket{\phi}
-   \end{split}
-   \end{equation*}
-\end{itemize}
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=0.7\textwidth]{pairing.pdf}
-\end{figure}
-\end{frame}
-
-
-\begin{frame}{Spin Dependent Correlations}
-\begin{itemize}
-   \item Two spin dependent wave functions that are antisymmetric and obey cluster decomposition are the exponentially correlated and symmetrized product wave functions, where $\Opij$ are the AV6 operators, $\si\cdot\sj$, $\ti\cdot\tj$,     $\si\cdot\sj \ti\cdot\tj$, $S_{ij}$ and $S_{ij} \ti\cdot\tj$, where $S_{ij}     = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$.
-   \begin{equation*}
-      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j}\sum\limits_p\fpij\Opij} \ket{\phi}
-   \end{equation*}
-   \begin{equation*}
-      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \mathcal{S}\prod\limits_{i<j}\left(1+\sum\limits_p\fpij\Opij\right) \ket{\phi}
-   \end{equation*}
-   \item These two wave functions are the same up to second order except for  commutator terms.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Quadratic Correlation Cost}
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=0.65\textwidth]{scaling.eps}
-\end{figure}
-\vspace{-0.2cm}
-\begin{table}[h!]
-   \centering
-   \begin{tabular}{ccccc}
-      \hline \hline
-       & $^{4}$He & $^{16}$O & SNM(28) & $^{40}$Ca \\
-      \hline
-      IP Quadratic & 1.73 & 30.7 & 64.8 & 720.9 \\
-      Quadratic & 2.00 & 58.8 & 133.6 & 1473.9 \\
-      \hline \hline
-   \end{tabular}
-\end{table}
 \end{frame}
 
 \begin{frame}{Pair Correlation Function - Preliminary}

@@ -1,0 +1,154 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[top=2cm,left=2cm,right=2cm,bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}  
+\usepackage{ae}               % Fonte "Almost European"
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{url}
+\usepackage{color}
+\usepackage{cite}
+\usepackage{gensymb}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{epigraph}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{epstopdf}
+
+\definecolor{red}{rgb}{1.0,0.0,0.0}
+\definecolor{green}{rgb}{0.01,0.75,0.24}
+\definecolor{blue}{rgb}{0.0,0.0,1.0}
+
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\expected}[1]{ \langle #1 \rangle}
+\newcommand{\product}[2]{\langle #1 | #2 \rangle}
+\newcommand{\pib}{\boldsymbol{\pi}}
+\newcommand{\sigmab}{\boldsymbol{\sigma}}
+\newcommand{\taub}{\boldsymbol{\tau}}
+\newcommand{\kdotx}{\textbf{k}\cdot\textbf{x}} % k dot x
+
+\newcommand{\project}{\large Progress Report \vskip 0.1cm}
+\newcommand{\asu}{Physics Department \\ Arizona State University}
+
+\begin{document}
+\onehalfspacing
+%\doublespace
+\title{\project {\large \textbf{Quantum Monte Carlo Calculations of Nucleon 
+Systems and Cold Atom Gases}} \vspace{-0.5cm}}
+\author{
+{\bf PIs: Kevin E. Schmidt}, Arizona State University \\
+{\bf Stefano Gandolfi}, Los Alamos National Laboratory
+}
+\date{\today}
+\maketitle
+
+\vspace{-1.5cm}
+\section*{Abstract}
+\vspace{-0.25cm}
+We present our progress on the projects we have been developing.
+We published our
+quantum Monte Carlo formalism for dynamical pions and nucleons
+in the
+Physical 
+Review C journal.
+Another manuscript is currently under review by the same journal,
+in which
+we summarized
+our findings regarding vortices in low-density neutron matter
+and cold atomic Fermi gases.
+\vspace{-0.25cm}
+\section{Scientific discoveries}%and accomplishments of the computational plan}
+
+\subsection{Improved trial wave functions for nuclei and nuclear matter}
+The success of Quantum Monte Carlo calculations depend heavily on the accuracy of the trial wave function. Auxiliary Field Diffusion Monte Carlo (AFDMC) is an efficient method for studying nuclei with $A\le40$ and nuclear matter with $A>100$. Similar methods such as Green's Function Monte Carlo are confined to nuclei with $A\le12$ due to the expense of calculating the spin-isospin sums explicitely. AFDMC is able to sample these spins, which saves valuable computation time but sacrifices wave function accuracy. We have been able to improve the wave function correlations used in AFDMC and thus obtain more accurate energies for $^4$He, $^{16}$O, $^{40}$Ca, and symmetric nuclear matter at and around saturation density. This work has been published in Physical Review C \cite{lon18}.
+
+Through this work we were able to show that AFDMC calculations of nuclear systems, especially larger systems, are improved greatly by improved wave functions, however the current improvements are too expensive for practical calculations. We have investigated other possible correlations, including those based on an exponential operator. Though some progress has been made with those correlations, more work is needed.
+
+\subsection{Neutron star crusts with microscopic interactions}
+We have applied the AFDMC method to study the formation of small nuclei in low density nuclear matter with high neutron-proton ratios. Specifically we have studied the formation and dissolution of a single alpha particle in mostly neutron matter. We have done this by adding two protons to a solution of neutrons. The energy of a formed alpha particle then would be estimated by
+\begin{equation}
+   E_\alpha = E_{Nn,2p} - E_{(N-2)n},
+\end{equation}
+where $N$ is the number of neutrons, $n$, and $p$ represents the protons. Calculations done with previous wave function correlations at low density underbind the alpha particle by about 5-7 MeV. The improved wave function increases the binding by aproximately 1-2 MeV. At higher densities both correlations agree to within uncertainties. We have also found that this alpha particle begins to dissolve into the remaining neutrons at about $\rho\approx0.0025$ fm$^{-3}$. The density at which nuclei have dissolved into a homogeneous liquid is often reported to be at about half saturation density $\rho_0/2 \approx 0.08$ fm$^{-3}$ \cite{cha15}. We have found that alpha particles begin to dissolve at a lower density than this.
+
+Though the crust of a neutron star provides a small percentage of the matter, it is responsible for many of the observable phenomena such as cooling, gamma ray flashes, and glitches. The study of small nuclei forming in neutron star crusts can give us insight into these important phenomena. We expect to publish our work on alpha particle formation in neutron star crusts in the near future.
+
+\subsection{Strongly paired fermionic systems: cold atoms and neutron matter}
+
+Cold gas experiments can be tuned to achieve strongly-interacting
+regimes such as that of low-density neutron matter found in neutron
+stars crusts.
+We performed $T$=0 diffusion Monte Carlo simulations
+to obtain
+the ground state
+of both spin-1/2 fermions with short range interactions,
+and low-density neutron matter in a 
+cylindrical container, and properties
+of the systems with a vortex line excitation \cite{madeira19}.
+We calculated the equation of state for cold atoms and low-density
+neutron matter in the bulk systems, and we contrasted it to
+our results in the cylindrical container.
+We computed the vortex line excitation energy for different
+interaction strengths, and we found agreement between
+cold gases and neutron matter
+for very low densities.
+We also
+calculated density profiles which allowed us to determine the
+density depletion at the vortex core, which strongly
+depends on the short-ranged interaction in cold atomic gases, but it is of $\approx$ 25\% for neutron
+matter in the density regimes studied in this work.
+Our results can be used to constrain neutron matter properties
+by using measurements from cold Fermi gases experiments.
+
+\subsection{QMC simulations with explicit contributions from the pion field}
+
+In most simulations of nonrelativistic nuclear systems, the wave functions found solving
+the many-body Schr\"odinger equations describe the quantum-mechanical amplitudes of
+the nucleonic degrees of freedom. In those simulations the pionic contributions are
+encoded in nuclear potentials and electroweak currents, and they determine
+the low-momentum behavior.
+
+In Ref.~\cite{mad18} we presented a novel quantum Monte Carlo formalism in
+which both relativistic pions and nonrelativistic nucleons are explicitly included in the quantum-mechanical 
+states of the system.
+We reported the renormalization of the nucleon mass
+as a function of the momentum cutoff, a Euclidean time density
+correlation function that deals with the short-time nucleon diffusion, and the pion cloud density and
+momentum distributions. In the two nucleon sector we showed that the interaction of two static nucleons
+at large distances reduces to the one-pion exchange potential, and we fit the low-energy constants of the
+contact interactions to reproduce the binding energy of the deuteron and two neutrons in finite volumes.
+
+Although we focused on the one- and two-nucleon sector,
+we showed that the method can be readily applied to light-nuclei
+by providing expressions for the Hamiltonians and trial wave functions
+for $A$ nucleons. Now our efforts are concentrated on performing
+simulations of the triton and alpha-particle, $A=3$ and 4, respectively.
+We found evidences that these systems are overbound, even for
+relatively small cutoffs. Currently, we are investigating the source
+of this overbinding, and possible ways of circumventing it.
+
+\section{Scientific production}
+
+At the time of the last renewal request,
+our paper
+``Quantum Monte Carlo formalism for dynamical pions and nucleons''
+was under review by the
+Physical 
+Review C journal. During this current allocation it was published \cite{mad18}.
+Our findings regarding
+vortices in strongly interacting fermionic systems
+have been summarized into a manuscript entitled
+``Vortices in
+low-density neutron matter and cold Fermi gases''\cite{madeira19},
+which is
+under review by the Physical
+Review C journal.
+
+%\newpage
+\bibliographystyle{unsrt}
+\bibliography{xsede}
+\end{document}
