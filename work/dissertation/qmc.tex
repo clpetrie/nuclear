@@ -45,12 +45,14 @@ Variational Monte Carlo starts with a trial wave function, $\psi_T$, that should
 \begin{equation}
    \Psi_T(\R) = c_0\Psi_0(\R) + \sum\limits_n c_n \Psi_n(\R).
 \end{equation}
-The expectation value of the Hamiltonian in the trial state gives what is called the variational energy. Due to the overlap with excited states the variational principle guarantees that the variational energy will be an upper bound to the true ground-state wave function.
+The expectation value of the Hamiltonian in the trial state gives what is called the variational energy. Due to the overlap with excited states the variational principle guarantees that the variational energy will be an upper bound to the true ground-state wave function as long as the trial wave function obeys the true symmetries of the system
 \begin{equation}
-   E_V = \frac{\int\psi_T^*(\R)H\psi_T(\R)d\R}{\int\psi_T^*(\R)\psi_T(\R)d\R} \ge E_0
+   E_V = \frac{\int\psi_T^*(\R)H\psi_T(\R)d\R}{\int\psi_T^*(\R)\psi_T(\R)d\R} \ge E_0.
 \end{equation}
+For example a lower energy might be obtained by a wave function with a symmetric part, however the fermionic antisymmetry of the wave function is enforced. Other symmetries of the system are enforced including charge, particle number, and total angular momentum. This can be useful to calculate energies of different angular momentum states.
 
-This integral is calculated using Monte Carlo integration and so it needs to be rewritten to match the form of Equation~\ref{equ:mci}. One way to get it into this form is to multiply the top integrand by $\psi_T(\R)\psi_T^{-1}(\R)$ which gives
+
+This integral is calculated using Monte Carlo integration and so it needs to be rewritten to match the form of Equation~\ref{equ:mci}. One way to get it into this form is to multiply and divide the numerator by $\psi_T^*(\R)\psi_T(\R)$ which gives
 \begin{equation} 
   E_V = \int P(\R) E_L(\R) d\R,
 \end{equation}
