@@ -1,4 +1,4 @@
-\section{Trial Wave Function}
+\chapter{Trial Wave Function}
 An accurate trial wave function can drastically improve the accuracy of a variational QMC method such as VMC and AFDMC. Most highly accurate trial wave functions are computationally intractable and are never implemented in QMC methods. In addition to being accurate and computationally tractable a good wave function must satisfy known physical properties such as cluster decomposition as well as having an overall antisymmetry with respect to particle exchange due to the spin-1/2 property of nucleons.
 
 Cluster decomposition arises from the physical intuition that the wave function of two separate, non-interacting systems, $A$ and $B$ as in Figure~\ref{fig:cluster}, can be written as the outer product of their respective wave functions.
@@ -26,7 +26,7 @@ The second property is that the wave function be antisymmetric overall. Since nu
 %   \label{fig:cluster}
 %\end{figure}
 
-\subsection{Slater Determinant}
+\section{Slater Determinant}
 One of the simplest wave functions that satisfies the two properties specified above is the Slater determinant. The Slater determinant has been the starting place for a variety of many-body calculations in nuclear and condensed matter physics alike. In condensed matter the many-body wave functions will often be written in terms of a sum of weighted Slater determinants, where some methods have been able to use a sum of up to 2 billion determinants \cite{huron1973,li2018}. In nuclear physics a single determinant is often used for closed shell calculations and a sum of a small number  of weighted determinants is used for open shell systems. For small to medium mass open-shell nuclei on the order of 10 or 100 determinants are often used. A Slater determinant is an antisymmetrized product of single particle, non-interacting, wave functions
 \begin{equation}
    \Psi_{SD}(\R,S) = \mathcal{A} \left[\phi_1(\r_1)\phi_2(\r_2) \ldots \phi_A(\r_A)\right] =
@@ -84,7 +84,7 @@ The Slater determinant is a mean-field wave function and is often used with Jast
 \end{equation}
 These correlations are spin-isospin independent and depend only on the particle separation and improve upon the uncorrelated Slater determinant wave function significantly. To maintain the cluster decomposition the functions $f(r_{ij})$ must go to unity for large particle separations. In this work I have used Slater determinant wave functions with a Jastrow factor and spin-isospin dependent correlations which will be discussed in a later section.
 
-\subsection{Pfaffian Wave Function}
+\section{Pfaffian Wave Function}
 Another wave function that obeys these properties is the paired Pfaffian wave function. This wave function was developed to describe Cooper pairs which form when, at low temperature, paired fermions, such as electrons or liquid $^3$He, are energetically favorable to free particles \cite{cooper1956,leggett1975}. This idea was then expanded and used to explain superconductivity as the condensation of these bosonic cooper pairs into the ground state \cite{bardeen1957,bardeen1957_2}. A Pfaffian wave function was then introduced to describe these paired systems by Bouchaud {\it et al.} in 1988 \cite{bouchaud1988}.
 
 The BCS, or Pfaffian, pairing wave function can be written as an antisymmetrized product of pairing wave functions, thus keeping the antisymmetry of the constituent fermions explicitly. That is,
@@ -99,7 +99,7 @@ This wave function, like the Slater determinant, can be used with additional Jas
 \end{equation}
 For more information and a more detailed use and description of this wave function I refer the reader to \cite{madeira2018_diss}.
 
-\subsection{Spin-Isospin Dependent Correlations}
+\section{Spin-Isospin Dependent Correlations}
 The nuclear Hamiltonian has a strong dependence on spin and isospin, and to ensure good overlap with the trial wave function, the wave function must include spin-isospin dependent correlations. From here on I will be using the Slater determinant for the long-range part of the wave function. To improve on the Jastrow correlations in Equation~\ref{equ:jastrow}, spin-isospin dependent correlations can be included that obey the properties of cluster decomposability and overall antisymmetry.
 
 I have come up with two such correlations, the exponentially correlated,
@@ -131,7 +131,7 @@ These correlations are symmetric, allowing for the full wave function to be anti
 \end{figure}
 In figure~\ref{fig:energy_jaslin} it is clear to see that the additional spin-isospin correlations are important for both systems larger than $^4$He.
 
-\subsubsection{Quadratic Correlations}
+\subsection{Quadratic Correlations}
 In this project I have included correlations up to quadratic order which includes up to 4 nucleons begin correlated at once. When expanded to quadratic order the symmetrized product wave function, Equation~\ref{equ:prodpsi}, becomes
 \begin{equation}
    \begin{split}
@@ -344,7 +344,7 @@ In recent years efforts have been made to fit infinite matter saturation propert
    \label{fig:saturation}
 \end{figure}
 
-\subsubsection{Exponential Correlations}
+\subsection{Exponential Correlations}
 From the wave function using the expansion up to quadratic terms it is clear that an improved trial wave function is necessary to describe the state of larger nuclei and nuclear matter. It was also shown in the previous sections that expanding the current wave functions, Equations~\ref{equ:exppsi} and \ref{equ:prodpsi} is not an efficient method to improve the wave function, as the cost of each additional term grows exponentially. However, another option is to evaluate the full wave function using a Monte Carlo sampling. The exponential wave function is written as
 \begin{equation}
    \ket{\Psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j,p}f_p(r_{ij})\Oijp} \ket{\Phi},
@@ -400,4 +400,4 @@ Minimal success has been achieved with these correlations for light nuclei \cite
 
 One difference between this wave function and the propagator used in AFDMC is the lack of a small time step. This wave function contains no time step and so there is no way to ensure that commutator terms will be small. Another possible issue arises when evaluating the derivative in the kinetic energy. The shifting of the walker positions causes the $A$ matrices to be discontinuous, and thus causing large uncertainties in the calculation of the derivative.
 
-\subsubsection{Alessandro's correlations and $T^2$ fix to them - \red{Maybe just do $T^2$ fix and apply it to exponential correlations \ldots maybe don't include this at all.}}
+\subsection{Alessandro's correlations and $T^2$ fix to them - \red{Maybe just do $T^2$ fix and apply it to exponential correlations \ldots maybe don't include this at all.}}
