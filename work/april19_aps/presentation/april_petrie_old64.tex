@@ -1,4 +1,5 @@
-\documentclass[aspectratio=169]{beamer}
+\documentclass{beamer}
+%\documentclass[aspectratio=169]{beamer}
 \usepackage{tikz} %for mindmap
 \usetikzlibrary{mindmap} %for mindmap
 \usepackage{pgfpages}
@@ -68,7 +69,8 @@
 \newcommand{\Oijp}{\mathcal{O}^p_{ij}}
 
 \title[Improved trial wave function for QMC]{Improved trial wave functions with 4-body correlations for Nuclear Quantum Monte Carlo}
-\author[Cody L. Petrie, cody.petrie@asu.edu]{Cody L. Petrie}
+\author[Cody L. Petrie, cody.petrie@asu.edu]{Cody L. Petrie\\
+Advisor: Kevin Schmidt}
 \institute{Arizona State University \\ Tempe, AZ}
 \date{}
 
@@ -155,21 +157,8 @@ Denver, Colorado \\
    \begin{equation*}
       \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left(1+\sum\limits_{i<j}\sum\limits_p\fpij\Opij\right) \ket{\phi}
    \end{equation*}
-%   \item We have expanded this by including terms up to quadratic order, $\mathcal{O}_{ij}\mathcal{O}_{kl}$.
+   \item We have expanded this by including terms up to quadratic order, $\mathcal{O}_{ij}\mathcal{O}_{kl}$.
 \end{itemize}
-\begin{columns}
-\begin{column}{0.5\textwidth}
-   \vspace{-0.8cm}
-   \begin{figure}[h]
-      \centering
-      \includegraphics[width=0.90\textwidth]{energy_jaslin.eps}
-   \end{figure}
-\end{column}
-\begin{column}{0.5\textwidth}
-   \underline{Jastrow:} {S. Gandolfi et al. \textit{Phys. Rev. Lett.,} \textbf{99}, 022507, 2007.} \\~\\
-   \underline{Jastrow+Linear:} {S. Gandolfi et al. \textit{Phys. Rev. C.,} \textbf{90}, 061306(R), 2014.}
-\end{column}
-\end{columns}
 \end{frame}
 
 \begin{frame}{Quadratic Correlations}
@@ -184,7 +173,7 @@ Denver, Colorado \\
 \end{itemize}
 \begin{figure}[h]
    \centering
-   \includegraphics[width=0.7\textwidth]{pairing_fullquad.pdf}
+   \includegraphics[width=1.0\textwidth]{pairing_fullquad.pdf}
 \end{figure}
 \end{frame}
 
@@ -200,79 +189,59 @@ Denver, Colorado \\
 \end{itemize}
 \begin{figure}[h]
    \centering
-   \includegraphics[width=0.5\textwidth]{pairing.pdf}
+   \includegraphics[width=0.7\textwidth]{pairing.pdf}
 \end{figure}
 \end{frame}
 
 \subsection{Results}
-\begin{frame}{Results - AFDMC}
-\begin{columns}
-   \begin{column}{0.5\textwidth}
-   %\begin{textblock*}{\textwidth}(0.0cm,-0.6cm) % {block width} (coords)
-   \begin{figure}[h]
-      \centering
-      \includegraphics[width=1.0\textwidth]{energy.eps}
-   \end{figure}
-   %\end{textblock*}
-\end{column}
-%~\\~\\~\\~\\~\\~\\~\\~\\
-\begin{column}{0.5\textwidth}
-   \tiny
-   \begin{table}[htb]
+\begin{frame}{Results}
+\begin{textblock*}{\textwidth}(0.0cm,-0.6cm) % {block width} (coords)
+\begin{figure}[h]
    \centering
-   \caption[]{Energy (*per nucleon) in MeV}
-   \begin{tabular}{ccccc}
-   \hline\hline
-   System & Linear & IP Quadratic & Quadratic & Experimental\\
-   \hline
-   %${}^{4}${He}   & -27.14(4) & -27.22(3)    & -27.11(3)    & -28.295   \\
-   %${}^{16}${O}   & -115.7(9) & -121.5(1.5)  & -120.0(1.4)  & -127.62   \\
-   %${}^{40}${Ca}  & -324(3)   & -347(8)      & -349(5)      & -342.1    \\
-   %SNM*           & -13.92(6) & -14.80(7)    & -14.70(11)   &           \\
-   ${}^{4}${He}   & -27.14(4) & -27.19(3)    & -27.11(3)    & -28.296   \\
-   ${}^{16}${O}   & -115.7(9) & -122.4(1.5)  & -120.8(1.3)  & -127.62   \\
-   ${}^{40}${Ca}  & -322(3)   & -350(10)     & -351(6)      & -342.1    \\
-   SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
-   \hline\hline
-   \end{tabular}
-   \label{tab:psi2}
-   \end{table}
-\end{column}
-\end{columns}
-{~\\ \tiny D. Lonardoni et al. \textit{Phys. Rev. C.,} \textbf{97}, 044318, 2018.}
-\end{frame}
-
-\begin{frame}{Results - VMC}
-   \begin{figure}[h]
-      \centering
-      \includegraphics[width=0.5\textwidth]{energy_vmc.eps}
-   \end{figure}
+   \includegraphics[width=0.6\textwidth]{energy.eps}
+\end{figure}
+\end{textblock*}
+~\\~\\~\\~\\~\\~\\~\\~\\
+\tiny
+\begin{table}[htb]
+\centering
+\caption[]{Energy (*per nucleon) in MeV}
+\begin{tabular}{ccccc}
+\hline\hline
+System & Linear & IP Quadratic & Quadratic & Experimental\\
+\hline
+%${}^{4}${He}   & -27.14(4) & -27.22(3)    & -27.11(3)    & -28.295   \\
+%${}^{16}${O}   & -115.7(9) & -121.5(1.5)  & -120.0(1.4)  & -127.62   \\
+%${}^{40}${Ca}  & -324(3)   & -347(8)      & -349(5)      & -342.1    \\
+%SNM*           & -13.92(6) & -14.80(7)    & -14.70(11)   &           \\
+${}^{4}${He}   & -27.14(4) & -27.19(3)    & -27.11(3)    & -28.296   \\
+${}^{16}${O}   & -115.7(9) & -122.4(1.5)  & -120.8(1.3)  & -127.62   \\
+${}^{40}${Ca}  & -322(3)   & -350(10)     & -351(6)      & -342.1    \\
+SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
+\hline\hline
+\end{tabular}
+\label{tab:psi2}
+\end{table}
+{\tiny D. Lonardoni et al. \textit{Phys. Rev. C.,} \textbf{97}, 044318, 2018.}
 \end{frame}
 
 \begin{frame}{Quadratic Correlation Cost}
-\begin{columns}
-\begin{column}{0.48\textwidth}
-   \begin{figure}[h]
-      \centering
-      \includegraphics[width=1.1\textwidth]{scaling.eps}
-   \end{figure}
-\end{column}
-\begin{column}{0.52\textwidth}
-   %\vspace{-0.2cm}
-   \small
-   \begin{table}[h!]
-      \centering
-      \begin{tabular}{ccccc}
-         \hline \hline
-          & $^{4}$He & $^{16}$O & SNM(28) & $^{40}$Ca \\
-         \hline
-         IP Quadratic & 1.73 & 30.7 & 64.8 & 720.9 \\
-         Quadratic & 2.00 & 58.8 & 133.6 & 1473.9 \\
-         \hline \hline
-      \end{tabular}
-   \end{table}
-\end{column}
-\end{columns}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.65\textwidth]{scaling.eps}
+\end{figure}
+\vspace{-0.2cm}
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{ccccc}
+      \hline \hline
+       & $^{4}$He & $^{16}$O & SNM(28) & $^{40}$Ca \\
+      \hline
+      IP Quadratic & 1.73 & 30.7 & 64.8 & 720.9 \\
+      Quadratic & 2.00 & 58.8 & 133.6 & 1473.9 \\
+      \hline \hline
+   \end{tabular}
+\end{table}
 \end{frame}
 
 \section{Conclusion}
@@ -291,7 +260,7 @@ Denver, Colorado \\
 
 \begin{frame}{Thanks}
 Advisor: Kevin Schmidt (ASU) \\
-Collaborators: Stefano Gandolfi (LANL), Joe Carlson (LANL), and Diego Lonardoni (MSU-FRIB and LANL) 
+Collaborators: Stefano Gandolfi (LANL) and Joe Carlson (LANL)
 \\~\\
 \begin{figure}[h]
    \centering
@@ -310,6 +279,80 @@ Collaborators: Stefano Gandolfi (LANL), Joe Carlson (LANL), and Diego Lonardoni 
 \end{centering}
 \end{frame}
 
+\begin{frame}{Variational Monte Carlo - Implementation}
+\begin{enumerate}
+   \item Generate N configurations (walkers) distributed randomly.
+   \item Loop over each walker and do the following
+   \begin{enumerate}
+      \setlength\itemsep{0.2em}
+      \item Calculate $P(\R) = \left|\braket{\Psi_T}{\R}\right|^2$.
+      \item Propose a move $\R' = \R + \Delta\xi$, where $\xi$ could be a vector of random variables from a Gaussian.
+      \item Calculate $P(\R') = \left|\braket{\Psi_T}{\R'}\right|^2$.
+      \item Calculate the probability of acceptance $A=\mathrm{min}\left(1,\frac{P(\R')}{P(\R)}\right)$.
+      \item If accepted then $\R \rightarrow \R'$, else the next position in the Markov Chain for that walker is the same as the last, namely $\R$.
+   \end{enumerate}
+   \item Calculate observables and repeat steps 2 until energy is minimized or uncertainties are low enough.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Diffusion Monte Carlo - Branching}
+Branching: Each walker can be deleted or multiply. The number of walkers that continues is equal to $\mathrm{int}\left(w(\R')+\xi\right)$, where $\xi$ is a uniform random number from $[0,1]$.
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\begin{figure}
+   \includegraphics[width=0.9\textwidth]{branch_full.png}
+\end{figure}
+\end{column}
+\begin{column}{0.7\textwidth}
+   {\color{blue}{Figure:}} Reprinted from W.M.C. Foulkes et al. \textit{Rev. Mod. Phys.,} 73:33-83, 2001.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Diffusion Monte Carlo - Short Time Propagator}
+   \begin{equation*}
+      \braket{\R_N}{\Psi_T(\tau)} = \int d\R_1 \ldots d\R_N \left[\prod\limits_{i=1}^N G(\R_i,\R_{i-1},\Delta\tau)\right] \braket{\R_0}{\Psi_T(0)}
+   \end{equation*}
+   \begin{equation*}
+      G(\R',\R,\Delta\tau) = \bra{\R'}e^{-(H-E_0)\Delta\tau}\ket{\R}
+   \end{equation*}
+\end{frame}
+
+\begin{frame}{Diffusion Monte Carlo - Implementation}
+\begin{enumerate}
+   \item Start with N configurations (walkers) from VMC
+   \item Loop over each walker and do the following
+   \begin{enumerate}
+      \setlength\itemsep{0.2em}
+      \item Propose a move, $\R' = \R + \chi$, where $\chi$ is a vector of random numbers from the shifted Gaussian $\exp\left(\frac{m}{2\hbar^2\Delta\tau}\left(\R'-\R+2\frac{\nabla\Psi_I(\R')}{\Psi_I(\R')}\right)^2\right)$.
+      \item The move is then accepted with the probability $A(\R'\leftarrow\R)=\mathrm{min}\left(1,\frac{\Psi_T^2(\R')}{\Psi_T^2(\R)}\right)$.
+      \item Calculate the weight $w(\R')=\exp\left(-\left(E_L(\R')+E_L(\R)-2E_0\right)\Delta\tau/2\right)$.
+      \item Do branching.
+      \item Calculate and collect the observables and uncertainties needed and increase the imaginary time by $\Delta\tau$.
+   \end{enumerate}
+   \item Repeat from step 2 to 6 until the uncertainties are small enough.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Quadratic Correlation Cost}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.65\textwidth]{scaling.eps}
+\end{figure}
+\vspace{-0.2cm}
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{ccccc}
+      \hline \hline
+       & $^{4}$He & $^{16}$O & SNM(28) & $^{40}$Ca \\
+      \hline
+      IP Quadratic & 1.73 & 30.7 & 64.8 & 720.9 \\
+      Quadratic & 2.00 & 58.8 & 133.6 & 1473.9 \\
+      \hline \hline
+   \end{tabular}
+\end{table}
+\end{frame}
+
 \begin{frame}{Neutron Stars - Preliminary}
 \begin{itemize}
    \item Use new wave function to study $\alpha$ formation in the inner crust of neutron stars.
@@ -320,23 +363,23 @@ Collaborators: Stefano Gandolfi (LANL), Joe Carlson (LANL), and Diego Lonardoni 
 \vspace{-0.5cm}
 \begin{figure}[h]
    \centering
-   \includegraphics[width=0.4\textwidth]{neutronstar.png}
+   \includegraphics[width=0.5\textwidth]{neutronstar.png}
 \end{figure}
 W. Newton {\it Nature Physics} {\bf 9}, 396-397 (2013)
 %\begin{textblock*}{\textwidth}(8.1cm,-4.6cm) % {block width} (coords)
-\begin{textblock*}{\textwidth}(9.8cm,-4.6cm) % {block width} (coords)
+\begin{textblock*}{\textwidth}(8.1cm,-4.4cm) % {block width} (coords)
    \tiny $\approx$ 0.00024 fm$^{-3}$
 \end{textblock*}
 %\begin{textblock*}{\textwidth}(7.8cm,-4.1cm) % {block width} (coords)
-\begin{textblock*}{\textwidth}(9.5cm,-4.0cm) % {block width} (coords)
+\begin{textblock*}{\textwidth}(7.8cm,-3.9cm) % {block width} (coords)
    \tiny $\approx$ 0.030 fm$^{-3}$
 \end{textblock*}
 %\begin{textblock*}{\textwidth}(7.6cm,-3.8cm) % {block width} (coords)
-\begin{textblock*}{\textwidth}(9.3cm,-3.7cm) % {block width} (coords)
+\begin{textblock*}{\textwidth}(7.6cm,-3.6cm) % {block width} (coords)
    \tiny $\approx$ 0.084 fm$^{-3}$
 \end{textblock*}
 %\begin{textblock*}{\textwidth}(6.4cm,-1.3cm) % {block width} (coords)
-\begin{textblock*}{\textwidth}(8.1cm,-1.1cm) % {block width} (coords)
+\begin{textblock*}{\textwidth}(6.4cm,-1.1cm) % {block width} (coords)
    \tiny $\approx$ 0.60 fm$^{-3}$
 \end{textblock*}
 \end{frame}
@@ -352,7 +395,7 @@ W. Newton {\it Nature Physics} {\bf 9}, 396-397 (2013)
    \begin{column}{0.6\textwidth}
    \begin{figure}[h]
       \centering
-      \includegraphics[width=0.75\textwidth]{alpha.png}
+      \includegraphics[width=\textwidth]{alpha.png}
    \end{figure}
    \end{column}
    \hspace{-0.6cm}
@@ -387,80 +430,25 @@ W. Newton {\it Nature Physics} {\bf 9}, 396-397 (2013)
 \vspace{-0.4cm}
 \begin{figure}[h]
    \centering
-   \includegraphics[width=0.5  \textwidth]{gpp.png}
+   \includegraphics[width=0.72\textwidth]{gpp.png}
 \end{figure}
 \end{frame}
 
 \begin{frame}{Pair Correlation Function - Preliminary}
    \begin{columns}
-   \begin{column}{0.55\textwidth}
+   \begin{column}{0.6\textwidth}
    \begin{figure}[h]
       \centering
       \includegraphics[width=\textwidth]{gpp.png}
    \end{figure}
    \end{column}
-   \begin{column}{0.55\textwidth}
+   \begin{column}{0.6\textwidth}
    \begin{figure}[h]
       \centering
       \includegraphics[width=\textwidth]{gpp_small.png}
    \end{figure}
    \end{column}
    \end{columns}
-\end{frame}
-
-\begin{frame}{Variational Monte Carlo - Implementation}
-\begin{enumerate}
-   \item Generate N configurations (walkers) distributed randomly.
-   \item Loop over each walker and do the following
-   \begin{enumerate}
-      \setlength\itemsep{0.2em}
-      \item Calculate $P(\R) = \left|\braket{\Psi_T}{\R}\right|^2$.
-      \item Propose a move $\R' = \R + \Delta\xi$, where $\xi$ could be a vector of random variables from a Gaussian.
-      \item Calculate $P(\R') = \left|\braket{\Psi_T}{\R'}\right|^2$.
-      \item Calculate the probability of acceptance $A=\mathrm{min}\left(1,\frac{P(\R')}{P(\R)}\right)$.
-      \item If accepted then $\R \rightarrow \R'$, else the next position in the Markov Chain for that walker is the same as the last, namely $\R$.
-   \end{enumerate}
-   \item Calculate observables and repeat steps 2 until energy is minimized or uncertainties are low enough.
-\end{enumerate}
-\end{frame}
-
-\begin{frame}{Diffusion Monte Carlo - Branching}
-Branching: Each walker can be deleted or multiply. The number of walkers that continues is equal to $\mathrm{int}\left(w(\R')+\xi\right)$, where $\xi$ is a uniform random number from $[0,1]$.
-\begin{columns}
-\begin{column}{0.4\textwidth}
-\begin{figure}
-   \includegraphics[width=0.7\textwidth]{branch_full.png}
-\end{figure}
-\end{column}
-\begin{column}{0.7\textwidth}
-   {\color{blue}{Figure:}} Reprinted from W.M.C. Foulkes et al. \textit{Rev. Mod. Phys.,} 73:33-83, 2001.
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Diffusion Monte Carlo - Short Time Propagator}
-   \begin{equation*}
-      \braket{\R_N}{\Psi_T(\tau)} = \int d\R_1 \ldots d\R_N \left[\prod\limits_{i=1}^N G(\R_i,\R_{i-1},\Delta\tau)\right] \braket{\R_0}{\Psi_T(0)}
-   \end{equation*}
-   \begin{equation*}
-      G(\R',\R,\Delta\tau) = \bra{\R'}e^{-(H-E_0)\Delta\tau}\ket{\R}
-   \end{equation*}
-\end{frame}
-
-\begin{frame}{Diffusion Monte Carlo - Implementation}
-\begin{enumerate}
-   \item Start with N configurations (walkers) from VMC
-   \item Loop over each walker and do the following
-   \begin{enumerate}
-      \setlength\itemsep{0.2em}
-      \item Propose a move, $\R' = \R + \chi$, where $\chi$ is a vector of random numbers from the shifted Gaussian $\exp\left(\frac{m}{2\hbar^2\Delta\tau}\left(\R'-\R+2\frac{\nabla\Psi_I(\R')}{\Psi_I(\R')}\right)^2\right)$.
-      \item The move is then accepted with the probability $A(\R'\leftarrow\R)=\mathrm{min}\left(1,\frac{\Psi_T^2(\R')}{\Psi_T^2(\R)}\right)$.
-      \item Calculate the weight $w(\R')=\exp\left(-\left(E_L(\R')+E_L(\R)-2E_0\right)\Delta\tau/2\right)$.
-      \item Do branching.
-      \item Calculate and collect the observables and uncertainties needed and increase the imaginary time by $\Delta\tau$.
-   \end{enumerate}
-   \item Repeat from step 2 to 6 until the uncertainties are small enough.
-\end{enumerate}
 \end{frame}
 
 \fi

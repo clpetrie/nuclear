@@ -90,7 +90,48 @@ where the spin-isospin dependent Hamiltonian, $H_{S',S}$ can take a spin state f
 Once evaluated the variational energy will be an upper bound to the ground state energy of the system. The $\Psi_T(\R)$ is written in terms of variational parameters which are varied to minimize the variational energy. A minimum in the energy will be produced when $\Psi_T \rightarrow \Psi_0$. It is important to note however that the trial wave functions that we often use are not exactly the ground-state wave functions and so the energies that we produce are only the minimum energy for that form of the trial wave function. As such, it is important to start with the best trial wave function form possible. Also, this algorithm can converge to a local minimum, and so it is again important to start with a good initial trial wave function.
 
 \subsection{Variational Optimization}
-The goal of an optimization method is to update the variational parameters in a way that lowers the energy. There are various methods for doing this including the Newton method (\cite{casalegno2003,umrigar2005}), the Linear method \cite{toulouse2007}, and the Stochastic Reconfiguration (SR) method (\cite{casula2004,sorella2001,sorella2005}), which we have used in this work. For systems with a small number of parameters the SR method is not the most efficient, however, for systems with a large number of parameters SR is very efficient.
+The goal of all optimization method used with VMC is to update the variational parameters in a way that minimizes the energy. There are various methods for doing this including the Newton method (\cite{casalegno2003,umrigar2005}), the Linear method \cite{toulouse2007}, and the Stochastic Reconfiguration (SR) method (\cite{casula2004,sorella2001,sorella2005}), which we have used in this work. For systems with a small number of parameters the SR method is not the most efficient, however, for systems with a large number of parameters SR is often very effective.
+
+Optimization methods all try to minimize the energy by efficiently updating the parameters until a minimum in the energy, or the uncertainty, are obtained. The SR method was inspired by the Lanczos method in which the operator
+\begin{equation}
+   G = \left(\Lambda I - H\right),
+\end{equation}
+is used to repeatedly operate on the trial wave function, as described in \cite{heeb1994} and \cite{sorella2001}. $G$ inverts the energy spectrum so that the lowest energy state has the highest eigenvalue, and as long as $\Lambda$ is chosen to be large enough, repeated operations increase the overlap with the lowest energy state, effectively projecting it out of the wave function. Similarly in SR the trial wave function is though to be iterated where the next wave function can be be written in terms of the previous wave function and it's derivatives with respect to the parameters
+\begin{equation}
+   \ket{\psi_{n+1}} = \gamma_0\ket{\Psi_n} + \gamma_1\frac{\partial}{\partial \alpha_1}\ket{\Psi_n} + \ldots + \gamma_p\frac{\partial}{\partial \alpha_p}\ket{\Psi_n},
+   \label{equ:SRapproxgamma}
+\end{equation}
+where $p$ is the total number of parameters, and the $\gamma_k$ are parameters that can be optimized to minimize the energy.
+
+By following the prescription in \cite{sorella2001}, optimizing the $\gamma_k$ parameters is done using
+\begin{equation}
+   \gamma_k = \sum\limits_k s^{-1}_{i,k} \bra{\psi_T}\mathcal{O}_k\ket{\psi_{n+1}},
+\end{equation}
+where
+\begin{equation}
+   s_{i,k} = \sum\limits_x \frac{\bra{\psi_T}\mathcal{O}^i_x\mathcal{O}^k_x\ket{\psi_T}}{\braket{\psi_T}{\psi_T}},
+\end{equation}
+\begin{equation}
+   O^k_x = \frac{\bra{\psi_T}\mathcal{O}^k\ket{x}}{\braket{\psi_T}{x}},
+\end{equation}
+\begin{equation}
+   \mathcal{O}_k = \frac{\partial \ln \Psi_\alpha}{\partial \alpha_k} = \frac{\partial_{\alpha_k} \Psi_\alpha}{\Psi_\alpha},
+\end{equation}
+and $x$ are the walker configurations.
+
+This is then compared to the expansion of the wave function iteratively optimized in terms of the variational parameters $\alpha_k$
+\begin{equation}
+   \ket{\psi_T(\alpha+\Delta\alpha)} = \ket{\psi_T(\alpha)} + \sum\limits_k \Delta\alpha_k \frac{\partial}{\partial\alpha_k}\ket{\psi_T(\alpha)} + \sum\limits_{kk'} \Delta\alpha_k\Delta\alpha_{k'} \frac{\partial^2}{\partial\alpha_k\partial\alpha_{k'}}\ket{\psi_T(\alpha)} + \ldots.
+\end{equation}
+Assuming that the parameter changes are small this can be truncated to linear order and compared to Equation~\ref{equ:SRapproxgamma} to give $\Delta\alpha_k = \gamma_k/\gamma_0$. The method follows the following algorithm.
+\begin{enumerate}
+   \item Start with a reasonable guess for the parameters $\alpha_k$.
+   \item Perform a VMC calculation of the energy with the given parameters.
+   \item Calculate derivatives of the wave function and energy with respect to the parameters.
+   \item Find optimal values for $\gamma_k$ by optimizing Equation~\ref{equ:SRapproxgamma}.
+   \item Reset the parameters to $\alpha_k' \rightarrow \alpha_k + \Delta\alpha_k$ where $\Delta\alpha_k = \gamma_k/\gamma_0$.
+   \item Repeat steps 2 through 5 until the energy or uncertainty is sufficiently low.
+\end{enumerate}
 
 \section{Diffusion Monte Carlo}
 Diffusion Monte Carlo (DMC) solves for the ground-state by letting the walkers diffuse in imaginary time. The Schr\"odinger equation
