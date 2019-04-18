@@ -17,7 +17,7 @@ Cluster decomposition arises from the physical intuition that the wave function 
 \end{figure}
 If a system is not cluster decomposable unphysical correlations between non-interacting systems can occur.
 
-The second property is that the wave function be antisymmetric overall. Since nucleons are fermions and the only degrees of freedom used in these calculations the product of different pieces of the wave function must be antisymmetric. Recent work in QMC has successfully included bosonic degrees of freedom such as pions \cite{madeira2018}, however that is not the case in this work.
+The second property is that the wave function be antisymmetric overall. Since nucleons are fermions and the only degrees of freedom used in these calculations the product of different pieces of the wave function must be antisymmetric. Recent work in QMC has successfully included bosonic degrees of freedom such as pions (\cite{madeira2018}), however that is not the case in this work.
 
 %\begin{figure}[h!]
 %   \centering
@@ -27,7 +27,7 @@ The second property is that the wave function be antisymmetric overall. Since nu
 %\end{figure}
 
 \section{Slater Determinant}
-One of the simplest wave functions that satisfies the two properties specified above is the Slater determinant. The Slater determinant has been the starting place for a variety of many-body calculations in nuclear and condensed matter physics alike. In condensed matter the many-body wave functions will often be written in terms of a sum of weighted Slater determinants, where some methods have been able to use a sum of up to 2 billion determinants \cite{huron1973,li2018}. In nuclear physics a single determinant is often used for closed shell calculations and a sum of a small number  of weighted determinants is used for open shell systems. For small to medium mass open-shell nuclei on the order of 10 or 100 determinants are often used. A Slater determinant is an antisymmetrized product of single particle, non-interacting, wave functions
+One of the simplest wave functions that satisfies the two properties specified above is the Slater determinant. The Slater determinant has been the starting place for a variety of many-body calculations in nuclear and condensed matter physics alike. In condensed matter the many-body wave functions will often be written in terms of a sum of weighted Slater determinants, where some methods have been able to use a sum of up to 2 billion determinants (\cite{huron1973,li2018}). In nuclear physics a single determinant is often used for closed shell calculations and a sum of a small number  of weighted determinants is used for open shell systems. For small to medium mass open-shell nuclei on the order of 10 or 100 determinants are often used. A Slater determinant is an antisymmetrized product of single particle, non-interacting, wave functions
 \begin{equation}
    \Psi_{SD}(\R,S) = \mathcal{A} \left[\phi_1(\r_1)\phi_2(\r_2) \ldots \phi_A(\r_A)\right] =
    \begin{vmatrix}
@@ -85,7 +85,7 @@ The Slater determinant is a mean-field wave function and is often used with Jast
 These correlations are spin-isospin independent and depend only on the particle separation and improve upon the uncorrelated Slater determinant wave function significantly. To maintain the cluster decomposition the functions $f(r_{ij})$ must go to unity for large particle separations. In this work I have used Slater determinant wave functions with a Jastrow factor and spin-isospin dependent correlations which will be discussed in a later section.
 
 \section{Pfaffian Wave Function}
-Another wave function that obeys these properties is the paired Pfaffian wave function. This wave function was developed to describe Cooper pairs which form when, at low temperature, paired fermions, such as electrons or liquid $^3$He, are energetically favorable to free particles \cite{cooper1956,leggett1975}. This idea was then expanded and used to explain superconductivity as the condensation of these bosonic cooper pairs into the ground state \cite{bardeen1957,bardeen1957_2}. A Pfaffian wave function was then introduced to describe these paired systems by Bouchaud {\it et al.} in 1988 \cite{bouchaud1988}.
+Another wave function that obeys these properties is the paired Pfaffian wave function. This wave function was developed to describe Cooper pairs which form when, at low temperature, paired fermions, such as electrons or liquid $^3$He, are energetically favorable to free particles (\cite{cooper1956,leggett1975}). This idea was then expanded and used to explain superconductivity as the condensation of these bosonic cooper pairs into the ground state (\cite{bardeen1957,bardeen1957_2}). A Pfaffian wave function was then introduced to describe these paired systems in 1988 by \cite{bouchaud1988}.
 
 The BCS, or Pfaffian, pairing wave function can be written as an antisymmetrized product of pairing wave functions, thus keeping the antisymmetry of the constituent fermions explicitly. That is,
 \begin{equation}
@@ -112,24 +112,25 @@ and the symmetrized product wave functions,
    \Psi_{\text{SP}}(\R, S) = \bra{\R S}\left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[\mathcal{S}\prod\limits_{i<j}\left(1+\sum\limits_p\fpij\Opij\right)\right] \ket{\phi}.
    \label{equ:prodpsi}
 \end{equation}
-where the $S$ is the symmetrization operator, the $f_c(r_{ij})$ are the same Jastrow correlations as before, and the $\Opij$ are the operators from the AV6' potential, $(1,\si\cdot\sj,S_{ij})\otimes(1,\ti\cdot\tj)$, where the tensor term is $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$. The $f_p(r_{ij})$ functions contain variational parameters and the functional form is determined by solving a Schr\"odinger-type equation with the constraint that the wave function be continuous at the healing distance \cite{pandharipande1979,pandharipande1977}.
+where the $S$ is the symmetrization operator, the $f_c(r_{ij})$ are the same Jastrow correlations as before, and the $\Opij$ are the operators from the AV6' potential, $(1,\si\cdot\sj,S_{ij})\otimes(1,\ti\cdot\tj)$, where the tensor term is $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$. The $f_p(r_{ij})$ functions contain variational parameters and the functional form is determined by solving a Schr\"odinger-type equation with the constraint that the wave function be continuous at the healing distance (\cite{pandharipande1979,pandharipande1977}).
 
 The exponentially correlated wave function obeys cluster decomposition as long as the correlating functions, $f_p(r_{ij})$ go to zero as the particle separation increases. This dampens out unphysical long-range particle correlations between physically separated systems. Also, due to the sum over particle pairs in the exponential, no explicit symmetrization is needed.
 
-The symmetrized product wave function, introduced by Pandharipande and Wiringa in 1979 \cite{pandharipande1979}, requires an explicit symmetrization and is not obviously cluster decomposable. The $f_p(r_{ij})$ functions approach zero as particle separation increases and so the additional 1 is needed to maintain cluster decomposability.
+The symmetrized product wave function, introduced in 1979 by \cite{pandharipande1979}, requires an explicit symmetrization and is not obviously cluster decomposable. The $f_p(r_{ij})$ functions approach zero as particle separation increases and so the additional 1 is needed to maintain cluster decomposability.
 
 When expanded to linear order the exponential and symmetrized product correlations are identical and can be written as
 \begin{equation}
    \ket{\psi_T}_\text{lin} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left(1+\sum\limits_{i<j}\sum\limits_p\fpij\Opij\right) \ket{\phi}.
+   \label{equ:linearcorr}
 \end{equation}
-These correlations are symmetric, allowing for the full wave function to be antisymmetric, however it has lost the cluster decomposability in the approximation. This is because they take the form of summed, not a product of pair correlations. For higher orders expansions these two wave functions differ by commutation relations as well as the inclusion of additional correlation pairs. Until recently, only correlations up to linear order in the expansion were used for AFDMC calculations. Calculations for GFMC use a much better wave function, but have been limited to small nuclei up to $^{12}$C. Calculations done with the AFDMC method have been slowly improving the trial wave function used, as a better wave function is surely needed to describe larger systems. In 2007 AFDMC binding energy calculations were done for $^4$He, $^{16}$O, and $^{40}$Ca using only the Jastrow correlations \cite{gandolfi2007}. These calculations were repeated in 2014 but with the addition of linear correlations \cite{gandolfi2014} and I have plotted the respective results compared to current experimental values here for comparison.
+These correlations are symmetric, allowing for the full wave function to be antisymmetric, however it has lost the cluster decomposability in the approximation. This is because they take the form of summed, not a product of pair correlations. For higher orders expansions these two wave functions differ by commutation relations as well as the inclusion of additional correlation pairs. Until recently, only correlations up to linear order in the expansion were used for AFDMC calculations. Calculations for GFMC use a much better wave function, but have been limited to small nuclei up to $^{12}$C. Calculations done with the AFDMC method have been slowly improving the trial wave function used, as a better wave function is surely needed to describe larger systems. In 2007 AFDMC binding energy calculations were done for $^4$He, $^{16}$O, and $^{40}$Ca using only the Jastrow correlations (\cite{gandolfi2007}). These calculations were repeated in 2014 but with the addition of linear correlations (\cite{gandolfi2014}) and I have plotted the respective results compared to current experimental values here for comparison.
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/energy_jaslin.eps}
-   \caption{Binding energy calculations done with Jastrow correlations \cite{gandolfi2007} compared to Jastrow plus linear spin-isospin dependent correlations \cite{gandolfi2014} all compared to experimental results. All calculations were done with AFDMC and the AV6$'$ potential.}
+   \caption{Binding energy calculations done with Jastrow correlations (\cite{gandolfi2007}) compared to Jastrow plus linear spin-isospin dependent correlations (\cite{gandolfi2014}) all compared to experimental results. All calculations were done with AFDMC and the AV6$'$ potential.}
    \label{fig:energy_jaslin}
 \end{figure}
-In figure~\ref{fig:energy_jaslin} it is clear to see that the additional spin-isospin correlations are important for both systems larger than $^4$He.
+In Figure~\ref{fig:energy_jaslin} it is clear to see that the additional spin-isospin correlations are important for both systems larger than $^4$He.
 
 \subsection{Quadratic Correlations}
 In this project I have included correlations up to quadratic order which includes up to 4 nucleons begin correlated at once. When expanded to quadratic order the symmetrized product wave function, Equation~\ref{equ:prodpsi}, becomes
@@ -206,7 +207,7 @@ If the exponentially correlated wave function, Equation~\ref{equ:exppsi}, is exp
    \end{split}
    \label{equ:expquadcorr}
 \end{equation}
-Unlike the quadratic correlations derived from the symmetrized product this wave function includes all of the the terms in figure~\ref{fig:quaddiagrams}. There is not a large difference between these wave functions up to quadratic order and for here forward all references to quadratic correlations will refer to the expansion from the symmetrized product wave function.
+Unlike the quadratic correlations derived from the symmetrized product this wave function includes all of the the terms in Figure~\ref{fig:quaddiagrams}. There is not a large difference between these wave functions up to quadratic order and for here forward all references to quadratic correlations will refer to the expansion from the symmetrized product wave function.
 
 Another way to include quadratic correlations is to only include terms that do not correlate the same particle twice leaving only independent pair correlations. This is the same whether you start from the exponentially correlated or the symmetrized product wave function and it can be written as
 \begin{equation}
@@ -216,7 +217,7 @@ Another way to include quadratic correlations is to only include terms that do n
    \end{split}
    \label{equ:ipquadcorr}
 \end{equation}
-and the independent pair sum can be visualized as in figure~\ref{fig:ipdiagrams}.
+and the independent pair sum can be visualized as in Figure~\ref{fig:ipdiagrams}.
 \begin{figure}[h]
 \newcommand\shift{2.2}
 \newcommand\vshift{-1.5} %vertical shift
@@ -274,7 +275,7 @@ and the independent pair sum can be visualized as in figure~\ref{fig:ipdiagrams}
 \end{figure}
 All terms where a particle is included twice in the correlation are ignored, as a results, all correlation operators commute and the correlations are explicitly symmetric. Neither of these correlations maintains cluster decomposability, however an effort to build an antisymmetric and cluster decomposable wave function from the exponentially correlated wave function will be discussed later.
 
-The energy and it's uncertainty are used to judge the convergence of a propagated wave function in QMC and so a good wave function needs to be able to reproduce known binding energies. To this end I have calculated binding energies with the linear, quadratic, and independent pair (IP) quadratic correlations derived from the symmetrized product for $^4$He, $^{16}$O, $^{40}$Ca, and symmetric nuclear matter (SNM) at saturation density, $\rho_0=0.16$ fm$^{-3}$, in a period box with 28 particles. The energy per particle for nuclei is plotted in figure~\ref{fig:energies} and the specific energies can be found in table~\ref{tab:energies}.
+The energy and it's uncertainty are used to judge the convergence of a propagated wave function in QMC and so a good wave function needs to be able to reproduce known binding energies. To this end I have calculated binding energies with the linear, quadratic, and independent pair (IP) quadratic correlations derived from the symmetrized product for $^4$He, $^{16}$O, $^{40}$Ca, and symmetric nuclear matter (SNM) at saturation density, $\rho_0=0.16$ fm$^{-3}$, in a period box with 28 particles. The energy per particle for nuclei is plotted in Figure~\ref{fig:energies} and the specific energies can be found in Table~\ref{tab:energies}.
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/energy.eps}
@@ -293,18 +294,18 @@ The energy and it's uncertainty are used to judge the convergence of a propagate
       SNM         & -13.97(3)    & -14.87(4) & -14.70(11)   &        \\
       \hline\hline
    \end{tabular}
-   \label{tab:energies}
    \caption{Energy per particle from AFDMC calculations with no Coulomb interaction with the AV6$'$ interaction. Each calculations was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included.}
+   \label{tab:energies}
 \end{table}
-Like with the addition of Jastrow correlations in figure~\ref{fig:energy_jaslin}, all systems larger than $^4$He decreased in energy with additional correlations, while the binding energy for $^4$He was the same to within uncertainties. In addition, the energies for all systems are identical to within uncertainties for the quadratic and IP quadratic correlations, indicating that the IP correlations capture most of the relevant physics. As a result any further references to quadratic correlations will be referring to the IP quadratic correlations, as these correlations are computationally less expensive, unless a distinction is made otherwise. The percent decrease in energy for $^{16}$O and $^{40}$Ca when adding linear correlations is 15\% and 18\% respectively. When adding quadratic correlations the energies decrease an additional 6\% and 9\% respectively. This indicates that each successive term in the expansion decreases in importance.
+Like with the addition of Jastrow correlations in Figure~\ref{fig:energy_jaslin}, all systems larger than $^4$He decreased in energy with additional correlations, while the binding energy for $^4$He was the same to within uncertainties. In addition, the energies for all systems are identical to within uncertainties for the quadratic and IP quadratic correlations, indicating that the IP correlations capture most of the relevant physics. As a result any further references to quadratic correlations will be referring to the IP quadratic correlations, as these correlations are computationally less expensive, unless a distinction is made otherwise. The percent decrease in energy for $^{16}$O and $^{40}$Ca when adding linear correlations is 15\% and 18\% respectively. When adding quadratic correlations the energies decrease an additional 6\% and 9\% respectively. This indicates that each successive term in the expansion decreases in importance. It is important to note that these calculations were done with the AV6$'$ potential, which is a limited 2-nucleon potential. We do not expect our energies to be equal to experiment due to the lack of the full 2-body, and a complete lack of the 3-body force. The AV6$'$ potential has been used to simplify the calculations and to look for qualitative improvements caused by the additional correlations. Some calculations have been done using more sophisticated potentials with the quadratic correlations, and those results will be shown later.
 
-The energies above are calculated with the AFDMC method. The fixed phase approximation is used to solve the fermi sign problem within AFDMC, and as such the energies are not constrained by the variational principle, i.e. the energies are not strict upper bounds to the ground state energy, as evidenced by the results for $^{40}$Ca, which is actually overbound. The lack of an upper bound prevents us to say strictly that the decrease in energy is because of an improvement in the trial wave function. However, all calculations were first done with the VMC method, which does provide an upper bound constraint. As can be seen in \ref{fig:energies_vmc} and \ref{tab:energies_vmc}, the same conclusions found with the AFDMC calculations are also found with the VMC calculations, as we can say that the quadratic wave functions are actually an improvement.
+The energies above are calculated with the AFDMC method. The fixed phase approximation is used to solve the fermi sign problem within AFDMC, and as such the energies are not constrained by the variational principle, i.e. the energies are not strict upper bounds to the ground state energy, as evidenced by the results for $^{40}$Ca, which is actually overbound. The lack of an upper bound prevents us to say strictly that the decrease in energy is because of an improvement in the trial wave function. However, all calculations were first done with the VMC method, which does provide an upper bound constraint. As can be seen in Figure~\ref{fig:energies_vmc} and Table~\ref{tab:energies_vmc}, the same conclusions found with the AFDMC calculations are also found with the VMC calculations, as we can say that the quadratic wave functions are actually an improvement.
 
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/energy_vmc.eps}
    \caption{Energy per particle for small and medium closed shell nuclei with no Coulomb interaction calculated with the VMC method with the AV6$'$ interaction. Each calculations was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included. Unlike the above results, calculated with the AFDMC method, these VMC results are an upper bound to the ground state energy.}
-   \label{fig:energies}
+   \label{fig:energies_vmc}
 \end{figure}
 \begin{table}[htb]
    \centering
@@ -318,8 +319,8 @@ The energies above are calculated with the AFDMC method. The fixed phase approxi
       SNM         & -8.25(4)     & -10.60(3) & -10.74(2)    &        \\
       \hline\hline
    \end{tabular}
-   \label{tab:energies}
    \caption{Energy per particle from VMC calculations with no Coulomb interaction with the AV6$'$ interaction. Unlike the AFDMC results, these VMC results provide an upper bound to the energy. Each calculations was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included.}
+   \label{tab:energies_vmc}
 \end{table}
 
 
@@ -327,7 +328,7 @@ The energies above are calculated with the AFDMC method. The fixed phase approxi
 
 
 
-There is a significant decrease in energy with the addition of the quadratic correlations, however, there is an additional cost to calculating these additional terms. I have calculated a scaling factor, which is the ratio of times taken to calculate a given block of code, including the propagation of walkers spatial and spin components as well as the calculation of the energies, for linear compared to linear plus quadratic correlations. A scaling factor of 2 would mean that the calculation took twice as long with the quadratic correlations as it did without. The scaling factors are plotted in figure~\ref{fig:scaling} and the specific values are in table~\ref{tab:scaling}.
+There is a significant decrease in energy with the addition of the quadratic correlations, however, there is an additional cost to calculating these additional terms. I have calculated a scaling factor, which is the ratio of times taken to calculate a given block of code, including the propagation of walkers spatial and spin components as well as the calculation of the energies, for linear compared to linear plus quadratic correlations. A scaling factor of 2 would mean that the calculation took twice as long with the quadratic correlations as it did without. The scaling factors are plotted in Figure~\ref{fig:scaling} and the specific values are in Table~\ref{tab:scaling}.
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/scaling.eps}
@@ -344,8 +345,8 @@ There is a significant decrease in energy with the addition of the quadratic cor
       Quadratic & 2.00 & 58.8 & 133.6 & 1473.9 \\
       \hline \hline
    \end{tabular}
+   \caption{Same scaling factors that are calculated in Figure~\ref{fig:scaling}.}
    \label{tab:scaling}
-   \caption{Same scaling factors that are calculated in figure~\ref{fig:scaling}.}
 \end{table}
 The scaling for the quadratic correlations is about twice that of the IP quadratic correlations. This is due to the explicit symmetrization that is done for each quadratic term in the quadratic correlations. This could be decreased if commuting terms were not symmetrized, however as noted before the IP quadratic correlations seem to capture the important physics, and so all future calculations with quadratic correlations will be using the IP correlations. The IP correlations all commute and so no explicit symmetrization is needed. A typical AFDMC calculation using only linear correlations for $^{16}$O with 1000 walkers takes on the order of a tens of CPU hours and a similar calculation for $^{40}$Ca takes on the order of hundreds of CPU hours.
 
@@ -357,7 +358,7 @@ For the fully quadratic wave function the number of terms given $A$ particles is
 \begin{equation}
    N_\text{quad}=\frac{A(A-1)}{2}\left(\frac{A(A-1)}{2}-1\right),
 \end{equation}
-where $A(A-1)/2$ is the number of possible pairs made from $A$ particles. If the fully quadratic correlations are not explicitly symmetrized for the IP terms then this reduces to $N_\text{quad}-N_\text{ip}$. In figure~\ref{fig:scaling_theory} I have plotted the number of terms for the independent pair, fully quadratic, and fully quadratic correlations without symmetrizing the IP terms.
+where $A(A-1)/2$ is the number of possible pairs made from $A$ particles. If the fully quadratic correlations are not explicitly symmetrized for the IP terms then this reduces to $N_\text{quad}-N_\text{ip}$. In Figure~\ref{fig:scaling_theory} I have plotted the number of terms for the independent pair, fully quadratic, and fully quadratic correlations without symmetrizing the IP terms.
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/scaling_theory.eps}
@@ -365,7 +366,7 @@ where $A(A-1)/2$ is the number of possible pairs made from $A$ particles. If the
    \label{fig:scaling_theory}
 \end{figure}
 
-In recent years efforts have been made to fit infinite matter saturation properties with microscopic nuclear interactions \cite{drischler2017}. Calculations of energies near saturation using AFDMC have not been able to fit known saturation properties. I have done calculations of symmetric nuclear matter near saturation with and without quadratic correlations, using only the AV6$'$ 2-body interaction and have compared these results to known saturation properties in figure~\ref{fig:saturation}. Though 3N forces will surely be needed to obtain a good fit, it is clear that improved correlations are also going to be needed.
+In recent years efforts have been made to fit infinite matter saturation properties with microscopic nuclear interactions (\cite{drischler2017}). Calculations of energies near saturation using AFDMC have not been able to fit known saturation properties. I have done calculations of symmetric nuclear matter near saturation with and without quadratic correlations, using only the AV6$'$ 2-body interaction and have compared these results to known saturation properties in Figure~\ref{fig:saturation}. Though 3N forces will surely be needed to obtain a good fit, it is clear that improved correlations are also going to be needed.
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/saturation.eps}
@@ -373,8 +374,143 @@ In recent years efforts have been made to fit infinite matter saturation propert
    \label{fig:saturation}
 \end{figure}
 
+\subsection{Calculating the Two-Body Operators}
+When calculating expectation values with the additional two-body operators of the quadratic correlations, the scaling will increase from $O(A^4)$ to $O(A^6)$ for the calculation of the energy and from $O(A^2)$ to $O(A^4)$ for the calculation of the trial wave function alone. This can be quite expensive, especially for large systems. As a result we have used a technique to reduce the number of calculations by performing reaccuring pieces of the calculations only once at the beginning. Though this doesn't decrease the polynomial scaling it does decrease the factor in front of the polynomial scaling.
+
+The Slater Determinant is the base ingredient to calculating the trial wave function. The Slater matrix is defined as
+\begin{equation}
+   S = \begin{pmatrix}
+      \braket{\alpha_1}{\r_1,s_1} & \braket{\alpha_1}{\r_2,s_2} & \ldots & \braket{\alpha_1}{\r_A,s_A} \\
+      \braket{\alpha_2}{\r_1,s_1} & \braket{\alpha_2}{\r_2,s_2} & \ldots & \braket{\alpha_2}{\r_A,s_A} \\
+      \vdots & \vdots & \ddots & \vdots \\
+      \braket{\alpha_A}{\r_1,s_1} & \braket{\alpha_A}{\r_2,s_2} & \ldots & \braket{\alpha_A}{\r_A,s_A}
+   \end{pmatrix},
+\end{equation}
+where each matrix element will be written as
+\begin{equation}
+   S_{\alpha i} = \braket{\alpha}{\r_i,s_i}.
+\end{equation}
+This can be written in terms of the spin-isospin basis as
+\begin{equation}
+   S_{\alpha i} = \sum\limits_{\gamma=1}^4 \braket{\alpha}{\r_i \chi_\gamma}\braket{\chi_\gamma}{s_i}.
+\end{equation}
+where $\r_i$ and $s_i$ are the positions and spin-isospin configurations of the system, and $\ket{\alpha}$ contains the radial part of the wave function and the spherical harmonics that give the proper angular momentum to each state. The $\ket{\chi_\gamma}$ basis is given in terms of $\ket{p\uparrow}$, $\ket{p\downarrow}$, $\ket{n\uparrow}$, and $\ket{n\downarrow}$ as
+\begin{equation}
+\begin{split}
+   \ket{\chi_1} &= \ket{\left(1,0,0,0\right)} \\
+   \ket{\chi_2} &= \ket{\left(0,1,0,0\right)} \\
+   \ket{\chi_3} &= \ket{\left(0,0,1,0\right)} \\
+   \ket{\chi_4} &= \ket{\left(0,0,0,1\right)}.
+\end{split}
+\end{equation}
+
+The Slater matrix is updated once for every single-body operator and twice for every two-body operator using the identity
+\begin{equation}
+   \det{\left(S^{-1}S'\right)} = \frac{\det{S'}}{\det S},
+   \label{equ:matrixid}
+\end{equation}
+where $S'$ is the Slater matrix that has been updated due to the operaton of a single-body operator.
+
+Using the identity in Equation~\ref{equ:matrixid} allows us to calculate the product $S^{-1}S''$, where $S''$ represents the Slater matrix with only the $i$ and $j$ columns updated. The product $S^{-1}S$ would give the identity matrix and so $S^{-1}S''$ is the identity matrix everywhere except for the columns $i$ and $j$
+\begin{equation}
+   S^{-1}S'' = 
+   \begin{pmatrix}
+      1 & 0 & \ldots & \bra{\alpha_1}\mathcal{O}_i\ket{\r_i,s_i} & \ldots & \bra{\alpha_1}\mathcal{O}_j\ket{\r_j,s_j} & \ldots & 0 & 0 \\
+      0 & 1 & \ldots & \bra{\alpha_2}\mathcal{O}_i\ket{\r_i,s_i} & \ldots & \bra{\alpha_2}\mathcal{O}_j\ket{\r_j,s_j} & \ldots & 0 & 0 \\
+      \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots & \vdots \\
+      0 & 0 & \ldots & \bra{\alpha_A}\mathcal{O}_i\ket{\r_i,s_i} & \ldots & \bra{\alpha_A}\mathcal{O}_j\ket{\r_j,s_j} & \ldots & 0 & 1 \\
+   \end{pmatrix}.
+\end{equation}
+The determinant is then equal to the determinant of the submatrix given by keeping only the elements $\left(S^{-1}S''\right)_{mn}$ where $m$ and $n$ are both of the changed columns
+\begin{equation}
+   \det{S^{-1}S''} =
+   \det\begin{pmatrix}
+      \bra{\alpha_i}\mathcal{O}_i\ket{\r_i,s_i} & \bra{\alpha_i}\mathcal{O}_j\ket{\r_j,s_j} \\
+      \bra{\alpha_j}\mathcal{O}_i\ket{\r_i,s_i} & \bra{\alpha_j}\mathcal{O}_j\ket{\r_j,s_j} \\
+   \end{pmatrix}.
+\end{equation}
+
+In practice the calculation of a two-body operator $\mathcal{O}_{ij}=\mathcal{O}_i\mathcal{O}_j$ is calculated as
+\begin{equation}
+   \frac{\bra{\Phi}\mathcal{O}_{ij}\ket{RS}}{\braket{\Phi}{RS}} = \sum\limits_{\gamma=1}^4\sum\limits_{\delta=1}^4 d_{2b}(\chi_\gamma,\chi_\delta,ij)\bra{\chi_\gamma\chi_\delta}\mathcal{O}_{ij}\ket{s_is_j},
+   \label{equ:d2bdef}
+\end{equation}
+where $R=\{\r_1,\ldots,\r_A\}$ and $S=\{s_1,\ldots,s_A\}$ are the spatial and spin-isospin configurations and
+\begin{equation}
+   d_{2b}(\chi_\gamma,\chi_\delta,ij)=\frac{\langle\Phi|R,s_1,\ldots,s_{i-1},\chi_\gamma,s_{i+1},\ldots,s_{j-1},\chi_\delta,s_{j+1},\ldots,s_A\rangle}{\langle \Phi|RS\rangle}.
+\end{equation}
+Note that as part of the update the basis states $\chi_\gamma$ and $\chi_\delta$ have replaced the spin-isospin configurations $s_i$ and $s_j$ respectively.
+
+To reduce the number of calculations done in the inner loops of the calculation the matrix $P_{\chi,ij}$ is defined and precalculated as
+\begin{align}
+   P_{\chi_\gamma,ij} &=\sum_\alpha S^{-1}_{j\alpha}S_{\alpha i}(s_i\leftarrow \chi_\gamma), \\
+   P_{\chi_\delta,ij} &=\sum_\alpha S^{\prime\;-1}_{j\alpha}S^\prime_{\alpha i}(s_j\leftarrow \chi_\delta).
+\end{align}
+The $d_{2b}$ distribution can then be written as
+\begin{equation}
+   d_{2b}(\chi_\gamma,\chi_\delta,ij)=\det\begin{pmatrix}P_{\chi_\gamma,ii} & P_{\chi_\gamma,ij} \\ P_{\chi_\delta,ji} & P_{\chi_\delta,jj}\end{pmatrix},
+\end{equation}
+and thus the $d_{2b}$ can be precalculated and multiplied by each operator expectation value $\bra{\chi_\gamma\chi_\delta}\mathcal{O}_{ij}\ket{s_is_j}$ from Equation~\ref{equ:d2bdef}.
+
+This description has been for 2-body operators, however the quadratic operators involve 4-body operators for the correlations of the trial wave function, and 6-body operators for the calculations of the energy. This method can also be extended to $n$-body operators by updating the $P$ matrix to use the previously updated Slater matricies
+\begin{equation}
+   P_{\chi_\eta,mn}=\sum_\alpha S^{\prime\prime\;-1}_{n\alpha}S^{\prime\prime}_{\alpha m}(s_m\leftarrow \chi_\eta),
+\end{equation}
+where each iteratively updated matrix $S'$ is calculated from the last $S$ as
+\begin{align}
+   S^{\prime}_{\alpha m}(s_m) = \left\{
+   \begin{array}{cc}
+      S_{\alpha m} & m \ne i\\
+      \langle\alpha|\mathcal O_i|\mathbf{r}_i\,s_i\rangle  & m = i
+   \end{array} .
+   \right.
+\end{align}
+The updated inverse matrix is calculated by again using the identity in Equation~\ref{equ:matrixid}, expanding both sides and grouping like terms, noting that $S''_{mi} = S'_{mi}$ when $j\ne i$. The next iteration of the updated inverse matrix $S'^{-1}$ is calculated as
+\begin{equation}
+S'^{-1}_{jn} = \left \{
+\begin{array}{cc}
+S^{-1}_{jn} -\frac{\sum_m S^{-1}_{jm}S'_{mi}}{\sum_\ell S^{-1}_{i\ell}
+S'_{\ell i}} S^{-1}_{in}  & j \ne i\\
+\frac{S^{-1}_{in}}{\sum_m S^{-1}_{im}S'_{mi}} & j = i\\
+\end{array}
+\right . \,.
+\end{equation}
+
+To calculate the wave function in Equation~\ref{equ:linearcorr} with only linear correlations the correlation operators are first acted on the spin-isospin basis states which are then summed together with the $d_{2b}$ as
+\begin{equation}
+   \sum\limits_{\chi_\gamma,\chi_\delta}d_{2b}(\chi_\gamma,\chi_\delta,ij)\langle\chi_\gamma,\chi_\delta|f_{ij}^p\mathcal{O}_{ij}^p|s_i s_j\rangle.
+\end{equation}
+The potential introduces two additional operators and so the expectation value of the potential with the linear wave function is calculated as $(\mathbb{1}+\mathcal{O}^c_{ij})\mathcal{O}^p_{kl}$ where $\mathcal{O}^c$ and $\mathcal{O}^p$ are the correlation and potential operators respectively and can be four distinct operators. This calculation is done by first updating the $P$ matrix twice, once for each of $\mathcal{O}^c_i$ and $\mathcal{O}^c_j$ where $\mathcal{O}_{ij}=\mathcal{O}_i\mathcal{O}_j$. The determinant in Equation~\ref{equ:d2bdef} is then calculated using the updated $d''_{2b}$.
+
+Both versions of the quadratic correlations in Equations~\ref{equ:fullquadcorr} and \ref{equ:ipquadcorr} have the form $\mathbb{1} + \mathcal{O}^c_{ij} + \mathcal{O}^c_{ij}\mathcal{O}_{kl}$. The first is exactly the linear correlations and are calculated in the same way as described above. The quadratic operators looks like the potential operator with linear correlations with $\mathcal{O}^c_{ij}\mathcal{O}^p_{kl} \rightarrow \mathcal{O}^c_{ij}\mathcal{O}^c_{kl}$ and so the same method can be followed as described before by updating the $P$ matrix twice. The number of operations required for the linear correlations scales as $O(A^2)$ while the quadratic correlations, as well as the expectation value of the potential with linear correlations, scales as $O(A^4)$.
+
+The expectation value of the potential as calculated with the quadratic correlations takes the form $\left(\mathbb{1} + \mathcal{O}^c_{ij} + \mathcal{O}^c_{ij}\mathcal{O}_{kl}\right)\mathcal{O}^p_{mn}$. The only piece that is not similar to previous descriptions is the $\mathcal{O}^c_{ij}\mathcal{O}^c_{kl}\mathcal{O}^p_{mn}$ piece. This can be calculated by using four distinct updates of the $P$ matrix, one for each of the four correlations operators. The updates are first done for the $\mathcal{O}^c_{ij}$ operators after which two additional updates are performed for the $\mathcal{O}^c_{kl}$ operators. This is used to calculate the expectation value of the $\mathcal{O}^p_{mn}$ operators. The scaling to calculate the expectation value of the potential with quadratic correlations is $O(A^6)$.
+
+Additional details about the quadratic correlations and how the operator updates are performed can be found in our recent paper \cite{lonardoni2018}.
+
+\subsection{Preliminary Calculations with Quadratic Correlations and NN and 3N $\chi$EFT Potentials}
+The results presented above have been done with the simplified AV6$'$ NN potential. This choice was made to reduce the computational cost of testing the improved correlations. The new quadratic correlations can also be used with more sophisticated potentials such as those developed in the $\chi$EFT framework. We have done preliminary calculations with the $\chi$EFT potential up to N$^2$LO in the chiral expansion.
+
+\begin{table}[htb]
+   \centering
+   \begin{tabular}{lccc}
+      \hline
+      Calc & $^4$He & $^{16}$O & SNM(28n) @ $\rho_0$ \\
+      \hline
+      VMC lin  & $-5.86(1)$ & $-1.08(1)$ & $1.56(5)$ \\
+      VMC ip   & $-$        & $-4.03(4)$ & $-$ \\
+      VMC quad & $-6.72(1)$ & $-3.95(4)$ & $-$ \\
+      \hline
+      DMC lin  & $-6.89(2)$ & $-5.74(4)$ & $-9.5(1)$ \\
+      DMC ip   & $-$        & $-7.3(2)$  & $-12.5(1)$ \\
+      DMC quad & $-6.91(2)$ & $-6.9(2)$  & $-12.6(1)$ \\
+      \hline
+   \end{tabular}
+   \caption{Here it is.}
+\end{table}
+
 \subsection{Exponential Correlations}
-From the wave function using the expansion up to quadratic terms it is clear that an improved trial wave function is necessary to describe the state of larger nuclei and nuclear matter. It was also shown in the previous sections that expanding the current wave functions, Equations~\ref{equ:exppsi} and \ref{equ:prodpsi} is not an efficient method to improve the wave function, as the cost of each additional term grows exponentially. However, another option is to evaluate the full wave function using a Monte Carlo sampling. The exponential wave function is written as
+From the wave function using the expansion up to quadratic terms it is clear that an improved trial wave function is necessary to describe the state of larger nuclei and nuclear matter. It was also shown in the previous sections that expanding the current wave functions described in Equations~\ref{equ:exppsi} and \ref{equ:prodpsi}, is not an efficient method to improve the wave function, as the cost of each additional term grows exponentially. However, another option is to evaluate the full wave function using a Monte Carlo sampling. The exponential wave function is written as
 \begin{equation}
    \ket{\Psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j,p}f_p(r_{ij})\Oijp} \ket{\Phi},
 \end{equation}
@@ -425,8 +561,9 @@ The auxiliary fields are then drawn from the Gaussian distribution, $\exp\left(-
 \end{equation}
 The $\{x_n\}$ are the set of 15$A$ auxiliary fields, one for each of the different 15$A$ operators.
 
-Minimal success has been achieved with these correlations for light nuclei \cite{bouadani2009_dissertation}, however there are large uncertainties that make this wave function currently infeasible to use. Removing these uncertainties could make this wave function a very useful tool for nuclear QMC as it can be systematically improved by increasing the number of samples of the auxiliary fields.
+Minimal success has been achieved with these correlations for light nuclei (\cite{bouadani2009_dissertation}), however there are large uncertainties that make this wave function currently infeasible to use. Removing these uncertainties could make this wave function a very useful tool for nuclear QMC as it can be systematically improved by increasing the number of samples of the auxiliary fields.
 
 One difference between this wave function and the propagator used in AFDMC is the lack of a small time step. This wave function contains no time step and so there is no way to ensure that commutator terms will be small. Another possible issue arises when evaluating the derivative in the kinetic energy. The shifting of the walker positions causes the $A$ matrices to be discontinuous, and thus causing large uncertainties in the calculation of the derivative.
 
-\subsection{Alessandro's correlations and $T^2$ fix to them - \red{Maybe just do $T^2$ fix and apply it to exponential correlations \ldots maybe don't include this at all.}}
+\subsection{Alessandro's correlations and $T^2$ fix to them}
+\red{Maybe just do $T^2$ fix and apply it to exponential correlations \ldots maybe don't include this at all.}
