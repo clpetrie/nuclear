@@ -418,3 +418,8 @@ These potentials have been fit to $pp$ and $np$ scattering data (\cite{stoks1993
 In recent years a set of nuclear potentials has been developed from a chiral effective field theory ($\chi$EFT) framework that can be used with nuclear QMC methods such as GFMC and AFDMC (\cite{epelbaum2009,machleidt2011}). These potentials are local up to next-to-next-to leading order (N$^2$LO) and so QMC calculations can use potentials up to this order. Though the N$^3$LO and higher order contain non-local parts, they are not entirely non-local. Good results using these potentials have been obtained with both GFMC (\cite{lynn2014}) and AFDMC (\cite{lonardoni2018}).
 
 Most of our calculations have been done with the AV6$'$ potential to reduce computation requirements as well as to better focus on the improvements made by improved wave functions. It would be straightforward to do any of these calculations with the three-nucleon and the $\chi$EFT potentials.
+
+\section{Quantum Monte Carlo and High Performance Computing}
+QMC calculations are very well suited to parallel computing. For VMC calculations this is very straight forward. Each process is given one or more walkers for which independent simulations are performed. Observables are then computed on each seperate processor and collected by a single boss processor. The collected data can then be processes and analyzed for final output. It is slightly more complicated for AFDMC calculations, as load balancing is required due to the branching algorithm which can create or destroy walkers at each time step.
+
+We have tested the scalability of the AFDMC code on various systems. Here I will report results of the 

@@ -279,7 +279,7 @@ The energy and it's uncertainty are used to judge the convergence of a propagate
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/energy.eps}
-   \caption{Energy per particle for small and medium closed shell nuclei with no Coulomb interaction calculated with the AFDMC method with the AV6$'$ interaction. Each calculations was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included.}
+   \caption{Energy per particle for small and medium closed shell nuclei with no Coulomb interaction calculated with the AFDMC method with the AV6$'$ interaction. Each calculations was done with the linear, IP quadratic, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included. The variational parameters were reoptimized for each wave function the $^4$He calculations, however the $^{16}$O, $^{40}$Ca, and SNM calculations were done starting with VMC trial wave functions with linear correlations.}
    \label{fig:energies}
 \end{figure}
 \begin{table}[htb]
@@ -297,7 +297,7 @@ The energy and it's uncertainty are used to judge the convergence of a propagate
    \caption{Energy per particle from AFDMC calculations with no Coulomb interaction with the AV6$'$ interaction. Each calculations was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included.}
    \label{tab:energies}
 \end{table}
-Like with the addition of Jastrow correlations in Figure~\ref{fig:energy_jaslin}, all systems larger than $^4$He decreased in energy with additional correlations, while the binding energy for $^4$He was the same to within uncertainties. In addition, the energies for all systems are identical to within uncertainties for the quadratic and IP quadratic correlations, indicating that the IP correlations capture most of the relevant physics. As a result any further references to quadratic correlations will be referring to the IP quadratic correlations, as these correlations are computationally less expensive, unless a distinction is made otherwise. The percent decrease in energy for $^{16}$O and $^{40}$Ca when adding linear correlations is 15\% and 18\% respectively. When adding quadratic correlations the energies decrease an additional 6\% and 9\% respectively. This indicates that each successive term in the expansion decreases in importance. It is important to note that these calculations were done with the AV6$'$ potential, which is a limited 2-nucleon potential. We do not expect our energies to be equal to experiment due to the lack of the full 2-body, and a complete lack of the 3-body force. The AV6$'$ potential has been used to simplify the calculations and to look for qualitative improvements caused by the additional correlations. Some calculations have been done using more sophisticated potentials with the quadratic correlations, and those results will be shown later.
+All calculations were done with trial wave functions coming from VMC calculations with linear correlations, except for $^4$He, which was performed by reoptimizing the variational parameters for each set of correlations. This was done due to the complexity of optimizing the parameters for large systems. Like with the addition of Jastrow correlations in Figure~\ref{fig:energy_jaslin}, all systems larger than $^4$He decreased in energy with additional correlations, while the binding energy for $^4$He was the same to within uncertainties. In addition, the energies for all systems are identical to within uncertainties for the quadratic and IP quadratic correlations, indicating that the IP correlations capture most of the relevant physics. As a result any further references to quadratic correlations will be referring to the IP quadratic correlations, as these correlations are computationally less expensive, unless a distinction is made otherwise. The percent decrease in energy for $^{16}$O and $^{40}$Ca when adding linear correlations is 15\% and 18\% respectively. When adding quadratic correlations the energies decrease an additional 6\% and 9\% respectively. This indicates that each successive term in the expansion decreases in importance. It is important to note that these calculations were done with the AV6$'$ potential, which is a limited 2-nucleon potential. We do not expect our energies to be equal to experiment due to the lack of the full 2-body, and a complete lack of the 3-body force. The AV6$'$ potential has been used to simplify the calculations and to look for qualitative improvements caused by the additional correlations. Some calculations have been done using more sophisticated potentials with the quadratic correlations, and those results will be shown later.
 
 The energies above are calculated with the AFDMC method. The fixed phase approximation is used to solve the fermi sign problem within AFDMC, and as such the energies are not constrained by the variational principle, i.e. the energies are not strict upper bounds to the ground state energy, as evidenced by the results for $^{40}$Ca, which is actually overbound. The lack of an upper bound prevents us to say strictly that the decrease in energy is because of an improvement in the trial wave function. However, all calculations were first done with the VMC method, which does provide an upper bound constraint. As can be seen in Figure~\ref{fig:energies_vmc} and Table~\ref{tab:energies_vmc}, the same conclusions found with the AFDMC calculations are also found with the VMC calculations, as we can say that the quadratic wave functions are actually an improvement.
 
@@ -322,11 +322,6 @@ The energies above are calculated with the AFDMC method. The fixed phase approxi
    \caption{Energy per particle from VMC calculations with no Coulomb interaction with the AV6$'$ interaction. Unlike the AFDMC results, these VMC results provide an upper bound to the energy. Each calculations was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included.}
    \label{tab:energies_vmc}
 \end{table}
-
-
-
-
-
 
 There is a significant decrease in energy with the addition of the quadratic correlations, however, there is an additional cost to calculating these additional terms. I have calculated a scaling factor, which is the ratio of times taken to calculate a given block of code, including the propagation of walkers spatial and spin components as well as the calculation of the energies, for linear compared to linear plus quadratic correlations. A scaling factor of 2 would mean that the calculation took twice as long with the quadratic correlations as it did without. The scaling factors are plotted in Figure~\ref{fig:scaling} and the specific values are in Table~\ref{tab:scaling}.
 \begin{figure}[h!]
@@ -488,26 +483,31 @@ The expectation value of the potential as calculated with the quadratic correlat
 
 Additional details about the quadratic correlations and how the operator updates are performed can be found in our recent paper \cite{lonardoni2018}.
 
-\subsection{Preliminary Calculations with Quadratic Correlations and NN and 3N $\chi$EFT Potentials}
-The results presented above have been done with the simplified AV6$'$ NN potential. This choice was made to reduce the computational cost of testing the improved correlations. The new quadratic correlations can also be used with more sophisticated potentials such as those developed in the $\chi$EFT framework. We have done preliminary calculations with the $\chi$EFT potential up to N$^2$LO in the chiral expansion.
-
+\subsection{Quadratic Correlations with NN and 3N $\chi$EFT Potentials}
+The results presented above have been done with the simplified AV6$'$ NN potential. This choice was made to reduce the computational cost of testing the improved correlations. The new quadratic correlations have also been used with more sophisticated potentials, namely, those developed in the $\chi$EFT framework. We have done preliminary calculations with the $\chi$EFT potential up to N$^2$LO in the chiral expansion. Higher orders of the chiral expansion are still inaccessible to QMC calculations due to their non-locality. We have obtained preliminary results (Diego Lonardoni, private communication, 2019) of binding energy calculations for $^4$He, $^{16}$O, and SNM with 28 particles in a periodic box at saturation density. Both the VMC and AFDMC preliminary results are shown in Table~\ref{tab:chiquad}.
 \begin{table}[htb]
    \centering
-   \begin{tabular}{lccc}
+   \begin{tabular}{llccc}
       \hline
-      Calc & $^4$He & $^{16}$O & SNM(28n) @ $\rho_0$ \\
+      Calculation & Correlations & $^4$He & $^{16}$O & SNM \\
       \hline
-      VMC lin  & $-5.86(1)$ & $-1.08(1)$ & $1.56(5)$ \\
-      VMC ip   & $-$        & $-4.03(4)$ & $-$ \\
-      VMC quad & $-6.72(1)$ & $-3.95(4)$ & $-$ \\
+      VMC   & Linear       & $-5.86(1)$ & $-1.08(1)$ & $1.56(5)$ \\
+      VMC   & IP Quadratic & $-$        & $-4.03(4)$ & $-$ \\
+      VMC   & Quadratic    & $-6.72(1)$ & $-3.95(4)$ & $-$ \\
       \hline
-      DMC lin  & $-6.89(2)$ & $-5.74(4)$ & $-9.5(1)$ \\
-      DMC ip   & $-$        & $-7.3(2)$  & $-12.5(1)$ \\
-      DMC quad & $-6.91(2)$ & $-6.9(2)$  & $-12.6(1)$ \\
+      AFDMC & Linear       & $-6.89(2)$ & $-5.74(4)$ & $-9.5(1)$ \\
+      AFDMC & IP Quadratic & $-$        & $-7.3(2)$  & $-12.5(1)$ \\
+      AFDMC & Quadratic    & $-6.91(2)$ & $-6.9(2)$  & $-12.6(1)$ \\
       \hline
    \end{tabular}
-   \caption{Here it is.}
+   \caption{Ground state energies of $^4$He, $^{16}$O, and SNM with 28 particles at saturation density, calculated with the VMC and AFDMC methods. All energies are reported as energy/nucleon in MeV. The trial wave functions are calculated with both 2- and 3-body correlations, where all three 2-body correlations were used. For all calculations the N$^2$LO local chiral potential with the $R_0 = 1$ fm cutoff as described in our paper (\cite{lonardoni2018}). Additional details about each calculation are given in the text. Not all possible calculations were performed, and dashes are places where data does not exist.}
+   \label{tab:chiquad}
 \end{table}
+All calculations were done with 2- and 3-body correlations, however the 2-body correlations were varied to include the linear, IP quadratic, and the fully quadratic correlations. The potential used in these calculations was the local chiral potential expanded to N$^2$LO with a cutoff of $R_0=1$ fm. The $^4$He and SNM calculations were done with the $E\mathbb{1}$ parametarization, while the $^{16}$O calculations were done with the $E\tau$ parameterization as described in our paper \cite{lonardoni2018}. The $^4$He and $^{16}$O calculations included the coulomb force and were reoptimized for each set of correlations. Due to the computational cost of reoptimizing the variational parameters with the quadratic wave functions the AFDMC calculations for SNM were done using the trial wave function obtained from a VMC calculations with linear correlations. In addition the AFDMC calculations for SNM were done using the growth energy, which is a diagnostic tool which is similar to the local energy for small time steps. If the trial wave function was exactly the ground state and the offset energy $E_0$ the exact ground state energy, then the weights of the walkers would all be 1, regardless of the configuration. This leads to the definition of the growth energy
+\begin{equation}
+\left<E_G\right> = E_0-\frac{1}{\Delta\tau}\log{(\left<w\right>)}.
+\end{equation}
+More details on the growth energy are given in \cite{lynn2013}. All AFDMC calculation were performed with the constrained-path approximation. The 2-body operator structure of the N$^2$LO chiral interaction is the same as the AV7$'$ potential which adds the spin-orbit $\mathbf{L}\cdot\mathbf{S}$ term to the AV6$'$ interaction. It was shown in \cite{gandolfi2014} that the AV7$'$ potential provides less binding than the AV6$'$ potential for the systems shown here. This explains why the energies are slightly higher here than with the AV6$'$ results shown in the preceeding sections. However, the decrease in energy is much larger when the 3-body interactions are included. The decrease in the $^{16}$O energy between linear correlations and IP quadratic correlations with only the AV6$'$ NN potential was 6\%, while the same system had a decrease of 27\% with the NN+3N N$^2$LO potential. This was expected as we expected the additional correlations to have a larger overlap with the 3-body force than the original linear correlations.
 
 \subsection{Exponential Correlations}
 From the wave function using the expansion up to quadratic terms it is clear that an improved trial wave function is necessary to describe the state of larger nuclei and nuclear matter. It was also shown in the previous sections that expanding the current wave functions described in Equations~\ref{equ:exppsi} and \ref{equ:prodpsi}, is not an efficient method to improve the wave function, as the cost of each additional term grows exponentially. However, another option is to evaluate the full wave function using a Monte Carlo sampling. The exponential wave function is written as
