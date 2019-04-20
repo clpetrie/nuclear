@@ -25,7 +25,7 @@ The integral can then be approximated by taking a large number of samples giving
 This method of integration is useful especially when the dimensions of the integration increase. In many-body quantum mechanics the dimension of the integrals can be quite large, including several dimensions for each particle in the calculation. Monte Carlo Integration only needs to sample each of these dimension decreasing the work required by a substantial amount.
 
 \subsubsection{Metropolis Algorithm}
-Let's assume that we are doing Monte Carlo Integration as described above, but the importance function, $P(\mathbf{R})$, from which the random variables $\mathbf{R}$ are drawn is a simple invertible function. We can then simply generate a random variable from the uniform distribution, $u$, and then figure out what value of $x$ gives us that value given $P(x)=u$. This works quite well assuming the function $P(x)$ is invertible. But let's say that we can't invert it. This is where the Metropolis algorithm comes in, allowing us to get random samples from $P(x)$ even if it's noninvertible. The Metropolis algorithm is a Markov Chain method that uses only the previous point to determine where the next move will be, i.e. the step doesn't depend on history other than the previous step. These are the steps to the algorithm.
+Let's assume that we are doing Monte Carlo Integration as described above, but the importance function, $P(\mathbf{R})$, from which the random variables $\mathbf{R}$ are drawn is a simple invertible function. We can then simply generate a random variable from the uniform distribution, $u$, and then figure out what value of $x$ gives us that value given $P(x)=u$. This works quite well assuming the function $P(x)$ is invertible. But let's say that we can't invert it. This is where the Matropolis algorithm comes in, allowing us to get random samples from $P(x)$ even if it's noninvertible. The Metropolis algorithm is a Markov Chain method that uses only the previous point to determine where the next move will be, i.e. the step doesn't depend on history other than the previous step. These are the steps to the algorithm.
 \begin{enumerate}
    \item Start at a random position, $\mathbf{R}$.
    \item Propose a move to a new position $\mathbf{R}'$, pulled from a distribution $T(\mathbf{R}'|\mathbf{R})$, where $T$ can be a Gaussian centered on the current position. This makes sure that too large of steps aren't taken.
@@ -70,7 +70,7 @@ At this point we assume that the solution will consist of exponentials, but we s
 \begin{equation}
    \Psi(\mathbf{R},\tau) = \sum\limits_{n=0}^\infty c_n\phi_n(\mathbf{R})e^{-\tau(E_n-E_0)}
 \end{equation}
-Then one of the key parts of DMC is that as you let $\tau\rightarrow\infty$ all of the states higher than the ground state die because the difference $E_n-E_0$ is non-zero and the infinite $\tau$ kills the exponential. This leaves only the ground state.
+Then one of the key parts of DMC is that as you let $\tau\rightarrow\infty$ all of the states higher than the ground state die because the difference $E_n-E_0$ is non-zero and the intinity $\tau$ kills the exponential. This leaves only the ground state.
 \begin{equation}
    \lim\limits_{\tau\rightarrow\infty}\Psi(\mathbf{R},\tau) = \sum\limits_{n=0}^\infty c_n\phi_n(\mathbf{R})e^{-\tau(E_n-E_0)}
 \end{equation}
@@ -100,7 +100,7 @@ The single particle model states are made up of a radial and spin, iso-spin depe
 \begin{equation}
    \phi_k = \Phi_{nj}\left[C_{c_l,m_s}^j Y_{l,m_l}(\hat{r}_i)\chi_s(s_i)\right]_{j,m_j},
 \end{equation}
-where $\Phi_{nj}$ is the radial part and the rest contains the spherical harmonics $Y_{l,m_l}(\hat{r}_I)$ and spin and iso-spin states where the Clebsch-Gordan coefficients ensure the correct $j$ and $m_j$ quantum numbers, and the different states are given by the index $k$. To accurately describe the wave function of an open shell nuclei each state with the correct total angular momentum and parity $J^\pi$ and isospin $T$ is included as a separate Slater determinant.
+where $\Phi_{nj}$ is the radial part and the rest contains the spherical harmonics $Y_{l,m_l}(\hat{r}_I)$ and spin and iso-spin states where the Clebsch-Gordan coefficients ensure the correct $j$ and $m_j$ quantum numbers, and the different states are given by the index $k$. To accurately describe the wave function of an open shell nuclei each state with the correct total angular momentum and parity $J^\pi$ and isospin $T$ is included as a seperate Slater determinant.
 \begin{equation}
    \braket{RS}{\Phi}_{J^\pi,T} = \sum\limits_n c_n D\{\phi_k(\r_i,s_i)\}
 \end{equation}

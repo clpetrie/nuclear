@@ -3,7 +3,7 @@ The most general form of the fully correlated wave function is the exponentially
 \begin{equation}
    \ket{\Psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j,p}f_p(r_{ij})\Oijp} \ket{\Phi}
 \end{equation}
-The exponential is to maintain cluster decomposition of the wave function. The Jastrow spin-isospin independent correlations are handled independent of my piece of the code and so I will ignore them here which effectively leaves me with
+The exponential is to maintain cluster decomposition of the wave function. The Jastrow spin-isospin independent correlations are handeled independent of my piece of the code and so I will ignore them here which effectively leaves me with
 \begin{equation}
    \ket{\Psi_T} = e^{\sum\limits_{i<j,p}f_p(r_{ij})\Oijp} \ket{\Phi},
 \end{equation}
@@ -13,7 +13,7 @@ where the operators in the sum are the standard $v6'$ operators, $\si\cdot\sj$, 
       + \frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}A^{\sigma\tau}_{i\alpha,j\beta}\sigma_{j\beta}\ti\cdot\tj
       + \frac{1}{2}\sum\limits_{i,j} A^{\tau}_{i,j}\ti\cdot\tj\right).
 \end{equation}
-These matrices are simply another way to write the $f^p(r_{ij})$ function. Writing the operators in this form is discussed in more detail in appendix~\ref{app:hsprep}. In the code (in psicalc.f90) these matrices are actually called ``ftau(npart,npart)", ``fsig(3,npart,3,npart)" and ``fsigtau(3,npart,3,npart)". These matricies are zero when $i=j$, symmetric and can be written in terms of their eigenvalues and vectors.
+These matricies are simply another way to write the $f^p(r_{ij})$ function. Writting the operators in this form is discussed in more detail in appendix~\ref{app:hsprep}. In the code (in psicalc.f90) these matricies are actually called ``ftau(npart,npart)", ``fsig(3,npart,3,npart)" and ``fsigtau(3,npart,3,npart)". These matricies are zero when $i=j$, symmetric and can be written in terms of their eigenvalues and vectors.
 \begin{align}
    &\sum\limits_{j\beta} A^{\sigma}_{i\alpha,j\beta}\psi^{\sigma}_{n,j\beta} = \lambda^{\sigma}_n\psi^{\sigma}_{n,i\alpha} \\
    &\sum\limits_{j\beta} A^{\sigma\tau}_{i\alpha,j\beta}\psi^{\sigma\tau}_{n,j\beta} = \lambda^{\sigma\tau}_n\psi^{\sigma\tau}_{n,i\alpha} \\
@@ -37,7 +37,7 @@ Now this is ready to use with the Hubbard Stratanovich transformation
 \begin{equation}
    e^{-\frac{1}{2}\lambda O^2} = \frac{1}{\sqrt{2\pi}} \int dx e^{-\frac{x^2}{2} + \sqrt{-\lambda}x O}.
 \end{equation}
-Writing this set of correlation operators in a more compact way,
+Writting this set of correlation operators in a more compact way,
 \begin{equation}
     \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Oijp\right) = \exp\left(\frac{1}{2}\sum\limits_{n=1}^{15A} \left(O_{n}\right)^2 \lambda_n^{\sigma}\right)
 \end{equation}
@@ -59,7 +59,7 @@ A physical multi-particle system has the property of cluster decomposability. Th
 \end{equation}
 The exponentially correlated trial wave function is cluster decomposable. If a system were split into two parts $A_1$ and $A_2$, any pair correlation with a particle in each system would have no contribution to the total wave function because any such correlation would be zero inside the exponential. This is not a property held by the linear or quadratically correlated wave functions.
 
-For example, a system of four particles split into two subsystems and separated by a large distance where the two systems are $A_{12}$ containing particles 1 and 2, and $A_{34}$ containing particles 3 and 4. Any correlations that correlate particles in different subsystems will be zero. For the linear correlated wave function this will leave the correlations of the form
+For example, a system of four particles split into two subsystems and separated by a large distance where the two systems are $A_{12}$ containing particles 1 and 2, and $A_{34}$ containing particles 3 and 4. Any correlations that correlate particles in different subsystems will be zero. For the linear correlated wave function this will leave the correlationsof the form
 \begin{equation}
    \bra{RS}\left[1+f_p(r_{12})\mathcal{O}^p_{12}+f_p(r_{34})\mathcal{O}^p_{34}\right]\ket{\Phi},
 \end{equation}
@@ -216,7 +216,7 @@ I'm going to rewrite this with an $i$ in it as
 \begin{equation}
    e^{i\gamma O_n},
 \end{equation}
-where the $\gamma=\sqrt{\lambda_n}x_n$, for each particular operator. In this way the exponentiated matricies can be written in terms of regular matricies. Plugging this into Mathematical I get the following.
+where the $\gamma=\sqrt{\lambda_n}x_n$, for each particular operator. In this way the exponentiated matricies can be written in terms of regular matricies. Plugging this into Mathematica I get the following.
 \footnotesize
 \begin{equation*}
 e^{i\gamma\tau_x}=
@@ -349,7 +349,7 @@ I'm going to just write this out in terms of the simplest set of terms, the $\ti
    &= \sum\limits_{i<j} u^\tau(\rij)\ti\cdot\tj \\
    &= \sum\limits_\alpha\sum\limits_{i<j} u^\tau(\rij)\tia\tja.
 \end{align}
-These can be rewritten in terms in a matrix made of of the $u$ values. In the case of the $\tau$ operators this is simple because $\Aijt=u^\tau(\rij)$. If I rewrite the potential using this, and doing a full sum over all i and j and then dividing by 2 I get
+These can be rewritten in terms in a martix made of of the $u$ values. In the case of the $\tau$ operators this is simple because $\Aijt=u^\tau(\rij)$. If I rewrite the potential using this, and doing a full sum over all i and j and then dividing by 2 I get
 \begin{equation}
    V = \frac{1}{2}\sum\limits_{\alpha,i,j} \Aijt\tia\tja
 \end{equation}
@@ -361,7 +361,7 @@ or if you want to write them in the matrix multiplication form
 \begin{equation}
    \sum\limits_j\Aijt\psi_{n,j}^\tau = \lambda_n^\tau\psi_{n,i}^\tau.
 \end{equation}
-Now I want to write out the $A$ matrix in terms of it's eigenvalues and eigenvectors. I do this using eigenvector decomposition. This is defined as
+Now I want to write out the $A$ matrix in terms of it's eigenvalues and eigenvectors. I do this using eigenvector decompositon. This is defined as
 \begin{equation}
    A=Q\Lambda Q^{-1},
 \end{equation}

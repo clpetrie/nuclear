@@ -293,7 +293,7 @@ AFDMC samples the spin and isospin states by expressing the operators in terms o
       + \frac{1}{2}\sum\limits_{i,j} A^{\tau}_{i,j}\ti\cdot\tj,
    \label{equ:VwithA}
 \end{equation}
-where we have defined new $A$ matrices. The $A$ matrices are written in terms of the $\vpij$ functions above. For example the simplest matrix is the $A^{\tau}_{i,j}$ matrix which can be shown to be $A^{\tau}_{i,j} = v_{\tau}(r_{ij})$. There is a factor of one half in Eq.~\ref{equ:VwithA} because the sums go over all $i$ and $j$ particles instead of pairs for which $i<j$. These matrices are zero when $i=j$ and they are symmetric. We can also write these matrices in terms of their eigenvalues and eigenvectors.
+where we have defined new $A$ matrices. The $A$ matrices are written in terms of the $\vpij$ functions above. For example the simplest matrix is the $A^{\tau}_{i,j}$ matrix which can be shown to be $A^{\tau}_{i,j} = v_{\tau}(r_{ij})$. There is a factor of one half in Equation~\ref{equ:VwithA} because the sums go over all $i$ and $j$ particles instead of pairs for which $i<j$. These matrices are zero when $i=j$ and they are symmetric. We can also write these matrices in terms of their eigenvalues and eigenvectors.
 \begin{align}
    &\sum\limits_{j,\beta} A^{\sigma}_{i,\alpha,j,\beta}\psi^{\sigma}_{n,j,\beta} = \lambda^{\sigma}_n\psi^{\sigma}_{n,i,\alpha} \\
    &\sum\limits_{j,\beta} A^{\sigma\tau}_{i,\alpha,j,\beta}\psi^{\sigma\tau}_{n,j,\beta} = \lambda^{\sigma\tau}_n\psi^{\sigma\tau}_{n,i,\alpha} \\
@@ -422,4 +422,17 @@ Most of our calculations have been done with the AV6$'$ potential to reduce comp
 \section{Quantum Monte Carlo and High Performance Computing}
 QMC calculations are very well suited to parallel computing. For VMC calculations this is very straight forward. Each process is given one or more walkers for which independent simulations are performed. Observables are then computed on each seperate processor and collected by a single boss processor. The collected data can then be processes and analyzed for final output. It is slightly more complicated for AFDMC calculations, as load balancing is required due to the branching algorithm which can create or destroy walkers at each time step.
 
-We have tested the scalability of the AFDMC code on various systems. Here I will report results of the 
+We have tested the scalability of the AFDMC code on various systems. The results for the SuperMIC computer at Louisiana State University as well as the Stampede2 computer which is part of the Texas Advanced Computing Center can be found in Figures~\ref{fig:supermic} and \ref{fig:stampede2} respectively.
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.8\textwidth]{figures/supermic.png}
+   \caption{Scaling on SuperMIC using the time to propagate 10,000 configurations of an 16O nucleus for 100 steps.}
+   \label{fig:supermic}
+\end{figure}
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.8\textwidth]{figures/stampede.eps}
+   \caption{Scaling on Stampede2 using the time to propagate 10,000 configurations of an 16O nucleus for 100 steps.}
+   \label{fig:stampede2}
+\end{figure}
+Even with load balancing the scaling is very good up to thousands of processors, which is more than are typically used in a given calculation.

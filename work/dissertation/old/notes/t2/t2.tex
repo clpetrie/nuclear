@@ -17,7 +17,7 @@ The correlations violate $T^2$ and $T_z$. One solution to this is to multiply th
 \begin{equation}
    \exp{\left(-\alpha T^2\right)} = \exp{\left(-\alpha \sum\limits_\beta \sum\limits_{i,j} \tau_{i\beta}\tau_{j\beta}\right)}.
 \end{equation}
-The Hubbard-Stratanovich transformation can be used on these operators by writting them as an exponential of squared one-body operators.
+The Hubbard-Stratanovich transformation can be used on these operators by writing them as an exponential of squared one-body operators.
 \begin{equation}
    \exp{\left(-\alpha T^2\right)} = \exp{\left(-\alpha \sum\limits_\beta \left(\sum\limits_{j} \tau_{j\beta}\right)^2\right)}.
 \end{equation}
@@ -25,7 +25,7 @@ In a standard AFDMC calculation the sum over $\beta$ would then be approximated 
 \begin{equation}
    \exp{\left(\sum\limits_\beta A_\beta\right)} = \mathcal{S}\prod\limits_\beta \exp(A_\beta),
 \end{equation}
-where the symmetrization operator $\mathcal{S}=\frac{1}{N!}\sum\limits_\pi P_\pi$, permutes the cartesian coordinates $\beta=xyz$. With this identity and the Hubbard-Stratanovich transformation we can write the correlations as
+where the symmetrization operator $\mathcal{S}=\frac{1}{N!}\sum\limits_\pi P_\pi$, permutes the Cartesian coordinates $\beta=xyz$. With this identity and the Hubbard-Stratanovich transformation we can write the correlations as
 \begin{align}
    \exp{\left(-\alpha \sum\limits_\beta \left(\sum\limits_{j} \tau_{j\beta}\right)^2\right)}  &= \mathcal{S} \prod\limits_\beta \exp{\left(-\alpha \left(\sum\limits_{j} \tau_{j\beta}\right)^2\right)} \\
    &= \mathcal{S} \prod\limits_\beta \int dx_\beta \exp{\left(-x_\beta^2/2\right)}\exp{\left(i\sqrt{2\alpha}x_\beta \sum\limits_{j} \tau_{j\beta}\right)} \\
