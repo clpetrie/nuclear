@@ -1,7 +1,7 @@
 \chapter{Trial Wave Function}
 An accurate trial wave function can drastically improve the accuracy of QMC methods such as VMC and AFDMC. Most highly accurate trial wave functions are computationally intractable and are never implemented in QMC methods. In addition to being accurate and computationally tractable a good wave function must satisfy known physical properties such as cluster decomposition as well as having an overall antisymmetry with respect to particle exchange due to the spin-1/2 property of nucleons.
 
-Cluster decomposition arises from the physical intuition that the wave function of two separate, non-interacting systems, $A$ and $B$ as in Figure~\ref{fig:cluster}, can be written as the outer product of their respective wave functions.
+Cluster decomposition arises from the physical intuition that the wave function of two separate, non-interacting systems, $A$ and $B$ as in Figure~\ref{fig:cluster}, can be written as the outer product of their respective wave functions $\ket{A+B}=\ket{A}\ket{B}$.
 \begin{figure}[h]
    \centering
    \begin{tikzpicture}[>=latex,scale=0.5]
@@ -15,7 +15,7 @@ Cluster decomposition arises from the physical intuition that the wave function 
    \caption{Two non interacting systems $A$ and $B$, whose composite wave function is the product $\ket{A+B}=\ket{A}\ket{B}$.}
    \label{fig:cluster}
 \end{figure}
-If a system is not cluster decomposable, nonphysical correlations between non-interacting systems can occur.
+If a system is not cluster decomposable, nonphysical correlations between non-interacting systems can occur. I will now define a strong and weak condition on cluster decomposability. There exist systems that are cluster decomposable, in that they obey the description above, yet they lack all of the proper correlations between particles in the respective systems. This will be referred to as the weak condition of cluster decomposition. Many of the approximate wave functions that I will describe later will obey only this weak condition. It is important to note that the weak condition does not contain any unphysical correlations, they simply lack some or all of the physical correlations of the system. The strong condition of cluster decomposition is that the above condition is obeyed and each subsystem contains all of the appropriate correlations for that system. This will be illuminated when our specific wave functions are described.
 
 The second property is that the wave function be antisymmetric overall. Since nucleons are fermions and the only degrees of freedom used in these calculations the product of different pieces of the wave function must be antisymmetric. Recent work in QMC has successfully included bosonic degrees of freedom such as pions (\cite{madeira2018}), however that is not the case in this work.
 
@@ -114,9 +114,9 @@ and the symmetrized product wave functions,
 \end{equation}
 where the $S$ is the symmetrization operator, the $f_c(r_{ij})$ are the same Jastrow correlations as before, and the $\Opij$ are the operators from the AV6' potential, $(1,\si\cdot\sj,S_{ij})\otimes(1,\ti\cdot\tj)$, where the tensor term is $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$. The $f_p(r_{ij})$ functions contain variational parameters and the functional form is determined by solving a Schr\"odinger-type equation with the constraint that the wave function be continuous at the healing distance (\cite{pandharipande1979,pandharipande1977}).
 
-The exponentially correlated wave function obeys cluster decomposition as long as the correlating functions, $f_p(r_{ij})$ go to zero as the particle separation increases. This dampens out nonphysical long-range particle correlations between physically separated systems. Also, due to the sum over particle pairs in the exponential, no explicit symmetrization is needed.
+The exponentially correlated wave function obeys the strong condition of cluster decomposition as long as the correlating functions, $f_p(r_{ij})$ go to zero as the particle separation increases. This dampens out nonphysical long-range particle correlations between physically separated systems. The strong condition is obeyed due to the full set of correlations acting on each product of single particle states in the Slater determinant. Also, due to the sum over particle pairs in the exponential, no explicit symmetrization is needed.
 
-The symmetrized product wave function, introduced in 1979 by \cite{pandharipande1979}, requires an explicit symmetrization and is not obviously cluster decomposable. The $f_p(r_{ij})$ functions approach zero as particle separation increases and so the additional 1 is needed to maintain cluster decomposability.
+The symmetrized product wave function, introduced in 1979 by \cite{pandharipande1979}, requires an explicit symmetrization and is not obviously cluster decomposable, though like the exponential correlations, it obeys the strong condition of cluster decomposability. The $f_p(r_{ij})$ functions approach zero as particle separation increases and so the additional 1 is needed to maintain cluster decomposability.
 
 When expanded to linear order the exponential and symmetrized product correlations are identical and can be written as
 \begin{equation}
