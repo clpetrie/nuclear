@@ -1,1 +1,69 @@
-\chapter{Calculating two-body operators}
+\chapter{Exponential correlations as squared single-nucleon operators}
+\label{app:a12}
+The exponential correlations are investigated due to their explicit symetry with respect to particle exchange as well as the fact that they obey the strong condition for cluster decompostion. The exponentially correlated wave function is defined as
+\begin{equation}
+   \Psi_{\text{exp}}(\R, S) = \bra{\R S}\left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j}\sum\limits_{p}f_p(r_{ij})\Opij}\ket{\phi}
+   \label{equ:exppsi}
+\end{equation}
+where the $f_c(r_{ij})$ are the Jastrow correlations and the $\Opij$ are the operators from the AV6' potential, $(1,\si\cdot\sj,S_{ij})\otimes(1,\ti\cdot\tj)$, where the tensor term is $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$. The Hubbard Stratanovich transformation can be used to sample these correlations without the use of a truncated expansion of the exponential. To do this the operators need to be writen in terms of squared single particle operators. I will show how this is done. To remove systematic errors when sampling the exponential correlations with Hubbard Stratanovich auxiliary fields it is necessary to write the $A$ matricies in terms of their square roots, $A_{ab} = A^{1/2}_{ac}A^{1/2}_{cb}$. I will show how this is done and how the resulting operators can also be writen in terms of squared single-nucleon operators.
+
+As shown in Chapter~\ref{ch:trial} the correlations can be broken down into pieces containing only $\sigma$ operators, only $\tau$ operators, and pieces containing both where each piece has a respective matrix $A$ written in terms of the functions $f_p$
+\begin{equation}
+\begin{split}
+   \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Oijp\right) = \exp&\left(\frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}A^{\sigma}_{i\alpha,j\beta}\sigma_{j\beta}\right. \\
+      &\left. + \frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}A^{\sigma\tau}_{i\alpha,j\beta}\sigma_{j\beta}\ti\cdot\tj
+      + \frac{1}{2}\sum\limits_{i,j} A^{\tau}_{i,j}\ti\cdot\tj\right).
+   \label{equ:amatricies}
+\end{split}
+\end{equation}
+All three of these matricies can be written in terms of their eigenvalues and eigenvectors using eigendecomposition. The eigenequation for a given $A$ matrix can be written as $A\mathbf{v}_n = \lambda_n\mathbf{v}_n$. All $n$ equations can be expressed as a single matrix equation
+\begin{equation}
+   AQ = Q\Lambda,
+\end{equation}
+where $Q$ is a matrix with all of the eigenvectors as columns, and $\Lambda$ is the diagonal matrix with the eigenvalues of the system on the diagonal. It follows that the matrix $A$ can be written in terms of it's eigenvalues and vectors as $A = Q\Lambda Q^{-1}$. The $A$ matricies, and thus the $Q$ matricies are positive and symmetric which allows the inverse eigenvector matrix to be written as a transpose
+\begin{equation}
+   A = Q\Lambda Q^T.
+\end{equation}
+In practice these matricies are writen in terms of their matrix elements
+\begin{equation}
+   A_{i\alpha,j\beta} = \sum\limits_n \psi^{(n)}_{i\alpha}\lambda^{(n)}\psi^{(n)}_{j\beta},
+\end{equation}
+where the $n$ are specific eigenvectors, $i$ and $j$ are the particles and $\alpha$ and $\beta$ are the spatial coordinates. To illustrate this I will look at the $A^{\sigma\tau}$ matrix and the $\sigma\tau$ operators.
+
+The $\sigma\tau$ correlations can then be written as
+\begin{align}
+   &\exp\left(\frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}A^{\sigma\tau}_{i\alpha,j\beta}\sigma_{j\beta}\ti\cdot\tj\right) \\
+   =& \exp\left(\frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}\sum\limits_n \psi^{(n)}_{i\alpha}\lambda^{(n)}\psi^{(n)}_{j\beta}\sigma_{j\beta}\sum\limits_\gamma\tau_{i\gamma}\tau_{j\gamma}\right) \\
+   =& \exp\left(\frac{1}{2}\sum\limits_n\sum\limits_\gamma\left[\sum\limits_{i\alpha} \psi^{(n)}_{i\alpha}\sigma_{i\alpha}\tau_{i\gamma}\right] \left[\sum\limits_{j\beta}\psi^{(n)}_{j\beta}\sigma_{j\beta}\tau_{j\gamma}\right] \lambda^{(n)}\right) \\
+   =& \exp\left(\frac{1}{2}\sum\limits_n\sum\limits_\gamma\left(\mathcal{O}^{\sigma\tau}_{n\gamma}\right)^2 \lambda^{(n)}\right),
+\end{align}
+where
+\begin{equation}
+   \mathcal{O}^{\sigma\tau}_{n\gamma} = \sum\limits_{i\alpha} \psi^{(n)}_{i\alpha}\sigma_{i\alpha}\tau_{i\gamma}.
+\end{equation}
+This can then to used with the Hubbard Stratanovich transformation to write the $\sigma\tau$ correlations as
+\begin{equation}
+   \exp\left(\frac{1}{2}\sum\limits_{n\gamma} \left(O^{\sigma\tau}_{n\gamma}\right)^2 \lambda^{(n)}\right) = \prod\limits_{n=1}^{15A} \frac{1}{\sqrt{2\pi}}\int dx_{n\gamma} e^{-x_{n\gamma}^2/2}e^{\sqrt{\lambda^{(n)}}x_{n\gamma}O_{n\gamma}^{\sigma\tau}},
+\end{equation}
+where $n=1,\ldots,3A$ are the eigenvectors and $\gamma=1,2,3$ are the spatial coordinates.
+
+However, an error can occur when calculating derivatives of these correlations. As the spatial coordinates are moved during the numerical derivatives, and the new eigenvalues and vectors calculated, the order of the new eigenvectors may not correspond with the order of the auxiliary fields as used to calculate the wave function with the original positions, which can lead to systematic errors. However, if the $A$ matricies are written in terms of a product of their square root matricies the order of the eigenvectors can be summed over, removing any dependence on the order of the eigenvectors. I will again illustrate this with the $A^{\sigma\tau}$ matrix, however this can easily be generalized to either of the other two matricies, $A^\sigma$ or $A^\tau$.
+
+The $A^{\sigma\tau}$ matrix can be written in terms of it's square root matrix, which as shown before, can be written in terms of it's eigenvalues and vectors as
+\begin{align}
+   A_{i\alpha,j\beta} &= \sum\limits_{k\delta} A^{1/2}_{i\alpha,k\delta}A^{1/2}_{k\delta,j\beta}, \\
+      &= \sum\limits_{k\delta} \left[\sum\limits_n \psi_{i\alpha}^{(n)}\left(\lambda^{(n)}\right)^{1/2}\psi_{k\delta}^{(n)}\right] \left[\sum\limits_m \psi_{k\delta}^{(m)}\left(\lambda^{(m)}\right)^{1/2}\psi_{j\beta}^{(m)}\right].
+\end{align}
+The full $\sigma\tau$ correlation operator can then be written as
+\begin{align}
+   &\exp\left(\frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}A^{\sigma\tau}_{i\alpha,j\beta}\sigma_{j\beta}\ti\cdot\tj\right) \\
+   =&\exp\left(\frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha} \sum\limits_{k\delta} \left[\sum\limits_n \psi_{i\alpha}^{(n)}\left(\lambda^{(n)}\right)^{1/2}\psi_{k\delta}^{(n)}\right] \left[\sum\limits_m \psi_{k\delta}^{(m)}\left(\lambda^{(m)}\right)^{1/2}\psi_{j\beta}^{(m)}\right] \sigma_{j\beta}\sum\limits_\gamma\tau_{i\gamma}\tau_{j\gamma}\right) \\
+   =&\exp\left(\frac{1}{2}\sum\limits_{k\delta}\sum\limits_\gamma \left[\sum\limits_{i\alpha}\sum\limits_n \psi_{i\alpha}^{(n)}\left(\lambda^{(n)}\right)^{1/2}\psi_{k\delta}^{(n)}\sigma_{i\alpha}\tau_{i\gamma}\right] \left[\sum\limits_{j\beta}\sum\limits_m \psi_{j\beta}^{(m)}\left(\lambda^{(m)}\right)^{1/2}\psi_{k\delta}^{(m)}\sigma_{j\beta}\tau_{j\gamma}\right] \right) \\
+   =& \exp\left(\frac{1}{2}\sum\limits_{k\delta}\sum\limits_\gamma\left(\mathcal{O}^{\sigma\tau}_{k\delta,\gamma}\right)^2 \right),
+\end{align}
+where the operators now sum over the eigenvector ordering, eliminating any systematic errors dependent on the ordering
+\begin{equation}
+   \mathcal{O}^{\sigma\tau}_{k\delta,\gamma} = \sum\limits_{i\alpha}\sum\limits_n \psi_{i\alpha}^{(n)}\left(\lambda^{(n)}\right)^{1/2}\psi_{k\delta}^{(n)}\sigma_{i\alpha}\tau_{i\gamma}.
+\end{equation}
+
+These correlations are now written in terms of squared single-nucleon operators, the form necessary to use with the Hubbard Stratanovich transformation as described in Chapter~\ref{ch:trial}.

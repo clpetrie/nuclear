@@ -1,4 +1,5 @@
 \chapter{Trial Wave Function}
+\label{ch:trial}
 An accurate trial wave function can drastically improve the accuracy of QMC methods such as VMC and AFDMC. Most highly accurate trial wave functions are computationally intractable and are never implemented in QMC methods. In addition to being accurate and computationally tractable a good wave function must satisfy known physical properties such as cluster decomposition as well as having an overall antisymmetry with respect to particle exchange due to the spin-1/2 property of nucleons.
 
 Cluster decomposition arises from the physical intuition that the wave function of two separate, non-interacting systems, $A$ and $B$ as in Figure~\ref{fig:cluster}, can be written as the outer product of their respective wave functions $\ket{A+B}=\ket{A}\ket{B}$.
@@ -535,16 +536,17 @@ The correlations are then written in terms of squared single particle operators,
 \begin{equation}
 \begin{split}
    \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Oijp\right) = \exp&\left(\frac{1}{2}\sum\limits_{n=1}^{3A} \left(O_{n}^{\sigma}\right)^2 \lambda_n^{\sigma}\right. \\
-      & \left. + \frac{1}{2}\sum\limits_{\alpha=1}^{3}\sum\limits_{n=1}^{3A} \left(O_{n\alpha}^{\sigma\tau}\right)^2 \lambda_n^{\sigma\tau}
-      + \frac{1}{2}\sum\limits_{\alpha=1}^{3}\sum\limits_{n=1}^{A} \left(O_{n\alpha}^{\tau}\right)^2 \lambda_n^{\tau}\right),
+      & \left. + \frac{1}{2}\sum\limits_{\gamma=1}^{3}\sum\limits_{n=1}^{3A} \left(O_{n\gamma}^{\sigma\tau}\right)^2 \lambda_n^{\sigma\tau}
+      + \frac{1}{2}\sum\limits_{\gamma=1}^{3}\sum\limits_{n=1}^{A} \left(O_{n\gamma}^{\tau}\right)^2 \lambda_n^{\tau}\right),
 \end{split}
 \end{equation}
 where the operators are given by
 \begin{equation}
 \begin{split}
-   O_{n}^{\sigma} &= \sum\limits_{j,\beta} \sigma_{j,\beta}\psi_{n,j,\beta}^{\sigma} \\
-   O_{n\alpha}^{\sigma\tau} &= \sum\limits_{j,\beta} \tau_{j,\alpha}\sigma_{j,\beta}\psi_{n,j,\beta}^{\sigma\tau} \\
-   O_{n\alpha}^{\tau} &= \sum\limits_{j} \tau_{j,\alpha}\psi_{n,j}^{\tau}.
+   O_{n}^{\sigma} &= \sum\limits_{i\alpha} \sigma_{i\alpha}\psi_{n,i\alpha}^{\sigma} \\
+   O_{n\gamma}^{\sigma\tau} &= \sum\limits_{i\alpha} \tau_{i\gamma}\sigma_{i\alpha}\psi_{n,i\alpha}^{\sigma\tau} \\
+   O_{n\gamma}^{\tau} &= \sum\limits_{i} \tau_{i\gamma}\psi_{n,i}^{\tau}.
+   \label{equ:OA}
 \end{split}
 \end{equation}
 This can be written in a more compact form,
@@ -562,7 +564,7 @@ The auxiliary fields are then drawn from the Gaussian distribution, $\exp\left(-
 \end{equation}
 The $\{x_n\}$ are the set of 15$A$ auxiliary fields, one for each of the different 15$A$ operators.
 
-Large errors arise with this first naive approach. This is due to the ordering of the eigenvectors as given by the algorithm. When derivatives of the wave function are taken the order of the eigenvectors may be given in a different order than before, and thus each vector could be paired with a different random sample of the auxiliary fields. One approach to remove this issue is to use a product of square roots of the $A$ matricies.
+Large errors arise with this first naive approach. This is due to the ordering of the eigenvectors as given by the algorithm. When derivatives of the wave function are taken the eigenvectors may be given in a different order for each term in the numerical derivative, and thus each vector could be paired with a different random sample of the auxiliary fields. One approach to remove this issue is to use a product of square roots of the $A$ matricies.
 
 This can be done by rewriting Equation~\ref{equ:amatricies} as
 \begin{equation}
@@ -579,18 +581,29 @@ where we have rewriten the matricies using the definition $A_{a,b} = \sum_cA^{1/
    &\sum\limits_{j\beta} \left(A^{\sigma\tau}_{i\alpha,j\beta}\right)^{1/2}\psi^{\sigma\tau}_{n,j\beta} = \left(\lambda^{\sigma\tau}_n\right)^{1/2}\psi^{\sigma\tau}_{n,i\alpha} \\
    &\sum\limits_{j} \left(A^{\tau}_{i,j}\right)^{1/2}\psi^{\tau}_{n,j} = \left(\lambda^{\tau}_n\right)^{1/2}\psi^{\tau}_{n,i}.
 \end{align}
-As before, this can be be used to rewrite the correlations in terms of squared single particle operators
+As before, this can be used to rewrite the correlations in terms of squared single particle operators
 \begin{equation}
 \begin{split}
-   \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Oijp\right) = \exp&\left(\frac{1}{2}\sum\limits_{n=1}^{3A} \left(O_{n}^{\sigma}\right)^2 \lambda_n^{\sigma}\right. \\
-      & \left. + \frac{1}{2}\sum\limits_{\alpha=1}^{3}\sum\limits_{n=1}^{3A} \left(O_{n\alpha}^{\sigma\tau}\right)^2 \lambda_n^{\sigma\tau}
-      + \frac{1}{2}\sum\limits_{\alpha=1}^{3}\sum\limits_{n=1}^{A} \left(O_{n\alpha}^{\tau}\right)^2 \lambda_n^{\tau}\right),
+   \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Oijp\right) = \exp&\left(\frac{1}{2}\sum\limits_{k\delta=1}^{3A} \left(O_{k\delta}^{\sigma}\right)^2\right. \\
+      & \left. + \frac{1}{2}\sum\limits_{\gamma=1}^{3}\sum\limits_{k\delta=1}^{3A} \left(O_{k\delta,\gamma}^{\sigma\tau}\right)^2
+      + \frac{1}{2}\sum\limits_{\gamma=1}^{3}\sum\limits_{k=1}^{A} \left(O_{k,\gamma}^{\tau}\right)^2\right).
 \end{split}
 \end{equation}
+where the operators are now
+\begin{equation}
+\begin{split}
+   O_{k\delta}^{\sigma} &= \sum\limits_{i\alpha}\sum\limits_n \sigma_{i\alpha}\psi_{n,i\alpha}^\sigma\left(\lambda_n^\sigma\right)^{1/2}\psi_{n,k\delta}^{\sigma} \\
+   O_{k\delta,\gamma}^{\sigma\tau} &= \sum\limits_{i\alpha}\sum\limits_n \tau_{i\gamma}\sigma_{i\alpha}\psi_{n,i\alpha}^{\sigma\tau}\left(\lambda_n^{\sigma\tau}\right)^{1/2}\psi_{n,k\delta}^{\sigma\tau} \\
+   O_{k\delta}^{\tau} &= \sum\limits_{i}\sum\limits_n \tau_{i\gamma}\psi_{n,i}^\tau\left(\lambda_n^\tau\right)^{1/2}\psi_{n,k}^{\tau}.
+\end{split}
+\end{equation}
+I have combined the sums over $k=1,\ldots,A$ and $\delta=1,2,3$ into a single sum $k\delta=1,\ldots,3A$.
+
+The difference between these operators and those described in Equation~\ref{equ:OA} is the explicit sum over the eigenvector ordering, as given by the label $n$. Like before each of these operators will be coupled with a sampled auxiliary field, however the operators maintain their order regardless of the ordering of the eigenvectors. This removes any systematic errors from the ordering of the eigenvectors. More details on this derivation can be found in Appendix~\ref{app:a12}.
 
 Minimal success has been achieved with these correlations for light nuclei (\cite{bouadani2009_dissertation}), however there are large uncertainties that make this wave function currently infeasible to use. Removing these uncertainties could make this wave function a very useful tool for nuclear QMC as it can be systematically improved by increasing the number of samples of the auxiliary fields.
 
-One difference between this wave function and the propagator used in AFDMC is the lack of a small time step. This wave function contains no time step and so there is no way to ensure that commutator terms will be small. Another possible issue arises when evaluating the derivative in the kinetic energy. The shifting of the walker positions causes the $A$ matrices to be discontinuous, and thus causing large uncertainties in the calculation of the derivative.
+Another possibility for decreasing statistical error is to use the plus-minus sampling technique as described in Section~\ref{sec:AFDMC}. Because the auxiliary fields are sampled from a Gaussian centered at zero, the probability of a given sample $x_n$ is the same as the probability for the sample $-x_n$. As a result, the wave function for both samples can be calculated and the sample with the larger weight can be accepted. Additional work needs to be made before this wave function is implemented in production. However, the scaling of this wave function is better for large systems compared to that of the quadratic correlations, and so this wave function may, in the future, be more suitable for calculations of larger systems. Also, systematic improvements can be made to the trial wave function by including additional samples of the auxiliary fields.
 
-\subsection{Alessandro's correlations and $T^2$ fix to them}
-\red{Maybe just do $T^2$ fix and apply it to exponential correlations \ldots maybe don't include this at all.}
+%\subsection{Alessandro's correlations and $T^2$ fix to them}
+%\red{Maybe just do $T^2$ fix and apply it to exponential correlations \ldots maybe don't include this at all.}
