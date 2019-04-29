@@ -1,6 +1,6 @@
 \chapter{Trial Wave Function}
 \label{ch:trial}
-An accurate trial wave function can drastically improve the accuracy of QMC methods such as VMC and AFDMC by lowering the variance and improving the fermion constraint. Most highly accurate trial wave functions are computationally intractable and are never implemented in QMC methods. In addition to being accurate and computationally tractable a good wave function must satisfy known physical properties such as cluster decomposition as well as having an overall antisymmetry with respect to particle exchange due to the spin-1/2 property of nucleons.
+An accurate trial wave function can drastically improve the accuracy of QMC methods such as VMC and AFDMC. Most highly accurate trial wave functions are computationally intractable and are never implemented in QMC methods. In addition to being accurate and computationally tractable a good wave function must satisfy known physical properties such as cluster decomposition as well as having an overall antisymmetry with respect to particle exchange due to the spin-1/2 property of nucleons.
 
 Cluster decomposition arises from the physical intuition that the wave function of two separate, non-interacting systems, $A$ and $B$ as in Figure~\ref{fig:cluster}, can be written as the outer product of their respective wave functions $\ket{A+B}=\ket{A}\ket{B}$.
 \begin{figure}[h]
@@ -28,7 +28,7 @@ The second property is that the wave function be antisymmetric overall. Since nu
 %\end{figure}
 
 \section{Slater Determinant}
-As used in this work one of the simplest wave functions that satisfies the two properties specified above is the Slater determinant. The Slater determinant has been the starting place for a variety of many-body calculations in nuclear and condensed matter physics alike. In electronic calculations the many-body wave functions will often be written in terms of a sum of weighted Slater determinants, where some methods have been able to use a sum of up to 2 billion determinants for the semistochastic heat-bath configuration interaction method (\cite{huron1973,li2018}). The no-core shell-model, used in nuclear physics, also uses a sum of Slater determinants (\cite{navratil2009,barrett2013}), often written in a truncated harmonic oscillator basis, where the number of determinants is based on the maximally allowed harmonic oscillator energy for the $A$ nucleon system. In QMC calculations a single, or sum of Slater determinants is often also used, however the single particle states are written to have good spin, isospin, and angular momentum quantum numbers. A single determinant is often used as a model state for closed shell calculations and a sum of small number of weighted determinants is used for open shell systems, to maintain good quantum numbers for the system. For small to medium mass open-shell nuclei on the order of 10 or 100 determinants are often used for a model state. A Slater determinant is an antisymmetrized product of single particle, non-interacting, wave functions
+As used in this work one of the simplest wave functions that satisfies the two properties specified above is the Slater determinant. The Slater determinant has been the starting place for a variety of many-body calculations in nuclear and condensed matter physics alike. In electronic calculations the many-body wave functions will often be written in terms of a sum of weighted Slater determinants, where some methods have been able to use a sum of up to 2 billion determinants for the semistochastic heat-bath configuration interaction method (\cite{huron1973,li2018}). The no-core shell-model, used in nuclear physics, also uses a sum of Slater determinants (\cite{navratil2009,barrett2013}), often written in a truncated HO basis, where the number of determinants is based on the maximally allowed HO energy for the $A$ nucleon system. In QMC calculations a single, or sum of Slater determinants is often also used, however the single particle states are written to have good spin, isospin, and angular momentum quantum numbers. A single determinant is often used as a model state for closed shell calculations and a sum of small number of weighted determinants is used for open shell systems, to maintain good quantum numbers for the system. For small to medium mass open-shell nuclei on the order of 10 or 100 determinants are often used for a model state. A Slater determinant is an antisymmetrized product of single particle, non-interacting, wave functions
 \begin{equation}
    \Psi_{SD}(\R) = \mathcal{A} \left[\phi_1(\r_1)\phi_2(\r_2) \ldots \phi_A(\r_A)\right] =
    \begin{vmatrix}
@@ -38,7 +38,7 @@ As used in this work one of the simplest wave functions that satisfies the two p
       \phi_K(\r_1) & \phi_K(\r_2) & \ldots & \phi_K(\r_A) \\
    \end{vmatrix},
 \end{equation}
-where $\R$ contains the spatial and spin-isospin coordinates of the walkers, $\mathcal{A}$ is the antisymmetrization operator, and the $\phi_i(\r_j)$ are the overlap of the walker positions with the model single particle states, $\braket{\r_j}{\phi_i}$. The $\r_i$ coordinates are relative to the center of mass $\r_i = \mathbf{u}_i - \frac{1}{A}\sum_jm_j\mathbf{u}_j$, where $\mathbf{u}_i$ are the nucleon coordinates relative to some origin. The single particle model states are made up of a radial and spin, iso-spin dependent parts,
+where $\R$ contains the spatial and spin-isospin coordinates of the walkers, $\mathcal{A}$ is the antisymmetrization operator, and the $\phi_i(\r_j)$ are the overlap of the walker positions with the model single particle states, $\braket{\r_j}{\phi_i}$. The $\r_i$ coordinates are the relative to the center of mass $\r_i = \mathbf{s}_i - \frac{1}{A}\sum_jm_j\mathbf{s}_j$, where $\mathbf{s}_i$ are the nucleon coordinates relative to some origin. The single particle model states are made up of a radial and spin, iso-spin dependent parts,
 \begin{equation}
    \phi_k = \Phi_{nj}\left[C_{c_l,m_s}^j Y_{l,m_l}(\hat{r}_i)\chi_s(s_i)\right]_{j,m_j},
 \end{equation}
@@ -113,7 +113,7 @@ and the symmetrized product wave functions,
    \Psi_{\text{SP}}(\R, S) = \bra{\R S}\left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[\mathcal{S}\prod\limits_{i<j}\left(1+\sum\limits_p\fpij\Opij\right)\right] \ket{\phi}.
    \label{equ:prodpsi}
 \end{equation}
-where the $\mathcal{S}$ is the symmetrization operator, the $f_c(r_{ij})$ are the same Jastrow correlations as before, and the $\Opij$ are the operators from the AV6' potential, $(1,\si\cdot\sj,S_{ij})\otimes(1,\ti\cdot\tj)$, where the tensor term is $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$. The $f_p(r_{ij})$ functions contain variational parameters and the functional form is determined by solving a Schr\"odinger-type equation with the constraint that the wave function be continuous at the healing distance (\cite{pandharipande1979,pandharipande1977}).
+where the $S$ is the symmetrization operator, the $f_c(r_{ij})$ are the same Jastrow correlations as before, and the $\Opij$ are the operators from the AV6' potential, $(1,\si\cdot\sj,S_{ij})\otimes(1,\ti\cdot\tj)$, where the tensor term is $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$. The $f_p(r_{ij})$ functions contain variational parameters and the functional form is determined by solving a Schr\"odinger-type equation with the constraint that the wave function be continuous at the healing distance (\cite{pandharipande1979,pandharipande1977}).
 
 The exponentially correlated wave function obeys the strong condition of cluster decomposition as long as the correlating functions, $f_p(r_{ij})$ go to zero as the particle separation increases. This dampens out nonphysical long-range particle correlations between physically separated systems. The strong condition is obeyed due to the full set of correlations acting on each product of single particle states in the Slater determinant. Also, due to the sum over particle pairs in the exponential, no explicit symmetrization is needed.
 
@@ -523,7 +523,7 @@ The correlation functions $f_p(r_{ij})$ are written in terms of symmetric matric
    \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Oijp\right) = \exp&\left(\frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}A^{\sigma}_{i\alpha,j\beta}\sigma_{j\beta}\right. \\
       &\left. + \frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}A^{\sigma\tau}_{i\alpha,j\beta}\sigma_{j\beta}\ti\cdot\tj
       + \frac{1}{2}\sum\limits_{i,j} A^{\tau}_{i,j}\ti\cdot\tj\right),
-   \label{equ:amatrices}
+   \label{equ:amatricies}
 \end{split}
 \end{equation}
 which can be written in terms of their eigenvalues and eigenvectors
@@ -564,17 +564,18 @@ The auxiliary fields are then drawn from the Gaussian distribution, $\exp\left(-
 \end{equation}
 The $\{x_n\}$ are the set of 15$A$ auxiliary fields, one for each of the different 15$A$ operators.
 
-Large errors arise with this first naive approach. This is due to the ordering of the eigenvectors as given by the algorithm. When derivatives of the wave function are taken the eigenvectors may be given in a different order for each term in the numerical derivative, and thus each vector could be paired with a different random sample of the auxiliary fields. One approach to remove this issue is to use a product of square roots of the $A$ matrices.
+Large errors arise with this first naive approach. This is due to the ordering of the eigenvectors as given by the algorithm. When derivatives of the wave function are taken the eigenvectors may be given in a different order for each term in the numerical derivative, and thus each vector could be paired with a different random sample of the auxiliary fields. One approach to remove this issue is to use a product of square roots of the $A$ matricies.
 
-This can be done by rewriting Equation~\ref{equ:amatrices} as
+This can be done by rewriting Equation~\ref{equ:amatricies} as
 \begin{equation}
 \begin{split}
    \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Oijp\right) = \exp&\left(\frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}\sum\limits_{k\gamma}\left(A^{\sigma}_{i\alpha,k\gamma}\right)^{1/2}\left(A^{\sigma}_{k\gamma,j\beta}\right)^{1/2}\sigma_{j\beta}\right. \\
       & + \frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}\sum\limits_{k\gamma}\left(A^{\sigma\tau}_{i\alpha,k\gamma}\right)^{1/2}\left(A^{\sigma\tau}_{k\gamma,j\beta}\right)^{1/2}\sigma_{j\beta}\ti\cdot\tj \\
       &\left. + \frac{1}{2}\sum\limits_{i,j} \sum\limits_{k}\left(A^{\tau}_{i,k}\right)^{1/2}\left(A^{\tau}_{k,j}\right)^{1/2}\ti\cdot\tj\right),
+   \label{equ:amatricies}
 \end{split}
 \end{equation}
-where we have rewriten the matrices using the definition $A_{a,b} = \sum_cA^{1/2}_{a,c}A^{1/2}_{c,b}$. These square root matrices can be written, similar to before, in terms of their eigenvalues and vectors as
+where we have rewriten the matricies using the definition $A_{a,b} = \sum_cA^{1/2}_{a,c}A^{1/2}_{c,b}$. These square root matricies can be written, similar to before, in terms of their eigenvalues and vectors as
 \begin{align}
    &\sum\limits_{j\beta} \left(A^{\sigma}_{i\alpha,j\beta}\right)^{1/2}\psi^{\sigma}_{n,j\beta} = \left(\lambda^{\sigma}_n\right)^{1/2}\psi^{\sigma}_{n,i\alpha} \\
    &\sum\limits_{j\beta} \left(A^{\sigma\tau}_{i\alpha,j\beta}\right)^{1/2}\psi^{\sigma\tau}_{n,j\beta} = \left(\lambda^{\sigma\tau}_n\right)^{1/2}\psi^{\sigma\tau}_{n,i\alpha} \\
@@ -602,7 +603,7 @@ The difference between these operators and those described in Equation~\ref{equ:
 
 Minimal success has been achieved with these correlations for light nuclei (\cite{bouadani2009_dissertation}), however there are large uncertainties that make this wave function currently infeasible to use. Removing these uncertainties could make this wave function a very useful tool for nuclear QMC as it can be systematically improved by increasing the number of samples of the auxiliary fields.
 
-Another possibility for decreasing statistical error is to use the plus-minus sampling technique as described in Section~\ref{sec:AFDMC}. Because the auxiliary fields are sampled from a Gaussian centered at zero, the probability of a given sample $x_n$ is the same as the probability for the sample $-x_n$. As a result, the wave function for both samples can be calculated and the sample with the larger weight can be accepted. Additional work needs to be made before this wave function is implemented in production. However, the scaling of this wave function is better for large systems compared to that of the quadratic correlations, and so this wave function may, in the future, be more suitable for calculations of larger systems. Also, systematic improvements can be made to the trial wave function by including additional samples of the auxiliary fields, or by expliciely evaluating some correlations as in the linear and quadratically correlated wave functions.
+Another possibility for decreasing statistical error is to use the plus-minus sampling technique as described in Section~\ref{sec:AFDMC}. Because the auxiliary fields are sampled from a Gaussian centered at zero, the probability of a given sample $x_n$ is the same as the probability for the sample $-x_n$. As a result, the wave function for both samples can be calculated and the sample with the larger weight can be accepted. Additional work needs to be made before this wave function is implemented in production. However, the scaling of this wave function is better for large systems compared to that of the quadratic correlations, and so this wave function may, in the future, be more suitable for calculations of larger systems. Also, systematic improvements can be made to the trial wave function by including additional samples of the auxiliary fields.
 
 %\subsection{Alessandro's correlations and $T^2$ fix to them}
 %\red{Maybe just do $T^2$ fix and apply it to exponential correlations \ldots maybe don't include this at all.}

@@ -13,7 +13,7 @@ filenames=('../gofrnp_continuum_ip.dmc','gofrnp_0.00025_lin_fine.dmc','gofrnp_0.
 titles=('Alpha Continuum','Linear - 0.00025','IP - 0.00025')
 #filenames=('../gofrnp_continuum_ip.dmc','gofrnp_0.00025_lin_alpha_fine.dmc','gofrnp_0.00025_ip_alpha_fine.dmc')
 #titles=('Alpha Continuum','Linear 2n2p - 0.00025','IP 2n2p - 0.00025')
-pltstyle=('ko','ro','bo')
+pltstyle=('ko','rs','b^')
 
 #build other parameters
 lenfiles=len(filenames)

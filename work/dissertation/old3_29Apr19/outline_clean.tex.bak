@@ -1,0 +1,43 @@
+{\small
+\section*{Outline and Due Dates}
+\begin{enumerate}
+   \item Background/Motivation
+   \begin{enumerate}
+      \item Other methods like HF and no-core shell model
+      \item General outline of the dissertation
+   \end{enumerate}
+   \item Quantum Monte Carlo
+   \begin{enumerate}
+      \item VMC
+      \item DMC
+      \item AFDMC
+      \begin{enumerate}
+         \item Mixed expectation values, operator breakup
+      \end{enumerate}
+      \item Hamiltonian - Phenomenogolical + $\chi$EFT + some results with AFDMC/GFMC
+   \end{enumerate}
+   \item Trial Wave Function
+   \begin{enumerate}
+      \item Slater Determinants
+      \item Pfaffian
+      \item Spin-Isospin Dependent Correlations
+      \begin{enumerate}
+         \item Quadratic Correlations - include results
+         \begin{enumerate}
+            \item Results
+         \end{enumerate}
+         \item Exponential correlations \ldots why they aren't working or how to do it, cluster decomposition
+      \end{enumerate}
+      \item Alessandro's wave function with $T^2$ fix attempts.
+   \end{enumerate}
+   \item Alpha-clustering
+   \begin{enumerate}
+      \item Theory
+      \item Results
+   \end{enumerate}
+   \item Conclusion
+   \begin{enumerate}
+      \item Future Work
+   \end{enumerate}
+\end{enumerate}
+}

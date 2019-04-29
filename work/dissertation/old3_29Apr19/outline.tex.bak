@@ -1,0 +1,49 @@
+{\small
+\section*{Outline and Due Dates}
+\red{Also add a list of figures???}
+\red{\\ Oliver will probably want to see pictures of scalings and timings. Scaling/processor etc. Include some nice pictures of these things.}
+\begin{enumerate}
+   \item Background/Motivation \red{Tuesday Feb 19}
+   \red{Hardest section but really important. Make sure to explain why the stuff we're working on is interesting, this will lead into talking about other methods.}
+   \begin{enumerate}
+      \item Other methods like HF and no-core shell model
+      \item General outline of the dissertation
+   \end{enumerate}
+   \item Quantum Monte Carlo \red{Friday Feb 22}
+   \begin{enumerate}
+      \item VMC
+      \item DMC
+      \item AFDMC
+      \begin{enumerate}
+         \item Mixed expectation values, operator breakup
+      \end{enumerate}
+      \item Hamiltonian - Phenomenogolical + $\chi$EFT + some results with AFDMC/GFMC
+   \end{enumerate}
+   \item Trial Wave Function \red{Friday Feb 15}
+   \begin{enumerate}
+      \item Slater Determinants
+      \item Pfaffian
+      \red{Explain what it's used for (superfluidity etc.) and why it's more efficient than the SD stuff (need many thousands of SD's to do the same thing).}
+      \item Spin-Isospin Dependent Correlations
+      \begin{enumerate}
+         \item Quadratic Correlations - include results
+         \begin{enumerate}
+            \item Results
+         \end{enumerate}
+         \item Exponential correlations \ldots why they aren't working or how to do it, cluster decomposition
+         \red{If not working then don't say much about it. Explain that there are large variances that need to be taken care of etc.}
+      \end{enumerate}
+      \item Alessandro's wave function with $T^2$ fix attempts. \blue{Maybe \ldots maybe don't include}
+   \end{enumerate}
+   \item Alpha-clustering \red{Friday Mar 1}
+   \begin{enumerate}
+      \item Theory
+      \item Results
+   \end{enumerate}
+   \item Conclusion \red{Friday Mar 8}
+   \begin{enumerate}
+      \item Future Work
+   \end{enumerate}
+\end{enumerate}
+\blue{Make sure to include stuff for each member of the committee.}
+}

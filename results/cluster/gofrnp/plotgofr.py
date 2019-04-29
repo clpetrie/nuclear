@@ -8,6 +8,7 @@ sys=5 #np0=1, np1=3, pp=5, nn=7
 density=('0.0005','0.001','0.002','0.003','0.005','0.01')
 density=('0.00025','0.0005','0.001','0.002','0.003','0.005','0.01')
 pltstyle=('ko','ro','mo','yo','go','co','bo')
+pltstyle=('ko','rv','m*','ys','gd','cp','b^')
 
 #build other parameters
 lenfiles=len(density)
