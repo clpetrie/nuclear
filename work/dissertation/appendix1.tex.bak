@@ -1,11 +1,11 @@
 \chapter{Exponential correlations as squared single-nucleon operators}
 \label{app:a12}
-The exponential correlations are investigated due to their explicit symmetry with respect to particle exchange as well as the fact that they obey the strong condition for cluster decomposition. The exponentially correlated wave function is defined as
+The exponential correlations are investigated due to their explicit symmetry with respect to particle exchange as well as the fact that they obey the strong condition for cluster decompostion. The exponentially correlated wave function is defined as
 \begin{equation}
    \Psi_{\text{exp}}(\R, S) = \bra{\R S}\left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j}\sum\limits_{p}f_p(r_{ij})\Opij}\ket{\phi}
    \label{equ:exppsi}
 \end{equation}
-where the $f_c(r_{ij})$ are the Jastrow correlations and the $\Opij$ are the operators from the AV6' potential, $(1,\si\cdot\sj,S_{ij})\otimes(1,\ti\cdot\tj)$, where the tensor term is $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$. The Hubbard Stratanovich transformation can be used to sample these correlations without the use of a truncated expansion of the exponential. To do this the operators need to be written in terms of squared single particle operators. I will show how this is done. To remove systematic errors when sampling the exponential correlations with Hubbard Stratanovich auxiliary fields it is necessary to write the $A$ matrices in terms of their square roots, $A_{ab} = A^{1/2}_{ac}A^{1/2}_{cb}$. I will show how this is done and how the resulting operators can also be written in terms of squared single-nucleon operators.
+where the $f_c(r_{ij})$ are the Jastrow correlations and the $\Opij$ are the operators from the AV6' potential, $(1,\si\cdot\sj,S_{ij})\otimes(1,\ti\cdot\tj)$, where the tensor term is $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$. The Hubbard Stratanovich transformation can be used to sample these correlations without the use of a truncated expansion of the exponential. To do this the operators need to be writen in terms of squared single particle operators. I will show how this is done. To remove systematic errors when sampling the exponential correlations with Hubbard Stratanovich auxiliary fields it is necessary to write the $A$ matrices in terms of their square roots, $A_{ab} = A^{1/2}_{ac}A^{1/2}_{cb}$. I will show how this is done and how the resulting operators can also be writen in terms of squared single-nucleon operators.
 
 As shown in Chapter~\ref{ch:trial} the correlations can be broken down into pieces containing only $\sigma$ operators, only $\tau$ operators, and pieces containing both where each piece has a respective matrix $A$ written in terms of the functions $f_p$
 \begin{equation}
@@ -23,7 +23,7 @@ where $Q$ is a matrix with all of the eigenvectors as columns, and $\Lambda$ is 
 \begin{equation}
    A = Q\Lambda Q^T.
 \end{equation}
-In practice these matrices are written in terms of their matrix elements
+In practice these matrices are writen in terms of their matrix elements
 \begin{equation}
    A_{i\alpha,j\beta} = \sum\limits_n \psi^{(n)}_{i\alpha}\lambda^{(n)}\psi^{(n)}_{j\beta},
 \end{equation}

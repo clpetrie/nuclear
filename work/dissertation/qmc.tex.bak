@@ -405,7 +405,7 @@ where $Y_\text{cut}(r)$ and $T_\text{cut}(r)$ are the cutoff functions for the Y
 
 The Illinois-7 (IL7) potential (\cite{pieper2001}) contains two-pion three-nucleon interactions in both the s-wave and p-wave, as well as a three-pion exchange and three-nucleon contact interactions. The IL7 potential has been fit to the low-lying spectra of nuclei with $A=3$ to nuclei with $A=10$. These phenomenological potentials have been used to calculate many properties of light nuclei with high accuracy using both the GFMC and AFDMC methods.
 
-Despite the accuracy of these potentials they have little direct connection to the underlying theory of QCD. Efforts have been made to build nuclear potentials starting from an effective Lagrangian which obeys chiral symmetry (\cite{entem2017}). The Lagrangians that are used are often subdivided based on their relevant degrees of freedom, typically pions and nucleons. For example the NN Lagrangian can be subdivided to take the form
+Despite the accuracy of these potentials they have little direct connection to the underlying theory of QCD. Efforts have been made to build nuclear potentials starting from an effective Lagrangian which obeys chiral symmetry (\cite{entem2017}). The Lagrangians that are used are often subdivided based on their relevent degrees of freedom, typically pions and nucleons. For example the NN Lagrangian can be subdivided to take the form
 \begin{equation}
    \mathcal{L}_{eff} = \mathcal{L}_{\pi\pi} + \mathcal{L}_{\pi N} + \mathcal{L}_{NN} + \ldots.
 \end{equation}
@@ -422,7 +422,7 @@ In recent years a set of nuclear potentials has been developed from a chiral eff
 Most of our calculations have been done with the AV6$'$ potential to reduce computation requirements as well as to better focus on the improvements made by improved wave functions. It is straightforward to do any of these calculations with the three-nucleon and the $\chi$EFT potentials.
 
 \section{Quantum Monte Carlo and High Performance Computing}
-QMC calculations are very well suited to parallel computing. For VMC calculations this is very straight forward. Each process is given one or more walkers for which independent simulations are performed. Observables are then computed on each separate processor and collected by a single boss processor. The collected data can then be processes and analyzed for final output. It is slightly more complicated for AFDMC calculations, as load balancing is required due to the branching algorithm which can create or destroy walkers at each time step.
+QMC calculations are very well suited to parallel computing. For VMC calculations this is very straight forward. Each process is given one or more walkers for which independent simulations are performed. Observables are then computed on each seperate processor and collected by a single boss processor. The collected data can then be processes and analyzed for final output. It is slightly more complicated for AFDMC calculations, as load balancing is required due to the branching algorithm which can create or destroy walkers at each time step.
 
 We have tested the scalability of the AFDMC code on various systems. The results for the SuperMIC computer at Louisiana State University as well as the Stampede2 computer which is part of the Texas Advanced Computing Center can be found in Figures~\ref{fig:supermic} and \ref{fig:stampede2} respectively.
 \begin{figure}[h!]
