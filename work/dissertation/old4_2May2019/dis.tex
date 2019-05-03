@@ -1,0 +1,145 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{natbib}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{afterpage}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsbsy}
+\usepackage{dcolumn,array}
+\usepackage{tocloft}
+\usepackage{asudis}
+\usepackage[pageanchor=true,plainpages=false,pdfpagelabels,bookmarks,bookmarksnumbered]{hyperref}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{tikz} %For drawing figures
+\usepackage{bbold} % for identity matrix \mathbb{1}
+\widowpenalty10000 % Try to avoid window lines
+\clubpenalty10000 % Try to avoid orphan lines
+
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\blue}[1]{{\color{blue}{#1}}}
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\braket}[2]{\left< #1 | #2 \right>}
+\newcommand{\ketbra}[2]{\left| #1 \right> \left< #2 \right|}
+\newcommand{\expect}[1]{\left< #1 \right>}
+\newcommand{\fpij}{f_p(r_{ij})}
+\newcommand{\vpij}{v_p(r_{ij})}
+\newcommand{\Opij}{\mathcal{O}_{ij}^p}
+\newcommand{\Oijp}{\mathcal{O}^p_{ij}}
+\newcommand{\Oklp}{\mathcal{O}^p_{kl}}
+\newcommand{\fOpij}{\sum\limits_{i<j}\sum\limits_p \fpij\Opij}
+\newcommand{\fqkl}{f_q(r_{kl})}
+\newcommand{\Oqkl}{\mathcal{O}_{kl}^q}
+\newcommand{\fOqkl}{\sum\limits_{k<l}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\fOqklip}{\sum\limits_{k<l,\mathrm{ip}}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\fOqklquad}{\sum_{\substack{k<l\\ij \ne kl}}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\fOqklexpquad}{\sum_{\substack{k<l}}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\f}[2]{f_{#1}(r_{#2})}
+\renewcommand{\O}[2]{\mathcal{O}_{#2}^{#1}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\eO}{\left<\mathcal{O}\right>}
+\newcommand{\eOm}{\left<\mathcal{O}\right>_{\mathrm{mixed}}}
+\newcommand{\fO}[2]{\sum\limits_{#1} f_{#1}(r_{#2})\mathcal{O}_{#2}^{#1}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\R}{\mathbf{R}}
+\renewcommand{\det}{\mathrm{det}}
+\newcommand{\sxz}{\mathrm{sxz}}
+\renewcommand{\t}{\bm{\tau}}
+\newcommand{\s}{\bm{\sigma}}
+\newcommand{\ti}{\bm{\tau}_i}
+\newcommand{\tj}{\bm{\tau}_j}
+\newcommand{\si}{\bm{\sigma}_i}
+\newcommand{\sj}{\bm{\sigma}_j}
+\newcommand{\rij}{\hat{r}_{ij}}
+\newcommand{\tia}{\tau_{i\alpha}}
+\newcommand{\sia}{\sigma_{i\alpha}}
+\newcommand{\sib}{\sigma_{i\beta}}
+\newcommand{\tja}{\tau_{j\alpha}}
+\newcommand{\tig}{\tau_{i\gamma}}
+\newcommand{\sja}{\sigma_{j\alpha}}
+\newcommand{\sjb}{\sigma_{j\beta}}
+\newcommand{\tjg}{\tau_{j\gamma}}
+\newcommand{\tij}{\ti \cdot \tj}
+\newcommand{\sij}{\si \cdot \sj}
+\newcommand{\Aijt}{A^{\tau}_{i,j}}
+\newcommand{\Ot}{\mathcal{O}^\tau_{n\alpha}}
+\newcommand{\Os}{\mathcal{O}^\sigma_{n}}
+\newcommand{\Ost}{\mathcal{O}^{\sigma\tau}_{n\alpha}}
+\newcommand{\dt}{\Delta\tau}
+
+\begin{document}
+%-----------------------front matter
+\pagenumbering{roman}
+\title{Improved Trial Wave Functions for Quantum Monte Carlo Calculations of Nuclear Systems and Their Applications}
+\author{Cody L. Petrie}
+\degreeName{Doctor of Philosophy}
+\paperType{Dissertation}
+\defensemonth{May}
+\defenseyear{2019}
+\gradmonth{August}
+\gradyear{2019}
+\chair{Kevin Schmidt}
+\memberOne{Igor Shovkovy}
+\memberTwo{Oliver Beckstein}
+\memberThree{Ricardo Alarc\'on}
+
+\maketitle
+\doublespace
+\include{abstract}
+\dedicationpage{
+I dedicate this dissertation to my beautiful wife Sharee. Without her I would not be who I am today. From the day she came into my life she has never let me pass up a good opportunity just because it looked hard. She has always encouraged me to work harder, learn more, be a better person, and chase after my dreams, no matter how crazy they may seem. Her unconditional love has supported me through many hard times. I am eternally grateful to have her in my life.
+
+To my amazing kids. To Ammon for always being curious and clever and for always asking me the hard questions, which usually begin with ``why". To Cooper for the boundless energy that he has and shares, and for the smiles and ``many faces of Cooper" that can brighten up any day. To Livie, my beautiful and perfect princess who can take any cloudy moment and fill it with sunshine and joy. To my little angel Lydia, with whom I will be sharing many exciting adventures.
+
+To my parents and siblings, both by blood and by law, who have loved and supported us over the years and who have been willing to drop what they are doing on a moments notice to support us.
+}
+\include{ack}
+\tableofcontents
+% This puts the word "Page" right justified above everything else.
+\addtocontents{toc}{~\hfill Page\par}
+% Asking LaTeX for a new page here guarantees that the LOF is on a separate page
+% after the TOC ends.
+\newpage
+% Making the LOT and LOF "parts" rather than chapters gets them indented at
+% level -1 according to the chart: top of page 4 of the document at
+% ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/tocloft/tocloft.pdf
+\addcontentsline{toc}{part}{LIST OF TABLES}
+\renewcommand{\cftlabel}{Table}
+\listoftables
+% This gets the headers for the LOT right on the first page.  Subsequent pages
+% are handled by the fancyhdr code in the asudis.sty file.
+\addtocontents{lot}{Table~\hfill Page \par}
+\newpage
+\addcontentsline{toc}{part}{LIST OF FIGURES}
+\addtocontents{toc}{CHAPTER \par}
+\renewcommand{\cftlabel}{Figure}
+% This gets the headers for the LOF right on the first page.  Subsequent pages
+% are handled by the fancyhdr code in the asudis.sty file.
+\addtocontents{lof}{Figure~\hfill Page \par}
+\listoffigures
+%-----------------------body
+\doublespace
+\pagenumbering{arabic}
+
+\input{motivation}
+\input{qmc}
+\input{trialwavefunction}
+\input{alphaformation}
+\input{conclusion}
+\newpage
+%-----------------------back matter
+{\singlespace
+% Making the references a "part" rather than a chapter gets it indented at
+% level -1 according to the chart: top of page 4 of the document at
+% ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/tocloft/tocloft.pdf
+\addcontentsline{toc}{part}{REFERENCES}
+\bibliographystyle{asudis}
+%\bibliography{dis}}
+\bibliography{../../../../Dropbox/nuclear/papers/references}}
+\renewcommand{\chaptername}{APPENDIX}
+%\addtocontents{toc}{APPENDIX \par}
+\appendix
+\include{appendix1}
+\include{vita}
+\end{document}

@@ -83,34 +83,72 @@ Advisor: Kevin Schmidt}
 %\end{figure}
 
 %\fontsize{\sfont}{\sspace}\selectfont
-\iffalse
+%\iffalse
+\iftrue
 \begin{frame}{Outline}
-Story: Why do we need to have a good trial wave function? Here are some options to improve the wave function. Here are the results we have gotten including some applications of the wave function.
+%Story: Why do we need to have a good trial wave function? Here are some options to improve the wave function. Here are the results we have gotten including some applications of the wave function.
 \begin{itemize}
-   \item Methods to solve the nuclear problem and why we use QMC
-   \begin{itemize}\fontsize{\sfont}{\sspace}\selectfont
-      \item VMC \red{June 15}
-      \item DMC/AFDMC \red{June 15}
-   \end{itemize}
-   \item Trial wave function and why it's so important
-   \begin{itemize}\fontsize{\sfont}{\sspace}\selectfont
-      \item Slater Dets (and Pfaffians) \red{June 15}
-      \item Jastrow and linear correlations \red{June 15}
-      \item Quadratic correlations \red{June 30}
+\only<1>{
+   \item Background
+   \begin{itemize}
+      \item What is the problem we are trying to solve?
+      \item Where are we applicable?
+      \item Other methods
       \begin{itemize}
-         \item Results \red{June 30}
+         \item HF - basis for other methods like AFDMC
+         \item Basis set methods such as \ldots
+         \item No-core shell model
+         \item Coupled cluster
+         \item self-consistent Green's function
       \end{itemize}
    \end{itemize}
-   \item Other correlations
+   \item Methods to solve the nuclear problem and why we use QMC
    \begin{itemize}\fontsize{\sfont}{\sspace}\selectfont
-      \item Exponential correlations \red{June 30}
-      \item Ale's correlations and $T^2$ fix \red{July 15}
+      \item VMC
+      \item DMC
+      \item GFMC
+      \begin{itemize}
+         \item Excitations up to $^{12}$C
+      \end{itemize}
+      \item AFDMC
    \end{itemize}
-   \item Application to $\alpha$-clustering \red{July 15}
+}\only<2>{
+   \item Trial wave function and why it's so important
    \begin{itemize}\fontsize{\sfont}{\sspace}\selectfont
-      \item Stefano's original results \red{July 15}
-      \item Results with quadratic correlations \red{July 15}
+      \item Slater Dets (and Pfaffians)
+      \item Jastrow and linear correlations
+      \begin{itemize}
+         \item Results from previous papers showing the improvement
+      \end{itemize}
+      \item Quadratic correlations
+      \begin{itemize}
+         \item Results - show with jas $\rightarrow$ lin comparison as well
+         \item Show the preliminary results we have with $\chi$EFT potentials as well.
+         \item Performance scaling, both for xsede computers as well as linear vs. quadratic correlations.
+      \end{itemize}
    \end{itemize}
+   \item Other (future) correlations
+   \begin{itemize}\fontsize{\sfont}{\sspace}\selectfont
+      \item Exponential correlations
+      \item Eigenvector discontinuity problem and square root matrix fix
+      \item Preliminary results
+   \end{itemize}
+}\only<3>{
+   \item Application to $\alpha$-clustering
+   \begin{itemize}\fontsize{\sfont}{\sspace}\selectfont
+      \item NS intro and why clustering is an interesting problem
+      \begin{itemize}
+         \item Clustering is often put in by hand, but we can do it {\it ab initio}.
+      \end{itemize}
+      \item Stefano's original results
+      \item Results with quadratic correlations
+   \end{itemize}
+   \item Conclusion
+   \item Extra Slides
+   \begin{itemize}
+      \item Add possible extra slides here when you think of them
+   \end{itemize}
+}
 \end{itemize}
 \end{frame}
 \fi
@@ -153,12 +191,13 @@ Story: Why do we need to have a good trial wave function? Here are some options 
    \begin{equation*}
       E_V = \frac{\int\psi_T^*(\R)H\psi_T(\R)d\R}{\int\psi_T^*(\R)\psi_T(\R)d\R} \ge E_0
    \end{equation*}
-   \item To use what we learned above we want this to look like this
+   \item We want this to look like this
    \begin{equation*}
       E_V = \int f(\R)P(\R) d\R \approx \frac{1}{N}\sum\limits_{n=1}^N f(\R_n)
    \end{equation*}
 \end{itemize}
 \end{frame}
+\note[item]{blah blah}
 
 \begin{frame}{Variational Monte Carlo}
    \begin{equation*}
