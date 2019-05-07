@@ -205,7 +205,7 @@ Advisor: Kevin Schmidt}
    \end{equation*}
 \end{itemize}
 \end{frame}
-\note[item]{blah blah}
+\note{blah blah}
 
 \begin{frame}{Variational Monte Carlo}
    \begin{equation*}
@@ -355,6 +355,21 @@ Our energy estimates are correlated and so we estimate error using block averagi
    \item For $v_6$, a truncation of the phenomenological Argonne $v_{18}$ potential, the operators are $\si\cdot\sj$, $\ti\cdot\tj$, $\si\cdot\sj \ti\cdot\tj$, $S_{ij}$ and $S_{ij} \ti\cdot\tj$, where $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$
 \end{itemize}
 \end{frame}
+
+\begin{frame}{Auxiliary Field Diffusion Monte Carlo - Spin Sampling}
+\begin{itemize}
+   \item To avoid explicitly doing the $2^A\frac{A!}{Z!(A-Z)!}$ sums over the spin-isospin states AFDMC writes the spin-isospin dependent propagator in terms of squared single particle operators.
+   \item The spin-isospin dependent operators
+   \begin{equation*}
+      e^{-V_{SD}\dt}
+   \end{equation*}
+   is sampled by using the Hubbard-Stratanovich transformation.
+   \begin{equation*}
+      e^{-\frac{1}{2}\lambda O^2} = \frac{1}{\sqrt{2\pi}} \int dx e^{-\frac{x^2}{2} + \sqrt{-\lambda}xO}
+   \end{equation*}
+\end{itemize}
+\end{frame}
+\note{This process will come up again when talking about the exponential correlations.}
 
 \begin{frame}{Auxiliary Field Diffusion Monte Carlo - Spin Sampling}
 \begin{itemize}
