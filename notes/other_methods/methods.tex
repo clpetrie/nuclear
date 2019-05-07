@@ -1,0 +1,86 @@
+\documentclass[12pt]{extarticle}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{color}
+\usepackage{graphicx}
+
+% my commands
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\R}{\mathbf{R}} % walker
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\braket}[2]{\left< #1 | #2 \right>}
+
+\title{Other methods used to solve the nuclear many-body problem}
+\author{Cody L. Petrie}
+
+\begin{document}
+\maketitle
+
+% include sections here
+\section{Hartree-Fock}
+The general starting place for the HF method is to start with a Slater determiant. The problem is then similar to the minimization problem in classical mechanics where a Lagrangian is formed, which then defines an action, $\mathcal{S}$, which is then minimized with respect to the individual single particle states
+\begin{equation}
+   \frac{\partial\mathcal{L}}{\partial \psi^*_i} - \sum\limits_{\alpha=1}^3 \frac{\partial}{\partial x_\alpha} \frac{\partial \mathcal{L}}{\left(\frac{\partial\psi^*_i}{\partial x_\alpha}\right)} = 0
+\end{equation}
+This is written in terms of derivatives with respect to $\psi$ instead of the coordinates because the lagrangian is written as $\mathcal{L} = \mathcal{L}(\psi^*,\psi,\nabla\psi^*,\nabla\psi)$, like in QFT.
+
+The constraint that
+\begin{equation}
+   C_i(\psi^*,\psi) = \int d^3r \psi^*_i(\mathbf{r})\psi_i(\mathbf{r}) = 1,
+\end{equation}
+can then be included in the usual way, similar to in classical mechanics text books
+\begin{equation}
+   \left[\frac{\delta\mathcal{S}}{\delta \psi^*_i} + \lambda_i\frac{\delta C_i}{\delta\psi^*_i}\right] = 0.
+\end{equation}
+This is then used to solve for what is called the Hartree-Fock equations
+\begin{equation}
+   \epsilon_i\phi_i(\mathbf{r}) = -\frac{\hbar^2}{2m_N}\nabla^2\phi(\mathbf{r}) + U^D(\mathbf{r})\phi_i(\mathbf{r}) - \int d^3\mathbf{r}'U^X(\mathbf{r},\mathbf{r}')\phi(\mathbf{r}'),
+\end{equation}
+where $U^D$ and $U^X$ are written in terms of the one-body density matrix
+\begin{equation}
+   \rho(\mathbf{r},\mathbf{r}') = \sum\limits_j \phi^*_j(\mathbf{r})\phi_j(\mathbf{r}').
+\end{equation}
+
+\section{No-Core Shell Model}
+For a VERY brief explanation see \cite{lynn2013}, or for a more in depth review see \cite{navratil2009}.
+
+The basic idea is similar to ours. They start from a Hamiltonian
+\begin{equation}
+   H = \sum\limits_{i=1}^A\frac{\mathbf{p}_i^2}{2m_N} + \sum\limits_{i<j}^A v_{ij} + \sum\limits_{i<j<k}^A V_{ijk}
+\end{equation}
+The wave function basis is a truncated HO basis. This allows for ``second quantization", which allows the shell model states to be used, and Navratil mentions that it also allows them to use ``single-nucleon coordinates" without losing translational invariance.
+
+They can handle non-local potentials because they are using the HO basis. However, they can't handle sharp (e.g. strong short-range correlations) interactions and so they use an effectice $H$ formed by operating on $H$ with a unitary tranformation, which introduces errors.
+
+It looks like they can handle up to $A$=16 nuclei, at least up until their 2009 review.
+
+It sounds like they directly solve the eigenvalue problem in the various $j$ channels.
+
+\section{Coupled Cluster}
+For the specific references to this see \cite{lynn2013}.
+
+It sounds like they do best with closed-shell nuclei where symmetries can reduce the complexity of the calculations. They have only ever reported energies for $^{16}$O, but did mention calculations for $^{40}$Ca. It must be a similar situation to us, $^{40}$Ca is calculable, but doesn't give very good accuracy.
+
+It sounds like they do the same thing as NCSM, except that they try to obey size extensivity and size consistency.
+\begin{enumerate}
+   \item Size Extensivity: ``Only linked diagrams appear in the calculation of the expectation value of the energy." This has the do with the linear behaviour of the method with respect to particle number, but I don't really know other than that. Everybody is vague.
+   \item Size Consistency: This refers to the energy of two non-interacting systems to be the sum of their two energies, $E(A+B)= E(A) + E(B)$.
+\end{enumerate}
+
+This is done by writting the wave function as being correlated by an exponential correlations operator
+\begin{equation}
+    \ket{\Psi} = \exp(T_{corr})\ket{\Psi_0},
+\end{equation}
+where the $\ket{\Psi_0}$ state is the single-particle state, usually something like a Slater determinant. The expectation value of the Hamiltonian can then be written in terms of the NON-HERMITIAN operator, $\exp(-T_{corr})H\exp(T_{corr})$
+\begin{equation}
+   \left<H\right> = \bra{\Psi_0}\exp(-T_{corr})H\exp(T_{corr})\ket{\Psi_0}.
+\end{equation}
+
+\section{Self-Consistent Green's Function}
+
+\bibliographystyle{unsrt} % unsrt shows in order of citations
+\bibliography{../../../../Dropbox/nuclear/papers/references.bib}
+
+\end{document}

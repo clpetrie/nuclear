@@ -1,0 +1,66 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: methods.aux
+The style file: unsrt.bst
+Database file #1: ../../../../Dropbox/nuclear/papers/references.bib.bib
+I was expecting a `,' or a `}'---line 196 of file ../../../../Dropbox/nuclear/papers/references.bib.bib
+ :   
+ :   annote={No-core shell model.}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 334 of file ../../../../Dropbox/nuclear/papers/references.bib.bib
+ :   
+ :   %url={http://stacks.iop.org/0034-4885/77/i=9/a=096302},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field part---line 543 of file ../../../../Dropbox/nuclear/papers/references.bib.bib
+ :   annote = 
+ :            ={Non-local potential stuff.}
+I'm skipping whatever remains of this entry
+I was expecting an "="---line 1024 of file ../../../../Dropbox/nuclear/papers/references.bib.bib
+ :    
+ :    annote = {The dense matter equation of state (EOS) determines neutron star (NS) structure but can be calculated reliably only up to one to two times the nuclear saturation density, using accurate many-body methods that employ nuclear interactions from chiral effective field theory constrained by scattering data. In this work, we use physically motivated ansatzes for the speed of sound}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You've used 2 entries,
+            1791 wiz_defined-function locations,
+            458 strings with 3891 characters,
+and the built_in function-call counts, 388 in all, are:
+= -- 31
+> -- 18
+< -- 0
++ -- 7
+- -- 5
+* -- 30
+:= -- 75
+add.period$ -- 6
+call.type$ -- 2
+change.case$ -- 1
+chr.to.int$ -- 0
+cite$ -- 2
+duplicate$ -- 16
+empty$ -- 35
+format.name$ -- 5
+if$ -- 78
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 1
+newline$ -- 13
+num.names$ -- 2
+pop$ -- 3
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 5
+stack$ -- 0
+substring$ -- 18
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 3
+width$ -- 3
+write$ -- 24
+(There were 4 error messages)

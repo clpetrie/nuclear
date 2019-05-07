@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usepackage{pgfpages}
 \usepackage[backend=bibtex]{biblatex}
+\usepackage{textpos}
 \usepackage{multicol}
 \setbeameroption{hide notes} % Only slides
 %\setbeameroption{show only notes} % Only notes
@@ -155,31 +156,38 @@ Advisor: Kevin Schmidt}
 
 \section{Motivation}
 \begin{frame}{Nuclear Many Body Problem}
-   \begin{equation*}
-      \left<H\right> = \bra{\Psi}H\ket{\Psi} = \int\Psi^*(\bm{R})H\Psi(\bm{R}) d\bm{R}
-   \end{equation*}
-   \begin{equation*}
-      H = \sum\limits_{i=1}^A \frac{\bm{p}^2}{2m} + \sum\limits_{i<j} v_{ij} + \sum\limits_{i<j<k} V_{ijk} + \ldots
-   \end{equation*}
+\vspace{-0.5cm}
+\begin{equation*}
+   \left<H\right> = \bra{\Psi}H\ket{\Psi} = \int\Psi^*(\bm{R})H\Psi(\bm{R}) d\bm{R}
+\end{equation*}
+\begin{equation*}
+   H = \sum\limits_{i=1}^A \frac{\bm{p}^2}{2m} + \sum\limits_{i<j} v_{ij} + \sum\limits_{i<j<k} V_{ijk} + \ldots
+\end{equation*}
+\begin{figure}
+   \includegraphics[width=0.65\textwidth]{../figures/tableofnuclides.pdf}
+\end{figure}
+\end{frame}
+\note{Show on the chart up to where our method is applicable.}
+
+\begin{frame}{Nuclear Many Body Methods}
+\begin{itemize}
+   \item There are a number of ways to solve this problem.
    \begin{itemize}
-      \item There are a number of ways to solve this problem.
+      \item Hartree-Fock
+      \item Basis-set methods
       \begin{itemize}
-         \item QCD
-         \begin{itemize}
-            \item Lattice QCD
-         \end{itemize}
          \item No-core shell model
          \item Coupled-cluster
          \item Self consistent Green's function method
-         \item Quantum Monte Carlo
+      \end{itemize}
+      \item Quantum Monte Carlo
+      \begin{itemize}
+         \item VMC
+         \item GFMC
+         \item AFDMC
       \end{itemize}
    \end{itemize}
-   \red{Should I have a slide for each method or should I have some popup information about each and just describe them here?}
-   \\\red{Can they be clumped into different styles and talked about together on slides?}
-\end{frame}
-
-\begin{frame}{\red{Other Motivation Stuff}}
-
+\end{itemize}
 \end{frame}
 
 \section{Research}
@@ -406,12 +414,12 @@ Our energy estimates are correlated and so we estimate error using block averagi
 \end{figure}
 \end{column}
 \begin{column}{0.5\textwidth}
-   Based on meson exchange and phenomenology
+   Based on meson exchange
    \begin{itemize}
       \item Argonne $v_{18}$ (NN)
       \item CD-Bonn (NN)
       \item Urbana UIX (NNN)
-      \item Illinois ?? (NNN)
+      \item Illinois (NNN)
    \end{itemize}
 \end{column}
 \end{columns}
@@ -430,15 +438,14 @@ Our energy estimates are correlated and so we estimate error using block averagi
 
 \begin{frame}{Hamilatonian - Argonne $v6'$ (AV6$'$)}
 \begin{itemize}
-   \item For this work I have used the NN AV6$'$ potential with no 3N interaction.
-   \item Most important 6 operators of the AV18 potential.
+   \item For this work I have used the NN AV6$'$ potential with no 3N interaction, though I will be showing some preliminary results with the $\chi$EFT NN and 3N potentials up to N2LO.
+   \item First 6 operators of the AV18 potential
    \begin{equation*}
       v_{ij} = \sum\limits_{p=1}^6 v_p(\r_{ij})\mathcal{O}^p_{ij}
    \end{equation*}
    \begin{equation*}
       \mathcal{O}^p_{ij} = 1,~\ti\cdot\tj,~\si\cdot\sj,~\si\cdot\sj\ti\cdot\tj,~S_{ij},~S_{ij}\ti\cdot\tj
    \end{equation*}
-   where the tensor term is
    \begin{equation*}
       S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj
    \end{equation*}
@@ -446,8 +453,168 @@ Our energy estimates are correlated and so we estimate error using block averagi
 \end{frame}
 
 \subsection{Trial Wave Function}
-\begin{frame}{Placeholder}
-blah
+\begin{frame}{Slater Determinant}
+\begin{itemize}
+   \item Properties:
+   \begin{itemize}
+      \item Antisymmetric
+      \item Cluster Decomposable \\ $\ket{A+B} = \ket{A}\ket{B}$
+   \end{itemize}
+   \begin{textblock*}{\textwidth}(4.5cm,-6.1cm) % {block width} (coords)
+      \includegraphics[width=14.6cm]{../figures/cluster.pdf}
+   \end{textblock*}
+   \item The simplest wave function for a many-fermion system obeying these properties is a Slater determinant where $\phi_i(\mathbf{r}_i,s_i)$ are single particle nucleon states.
+   \begin{equation*}
+      \psi_{T} = \braket{RS}{\phi}= \mathcal{A} \prod\limits_{i=1}^A \phi_i(\mathbf{r}_i,s_i) = \frac{1}{A!} \mathrm{det}~\phi_i(\mathbf{r}_i,s_i)
+   \end{equation*}
+   \item Short range correlations need to be put in by hand via Jastrow-like correlations.
+   \begin{equation*}
+      \ket{\psi_T} = \prod\limits_{i<j}f(r_{ij}) \ket{\phi}.
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Spin Dependent Correlations}
+\begin{itemize}
+   \item Two spin dependent wave functions that obey these two properties are the exponentially correlated and symmetrized product wave functions, where $\Opij$ are the AV6 operators, $\si\cdot\sj$, $\ti\cdot\tj$,     $\si\cdot\sj \ti\cdot\tj$, $S_{ij}$ and $S_{ij} \ti\cdot\tj$, where $S_{ij}     = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$.
+   \begin{equation*}
+      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j}\sum\limits_p\fpij\Opij} \ket{\phi}
+   \end{equation*}
+   \begin{equation*}
+      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \mathcal{S}\prod\limits_{i<j}\left(1+\sum\limits_p\fpij\Opij\right) \ket{\phi}
+   \end{equation*}
+   \item These two wave functions are the same up to second order except for  commutator terms.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Expand to Linear Correlations}
+\begin{itemize}
+   \item Because of the cost for larger systems in 2007 they only included Jastrow correlations.
+   \begin{equation*}
+      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right]\ket{\phi}
+   \end{equation*}
+   {\tiny S. Gandolfi et al. \textit{Phys. Rev. Lett.,} \textbf{99}, 022507, 2007.}
+   \item By 2014 they added spin-isospin correlations to improve overlap with tensor. This is a truncated expansion of either full wave function from before.
+   \begin{equation*}
+      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left(1+\sum\limits_{i<j}\sum\limits_p\fpij\Opij\right) \ket{\phi}
+   \end{equation*}
+   {\tiny S. Gandolfi et al. \textit{Phys. Rev. C.,} \textbf{90}, 061306(R), 2014.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Compare Jastrow to Jastrow+Linear}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.85\textwidth]{../figures/energy_jaslin.eps}
+\end{figure}
+\vspace{-0.5cm}
+{\tiny Data taken from each paper respectively.}
+\end{frame}
+
+\begin{frame}{Symmetrized Product Wave Function}
+\begin{itemize}
+   \item The logical next step was to keep more terms in the expansion.
+   \begin{equation*}
+   \begin{split}
+      \ket{\psi_T} = \Bigg[\prod\limits_{i<j}&f_c(r_{ij})\Bigg] \Bigg[1+\fOpij \\
+      & + \frac{1}{2}\fOpij\fOqklquad \Bigg] \ket{\phi}
+   \end{split}
+   \end{equation*}
+\end{itemize}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=1.0\textwidth]{../figures/pairing_fullquad.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Independent Pair Quadratic Correlations}
+\begin{itemize}
+   \item Or it can be expanded to get independent pair quadratic terms
+   \begin{equation*}
+   \begin{split}
+      \ket{\psi_T} = \Bigg[\prod\limits_{i<j}&f_c(r_{ij})\Bigg] \Bigg[1+\fOpij \\
+      & + \fOpij\fOqklip \Bigg] \ket{\phi}
+   \end{split}
+   \end{equation*}
+\end{itemize}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.7\textwidth]{../figures/pairing.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Results - AFDMC}
+\begin{textblock*}{\textwidth}(0.0cm,-0.6cm) % {block width} (coords)
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.6\textwidth]{../figures/energy.eps}
+\end{figure}
+\end{textblock*}
+~\\~\\~\\~\\~\\~\\~\\~\\
+\tiny
+\begin{table}[htb]
+\centering
+\caption[]{Energy (*per nucleon) in MeV}
+\begin{tabular}{ccccc}
+\hline\hline
+System & Linear & IP Quadratic & Quadratic & Experimental\\
+\hline
+%${}^{4}${He}   & -27.14(4) & -27.22(3)    & -27.11(3)    & -28.295   \\
+%${}^{16}${O}   & -115.7(9) & -121.5(1.5)  & -120.0(1.4)  & -127.62   \\
+%${}^{40}${Ca}  & -324(3)   & -347(8)      & -349(5)      & -342.1    \\
+%SNM*           & -13.92(6) & -14.80(7)    & -14.70(11)   &           \\
+${}^{4}${He}   & -27.14(4) & -27.19(3)    & -27.11(3)    & -28.296   \\
+${}^{16}${O}   & -115.7(9) & -122.4(1.5)  & -120.8(1.3)  & -127.62   \\
+${}^{40}${Ca}  & -322(3)   & -350(10)     & -351(6)      & -342.1    \\
+SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
+\hline\hline
+\end{tabular}
+\label{tab:psi2}
+\end{table}
+{\tiny D. Lonardoni et al. \textit{Phys. Rev. C.,} \textbf{97}, 044318, 2018.}
+\end{frame}
+\note{
+   \begin{itemize}
+      \item Don't expect AV6' to reproduce experimental data
+      \item 4He still doesn't change
+      \item Decrease for larger systems, AND IP and full quad are the same.
+   \end{itemize}
+}
+
+\begin{frame}{Results - VMC}
+   \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.8\textwidth]{../figures/energy_vmc.eps}
+   \end{figure}
+\end{frame}
+\note{
+   \begin{itemize}
+      \item Sanity check since AFDMC doesn't have upper bound constraint like VMC.
+      \item ALL decreased in energy, even 4He.
+   \end{itemize}
+}
+
+\begin{frame}{Quadratic Correlation Cost}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.65\textwidth]{../figures/scaling.eps}
+\end{figure}
+\vspace{-0.2cm}
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{ccccc}
+      \hline \hline
+       & $^{4}$He & $^{16}$O & SNM(28) & $^{40}$Ca \\
+      \hline
+      IP Quadratic & 1.73 & 30.7 & 64.8 & 720.9 \\
+      Quadratic & 2.00 & 58.8 & 133.6 & 1473.9 \\
+      \hline \hline
+   \end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{Results - $\chi$EFT up to N2LO - Preliminary}
+   \red{ADD RESULTS HERE}
 \end{frame}
 
 \subsection{Alpha Formation in NS}
