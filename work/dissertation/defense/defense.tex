@@ -9,6 +9,9 @@
 \bibliography{../../papers/references.bib}
 \setbeamerfont{footnote}{size=\small}
 %\AtEveryCitekey{\clearfield{title}}
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+   \insertshorttitle\hfill%
+   \insertframenumber\,/\,\inserttotalframenumber}
 
 %
 % Choose how your presentation looks.
@@ -23,6 +26,7 @@
   \usefonttheme{default}  % or try serif, structurebold, ...
   \setbeamertemplate{navigation symbols}{}
   \setbeamertemplate{caption}[numbered]
+  \usepackage{appendixnumberbeamer} %starts slide numbering over after \appendix
 } 
 
 \usepackage[english]{babel}
@@ -629,7 +633,44 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
 \end{frame}
 
 \begin{frame}{Results - $\chi$EFT up to N2LO - Preliminary}
-   \red{ADD RESULTS HERE}
+\begin{table}[htb]
+   \centering
+   \begin{tabular}{llccc}
+      \hline
+      Calculation & Correlations & $^4$He & $^{16}$O & SNM \\
+      \hline
+      VMC   & Linear       & $-5.86(1)$ & $-1.08(1)$ & $1.56(5)$ \\
+      VMC   & IP Quadratic & $-$        & $-4.03(4)$ & $-$ \\
+      VMC   & Quadratic    & $-6.72(1)$ & $-3.95(4)$ & $-$ \\
+      \hline
+      AFDMC & Linear       & $-6.89(2)$ & $-5.74(4)$ & $-9.5(1)$ \\
+      AFDMC & IP Quadratic & $-$        & $-7.3(2)$  & $-12.5(1)$ \\
+      AFDMC & Quadratic    & $-6.91(2)$ & $-6.9(2)$  & $-12.6(1)$ \\
+      \hline
+   \end{tabular}
+   \label{tab:chiquad}
+\end{table}
+\end{frame}
+\note{
+\begin{itemize}
+   \item N2LO with $R_0 = 1$ fm cutoff.
+   \item All the energies are per particle, in MeV.
+   \item All the wave functions have both two- and three-body correlations.
+   \item Local chiral potential at N2LO for R0=1.0fm cutoff.
+   \item 4He and SNM are done with the E1 parametrization.
+   \item 16O is done with the Etau parametrization.
+   \item 4He and 16O also contain the Coulomb.
+   \item Re-optimized for 4He and 16O with quadratic.
+   \item No re-optimization for SNM and only used growth energy.
+   \item SNM with no correction for finite size effects.
+   \item All DMC with constrained-path, no transient/unconstrained.
+\end{itemize}
+}
+
+\begin{frame}{Exponential Correlations}
+\begin{equation*}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j}\sum\limits_p\fpij\Opij} \ket{\phi}
+\end{equation*}
 \end{frame}
 
 \subsection{Alpha Formation in NS}
@@ -643,6 +684,17 @@ blah
 blah
 \end{frame}
 \subsection{Future Work}
+
+\appendix
+\begin{frame}{Extra Slides}
+\begin{centering}
+   Extra Slides
+\end{centering}
+\end{frame}
+
+\begin{frame}{$\chi$EFT vs. AV6$'$}
+\red{Slide comparing the AV6$'$ results with N2LO results. Remember that N2LO has the spin-orbit, which decreases binding.}
+\end{frame}
 
 %\note[itemize]{
 %   \item test1
