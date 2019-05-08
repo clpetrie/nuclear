@@ -671,6 +671,22 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
 \begin{equation*}
    \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j}\sum\limits_p\fpij\Opij} \ket{\phi}
 \end{equation*}
+\begin{itemize}
+   \item This looks just like the propagator and so we can {\bf use the same trick} with the HS transformation.
+\begin{align*}
+   G_{SD}(R'S',RS,\dt) &= \bra {R'S'}e^{-\sum\limits_{p=2}^6\sum\limits_{i<j}v_p(r_{ij})\Opij\dt} \ket{RS} \\
+      &= \prod\limits_{n=1}^{15A}\frac{1}{\sqrt{2\pi}}\int dx_n e^{-\frac{x_n^2}{2}}e^{\sqrt{-\lambda_n\dt} x_nO_n}
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exponential Correlations}
+\begin{itemize}
+   \item 
+\end{itemize}
+\begin{equation*}
+   \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Opij\right) = \prod\limits_{n=1}^{15A} \frac{1}{\sqrt{2\pi}}\int dx_n e^{-x_n^2/2}e^{\sqrt{\lambda_n}x_nO_n}.
+\end{equation*}
 \end{frame}
 
 \subsection{Alpha Formation in NS}

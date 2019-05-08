@@ -1,5 +1,5 @@
 \defcounter {refsection}{0}\relax 
-\beamer@endinputifotherversion {3.24pt}
+\beamer@endinputifotherversion {3.36pt}
 \defcounter {refsection}{0}\relax 
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \defcounter {refsection}{0}\relax 
@@ -19,11 +19,11 @@
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@subsectionpages {1}{5}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {1}{0}{4}{6/6}{}{0}}
+\headcommand {\slideentry {1}{0}{1}{6/6}{}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {6}{6}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {1}{0}{5}{7/7}{}{0}}
+\headcommand {\slideentry {1}{0}{2}{7/7}{}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {7}{7}}
 \defcounter {refsection}{0}\relax 
@@ -149,47 +149,51 @@
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {35}{35}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\beamer@subsectionentry {0}{2}{3}{36}{Alpha Formation in NS}}\headcommand {\beamer@subsectionpages {25}{35}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {2}{3}{1}{36/36}{Alpha Formation in NS}{0}}
+\headcommand {\slideentry {2}{2}{12}{36/36}{Trial Wave Function}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {36}{36}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\sectionentry {3}{Conclusion}{37}{Conclusion}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{37}{Alpha Formation in NS}}\headcommand {\beamer@subsectionpages {25}{36}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\beamer@sectionpages {8}{36}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\beamer@subsectionpages {36}{36}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\beamer@subsectionentry {0}{3}{1}{37}{Conclusion}}\headcommand {\beamer@subsectionpages {37}{36}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {3}{1}{1}{37/37}{Conclusion}{0}}
+\headcommand {\slideentry {2}{3}{1}{37/37}{Alpha Formation in NS}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {37}{37}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\beamer@subsectionentry {0}{3}{2}{38}{Future Work}}\headcommand {\beamer@subsectionpages {37}{37}}
+\headcommand {\sectionentry {3}{Conclusion}{38}{Conclusion}{0}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\partentry {Appendix}{1}}
+\headcommand {\beamer@sectionpages {8}{37}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\beamer@partpages {1}{37}}
+\headcommand {\beamer@subsectionpages {37}{37}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\beamer@sectionpages {37}{37}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{38}{Conclusion}}\headcommand {\beamer@subsectionpages {38}{37}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\beamer@subsectionpages {38}{37}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\beamer@appendixpages {38}}
-\defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {3}{0}{1}{38/38}{}{1}}
+\headcommand {\slideentry {3}{1}{1}{38/38}{Conclusion}{0}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {38}{38}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {3}{0}{2}{39/39}{}{1}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{39}{Future Work}}\headcommand {\beamer@subsectionpages {38}{38}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\partentry {Appendix}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@partpages {1}{38}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {38}{38}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {39}{38}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@appendixpages {39}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {3}{0}{1}{39/39}{}{1}}
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {39}{39}}
-\headcommand {\beamer@partpages {38}{39}}
-\headcommand {\beamer@subsectionpages {38}{39}}
-\headcommand {\beamer@sectionpages {38}{39}}
-\headcommand {\beamer@documentpages {39}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {3}{0}{2}{40/40}{}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {40}{40}}
+\headcommand {\beamer@partpages {39}{40}}
+\headcommand {\beamer@subsectionpages {39}{40}}
+\headcommand {\beamer@sectionpages {39}{40}}
+\headcommand {\beamer@documentpages {40}}
 \headcommand {\def \inserttotalframenumber {2}}
-\headcommand {\def \inserttotalframenumber {35}}
+\headcommand {\def \inserttotalframenumber {36}}
 \headcommand {\def \appendixtotalframenumber {2}}
