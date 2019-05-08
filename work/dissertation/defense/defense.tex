@@ -2,7 +2,9 @@
 \usepackage{pgfpages}
 \usepackage[backend=bibtex]{biblatex}
 \usepackage{textpos}
+\usepackage{tikz} % for drawing lines on slides
 \usepackage{multicol}
+\usepackage{multirow}
 \setbeameroption{hide notes} % Only slides
 %\setbeameroption{show only notes} % Only notes
 %\setbeameroption{show notes on second screen=right} % Both
@@ -449,7 +451,7 @@ Our energy estimates are correlated and so we estimate error using block averagi
 \end{figure}
 \end{column}
 \begin{column}{0.5\textwidth}
-   Based on $\chi$EFT expansion in momentum (up to N2LO)
+   Based on $\chi$EFT expansion in momentum (up to N$^2$LO)
    {\\ \tiny Figure from R. Machleidt and D.R. Entem, {\it Chiral effective field theory and nuclear forces}, Phys. Rep. {\bf 503}, 1 (2011)}
 \end{column}
 \end{columns}
@@ -457,7 +459,7 @@ Our energy estimates are correlated and so we estimate error using block averagi
 
 \begin{frame}{Hamilatonian - Argonne $v6'$ (AV6$'$)}
 \begin{itemize}
-   \item For this work I have used the NN AV6$'$ potential with no 3N interaction, though I will be showing some preliminary results with the $\chi$EFT NN and 3N potentials up to N2LO.
+   \item For this work I have used the NN AV6$'$ potential with no 3N interaction, though I will be showing some preliminary results with the $\chi$EFT NN and 3N potentials up to N$^2$LO.
    \item First 6 operators of the AV18 potential
    \begin{equation*}
       v_{ij} = \sum\limits_{p=1}^6 v_p(\r_{ij})\mathcal{O}^p_{ij}
@@ -632,7 +634,7 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
 \end{table}
 \end{frame}
 
-\begin{frame}{Results - $\chi$EFT up to N2LO - Preliminary}
+\begin{frame}{Results - $\chi$EFT up to N$^2$LO - Preliminary}
 \begin{table}[htb]
    \centering
    \begin{tabular}{llccc}
@@ -650,13 +652,14 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
    \end{tabular}
    \label{tab:chiquad}
 \end{table}
+\small Note that the NN part of N$^2$LO includes the spin-orbit interaction, which is not included in AV6$'$ and which has been shown to decrease binding (S. Gandolfi et al. \textit{Phys. Rev. C.,} \textbf{90}, 061306(R), 2014.).
 \end{frame}
 \note{
 \begin{itemize}
-   \item N2LO with $R_0 = 1$ fm cutoff.
+   \item N$^2$LO with $R_0 = 1$ fm cutoff.
    \item All the energies are per particle, in MeV.
    \item All the wave functions have both two- and three-body correlations.
-   \item Local chiral potential at N2LO for R0=1.0fm cutoff.
+   \item Local chiral potential at N$^2$LO for R0=1.0fm cutoff.
    \item 4He and SNM are done with the E1 parametrization.
    \item 16O is done with the Etau parametrization.
    \item 4He and 16O also contain the Coulomb.
@@ -680,26 +683,211 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Exponential Correlations}
+\begin{frame}{Exponential Correlations - Preliminary}
 \begin{itemize}
-   \item 
+   \item Problems with statistical errors related to the sampling.
+   \item Calculating the potential energy with exponential correlations and the rest with linear correlations.
+   \vspace{-0.2cm}
+   \begin{columns}
+   \begin{column}{0.5\textwidth}
+   \begin{figure}[h]
+      \centering
+      \includegraphics[width=\textwidth]{../figures/expplot.png}
+   \end{figure}
+   \end{column}
+   \begin{column}{0.5\textwidth}
+   \begin{table}[h!]
+      \centering
+      \caption{$^{4}$He energy with exp correlations. E$_\text{linear}$=-26.48(9) MeV.}
+      \begin{tabular}{cc}
+         \hline \hline
+         \# fields & E (MeV) \\
+         \hline
+         1     & -45.0(6)  \\
+         10    & -31.8(3)  \\
+         100   & -29.4(2)  \\
+         200   & -29.15(8) \\
+         500   & -28.68(18)\\
+         1000  & -28.7(2)  \\
+         \hline \hline
+      \end{tabular}
+   \end{table}
+   \end{column}
+   \end{columns}
+   \item Possible future project!
 \end{itemize}
-\begin{equation*}
-   \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Opij\right) = \prod\limits_{n=1}^{15A} \frac{1}{\sqrt{2\pi}}\int dx_n e^{-x_n^2/2}e^{\sqrt{\lambda_n}x_nO_n}.
-\end{equation*}
 \end{frame}
 
 \subsection{Alpha Formation in NS}
-\begin{frame}{Placeholder}
-blah
+\begin{frame}{Neutron Stars - Preliminary}
+\begin{itemize}
+   \item Use new wave function to study $\alpha$ formation in the inner crust of neutron stars.
+   \begin{equation*}
+      E_\alpha = E_\text{Nn+2p} - E_\text{(N-2)n}
+   \end{equation*}
+\end{itemize}
+\vspace{-0.5cm}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.5\textwidth]{../figures/neutronstar.png}
+\end{figure}
+{\tiny W. Newton {\it Nature Physics} {\bf 9}, 396-397 (2013)}
+%\begin{textblock*}{\textwidth}(8.1cm,-4.6cm) % {block width} (coords)
+\begin{textblock*}{\textwidth}(8.1cm,-4.4cm) % {block width} (coords)
+   \tiny $\approx$ 0.00024 fm$^{-3}$
+\end{textblock*}
+%\begin{textblock*}{\textwidth}(7.8cm,-4.1cm) % {block width} (coords)
+\begin{textblock*}{\textwidth}(7.8cm,-3.9cm) % {block width} (coords)
+   \tiny $\approx$ 0.030 fm$^{-3}$
+\end{textblock*}
+%\begin{textblock*}{\textwidth}(7.6cm,-3.8cm) % {block width} (coords)
+\begin{textblock*}{\textwidth}(7.6cm,-3.6cm) % {block width} (coords)
+   \tiny $\approx$ 0.084 fm$^{-3}$
+\end{textblock*}
+%\begin{textblock*}{\textwidth}(6.4cm,-1.3cm) % {block width} (coords)
+\begin{textblock*}{\textwidth}(6.4cm,-1.1cm) % {block width} (coords)
+   \tiny $\approx$ 0.60 fm$^{-3}$
+\end{textblock*}
+\end{frame}
+
+\begin{frame}{\large Alpha Particle Clustering in Mostly Neutron Matter - Preliminary}
+\begin{itemize}
+   \item If alpha particles form in nearly neutron matter then we should be able to estimate their energy by
+   \begin{equation*}
+      E_\alpha = E_\text{14n+2p} - E_\text{12n}
+   \end{equation*}
+   \vspace{-0.25cm}
+   \begin{columns}
+   \begin{column}{0.6\textwidth}
+   \begin{figure}[h]
+      \centering
+      \includegraphics[width=\textwidth]{../figures/alpha.png}
+   \end{figure}
+   \end{column}
+   \hspace{-0.6cm}
+   \begin{column}{0.4\textwidth}
+   \vspace{-0.8cm}
+   \begin{table}[h!]
+      \footnotesize
+      \centering
+      \caption{Alpha energy in MeV - Only part of the data.}
+      \begin{tabular}{ccc}
+         \hline \hline
+         $\rho$ (fm$^{-3}$) & lin & ip \\
+         \hline
+         0.00025  & -23.5(5)  & -25.4(2)  \\
+         0.0005   & -22.3(3)  & -24.2(2)  \\
+         0.001    & -20.7(3)  & -23.2(3)  \\
+         0.002    & -21.6(2)  & -23.5(3)  \\
+         0.003    & -25.7(3)  & -25.26(18)\\
+         0.005    & -27.5(5)  & -27.9(2)  \\
+         0.01     & -37.3(3)  & -37.6(7)  \\
+         \hline \hline
+      \end{tabular}
+   \end{table}
+   \end{column}
+   \hspace{0.6cm}
+   \end{columns}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{2 Protons + 2 Neutrons Only}
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.7\textwidth]{../figures/2n2p.png}
+%   \caption{Energy of 2 protons and 2 neutrons as calculated with linear and quadratic correlations. The green horizontal line indicates the alpha particle energy as calculated with AFDMC using the same AV6$'$ interaction and quadratic correlations.}
+%   \label{fig:alpha2n2p}
+\end{figure}
+The remaining energy could be due to the $\alpha$ interacting with the excess neurons.
+\end{frame}
+
+\begin{frame}{Check for Clustering - Pair Correlation Function}
+\begin{equation*}
+   g_{pp}(r) = \frac{1}{4\pi r^2} \bra{\Psi}\sum\limits_{i<j}\hat{p_i}\hat{p_j}\delta(r-r_{ij})\ket{\Psi}
+\end{equation*}
+\vspace{-0.7cm}
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=1.05\textwidth]{../figures/gpp.pdf}
+%   \caption{Pair correlations functions, $g_{pp}$ that give the probability of finding 2 protons a distance $r$ from each other. This is only shown for a few of the densities calculated to keep the figure less busy.} 
+%   \label{fig:gpp}
+\end{figure}
+\end{column}
+\begin{column}{0.4\textwidth}
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=\textwidth]{../figures/gpp_small.pdf}
+\end{figure}
+\end{column}
+\end{columns}
+%Add lines for the boxes %each x value must subtract 0.13 from the previous to be exactly the same as the one before... I don't know why...
+\tikz[overlay]{\draw[line width=0.25mm,red](2.8,1.35)--(6.3,1.35)--(7.1,4.43)--(6.3,1.35)--(6.3,1.10)--(7.1,1.5)--(6.3,1.10)--(2.8,1.10)--(2.8,1.35);}
+%\tikz[overlay]{\draw[line width=0.25mm,red](2.8,1.35)--(6.3,1.35);}
+%\tikz[overlay]{\draw[line width=0.25mm,red](2.67,1.10)--(6.17,1.10);}
+%\tikz[overlay]{\draw[line width=0.25mm,red](2.54,1.35)--(2.54,1.10);}
+%\tikz[overlay]{\draw[line width=0.25mm,red](5.91,1.35)--(5.91,1.10);}
+%\tikz[overlay]{\draw[line width=0.25mm,red](5.91,1.35)--(5.91,1.10);}
+%\tikz[overlay]{\draw[line width=0.25mm,red](5.91,1.35)--(5.91,1.10);}
+\end{frame}
+
+\begin{frame}{Check for Clustering - Pair Correlation Function}
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.8\textwidth]{../figures/gpp_compare.pdf}
+%   \caption{Proton-proton pair distribution functions calculated in the continuum compared to the calculation of 14 neutrons and 2 protons in a periodic box with $\rho=0.00025$ fm$^{-3}$. The $g_{pp}$ calculations in the box have increased resolution compared to those in earlier plots to show more detail. Both linear and IP quadratic correlations were used for the calculations in a box.}
+%   \label{fig:gpp_compare}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Clustering - Other Insights}
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.8\textwidth]{../figures/av6_alpha.png}
+%   \caption{Alpha particle energy as calculated with Equation~\ref{equ:alphaenergy14n2p} for each piece of the AV6$'$ potential for both linear and IP quadratic correlations.}
+%   \label{fig:av6_alpha}
+\end{figure}
+The tensor-tau and sigma-tau (from OPE) are most affected by improved correlations.
 \end{frame}
 
 \section{Conclusion}
-\subsection{Conclusion}
-\begin{frame}{Placeholder}
-blah
-\end{frame}
 \subsection{Future Work}
+\begin{frame}{Future Work}
+\begin{itemize}
+   \item Investigate alpha clustering with a pfaffian pairing wave function.
+   \item Further improve the efficiency and accuracy of the trial wave function with the exponential correlations.
+   \item Do a full investigation of both improved wave functions with the more sophisticated $\chi$EFT potentials.
+\end{itemize}
+\end{frame}
+
+\subsection{Conclusion}
+\begin{frame}{Conclusion}
+\begin{itemize}
+   \item AFDMC calculations need to improved correlations for larger systems.
+   \item I have improved the correlations, however, more efficient techniques are needed.
+   \begin{itemize}
+      \item One possibility is to use the HS transformation with the exponential correlations.
+   \end{itemize}
+   \item We can use AFDMC to study clustering in nearly neutron matter.
+   \begin{itemize}
+      \item It appears that, at least a low density, the improved wave function correlations are important.
+   \end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{}
+\begin{frame}{Thanks}
+Advisor: Kevin Schmidt (ASU) \\
+Collaborators: Stefano Gandolfi (LANL), Joe Carlson (LANL), and Diego Lonardoni (MSU-FRIB and LANL) 
+\\~\\
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.30\textwidth]{../figures/asu_university_vert_rgb_maroongold_150.png}
+   \includegraphics[width=0.36\textwidth]{../figures/xsede-full-color.jpg}
+   \includegraphics[width=0.30\textwidth]{../figures/NSF_4-Color_bitmap_Logo.png}
+\end{figure}
+\end{frame}
 
 \appendix
 \begin{frame}{Extra Slides}
@@ -708,8 +896,97 @@ blah
 \end{centering}
 \end{frame}
 
-\begin{frame}{$\chi$EFT vs. AV6$'$}
-\red{Slide comparing the AV6$'$ results with N2LO results. Remember that N2LO has the spin-orbit, which decreases binding.}
+\begin{frame}{Monte Carlo Integration}
+\begin{itemize}
+   \item We often want to solve multidimensional integrals.
+      \begin{equation*}
+         I=\int g(\R)d\R
+      \end{equation*}
+   \item We can rewrite this in terms of a probability distribution $P(\R)$.
+      \begin{equation*}
+         I=\int f(\R)P(\R)d\R
+      \end{equation*}
+   \item This looks like an expectation value of $f(\R)$. If the $\R_n$'s are pulled from $P(\R)$ then we can write this in discrete form as
+   \begin{equation*}
+      I=\lim\limits_{N\rightarrow\infty} \frac{1}{N}\sum\limits_{n=1}^N f(\R_n) \approx \frac{1}{N}\sum\limits_{n=1}^N f(\R_n)
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Metropolis Algorithm}
+   The Metropolis algorithm is a Markov Chain method that does not depend on history except for the previous point.
+\begin{enumerate}
+   \item Start at a random position, $\R$.
+   \item Propose a move to a new position $\R'$, pulled from a distribution $T(\R'|\R)$, where $T$ could be a Gaussian centered on the current position. %%%This makes sure that too large of steps aren't taken.
+   \item One possible condition for accepting the move is given by enforcing detailed balance.
+   \begin{equation*}
+      A(\R'|\R) = \mathrm{min}\left(1,\frac{P(\R')T(\R|\R')}{P(\R)T(\R'|\R)}\right)
+   \end{equation*}
+   \item The move is accepted if $A\ge u$ where $u$ is a uniform random number between 0 and 1.
+\end{enumerate}
+\end{frame}
+\note{Two conditions to have convergence to the correct distribution. 1: The steps must be able to get from any allowed state to any other in a finite amount of steps. 2: There cannot be cycles (ACBACBACB...), rejecting some steps gets rid of cycles.}
+
+\begin{frame}{$\chi$EFT vs. AV6$'$ with AFDMC}
+\begin{table}[htb]
+\centering
+\caption[]{Energy per nucleon in MeV calculated with AFDMC with AV6$'$ and $\chi$EFT up to N$^2$LO compared to experimentail data where available.}
+\begin{tabular}{ccccc}
+\hline\hline
+Corr  & Potential  & $^4$He   & $^{16}$O  & SNM \\
+\hline
+\multirow{2}{*}{Linear} & AV6$'$    & -6.79(1)  & -7.23(6)  & -13.97(3) \\
+                        & N$^2$LO   & -6.89(2)  & -5.74(4)  & -9.5(1)   \\
+\hline
+\multirow{2}{*}{IP Quad}& AV6$'$    & -6.798(8) & -7.65(9)  & -14.87(4) \\
+                        & N$^2$LO   & $-$       & -7.3(2)   & -12.5(1)  \\
+\hline
+\multirow{2}{*}{Quad}   & AV6$'$    & -6.778(8) & -7.55(8)  & -14.81(3) \\
+                        & N$^2$LO   & -6.91(2)  & -6.9(2)   & -12.6(1)  \\
+\hline\hline
+\multicolumn{2}{c}{\multirow{2}{*}{Experimental}}  & \multirow{2}{*}{-7.074} & \multirow{2}{*}{-7.98}   &  \\
+                        &           &           &           & \\
+\hline\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{$\chi$EFT vs. AV6$'$ with VMC}
+\begin{table}[htb]
+\centering
+\caption[]{Energy per nucleon in MeV calculated with VMC with AV6$'$ and $\chi$EFT up to N$^2$LO.}
+\begin{tabular}{ccccc}
+\hline\hline
+Corr  & Potential  & $^4$He   & $^{16}$O  & SNM \\
+\hline
+\multirow{2}{*}{Linear} & AV6$'$    & -5.96(1)  & -3.581(3) & -8.25(4)  \\
+                        & N$^2$LO   & -5.86(1)  & -1.08(1)  &  1.56(5)  \\
+\hline
+\multirow{2}{*}{IP Quad}& AV6$'$    & -6.113(8) & -5.338(3) & -10.60(3) \\
+                        & N$^2$LO   & $-$       & -4.03(4)  & $-$       \\
+\hline
+\multirow{2}{*}{Quad}   & AV6$'$    & -6.275(5) & -5.463(3) & -10.74(2) \\
+                        & N$^2$LO   & -6.72(1)  & -3.95(4)  & $-$       \\
+\hline\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{Exponential Correlations - Problems}
+\red{EXPLAIN WHY WE NEED SQRT MARTIX}
+\begin{itemize}
+   \item When taking numerical derivatives the order of $A$ matrix eigenvectors (given by $n$) can change. This means that each term in the derivative can have each eigenvector matched with a different auxiliary field.
+   \begin{equation*}
+      \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Opij\right) = \prod\limits_{n=1}^{15A} \frac{1}{\sqrt{2\pi}}\int dx_n e^{-x_n^2/2}e^{\sqrt{\lambda_n}x_nO_n}
+   \end{equation*}
+   \item To fix this we can define the operators $O_n$ in terms of the square roots of the $A$ matricies.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exponential Correlations - Problems}
+\begin{itemize}
+   \item \red{FINISH THIS!}
+\end{itemize}
 \end{frame}
 
 %\note[itemize]{
