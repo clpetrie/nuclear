@@ -1,0 +1,1022 @@
+\documentclass{beamer}
+\usepackage{pgfpages}
+\usepackage[backend=bibtex]{biblatex}
+\usepackage{textpos}
+\usepackage{tikz} % for drawing lines on slides
+\usepackage{multicol}
+\usepackage{soul}
+\usepackage{multirow}
+\setbeameroption{hide notes} % Only slides
+%\setbeameroption{show only notes} % Only notes
+%\setbeameroption{show notes on second screen=right} % Both
+\bibliography{../../papers/references.bib}
+\setbeamerfont{footnote}{size=\small}
+%\AtEveryCitekey{\clearfield{title}}
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+   \insertshorttitle\hfill%
+   \insertframenumber\,/\,\inserttotalframenumber}
+
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{Warsaw}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{default}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+  \usepackage{appendixnumberbeamer} %starts slide numbering over after \appendix
+} 
+
+\usepackage[english]{babel}
+%\usepackage[utf8x]{inputenc} %Doesn't play well with biblatex
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{graphicx}
+
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\braket}[2]{\left< #1 | #2 \right>}
+\newcommand{\ketbra}[2]{\left| #1 \right> \left< #2 \right|}
+\newcommand{\expect}[1]{\left< #1 \right>}
+\newcommand{\fpij}{f_p(r_{ij})}
+\newcommand{\vpij}{v_p(r_{ij})}
+\newcommand{\Opij}{\mathcal{O}_{ij}^p}
+\newcommand{\fOpij}{\sum\limits_{i<j}\sum\limits_p \fpij\Opij}
+\newcommand{\fqkl}{f_q(r_{kl})}
+\newcommand{\Oqkl}{\mathcal{O}_{kl}^q}
+\newcommand{\fOqkl}{\sum\limits_{k<l}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\fOqklip}{\sum\limits_{k<l,\mathrm{ip}}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\fOqklquad}{\sum_{\substack{k<l\\ij \ne kl}}\sum\limits_q \fqkl\Oqkl}
+\newcommand{\f}[2]{f_{#1}(r_{#2})}
+\renewcommand{\O}[2]{\mathcal{O}_{#2}^{#1}}
+\newcommand{\fO}[2]{\sum\limits_{#1} f_{#1}(r_{#2})\mathcal{O}_{#2}^{#1}}
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\dt}{\Delta\tau}
+\newcommand{\ti}{\bm{\tau}_i}
+\newcommand{\tj}{\bm{\tau}_j}
+\newcommand{\si}{\bm{\sigma}_i}
+\newcommand{\sj}{\bm{\sigma}_j}
+\newcommand{\sfont}{9}
+\newcommand{\sspace}{10.2}
+
+\title[Dissertation Defense]{{\large Dissertation Defense:}\\Improved Trial Wave Functions for Quantum Monte Carlo Calculations of Nuclear Systems and Their Applications}
+\author[Cody L. Petrie]{Cody L. Petrie\\
+Advisor: Kevin Schmidt}
+\institute{Arizona State University}
+\date{May 23, 2019}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Uncomment these lines for an automatically generated outline.
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+% Commands to include a figure:
+%\begin{figure}
+%\includegraphics[width=\textwidth]{your-figure's-file-name}
+%\caption{\label{fig:your-figure}Caption goes here.}
+%\end{figure}
+
+%\fontsize{\sfont}{\sspace}\selectfont
+%\iffalse
+\iftrue
+\begin{frame}{Outline}
+%Story: Why do we need to have a good trial wave function? Here are some options to improve the wave function. Here are the results we have gotten including some applications of the wave function.
+\begin{itemize}
+\only<1>{
+   \item Background
+   \begin{itemize}
+      \item What is the problem we are trying to solve?
+      \item Where are we applicable?
+      \item Other methods
+      \begin{itemize}
+         \item HF - basis for other methods like AFDMC
+         \item Basis set methods such as \ldots
+         \item No-core shell model
+         \item Coupled cluster
+         \item self-consistent Green's function
+      \end{itemize}
+   \end{itemize}
+   \item Methods to solve the nuclear problem and why we use QMC
+   \begin{itemize}\fontsize{\sfont}{\sspace}\selectfont
+      \item VMC
+      \item DMC
+      \item GFMC
+      \begin{itemize}
+         \item Excitations up to $^{12}$C
+      \end{itemize}
+      \item AFDMC
+   \end{itemize}
+}\only<2>{
+   \item Trial wave function and why it's so important
+   \begin{itemize}\fontsize{\sfont}{\sspace}\selectfont
+      \item Slater Dets (and Pfaffians)
+      \item Jastrow and linear correlations
+      \begin{itemize}
+         \item Results from previous papers showing the improvement
+      \end{itemize}
+      \item Quadratic correlations
+      \begin{itemize}
+         \item Results - show with jas $\rightarrow$ lin comparison as well
+         \item Show the preliminary results we have with $\chi$EFT potentials as well.
+         \item Performance scaling, both for xsede computers as well as linear vs. quadratic correlations.
+      \end{itemize}
+   \end{itemize}
+   \item Other (future) correlations
+   \begin{itemize}\fontsize{\sfont}{\sspace}\selectfont
+      \item Exponential correlations
+      \item Eigenvector discontinuity problem and square root matrix fix
+      \item Preliminary results
+   \end{itemize}
+}\only<3>{
+   \item Application to $\alpha$-clustering
+   \begin{itemize}\fontsize{\sfont}{\sspace}\selectfont
+      \item NS intro and why clustering is an interesting problem
+      \begin{itemize}
+         \item Clustering is often put in by hand, but we can do it {\it ab initio}.
+      \end{itemize}
+      \item Stefano's original results
+      \item Results with quadratic correlations
+   \end{itemize}
+   \item Conclusion
+   \item Extra Slides
+   \begin{itemize}
+      \item Add possible extra slides here when you think of them
+   \end{itemize}
+}
+\end{itemize}
+\end{frame}
+\fi
+
+\section{Motivation}
+\begin{frame}{Nuclear Many Body Problem}
+\vspace{-0.5cm}
+\begin{equation*}
+   \left<H\right> = \bra{\Psi}H\ket{\Psi} = \int\Psi^*(\bm{R})H\Psi(\bm{R}) d\bm{R}
+\end{equation*}
+\begin{equation*}
+   H = \sum\limits_{i=1}^A \frac{\bm{p}^2}{2m} + \sum\limits_{i<j} v_{ij} + \sum\limits_{i<j<k} V_{ijk} + \ldots
+\end{equation*}
+\begin{figure}
+   \includegraphics[width=0.65\textwidth]{../figures/tableofnuclides.pdf}
+\end{figure}
+\end{frame}
+\note{Show on the chart up to where our method is applicable.}
+
+\begin{frame}{Nuclear Many Body Methods}
+\begin{itemize}
+   \item There are a number of ways to solve this problem.
+   \begin{itemize}
+      \item Hartree-Fock
+      \item Basis-set methods
+      \begin{itemize}
+         \item No-core shell model
+         \item Coupled-cluster
+         \item Self consistent Green's function method
+      \end{itemize}
+      \item Quantum Monte Carlo
+      \begin{itemize}
+         \item VMC
+         \item GFMC
+         \item AFDMC
+      \end{itemize}
+   \end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Research}
+\subsection{QMC Methods}
+\begin{frame}{Variational Monte Carlo}
+\begin{itemize}
+   \item VMC starts with a trial wave function which includes variable parameters.
+   \item The variational principle guarantees
+   \begin{equation*}
+      E_V = \frac{\int\psi_T^*(\R)H\psi_T(\R)d\R}{\int\psi_T^*(\R)\psi_T(\R)d\R} \ge E_0
+   \end{equation*}
+   \item We want this to look like this
+   \begin{equation*}
+      E_V = \int f(\R)P(\R) d\R \approx \frac{1}{N}\sum\limits_{n=1}^N f(\R_n)
+   \end{equation*}
+\end{itemize}
+\end{frame}
+\note{blah blah}
+
+\begin{frame}{Variational Monte Carlo}
+   \begin{equation*}
+      E_V = \int P(\R)E_L(\R) d\R
+   \end{equation*}
+\begin{itemize}
+   \item We can do that if we multiply by $\Psi_T(\R)\Psi_T^{-1}(\R)$.
+%   \begin{align*}
+%      P(\R) &= \frac{|\Psi_T(\R)|^2}{\int|\Psi_T(\R)|^2d\R} \\
+%      E_L(\R) &= \Psi_T^{-1}(\R) H \Psi_T(\R)
+%      E_L(\R) &= \frac{\Psi_T^*(\R) H \Psi_T(\R)}{\Psi_T^*(\R) \Psi_T(\R)}
+%   \end{align*}
+   \begin{equation*}
+      P(\R) = \frac{|\Psi_T(\R)|^2}{\int|\Psi_T(\R)|^2d\R}, ~~~
+%      E_L(\R) &= \Psi_T^{-1}(\R) H \Psi_T(\R)
+      E_L(\R) = \frac{\Psi_T^*(\R) H \Psi_T(\R)}{\Psi_T^*(\R) \Psi_T(\R)}
+   \end{equation*}
+   \item Now using Monte Carlo integration we can write
+   \begin{equation*}
+      E_V \approx \frac{1}{N} \sum\limits_{n=1}^N E_L(\mathbf{R_n}),
+   \end{equation*}
+   where the $\R_n$ are samples from $P(\R)$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Variational Monte Carlo}
+\begin{itemize}
+   \item The statistical error in the energy is then given in the typical way
+   \begin{equation*}
+      \sigma_{E_V} = \sqrt{\frac{\left<E_L^2\right>-\left<E_L\right>^2}{N}} \approx \sqrt{\frac{\left(\frac{1}{N}\sum\limits_{n=1}^NE_L^2(\R_n)\right) - \left(\frac{1}{N}\sum\limits_{n=1}^NE_L(\R_n)\right)^2}{N-1}}
+   \end{equation*}
+   \item We can then vary the parameters in the trial wave function and calculate this until we minimize the energy or statistical error, since $E_V \ge E_0$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diffusion Monte Carlo}
+\begin{itemize}
+   \item Diffusion Monte Carlo uses a Green's function to diffuse in imaginary time to estimate the ground state energy and wave function based on a trial wave function.
+   \begin{equation*}
+      H\Psi = i\hbar\frac{d\Psi}{dt} ~ \xrightarrow{\tau=it/\hbar} ~ H\Psi = -\frac{d\Psi}{d\tau}
+   \end{equation*}
+   Using separation of variables we can write
+   \begin{equation*}
+      \Psi(\R,\tau) = \sum\limits_{n=0}^{\infty} c_n\phi_n(\R) e^{-\tau(E_n-E_0)}
+   \end{equation*}
+   \item The long imaginary time limit of this goes to the ground state.
+   \begin{equation*}
+      \lim\limits_{\tau\rightarrow\infty} \Psi(\R,\tau) = c_0\phi_0(\R)
+   \end{equation*}
+\end{itemize}
+\end{frame}
+\note{We start DMC from the minimized $\psi_T$ and configurations from VMC.}
+
+\begin{frame}{Diffusion Monte Carlo}
+\begin{itemize}
+   \item The propagated wave function can be written
+   \begin{equation*}
+      \braket{\R'}{\Psi_T(\tau)} = \int d\R \bra{\R'}e^{-(H-E_0)\tau}\ket{\R}\braket{\R}{\Psi_T(0)}
+   \end{equation*}
+   \item Now we use $e^{-H\tau}=e^{-V\tau/2}e^{-T\tau}e^{-V\tau/2}+\mathcal{O}(\tau^3)$ and break up the propagator into small time steps $\dt = \tau/N$.
+   \begin{equation*}
+      \braket{\R_N}{\Psi_T(\tau)} = \int d\R_1 \ldots d\R_N \left[\prod\limits_{i=1}^N G(\R_i,\R_{i-1},\Delta\tau)\right] \braket{\R_0}{\Psi_T(0)}
+   \end{equation*}
+   \begin{equation*}
+      G(\R',\R,\Delta\tau) = \bra{\R'}e^{-(H-E_0)\Delta\tau}\ket{\R}
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diffusion Monte Carlo}
+\begin{itemize}
+   \item In the small $\dt$ limit this propagator can be split up with the kinetic term being used to diffuse the walkers along a random path.
+   \begin{equation*}
+      \bra{\R'}e^{-T\Delta \tau}\ket{\R} = \left(\frac{m}{2\pi\hbar^2\Delta\tau}\right)^{3A/2}e^{-m(\R'-\R)^2/2\hbar^2\Delta\tau}
+   \end{equation*}
+   \item The potential term can then be used as a weight in a branching algorithm.
+   \begin{equation*}
+      w(\R') = e^{-\left(V\left(\R'\right)+V\left(\R\right)-2E_0\right)\Delta\tau/2}%\bra{\R'}e^{-(V-E_0)\Delta\tau}\ket{\R}
+   \end{equation*}
+   \item Importance sampling improves the variance of the sampling and can be included with
+   \begin{equation*}
+      G(\R',\R,\Delta\tau) \rightarrow G(\R',\R,\Delta\tau)\frac{\braket{\R}{\Psi_I}}{\braket{\R'}{\Psi_I}}
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diffusion Monte Carlo}
+Branching: Each walker can be deleted or multiply. The number of walkers that continues is equal to $\mathrm{int}\left(w(\R')+\xi\right)$, where $\xi$ is a uniform random number from $[0,1]$.
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\begin{figure}
+   \includegraphics[width=0.9\textwidth]{../figures/branching.png}
+\end{figure}
+\end{column}
+\begin{column}{0.7\textwidth}
+   {\color{blue}{Figure:}} Reprinted from W.M.C. Foulkes et al. \textit{Rev. Mod. Phys.,} 73:33-83, 2001.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Estimating Expectation Values}
+We want to solve something like this
+\begin{equation*}
+   \left<\mathcal{O}\right> = \frac{\bra{\Psi(\tau)}\mathcal{O}\ket{\Psi(\tau)}}{\braket{\Psi(\tau)}{\Psi(\tau)}}.
+\end{equation*}
+In practice a linear extrapolation is used because $\mathcal{O}\Psi(\tau)$ is hard.
+\begin{equation*}
+   \left<\mathcal{O}\right> \approx 2\left<\mathcal{O}\right>_\text{mixed} - \left<\mathcal{O}\right>_\text{VMC}
+\end{equation*}
+\begin{equation*}
+   \left<\mathcal{O}\right>_\text{mixed} = \frac{\bra{\Psi(\tau)}\mathcal{O}\ket{\Psi_T}}{\braket{\Psi(\tau)}{\Psi_T}},
+   ~~~~
+   \left<\mathcal{O}\right>_\text{VMC} = \frac{\bra{\Psi_T}\mathcal{O}\ket{\Psi_T}}{\braket{\Psi_T}{\Psi_T}}
+\end{equation*}
+In the large $\tau$ limit when $\left[\mathcal{O},H\right]$=0
+\begin{equation*}
+   \lim\limits_{\tau\rightarrow\infty}\left<\mathcal{O}\right>_\text{mixed} = \left<\mathcal{O}\right>
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Estimating Error}
+Our energy estimates are correlated and so we estimate error using block averaging
+\begin{figure}
+   \includegraphics[width=0.77\textwidth]{../figures/blockaverage.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Green's Function Monte Carlo}
+\begin{itemize}
+   \item GFMC follows DMC exactly for the spatial integrals, but performs the sums of $2^A$ spin and $\frac{A!}{Z!(A-Z)!}$ isospin states, for $A$ nucleons with $Z$ protons explicitly.
+\end{itemize}
+\begin{figure}
+   \includegraphics[width=0.85\textwidth]{../figures/gfmc_energies.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Auxiliary Field Diffusion Monte Carlo - Spin Sampling}
+\begin{itemize}
+   \item AFDMC samples auxiliary fields to rotate the spins/isospins of the walkers.
+   \item The spin/isospin dependent part of the potential is what is used in the spin/isospin dependent part of the propagator.
+   \begin{equation*}
+      G_{SD}(R'S',RS,\dt) = \bra {R'S'}e^{-V_{SD}\dt} \ket{RS}
+   \end{equation*}
+   \begin{equation*}
+      V_{SD} = \sum\limits_{p=2}^6\sum\limits_{i<j}v_p(r_{ij})\Opij
+   \end{equation*}
+   \item For $v_6$, a truncation of the phenomenological Argonne $v_{18}$ potential, the operators are $\si\cdot\sj$, $\ti\cdot\tj$, $\si\cdot\sj \ti\cdot\tj$, $S_{ij}$ and $S_{ij} \ti\cdot\tj$, where $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Auxiliary Field Diffusion Monte Carlo - Spin Sampling}
+\begin{itemize}
+   \item To avoid explicitly doing the $2^A\frac{A!}{Z!(A-Z)!}$ sums over the spin-isospin states AFDMC writes the spin-isospin dependent propagator in terms of squared single particle operators.
+   \item The spin-isospin dependent operators
+   \begin{equation*}
+      e^{-V_{SD}\dt}
+   \end{equation*}
+   is sampled by using the Hubbard-Stratanovich transformation.
+   \begin{equation*}
+      e^{-\frac{1}{2}\lambda O^2} = \frac{1}{\sqrt{2\pi}} \int dx e^{-\frac{x^2}{2} + \sqrt{-\lambda}xO}
+   \end{equation*}
+\end{itemize}
+\end{frame}
+\note{This process will come up again when talking about the exponential correlations.}
+
+\begin{frame}{Auxiliary Field Diffusion Monte Carlo - Spin Sampling}
+\begin{itemize}
+   \item The potential can be written in terms of matrices that are made of the $v_p(r_{ij})$, are symmetric, and 0 if $i=j$.
+   \begin{equation*}
+      V_{SD} = \frac{1}{2}\sum\limits_{i\alpha j\beta} \sigma_{i\alpha}A^{\sigma}_{i\alpha j\beta}\sigma_{j\beta}
+      + \frac{1}{2}\sum\limits_{i\alpha j\beta} \sigma_{i\alpha}A^{\sigma\tau}_{i\alpha j\beta}\sigma_{j\beta}\ti\cdot\tj
+      + \frac{1}{2}\sum\limits_{ij} A^{\tau}_{ij}\ti\cdot\tj
+   \end{equation*}
+   \item We can construct these matrices and then solve for their eigenvalues and eigenvectors.
+\begin{align*}
+   &\sum\limits_{j\beta} A^{\sigma}_{i\alpha j\beta}\psi^{\sigma}_{nj\beta} = \lambda^{\sigma}_n\psi^{\sigma}_{ni\alpha} \\
+   &\sum\limits_{j\beta} A^{\sigma\tau}_{i\alpha j\beta}\psi^{\sigma\tau}_{n j\beta} = \lambda^{\sigma\tau}_n\psi^{\sigma\tau}_{ni\alpha} \\
+   &\sum\limits_{j} A^{\tau}_{ij}\psi^{\tau}_{n,j} = \lambda^{\tau}_n\psi^{\tau}_{ni}
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Auxiliary Field Diffusion Monte Carlo - Spin Sampling}
+\begin{itemize}
+   \item The potential can then be written in terms of the square of new single particle operators.
+   \begin{equation*}
+      V_{SD} = \frac{1}{2}\sum\limits_{n=1}^{3A} \left(O_{n}^{\sigma}\right)^2 \lambda_n^{\sigma}
+      + \frac{1}{2}\sum\limits_{\alpha=1}^{3}\sum\limits_{n=1}^{3A} \left(O_{n\alpha}^{\sigma\tau}\right)^2 \lambda_n^{\sigma\tau}
+       + \frac{1}{2}\sum\limits_{\alpha=1}^{3}\sum\limits_{n=1}^{A} \left(O_{n\alpha}^{\tau}\right)^2 \lambda_n^{\tau}
+   \end{equation*}
+   \begin{equation*}
+   \begin{split}
+      O_{n}^{\sigma} &= \sum\limits_{j\beta} \sigma_{j\beta}\psi_{nj\beta}^{\sigma} \\
+      O_{n\alpha}^{\sigma\tau} &= \sum\limits_{j\beta} \tau_{j\alpha}\sigma_{j\beta}\psi_{nj\beta}^{\sigma\tau} \\
+      O_{n\alpha}^{\tau} &= \sum\limits_{j} \tau_{j\alpha}\psi_{nj}^{\tau}
+   \end{split}
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Auxiliary Field Diffusion Monte Carlo - Spin Sampling}
+\begin{itemize}
+   \item Since we have squared single particle operators in the propagator we can now rewrite the propagator in terms of the Hubbard-Stratanovich transformation.
+   \begin{equation*}
+      e^{-\frac{1}{2}\lambda O^2} = \frac{1}{\sqrt{2\pi}} \int dx e^{-\frac{x^2}{2} + \sqrt{-\lambda}xO}
+   \end{equation*}
+   \item Since we have 15A operators ($3A$ for $O_{n}^{\sigma}$, $9A$ for $O_{n\alpha}^{\sigma\tau}$, and $3A$ for $O_{n\alpha}^{\tau}$), the spin-isospin dependent part of the propagator becomes
+   \begin{equation*}
+      G_{SD}(R'S',RS,\dt) = \prod\limits_{n=1}^{15A}\frac{1}{\sqrt{2\pi}}\int dx_n e^{-\frac{x_n^2}{2}}e^{\sqrt{-\lambda_n\dt} x_nO_n}.
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Hamiltonian}
+%Meson+phenomonological terms with picture of scattering and maybe pion exchange
+%$\chi$EFT with picture of something related to that...
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{figure}
+   \includegraphics[width=0.75\textwidth]{../figures/pionexchange.png}
+\end{figure}
+\end{column}
+\begin{column}{0.5\textwidth}
+   Based on meson exchange
+   \begin{itemize}
+      \item Argonne $v_{18}$ (NN)
+      \item CD-Bonn (NN)
+      \item Urbana UIX (NNN)
+      \item Illinois (NNN)
+   \end{itemize}
+\end{column}
+\end{columns}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{figure}
+   \includegraphics[width=0.75\textwidth]{../figures/chpt.png}
+\end{figure}
+\end{column}
+\begin{column}{0.5\textwidth}
+   Based on $\chi$EFT expansion in momentum (up to N$^2$LO)
+   {\\ \tiny Figure from R. Machleidt and D.R. Entem, {\it Chiral effective field theory and nuclear forces}, Phys. Rep. {\bf 503}, 1 (2011)}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Hamilatonian - Argonne $v6'$ (AV6$'$)}
+\begin{itemize}
+   \item For this work I have used the NN AV6$'$ potential with no 3N interaction, though I will be showing some preliminary results with the $\chi$EFT NN and 3N potentials up to N$^2$LO.
+   \item First 6 operators of the AV18 potential
+   \begin{equation*}
+      v_{ij} = \sum\limits_{p=1}^6 v_p(\r_{ij})\mathcal{O}^p_{ij}
+   \end{equation*}
+   \begin{equation*}
+      \mathcal{O}^p_{ij} = 1,~\ti\cdot\tj,~\si\cdot\sj,~\si\cdot\sj\ti\cdot\tj,~S_{ij},~S_{ij}\ti\cdot\tj
+   \end{equation*}
+   \begin{equation*}
+      S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\subsection{Trial Wave Function}
+\begin{frame}{Slater Determinant}
+\begin{itemize}
+   \item Properties:
+   \begin{itemize}
+      \item Antisymmetric
+      \item Cluster Decomposable \\ $\ket{A+B} = \ket{A}\ket{B}$
+   \end{itemize}
+   \begin{textblock*}{\textwidth}(4.5cm,-6.1cm) % {block width} (coords)
+      \includegraphics[width=14.6cm]{../figures/cluster.pdf}
+   \end{textblock*}
+   \item The simplest wave function for a many-fermion system obeying these properties is a Slater determinant where $\phi_i(\mathbf{r}_i,s_i)$ are single particle nucleon states.
+   \begin{equation*}
+      \psi_{T} = \braket{RS}{\phi}= \mathcal{A} \prod\limits_{i=1}^A \phi_i(\mathbf{r}_i,s_i) = \frac{1}{A!} \mathrm{det}~\phi_i(\mathbf{r}_i,s_i)
+   \end{equation*}
+   \item Short range correlations need to be put in by hand via Jastrow-like correlations.
+   \begin{equation*}
+      \ket{\psi_T} = \prod\limits_{i<j}f(r_{ij}) \ket{\phi}.
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Spin Dependent Correlations}
+\begin{itemize}
+   \item Two spin dependent wave functions that obey these two properties are the exponentially correlated and symmetrized product wave functions, where $\Opij$ are the AV6 operators, $\si\cdot\sj$, $\ti\cdot\tj$,     $\si\cdot\sj \ti\cdot\tj$, $S_{ij}$ and $S_{ij} \ti\cdot\tj$, where $S_{ij}     = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$.
+   \begin{equation*}
+      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j}\sum\limits_p\fpij\Opij} \ket{\phi}
+   \end{equation*}
+   \begin{equation*}
+      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \mathcal{S}\prod\limits_{i<j}\left(1+\sum\limits_p\fpij\Opij\right) \ket{\phi}
+   \end{equation*}
+   \item These two wave functions are the same up to second order except for  commutator terms.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Expand to Linear Correlations}
+\begin{itemize}
+   \item Because of the cost for larger systems in 2007 they only included Jastrow correlations.
+   \begin{equation*}
+      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right]\ket{\phi}
+   \end{equation*}
+   {\tiny S. Gandolfi et al. \textit{Phys. Rev. Lett.,} \textbf{99}, 022507, 2007.}
+   \item By 2014 they added spin-isospin correlations to improve overlap with tensor. This is a truncated expansion of either full wave function from before.
+   \begin{equation*}
+      \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] \left(1+\sum\limits_{i<j}\sum\limits_p\fpij\Opij\right) \ket{\phi}
+   \end{equation*}
+   {\tiny S. Gandolfi et al. \textit{Phys. Rev. C.,} \textbf{90}, 061306(R), 2014.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Compare Jastrow to Jastrow+Linear}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.85\textwidth]{../figures/energy_jaslin.eps}
+\end{figure}
+\vspace{-0.5cm}
+{\tiny Data taken from each paper respectively.}
+\end{frame}
+
+\begin{frame}{Symmetrized Product Wave Function}
+\begin{itemize}
+   \item The logical next step was to keep more terms in the expansion.
+   \begin{equation*}
+   \begin{split}
+      \ket{\psi_T} = \Bigg[\prod\limits_{i<j}&f_c(r_{ij})\Bigg] \Bigg[1+\fOpij \\
+      & + \frac{1}{2}\fOpij\fOqklquad \Bigg] \ket{\phi}
+   \end{split}
+   \end{equation*}
+\end{itemize}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=1.0\textwidth]{../figures/pairing_fullquad.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Independent Pair Quadratic Correlations}
+\begin{itemize}
+   \item Or it can be expanded to get independent pair quadratic terms
+   \begin{equation*}
+   \begin{split}
+      \ket{\psi_T} = \Bigg[\prod\limits_{i<j}&f_c(r_{ij})\Bigg] \Bigg[1+\fOpij \\
+      & + \fOpij\fOqklip \Bigg] \ket{\phi}
+   \end{split}
+   \end{equation*}
+\end{itemize}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.7\textwidth]{../figures/pairing.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Results - AFDMC}
+\begin{textblock*}{\textwidth}(0.0cm,-0.6cm) % {block width} (coords)
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.6\textwidth]{../figures/energy.eps}
+\end{figure}
+\end{textblock*}
+~\\~\\~\\~\\~\\~\\~\\~\\
+\tiny
+\begin{table}[htb]
+\centering
+\caption[]{Energy (*per nucleon) in MeV}
+\begin{tabular}{ccccc}
+\hline\hline
+System & Linear & IP Quadratic & Quadratic & Experimental\\
+\hline
+%${}^{4}${He}   & -27.14(4) & -27.22(3)    & -27.11(3)    & -28.295   \\
+%${}^{16}${O}   & -115.7(9) & -121.5(1.5)  & -120.0(1.4)  & -127.62   \\
+%${}^{40}${Ca}  & -324(3)   & -347(8)      & -349(5)      & -342.1    \\
+%SNM*           & -13.92(6) & -14.80(7)    & -14.70(11)   &           \\
+${}^{4}${He}   & -27.14(4) & -27.19(3)    & -27.11(3)    & -28.296   \\
+${}^{16}${O}   & -115.7(9) & -122.4(1.5)  & -120.8(1.3)  & -127.62   \\
+${}^{40}${Ca}  & -322(3)   & -350(10)     & -351(6)      & -342.1    \\
+SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
+\hline\hline
+\end{tabular}
+\label{tab:psi2}
+\end{table}
+{\tiny D. Lonardoni et al. \textit{Phys. Rev. C.,} \textbf{97}, 044318, 2018.}
+\end{frame}
+\note{
+   \begin{itemize}
+      \item Don't expect AV6' to reproduce experimental data
+      \item 4He still doesn't change
+      \item Decrease for larger systems, AND IP and full quad are the same.
+   \end{itemize}
+}
+
+\begin{frame}{Results - VMC}
+   \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.8\textwidth]{../figures/energy_vmc.eps}
+   \end{figure}
+\end{frame}
+\note{
+   \begin{itemize}
+      \item Sanity check since AFDMC doesn't have upper bound constraint like VMC.
+      \item ALL decreased in energy, even 4He.
+   \end{itemize}
+}
+
+\begin{frame}{Quadratic Correlation Cost}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.65\textwidth]{../figures/scaling.eps}
+\end{figure}
+\vspace{-0.2cm}
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{ccccc}
+      \hline \hline
+       & $^{4}$He & $^{16}$O & SNM(28) & $^{40}$Ca \\
+      \hline
+      IP Quadratic & 1.73 & 30.7 & 64.8 & 720.9 \\
+      Quadratic & 2.00 & 58.8 & 133.6 & 1473.9 \\
+      \hline \hline
+   \end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{Results - $\chi$EFT up to N$^2$LO - Preliminary}
+\begin{table}[htb]
+   \centering
+   \begin{tabular}{llccc}
+      \hline
+      Calculation & Correlations & $^4$He & $^{16}$O & SNM \\
+      \hline
+      VMC   & Linear       & $-5.86(1)$ & $-1.08(1)$ & $1.56(5)$ \\
+      VMC   & IP Quadratic & $-$        & $-4.03(4)$ & $-$ \\
+      VMC   & Quadratic    & $-6.72(1)$ & $-3.95(4)$ & $-$ \\
+      \hline
+      AFDMC & Linear       & $-6.89(2)$ & $-5.74(4)$ & $-9.5(1)$ \\
+      AFDMC & IP Quadratic & $-$        & $-7.3(2)$  & $-12.5(1)$ \\
+      AFDMC & Quadratic    & $-6.91(2)$ & $-6.9(2)$  & $-12.6(1)$ \\
+      \hline
+   \end{tabular}
+   \label{tab:chiquad}
+\end{table}
+\small Note that the NN part of N$^2$LO includes the spin-orbit interaction, which is not included in AV6$'$ and which has been shown to decrease binding (S. Gandolfi et al. \textit{Phys. Rev. C.,} \textbf{90}, 061306(R), 2014.).
+\end{frame}
+\note{
+\begin{itemize}
+   \item N$^2$LO with $R_0 = 1$ fm cutoff.
+   \item All the energies are per particle, in MeV.
+   \item All the wave functions have both two- and three-body correlations.
+   \item Local chiral potential at N$^2$LO for R0=1.0fm cutoff.
+   \item 4He and SNM are done with the E1 parametrization.
+   \item 16O is done with the Etau parametrization.
+   \item 4He and 16O also contain the Coulomb.
+   \item Re-optimized for 4He and 16O with quadratic.
+   \item No re-optimization for SNM and only used growth energy.
+   \item SNM with no correction for finite size effects.
+   \item All DMC with constrained-path, no transient/unconstrained.
+\end{itemize}
+}
+
+\begin{frame}{Exponential Correlations}
+\begin{equation*}
+   \ket{\psi_T} = \left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j}\sum\limits_p\fpij\Opij} \ket{\phi}
+\end{equation*}
+\begin{itemize}
+   \item This looks just like the propagator and so we can {\bf use the same trick} with the HS transformation.
+\begin{align*}
+   G_{SD}(R'S',RS,\dt) &= \bra {R'S'}e^{-\sum\limits_{p=2}^6\sum\limits_{i<j}v_p(r_{ij})\Opij\dt} \ket{RS} \\
+      &= \prod\limits_{n=1}^{15A}\frac{1}{\sqrt{2\pi}}\int dx_n e^{-\frac{x_n^2}{2}}e^{\sqrt{-\lambda_n\dt} x_nO_n}
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exponential Correlations - Preliminary}
+\begin{itemize}
+   \item Problems with statistical errors related to the sampling.
+   \item Calculating the potential energy with exponential correlations and the rest with linear correlations.
+   \vspace{-0.2cm}
+   \begin{columns}
+   \begin{column}{0.5\textwidth}
+   \begin{figure}[h]
+      \centering
+      \includegraphics[width=\textwidth]{../figures/expplot.png}
+   \end{figure}
+   \end{column}
+   \begin{column}{0.5\textwidth}
+   \begin{table}[h!]
+      \centering
+      \caption{$^{4}$He energy with exp correlations. E$_\text{linear}$=-26.48(9) MeV.}
+      \begin{tabular}{cc}
+         \hline \hline
+         \# fields & E (MeV) \\
+         \hline
+         1     & -45.0(6)  \\
+         10    & -31.8(3)  \\
+         100   & -29.4(2)  \\
+         200   & -29.15(8) \\
+         500   & -28.68(18)\\
+         1000  & -28.7(2)  \\
+         \hline \hline
+      \end{tabular}
+   \end{table}
+   \end{column}
+   \end{columns}
+   \item Possible future project!
+\end{itemize}
+\end{frame}
+
+\subsection{Alpha Formation in NS}
+\begin{frame}{Neutron Stars - Preliminary}
+\begin{itemize}
+   \item Use new wave function to study $\alpha$ formation in the inner crust of neutron stars.
+   \begin{equation*}
+      E_\alpha = E_\text{Nn+2p} - E_\text{(N-2)n}
+   \end{equation*}
+\end{itemize}
+\vspace{-0.5cm}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.5\textwidth]{../figures/neutronstar.png}
+\end{figure}
+{\tiny W. Newton {\it Nature Physics} {\bf 9}, 396-397 (2013)}
+%\begin{textblock*}{\textwidth}(8.1cm,-4.6cm) % {block width} (coords)
+\begin{textblock*}{\textwidth}(8.1cm,-4.4cm) % {block width} (coords)
+   \tiny $\approx$ 0.00024 fm$^{-3}$
+\end{textblock*}
+%\begin{textblock*}{\textwidth}(7.8cm,-4.1cm) % {block width} (coords)
+\begin{textblock*}{\textwidth}(7.8cm,-3.9cm) % {block width} (coords)
+   \tiny $\approx$ 0.030 fm$^{-3}$
+\end{textblock*}
+%\begin{textblock*}{\textwidth}(7.6cm,-3.8cm) % {block width} (coords)
+\begin{textblock*}{\textwidth}(7.6cm,-3.6cm) % {block width} (coords)
+   \tiny $\approx$ 0.084 fm$^{-3}$
+\end{textblock*}
+%\begin{textblock*}{\textwidth}(6.4cm,-1.3cm) % {block width} (coords)
+\begin{textblock*}{\textwidth}(6.4cm,-1.1cm) % {block width} (coords)
+   \tiny $\approx$ 0.60 fm$^{-3}$
+\end{textblock*}
+\end{frame}
+
+\begin{frame}{\large Alpha Particle Clustering in Mostly Neutron Matter - Preliminary}
+\begin{itemize}
+   \item If alpha particles form in nearly neutron matter then we should be able to estimate their energy by
+   \begin{equation*}
+      E_\alpha = E_\text{14n+2p} - E_\text{12n}
+   \end{equation*}
+   \vspace{-0.25cm}
+   \begin{columns}
+   \begin{column}{0.6\textwidth}
+   \begin{figure}[h]
+      \centering
+      \includegraphics[width=\textwidth]{../figures/alpha.png}
+   \end{figure}
+   \end{column}
+   \hspace{-0.6cm}
+   \begin{column}{0.4\textwidth}
+   \vspace{-0.8cm}
+   \begin{table}[h!]
+      \footnotesize
+      \centering
+      \caption{Alpha energy in MeV - Only part of the data.}
+      \begin{tabular}{ccc}
+         \hline \hline
+         $\rho$ (fm$^{-3}$) & lin & ip \\
+         \hline
+         0.00025  & -23.5(5)  & -25.4(2)  \\
+         0.0005   & -22.3(3)  & -24.2(2)  \\
+         0.001    & -20.7(3)  & -23.2(3)  \\
+         0.002    & -21.6(2)  & -23.5(3)  \\
+         0.003    & -25.7(3)  & -25.26(18)\\
+         0.005    & -27.5(5)  & -27.9(2)  \\
+         0.01     & -37.3(3)  & -37.6(7)  \\
+         \hline \hline
+      \end{tabular}
+   \end{table}
+   \end{column}
+   \hspace{0.6cm}
+   \end{columns}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{2 Protons + 2 Neutrons Only}
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.7\textwidth]{../figures/2n2p.png}
+%   \caption{Energy of 2 protons and 2 neutrons as calculated with linear and quadratic correlations. The green horizontal line indicates the alpha particle energy as calculated with AFDMC using the same AV6$'$ interaction and quadratic correlations.}
+%   \label{fig:alpha2n2p}
+\end{figure}
+The remaining energy could be due to the $\alpha$ interacting with the excess neurons.
+\end{frame}
+
+\begin{frame}{Check for Clustering - Pair Correlation Function}
+\begin{equation*}
+   g_{pp}(r) = \frac{1}{4\pi r^2} \bra{\Psi}\sum\limits_{i<j}\hat{p_i}\hat{p_j}\delta(r-r_{ij})\ket{\Psi}
+\end{equation*}
+\vspace{-0.7cm}
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=1.05\textwidth]{../figures/gpp.pdf}
+%   \caption{Pair correlations functions, $g_{pp}$ that give the probability of finding 2 protons a distance $r$ from each other. This is only shown for a few of the densities calculated to keep the figure less busy.} 
+%   \label{fig:gpp}
+\end{figure}
+\end{column}
+\begin{column}{0.4\textwidth}
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=\textwidth]{../figures/gpp_small.pdf}
+\end{figure}
+\end{column}
+\end{columns}
+%Add lines for the boxes %each x value must subtract 0.13 from the previous to be exactly the same as the one before... I don't know why...
+\tikz[overlay]{\draw[line width=0.25mm,red](2.8,1.35)--(6.3,1.35)--(7.1,4.43)--(6.3,1.35)--(6.3,1.10)--(7.1,1.5)--(6.3,1.10)--(2.8,1.10)--(2.8,1.35);}
+%\tikz[overlay]{\draw[line width=0.25mm,red](2.8,1.35)--(6.3,1.35);}
+%\tikz[overlay]{\draw[line width=0.25mm,red](2.67,1.10)--(6.17,1.10);}
+%\tikz[overlay]{\draw[line width=0.25mm,red](2.54,1.35)--(2.54,1.10);}
+%\tikz[overlay]{\draw[line width=0.25mm,red](5.91,1.35)--(5.91,1.10);}
+%\tikz[overlay]{\draw[line width=0.25mm,red](5.91,1.35)--(5.91,1.10);}
+%\tikz[overlay]{\draw[line width=0.25mm,red](5.91,1.35)--(5.91,1.10);}
+\end{frame}
+
+\begin{frame}{Check for Clustering - Pair Correlation Function}
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.8\textwidth]{../figures/gpp_compare.pdf}
+%   \caption{Proton-proton pair distribution functions calculated in the continuum compared to the calculation of 14 neutrons and 2 protons in a periodic box with $\rho=0.00025$ fm$^{-3}$. The $g_{pp}$ calculations in the box have increased resolution compared to those in earlier plots to show more detail. Both linear and IP quadratic correlations were used for the calculations in a box.}
+%   \label{fig:gpp_compare}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Clustering - Other Insights}
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.8\textwidth]{../figures/av6_alpha.png}
+%   \caption{Alpha particle energy as calculated with Equation~\ref{equ:alphaenergy14n2p} for each piece of the AV6$'$ potential for both linear and IP quadratic correlations.}
+%   \label{fig:av6_alpha}
+\end{figure}
+The tensor-tau and sigma-tau (from OPE) are most affected by improved correlations.
+\end{frame}
+
+\section{Conclusion}
+\subsection{Future Work}
+\begin{frame}{Future Work}
+\begin{itemize}
+   \item Investigate alpha clustering with a pfaffian pairing wave function.
+   \item Further improve the efficiency and accuracy of the trial wave function with the exponential correlations.
+   \item Do a full investigation of both improved wave functions with the more sophisticated $\chi$EFT potentials.
+\end{itemize}
+\end{frame}
+
+\subsection{Conclusion}
+\begin{frame}{Conclusion}
+\begin{itemize}
+   \item AFDMC calculations need to improved correlations for larger systems.
+   \item I have improved the correlations, however, more efficient techniques are needed.
+   \begin{itemize}
+      \item One possibility is to use the HS transformation with the exponential correlations.
+   \end{itemize}
+   \item We can use AFDMC to study clustering in nearly neutron matter.
+   \begin{itemize}
+      \item It appears that, at least a low density, the improved wave function correlations are important.
+   \end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{}
+\begin{frame}{Thanks}
+Advisor: Kevin Schmidt (ASU) \\
+Collaborators: Stefano Gandolfi (LANL), Joe Carlson (LANL), and Diego Lonardoni (MSU-FRIB and LANL) 
+\\~\\
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.30\textwidth]{../figures/asu_university_vert_rgb_maroongold_150.png}
+   \includegraphics[width=0.36\textwidth]{../figures/xsede-full-color.jpg}
+   \includegraphics[width=0.30\textwidth]{../figures/NSF_4-Color_bitmap_Logo.png}
+\end{figure}
+\end{frame}
+
+\appendix
+\begin{frame}{Extra Slides}
+\begin{centering}
+   Extra Slides
+\end{centering}
+\end{frame}
+
+\begin{frame}{Monte Carlo Integration}
+\begin{itemize}
+   \item We often want to solve multidimensional integrals.
+      \begin{equation*}
+         I=\int g(\R)d\R
+      \end{equation*}
+   \item We can rewrite this in terms of a probability distribution $P(\R)$.
+      \begin{equation*}
+         I=\int f(\R)P(\R)d\R
+      \end{equation*}
+   \item This looks like an expectation value of $f(\R)$. If the $\R_n$'s are pulled from $P(\R)$ then we can write this in discrete form as
+   \begin{equation*}
+      I=\lim\limits_{N\rightarrow\infty} \frac{1}{N}\sum\limits_{n=1}^N f(\R_n) \approx \frac{1}{N}\sum\limits_{n=1}^N f(\R_n)
+   \end{equation*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Metropolis Algorithm}
+   The Metropolis algorithm is a Markov Chain method that does not depend on history except for the previous point.
+\begin{enumerate}
+   \item Start at a random position, $\R$.
+   \item Propose a move to a new position $\R'$, pulled from a distribution $T(\R'|\R)$, where $T$ could be a Gaussian centered on the current position. %%%This makes sure that too large of steps aren't taken.
+   \item One possible condition for accepting the move is given by enforcing detailed balance.
+   \begin{equation*}
+      A(\R'|\R) = \mathrm{min}\left(1,\frac{P(\R')T(\R|\R')}{P(\R)T(\R'|\R)}\right)
+   \end{equation*}
+   \item The move is accepted if $A\ge u$ where $u$ is a uniform random number between 0 and 1.
+\end{enumerate}
+\end{frame}
+\note{Two conditions to have convergence to the correct distribution. 1: The steps must be able to get from any allowed state to any other in a finite amount of steps. 2: There cannot be cycles (ACBACBACB...), rejecting some steps gets rid of cycles.}
+
+\begin{frame}{$\chi$EFT vs. AV6$'$ with AFDMC}
+\begin{table}[htb]
+\centering
+\caption[]{Energy per nucleon in MeV calculated with AFDMC with AV6$'$ and $\chi$EFT up to N$^2$LO compared to experimentail data where available.}
+\begin{tabular}{ccccc}
+\hline\hline
+Corr  & Potential  & $^4$He   & $^{16}$O  & SNM \\
+\hline
+\multirow{2}{*}{Linear} & AV6$'$    & -6.79(1)  & -7.23(6)  & -13.97(3) \\
+                        & N$^2$LO   & -6.89(2)  & -5.74(4)  & -9.5(1)   \\
+\hline
+\multirow{2}{*}{IP Quad}& AV6$'$    & -6.798(8) & -7.65(9)  & -14.87(4) \\
+                        & N$^2$LO   & $-$       & -7.3(2)   & -12.5(1)  \\
+\hline
+\multirow{2}{*}{Quad}   & AV6$'$    & -6.778(8) & -7.55(8)  & -14.81(3) \\
+                        & N$^2$LO   & -6.91(2)  & -6.9(2)   & -12.6(1)  \\
+\hline\hline
+\multicolumn{2}{c}{\multirow{2}{*}{Experimental}}  & \multirow{2}{*}{-7.074} & \multirow{2}{*}{-7.98}   &  \\
+                        &           &           &           & \\
+\hline\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{$\chi$EFT vs. AV6$'$ with VMC}
+\begin{table}[htb]
+\centering
+\caption[]{Energy per nucleon in MeV calculated with VMC with AV6$'$ and $\chi$EFT up to N$^2$LO.}
+\begin{tabular}{ccccc}
+\hline\hline
+Corr  & Potential  & $^4$He   & $^{16}$O  & SNM \\
+\hline
+\multirow{2}{*}{Linear} & AV6$'$    & -5.96(1)  & -3.581(3) & -8.25(4)  \\
+                        & N$^2$LO   & -5.86(1)  & -1.08(1)  &  1.56(5)  \\
+\hline
+\multirow{2}{*}{IP Quad}& AV6$'$    & -6.113(8) & -5.338(3) & -10.60(3) \\
+                        & N$^2$LO   & $-$       & -4.03(4)  & $-$       \\
+\hline
+\multirow{2}{*}{Quad}   & AV6$'$    & -6.275(5) & -5.463(3) & -10.74(2) \\
+                        & N$^2$LO   & -6.72(1)  & -3.95(4)  & $-$       \\
+\hline\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{Exponential Correlations - Problems}
+\begin{itemize}
+   \item When taking numerical derivatives the order of $A$ matrix eigenvectors (given by $n$) can change. This means that each term in the derivative can have each eigenvector matched with a different auxiliary field.
+   \begin{equation*}
+      \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Opij\right) = \prod\limits_{n=1}^{15A} \frac{1}{\sqrt{2\pi}}\int dx_n e^{-x_n^2/2}e^{\sqrt{\lambda_n}x_nO_n}
+   \end{equation*}
+   \item To fix this we can define the operators $O_n$ in terms of the square roots of the $A$ matricies. This gives an operator that sums over the eigenvector order.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exponential Correlations - Problems}
+\begin{itemize}
+   \item \st{Just} Almost like before
+\end{itemize}
+\vspace{0.5cm}
+\begin{equation*}
+\begin{split}
+   \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Opij\right) &= \exp\left(\frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}\sum\limits_{k\gamma}\left(A^{\sigma}_{i\alpha,k\gamma}\right)^{1/2}\left(A^{\sigma}_{k\gamma,j\beta}\right)^{1/2}\sigma_{j\beta}\right. \\
+      & + \frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}\sum\limits_{k\gamma}\left(A^{\sigma\tau}_{i\alpha,k\gamma}\right)^{1/2}\left(A^{\sigma\tau}_{k\gamma,j\beta}\right)^{1/2}\sigma_{j\beta}\ti\cdot\tj \\
+      &\left. + \frac{1}{2}\sum\limits_{i,j} \sum\limits_{k}\left(A^{\tau}_{i,k}\right)^{1/2}\left(A^{\tau}_{k,j}\right)^{1/2}\ti\cdot\tj\right)
+\end{split}
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Exponential Correlations - Problems}
+\begin{equation*}
+\begin{split}
+   \exp\left(\sum\limits_{i<j,p}f_p(r_{ij})\Opij\right) = \exp&\left(\frac{1}{2}\sum\limits_{k\delta=1}^{3A} \left(O_{k\delta}^{\sigma}\right)^2\right. \\
+      & \left. + \frac{1}{2}\sum\limits_{\gamma=1}^{3}\sum\limits_{k\delta=1}^{3A} \left(O_{k\delta,\gamma}^{\sigma\tau}\right)^2
+      + \frac{1}{2}\sum\limits_{\gamma=1}^{3}\sum\limits_{k=1}^{A} \left(O_{k,\gamma}^{\tau}\right)^2\right)
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+   O_{k\delta}^{\sigma} &= \sum\limits_{i\alpha}\sum\limits_n \sigma_{i\alpha}\psi_{n,i\alpha}^\sigma\left(\lambda_n^\sigma\right)^{1/2}\psi_{n,k\delta}^{\sigma} \\
+   O_{k\delta,\gamma}^{\sigma\tau} &= \sum\limits_{i\alpha}\sum\limits_n \tau_{i\gamma}\sigma_{i\alpha}\psi_{n,i\alpha}^{\sigma\tau}\left(\lambda_n^{\sigma\tau}\right)^{1/2}\psi_{n,k\delta}^{\sigma\tau} \\
+   O_{k\delta}^{\tau} &= \sum\limits_{i}\sum\limits_n \tau_{i\gamma}\psi_{n,i}^\tau\left(\lambda_n^\tau\right)^{1/2}\psi_{n,k}^{\tau}
+\end{split}
+\end{equation*}
+\end{frame}
+
+%\note[itemize]{
+%   \item test1
+%   \item test2
+%}
+
+\end{document}
