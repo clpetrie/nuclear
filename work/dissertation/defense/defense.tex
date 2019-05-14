@@ -92,8 +92,8 @@ Advisor: Kevin Schmidt}
 %\end{figure}
 
 %\fontsize{\sfont}{\sspace}\selectfont
-%\iffalse
-\iftrue
+\iffalse
+%\iftrue
 \begin{frame}{Outline}
 %Story: Why do we need to have a good trial wave function? Here are some options to improve the wave function. Here are the results we have gotten including some applications of the wave function.
 \begin{itemize}
@@ -197,6 +197,11 @@ Advisor: Kevin Schmidt}
    \end{itemize}
 \end{itemize}
 \end{frame}
+\note[itemize]{
+   \item Many-body quantum problem with $n$ and $p$ dof.
+   \item GROUND STATE properties.
+   \item Up to $^{40}$Ca and \sim $A$=100 for nuclear matter.
+}
 
 \section{Research}
 \subsection{QMC Methods}
@@ -213,7 +218,6 @@ Advisor: Kevin Schmidt}
    \end{equation*}
 \end{itemize}
 \end{frame}
-\note{blah blah}
 
 \begin{frame}{Variational Monte Carlo}
    \begin{equation*}
@@ -300,7 +304,7 @@ Advisor: Kevin Schmidt}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Diffusion Monte Carlo}
+\begin{frame}{Diffusion Monte Carlo - Branching}
 Branching: Each walker can be deleted or multiply. The number of walkers that continues is equal to $\mathrm{int}\left(w(\R')+\xi\right)$, where $\xi$ is a uniform random number from $[0,1]$.
 \begin{columns}
 \begin{column}{0.4\textwidth}
@@ -416,11 +420,11 @@ Our energy estimates are correlated and so we estimate error using block averagi
 
 \begin{frame}{Auxiliary Field Diffusion Monte Carlo - Spin Sampling}
 \begin{itemize}
-   \item Since we have squared single particle operators in the propagator we can now rewrite the propagator in terms of the Hubbard-Stratanovich transformation.
+   \item We have squared single particle operators in the propagator we can now rewrite the propagator in terms of the Hubbard-Stratanovich transformation.
    \begin{equation*}
       e^{-\frac{1}{2}\lambda O^2} = \frac{1}{\sqrt{2\pi}} \int dx e^{-\frac{x^2}{2} + \sqrt{-\lambda}xO}
    \end{equation*}
-   \item Since we have 15A operators ($3A$ for $O_{n}^{\sigma}$, $9A$ for $O_{n\alpha}^{\sigma\tau}$, and $3A$ for $O_{n\alpha}^{\tau}$), the spin-isospin dependent part of the propagator becomes
+   \item We have 15A operators ($3A$ for $O_{n}^{\sigma}$, $9A$ for $O_{n\alpha}^{\sigma\tau}$, and $3A$ for $O_{n\alpha}^{\tau}$), the spin-isospin dependent part of the propagator becomes
    \begin{equation*}
       G_{SD}(R'S',RS,\dt) = \prod\limits_{n=1}^{15A}\frac{1}{\sqrt{2\pi}}\int dx_n e^{-\frac{x_n^2}{2}}e^{\sqrt{-\lambda_n\dt} x_nO_n}.
    \end{equation*}
@@ -501,7 +505,7 @@ Our energy estimates are correlated and so we estimate error using block averagi
 \end{frame}
 
 \subsection{Trial Wave Function}
-\begin{frame}{Slater Determinant}
+\begin{frame}{Trial Wave Function - Slater Determinant}
 \begin{itemize}
    \item Properties:
    \begin{itemize}
@@ -776,10 +780,9 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
    \tiny $\approx$ 0.60 fm$^{-3}$
 \end{textblock*}
 \end{frame}
-
-\begin{frame}{Alpha clusters}
-\red{WHY ARE CLUSTERS IMPORTANT? ARE THEY NORMALLY DONE WITH SOME MODEL, NOT AB INITIO LIKE WE ARE DOING? ARE THEY ARE LEAST WRITTEN IN TERMS OF P, N, AND ALPHA DEGREES OF FREEDOM? WE ARE ONLY USING N AND P.}
-\end{frame}
+\note[itemize]{
+   \item We wanted to see if we could study light clusters with $n$ and $p$ degrees of freedom.
+}
 
 \begin{frame}{\large Alpha Particle Clustering in Mostly Neutron Matter - Preliminary}
 \begin{itemize}
@@ -1044,9 +1047,18 @@ Corr  & Potential  & $^4$He   & $^{16}$O  & SNM \\
 \end{equation*}
 \end{frame}
 
+\begin{frame}{VMC - Parameter Variation}
+   \red{EXPLAIN HOW THE PARAMETARS ARE VARIED IN VMC.}
+\end{frame}
+
 \begin{frame}{Pfaffian Wave Function}
    \red{FINISH THIS! Maybe call it the BCS wave function, which we calculate as a pfaffian of paired orbitals.}
 \end{frame}
+
+\begin{frame}{Alpha Clusters}
+\red{WHY ARE CLUSTERS IMPORTANT? ARE THEY NORMALLY DONE WITH SOME MODEL, NOT AB INITIO LIKE WE ARE DOING? ARE THEY ARE LEAST WRITTEN IN TERMS OF P, N, AND ALPHA DEGREES OF FREEDOM? WE ARE ONLY USING N AND P.}
+\end{frame}
+
 
 %\note[itemize]{
 %   \item test1
