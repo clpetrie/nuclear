@@ -7,10 +7,9 @@
 \usepackage{soul} % For \st for strike through
 \usepackage{caption}
 \usepackage{multirow}
-\setbeameroption{hide notes} % Only slides
+%\setbeameroption{hide notes} % Only slides
 %\setbeameroption{show only notes} % Only notes
-%\setbeameroption{show notes on second screen=right} % Both
-%\bibliography{../../papers/references.bib}
+\setbeameroption{show notes on second screen=right} % Both%\bibliography{../../papers/references.bib}
 \setbeamerfont{footnote}{size=\small}
 %\AtEveryCitekey{\clearfield{title}}
 \expandafter\def\expandafter\insertshorttitle\expandafter{%
@@ -202,6 +201,10 @@ Advisor: Kevin Schmidt}
    \end{itemize}
 \end{itemize}
 \end{frame}
+\note[itemize]{
+   \item HF and basis set methods can only use ``soft" potentials, but can do non-local potentials.
+   \item QMC complements those because it can do ``hard" potentials, but can't do non-local potentials.
+}
 
 \section{Research}
 \subsection{QMC Methods}
@@ -360,6 +363,7 @@ In the large $\tau$ limit when $\left[\mathcal{O},H\right]$=0
 \note[itemize]{
    \item It's difficult to operate through the propagator.
    \item Accurate to $\mathcal{O}\left[(\psi(\tau)-\psi_T)^2\right]$
+   \item This could be done with {\bf forward walking} but it typically isn't necessary.
 }
 
 \begin{frame}{Estimating Error}
@@ -368,6 +372,9 @@ Our energy estimates are correlated and so we estimate error using block averagi
    \includegraphics[width=0.77\textwidth]{../figures/blockaverage.png}
 \end{figure}
 \end{frame}
+\note[itemize]{
+   \item We don't usually (though you could) talk about the uncertainty in the statistical errors. It's the wiggles at the plateau. We just report 1 digit.
+}
 
 \begin{frame}{Green's Function Monte Carlo}
 \begin{itemize}
@@ -548,7 +555,7 @@ Our energy estimates are correlated and so we estimate error using block averagi
    \end{textblock*}
    \item The simplest wave function for a many-fermion system obeying these properties is a Slater determinant where $\phi_i(\mathbf{r}_i,s_i)$ are single particle nucleon states.
    \begin{equation*}
-      \psi_{T} = \braket{RS}{\phi}= \mathcal{A} \prod\limits_{i=1}^A \phi_i(\mathbf{r}_i,s_i) = \frac{1}{A!} \mathrm{det}~\phi_i(\mathbf{r}_i,s_i)
+      \psi_{T} = \braket{RS}{\phi}= \mathcal{A} \prod\limits_{i=1}^A \phi_i(\mathbf{r}_i,s_i) = \frac{1}{A!} \mathrm{det}~\phi_k(\mathbf{r}_l,s_l)
    \end{equation*}
    \item Short range correlations need to be put in by hand via Jastrow-like correlations.
    \begin{equation*}
@@ -636,6 +643,13 @@ Our energy estimates are correlated and so we estimate error using block averagi
 \note[itemize]{
    \item No need for an explicit symmetrization.
 }
+
+\begin{frame}{Quadratic Correlations Implementation}
+\begin{itemize}
+   \item Much of my work was in working out the math and programming for implementing these correlations in an efficient way into the VMC and AFDMC code.
+   \item More details of their implementation can be found in my dissertation, I will be focusing on the physical results.
+\end{itemize}
+\end{frame}
 
 \begin{frame}{Results - AFDMC}
 \begin{textblock*}{\textwidth}(0.0cm,-0.6cm) % {block width} (coords)
@@ -936,7 +950,7 @@ The remaining energy could be due to the $\alpha$ interacting with the excess ne
 %   \caption{Alpha particle energy as calculated with Equation~\ref{equ:alphaenergy14n2p} for each piece of the AV6$'$ potential for both linear and IP quadratic correlations.}
 %   \label{fig:av6_alpha}
 \end{figure}
-The tensor-tau and sigma-tau (from OPE) are most affected by improved correlations.
+The tensor-tau and sigma-tau (from One Pion Exchange) are most affected by improved correlations.
 \end{frame}
 \note[itemize]{
    \item This is for the 14n2p calculation at 0.00025 (I think).
