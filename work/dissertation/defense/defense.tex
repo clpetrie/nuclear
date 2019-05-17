@@ -10,7 +10,7 @@
 \setbeameroption{hide notes} % Only slides
 %\setbeameroption{show only notes} % Only notes
 %\setbeameroption{show notes on second screen=right} % Both
-\bibliography{../../papers/references.bib}
+%\bibliography{../../papers/references.bib}
 \setbeamerfont{footnote}{size=\small}
 %\AtEveryCitekey{\clearfield{title}}
 \expandafter\def\expandafter\insertshorttitle\expandafter{%
@@ -175,7 +175,12 @@ Advisor: Kevin Schmidt}
    \includegraphics[width=0.65\textwidth]{../figures/tableofnuclides.pdf}
 \end{figure}
 \end{frame}
-\note{Show on the chart up to where our method is applicable.}
+\note[itemize]{
+   \item Many-body quantum problem with $n$ and $p$ dof.
+   \item GROUND STATE properties.
+   \item Up to $^{40}$Ca and $\sim A$=100 for nuclear matter.
+   \item Show on the chart up to where our method is applicable.
+}
 
 \begin{frame}{Nuclear Many Body Methods}
 \begin{itemize}
@@ -197,22 +202,17 @@ Advisor: Kevin Schmidt}
    \end{itemize}
 \end{itemize}
 \end{frame}
-\note[itemize]{
-   \item Many-body quantum problem with $n$ and $p$ dof.
-   \item GROUND STATE properties.
-   \item Up to $^{40}$Ca and \sim $A$=100 for nuclear matter.
-}
 
 \section{Research}
 \subsection{QMC Methods}
 \begin{frame}{Variational Monte Carlo}
 \begin{itemize}
    \item VMC starts with a trial wave function which includes variable parameters.
-   \item The variational principle guarantees
+   \item Variational energy is an upper bound to the ground state energy.
    \begin{equation*}
       E_V = \frac{\int\psi_T^*(\R)H\psi_T(\R)d\R}{\int\psi_T^*(\R)\psi_T(\R)d\R} \ge E_0
    \end{equation*}
-   \item We want this to look like this
+   \item Integral is solved with MC integration.
    \begin{equation*}
       E_V = \int f(\R)P(\R) d\R \approx \frac{1}{N}\sum\limits_{n=1}^N f(\R_n)
    \end{equation*}
@@ -224,7 +224,7 @@ Advisor: Kevin Schmidt}
       E_V = \int P(\R)E_L(\R) d\R
    \end{equation*}
 \begin{itemize}
-   \item We can do that if we multiply by $\Psi_T(\R)\Psi_T^{-1}(\R)$.
+   \item Multiply and divide the numerator by $\Psi_T^*(\R)\Psi_T(\R)$.
 %   \begin{align*}
 %      P(\R) &= \frac{|\Psi_T(\R)|^2}{\int|\Psi_T(\R)|^2d\R} \\
 %      E_L(\R) &= \Psi_T^{-1}(\R) H \Psi_T(\R)
@@ -269,7 +269,10 @@ Advisor: Kevin Schmidt}
    \end{equation*}
 \end{itemize}
 \end{frame}
-\note{We start DMC from the minimized $\psi_T$ and configurations from VMC.}
+\note[itemize]{
+   \item We start DMC from the minimized $\psi_T$ and configurations from VMC.
+   \item Description is only for SPATIAL coordinates, not SPINS yet.
+}
 
 \begin{frame}{Diffusion Monte Carlo}
 \begin{itemize}
@@ -286,6 +289,13 @@ Advisor: Kevin Schmidt}
    \end{equation*}
 \end{itemize}
 \end{frame}
+\note[itemize]{
+   \item In practice: Green's function (propagator).
+   \item Can't do full time propagation.
+   \item Can do short time propagation.
+   \\~\\
+   \item Stress the importance of having an accurate and ``cheap" wave function.
+}
 
 \begin{frame}{Diffusion Monte Carlo}
 \begin{itemize}
@@ -303,6 +313,12 @@ Advisor: Kevin Schmidt}
    \end{equation*}
 \end{itemize}
 \end{frame}
+\note[itemize]{
+   \item Kinetic term used in diffusion of walkers (spatial coordinates)
+   \item Potential used in weight for branching (explained later)
+   \item Large uncertainties in branching weights.
+   \item Importance sampling pushed sampling away from areas of low $\left|\psi_T\right|^2$.
+}
 
 \begin{frame}{Diffusion Monte Carlo - Branching}
 Branching: Each walker can be deleted or multiply. The number of walkers that continues is equal to $\mathrm{int}\left(w(\R')+\xi\right)$, where $\xi$ is a uniform random number from $[0,1]$.
@@ -317,6 +333,10 @@ Branching: Each walker can be deleted or multiply. The number of walkers that co
 \end{column}
 \end{columns}
 \end{frame}
+\note[itemize]{
+   \item Branching eliminates repeated cycles.
+   \item To avoid carrying insignificant walkers through the calculation.
+}
 
 \begin{frame}{Estimating Expectation Values}
 We want to solve something like this
@@ -337,6 +357,10 @@ In the large $\tau$ limit when $\left[\mathcal{O},H\right]$=0
    \lim\limits_{\tau\rightarrow\infty}\left<\mathcal{O}\right>_\text{mixed} = \left<\mathcal{O}\right>
 \end{equation*}
 \end{frame}
+\note[itemize]{
+   \item It's difficult to operate through the propagator.
+   \item Accurate to $\mathcal{O}\left[(\psi(\tau)-\psi_T)^2\right]$
+}
 
 \begin{frame}{Estimating Error}
 Our energy estimates are correlated and so we estimate error using block averaging
@@ -353,11 +377,14 @@ Our energy estimates are correlated and so we estimate error using block averagi
    \includegraphics[width=0.85\textwidth]{../figures/gfmc_energies.png}
 \end{figure}
 \end{frame}
+\note[itemize]{
+   \item The excited states come by changing the $J^\pi$ and $T$ of the wave function.
+}
 
 \begin{frame}{Auxiliary Field Diffusion Monte Carlo - Spin Sampling}
 \begin{itemize}
-   \item AFDMC samples auxiliary fields to rotate the spins/isospins of the walkers.
-   \item The spin/isospin dependent part of the potential is what is used in the spin/isospin dependent part of the propagator.
+   \item Mimicking the diffusion in DMC, AFDMC samples auxiliary fields to rotate the spins/isospins of the walkers.
+   \item The spin-isospin dependent part of the potential is what is used in the spin-isospin dependent part of the propagator.
    \begin{equation*}
       G_{SD}(R'S',RS,\dt) = \bra {R'S'}e^{-V_{SD}\dt} \ket{RS}
    \end{equation*}
@@ -370,11 +397,12 @@ Our energy estimates are correlated and so we estimate error using block averagi
 
 \begin{frame}{Auxiliary Field Diffusion Monte Carlo - Spin Sampling}
 \begin{itemize}
-   \item To avoid explicitly doing the $2^A\frac{A!}{Z!(A-Z)!}$ sums over the spin-isospin states AFDMC writes the spin-isospin dependent propagator in terms of squared single particle operators.
+%   \item To avoid explicitly doing the $2^A\frac{A!}{Z!(A-Z)!}$ sums over the spin-isospin states AFDMC writes the spin-isospin dependent propagator in terms of squared single particle operators.
    \item The spin-isospin dependent operators
-   \begin{equation*}
-      e^{-V_{SD}\dt}
-   \end{equation*}
+   \begin{align*}
+      G_{SD}(R'S',RS,\dt) &= \bra {R'S'}e^{-V_{SD}\dt} \ket{RS} \\
+         &= \bra {R'S'}e^{-\sum\limits_{p=2}^6\sum\limits_{i<j}v_p(r_{ij})\Opij\dt} \ket{RS}
+   \end{align*}
    is sampled by using the Hubbard-Stratanovich transformation.
    \begin{equation*}
       e^{-\frac{1}{2}\lambda O^2} = \frac{1}{\sqrt{2\pi}} \int dx e^{-\frac{x^2}{2} + \sqrt{-\lambda}xO}
@@ -503,6 +531,9 @@ Our energy estimates are correlated and so we estimate error using block averagi
 \end{columns}
 \center{\small ~~~~ SuperMIC (LSU) ~~~~~~~~~~~~~~~~~~~~~~~~~~~ Stampede 2 (TACC)}
 \end{frame}
+\note[itemize]{
+   \item Before talking about the wave function let's talk about the scaling of the code.
+}
 
 \subsection{Trial Wave Function}
 \begin{frame}{Trial Wave Function - Slater Determinant}
@@ -525,6 +556,10 @@ Our energy estimates are correlated and so we estimate error using block averagi
    \end{equation*}
 \end{itemize}
 \end{frame}
+\note[itemize]{
+   \item The last ingredient in the calculation is $\psi_T$.
+   \item Wave function is calculated many times and is important for the convergence to the correct answer.
+}
 
 \begin{frame}{Spin Dependent Correlations}
 \begin{itemize}
@@ -578,6 +613,10 @@ Our energy estimates are correlated and so we estimate error using block averagi
    \includegraphics[width=1.0\textwidth]{../figures/pairing_fullquad.pdf}
 \end{figure}
 \end{frame}
+\note[itemize]{
+   \item $\frac{1}{2}$ factor is to symmetrize the operators.
+   \item Only the 3-body terms need symmetrization because some terms won't commute.
+}
 
 \begin{frame}{Independent Pair Quadratic Correlations}
 \begin{itemize}
@@ -594,6 +633,9 @@ Our energy estimates are correlated and so we estimate error using block averagi
    \includegraphics[width=0.7\textwidth]{../figures/pairing.pdf}
 \end{figure}
 \end{frame}
+\note[itemize]{
+   \item No need for an explicit symmetrization.
+}
 
 \begin{frame}{Results - AFDMC}
 \begin{textblock*}{\textwidth}(0.0cm,-0.6cm) % {block width} (coords)
@@ -623,7 +665,7 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
 \end{tabular}
 \label{tab:psi2}
 \end{table}
-{\tiny D. Lonardoni et al. \textit{Phys. Rev. C.,} \textbf{97}, 044318, 2018.}
+{\small Results in our recent publication (D. Lonardoni et al. \textit{Phys. Rev. C.,} \textbf{97}, 044318, 2018).}
 \end{frame}
 \note{
    \begin{itemize}
@@ -645,25 +687,6 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
       \item ALL decreased in energy, even 4He.
    \end{itemize}
 }
-
-\begin{frame}{Quadratic Correlation Cost}
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=0.65\textwidth]{../figures/scaling.eps}
-\end{figure}
-\vspace{-0.2cm}
-\begin{table}[h!]
-   \centering
-   \begin{tabular}{ccccc}
-      \hline \hline
-       & $^{4}$He & $^{16}$O & SNM(28) & $^{40}$Ca \\
-      \hline
-      IP Quadratic & 1.73 & 30.7 & 64.8 & 720.9 \\
-      Quadratic & 2.00 & 58.8 & 133.6 & 1473.9 \\
-      \hline \hline
-   \end{tabular}
-\end{table}
-\end{frame}
 
 \begin{frame}{Results - $\chi$EFT up to N$^2$LO - Preliminary}
 \begin{table}[htb]
@@ -700,6 +723,25 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
    \item All DMC with constrained-path, no transient/unconstrained.
 \end{itemize}
 }
+
+\begin{frame}{Quadratic Correlation Cost}
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.65\textwidth]{../figures/scaling.eps}
+\end{figure}
+\vspace{-0.2cm}
+\begin{table}[h!]
+   \centering
+   \begin{tabular}{ccccc}
+      \hline \hline
+       & $^{4}$He & $^{16}$O & SNM(28) & $^{40}$Ca \\
+      \hline
+      IP Quadratic & 1.73 & 30.7 & 64.8 & 720.9 \\
+      Quadratic & 2.00 & 58.8 & 133.6 & 1473.9 \\
+      \hline \hline
+   \end{tabular}
+\end{table}
+\end{frame}
 
 \begin{frame}{Exponential Correlations}
 \begin{equation*}
@@ -780,8 +822,16 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
    \tiny $\approx$ 0.60 fm$^{-3}$
 \end{textblock*}
 \end{frame}
+%\note[itemize]{
+%   \item We wanted to see if we could study light clusters with $n$ and $p$ degrees of freedom.
+%}
 \note[itemize]{
-   \item We wanted to see if we could study light clusters with $n$ and $p$ degrees of freedom.
+   \item See Freer 2018 paper, ``Microscopic clustering in light nuclei"
+   \item The clustering of light nuclei is a complicated but rich field with connection to atomic chemical bonds and geometries.
+   \item Often this is studied in terms of clusters themselves, but we want to study them in terms of the underlying constituents, $n$ and $p$.
+   \item One relevent place to look is in NS crusts. \\~\\
+
+   \item If an $\alpha$ forms $E_\alpha$ should give the right $\alpha$ energy.
 }
 
 \begin{frame}{\large Alpha Particle Clustering in Mostly Neutron Matter - Preliminary}
@@ -824,6 +874,10 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
    \end{columns}
 \end{itemize}
 \end{frame}
+\note[itemize]{
+   \item Green line is what would be expected for an $\alpha$ alone (see next slide for $\alpha$ alone).
+   \item Dissolution at about 0.0025 is about what we would expect from other papers.
+}
 
 \begin{frame}{2 Protons + 2 Neutrons Only}
 \begin{figure}[h!]
@@ -884,6 +938,11 @@ The remaining energy could be due to the $\alpha$ interacting with the excess ne
 \end{figure}
 The tensor-tau and sigma-tau (from OPE) are most affected by improved correlations.
 \end{frame}
+\note[itemize]{
+   \item This is for the 14n2p calculation at 0.00025 (I think).
+   \item Terms that supplied most binding were most affected by the improved correlations.
+   \item This holds true for other systems as well i.e. 16O.
+}
 
 \section{Conclusion}
 \subsection{Future Work}
@@ -898,22 +957,24 @@ The tensor-tau and sigma-tau (from OPE) are most affected by improved correlatio
 \subsection{Conclusion}
 \begin{frame}{Conclusion}
 \begin{itemize}
-   \item AFDMC calculations need to improved correlations for larger systems.
+   \item AFDMC calculations need improved correlations for larger systems.
    \item I have improved the correlations, however, more efficient techniques are needed.
    \begin{itemize}
       \item One possibility is to use the HS transformation with the exponential correlations.
    \end{itemize}
    \item We can use AFDMC to study clustering in nearly neutron matter.
    \begin{itemize}
-      \item It appears that, at least a low density, the improved wave function correlations are important.
+      \item It appears that, at least at low density, the improved wave function correlations are important.
    \end{itemize}
 \end{itemize}
 \end{frame}
 
 \section{}
-\begin{frame}{Thanks}
-Advisor: Kevin Schmidt (ASU) \\
-Collaborators: Stefano Gandolfi (LANL), Joe Carlson (LANL), and Diego Lonardoni (MSU-FRIB and LANL) 
+\begin{frame}{Thank You}
+
+{\bf Advisor:} Kevin Schmidt \\
+{\bf Collaborators:} Stefano Gandolfi (LANL), Joe Carlson (LANL), and Diego Lonardoni (MSU-FRIB and LANL), Lucas Madeira (ASU and IFSC/USP), Rong Chen (ASU) \\
+{\bf Committee:} Igor Shovkovy, Oliver Beckstein, Ricardo Alarc\'on
 \\~\\
 \begin{figure}[h]
    \centering
