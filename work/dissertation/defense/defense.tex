@@ -6,6 +6,7 @@
 \usepackage{multicol}
 \usepackage{soul} % For \st for strike through
 \usepackage{caption}
+\usepackage{bbold} % for identity matrix \mathbb{1}
 \usepackage{multirow}
 %\setbeameroption{hide notes} % Only slides
 %\setbeameroption{show only notes} % Only notes
@@ -1122,8 +1123,115 @@ Corr  & Potential  & $^4$He   & $^{16}$O  & SNM \\
 \end{equation*}
 \end{frame}
 
+\begin{frame}{Two-Body Operator Updates}
+\begin{equation*}
+   S = \begin{pmatrix}
+      \braket{\alpha_1}{\r_1,s_1} & \braket{\alpha_1}{\r_2,s_2} & \ldots & \braket{\alpha_1}{\r_A,s_A} \\
+      \braket{\alpha_2}{\r_1,s_1} & \braket{\alpha_2}{\r_2,s_2} & \ldots & \braket{\alpha_2}{\r_A,s_A} \\
+      \vdots & \vdots & \ddots & \vdots \\
+      \braket{\alpha_A}{\r_1,s_1} & \braket{\alpha_A}{\r_2,s_2} & \ldots & \braket{\alpha_A}{\r_A,s_A}
+   \end{pmatrix}
+\end{equation*}
+\begin{equation*}
+   S_{\alpha i} = \braket{\alpha}{\r_i,s_i} = \sum\limits_{\gamma=1}^4 \braket{\alpha}{\r_i \chi_\gamma}\braket{\chi_\gamma}{s_i}.
+\end{equation*}
+This is for an uncorrelated Slater Determinant.
+\end{frame}
+\note[itemize]{
+   \item $\ket{\chi_\gamma}$ are the $\ket{n\uparrow}$, $\ket{n\downarrow}$, etc.
+}
+
+\begin{frame}{Two-Body Operator Updates}
+When correlation operators are included we employ the identity
+\begin{equation*}
+      \det{\left(S^{-1}S'\right)} = \frac{\det{S'}}{\det S} ~~\text{ or }~~ \det{\left(S^{-1}S''\right)} = \frac{\det{S''}}{\det S}
+\end{equation*}
+where
+\begin{equation*}
+   S^{-1}S'' = 
+   \begin{pmatrix}
+      1 & 0 & \ldots & \bra{\alpha_1}\mathcal{O}_i\ket{\r_i,s_i} & \ldots & \bra{\alpha_1}\mathcal{O}_j\ket{\r_j,s_j} & \ldots & 0 & 0 \\
+      0 & 1 & \ldots & \bra{\alpha_2}\mathcal{O}_i\ket{\r_i,s_i} & \ldots & \bra{\alpha_2}\mathcal{O}_j\ket{\r_j,s_j} & \ldots & 0 & 0 \\
+      \vdots & \vdots & \ddots & \vdots & \ddots & \vdots & \ddots & \vdots & \vdots \\
+      0 & 0 & \ldots & \bra{\alpha_A}\mathcal{O}_i\ket{\r_i,s_i} & \ldots & \bra{\alpha_A}\mathcal{O}_j\ket{\r_j,s_j} & \ldots & 0 & 1 \\
+   \end{pmatrix}
+\end{equation*}
+and
+\begin{equation*}
+   \det{S^{-1}S''} =
+   \det\begin{pmatrix}
+      \bra{\alpha_i}\mathcal{O}_i\ket{\r_i,s_i} & \bra{\alpha_i}\mathcal{O}_j\ket{\r_j,s_j} \\
+      \bra{\alpha_j}\mathcal{O}_i\ket{\r_i,s_i} & \bra{\alpha_j}\mathcal{O}_j\ket{\r_j,s_j} \\
+   \end{pmatrix}
+\end{equation*}.
+\end{frame}
+
+\begin{frame}{Two-Body Operator Updates}
+In practice this is done by calculating
+\begin{equation*}
+   \frac{\bra{\Phi}\mathcal{O}_{ij}\ket{RS}}{\braket{\Phi}{RS}} = \sum\limits_{\gamma=1}^4\sum\limits_{\delta=1}^4 d_{2b}(\chi_\gamma,\chi_\delta,ij)\bra{\chi_\gamma\chi_\delta}\mathcal{O}_{ij}\ket{s_is_j},
+\end{equation*}
+where
+\begin{equation*}
+   d_{2b}(\chi_\gamma,\chi_\delta,ij)=\frac{\langle\Phi|R,s_1,\ldots,s_{i-1},\chi_\gamma,s_{i+1},\ldots,s_{j-1},\chi_\delta,s_{j+1},\ldots,s_A\rangle}{\langle \Phi|RS\rangle}.
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Two-Body Operator Updates}
+To reduce the number of calculations in the inner loops we precalculate the matrix elements
+\begin{align*}
+   P_{\chi_\gamma,ij} &=\sum_\alpha S^{-1}_{j\alpha}S_{\alpha i}(s_i\leftarrow \chi_\gamma), \\
+   P_{\chi_\delta,ij} &=\sum_\alpha S^{\prime\;-1}_{j\alpha}S^\prime_{\alpha i}(s_j\leftarrow \chi_\delta).
+\end{align*}
+The $d_{2b}$ distribution can then be written as
+\begin{equation*}
+   d_{2b}(\chi_\gamma,\chi_\delta,ij)=\det\begin{pmatrix}P_{\chi_\gamma,ii} & P_{\chi_\gamma,ij} \\ P_{\chi_\delta,ji} & P_{\chi_\delta,jj}\end{pmatrix}
+\end{equation*}
+The $d_{2b}$ can be precalculated and multiplied by each operator expectation value $\bra{\chi_\gamma\chi_\delta}\mathcal{O}_{ij}\ket{s_is_j}$.
+\end{frame}
+
+\begin{frame}{Two-Body Operator Updates - Scaling}
+\begin{table}[htb]
+   \centering
+%   \begin{tabular}{llccc}
+   \begin{tabular}{|lll|}
+      \hline
+%      Calculation & Correlations & $^4$He & $^{16}$O & SNM \\
+      Calculation & Functional Form & Scaling \\
+      \hline
+%      VMC   & Linear       & $-5.86(1)$ & $-1.08(1)$ & $1.56(5)$ \\
+      $\Psi$ (linear)                              &  $\mathbb{1} + \mathcal{O}^c_{ij}$   &  $O(A^2)$ \\
+      \hline
+      $\Psi$ (quadratic)                           &  $\mathbb{1} + \mathcal{O}^c_{ij} + \mathcal{O}^c_{ij}\mathcal{O}^c_{kl}$   &  $O(A^4)$ \\
+      \hline
+      $\left<H\right>$ (linear)     &  $\left(\mathbb{1} + \mathcal{O}^c_{ij}\right)\mathcal{O}^p_{mn}$   &  $O(A^4)$ \\
+      \hline
+      $\left<H\right>$ (quadratic)  &  $\left(\mathbb{1} + \mathcal{O}^c_{ij} + \mathcal{O}^c_{ij}\mathcal{O}^c_{kl}\right)\mathcal{O}^p_{mn}$   &  $O(A^6)$ \\
+      \hline
+   \end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{Forward Walking}
+\begin{itemize}
+   \item Mixed estimators contain bias from $\Psi_T$
+   \begin{equation*}
+      \left<\mathcal{O}\right>_p \approx 2\left<\mathcal{O}\right>_{mixed} - \left<\mathcal{O}\right>_{VMC}
+   \end{equation*}
+   \begin{equation*}
+      \left<\mathcal{O}\right>_{mixed} = \frac{\bra{\Psi_T}\mathcal{O}\ket{\Psi(\tau)}}{\braket{\Psi_T}{\Psi(\tau)}}
+   \end{equation*}
+   \item Some of this can be removed with a ``forward walking" scheme
+   \begin{align*}
+      \left<\mathcal{O}\right>_p &= \frac{\bra{\Psi(\tau)}\mathcal{O}\ket{\Psi(\tau)}}{\braket{\Psi(\tau)}{\Psi(\tau)}} = \frac{\bra{\Psi_T}\frac{\Psi(\tau)}{\Psi_T}\mathcal{O}\ket{\Psi(\tau)}}{\bra{\Psi_T}\frac{\Psi(\tau)}{\Psi_T}\ket{\Psi(\tau)}} \\
+      &= \frac{\sum\limits_i \mathcal{O}_i W_i}{\sum\limits_i W_i}
+   \end{align*}
+\end{itemize}
+{\tiny $i$ are the random samples (walkers).}
+\end{frame}
+
 \begin{frame}{VMC - Parameter Variation}
-   \red{EXPLAIN HOW THE PARAMETARS ARE VARIED IN VMC.}
+   \red{EXPLAIN HOW THE PARAMETARS ARE VARIED IN VMC. Start with basics and then really try to understand it.}
 \end{frame}
 
 \begin{frame}{Pfaffian Wave Function}
