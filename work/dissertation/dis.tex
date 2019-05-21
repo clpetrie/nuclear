@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb,amsbsy}
 \usepackage{dcolumn,array}
+%UNCOMMENT TO FIX LINKS\usepackage[nottoc]{tocbibind} %ADDED BY CODY
 \usepackage{tocloft}
 \usepackage{asudis}
 \usepackage[pageanchor=true,plainpages=false,pdfpagelabels,bookmarks,bookmarksnumbered]{hyperref}
@@ -104,20 +105,21 @@ To my parents and siblings, both by blood and by law, who have loved and support
 % Making the LOT and LOF "parts" rather than chapters gets them indented at
 % level -1 according to the chart: top of page 4 of the document at
 % ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/tocloft/tocloft.pdf
-\addcontentsline{toc}{part}{LIST OF TABLES}
+\addcontentsline{toc}{part}{LIST OF TABLES} %COMMENT OUT TO FIX LINKS %CODY
 \renewcommand{\cftlabel}{Table}
 \listoftables
 % This gets the headers for the LOT right on the first page.  Subsequent pages
 % are handled by the fancyhdr code in the asudis.sty file.
 \addtocontents{lot}{Table~\hfill Page \par}
 \newpage
-\addcontentsline{toc}{part}{LIST OF FIGURES}
-\addtocontents{toc}{CHAPTER \par}
+\addcontentsline{toc}{part}{LIST OF FIGURES} %COMMENT OUT TO FIX LINKS %CODY
+\addtocontents{toc}{CHAPTER \par} %COMMENT OUT TO FIX LINKS %CODY
 \renewcommand{\cftlabel}{Figure}
 % This gets the headers for the LOF right on the first page.  Subsequent pages
 % are handled by the fancyhdr code in the asudis.sty file.
 \addtocontents{lof}{Figure~\hfill Page \par}
 \listoffigures
+%UNCOMMENT TO FIX LINKS\addtocontents{toc}{CHAPTER \par} %ADDED BY CODY
 %-----------------------body
 \doublespace
 \pagenumbering{arabic}

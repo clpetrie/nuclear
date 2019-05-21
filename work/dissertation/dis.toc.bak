@@ -1,0 +1,28 @@
+\nobreakspace {}\hfill Page\par 
+\contentsline {part}{LIST OF TABLES}{vi}{Doc-Start}
+\contentsline {part}{LIST OF FIGURES}{vii}{Doc-Start}
+CHAPTER
+\contentsline {chapter}{\numberline {1}{\MakeUppercase {Background and Motivation}}}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}{\MakeUppercase {Quantum Monte Carlo}}}{6}{chapter.2}
+\contentsline {section}{\numberline {2.1}Monte Carlo Integration}{6}{section.2.1}
+\contentsline {section}{\numberline {2.2}Metropolis Algorithm}{7}{section.2.2}
+\contentsline {section}{\numberline {2.3}Variational Monte Carlo}{9}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Variational Optimization}{11}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}Diffusion Monte Carlo}{13}{section.2.4}
+\contentsline {section}{\numberline {2.5}Auxiliary Field Diffusion Monte Carlo}{20}{section.2.5}
+\contentsline {section}{\numberline {2.6}Hamiltonian}{24}{section.2.6}
+\contentsline {section}{\numberline {2.7}Quantum Monte Carlo and High Performance Computing}{30}{section.2.7}
+\contentsline {chapter}{\numberline {3}{\MakeUppercase {Trial Wave Function}}}{33}{chapter.3}
+\contentsline {section}{\numberline {3.1}Slater Determinant}{34}{section.3.1}
+\contentsline {section}{\numberline {3.2}Pfaffian Wave Function}{37}{section.3.2}
+\contentsline {section}{\numberline {3.3}Spin-Isospin Dependent Correlations}{38}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Quadratic Correlations}{40}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Calculating the Two-Body Operators}{49}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Quadratic Correlations with NN and 3N $\chi $EFT Potentials}{54}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Exponential Correlations}{56}{subsection.3.3.4}
+\contentsline {chapter}{\numberline {4}{\MakeUppercase {Alpha Particle Formation in Neutron Rich Matter}}}{61}{chapter.4}
+\contentsline {chapter}{\numberline {5}{\MakeUppercase {Conclusion}}}{70}{chapter.5}
+\contentsline {section}{\numberline {5.1}Summary}{70}{section.5.1}
+\contentsline {section}{\numberline {5.2}Future Work}{72}{section.5.2}
+\contentsline {part}{REFERENCES}{75}{section.5.2}
+\contentsline {chapter}{\numberline {A}{\MakeUppercase {Exponential correlations as squared single-nucleon operators}}}{82}{appendix.A}

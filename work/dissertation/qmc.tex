@@ -10,9 +10,9 @@ where the $\mathbf{R}=\mathbf{r}_1,\mathbf{r}_2,\ldots,\mathbf{r}_A$ could be th
 \begin{equation}
    I=\int f(\mathbf{R}) P(\mathbf{R}) d\mathbf{R},
 \end{equation}
-where $f(\mathbf{R}) = g(\mathbf{R})/P(\mathbf{R})$. This integral is defined to be the expectation value of $f(\mathbf{R})$ with respect to the normalized importance function $P(\mathbf{R})$. The expectation value can also be determined by averaging an infinite number of $f(\mathbf{R}_n)$ where $\mathbf{R}_n$ are sampled directly from the importance function $P(\mathbf{R})$.
+where $f(\mathbf{R}) = g(\mathbf{R})/P(\mathbf{R})$. This integral is defined to be the expectation value of $f(\mathbf{R})$ with respect to the normalized importance function $P(\mathbf{R})$. The expectation value can also be determined by averaging an infinite number of $f(\mathbf{R}_n)$ where $\mathbf{R}_n$ are sampled directly from the importance function $P(\mathbf{R})$
 \begin{equation}
-   I \equiv \left<f\right> = \lim\limits_{N\rightarrow\infty} \frac{1}{N} \sum\limits_{n=1}^N f(\mathbf{R}_n)
+   I \equiv \left<f\right> = \lim\limits_{N\rightarrow\infty} \frac{1}{N} \sum\limits_{n=1}^N f(\mathbf{R}_n).
    \label{equ:mci}
 \end{equation}
 This expectation value can be approximated by averaging over a sufficiently large number of samples
@@ -27,7 +27,7 @@ where the statistical uncertainties can be estimated in the usual way
 The scaling is independent of the dimension, and thus this method is useful especially when the dimensions of the integration become large. In many-body quantum mechanics the dimension of the integrals can be quite large, including several dimensions for each particle in the calculation. Monte Carlo integration only needs to sample each of these dimensions, decreasing the work required by a substantial amount for large dimensional integrals.
 
 \section{Metropolis Algorithm}
-Monte Carlo integration requires the sampling of the importance function, $P(\R)$. This is straight forward only for functions that have a readily invertible cumulative distribution function, $F^{-1}(\R)$, which is not the case in our application. For the one dimensional case where $F^{-1}(x)$ is known, a random variable $x$ could be sampled by drawing a random variable $u$ from a uniform distribution from 0 to 1, which is then used as the argument of the inverse cumulative distribution function, $x=F^{-1}(u)$. The Metropolis algorithm provides a way to sample non-invertible probability distributions. The Metropolis algorithm is a Markov chain method that generates sequential samples of a probability distribution based on the previous sample alone, and not any other previous history. These are the steps to the algorithm.
+Monte Carlo integration requires the sampling of the importance function, $P(\R)$. This is straightforward only for functions that have a readily invertible cumulative distribution function, $F^{-1}(\R)$, which is not the case in our application. For the one dimensional case where $F^{-1}(x)$ is known, a random variable $x$ could be sampled by drawing a random variable $u$ from a uniform distribution from 0 to 1, which is then used as the argument of the inverse cumulative distribution function, $x=F^{-1}(u)$. The Metropolis algorithm provides a way to sample non-invertible probability distributions. The Metropolis algorithm is a Markov chain method that generates sequential samples of a probability distribution based on the previous sample alone, and not any other previous history. These are the steps to the algorithm.
 \begin{enumerate}
    \item Start at a random position, $\R$.
    \item Propose a move to a new position $\R'$, sampled from a normalized distribution $T(\R'|\R)$. $T$ could be, for example, a Gaussian centered on the current position, but could be optimized for efficiency.
@@ -70,7 +70,7 @@ Using the metropolis algorithm, a set of random configurations, $\{\R_n: n=1,A\}
   E_V \approx \frac{1}{N} \sum\limits_{n=1}^N E_L({\R_n}),
 \end{equation}
 \begin{equation} 
-  \sigma_{E_V} = \sqrt{\frac{\left<E_L^2\right>-\left<E_L\right>^2}{N}} \approx \sqrt{\frac{\left(\frac{1}{N}\sum\limits_{n=1}^NE_L^2(\R_n)\right) - \left(\frac{1}{N}\sum\limits_{n=1}^NE_L(\R_n)\right)^2}{N-1}}
+  \sigma_{E_V} = \sqrt{\frac{\left<E_L^2\right>-\left<E_L\right>^2}{N}} \approx \sqrt{\frac{\left(\frac{1}{N}\sum\limits_{n=1}^NE_L^2(\R_n)\right) - \left(\frac{1}{N}\sum\limits_{n=1}^NE_L(\R_n)\right)^2}{N-1}}.
 \end{equation}
 
 The above description holds true for all spin-isospin dependent interactions. If the Hamiltonian depends on spin and isospin, which it does in nuclear physics, either the spin-isospin states can be explicitly summed over or the spin-isospin states can be sampled. For the case where the spin-isospin states are sampled the variational energy is evaluated as
@@ -96,7 +96,7 @@ Optimization methods all try to minimize the energy by efficiently updating the 
 \begin{equation}
    G = \left(\Lambda I - H\right),
 \end{equation}
-is used to repeatedly operate on the trial wave function, as described in \cite{heeb1994} and \cite{sorella2001}. $G$ inverts the energy spectrum so that the lowest energy state has the highest eigenvalue, and as long as $\Lambda$ is chosen to be large enough, repeated operations increase the overlap with the lowest energy state, effectively projecting it out of the wave function. Similarly in SR the trial wave function is thought to be iterated where the next wave function can be written in terms of the previous wave function and it's derivatives with respect to the parameters
+is used to repeatedly operate on the trial wave function, as described in \cite{heeb1994} and \cite{sorella2001}. $G$ inverts the energy spectrum so that the lowest energy state has the highest eigenvalue, and as long as $\Lambda$ is chosen to be large enough, repeated operations increase the overlap with the lowest energy state, effectively projecting it out of the wave function. Similarly in SR the trial wave function is thought to be iterated where the next wave function can be written in terms of the previous wave function and its derivatives with respect to the parameters
 \begin{equation}
    \ket{\psi_{n+1}} = \gamma_0\ket{\Psi_n} + \gamma_1\frac{\partial}{\partial \alpha_1}\ket{\Psi_n} + \ldots + \gamma_p\frac{\partial}{\partial \alpha_p}\ket{\Psi_n},
    \label{equ:SRapproxgamma}
@@ -144,18 +144,18 @@ can be written in imaginary time by substituting $\tau=it/\hbar$. The resulting 
    H\Psi = -\frac{\partial\Psi}{\partial\tau},
    \label{equ:diffusion}
 \end{equation}
-where the wave function $\Psi$ is diffused with respect to $\tau$. By separating variables we can write the solution as eigenfunctions in spatial coordinates times an exponential in imaginary time where the energies have been shifted by a parameter, $E_0$ in order to control the normalization, $V\rightarrow V - E_0$ and $E_n \rightarrow E_n-E_0$.
+where the wave function $\Psi$ is diffused with respect to $\tau$. By separating variables we can write the solution as eigenfunctions in spatial coordinates times an exponential in imaginary time where the energies have been shifted by a parameter, $E_0$ in order to control the normalization, $V\rightarrow V - E_0$ and $E_n \rightarrow E_n-E_0$
 \begin{equation}
-   \Psi(\R,\tau) = \sum\limits_{n=0}^\infty c_n\phi_n(\R)e^{-\tau(E_n-E_0)}
+   \Psi(\R,\tau) = \sum\limits_{n=0}^\infty c_n\phi_n(\R)e^{-\tau(E_n-E_0)}.
 \end{equation}
 As the imaginary time grows the states with higher energy than the ground-state are exponentially damped. The parameter $E_0$ is adjusted to be close to the ground state energy, and thus any states with higher energy have a non-zero difference $E_n-E_0$ in the negative exponential. Thus as $\tau\rightarrow\infty$ only the ground-state remains,
 \begin{equation}
    \lim\limits_{\tau\rightarrow\infty}\Psi(\R,\tau) = c_0\phi_0(\R).
 \end{equation}
 
-The limit, $\lim\limits_{\tau\rightarrow\infty}\Psi(\R,\tau) = \lim\limits_{\tau\rightarrow\infty}e^{-(H-E_0)\tau}\Psi(\R)$, cannot be computed directly and so the propagator is split into small steps in imaginary time. A complete set of states are inserted between the propagator and the wave function.
+The limit, $\lim\limits_{\tau\rightarrow\infty}\Psi(\R,\tau) = \lim\limits_{\tau\rightarrow\infty}e^{-(H-E_0)\tau}\Psi(\R)$, cannot be computed directly and so the propagator is split into small steps in imaginary time. A complete set of states are inserted between the propagator and the wave function
 \begin{equation}
-   \braket{\R'}{\Psi_T(\tau)} = \int d\R \bra{\R'}e^{-(H-E_0)\tau}\ket{\R}\braket{\R}{\Psi_T(0)}
+   \braket{\R'}{\Psi_T(\tau)} = \int d\R \bra{\R'}e^{-(H-E_0)\tau}\ket{\R}\braket{\R}{\Psi_T(0)}.
 \end{equation}
 
 The propagator is broken up into $N$ short time propagators, $\dt = \tau/N$, and a complete set of states is inserted between each finite time propagator,
@@ -170,13 +170,13 @@ where $\R_N=\R'$ and $\R_0=\R$. This can be written more conveniently in the for
    \braket{\R_N}{\Psi_T(\tau)} &= \int d\R_0 \ldots d\R_{N-1} \left[\prod\limits_{i=1}^N \bra{\R_i}e^{-(H-E_0)\Delta\tau}\ket{\R_{i-1}}\right] \braket{\R_0}{\Psi_t(0)} \\
    &= \int d\R_0 \ldots d\R_{N-1} \left[\prod\limits_{i=1}^N G(\R_i,\R_{i-1},\Delta\tau)\right] \braket{\R_0}{\Psi_t(0)},
 \end{align}
-where $G(\R',\R,\tau)=\bra{\R'}e^{-(H-E_0)\tau}\ket{\R}$, is often called the Green's function or the propagator. We cannot calculate the Green's function directly and so the kinetic and potential terms need to be broken up and calculated separately.
+where $G(\R',\R,\tau)=\bra{\R'}e^{-(H-E_0)\tau}\ket{\R}$, is often called the Green's function or the propagator. We cannot calculate the Green's function directly and so the kinetic and potential terms need to be broken up and calculated separately
 \begin{equation}
-   G(\R',\R,\dt) = \bra{\R'}e^{-T\dt}e^{-(V-E_0)\dt}\ket{\R}
+   G(\R',\R,\dt) = \bra{\R'}e^{-T\dt}e^{-(V-E_0)\dt}\ket{\R}.
 \end{equation}
-This breakup is only accurate to $\mathcal{O}(\dt^2)$. With the use of the Trotter-Suzuki formula,
+This breakup is only accurate to $\mathcal{O}(\dt^2)$. With the use of the Trotter-Suzuki formula
 \begin{equation}
-   e^{-\tau\left(\hat{A}+\hat{B}\right)} = e^{-\tau\hat{B}/2)}e^{-\tau\hat{A})}e^{-\tau\hat{B}/2)} + \mathcal{O}(\tau^3)
+   e^{-\tau\left(\hat{A}+\hat{B}\right)} = e^{-\tau\hat{B}/2}e^{-\tau\hat{A}}e^{-\tau\hat{B}/2} + \mathcal{O}(\tau^3),
 \end{equation}
 the finite-time propagator can be written as
 \begin{align}
@@ -219,13 +219,13 @@ where $\mathbf{v}_D(R)$ is the drift velocity, defined as
 \end{equation}
 The drift velocity is responsible for pushing walkers away from areas of low $\left|\Psi_T(\R,t)\right|^2$. In practice the importance function is accounted for by directly sampling from
 \begin{equation}
-   G(\R',\R,\Delta\tau)\frac{\braket{\R}{\Psi_I}}{\braket{\R'}{\Psi_I}}
+   G(\R',\R,\Delta\tau)\frac{\braket{\R}{\Psi_I}}{\braket{\R'}{\Psi_I}},
 \end{equation}
 instead of from the Green's function.
 
-It is difficult to operate through the Green's function and maintain low variance and so observables are often computed via mixed expectation values.
+It is difficult to operate through the Green's function and maintain low variance and so observables are often computed via mixed expectation values
 \begin{equation}
-   \left<\mathcal{O(\tau)}\right>\text{mixed} = \frac{\bra{\Psi(\tau)}\mathcal{O}\ket{\Psi_T}}{\braket{\Psi(\tau)}{\Psi_T}}
+   \left<\mathcal{O(\tau)}\right>\text{mixed} = \frac{\bra{\Psi(\tau)}\mathcal{O}\ket{\Psi_T}}{\braket{\Psi(\tau)}{\Psi_T}}.
 \end{equation}
 The true operator expectation value can approximately be written in terms of mixed expectation values (\cite{pudliner1997}) as
 \begin{equation}
@@ -236,9 +236,9 @@ where
 \begin{equation}
    \left<\mathcal{O}\right>_T = \frac{\bra{\Psi_T}\mathcal{O}\ket{\Psi_T}}{\braket{\Psi_T}{\Psi_T}}
 \end{equation}
-is the variational expectation value. Equation~\ref{equ:mixedexp} comes from a linear extrapolation of the mixed expectation value. For the Hamiltonian and operators that commute with the Hamiltonian the mixed expectation value is exactly the true expectation value for large time step. This can be seen directly with the Hamiltonian by splitting the Green's function up, to be used on either side of the Hamiltonian.
+is the variational expectation value. Equation~\ref{equ:mixedexp} comes from a linear extrapolation of the mixed expectation value. For the Hamiltonian and operators that commute with the Hamiltonian the mixed expectation value is exactly the true expectation value for large time step. This can be seen directly with the Hamiltonian by splitting the Green's function up, to be used on either side of the Hamiltonian
 \begin{equation}
-   \lim\limits_{\tau\rightarrow\infty}\left<H\right>_\text{mixed} = \frac{\bra{\Psi_T}e^{-H\tau/2}He^{-H\tau/2}\ket{\Psi_T}}{\bra{\Psi_T}e^{-H\tau/2}e^{-H\tau/2}\ket{\Psi_T}} = E_0
+   \lim\limits_{\tau\rightarrow\infty}\left<H\right>_\text{mixed} = \frac{\bra{\Psi_T}e^{-H\tau/2}He^{-H\tau/2}\ket{\Psi_T}}{\bra{\Psi_T}e^{-H\tau/2}e^{-H\tau/2}\ket{\Psi_T}} = E_0.
 \end{equation}
 
 The nuclear wave function is antisymmetric and will change sign as particle interact and exchange. As a result the oscillatory nature of the wave function requires positive and negative terms to cancel in the integral. Very accurate calculations must be done to accurately calculate these cancellations, and as a result very large uncertainties can be obtained. One approximate solution to this is the fixed-node approximation (\cite{moskowitz1982}). The basic idea is that the trial wave function defines a nodal surface that is zero at the surface and changes sign across the surface. The wave functions are not allowed to cross the nodal surface. This maintains the upper bound principle of VMC, and is exact if the trial wave function, from which the nodal surface is defined, is exactly the ground state. This method assumes that the wave function is real, which is usually not the case with spin-isospin interactions. A generalization called the constrained path method works for real and complex wave functions alike (\cite{wiringa2000}). The general idea is that walker configurations that have negative or zero overlap with the propagated wave function are discarded. This is only an approximate approach that depends on the choice of $\Psi_T(\R)$ and does not guarantee an upper bound on the energy. To this day there is active research looking for efficient ways to solve the Fermi-sign problem in many-body quantum systems. In practice we follow the fixed phase method used in \cite{zhang2003} by constraining the phase to be that of the trial wave function and setting the weight to zero for any configuration whose overlap with the propagated wave function is zero or negative. This guarantees that the weights will be real and positive.
@@ -265,7 +265,7 @@ The uncertainties are calculated by block averaging. The data we generate is inh
 
 Good reviews of this method can be found in \cite{foulkes2001} and  \cite{carlson2015}. DMC only accounts for spin-isospin independent Hamiltonians, unlike Green's function Monte Carlo (GFMC) and auxiliary field diffusion Monte Carlo (AFDMC) which follow DMC for sampling spatial states but use two different methods to sample spin-isospin states. For each set of spatial integrals there is a sum over all of the spin and isospin states. GFMC evaluates this sum explicitly. This is inefficient as the number of spin-isospin charge states scales as
 \begin{equation}
-   \frac{A!}{Z!(A-Z)!}2^A
+   \frac{A!}{Z!(A-Z)!}2^A,
 \end{equation}
 where $A$ is the number of nucleons and $Z$ is the number of protons.
 %The number of possible spin states given $A$ nucleons is $2^A$. The number of isospin states given $A$ nucleons and $Z$ protons can be reduced to ${A \choose Z}$ states leaving us with a total of $2^A {A \choose Z}$ spin-isospin states.
@@ -273,9 +273,9 @@ The number of states and the number of operators required for the trial wave fun
 
 \section{Auxiliary Field Diffusion Monte Carlo}
 \label{sec:AFDMC}
-To overcome the exponentially large number of spin-isospin states that have to be summed in GFMC, AFDMC was developed in 1999 (\cite{schmidt1999}) to sample spin and isospin states and, in analogy to moving the position of each walker, rotate the spin and isospin of each walker. The walkers are defined by the three spatial positions and amplitude for each particle to be in each of the four possible spin-isospin states $\ket{s} = \ket{p\uparrow,p\downarrow,n\uparrow,n\downarrow}$. The Hamiltonian can then be broken up into spin-isospin independent $H_{SI}$ and spin-isospin dependent $H_{SD}$ parts. The spin-isospin dependent part only comes from the potential and can be written as $V_{SD}$. The propagator can be broken up to have the old propagator used in DMC, which is independent of spin and isospin, and a spin-isospin dependent piece.
+To overcome the exponentially large number of spin-isospin states that have to be summed in GFMC, AFDMC was developed in 1999 (\cite{schmidt1999}) to sample spin and isospin states and, in analogy to moving the position of each walker, rotate the spin and isospin of each walker. The walkers are defined by the three spatial positions and amplitude for each particle to be in each of the four possible spin-isospin states $\ket{s} = \ket{p\uparrow,p\downarrow,n\uparrow,n\downarrow}$. The Hamiltonian can then be broken up into spin-isospin independent $H_{SI}$ and spin-isospin dependent $H_{SD}$ parts. The spin-isospin dependent part only comes from the potential and can be written as $V_{SD}$. The propagator can be broken up to have the old propagator used in DMC, which is independent of spin and isospin, and a spin-isospin dependent piece
 \begin{equation}
-   G(\R'S',\R S,\tau)=\bra{\R'}e^{-(H-E_0)\tau}\ket{\R}G_{SD}(\R'S',\R S,\tau)
+   G(\R'S',\R S,\tau)=\bra{\R'}e^{-(H-E_0)\tau}\ket{\R}G_{SD}(\R'S',\R S,\tau).
 \end{equation}
 where the spin-isospin dependent part of the propagator is
 \begin{equation}
@@ -294,11 +294,11 @@ AFDMC samples the spin and isospin states by expressing the operators in terms o
       + \frac{1}{2}\sum\limits_{i,j} A^{\tau}_{i,j}\ti\cdot\tj,
    \label{equ:VwithA}
 \end{equation}
-where we have defined new $A$ matrices. The $A$ matrices are written in terms of the $\vpij$ functions above. For example the simplest matrix is the $A^{\tau}_{i,j}$ matrix which can be shown to be $A^{\tau}_{i,j} = v_{\tau}(r_{ij})$. There is a factor of one half in Equation~\ref{equ:VwithA} because the sums go over all $i$ and $j$ particles instead of pairs for which $i<j$. These matrices are zero when $i=j$ and they are symmetric. We can also write these matrices in terms of their eigenvalues and eigenvectors.
+where we have defined new $A$ matrices. The $A$ matrices are written in terms of the $\vpij$ functions above. For example the simplest matrix is the $A^{\tau}_{i,j}$ matrix which can be shown to be $A^{\tau}_{i,j} = v_{\tau}(r_{ij})$. There is a factor of one half in Equation~\ref{equ:VwithA} because the sums go over all $i$ and $j$ particles instead of pairs for which $i<j$. These matrices are zero when $i=j$ and they are symmetric. We can also write these matrices in terms of their eigenvalues and eigenvectors
 \begin{align}
    &\sum\limits_{j,\beta} A^{\sigma}_{i,\alpha,j,\beta}\psi^{\sigma}_{n,j,\beta} = \lambda^{\sigma}_n\psi^{\sigma}_{n,i,\alpha} \\
    &\sum\limits_{j,\beta} A^{\sigma\tau}_{i,\alpha,j,\beta}\psi^{\sigma\tau}_{n,j,\beta} = \lambda^{\sigma\tau}_n\psi^{\sigma\tau}_{n,i,\alpha} \\
-   &\sum\limits_{j} A^{\tau}_{i,j}\psi^{\tau}_{n,j} = \lambda^{\tau}_n\psi^{\tau}_{n,i}
+   &\sum\limits_{j} A^{\tau}_{i,j}\psi^{\tau}_{n,j} = \lambda^{\tau}_n\psi^{\tau}_{n,i}.
 \end{align}
 Written in terms of these eigenvalues and eigenvectors the potential can be written as
 \begin{equation}
@@ -314,9 +314,9 @@ where the operators are given by
    O_{n\alpha}^{\tau} &= \sum\limits_{j} \tau_{j,\alpha}\psi_{n,j}^{\tau}.
 \end{split}
 \end{equation}
-These operators in the propagator now have the effect of rotating the spinors, analogous to diffusing the walkers in space. To reduce the order of the operators in the propagator from quadratic to linear we use the Hubbard-Stratanovich transformation.
+These operators in the propagator now have the effect of rotating the spinors, analogous to diffusing the walkers in space. To reduce the order of the operators in the propagator from quadratic to linear we use the Hubbard-Stratanovich transformation
 \begin{equation}
-   e^{-\frac{1}{2}\lambda O^2} = \frac{1}{\sqrt{2\pi}} \int dx e^{-\frac{x^2}{2} + \sqrt{-\lambda}x O}
+   e^{-\frac{1}{2}\lambda O^2} = \frac{1}{\sqrt{2\pi}} \int dx e^{-\frac{x^2}{2} + \sqrt{-\lambda}x O}.
 \end{equation}
 The variable $x$ is called an auxiliary field. Using the fact that there are $3A$ $O_{n}^{\sigma}$ operators, $9A$ $O_{n\alpha}^{\sigma\tau}$ operators and $3A$ $O_{n\alpha}^{\tau}$ operators, for a total of $15A$ operators, and by using the Hubbard-Stratanovich transformation we can write the spin-isospin dependent part of the propagator as
 \begin{equation}
@@ -356,13 +356,13 @@ Two-nucleon potentials are often fit to NN scattering data and several very accu
    \mathcal{O}_{ij}^{p=9,14} &= \left[\mathbf{L}^2,\mathbf{L}^2\si\cdot\sj,(\mathbf{L}\cdot\mathbf{S})^2\right]\otimes\left[1,\ti\cdot\tj\right], \\
    \mathcal{O}_{ij}^{p=15,18} &= \left[T_{ij},\si\cdot\sj T_{ij},S_{ij}T_{ij},\tau_i^2+\tau_j^2\right],
 \end{align}
-where the tensor term is $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$, the $\mathbf{L}\cdot\mathbf{S}$ term is the spin-orbit term, and the $T_{ij} = 3\tau_i^2\tau_j^2-\ti\cdot\tj$ is the isotensor term.
+where the tensor term is $S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot\sj$, the $\mathbf{L}\cdot\mathbf{S}$ term is the spin-orbit term, and the $T_{ij} = 3\tau_i^2\tau_j^2-\ti\cdot\tj$ is the isotensor term. The spin orbit term accounts for the spatial orientations of the spins. For example, two spin up nucleons would interact differently if their spins alligned side by side as opposed to collinearly.
 
-In this work the AV6$'$ potential is used, which includes all of the same operators as AV8$'$ except for those including the spin-orbit terms, $\left[1,\si\cdot\sj,S_{ij}\right]\otimes\left[1,\ti\cdot\tj\right]$. The functions multiplying the AV6$'$ operators are shown in Figure \ref{fig:vij}.
+In this work the AV6$'$ potential is used, which includes all of the same operators as AV8$'$ except for those including the spin-orbit terms, $\left[1,\si\cdot\sj,S_{ij}\right]\otimes\left[1,\ti\cdot\tj\right]$. The functions multiplying the spin-isospin dependent AV6$'$ operators are shown in Figure \ref{fig:vij}.
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/vij.eps}
-   \caption{The functions multiplying the AV6$'$ operators as a function of nucleon separation. The central operator is excluded to show the spin-isospin terms with better detail. The $v_s$ represents the spin operators, $v_t$ the isospin operators, $v_{st}$ the spin-isospin operators, $v_S$ the tensor, and $v_{St}$ the tensor-isospin operators.}
+   \caption{The functions multiplying the AV6$'$ operators as a function of nucleon separation. The central operator, $v_1$, is excluded to show the spin-isospin terms with better detail. The $v_2$ represents the isospin operators, $v_3$ the spin operators, $v_4$ the spin-isospin operators, $v_5$ the tensor, and $v_6$ the tensor-isospin operators.}
    \label{fig:vij}
 \end{figure}
 
@@ -422,9 +422,9 @@ In recent years a set of nuclear potentials has been developed from a chiral eff
 Most of our calculations have been done with the AV6$'$ potential to reduce computation requirements as well as to better focus on the improvements made by improved wave functions. It is straightforward to do any of these calculations with the three-nucleon and the $\chi$EFT potentials.
 
 \section{Quantum Monte Carlo and High Performance Computing}
-QMC calculations are very well suited to parallel computing. For VMC calculations this is very straight forward. Each process is given one or more walkers for which independent simulations are performed. Observables are then computed on each separate processor and collected by a single boss processor. The collected data can then be processes and analyzed for final output. It is slightly more complicated for AFDMC calculations, as load balancing is required due to the branching algorithm which can create or destroy walkers at each time step.
+QMC calculations are very well suited to parallel computing. For VMC calculations this is very straightforward. Each process is given one or more walkers for which independent simulations are performed. Observables are then computed on each separate processor and collected by a single boss processor. The collected data can then be processes and analyzed for final output. It is slightly more complicated for AFDMC calculations, as load balancing is required due to the branching algorithm which can create or destroy walkers at each time step.
 
-We have tested the scalability of the AFDMC code on various systems. The results for the SuperMIC computer at Louisiana State University as well as the Stampede2 computer which is part of the Texas Advanced Computing Center can be found in Figures~\ref{fig:supermic} and \ref{fig:stampede2} respectively.
+We have tested the scalability of the AFDMC code on various systems as provided by our allocation through the Extreme Science and Engineering Discovery Environment (XSEDE). XSEDE is a virtual system designed for scientists all over the world to share resourses such as supercomputers and data. The results for the SuperMIC computer at Louisiana State University as well as the Stampede2 computer which is part of the Texas Advanced Computing Center can be found in Figures~\ref{fig:supermic} and \ref{fig:stampede2} respectively.
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.8\textwidth]{figures/supermic.png}
@@ -437,6 +437,6 @@ We have tested the scalability of the AFDMC code on various systems. The results
    \caption{Scaling on Stampede2 using the time to propagate 10,000 configurations of an $^{16}$O nucleus for 100 steps.}
    \label{fig:stampede2}
 \end{figure}
-Even with load balancing the scaling is very good up to thousands of processors, which is more than are typically used in a given calculation.
+Access to both computers was provided by our XSEDE allocation. Even with load balancing the scaling is very good up to thousands of processors, which is more than are typically used in a given calculation.
 
 I have contributed to the existing AFDMC project by writing code to include the improved nucleon-nucleon correlations. The AFDMC code that we have written and are using in this work is hosted on GitLab and is currently unavailable to the public, though we expect it to be open source in the near future. Access to the code can be made available upon request.

@@ -42,15 +42,15 @@ where $\R$ contains the spatial and spin-isospin coordinates of the walkers, $\m
 \begin{equation}
    \phi_k = \Phi_{nj}\left[C_{c_l,m_s}^j Y_{l,m_l}(\hat{r}_i)\chi_s(s_i)\right]_{j,m_j},
 \end{equation}
-where $\Phi_{nj}$ is the radial part and the rest contains the spherical harmonics $Y_{l,m_l}(\hat{r}_I)$ and spin and iso-spin states where the Clebsch-Gordan coefficients ensure the correct $j$ and $m_j$ quantum numbers, and the different states are given by the index $k$. To accurately describe the wave function of an open shell nuclei each state with the correct total angular momentum, parity $J^\pi$, and isospin $T$ is included as a separate Slater determinant.
+where $\Phi_{nj}$ is the radial part and the rest contains the spherical harmonics $Y_{l,m_l}(\hat{r}_I)$ and spin and iso-spin states where the Clebsch-Gordan coefficients ensure the correct $j$ and $m_j$ quantum numbers, and the different states are given by the index $k$. To accurately describe the wave function of an open shell nuclei each state with the correct total angular momentum, parity $J^\pi$, and isospin $T$ is included as a separate Slater determinant
 \begin{equation}
-   \braket{\R S}{\Phi}_{J^\pi,T} = \sum\limits_n c_n D\{\phi_k(\r_i,s_i)\}
+   \braket{\R S}{\Phi}_{J^\pi,T} = \sum\limits_n c_n D\{\phi_k(\r_i,s_i)\}.
 \end{equation}
 Here the $c_n$ coefficients are variational parameters used to minimize the energy given a set of possible state configurations. One of the simplest examples of an open shell nuclei would be $^6$He whose ground state is a $J^\pi = 0^+$ state. The two protons and two of the neutrons could be in the full $(1S_{1/2})^2$ shell while the two remaining neutrons could be in the $(1P_{3/2})^2$ shell with their $m_j=\pm 3/2, \pm 1/2$ values being equal and opposite to ensure that $J=0$. This state has two possible determinants. Other possible configurations for the two remaining neutrons would be $(1P_{1/2})^2$ with one possible determinant, $(1D_{5/2})^2$ with three possible determinants, $(2S_{1/2})^2$ with one possible determinant and $(1D_{3/2})^2$ with two possible determinants giving a total of nine possible determinants. Notice that the two neutrons could be in a combination of $S$ and $D$ shells but never an $S$ and $P$ or $D$ and $P$ to ensure the parity of the state is positive. The number of determinants used for the model states of open shell nuclei will control how accurate the trial wave function is. For closed shell nuclei such as $^4$He or $^{16}$O a single Slater determinant describing the full shell configuration is sufficient.
 
-In the calculations described here, the radial part $\Phi_{nj}$ of the single particle states are obtained as bound state solutions to the single particle Schr\"odinger equation with a Woods-Saxon potential wine-bottle potential.
+In the calculations described here, the radial part $\Phi_{nj}$ of the single particle states are obtained as bound state solutions to the single particle Schr\"odinger equation with a Woods-Saxon potential wine-bottle potential
 \begin{equation}
-   v(r) = V_s\left[\frac{1}{1+e^{(r-r_s)/a_s}} + \alpha_se^{(-r/\rho_s)^2}\right]
+   v(r) = V_s\left[\frac{1}{1+e^{(r-r_s)/a_s}} + \alpha_se^{(-r/\rho_s)^2}\right].
 \end{equation}
 Here the parameters, $V_s, r_s, a_s, \alpha_s$ and $\rho_s$ are variational parameters used to shape the potential to obtain a minimum in energy.
 
@@ -78,9 +78,9 @@ Here the parameters, $V_s, r_s, a_s, \alpha_s$ and $\rho_s$ are variational para
 %\end{equation}
 %which is the singlet state that we wanted to start with.
 
-The Slater determinant is a mean-field wave function and is often used with Jastrow type short range correlations.
+The Slater determinant is a mean-field wave function and is often used with Jastrow type short range correlations
 \begin{equation}
-   \braket{\R S}{\psi_T} = \bra{\R S}\prod\limits_{i<j}f(r_{ij}) \ket{\phi}_{SD}
+   \braket{\R S}{\psi_T} = \bra{\R S}\prod\limits_{i<j}f(r_{ij}) \ket{\phi}_{SD}.
    \label{equ:jastrow}
 \end{equation}
 These correlations are spin-isospin independent and depend only on the particle separation and improve upon the uncorrelated Slater determinant wave function significantly. To maintain the cluster decomposition the functions $f(r_{ij})$ must go to unity for large particle separations. In this work I have used Slater determinant wave functions with a Jastrow factor along with spin-isospin dependent correlations which will be discussed in a later section.
@@ -94,21 +94,21 @@ The BCS, or Pfaffian, pairing wave function can be written as an antisymmetrized
 \end{equation}
 where $\mathcal{A}$ is the antisymmetrization operator, $\r_i$ and $s_i$ are the walkers positions and spins, and $\phi$ are the pairing functions which can be separated into a spatial part, whose form is determined by the system, and a spin-isospin part, which are often written in terms of singlet and triplet states. For condensed matter the BCS pairing interactions are spin independent and the Pfaffian reduces to a determinant. The Pfaffian can be computed in $O(A^3)$ operations just like a Slater determinant, where $A$ is the rank of the matrix.
 
-This wave function, like the Slater determinant, can be used with additional Jastrow-like correlations as in Equation~\ref{equ:jastrow}.
+This wave function, like the Slater determinant, can be used with additional Jastrow-like correlations as in Equation~\ref{equ:jastrow}
 \begin{equation}
-   \braket{\R S}{\psi_T} = \bra{\R S}\prod\limits_{i<j}f(r_{ij}) \ket{\phi}_{BCS}
+   \braket{\R S}{\psi_T} = \bra{\R S}\prod\limits_{i<j}f(r_{ij}) \ket{\phi}_{BCS}.
 \end{equation}
 For more information and a more detailed use and description of this wave function I refer the reader to \cite{bajdich2006,bajdich2008}.
 
 \section{Spin-Isospin Dependent Correlations}
 The nuclear Hamiltonian has a strong dependence on spin and isospin, and to ensure good overlap with the ground state, the trial wave function must include spin-isospin dependent correlations. From here on I will be using the Slater determinant for the long-range part of the wave function. To improve on the Jastrow correlations in Equation~\ref{equ:jastrow}, spin-isospin dependent correlations can be included that obey the properties of cluster decomposability and overall antisymmetry.
 
-I have come up with two such correlations, the exponentially correlated,
+I have come up with two such correlations, the exponentially correlated
 \begin{equation}
-   \Psi_{\text{exp}}(\R, S) = \bra{\R S}\left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j}\sum\limits_{p}f_p(r_{ij})\Opij}\ket{\phi}
+   \Psi_{\text{exp}}(\R, S) = \bra{\R S}\left[\prod\limits_{i<j}f_c(r_{ij})\right] e^{\sum\limits_{i<j}\sum\limits_{p}f_p(r_{ij})\Opij}\ket{\phi},
    \label{equ:exppsi}
 \end{equation}
-and the symmetrized product wave functions,
+and the symmetrized product wave functions
 \begin{equation}
    \Psi_{\text{SP}}(\R, S) = \bra{\R S}\left[\prod\limits_{i<j}f_c(r_{ij})\right] \left[\mathcal{S}\prod\limits_{i<j}\left(1+\sum\limits_p\fpij\Opij\right)\right] \ket{\phi}.
    \label{equ:prodpsi}
@@ -214,7 +214,7 @@ Another way to include quadratic correlations is to only include terms that do n
 \begin{equation}
    \begin{split}
       \ket{\psi_T}_\text{ip} = \Bigg[\prod\limits_{i<j}&f_c(r_{ij})\Bigg] \Bigg[1+\fOpij \\
-      & + \fOpij\fOqklip \Bigg] \ket{\phi}
+      & + \fOpij\fOqklip \Bigg] \ket{\phi},
    \end{split}
    \label{equ:ipquadcorr}
 \end{equation}
@@ -276,7 +276,7 @@ and the independent pair sum can be visualized as in Figure~\ref{fig:ipdiagrams}
 \end{figure}
 All terms where a particle is included twice in the correlation are ignored, as a results, all correlation operators commute and the correlations are explicitly symmetric. Neither of these correlations maintain the strong condition of cluster decomposability. Like the linear correlations, each product of states does not contain all of the needed correlations, though these wave functions contain more than the linear correlations. An effort to build an antisymmetric and cluster decomposable wave function from the exponentially correlated wave function will be discussed later.
 
-The energy and it's uncertainty are often used to judge the convergence of a propagated wave function in QMC and so a good wave function needs to be able to reproduce known binding energies. To this end I have calculated binding energies with the linear, quadratic, and independent pair (IP) quadratic correlations derived from the symmetrized product for $^4$He, $^{16}$O, $^{40}$Ca, and symmetric nuclear matter (SNM) at saturation density, $\rho_0=0.16$ fm$^{-3}$, in a period box with 28 particles. The trial states for SNM are built from plane waves and 7 particles fills the first plane wave shell. This is why we have done calculations with 28 particles, 7 for each of the spin-isospin states. The energy per particle for nuclei is plotted in Figure~\ref{fig:energies} and the specific energies can be found in Table~\ref{tab:energies}.
+The energy and its uncertainty are often used to judge the convergence of a propagated wave function in QMC and so a good wave function needs to be able to reproduce known binding energies. To this end I have calculated binding energies with the linear, quadratic, and independent pair (IP) quadratic correlations derived from the symmetrized product for $^4$He, $^{16}$O, $^{40}$Ca, and symmetric nuclear matter (SNM) at saturation density, $\rho_0=0.16$ fm$^{-3}$, in a period box with 28 particles. The trial states for SNM are built from plane waves and 7 particles fills the first plane wave shell. This is why we have done calculations with 28 particles, 7 for each of the spin-isospin states. The energy per particle for nuclei is plotted in Figure~\ref{fig:energies} and the specific energies can be found in Table~\ref{tab:energies}.
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/energy.eps}
@@ -485,7 +485,7 @@ The expectation value of the potential as calculated with the quadratic correlat
 Additional details about the quadratic correlations and how the operator updates are performed can be found in our recent paper \cite{lonardoni2018}.
 
 \subsection{Quadratic Correlations with NN and 3N $\chi$EFT Potentials}
-The results presented above have been done with the simplified AV6$'$ NN potential. This choice was made to reduce the computational cost of testing the improved correlations. The new quadratic correlations have also been used with more sophisticated potentials, namely, those developed in the $\chi$EFT framework. We have done preliminary calculations with the $\chi$EFT potential up to N$^2$LO in the chiral expansion. Higher orders of the chiral expansion are still inaccessible to QMC calculations due to their non-locality. We have obtained preliminary results (Diego Lonardoni, private communication, 2019) of binding energy calculations for $^4$He, $^{16}$O, and SNM with 28 particles in a periodic box at saturation density. Both the VMC and AFDMC preliminary results are shown in Table~\ref{tab:chiquad}.
+The results presented above have been done with the simplified AV6$'$ NN potential. This choice was made to reduce the computational cost of testing the improved correlations. The new quadratic correlations have also been used with more sophisticated potentials, namely, those developed in the $\chi$EFT framework. We have done preliminary calculations with the $\chi$EFT potential up to N$^2$LO in the chiral expansion. Higher orders of the chiral expansion are still inaccessible to QMC calculations due to their non-locality. Preliminary binding energy results have been obtained (Diego Lonardoni, private communication, 2019) for $^4$He, $^{16}$O, and SNM with 28 particles in a periodic box at saturation density. Both the VMC and AFDMC preliminary results are shown in Table~\ref{tab:chiquad}.
 \begin{table}[htb]
    \centering
    \begin{tabular}{llccc}
@@ -527,11 +527,13 @@ The correlation functions $f_p(r_{ij})$ are written in terms of symmetric matric
 \end{split}
 \end{equation}
 which can be written in terms of their eigenvalues and eigenvectors
-\begin{align}
-   &\sum\limits_{j\beta} A^{\sigma}_{i\alpha,j\beta}\psi^{\sigma}_{n,j\beta} = \lambda^{\sigma}_n\psi^{\sigma}_{n,i\alpha} \\
-   &\sum\limits_{j\beta} A^{\sigma\tau}_{i\alpha,j\beta}\psi^{\sigma\tau}_{n,j\beta} = \lambda^{\sigma\tau}_n\psi^{\sigma\tau}_{n,i\alpha} \\
+\begin{equation}
+\begin{split}
+   &\sum\limits_{j\beta} A^{\sigma}_{i\alpha,j\beta}\psi^{\sigma}_{n,j\beta} = \lambda^{\sigma}_n\psi^{\sigma}_{n,i\alpha}, \\
+   &\sum\limits_{j\beta} A^{\sigma\tau}_{i\alpha,j\beta}\psi^{\sigma\tau}_{n,j\beta} = \lambda^{\sigma\tau}_n\psi^{\sigma\tau}_{n,i\alpha}, \\
    &\sum\limits_{j} A^{\tau}_{i,j}\psi^{\tau}_{n,j} = \lambda^{\tau}_n\psi^{\tau}_{n,i}.
-\end{align}
+\end{split}
+\end{equation}
 The correlations are then written in terms of squared single particle operators,
 \begin{equation}
 \begin{split}
@@ -543,8 +545,8 @@ The correlations are then written in terms of squared single particle operators,
 where the operators are given by
 \begin{equation}
 \begin{split}
-   O_{n}^{\sigma} &= \sum\limits_{i\alpha} \sigma_{i\alpha}\psi_{n,i\alpha}^{\sigma} \\
-   O_{n\gamma}^{\sigma\tau} &= \sum\limits_{i\alpha} \tau_{i\gamma}\sigma_{i\alpha}\psi_{n,i\alpha}^{\sigma\tau} \\
+   O_{n}^{\sigma} &= \sum\limits_{i\alpha} \sigma_{i\alpha}\psi_{n,i\alpha}^{\sigma}, \\
+   O_{n\gamma}^{\sigma\tau} &= \sum\limits_{i\alpha} \tau_{i\gamma}\sigma_{i\alpha}\psi_{n,i\alpha}^{\sigma\tau}, \\
    O_{n\gamma}^{\tau} &= \sum\limits_{i} \tau_{i\gamma}\psi_{n,i}^{\tau}.
    \label{equ:OA}
 \end{split}
@@ -575,11 +577,13 @@ This can be done by rewriting Equation~\ref{equ:amatrices} as
 \end{split}
 \end{equation}
 where we have rewritten the matrices using the definition $A_{a,b} = \sum_cA^{1/2}_{a,c}A^{1/2}_{c,b}$. These square root matrices can be written, similar to before, in terms of their eigenvalues and vectors as
-\begin{align}
-   &\sum\limits_{j\beta} \left(A^{\sigma}_{i\alpha,j\beta}\right)^{1/2}\psi^{\sigma}_{n,j\beta} = \left(\lambda^{\sigma}_n\right)^{1/2}\psi^{\sigma}_{n,i\alpha} \\
-   &\sum\limits_{j\beta} \left(A^{\sigma\tau}_{i\alpha,j\beta}\right)^{1/2}\psi^{\sigma\tau}_{n,j\beta} = \left(\lambda^{\sigma\tau}_n\right)^{1/2}\psi^{\sigma\tau}_{n,i\alpha} \\
+\begin{equation}
+\begin{split}
+   &\sum\limits_{j\beta} \left(A^{\sigma}_{i\alpha,j\beta}\right)^{1/2}\psi^{\sigma}_{n,j\beta} = \left(\lambda^{\sigma}_n\right)^{1/2}\psi^{\sigma}_{n,i\alpha}, \\
+   &\sum\limits_{j\beta} \left(A^{\sigma\tau}_{i\alpha,j\beta}\right)^{1/2}\psi^{\sigma\tau}_{n,j\beta} = \left(\lambda^{\sigma\tau}_n\right)^{1/2}\psi^{\sigma\tau}_{n,i\alpha}, \\
    &\sum\limits_{j} \left(A^{\tau}_{i,j}\right)^{1/2}\psi^{\tau}_{n,j} = \left(\lambda^{\tau}_n\right)^{1/2}\psi^{\tau}_{n,i}.
-\end{align}
+\end{split}
+\end{equation}
 As before, this can be used to rewrite the correlations in terms of squared single particle operators
 \begin{equation}
 \begin{split}
@@ -591,8 +595,8 @@ As before, this can be used to rewrite the correlations in terms of squared sing
 where the operators are now
 \begin{equation}
 \begin{split}
-   O_{k\delta}^{\sigma} &= \sum\limits_{i\alpha}\sum\limits_n \sigma_{i\alpha}\psi_{n,i\alpha}^\sigma\left(\lambda_n^\sigma\right)^{1/2}\psi_{n,k\delta}^{\sigma} \\
-   O_{k\delta,\gamma}^{\sigma\tau} &= \sum\limits_{i\alpha}\sum\limits_n \tau_{i\gamma}\sigma_{i\alpha}\psi_{n,i\alpha}^{\sigma\tau}\left(\lambda_n^{\sigma\tau}\right)^{1/2}\psi_{n,k\delta}^{\sigma\tau} \\
+   O_{k\delta}^{\sigma} &= \sum\limits_{i\alpha}\sum\limits_n \sigma_{i\alpha}\psi_{n,i\alpha}^\sigma\left(\lambda_n^\sigma\right)^{1/2}\psi_{n,k\delta}^{\sigma}, \\
+   O_{k\delta,\gamma}^{\sigma\tau} &= \sum\limits_{i\alpha}\sum\limits_n \tau_{i\gamma}\sigma_{i\alpha}\psi_{n,i\alpha}^{\sigma\tau}\left(\lambda_n^{\sigma\tau}\right)^{1/2}\psi_{n,k\delta}^{\sigma\tau}, \\
    O_{k\delta}^{\tau} &= \sum\limits_{i}\sum\limits_n \tau_{i\gamma}\psi_{n,i}^\tau\left(\lambda_n^\tau\right)^{1/2}\psi_{n,k}^{\tau}.
 \end{split}
 \end{equation}
