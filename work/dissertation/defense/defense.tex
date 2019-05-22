@@ -298,6 +298,7 @@ Advisor: Kevin Schmidt}
    \item In practice: Green's function (propagator).
    \item Can't do full time propagation.
    \item Can do short time propagation.
+   \item Trotter breakup because of the non-localness of the kinetic energy.
    \\~\\
    \item Stress the importance of having an accurate and ``cheap" wave function.
 }
@@ -363,6 +364,7 @@ In the large $\tau$ limit when $\left[\mathcal{O},H\right]$=0
 \end{equation*}
 \end{frame}
 \note[itemize]{
+   \item START BY SAYING that we use mixed exp to calculate exp values.
    \item It's difficult to operate through the propagator.
    \item Accurate to $\mathcal{O}\left[(\psi(\tau)-\psi_T)^2\right]$
    \item This could be done with {\bf forward walking} but it typically isn't necessary.
@@ -845,6 +847,7 @@ SNM*           & -13.97(3) & -14.87(4)    & -14.81(3)    &           \\
 %   \item We wanted to see if we could study light clusters with $n$ and $p$ degrees of freedom.
 %}
 \note[itemize]{
+   \item WE WANTED A TEST SYSTEM TO USE THE QUAD CORR ON. Alpha clustering seemed like a good one.
    \item See Freer 2018 paper, ``Microscopic clustering in light nuclei"
    \item The clustering of light nuclei is a complicated but rich field with connection to atomic chemical bonds and geometries.
    \item Often this is studied in terms of clusters themselves, but we want to study them in terms of the underlying constituents, $n$ and $p$.
@@ -1238,21 +1241,75 @@ The $d_{2b}$ can be precalculated and multiplied by each operator expectation va
 \end{frame}
 
 \begin{frame}{VMC - Parameter Variation}
-   \red{EXPLAIN HOW THE PARAMETARS ARE VARIED IN VMC. Start with basics and then really try to understand it.}
-   \red{\\ See thesis from Casula, New QMC approaches for the simulation of electronic systems: a first application to aromatic molecules and transition metal compounds.}
+\begin{itemize}
+   \item The updated wave function can be written, up to linear order, as
+   \begin{equation*}
+      \ket{\psi_T(\alpha+\Delta\alpha)} = \ket{\psi_T(\alpha)} + \sum\limits_{k=1}^p \Delta\alpha_k \frac{\partial}{\partial\alpha_k}\ket{\psi_T(\alpha)} + \ldots.
+   \end{equation*}
+   \item Or in a more compact way as
+   \begin{equation*}
+      \ket{\psi_T(\alpha+\Delta\alpha)} = \sum\limits_{k=0}^p\Delta\alpha_k\mathcal{O}_k \ket{\psi_T(\alpha)},
+   \end{equation*}
+   where
+   \begin{equation*}
+      \mathcal{O}_k = \frac{\partial \ln \psi_\alpha}{\partial \alpha_k} = \frac{\partial_{\alpha_k} \psi_\alpha}{\psi_\alpha}
+   \end{equation*}
+   \item Then just find the optimal values of $\Delta\alpha_k$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{ VMC - Parameter Variation - Stochastic Reconfiguration}
+\begin{itemize}
+   \item This is done similar to Lanczos method
+   \begin{equation*}
+      \ket{\psi_T'} = (\Lambda\mathbb{1}-H) \ket{\psi_T},
+   \end{equation*}
+   \item Using these you can write down the SR condition
+   \begin{equation*}
+      \bra{\psi_T}\mathcal{O}_k(\Lambda\mathbb{1}-H)\ket{\psi_T} = \bra{\psi_T}\mathcal{O}_k\ket{\psi_T'}
+   \end{equation*}
+   \item Which can be written as a linear system and the $\Delta\alpha_k$ solved for
+   \begin{equation*}
+      \sum\limits_i \Delta\alpha_i s_{i,k} = f^k
+   \end{equation*}
+   where
+   \begin{equation*}
+      s_{i,k} = \sum\limits_x \bra{\psi_T}\mathcal{O}^i_x\mathcal{O}^k_x\ket{\psi_T}
+   \end{equation*}
+   \begin{equation*}
+      f^k = \bra{\psi_T}\mathcal{O}_k(\Lambda\mathbb{1}-H)\ket{\psi_T}
+   \end{equation*}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Pfaffian Wave Function}
-   \red{FINISH THIS! Maybe call it the BCS wave function, which we calculate as a pfaffian of paired orbitals.}
+\begin{equation*}
+   \Psi_{BCS}(\R S) = \mathcal{A}\left[\phi(\r_1,s_1,\r_2,s_2)\phi(\r_3,s_3,\r_4,s_4)\ldots\phi(\r_{A-1},s_{A-1},\r_A,s_A)\right]
+\end{equation*}
+\begin{itemize}
+   \item The spin parts can be written in terms of singlet and triplet states.
+   \item Developed to describe low energy Cooper pairs and superconductivity.
+   \item Can be calculated in $\mathcal{O}(A^3)$ operations just like a determinant.
+\end{itemize}
+%   \red{FINISH THIS! Maybe call it the BCS wave function, which we calculate as a pfaffian of paired orbitals.}
 \end{frame}
 
 \begin{frame}{Tensor Force}
-   \red{Slide talking about the physical significance of the tensor force.}
+\begin{equation*}
+   S_{ij} = 3\si\cdot\hat{r}_{ij}\sj\cdot\hat{r}_{ij}-\si\cdot    \sj
+\end{equation*}
+\begin{itemize}
+   \item The tensor force describes the relationship of two spins given their relative position
+\end{itemize}
+\begin{figure}
+   \includegraphics[width=0.65\textwidth]{../figures/tensor.pdf}
+\end{figure}
+%   \red{Slide talking about the physical significance of the tensor force.}
 \end{frame}
 
-\begin{frame}{Alpha Clusters}
-\red{WHY ARE CLUSTERS IMPORTANT? ARE THEY NORMALLY DONE WITH SOME MODEL, NOT AB INITIO LIKE WE ARE DOING? ARE THEY ARE LEAST WRITTEN IN TERMS OF P, N, AND ALPHA DEGREES OF FREEDOM? WE ARE ONLY USING N AND P.}
-\end{frame}
+%\begin{frame}{Alpha Clusters}
+%\red{WHY ARE CLUSTERS IMPORTANT? ARE THEY NORMALLY DONE WITH SOME MODEL, NOT AB INITIO LIKE WE ARE DOING? ARE THEY ARE LEAST WRITTEN IN TERMS OF P, N, AND ALPHA DEGREES OF FREEDOM? WE ARE ONLY USING N AND P.}
+%\end{frame}
 
 
 %\note[itemize]{

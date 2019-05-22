@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     68650,       1275]
-NotebookOptionsPosition[     68161,       1255]
-NotebookOutlinePosition[     68499,       1270]
-CellTagsIndexPosition[     68456,       1267]
+NotebookDataLength[     73102,       1397]
+NotebookOptionsPosition[     72571,       1376]
+NotebookOutlinePosition[     72909,       1391]
+CellTagsIndexPosition[     72866,       1388]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -116,13 +116,85 @@ Cell[BoxData[{
   RowBox[{"s2", "=", 
    RowBox[{"{", 
     RowBox[{"1", ",", "0"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{"Plot", "[", 
-  RowBox[{
-   RowBox[{"S", "[", 
-    RowBox[{"r1", ",", "r2", ",", "s1", ",", "s2"}], "]"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"\[Theta]2", ",", "0", ",", 
-     RowBox[{"2", "\[Pi]"}]}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"p1", "=", 
+  RowBox[{"Plot", "[", 
+   RowBox[{
+    RowBox[{"S", "[", 
+     RowBox[{"r1", ",", "r2", ",", "s1", ",", "s2"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Theta]2", ",", "0", ",", 
+      RowBox[{"2", "\[Pi]"}]}], "}"}], ",", 
+    RowBox[{"FrameTicks", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"Pi", "/", "2"}], ",", "Pi", ",", 
+         RowBox[{
+          FractionBox["3", "2"], "Pi"}], ",", 
+         RowBox[{"2", "Pi"}]}], "}"}], ",", "Automatic"}], "}"}]}], ",", 
+    RowBox[{"Epilog", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Arrow", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\[Pi]", "-", "0.15"}], ",", "1.5"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\[Pi]", "-", "0.15"}], ",", "2"}], "}"}]}], "}"}], "]"}],
+        ",", 
+       RowBox[{"Arrow", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\[Pi]", "+", "0.15"}], ",", "1.5"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\[Pi]", "+", "0.15"}], ",", "2"}], "}"}]}], "}"}], "]"}],
+        ",", 
+       RowBox[{"Arrow", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            FractionBox["\[Pi]", "2"], ",", 
+            RowBox[{"-", "1"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            FractionBox["\[Pi]", "2"], ",", 
+            RowBox[{"-", "0.5"}]}], "}"}]}], "}"}], "]"}], ",", 
+       RowBox[{"Arrow", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            FractionBox["\[Pi]", "2"], ",", 
+            RowBox[{"-", "0.4"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            FractionBox["\[Pi]", "2"], ",", "0.1"}], "}"}]}], "}"}], "]"}]}], 
+      "}"}]}], ",", 
+    RowBox[{"Frame", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"True", ",", "False"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"True", ",", "False"}], "}"}]}], "}"}]}], ",", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<\[Theta]\>\"", ",", 
+       "\"\<\!\(\*SubscriptBox[\(S\), \(ij\)]\)\>\""}], "}"}]}], ",", 
+    RowBox[{"FrameStyle", "\[Rule]", 
+     RowBox[{"Directive", "[", 
+      RowBox[{"Black", ",", "18"}], "]"}]}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<tensor.pdf\>\"", ",", "p1"}], "]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"r1", "=", 
    RowBox[{"{", 
@@ -194,7 +266,11 @@ Cell[BoxData[{
      RowBox[{"2", "\[Pi]"}]}], "}"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.7674569029764843`*^9, 3.767457021212192*^9}, {
   3.76745707908432*^9, 3.767457135136105*^9}, {3.767457175010429*^9, 
-  3.7674571812606277`*^9}, {3.7674573702497*^9, 3.767457375361299*^9}}],
+  3.7674571812606277`*^9}, {3.7674573702497*^9, 3.767457375361299*^9}, {
+  3.767535673814584*^9, 3.767535737131328*^9}, {3.7675357844082813`*^9, 
+  3.767535863584816*^9}, {3.767535917547763*^9, 3.7675361730138617`*^9}, {
+  3.7675362102891293`*^9, 3.767536369917666*^9}, {3.767536476109872*^9, 
+  3.767536492329464*^9}, {3.7675365281701593`*^9, 3.76753655244973*^9}}],
 
 Cell[BoxData[
  GraphicsBox[{{}, {}, 
@@ -436,9 +512,50 @@ rayA/v/vQf8PC9Fv1g==
   AxesLabel->{None, None},
   AxesOrigin->{0, 0},
   DisplayFunction->Identity,
-  Frame->{{False, False}, {False, False}},
-  FrameLabel->{{None, None}, {None, None}},
-  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  Epilog->{
+    ArrowBox[{{2.991592653589793, 1.5}, {2.991592653589793, 2}}], 
+    ArrowBox[{{3.291592653589793, 1.5}, {3.291592653589793, 2}}], 
+    ArrowBox[
+     NCache[{{Rational[1, 2] Pi, -1}, {Rational[1, 2] Pi, -0.5}}, {{
+       1.5707963267948966`, -1}, {1.5707963267948966`, -0.5}}]], 
+    ArrowBox[
+     NCache[{{Rational[1, 2] Pi, -0.4}, {Rational[1, 2] Pi, 0.1}}, {{
+      1.5707963267948966`, -0.4}, {1.5707963267948966`, 0.1}}]]},
+  Frame->{{True, False}, {True, False}},
+  FrameLabel->{{
+     FormBox[
+     "\"\\!\\(\\*SubscriptBox[\\(S\\), \\(ij\\)]\\)\"", TraditionalForm], 
+     None}, {
+     FormBox["\"\[Theta]\"", TraditionalForm], None}},
+  FrameStyle->Directive[
+    GrayLevel[0], 18],
+  FrameTicks->{{Automatic, Automatic}, {{{0, 
+       FormBox["0", TraditionalForm]}, {
+       NCache[Rational[1, 2] Pi, 1.5707963267948966`], 
+       FormBox[
+        FractionBox["\[Pi]", "2"], TraditionalForm]}, {
+       NCache[Pi, 3.141592653589793], 
+       FormBox["\[Pi]", TraditionalForm]}, {
+       NCache[Rational[3, 2] Pi, 4.71238898038469], 
+       FormBox[
+        FractionBox[
+         RowBox[{"3", " ", "\[Pi]"}], "2"], TraditionalForm]}, {
+       NCache[2 Pi, 6.283185307179586], 
+       FormBox[
+        RowBox[{"2", " ", "\[Pi]"}], TraditionalForm]}}, {{0, 
+       FormBox["0", TraditionalForm]}, {
+       NCache[Rational[1, 2] Pi, 1.5707963267948966`], 
+       FormBox[
+        FractionBox["\[Pi]", "2"], TraditionalForm]}, {
+       NCache[Pi, 3.141592653589793], 
+       FormBox["\[Pi]", TraditionalForm]}, {
+       NCache[Rational[3, 2] Pi, 4.71238898038469], 
+       FormBox[
+        FractionBox[
+         RowBox[{"3", " ", "\[Pi]"}], "2"], TraditionalForm]}, {
+       NCache[2 Pi, 6.283185307179586], 
+       FormBox[
+        RowBox[{"2", " ", "\[Pi]"}], TraditionalForm]}}}},
   GridLines->{None, None},
   GridLinesStyle->Directive[
     GrayLevel[0.5, 0.4]],
@@ -453,8 +570,12 @@ rayA/v/vQf8PC9Fv1g==
      Scaled[0.05], 
      Scaled[0.05]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{{3.7674569840158463`*^9, 3.767457102323024*^9}, 
-   3.7674571356818047`*^9, 3.767457181837422*^9, 3.767457375836443*^9}],
+ CellChangeTimes->{{3.767536457444358*^9, 3.7675364928530617`*^9}, {
+  3.767536544618393*^9, 3.767536552857296*^9}}],
+
+Cell[BoxData["\<\"tensor.pdf\"\>"], "Output",
+ CellChangeTimes->{{3.767536457444358*^9, 3.7675364928530617`*^9}, {
+  3.767536544618393*^9, 3.767536553043359*^9}}],
 
 Cell[BoxData[
  GraphicsBox[{{}, {}, 
@@ -721,8 +842,8 @@ efkWfr+2dqpYRRGaqzSbZf198Zotr3b/W6QIvmU1////3U//A3fcWQg=
      Scaled[0.05], 
      Scaled[0.05]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{{3.7674569840158463`*^9, 3.767457102323024*^9}, 
-   3.7674571356818047`*^9, 3.767457181837422*^9, 3.7674573758799257`*^9}],
+ CellChangeTimes->{{3.767536457444358*^9, 3.7675364928530617`*^9}, {
+  3.767536544618393*^9, 3.767536553081875*^9}}],
 
 Cell[BoxData[
  GraphicsBox[{{}, {}, 
@@ -989,8 +1110,8 @@ rt/DHzbVzZQoykFztVqLlI8X3qj1dv+/ZXLgVV77///vfvofQSpZGA==
      Scaled[0.05], 
      Scaled[0.05]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{{3.7674569840158463`*^9, 3.767457102323024*^9}, 
-   3.7674571356818047`*^9, 3.767457181837422*^9, 3.767457375922471*^9}],
+ CellChangeTimes->{{3.767536457444358*^9, 3.7675364928530617`*^9}, {
+  3.767536544618393*^9, 3.767536553129133*^9}}],
 
 Cell[BoxData[
  GraphicsBox[{{}, {}, 
@@ -1249,12 +1370,12 @@ feiiWHtz6o5ZZXn0//8H/T+B5HIB
      Scaled[0.05], 
      Scaled[0.05]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{{3.7674569840158463`*^9, 3.767457102323024*^9}, 
-   3.7674571356818047`*^9, 3.767457181837422*^9, 3.7674573759597483`*^9}]
+ CellChangeTimes->{{3.767536457444358*^9, 3.7675364928530617`*^9}, {
+  3.767536544618393*^9, 3.7675365531673717`*^9}}]
 }, Open  ]]
 },
 WindowSize->{808, 911},
-WindowMargins->{{Automatic, 161}, {23, Automatic}},
+WindowMargins->{{Automatic, 315}, {Automatic, 22}},
 FrontEndVersion->"10.0 for Linux x86 (64-bit) (December 4, 2014)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1271,11 +1392,12 @@ CellTagsIndex->{}
 Notebook[{
 Cell[558, 20, 2960, 77, 314, "Input"],
 Cell[CellGroupData[{
-Cell[3543, 101, 3136, 95, 451, "Input"],
-Cell[6682, 198, 15096, 258, 225, "Output"],
-Cell[21781, 458, 15626, 266, 225, "Output"],
-Cell[37410, 726, 15624, 266, 225, "Output"],
-Cell[53037, 994, 15108, 258, 258, "Output"]
+Cell[3543, 101, 5819, 171, 680, "Input"],
+Cell[9365, 274, 16729, 299, 249, "Output"],
+Cell[26097, 575, 162, 2, 32, "Output"],
+Cell[26262, 579, 15601, 266, 225, "Output"],
+Cell[41866, 847, 15601, 266, 225, "Output"],
+Cell[57470, 1115, 15085, 258, 225, "Output"]
 }, Open  ]]
 }
 ]
