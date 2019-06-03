@@ -57,9 +57,16 @@ The $A^{\sigma\tau}$ matrix can be written in terms of its square root matrix, w
 The full $\sigma\tau$ correlation operator can then be written as
 \begin{align}
    &\exp\left(\frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha}A^{\sigma\tau}_{i\alpha,j\beta}\sigma_{j\beta}\ti\cdot\tj\right) \\
-   =&\exp\left(\frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha} \sum\limits_{k\delta} \left[\sum\limits_n \psi_{i\alpha}^{(n)}\left(\lambda^{(n)}\right)^{1/2}\psi_{k\delta}^{(n)}\right] \left[\sum\limits_m \psi_{k\delta}^{(m)}\left(\lambda^{(m)}\right)^{1/2}\psi_{j\beta}^{(m)}\right] \sigma_{j\beta}\sum\limits_\gamma\tau_{i\gamma}\tau_{j\gamma}\right) \\
-   =&\exp\left(\frac{1}{2}\sum\limits_{k\delta}\sum\limits_\gamma \left[\sum\limits_{i\alpha}\sum\limits_n \psi_{i\alpha}^{(n)}\left(\lambda^{(n)}\right)^{1/2}\psi_{k\delta}^{(n)}\sigma_{i\alpha}\tau_{i\gamma}\right] \left[\sum\limits_{j\beta}\sum\limits_m \psi_{j\beta}^{(m)}\left(\lambda^{(m)}\right)^{1/2}\psi_{k\delta}^{(m)}\sigma_{j\beta}\tau_{j\gamma}\right] \right) \\
-   =& \exp\left(\frac{1}{2}\sum\limits_{k\delta}\sum\limits_\gamma\left(\mathcal{O}^{\sigma\tau}_{k\delta,\gamma}\right)^2 \right),
+   =&\exp\left(\frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha} \sum\limits_{k\delta} \left[\sum\limits_n \psi_{i\alpha}^{(n)}\left(\lambda^{(n)}\right)^{1/2}\psi_{k\delta}^{(n)}\right]\right) \\
+   \begin{split}
+      =&\exp\left(\frac{1}{2}\sum\limits_{i\alpha,j\beta} \sigma_{i\alpha} \sum\limits_{k\delta} \left[\sum\limits_n \psi_{i\alpha}^{(n)}\left(\lambda^{(n)}\right)^{1/2}\psi_{k\delta}^{(n)}\right]\right. \\
+      &\qquad\qquad\qquad\qquad\left.\times\left[\sum\limits_m \psi_{k\delta}^{(m)}\left(\lambda^{(m)}\right)^{1/2}\psi_{j\beta}^{(m)}\right] \sigma_{j\beta}\sum\limits_\gamma\tau_{i\gamma}\tau_{j\gamma}\right)
+   \end{split} \\
+   \begin{split}
+      =&\exp\left(\frac{1}{2}\sum\limits_{k\delta}\sum\limits_\gamma \left[\sum\limits_{i\alpha}\sum\limits_n \psi_{i\alpha}^{(n)}\left(\lambda^{(n)}\right)^{1/2}\psi_{k\delta}^{(n)}\sigma_{i\alpha}\tau_{i\gamma}\right]\right. \\
+      &\qquad\qquad\qquad\qquad\left.\times\left[\sum\limits_{j\beta}\sum\limits_m \psi_{j\beta}^{(m)}\left(\lambda^{(m)}\right)^{1/2}\psi_{k\delta}^{(m)}\sigma_{j\beta}\tau_{j\gamma}\right] \right)
+   \end{split} \\
+   =&\exp\left(\frac{1}{2}\sum\limits_{k\delta}\sum\limits_\gamma\left(\mathcal{O}^{\sigma\tau}_{k\delta,\gamma}\right)^2 \right),
 \end{align}
 where the operators now sum over the eigenvector ordering, eliminating any systematic errors dependent on the ordering
 \begin{equation}

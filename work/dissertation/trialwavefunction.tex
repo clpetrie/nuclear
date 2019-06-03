@@ -13,7 +13,7 @@ Cluster decomposition arises from the physical intuition that the wave function 
       \draw (-3.5,-2.5) node{\large $\ket{A}$};
       \draw (3.5,-1.5) node{\large $\ket{B}$};
    \end{tikzpicture}
-   \caption{Two non interacting systems $A$ and $B$, whose composite wave function is the product $\ket{A+B}=\ket{A}\ket{B}$.}
+   \caption[Two Non Interacting Systems $A$ and $B$, Whose Composite Wave Function Is the Product $\ket{A+B}=\ket{A}\ket{B}$.]{Two non interacting systems $A$ and $B$, whose composite wave function is the product $\ket{A+B}=\ket{A}\ket{B}$.}
    \label{fig:cluster}
 \end{figure}
 If a system is not cluster decomposable, nonphysical correlations between non-interacting systems can occur. I will now define a strong and weak condition on cluster decomposability. There exist systems that are cluster decomposable, in that they obey the description above, yet they lack all of the proper correlations between particles in the respective systems. This will be referred to as the weak condition of cluster decomposition. Many of the approximate wave functions that I will describe later will obey only this weak condition. It is important to note that the weak condition does not contain any unphysical correlations, they simply lack some or all of the physical correlations of the system. The strong condition of cluster decomposition is that the above condition is obeyed and each subsystem contains all of the appropriate correlations for that system. This will be illuminated when our specific wave functions are described.
@@ -128,7 +128,7 @@ These correlations are symmetric, allowing for the full wave function to be anti
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/energy_jaslin.eps}
-   \caption{Binding energy calculations done with Jastrow correlations (\cite{gandolfi2007}) compared to Jastrow plus linear spin-isospin dependent correlations (\cite{gandolfi2014}) all compared to experimental results. All calculations were done with AFDMC and the AV6$'$ potential.}
+   \caption[Binding Energy Calculations Done with Jastrow Correlations (\cite{gandolfi2007}) Compared to Jastrow plus Linear Spin-isospin Dependent Correlations (\cite{gandolfi2014}) All Compared to Experimental Results. All Calculations Were Done with AFDMC and the AV6$'$ Potential.]{Binding energy calculations done with Jastrow correlations (\cite{gandolfi2007}) compared to Jastrow plus linear spin-isospin dependent correlations (\cite{gandolfi2014}) all compared to experimental results. All calculations were done with AFDMC and the AV6$'$ potential.}
    \label{fig:energy_jaslin}
 \end{figure}
 In Figure~\ref{fig:energy_jaslin} it is clear to see that the additional spin-isospin correlations are important for both systems larger than $^4$He.
@@ -195,7 +195,7 @@ The subscripts on the sums, which describe which correlations are allowed, can b
       \draw[black, ultra thick] (2*\shift-\tshift,\sep+\vshift) -- (2*\shift-\tshift,\vshift); %i-j
       \draw[black, ultra thick] (2*\shift+\tshift,\sep+\vshift) -- (2*\shift+\tshift,\vshift); %k-l
    \end{tikzpicture}
-   \caption{Diagrams used to visualize which correlations are included in the quadratic correlations in Equation~\ref{equ:fullquadcorr}.}
+   \caption[Diagrams Used to Visualize Which Correlations Are Included in the Quadratic Correlations in Equation~\ref{equ:fullquadcorr}.]{Diagrams used to visualize which correlations are included in the quadratic correlations in Equation~\ref{equ:fullquadcorr}.}
    \label{fig:quaddiagrams}
 \end{figure}
 All pair correlations are included in this wave function except pairs that are directly correlated with themselves, e.g. $\mathcal{O}_{23}\mathcal{O}_{23}$, where $\mathcal{O}_{ij}$ is a product of single particle operators such as $\si\cdot\sj$ and $\mathcal{O}_{ij}=\mathcal{O}_{ji}$ due to the operators on different particles operating in different Hilbert spaces. For correlations where the same particle is included twice, the correlation operators do not commute and that term must be explicitly symmetrized. Currently in Equation~\ref{equ:fullquadcorr} and in the code all quadratic terms are symmetrized, e.g. the correlation $\mathcal{O}_{12}\mathcal{O}_{34}$ is symmetrized as $\frac{1}{2}\left(\mathcal{O}_{12}\mathcal{O}_{34}+\mathcal{O}_{34}\mathcal{O}_{12}\right)$, even though only terms like $\mathcal{O}_{12}\mathcal{O}_{13}$ need this explicit symmetrization. This adds needless calculation time, but as I'll show, these terms don't seem to be significant and can be omitted completely.
@@ -271,7 +271,7 @@ and the independent pair sum can be visualized as in Figure~\ref{fig:ipdiagrams}
       \draw[black, ultra thick] (2*\shift-\tshift,\sep+\vshift) -- (2*\shift-\tshift,\vshift); %i-j
       \draw[black, ultra thick] (2*\shift+\tshift,\sep+\vshift) -- (2*\shift+\tshift,\vshift); %k-l
    \end{tikzpicture}
-   \caption{Diagrams used to visualize which correlations are included in the independent pair quadratic correlations in Equation~\ref{equ:ipquadcorr}.}
+   \caption[Diagrams Used to Visualize Which Correlations Are Included in the Independent Pair Quadratic Correlations in Equation~\ref{equ:ipquadcorr}.]{Diagrams used to visualize which correlations are included in the independent pair quadratic correlations in Equation~\ref{equ:ipquadcorr}.}
    \label{fig:ipdiagrams}
 \end{figure}
 All terms where a particle is included twice in the correlation are ignored, as a results, all correlation operators commute and the correlations are explicitly symmetric. Neither of these correlations maintain the strong condition of cluster decomposability. Like the linear correlations, each product of states does not contain all of the needed correlations, though these wave functions contain more than the linear correlations. An effort to build an antisymmetric and cluster decomposable wave function from the exponentially correlated wave function will be discussed later.
@@ -280,7 +280,7 @@ The energy and its uncertainty are often used to judge the convergence of a prop
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/energy.eps}
-   \caption{Energy per particle for small and medium closed shell nuclei with no Coulomb interaction calculated with the AFDMC method with the AV6$'$ interaction. Each calculations was done with the linear, IP quadratic, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included. The variational parameters were reoptimized for each wave function the $^4$He calculations, however the $^{16}$O, $^{40}$Ca, and SNM calculations were done starting with VMC trial wave functions with linear correlations.}
+   \caption[Energy per Particle for Small and Medium Closed Shell Nuclei with No Coulomb Interaction Calculated with the AFDMC Method with the AV6$'$ Interaction. Each Calculation Was Done with the Linear, IP Quadratic, and Quadratic Correlations. Energies Are Compared to Experimental Values Where Available and the Statistical Uncertainties Are Included. The Variational Parameters Were Reoptimized for Each Wave Function for the $^4$He Calculations, However the $^{16}$O, $^{40}$Ca, and SNM Calculations Were Done Starting with VMC Trial Wave Functions with Linear Correlations.]{Energy per particle for small and medium closed shell nuclei with no Coulomb interaction calculated with the AFDMC method with the AV6$'$ interaction. Each calculation was done with the linear, IP quadratic, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included. The variational parameters were reoptimized for each wave function for the $^4$He calculations, however the $^{16}$O, $^{40}$Ca, and SNM calculations were done starting with VMC trial wave functions with linear correlations.}
    \label{fig:energies}
 \end{figure}
 \begin{table}[htb]
@@ -295,7 +295,7 @@ The energy and its uncertainty are often used to judge the convergence of a prop
       SNM         & -13.97(3)    & -14.87(4) & -14.70(11)   &        \\
       \hline\hline
    \end{tabular}
-   \caption{Energy per particle from AFDMC calculations with no Coulomb interaction with the AV6$'$ interaction. Each calculations was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included.}
+   \caption[Energy per Particle from AFDMC Calculations with No Coulomb Interaction with the AV6$'$ Interaction. Each Calculation Was Done with the Linear, Independent Pair, and Quadratic Correlations. Energies Are Compared to Experimental Values Where Available and the Statistical Uncertainties Are Included.]{Energy per particle from AFDMC calculations with no Coulomb interaction with the AV6$'$ interaction. Each calculation was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included.}
    \label{tab:energies}
 \end{table}
 All calculations were done with trial wave functions coming from VMC calculations with linear correlations, except for $^4$He, which was performed by reoptimizing the variational parameters for each set of correlations. This was done due to the complexity of optimizing the parameters for large systems. Like with the addition of Jastrow correlations in Figure~\ref{fig:energy_jaslin}, all systems larger than $^4$He decreased in energy with additional correlations, while the binding energy for $^4$He was the same to within uncertainties. In addition, the energies for all systems are identical to within uncertainties for the quadratic and IP quadratic correlations, indicating that the IP correlations capture most of the relevant physics. As a result any further references to quadratic correlations will be referring to the IP quadratic correlations, as these correlations are computationally less expensive, unless a distinction is made otherwise. The percent decrease in energy for $^{16}$O and $^{40}$Ca when adding linear correlations is 15\% and 18\% respectively. When adding quadratic correlations the energies decrease an additional 6\% and 9\% respectively. This indicates that each successive term in the expansion decreases in importance. It is important to note that these calculations were done with the AV6$'$ potential, which is a limited 2-nucleon potential. We do not expect our energies to be equal to experiment due to the lack of the full 2-body, and a complete lack of the 3-body force. The AV6$'$ potential has been used to simplify the calculations and to look for qualitative improvements caused by the additional correlations. Some calculations have been done using more sophisticated potentials with the quadratic correlations, and those results will be shown later.
@@ -305,7 +305,7 @@ The energies above are calculated with the AFDMC method. As mentioned before, th
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/energy_vmc.eps}
-   \caption{Energy per particle for small and medium closed shell nuclei with no Coulomb interaction calculated with the VMC method with the AV6$'$ interaction. Each calculations was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included. Unlike the above results, calculated with the AFDMC method, these VMC results are an upper bound to the ground state energy.}
+   \caption[Energy per Particle for Small and Medium Closed Shell Nuclei with No Coulomb Interaction Calculated with the VMC Method with the AV6$'$ Interaction. Each Calculation Was Done with the Linear, Independent Pair, and Quadratic Correlations. Energies Are Compared to Experimental Values Where Available and the Statistical Uncertainties Are Included. Unlike the above Results, Calculated with the AFDMC Method, These VMC Results Are an Upper Bound to the Ground State Energy.]{Energy per particle for small and medium closed shell nuclei with no Coulomb interaction calculated with the VMC method with the AV6$'$ interaction. Each calculation was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included. Unlike the above results, calculated with the AFDMC method, these VMC results are an upper bound to the ground state energy.}
    \label{fig:energies_vmc}
 \end{figure}
 \begin{table}[htb]
@@ -320,7 +320,7 @@ The energies above are calculated with the AFDMC method. As mentioned before, th
       SNM         & -8.25(4)     & -10.60(3) & -10.74(2)    &        \\
       \hline\hline
    \end{tabular}
-   \caption{Energy per particle from VMC calculations with no Coulomb interaction with the AV6$'$ interaction. Unlike the AFDMC results, these VMC results provide an upper bound to the energy. Each calculations was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included.}
+   \caption[Energy per Particle from VMC Calculations with No Coulomb Interaction with the AV6$'$ Interaction. Unlike the AFDMC Results, These VMC Results Provide an Upper Bound to the Energy. Each Calculation Was Done with the Linear, Independent Pair, and Quadratic Correlations. Energies Are Compared to Experimental Values Where Available and the Statistical Uncertainties Are Included.]{Energy per particle from VMC calculations with no Coulomb interaction with the AV6$'$ interaction. Unlike the AFDMC results, these VMC results provide an upper bound to the energy. Each calculation was done with the linear, independent pair, and quadratic correlations. Energies are compared to experimental values where available and the statistical uncertainties are included.}
    \label{tab:energies_vmc}
 \end{table}
 
@@ -328,7 +328,7 @@ There is a significant decrease in energy with the addition of the quadratic cor
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/scaling.eps}
-   \caption{Scaling factors calculated as the ratio of times taken to calculate a given block of code for linear and linear plus quadratic correlations.}
+   \caption[Scaling Factors Calculated As the Ratio of Times Taken to Calculate a Given Block of Code for Linear and Linear Plus Quadratic Correlations.]{Scaling factors calculated as the ratio of times taken to calculate a given block of code for linear and linear plus quadratic correlations.}
    \label{fig:scaling}
 \end{figure}
 \begin{table}[htb]
@@ -341,7 +341,7 @@ There is a significant decrease in energy with the addition of the quadratic cor
       Quadratic & 2.00 & 58.8 & 133.6 & 1473.9 \\
       \hline \hline
    \end{tabular}
-   \caption{Same scaling factors that are calculated in Figure~\ref{fig:scaling}.}
+   \caption[Same Scaling Factors That Are Calculated in Figure~\ref{fig:scaling}.]{Same scaling factors that are calculated in Figure~\ref{fig:scaling}.}
    \label{tab:scaling}
 \end{table}
 The scaling for the quadratic correlations is about twice that of the IP quadratic correlations. This is due to the explicit symmetrization that is done for each quadratic term in the quadratic correlations. This could be decreased if commuting terms were not symmetrized, however as noted before the IP quadratic correlations seem to capture the important physics, and so all future calculations with quadratic correlations will be using the IP correlations. The IP correlations all commute and so no explicit symmetrization is needed. A typical AFDMC calculation using only linear correlations for $^{16}$O with 1000 walkers takes on the order of a tens of CPU hours and a similar calculation for $^{40}$Ca takes on the order of hundreds of CPU hours.
@@ -358,7 +358,7 @@ where $A(A-1)/2$ is the number of possible pairs made from $A$ particles. If the
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/scaling_theory.eps}
-   \caption{Number of terms in the quadratic correlations for the IP, quadratic, and quadratic correlations without explicit symmetrization of the IP terms.}
+   \caption[Number of Terms in the Quadratic Correlations for the IP Quadratic, and Quadratic Correlations Without Explicit Symmetrization of the IP Terms.]{Number of terms in the quadratic correlations for the IP quadratic, and quadratic correlations without explicit symmetrization of the IP terms.}
    \label{fig:scaling_theory}
 \end{figure}
 
@@ -366,7 +366,7 @@ In recent years efforts have been made to fit infinite matter saturation propert
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/saturation.eps}
-   \caption{Energy calculations done using the AV6$'$ potential with linear and quadratic correlations. The gray box is the same empirical saturation region used in \cite{drischler2017}, $\rho_0 = 0.164 \pm 0.007$ fm$^{-3}$ and $E/A=-15.86 \pm 0.57$ MeV.}
+   \caption[Energy Calculations Done Using the AV6$'$ Potential with Linear and Quadratic Correlations. The Gray Box Is the Same Empirical Saturation Region Used in \cite{drischler2017}, $\rho_0 = 0.164 \pm 0.007$ fm$^{-3}$ and $E/A=-15.86 \pm 0.57$ MeV.]{Energy calculations done using the AV6$'$ potential with linear and quadratic correlations. The gray box is the same empirical saturation region used in \cite{drischler2017}, $\rho_0 = 0.164 \pm 0.007$ fm$^{-3}$ and $E/A=-15.86 \pm 0.57$ MeV.}
    \label{fig:saturation}
 \end{figure}
 
@@ -501,7 +501,7 @@ The results presented above have been done with the simplified AV6$'$ NN potenti
       AFDMC & Quadratic    & $-6.91(2)$ & $-6.9(2)$  & $-12.6(1)$ \\
       \hline
    \end{tabular}
-   \caption{Ground state energies of $^4$He, $^{16}$O, and SNM with 28 particles at saturation density, calculated with the VMC and AFDMC methods. All energies are reported as energy/nucleon in MeV. The trial wave functions are calculated with both 2- and 3-body correlations, where all three 2-body correlations were used. For all calculations the N$^2$LO local chiral potential with the $R_0 = 1$ fm cutoff as described in our paper (\cite{lonardoni2018}). Additional details about each calculation are given in the text. Not all possible calculations were performed, and dashes are places where data does not exist.}
+   \caption[Ground State Energies of $^4$He, $^{16}$O, and SNM with 28 Particles at Saturation Density, Calculated with the VMC and AFDMC Methods. All Energies Are Reported as Energy/Nucleon in Mev. The Trial Wave Functions Are Calculated with Both 2- and 3-body Correlations, Where All Three 2-body Correlations Were Used. For All Calculations the N$^2$LO Local Chiral Potential with the $r_0 = 1$ fm Cutoff as Described in Our Paper (\cite{lonardoni2018}). Additional Details about Each Calculation Are given in the Text. Not All Possible Calculations Were Performed, and Dashes Are Places Where Data Does Not Exist.]{Ground state energies of $^4$He, $^{16}$O, and SNM with 28 particles at saturation density, calculated with the VMC and AFDMC methods. All energies are reported as energy/nucleon in MeV. The trial wave functions are calculated with both 2- and 3-body correlations, where all three 2-body correlations were used. For all calculations the N$^2$LO local chiral potential with the $R_0 = 1$ fm cutoff as described in our paper (\cite{lonardoni2018}). Additional details about each calculation are given in the text. Not all possible calculations were performed, and dashes are places where data does not exist.}
    \label{tab:chiquad}
 \end{table}
 All calculations were done with 2- and 3-body correlations, however the 2-body correlations were varied to include the linear, IP quadratic, and the fully quadratic correlations. The potential used in these calculations was the local chiral potential expanded to N$^2$LO with a cutoff of $R_0=1$ fm. The $^4$He and SNM calculations were done with the $E\mathbb{1}$ parameterization, while the $^{16}$O calculations were done with the $E\tau$ parameterization as described in our paper \cite{lonardoni2018}. The $^4$He and $^{16}$O calculations included the coulomb force and were reoptimized for each set of correlations. Due to the computational cost of reoptimizing the variational parameters with the quadratic wave functions the AFDMC calculations for SNM were done using the trial wave function obtained from a VMC calculations with linear correlations. In addition the AFDMC calculations for SNM were done using the growth energy, which is a diagnostic tool which is similar to the local energy for small time steps. If the trial wave function was exactly the ground state and the offset energy $E_0$ the exact ground state energy, then the weights of the walkers would all be 1, regardless of the configuration. This leads to the definition of the growth energy

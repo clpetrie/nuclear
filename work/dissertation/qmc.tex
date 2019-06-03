@@ -203,7 +203,7 @@ There are various ways to do the branch algorithm, however the simplest way is t
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.4\textwidth]{figures/branching.png}
-   \caption{Diagram describing the branching algorithm for Diffusion Monte Carlo (DMC). In this 1D example a particle is confined by the potential $V(x)$ and the trial wave function $\Psi_\text{init}(x)$ is propagated until it converges to the ground state wave function $\Psi_0(x)$. This diagram is used with permission from \cite{foulkes2001}.}
+   \caption[Diagram Describing the Branching Algorithm for Diffusion Monte Carlo (DMC). In This 1D Example a Particle Is Confined by the Potential $v(X)$ and the Trial Wave Function $\psi_\text{init}(x)$ Is Propagated until It Converges to the Ground State Wave Function $\psi_0(x)$. This Diagram Is Used with Permission from \cite{foulkes2001}.]{Diagram describing the branching algorithm for Diffusion Monte Carlo (DMC). In this 1D example a particle is confined by the potential $V(x)$ and the trial wave function $\Psi_\text{init}(x)$ is propagated until it converges to the ground state wave function $\Psi_0(x)$. This diagram is used with permission from \cite{foulkes2001}.}
    \label{fig:branching}
 \end{figure}
 
@@ -259,7 +259,7 @@ The uncertainties are calculated by block averaging. The data we generate is inh
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/blockaverage.png}
-   \caption{Sample data showing the convergence of the statistical uncertainty as the block size is increased. An appropriate block size for this data would be about 35, where the errors stop increasing with block size.}
+   \caption[Sample Data Showing the Convergence of the Statistical Uncertainty as the Block Size Is Increased. An Appropriate Block Size for This Data Would Be about 35, Where the Errors Stop Increasing with Block Size.]{Sample data showing the convergence of the statistical uncertainty as the block size is increased. An appropriate block size for this data would be about 35, where the errors stop increasing with block size.}
    \label{fig:blockaverage}
 \end{figure}
 
@@ -362,7 +362,7 @@ In this work the AV6$'$ potential is used, which includes all of the same operat
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.7\textwidth]{figures/vij.eps}
-   \caption{The functions multiplying the AV6$'$ operators as a function of nucleon separation. The central operator, $v_1$, is excluded to show the spin-isospin terms with better detail. The $v_2$ represents the isospin operators, $v_3$ the spin operators, $v_4$ the spin-isospin operators, $v_5$ the tensor, and $v_6$ the tensor-isospin operators.}
+   \caption[The Functions Multiplying the AV6$'$ Operators as a Function of Nucleon Separation. The Central Operator, $v_1$, Is Excluded to Show the Spin-isospin Terms with Better Detail. The $v_2$ Represents the Isospin Operators, $v_3$ the Spin Operators, $v_4$ the Spin-isospin Operators, $v_5$ the Tensor, and $v_6$ the Tensor-isospin Operators.]{The functions multiplying the AV6$'$ operators as a function of nucleon separation. The central operator, $v_1$, is excluded to show the spin-isospin terms with better detail. The $v_2$ represents the isospin operators, $v_3$ the spin operators, $v_4$ the spin-isospin operators, $v_5$ the tensor, and $v_6$ the tensor-isospin operators.}
    \label{fig:vij}
 \end{figure}
 
@@ -413,7 +413,7 @@ These potentials are broken down into diagrams which are expanded and grouped by
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.9\textwidth]{figures/chi_expansion.png}
-   \caption{Term by term expansion of the chiral perturbation theory grouped powers of $(Q/\Lambda_\chi)^\nu$. Solid lines represent nucleons and dashed lines represent pions. Figure used with permission from \cite{entem2017}.}
+   \caption[Term by Term Expansion of the Chiral Perturbation Theory Grouped by Powers of $(Q/\lambda_\chi)^\nu$. Solid Lines Represent Nucleons and Dashed Lines Represent Pions. Figure Used with Permission from \cite{entem2017}.]{Term by term expansion of the chiral perturbation theory grouped by powers of $(Q/\Lambda_\chi)^\nu$. Solid lines represent nucleons and dashed lines represent pions. Figure used with permission from \cite{entem2017}.}
 \end{figure}
 These potentials have been fit to $pp$ and $np$ scattering data (\cite{stoks1993,stoks1993_2}) from Nijmegen data sets up to 350 MeV with up to order 6 (N$^5$LO) in the chiral expansion. They calculated scattering phase shifts of light nuclei with these potentials up to N$^4$LO and matched experimental data with good agreement. The framework of QMC is only compatible with small orders of non-locality. These potentials have many non-local terms and cannot be used in full with QMC methods.
 
@@ -428,13 +428,13 @@ We have tested the scalability of the AFDMC code on various systems as provided 
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.8\textwidth]{figures/supermic.png}
-   \caption{Scaling on SuperMIC using the time to propagate 10,000 configurations of an $^{16}$O nucleus for 100 steps.}
+   \caption[Scaling on Supermic Using the Time to Propagate 10,000 Configurations of an $^{16}$O Nucleus for 100 Steps.]{Scaling on SuperMIC using the time to propagate 10,000 configurations of an $^{16}$O nucleus for 100 steps.}
    \label{fig:supermic}
 \end{figure}
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.8\textwidth]{figures/stampede.eps}
-   \caption{Scaling on Stampede2 using the time to propagate 10,000 configurations of an $^{16}$O nucleus for 100 steps.}
+   \caption[Scaling on Stampede2 Using the Time to Propagate 10,000 Configurations of an $^{16}$O Nucleus for 100 Steps.]{Scaling on Stampede2 using the time to propagate 10,000 configurations of an $^{16}$O nucleus for 100 steps.}
    \label{fig:stampede2}
 \end{figure}
 Access to both computers was provided by our XSEDE allocation. Even with load balancing the scaling is very good up to thousands of processors, which is more than are typically used in a given calculation.
