@@ -1,0 +1,84 @@
+rho   =  0.0005:
+Linear Correlations
+E14n0p   =  0.499(5)
+E14n2p   =  -1.022(17)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -22.3(3)
+Quadratic Correlations
+E14n0p   =  0.493(7)
+E14n2p   =  -1.118(11)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -23.8(2)
+Quadratic Correlations - IP OPTIMIZED
+E14n0p   =  0.468(2)
+E14n2p   =  -1.160(13)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -24.2(2)
+
+rho   =  0.001:
+Linear Correlations
+E14n0p   =  0.742(5)
+E14n2p   =  -0.74(2)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -20.7(3)
+Quadratic Correlations
+E14n0p   =  0.751(7)
+E14n2p   =  -0.873(11)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -23.0(2)
+Quadratic Correlations - IP OPTIMIZED
+E14n0p   =  0.744(3)
+E14n2p   =  -0.89(2)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -23.2(3)
+
+rho   =  0.002:
+Linear Correlations
+E14n0p   =  1.125(4)
+E14n2p   =  -0.508(13)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -21.6(2)
+Quadratic Correlations
+E14n0p   =  1.124(7)
+E14n2p   =  -0.571(14)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -22.6(2)
+Quadratic Correlations - IP OPTIMIZED
+E14n0p   =  1.130(3)
+E14n2p   =  -0.62(2)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -23.5(3)
+
+rho   =  0.003:
+Linear Correlations
+E14n0p   =  1.464(4)
+E14n2p   =  -0.51(2)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -25.7(3)
+Quadratic Correlations
+E14n0p   = 1.442(3) 
+E14n2p   =  -0.39(3)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -23.5(5)
+Quadratic Correlations - IP OPTIMIZED
+E14n0p   =  1.456(3)
+E14n2p   =  -0.487(11)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -25.26(18)
+
+rho   =  0.005:
+Linear Correlations
+E14n0p   =  1.968(6)
+E14n2p   =  -0.24(3)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -27.5(5)
+Quadratic Correlations
+E14n0p   =  1.969(6)
+E14n2p   =  0.074(17)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -22.4(3)
+Quadratic Correlations - IP OPTIMIZED
+E14n0p   =  1.978(5)
+E14n2p   =  -0.260(12)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -27.9(2)
+
+
+rho   =  0.01:
+Linear Correlations
+E14n0p   =  2.990(9)
+E14n2p   =  -0.09(2)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -37.3(3)
+Quadratic Correlations
+E14n0p   =  3.013(11)
+E14n2p   =  0.09(2)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -34.7(3)
+Quadratic Correlations - IP OPTIMIZED
+E14n0p   =  *no better than before so keep before.
+E14n2p   =  -0.09(4)
+EHe4_14  =  16*E14n2p-12*E14n0p  = -37.6(7)

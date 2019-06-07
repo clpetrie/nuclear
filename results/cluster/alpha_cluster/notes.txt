@@ -1,0 +1,14 @@
+These are notes on the light cluster calculations done by Cody Petrie. A more detailed discussion can be found in my dissertation. If you have questions about them please contact me at codypetrie89@gmail.com.
+
+I did calculations with 14 neutrons + 2 protons as well as 2 neutrons + 2 protons and so there is raw data for each, the latter being labeled 2n2p.
+
+Some of the pp pair correlation function calculations (gofrnp) didn't have enough data to resolve the low seperation peak and so I redid the calculations with a finer grid size. This data is found in the same directors in the subdirectory "fine".
+
+For all gofrnp data the 14n2p data have no label and the 2n2p data are specifically labeled as 2n2p.
+
+Some of the calculations optimized the same with both linear and IP correlations and so were only calculated once. Those were the following calculations
+rho,     calculations
+0.00075  14n and 14n2p
+0.0015   14n
+0.0025   14n2p
+0.007    14n

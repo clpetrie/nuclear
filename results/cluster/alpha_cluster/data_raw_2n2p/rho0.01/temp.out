@@ -1,0 +1,1983 @@
+64874,66855d64873
+< Warning: large VMC energy removed       9951.883
+< Warning: large VMC energy removed       6595.134
+< Warning: large VMC energy removed      -5246.695
+< Warning: large VMC energy removed      57572.825
+< Warning: large VMC energy removed      -6744.965
+< Warning: large VMC energy removed      85253.648
+< Warning: large VMC energy removed       4365.319
+< Warning: large VMC energy removed      16976.222
+< Warning: large VMC energy removed      -6268.172
+< Warning: large VMC energy removed     -10348.074
+< Warning: large VMC energy removed      14925.968
+< Warning: large VMC energy removed      17346.239
+< Warning: large VMC energy removed       6617.815
+< Warning: large VMC energy removed      12159.774
+< Warning: large VMC energy removed       5391.747
+< Warning: large VMC energy removed      -2936.230
+< Warning: large VMC energy removed      -7390.425
+< Warning: large VMC energy removed     -58645.292
+< Warning: large VMC energy removed      -4281.400
+< Warning: large VMC energy removed       3571.285
+< Warning: large VMC energy removed     -11647.971
+< Warning: large VMC energy removed     -10025.657
+< Warning: large VMC energy removed    -116796.890
+< Warning: large VMC energy removed      -4161.376
+< Warning: large VMC energy removed       4083.457
+< Warning: large VMC energy removed     -82259.584
+< Warning: large VMC energy removed     -11336.039
+< Warning: large VMC energy removed      -8867.225
+< Warning: large VMC energy removed      -5998.937
+< Warning: large VMC energy removed       7942.659
+< Warning: large VMC energy removed      -3056.459
+< Warning: large VMC energy removed      10744.077
+< Warning: large VMC energy removed     -25932.038
+< Warning: large VMC energy removed     -10705.870
+< Warning: large VMC energy removed     -15726.177
+< Warning: large VMC energy removed       5609.665
+< Warning: large VMC energy removed      16516.378
+< Warning: large VMC energy removed      12184.479
+< Warning: large VMC energy removed      -3704.050
+< Warning: large VMC energy removed       3780.445
+< Warning: large VMC energy removed       8152.854
+< Warning: large VMC energy removed       5246.620
+< Warning: large VMC energy removed       3752.350
+< Warning: large VMC energy removed       2806.043
+< Warning: large VMC energy removed      11240.954
+< Warning: large VMC energy removed       6679.188
+< Warning: large VMC energy removed      -4227.173
+< Warning: large VMC energy removed       6432.941
+< Warning: large VMC energy removed      52759.023
+< Warning: large VMC energy removed       8614.343
+< Warning: large VMC energy removed      29322.728
+< Warning: large VMC energy removed       8529.196
+< Warning: large VMC energy removed       4399.865
+< Warning: large VMC energy removed      39249.699
+< Warning: large VMC energy removed      10126.039
+< Warning: large VMC energy removed      10525.563
+< Warning: large VMC energy removed      -7830.608
+< Warning: large VMC energy removed       2958.281
+< Warning: large VMC energy removed       2902.330
+< Warning: large VMC energy removed     -11997.229
+< Warning: large VMC energy removed     -19435.939
+< Warning: large VMC energy removed     -18135.528
+< Warning: large VMC energy removed      12600.707
+< Warning: large VMC energy removed       3347.487
+< Warning: large VMC energy removed     -20462.795
+< Warning: large VMC energy removed     -10765.589
+< Warning: large VMC energy removed     -30334.268
+< Warning: large VMC energy removed       4247.598
+< Warning: large VMC energy removed      -7797.392
+< Warning: large VMC energy removed       6549.942
+< Warning: large VMC energy removed      -7358.065
+< Warning: large VMC energy removed     -14496.039
+< Warning: large VMC energy removed     -17950.854
+< total energy-propagated        0.00000000E+00  -5.2283950811E+00 +-    8.4588765416E-01   
+< kinetic energy                 0.00000000E+00   1.7757198834E+00 +-    9.0963292192E-01   
+< proton kin-energy              0.00000000E+00   1.0820902957E+00 +-    5.4559375124E-01   
+< neutron kin-energy             0.00000000E+00   6.9362958767E-01 +-    4.6678410054E-01   
+< potential energy               0.00000000E+00  -7.0041149645E+00 +-    4.3059224952E-01   
+< im energy                      0.00000000E+00   2.9328284445E-02 +-    8.4099858896E-02   
+< imkin energy                   0.00000000E+00   1.4593682219E-01 +-    1.4115088487E-01   
+< proton imkin-energy            0.00000000E+00  -2.2315167595E-02 +-    9.6595347096E-02   
+< neutron imkin-energy           0.00000000E+00   1.6825198979E-01 +-    1.0252022786E-01   
+< impot energy                   0.00000000E+00  -1.1660853775E-01 +-    1.5819701109E-01   
+< v cent                         0.00000000E+00  -1.9862646166E-01 +-    3.6464809157E-01   
+< v tau                          0.00000000E+00  -2.2915294691E-01 +-    5.1271800857E-02   
+< v sigma                        0.00000000E+00  -4.6152825310E-01 +-    7.0626716513E-02   
+< v sigtau                       0.00000000E+00  -3.4863583686E+00 +-    1.6348327349E-01   
+< v tensor                       0.00000000E+00  -2.7615918582E-02 +-    2.9381470363E-02   
+< v tenstau                      0.00000000E+00  -2.6008330156E+00 +-    2.4506354012E-01   
+< v ls                           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v lstau                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpot v6                        0.00000000E+00  -7.0041149645E+00 +-    4.3059224952E-01   
+< vpot v8                        0.00000000E+00  -7.0041149645E+00 +-    4.3059224952E-01   
+< v coulomb                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v external                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pipr-anticomm             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1pr                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vepr                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni central                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pi-tm                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd2                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni ve                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpottot v8+tni                 0.00000000E+00  -7.0041149645E+00 +-    4.3059224952E-01   
+< enetot v8+tni                  0.00000000E+00  -5.2283950811E+00 +-    8.4588765416E-01   
+< vper cent                      0.00000000E+00  -1.9862646166E-01 +-    3.6464809157E-01   
+< vper tau                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigma                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigtau                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tensor                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tenstau                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper ls                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper lstau                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpotper v6                     0.00000000E+00  -1.9862646166E-01 +-    3.6464809157E-01   
+< vpotper v8                     0.00000000E+00  -1.9862646166E-01 +-    3.6464809157E-01   
+< vpotv6pr-vpotv6per diff        0.00000000E+00  -6.8054885028E+00 +-    3.7893494032E-01   
+< vpotv8pr-vpotv8per diff        0.00000000E+00  -6.8054885028E+00 +-    3.7893494032E-01   
+< 2piapr-2pia diff               0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vd1pr-vd1 diff                 0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vepr-ve diff                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff1 2piapr-2pia-2picxx       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff2 vd1pr-vd1-2picxd         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff3 vepr-ve-2picdd           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< sum diff1+dif2+diff3           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< proton rms                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron rms                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< total rms                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron-proton rms             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau+                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau-                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< Psi**2                         0.00000000E+00   2.8546948227E-01 +-    6.9854353154E-03   
+< jackson-feenberg energy        0.00000000E+00  -5.3405462376E+00 +-    5.1196730884E-01   
+< acceptance                     0.00000000E+00   9.6362000000E-01 +-    5.9208526075E-04   
+< acceptance-spin                0.00000000E+00   8.4563000000E-01 +-    1.1425406037E-03   
+< Optimization:
+<  eave  =    -4.75423   0.13593
+<  rave  =    13.57097   0.01144
+<  new parameters =        3.51448816860978485721        3.77256904082675115220        1.50820822218196370912        5.25170230900803503005       -3.95356099792269644055       -1.02577660408357429489       -2.24020752222317920399       -0.72907543244703743035        1.00000000000000000000        0.00000000000000000000        0.29818083549958862566       -0.16780496277895998181        1.27480561150020044181       -0.05496752624568303908       -0.65983115145156034931        0.99929994502242946997       -0.00000005497757048060        9.27993936506433136913        1.64779954852518151220        1.13512837768970187291        0.78615490966096557290        1.00000000000000000000        1.04050420999999992944        0.98434586000000001693        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000
+<         3.51448816860978485721
+<         3.77256904082675115220
+<         1.50820822218196370912
+<         5.25170230900803503005
+<        -3.95356099792269644055
+<        -1.02577660408357429489
+<        -2.24020752222317920399
+<        -0.72907543244703743035
+<         1.00000000000000000000
+<         0.00000000000000000000
+<         0.29818083549958862566
+<        -0.16780496277895998181
+<         1.27480561150020044181
+<        -0.05496752624568303908
+<        -0.65983115145156034931
+<         0.99929994502242946997
+<        -0.00000005497757048060
+<         9.27993936506433136913
+<         1.64779954852518151220
+<         1.13512837768970187291
+<         0.78615490966096557290
+<         1.00000000000000000000
+<         1.04050420999999992944
+<         0.98434586000000001693
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+< 
+< Time for steps        =      18.260 seconds,        0.304 minutes
+< Master Time for steps =      18.013 seconds,        0.300 minutes
+< 
+< optimization iteration number        301
+< dtn reset to    3.6840314986
+< dc larger than dtn, reset to    3.4840314986
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Time to process initial configurations (sec.) =       6.26
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Warning: large VMC energy removed       4815.434
+< Warning: large VMC energy removed      -7868.899
+< Warning: large VMC energy removed      -3450.511
+< Warning: large VMC energy removed      -4336.788
+< Warning: large VMC energy removed       3969.218
+< Warning: large VMC energy removed     -14813.719
+< Warning: large VMC energy removed      -5367.203
+< Warning: large VMC energy removed       6499.242
+< Warning: large VMC energy removed      11490.305
+< Warning: large VMC energy removed       6793.992
+< Warning: large VMC energy removed      -6868.311
+< Warning: large VMC energy removed      15765.859
+< Warning: large VMC energy removed       5186.990
+< Warning: large VMC energy removed      23351.621
+< Warning: large VMC energy removed      -5522.581
+< Warning: large VMC energy removed     -29139.130
+< Warning: large VMC energy removed       3467.865
+< Warning: large VMC energy removed       9297.767
+< Warning: large VMC energy removed      10230.593
+< Warning: large VMC energy removed     -13533.697
+< Warning: large VMC energy removed     -12142.602
+< Warning: large VMC energy removed      -5024.371
+< Warning: large VMC energy removed       5876.440
+< Warning: large VMC energy removed      -3133.921
+< Warning: large VMC energy removed     -38434.598
+< Warning: large VMC energy removed      -4009.858
+< Warning: large VMC energy removed     -16523.853
+< Warning: large VMC energy removed       8323.049
+< Warning: large VMC energy removed      -8127.720
+< Warning: large VMC energy removed      -6778.196
+< Warning: large VMC energy removed     -47978.123
+< Warning: large VMC energy removed      -3584.855
+< Warning: large VMC energy removed       3725.133
+< Warning: large VMC energy removed      -4681.384
+< Warning: large VMC energy removed       7613.497
+< Warning: large VMC energy removed       2986.648
+< Warning: large VMC energy removed      -3433.571
+< Warning: large VMC energy removed      13716.530
+< Warning: large VMC energy removed       4690.900
+< Warning: large VMC energy removed     -10071.875
+< Warning: large VMC energy removed      -7854.728
+< Warning: large VMC energy removed      -9446.490
+< Warning: large VMC energy removed      -3593.051
+< Warning: large VMC energy removed      -6852.996
+< Warning: large VMC energy removed       6315.157
+< Warning: large VMC energy removed     -23958.118
+< Warning: large VMC energy removed      18944.164
+< Warning: large VMC energy removed     -28618.683
+< Warning: large VMC energy removed       3295.022
+< Warning: large VMC energy removed     -23420.282
+< Warning: large VMC energy removed      -3008.767
+< Warning: large VMC energy removed      10218.201
+< Warning: large VMC energy removed       7956.374
+< Warning: large VMC energy removed     -17679.325
+< Warning: large VMC energy removed       4859.639
+< Warning: large VMC energy removed      -8566.108
+< Warning: large VMC energy removed      15341.687
+< Warning: large VMC energy removed     -35902.322
+< Warning: large VMC energy removed      -3483.726
+< Warning: large VMC energy removed      23158.404
+< Warning: large VMC energy removed      -5058.038
+< Warning: large VMC energy removed      -8220.858
+< Warning: large VMC energy removed      -9256.968
+< Warning: large VMC energy removed      -6911.805
+< Warning: large VMC energy removed     -21370.894
+< Warning: large VMC energy removed       3423.416
+< Warning: large VMC energy removed      -9207.260
+< Warning: large VMC energy removed      -4017.752
+< Warning: large VMC energy removed      -3673.356
+< Warning: large VMC energy removed      19996.429
+< Warning: large VMC energy removed      -4678.785
+< Warning: large VMC energy removed       3696.341
+< Warning: large VMC energy removed      -4509.734
+< Warning: large VMC energy removed       7030.157
+< Warning: large VMC energy removed      24829.887
+< Warning: large VMC energy removed     -31994.503
+< Warning: large VMC energy removed      -9128.247
+< Warning: large VMC energy removed       6643.079
+< Warning: large VMC energy removed      -7167.451
+< Warning: large VMC energy removed       7254.522
+< Warning: large VMC energy removed      -6045.459
+< Warning: large VMC energy removed     -19539.200
+< Warning: large VMC energy removed     -25316.031
+< Warning: large VMC energy removed       4553.674
+< Warning: large VMC energy removed      -3511.771
+< Warning: large VMC energy removed      22970.293
+< total energy-propagated        0.00000000E+00  -9.9855517170E+00 +-    1.4639435685E+01   
+< kinetic energy                 0.00000000E+00  -3.3123016897E+00 +-    1.4643198682E+01   
+< proton kin-energy              0.00000000E+00  -1.3314636215E+00 +-    7.4326893790E+00   
+< neutron kin-energy             0.00000000E+00  -1.9808380681E+00 +-    7.2255690048E+00   
+< potential energy               0.00000000E+00  -6.6732500273E+00 +-    5.5272474069E-01   
+< im energy                      0.00000000E+00   6.7678878436E-02 +-    1.9532700710E-01   
+< imkin energy                   0.00000000E+00   3.3498498590E-02 +-    2.6217543105E-01   
+< proton imkin-energy            0.00000000E+00   3.6997409296E+00 +-    2.7652180985E+00   
+< neutron imkin-energy           0.00000000E+00  -3.6662424310E+00 +-    2.7355527333E+00   
+< impot energy                   0.00000000E+00   3.4180379846E-02 +-    1.9780760508E-01   
+< v cent                         0.00000000E+00   5.1852790134E-01 +-    4.7802090643E-01   
+< v tau                          0.00000000E+00  -2.8532967684E-01 +-    7.0024709791E-02   
+< v sigma                        0.00000000E+00  -5.7733331257E-01 +-    8.7836001286E-02   
+< v sigtau                       0.00000000E+00  -3.6843515944E+00 +-    1.7498957935E-01   
+< v tensor                       0.00000000E+00  -4.1109429146E-02 +-    3.1645567521E-02   
+< v tenstau                      0.00000000E+00  -2.6036539157E+00 +-    2.7830017773E-01   
+< v ls                           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v lstau                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpot v6                        0.00000000E+00  -6.6732500273E+00 +-    5.5272474069E-01   
+< vpot v8                        0.00000000E+00  -6.6732500273E+00 +-    5.5272474069E-01   
+< v coulomb                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v external                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pipr-anticomm             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1pr                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vepr                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni central                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pi-tm                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd2                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni ve                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpottot v8+tni                 0.00000000E+00  -6.6732500273E+00 +-    5.5272474069E-01   
+< enetot v8+tni                  0.00000000E+00  -9.9855517170E+00 +-    1.4639435685E+01   
+< vper cent                      0.00000000E+00   5.1852790134E-01 +-    4.7802090643E-01   
+< vper tau                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigma                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigtau                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tensor                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tenstau                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper ls                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper lstau                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpotper v6                     0.00000000E+00   5.1852790134E-01 +-    4.7802090643E-01   
+< vpotper v8                     0.00000000E+00   5.1852790134E-01 +-    4.7802090643E-01   
+< vpotv6pr-vpotv6per diff        0.00000000E+00  -7.1917779287E+00 +-    4.1470679166E-01   
+< vpotv8pr-vpotv8per diff        0.00000000E+00  -7.1917779287E+00 +-    4.1470679166E-01   
+< 2piapr-2pia diff               0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vd1pr-vd1 diff                 0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vepr-ve diff                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff1 2piapr-2pia-2picxx       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff2 vd1pr-vd1-2picxd         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff3 vepr-ve-2picdd           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< sum diff1+dif2+diff3           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< proton rms                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron rms                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< total rms                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron-proton rms             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau+                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau-                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< Psi**2                         0.00000000E+00   2.8712987262E-01 +-    6.6775562323E-03   
+< jackson-feenberg energy        0.00000000E+00  -7.2155768415E+00 +-    7.3306630783E+00   
+< acceptance                     0.00000000E+00   9.6401000000E-01 +-    5.8902223982E-04   
+< acceptance-spin                0.00000000E+00   8.4891000000E-01 +-    1.1325273149E-03   
+< Warning: large VMC energy removed      -4736.093
+< Warning: large VMC energy removed      -9850.933
+< Warning: large VMC energy removed       9741.619
+< Optimization:
+<  eave  =    -4.90861   0.14016
+<  rave  =    13.57084   0.01147
+<  new parameters =        3.48885565779988393587        3.77675447870321923105        1.50385150005298484643        5.26063224442059418351       -3.93085149735265693138       -1.02041488411289904548       -2.23462711969363603259       -0.72430868535754555637        1.00000000000000000000        0.00000000000000000000        0.31004277910887784175       -0.17643194358965735846        1.28135876164041584424       -0.05468265988441761011       -0.66575053777294490587        0.99929994485659290326       -0.00000005514340703541        9.27991016638474874867        1.65495838453692534209        1.10983121652794491929        0.85460021839439670455        1.00000000000000000000        1.04050420999999992944        0.98434586000000001693        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000
+<         3.48885565779988393587
+<         3.77675447870321923105
+<         1.50385150005298484643
+<         5.26063224442059418351
+<        -3.93085149735265693138
+<        -1.02041488411289904548
+<        -2.23462711969363603259
+<        -0.72430868535754555637
+<         1.00000000000000000000
+<         0.00000000000000000000
+<         0.31004277910887784175
+<        -0.17643194358965735846
+<         1.28135876164041584424
+<        -0.05468265988441761011
+<        -0.66575053777294490587
+<         0.99929994485659290326
+<        -0.00000005514340703541
+<         9.27991016638474874867
+<         1.65495838453692534209
+<         1.10983121652794491929
+<         0.85460021839439670455
+<         1.00000000000000000000
+<         1.04050420999999992944
+<         0.98434586000000001693
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+< 
+< Time for steps        =      18.261 seconds,        0.304 minutes
+< Master Time for steps =      18.007 seconds,        0.300 minutes
+< 
+< optimization iteration number        302
+< dtn reset to    3.6840314986
+< dc larger than dtn, reset to    3.4840314986
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Time to process initial configurations (sec.) =       6.26
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Warning: large VMC energy removed       7790.888
+< Warning: large VMC energy removed       3998.080
+< Warning: large VMC energy removed     -31518.876
+< Warning: large VMC energy removed       3158.592
+< Warning: large VMC energy removed       3327.638
+< Warning: large VMC energy removed     -26024.600
+< Warning: large VMC energy removed      -5081.827
+< Warning: large VMC energy removed     -15053.819
+< Warning: large VMC energy removed       7113.993
+< Warning: large VMC energy removed      -5074.764
+< Warning: large VMC energy removed       6353.539
+< Warning: large VMC energy removed      -4110.531
+< Warning: large VMC energy removed       6923.000
+< Warning: large VMC energy removed      16057.629
+< Warning: large VMC energy removed      -6909.987
+< Warning: large VMC energy removed      -8720.408
+< Warning: large VMC energy removed      12960.387
+< Warning: large VMC energy removed      -5293.213
+< Warning: large VMC energy removed       4128.583
+< Warning: large VMC energy removed       3833.901
+< Warning: large VMC energy removed       9769.029
+< Warning: large VMC energy removed      -8089.500
+< Warning: large VMC energy removed     -38933.508
+< Warning: large VMC energy removed     -18137.787
+< Warning: large VMC energy removed       3652.182
+< Warning: large VMC energy removed      -7940.304
+< Warning: large VMC energy removed     -17531.519
+< Warning: large VMC energy removed      -9084.008
+< Warning: large VMC energy removed      -3487.823
+< Warning: large VMC energy removed      -4654.716
+< Warning: large VMC energy removed      -3410.292
+< Warning: large VMC energy removed     -72581.837
+< Warning: large VMC energy removed      -4317.284
+< Warning: large VMC energy removed       5728.449
+< Warning: large VMC energy removed     -31274.197
+< Warning: large VMC energy removed     -11943.194
+< Warning: large VMC energy removed       7811.004
+< Warning: large VMC energy removed     -59095.068
+< Warning: large VMC energy removed      10480.451
+< Warning: large VMC energy removed      -4013.129
+< Warning: large VMC energy removed     -12091.581
+< Warning: large VMC energy removed      24315.905
+< Warning: large VMC energy removed     -13427.800
+< Warning: large VMC energy removed      -3626.080
+< Warning: large VMC energy removed       8241.524
+< Warning: large VMC energy removed      -3863.076
+< Warning: large VMC energy removed      -5053.195
+< Warning: large VMC energy removed     -30380.609
+< Warning: large VMC energy removed      -3686.327
+< Warning: large VMC energy removed      -9944.417
+< Warning: large VMC energy removed      12615.173
+< Warning: large VMC energy removed     -30454.665
+< Warning: large VMC energy removed      -7438.022
+< Warning: large VMC energy removed      19806.283
+< Warning: large VMC energy removed      11963.699
+< Warning: large VMC energy removed      -2919.346
+< Warning: large VMC energy removed      16986.544
+< Warning: large VMC energy removed      40853.806
+< Warning: large VMC energy removed      -5542.913
+< Warning: large VMC energy removed      -3746.138
+< Warning: large VMC energy removed     -15715.826
+< Warning: large VMC energy removed      -6513.996
+< Warning: large VMC energy removed       6494.610
+< Warning: large VMC energy removed      57968.910
+< Warning: large VMC energy removed     -34779.543
+< Warning: large VMC energy removed      -4829.112
+< Warning: large VMC energy removed     -22984.627
+< Warning: large VMC energy removed     -16102.738
+< Warning: large VMC energy removed      -3961.676
+< Warning: large VMC energy removed      -4679.244
+< total energy-propagated        0.00000000E+00  -6.6702117245E+00 +-    1.3269740587E+00   
+< kinetic energy                 0.00000000E+00  -3.9958791401E-02 +-    1.3634133110E+00   
+< proton kin-energy              0.00000000E+00  -4.8303588294E-02 +-    6.7460201524E-01   
+< neutron kin-energy             0.00000000E+00   8.3447968930E-03 +-    7.1414695311E-01   
+< potential energy               0.00000000E+00  -6.6302529331E+00 +-    3.8105462270E-01   
+< im energy                      0.00000000E+00  -3.5907710149E-01 +-    3.4715155584E-01   
+< imkin energy                   0.00000000E+00  -1.5626605377E-01 +-    3.8140542532E-01   
+< proton imkin-energy            0.00000000E+00  -1.4271431944E-01 +-    2.2582301528E-01   
+< neutron imkin-energy           0.00000000E+00  -1.3551734329E-02 +-    1.7235853460E-01   
+< impot energy                   0.00000000E+00  -2.0281104773E-01 +-    1.8958463933E-01   
+< v cent                         0.00000000E+00  -1.2594005555E-01 +-    3.2949879412E-01   
+< v tau                          0.00000000E+00  -2.7598788345E-01 +-    6.0593426628E-02   
+< v sigma                        0.00000000E+00  -4.0825237444E-01 +-    7.0134274289E-02   
+< v sigtau                       0.00000000E+00  -3.3430080618E+00 +-    1.5157374236E-01   
+< v tensor                       0.00000000E+00  -1.2179891566E-02 +-    2.9557452487E-02   
+< v tenstau                      0.00000000E+00  -2.4648846663E+00 +-    2.6018450094E-01   
+< v ls                           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v lstau                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpot v6                        0.00000000E+00  -6.6302529331E+00 +-    3.8105462270E-01   
+< vpot v8                        0.00000000E+00  -6.6302529331E+00 +-    3.8105462270E-01   
+< v coulomb                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v external                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pipr-anticomm             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1pr                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vepr                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni central                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pi-tm                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd2                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni ve                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpottot v8+tni                 0.00000000E+00  -6.6302529331E+00 +-    3.8105462270E-01   
+< enetot v8+tni                  0.00000000E+00  -6.6702117245E+00 +-    1.3269740587E+00   
+< vper cent                      0.00000000E+00  -1.2594005555E-01 +-    3.2949879412E-01   
+< vper tau                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigma                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigtau                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tensor                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tenstau                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper ls                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper lstau                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpotper v6                     0.00000000E+00  -1.2594005555E-01 +-    3.2949879412E-01   
+< vpotper v8                     0.00000000E+00  -1.2594005555E-01 +-    3.2949879412E-01   
+< vpotv6pr-vpotv6per diff        0.00000000E+00  -6.5043128776E+00 +-    3.8564412536E-01   
+< vpotv8pr-vpotv8per diff        0.00000000E+00  -6.5043128776E+00 +-    3.8564412536E-01   
+< 2piapr-2pia diff               0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vd1pr-vd1 diff                 0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vepr-ve diff                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff1 2piapr-2pia-2picxx       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff2 vd1pr-vd1-2picxd         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff3 vepr-ve-2picdd           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< sum diff1+dif2+diff3           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< proton rms                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron rms                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< total rms                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron-proton rms             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau+                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau-                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< Psi**2                         0.00000000E+00   2.6740666325E-01 +-    6.1800829171E-03   
+< jackson-feenberg energy        0.00000000E+00  -5.8307310313E+00 +-    7.0507777755E-01   
+< acceptance                     0.00000000E+00   9.6393000000E-01 +-    5.8965205927E-04   
+< acceptance-spin                0.00000000E+00   8.4832000000E-01 +-    1.1343420013E-03   
+< Optimization:
+<  eave  =    -4.99612   0.13020
+<  rave  =    13.58212   0.01145
+<  new parameters =        3.48860723352160517763        3.78295426352521069191        1.51058782016456549790        5.25523818455427971230       -3.94778303727129920020       -1.01846225149064029125       -2.21161671187920427784       -0.72759176730497043817        1.00000000000000000000        0.00000000000000000000        0.29557532437845646101       -0.16531944693639860633        1.28112126128558645455       -0.01298621660522457366       -0.66370734212801507645        0.99929994324969839692       -0.00000005675030150754        9.27552272428695978590        1.67241996102559031812        1.13316691102666844415        0.75188167653682236313        1.00000000000000000000        1.04050420999999992944        0.98434586000000001693        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000
+<         3.48860723352160517763
+<         3.78295426352521069191
+<         1.51058782016456549790
+<         5.25523818455427971230
+<        -3.94778303727129920020
+<        -1.01846225149064029125
+<        -2.21161671187920427784
+<        -0.72759176730497043817
+<         1.00000000000000000000
+<         0.00000000000000000000
+<         0.29557532437845646101
+<        -0.16531944693639860633
+<         1.28112126128558645455
+<        -0.01298621660522457366
+<        -0.66370734212801507645
+<         0.99929994324969839692
+<        -0.00000005675030150754
+<         9.27552272428695978590
+<         1.67241996102559031812
+<         1.13316691102666844415
+<         0.75188167653682236313
+<         1.00000000000000000000
+<         1.04050420999999992944
+<         0.98434586000000001693
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+< 
+< Time for steps        =      18.224 seconds,        0.304 minutes
+< Master Time for steps =      17.975 seconds,        0.300 minutes
+< 
+< optimization iteration number        303
+< dtn reset to    3.6840314986
+< dc larger than dtn, reset to    3.4840314986
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Time to process initial configurations (sec.) =       6.26
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Warning: large VMC energy removed       5248.453
+< Warning: large VMC energy removed       3063.685
+< Warning: large VMC energy removed      -8700.419
+< Warning: large VMC energy removed      -8523.702
+< Warning: large VMC energy removed       5568.837
+< Warning: large VMC energy removed     -58166.430
+< Warning: large VMC energy removed       5191.624
+< Warning: large VMC energy removed     -22655.434
+< Warning: large VMC energy removed      10110.823
+< Warning: large VMC energy removed     -14056.939
+< Warning: large VMC energy removed     -72870.965
+< Warning: large VMC energy removed      -6523.003
+< Warning: large VMC energy removed      -3813.738
+< Warning: large VMC energy removed     -10649.399
+< Warning: large VMC energy removed      -3730.724
+< Warning: large VMC energy removed      -3067.972
+< Warning: large VMC energy removed      -6894.580
+< Warning: large VMC energy removed      10117.333
+< Warning: large VMC energy removed      -7909.029
+< Warning: large VMC energy removed     -27493.246
+< Warning: large VMC energy removed     -12914.742
+< Warning: large VMC energy removed      -6650.679
+< Warning: large VMC energy removed      -7070.785
+< Warning: large VMC energy removed       6752.139
+< Warning: large VMC energy removed      -5587.988
+< Warning: large VMC energy removed      -3431.506
+< Warning: large VMC energy removed      -3078.552
+< Warning: large VMC energy removed       5018.699
+< Warning: large VMC energy removed     -10307.885
+< Warning: large VMC energy removed      23351.988
+< Warning: large VMC energy removed       6639.980
+< Warning: large VMC energy removed       3536.130
+< Warning: large VMC energy removed     -13550.489
+< Warning: large VMC energy removed      -7404.781
+< Warning: large VMC energy removed       2908.164
+< Warning: large VMC energy removed      14453.066
+< Warning: large VMC energy removed       5491.284
+< Warning: large VMC energy removed     -13529.171
+< Warning: large VMC energy removed       4628.938
+< Warning: large VMC energy removed      -6790.403
+< Warning: large VMC energy removed       2803.687
+< Warning: large VMC energy removed      -6143.318
+< Warning: large VMC energy removed      -4558.637
+< Warning: large VMC energy removed      18581.224
+< Warning: large VMC energy removed     -46924.978
+< Warning: large VMC energy removed      10204.442
+< Warning: large VMC energy removed      -7675.096
+< Warning: large VMC energy removed     -12350.905
+< Warning: large VMC energy removed      -6422.489
+< Warning: large VMC energy removed       4631.993
+< Warning: large VMC energy removed     -39920.688
+< Warning: large VMC energy removed       4334.735
+< Warning: large VMC energy removed      12702.601
+< Warning: large VMC energy removed      -6743.097
+< Warning: large VMC energy removed       4675.535
+< Warning: large VMC energy removed      -2972.546
+< Warning: large VMC energy removed      -5102.611
+< Warning: large VMC energy removed      10044.728
+< Warning: large VMC energy removed      63045.399
+< Warning: large VMC energy removed      -4008.936
+< Warning: large VMC energy removed       3557.822
+< Warning: large VMC energy removed       5972.912
+< Warning: large VMC energy removed      -3179.255
+< Warning: large VMC energy removed       2886.053
+< Warning: large VMC energy removed      -9749.029
+< Warning: large VMC energy removed      -4470.784
+< Warning: large VMC energy removed      -3999.290
+< Warning: large VMC energy removed      -3335.709
+< Warning: large VMC energy removed     -12058.780
+< Warning: large VMC energy removed      15583.326
+< Warning: large VMC energy removed      -4363.371
+< Warning: large VMC energy removed       3807.821
+< Warning: large VMC energy removed       2878.074
+< Warning: large VMC energy removed       3708.434
+< Warning: large VMC energy removed       4177.486
+< Warning: large VMC energy removed      -6698.459
+< Warning: large VMC energy removed       8965.595
+< Warning: large VMC energy removed      -5619.128
+< Warning: large VMC energy removed      17343.904
+< total energy-propagated        0.00000000E+00   1.7504651339E+01 +-    2.3582488925E+01   
+< kinetic energy                 0.00000000E+00   2.5153729678E+01 +-    2.3583701196E+01   
+< proton kin-energy              0.00000000E+00   9.9667186319E+00 +-    8.9608984003E+00   
+< neutron kin-energy             0.00000000E+00   1.5187011046E+01 +-    1.4628961554E+01   
+< potential energy               0.00000000E+00  -7.6490783393E+00 +-    5.5754901696E-01   
+< im energy                      0.00000000E+00   2.6473412853E+00 +-    2.6737905666E+00   
+< imkin energy                   0.00000000E+00   2.4807440359E+00 +-    2.6868270279E+00   
+< proton imkin-energy            0.00000000E+00   3.7119347034E+00 +-    2.6679794280E+00   
+< neutron imkin-energy           0.00000000E+00  -1.2311906676E+00 +-    1.0846088236E+00   
+< impot energy                   0.00000000E+00   1.6659724946E-01 +-    3.4783803625E-01   
+< v cent                         0.00000000E+00  -2.0934538954E-01 +-    2.5785306471E-01   
+< v tau                          0.00000000E+00  -2.9005457039E-01 +-    9.3491150907E-02   
+< Warning: large VMC energy removed      22868.442
+< v sigma                        0.00000000E+00  -4.6025584531E-01 +-    9.6092006479E-02   
+< v sigtau                       0.00000000E+00  -3.5457660864E+00 +-    1.7070015660E-01   
+< v tensor                       0.00000000E+00   9.3633676767E-02 +-    1.0202191015E-01   
+< v tenstau                      0.00000000E+00  -3.2372901245E+00 +-    5.9740235995E-01   
+< v ls                           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v lstau                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpot v6                        0.00000000E+00  -7.6490783393E+00 +-    5.5754901696E-01   
+< vpot v8                        0.00000000E+00  -7.6490783393E+00 +-    5.5754901696E-01   
+< v coulomb                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v external                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pipr-anticomm             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1pr                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vepr                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni central                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pi-tm                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd2                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni ve                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpottot v8+tni                 0.00000000E+00  -7.6490783393E+00 +-    5.5754901696E-01   
+< enetot v8+tni                  0.00000000E+00   1.7504651339E+01 +-    2.3582488925E+01   
+< vper cent                      0.00000000E+00  -2.0934538954E-01 +-    2.5785306471E-01   
+< vper tau                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigma                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigtau                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tensor                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tenstau                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper ls                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper lstau                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpotper v6                     0.00000000E+00  -2.0934538954E-01 +-    2.5785306471E-01   
+< vpotper v8                     0.00000000E+00  -2.0934538954E-01 +-    2.5785306471E-01   
+< vpotv6pr-vpotv6per diff        0.00000000E+00  -7.4397329498E+00 +-    6.1720062282E-01   
+< vpotv8pr-vpotv8per diff        0.00000000E+00  -7.4397329498E+00 +-    6.1720062282E-01   
+< 2piapr-2pia diff               0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vd1pr-vd1 diff                 0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vepr-ve diff                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff1 2piapr-2pia-2picxx       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff2 vd1pr-vd1-2picxd         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff3 vepr-ve-2picdd           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< sum diff1+dif2+diff3           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< proton rms                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron rms                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< total rms                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron-proton rms             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau+                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau-                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< Psi**2                         0.00000000E+00   2.7674262141E-01 +-    6.8398590485E-03   
+< jackson-feenberg energy        0.00000000E+00   6.3260676803E+00 +-    1.1798819226E+01   
+< acceptance                     0.00000000E+00   9.6329000000E-01 +-    5.9466272710E-04   
+< acceptance-spin                0.00000000E+00   8.4672000000E-01 +-    1.1392332579E-03   
+< Warning: large VMC energy removed       4198.478
+< Warning: large VMC energy removed      -3957.967
+< Optimization:
+<  eave  =    -4.96814   0.11557
+<  rave  =    13.55767   0.01144
+<  new parameters =        3.49623427957363297480        3.77833054028628501086        1.50380548797875102096        5.21757736399989102694       -3.95506610772496980388       -1.02196964681855639867       -2.22564075156184992821       -0.72943980959995091684        1.00000000000000000000        0.00000000000000000000        0.30444779181758774289       -0.17067244670137468598        1.28053810223817055025        0.01651736458851657888       -0.66841038361236693177        0.99929994214118411655       -0.00000005785881581545        9.27540967553858308747        1.65955626384949939123        1.12669447401251554552        0.78837659935228254771        1.00000000000000000000        1.04050420999999992944        0.98434586000000001693        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000
+<         3.49623427957363297480
+<         3.77833054028628501086
+<         1.50380548797875102096
+<         5.21757736399989102694
+<        -3.95506610772496980388
+<        -1.02196964681855639867
+<        -2.22564075156184992821
+<        -0.72943980959995091684
+<         1.00000000000000000000
+<         0.00000000000000000000
+<         0.30444779181758774289
+<        -0.17067244670137468598
+<         1.28053810223817055025
+<         0.01651736458851657888
+<        -0.66841038361236693177
+<         0.99929994214118411655
+<        -0.00000005785881581545
+<         9.27540967553858308747
+<         1.65955626384949939123
+<         1.12669447401251554552
+<         0.78837659935228254771
+<         1.00000000000000000000
+<         1.04050420999999992944
+<         0.98434586000000001693
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+< 
+< Time for steps        =      18.229 seconds,        0.304 minutes
+< Master Time for steps =      17.984 seconds,        0.300 minutes
+< 
+< optimization iteration number        304
+< dtn reset to    3.6840314986
+< dc larger than dtn, reset to    3.4840314986
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Time to process initial configurations (sec.) =       6.26
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Warning: large VMC energy removed     -63522.146
+< Warning: large VMC energy removed       4674.139
+< Warning: large VMC energy removed       5245.825
+< Warning: large VMC energy removed     -28463.297
+< Warning: large VMC energy removed       3090.570
+< Warning: large VMC energy removed      -3875.137
+< Warning: large VMC energy removed       3644.758
+< Warning: large VMC energy removed      -2961.459
+< Warning: large VMC energy removed      -3454.119
+< Warning: large VMC energy removed     -24192.020
+< Warning: large VMC energy removed      53062.237
+< Warning: large VMC energy removed      -3662.023
+< Warning: large VMC energy removed      -4192.699
+< Warning: large VMC energy removed      20246.565
+< Warning: large VMC energy removed      -6197.684
+< Warning: large VMC energy removed       3760.833
+< Warning: large VMC energy removed       3947.412
+< Warning: large VMC energy removed      -5588.917
+< Warning: large VMC energy removed      -5841.518
+< Warning: large VMC energy removed       2806.368
+< Warning: large VMC energy removed      12046.259
+< Warning: large VMC energy removed     -20031.834
+< Warning: large VMC energy removed     -36567.466
+< Warning: large VMC energy removed     -43479.284
+< Warning: large VMC energy removed      -9964.209
+< Warning: large VMC energy removed       3835.400
+< Warning: large VMC energy removed      44286.861
+< Warning: large VMC energy removed       6702.978
+< Warning: large VMC energy removed       6686.411
+< Warning: large VMC energy removed      -3016.169
+< Warning: large VMC energy removed      -8147.153
+< Warning: large VMC energy removed      -6509.597
+< Warning: large VMC energy removed      -6257.009
+< Warning: large VMC energy removed      -4168.395
+< Warning: large VMC energy removed      -3335.575
+< Warning: large VMC energy removed      -2899.443
+< Warning: large VMC energy removed      -4016.636
+< Warning: large VMC energy removed       9724.984
+< Warning: large VMC energy removed      -4546.262
+< Warning: large VMC energy removed      20653.352
+< Warning: large VMC energy removed      -2893.539
+< Warning: large VMC energy removed       7856.915
+< Warning: large VMC energy removed       4492.096
+< Warning: large VMC energy removed     -33336.223
+< Warning: large VMC energy removed       3801.962
+< Warning: large VMC energy removed      -7074.947
+< Warning: large VMC energy removed      11434.856
+< Warning: large VMC energy removed     -20808.949
+< Warning: large VMC energy removed      31451.809
+< Warning: large VMC energy removed      25349.858
+< Warning: large VMC energy removed      48179.717
+< Warning: large VMC energy removed     -11412.293
+< Warning: large VMC energy removed      -3912.080
+< Warning: large VMC energy removed       2939.888
+< Warning: large VMC energy removed       5614.341
+< Warning: large VMC energy removed       8394.972
+< Warning: large VMC energy removed       3256.010
+< Warning: large VMC energy removed      29235.228
+< Warning: large VMC energy removed     -15194.473
+< Warning: large VMC energy removed      15090.999
+< Warning: large VMC energy removed       3258.842
+< Warning: large VMC energy removed      13023.501
+< Warning: large VMC energy removed       6832.409
+< Warning: large VMC energy removed       5277.761
+< Warning: large VMC energy removed      -4334.038
+< Warning: large VMC energy removed     -52067.922
+< total energy-propagated        0.00000000E+00  -2.6478978840E+00 +-    2.2014757086E+00   
+< kinetic energy                 0.00000000E+00   3.6521335802E+00 +-    2.2628523435E+00   
+< proton kin-energy              0.00000000E+00   1.4800622306E+00 +-    9.2367301775E-01   
+< neutron kin-energy             0.00000000E+00   2.1720713496E+00 +-    1.3972351852E+00   
+< potential energy               0.00000000E+00  -6.3000314642E+00 +-    6.0296354926E-01   
+< im energy                      0.00000000E+00  -1.3159296226E+00 +-    1.2694602201E+00   
+< imkin energy                   0.00000000E+00  -1.5630248739E+00 +-    1.2685294783E+00   
+< proton imkin-energy            0.00000000E+00  -1.9957348677E-01 +-    1.8279946196E-01   
+< neutron imkin-energy           0.00000000E+00  -1.3634513871E+00 +-    1.3326982638E+00   
+< impot energy                   0.00000000E+00   2.4709525127E-01 +-    2.0775399105E-01   
+< v cent                         0.00000000E+00   1.2827135295E+00 +-    6.6501832843E-01   
+< v tau                          0.00000000E+00  -4.8739957536E-01 +-    1.1474472862E-01   
+< v sigma                        0.00000000E+00  -4.9571699274E-01 +-    8.1163778497E-02   
+< v sigtau                       0.00000000E+00  -3.6096114041E+00 +-    1.6760500015E-01   
+< v tensor                       0.00000000E+00   5.7607837388E-02 +-    3.3187113222E-02   
+< v tenstau                      0.00000000E+00  -3.0476248589E+00 +-    2.8032038217E-01   
+< v ls                           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v lstau                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpot v6                        0.00000000E+00  -6.3000314642E+00 +-    6.0296354926E-01   
+< vpot v8                        0.00000000E+00  -6.3000314642E+00 +-    6.0296354926E-01   
+< v coulomb                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v external                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pipr-anticomm             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1pr                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vepr                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni central                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pi-tm                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd2                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni ve                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpottot v8+tni                 0.00000000E+00  -6.3000314642E+00 +-    6.0296354926E-01   
+< enetot v8+tni                  0.00000000E+00  -2.6478978840E+00 +-    2.2014757086E+00   
+< vper cent                      0.00000000E+00   1.2827135295E+00 +-    6.6501832843E-01   
+< vper tau                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigma                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigtau                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tensor                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tenstau                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper ls                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper lstau                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpotper v6                     0.00000000E+00   1.2827135295E+00 +-    6.6501832843E-01   
+< vpotper v8                     0.00000000E+00   1.2827135295E+00 +-    6.6501832843E-01   
+< vpotv6pr-vpotv6per diff        0.00000000E+00  -7.5827449937E+00 +-    4.3777005326E-01   
+< vpotv8pr-vpotv8per diff        0.00000000E+00  -7.5827449937E+00 +-    4.3777005326E-01   
+< 2piapr-2pia diff               0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vd1pr-vd1 diff                 0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vepr-ve diff                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff1 2piapr-2pia-2picxx       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff2 vd1pr-vd1-2picxd         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff3 vepr-ve-2picdd           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< sum diff1+dif2+diff3           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< proton rms                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron rms                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< total rms                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron-proton rms             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau+                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau-                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< Psi**2                         0.00000000E+00   2.7783419106E-01 +-    6.5941311866E-03   
+< jackson-feenberg energy        0.00000000E+00  -3.3846848810E+00 +-    1.1841842047E+00   
+< acceptance                     0.00000000E+00   9.6551000000E-01 +-    5.7706533339E-04   
+< acceptance-spin                0.00000000E+00   8.4817000000E-01 +-    1.1348024106E-03   
+< Optimization:
+<  eave  =    -5.13960   0.16149
+<  rave  =    13.57704   0.01141
+<  new parameters =        3.46942162943369192263        3.75629811775272859364        1.50438089544857822588        5.16800143352280283437       -3.90440181456165325002       -0.99904887164521571918       -2.22405754097864027941       -0.72587112667103248498        1.00000000000000000000        0.00000000000000000000        0.35479582103637274937       -0.20419436935881726813        1.29092812608849061284        0.06719198256875823227       -0.70130011891810928315        0.99929994034104507872       -0.00000005965895483410        9.27640089551555924174        1.65352927628535995019        1.12785677963208774699        0.75614535326074705512        1.00000000000000000000        1.04050420999999992944        0.98434586000000001693        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000
+<         3.46942162943369192263
+<         3.75629811775272859364
+<         1.50438089544857822588
+<         5.16800143352280283437
+<        -3.90440181456165325002
+<        -0.99904887164521571918
+<        -2.22405754097864027941
+<        -0.72587112667103248498
+<         1.00000000000000000000
+<         0.00000000000000000000
+<         0.35479582103637274937
+<        -0.20419436935881726813
+<         1.29092812608849061284
+<         0.06719198256875823227
+<        -0.70130011891810928315
+<         0.99929994034104507872
+<        -0.00000005965895483410
+<         9.27640089551555924174
+<         1.65352927628535995019
+<         1.12785677963208774699
+<         0.75614535326074705512
+<         1.00000000000000000000
+<         1.04050420999999992944
+<         0.98434586000000001693
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+< 
+< Time for steps        =      18.243 seconds,        0.304 minutes
+< Master Time for steps =      17.995 seconds,        0.300 minutes
+< 
+< optimization iteration number        305
+< dtn reset to    3.6840314986
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Time to process initial configurations (sec.) =       6.25
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Warning: large VMC energy removed      -3815.567
+< Warning: large VMC energy removed       5861.723
+< Warning: large VMC energy removed       8584.329
+< Warning: large VMC energy removed      -5216.158
+< Warning: large VMC energy removed      -4133.866
+< Warning: large VMC energy removed      -5706.284
+< Warning: large VMC energy removed      -3798.277
+< Warning: large VMC energy removed      -3160.143
+< Warning: large VMC energy removed      -3165.581
+< Warning: large VMC energy removed     -15110.770
+< Warning: large VMC energy removed      -8061.008
+< Warning: large VMC energy removed      -5552.847
+< Warning: large VMC energy removed      -8512.101
+< Warning: large VMC energy removed      -8888.898
+< Warning: large VMC energy removed     -12925.741
+< Warning: large VMC energy removed      -4111.067
+< Warning: large VMC energy removed      25450.778
+< Warning: large VMC energy removed      15753.492
+< Warning: large VMC energy removed      -9823.506
+< Warning: large VMC energy removed      -3114.057
+< Warning: large VMC energy removed      -5159.467
+< Warning: large VMC energy removed       5067.068
+< Warning: large VMC energy removed      -2837.662
+< Warning: large VMC energy removed       5420.251
+< Warning: large VMC energy removed       3040.449
+< Warning: large VMC energy removed     -19105.116
+< Warning: large VMC energy removed       3329.390
+< Warning: large VMC energy removed       2984.734
+< Warning: large VMC energy removed       2958.509
+< Warning: large VMC energy removed       3278.186
+< Warning: large VMC energy removed       6488.794
+< Warning: large VMC energy removed      27089.216
+< Warning: large VMC energy removed      -2966.489
+< Warning: large VMC energy removed      57308.640
+< Warning: large VMC energy removed      -6533.528
+< Warning: large VMC energy removed     -25856.761
+< Warning: large VMC energy removed     -11853.554
+< Warning: large VMC energy removed      -4982.293
+< Warning: large VMC energy removed      11047.590
+< Warning: large VMC energy removed      -3215.205
+< Warning: large VMC energy removed      -7800.228
+< Warning: large VMC energy removed      -5148.457
+< Warning: large VMC energy removed     -11014.883
+< Warning: large VMC energy removed      -3249.560
+< Warning: large VMC energy removed      -2882.665
+< Warning: large VMC energy removed     -16625.962
+< Warning: large VMC energy removed     -25863.720
+< Warning: large VMC energy removed      -9937.362
+< Warning: large VMC energy removed      18772.006
+< Warning: large VMC energy removed       4605.077
+< Warning: large VMC energy removed       4706.218
+< Warning: large VMC energy removed      15535.987
+< Warning: large VMC energy removed       3180.846
+< Warning: large VMC energy removed      30961.244
+< Warning: large VMC energy removed       5958.025
+< Warning: large VMC energy removed       2909.334
+< Warning: large VMC energy removed      -4706.571
+< Warning: large VMC energy removed     -15139.702
+< Warning: large VMC energy removed      -2863.596
+< Warning: large VMC energy removed      -9287.113
+< Warning: large VMC energy removed      12363.227
+< Warning: large VMC energy removed      -3427.623
+< Warning: large VMC energy removed     -24067.079
+< Warning: large VMC energy removed     -11108.989
+< Warning: large VMC energy removed     -20624.971
+< Warning: large VMC energy removed      16883.720
+< Warning: large VMC energy removed      13268.230
+< Warning: large VMC energy removed       6909.053
+< Warning: large VMC energy removed      41186.634
+< Warning: large VMC energy removed       5752.918
+< Warning: large VMC energy removed       8377.918
+< Warning: large VMC energy removed      15829.261
+< Warning: large VMC energy removed       7333.236
+< Warning: large VMC energy removed      43104.034
+< Warning: large VMC energy removed      10840.083
+< Warning: large VMC energy removed      20989.322
+< Warning: large VMC energy removed      -3244.790
+< Warning: large VMC energy removed       8212.151
+< Warning: large VMC energy removed       4261.297
+< Warning: large VMC energy removed      -8084.466
+< Warning: large VMC energy removed      15450.605
+< Warning: large VMC energy removed       3485.974
+< Warning: large VMC energy removed      -7546.909
+< Warning: large VMC energy removed       9615.971
+< Warning: large VMC energy removed      -5663.583
+< Warning: large VMC energy removed      24440.377
+< Warning: large VMC energy removed      -2910.462
+< Warning: large VMC energy removed      -9570.377
+< Warning: large VMC energy removed       4408.934
+< Warning: large VMC energy removed      12138.172
+< total energy-propagated        0.00000000E+00   1.1398827487E+00 +-    6.6840766397E+00   
+< kinetic energy                 0.00000000E+00   8.0711183990E+00 +-    6.6955407364E+00   
+< proton kin-energy              0.00000000E+00   3.9141546078E+00 +-    3.3250951970E+00   
+< neutron kin-energy             0.00000000E+00   4.1569637911E+00 +-    3.3721857970E+00   
+< potential energy               0.00000000E+00  -6.9312356503E+00 +-    4.2201842088E-01   
+< im energy                      0.00000000E+00   1.1050679361E-01 +-    2.5298544350E-01   
+< imkin energy                   0.00000000E+00   4.5707729326E-01 +-    2.9163519730E-01   
+< proton imkin-energy            0.00000000E+00   1.8186563658E-01 +-    1.9053330253E-01   
+< neutron imkin-energy           0.00000000E+00   2.7521165668E-01 +-    1.6010584090E-01   
+< impot energy                   0.00000000E+00  -3.4657049965E-01 +-    1.7914557394E-01   
+< v cent                         0.00000000E+00   3.0955241454E-01 +-    4.1723047967E-01   
+< v tau                          0.00000000E+00  -3.3565758679E-01 +-    8.2689643859E-02   
+< v sigma                        0.00000000E+00  -5.3789480768E-01 +-    8.7332156486E-02   
+< v sigtau                       0.00000000E+00  -3.5196432640E+00 +-    1.6477163593E-01   
+< v tensor                       0.00000000E+00   4.3632750334E-02 +-    3.8710938008E-02   
+< v tenstau                      0.00000000E+00  -2.8912251567E+00 +-    3.1476207251E-01   
+< v ls                           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v lstau                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpot v6                        0.00000000E+00  -6.9312356503E+00 +-    4.2201842088E-01   
+< vpot v8                        0.00000000E+00  -6.9312356503E+00 +-    4.2201842088E-01   
+< v coulomb                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v external                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pipr-anticomm             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1pr                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vepr                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni central                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pi-tm                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd2                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni ve                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpottot v8+tni                 0.00000000E+00  -6.9312356503E+00 +-    4.2201842088E-01   
+< enetot v8+tni                  0.00000000E+00   1.1398827487E+00 +-    6.6840766397E+00   
+< vper cent                      0.00000000E+00   3.0955241454E-01 +-    4.1723047967E-01   
+< vper tau                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigma                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigtau                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tensor                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tenstau                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper ls                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper lstau                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpotper v6                     0.00000000E+00   3.0955241454E-01 +-    4.1723047967E-01   
+< vpotper v8                     0.00000000E+00   3.0955241454E-01 +-    4.1723047967E-01   
+< vpotv6pr-vpotv6per diff        0.00000000E+00  -7.2407880648E+00 +-    4.4776914379E-01   
+< vpotv8pr-vpotv8per diff        0.00000000E+00  -7.2407880648E+00 +-    4.4776914379E-01   
+< 2piapr-2pia diff               0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vd1pr-vd1 diff                 0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vepr-ve diff                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff1 2piapr-2pia-2picxx       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff2 vd1pr-vd1-2picxd         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff3 vepr-ve-2picdd           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< sum diff1+dif2+diff3           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< proton rms                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron rms                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< total rms                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron-proton rms             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau+                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau-                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< Psi**2                         0.00000000E+00   2.7538394477E-01 +-    6.7666614228E-03   
+< jackson-feenberg energy        0.00000000E+00  -1.9644720604E+00 +-    3.3517140569E+00   
+< acceptance                     0.00000000E+00   9.6261000000E-01 +-    5.9993322878E-04   
+< acceptance-spin                0.00000000E+00   8.4768000000E-01 +-    1.1363037340E-03   
+< Warning: large VMC energy removed       6666.923
+< Optimization:
+<  eave  =    -5.04042   0.15271
+<  rave  =    13.56888   0.01149
+<  new parameters =        3.48451110821528420303        3.77561534110181806767        1.49519178841648070488        5.16404004861816545713       -3.87691962661658839906       -0.98604818765362922672       -2.24415006738078437465       -0.72266226402062327949        1.00000000000000000000        0.00000000000000000000        0.34543975938427567973       -0.20018265182404473834        1.31670317418256610509       -0.00927949152107737651       -0.68887970809437737429        0.99929994208579098203       -0.00000005791420897939        9.27806128791564610481        1.65355945362901790574        1.10748792511582916376        0.77718426355704794961        1.00000000000000000000        1.04050420999999992944        0.98434586000000001693        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000
+<         3.48451110821528420303
+<         3.77561534110181806767
+<         1.49519178841648070488
+<         5.16404004861816545713
+<        -3.87691962661658839906
+<        -0.98604818765362922672
+<        -2.24415006738078437465
+<        -0.72266226402062327949
+<         1.00000000000000000000
+<         0.00000000000000000000
+<         0.34543975938427567973
+<        -0.20018265182404473834
+<         1.31670317418256610509
+<        -0.00927949152107737651
+<        -0.68887970809437737429
+<         0.99929994208579098203
+<        -0.00000005791420897939
+<         9.27806128791564610481
+<         1.65355945362901790574
+<         1.10748792511582916376
+<         0.77718426355704794961
+<         1.00000000000000000000
+<         1.04050420999999992944
+<         0.98434586000000001693
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+< 
+< Time for steps        =      18.272 seconds,        0.305 minutes
+< Master Time for steps =      18.016 seconds,        0.300 minutes
+< 
+< optimization iteration number        306
+< dtn reset to    3.6840314986
+< dc larger than dtn, reset to    3.4840314986
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Time to process initial configurations (sec.) =       6.26
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Warning: large VMC energy removed      10205.872
+< Warning: large VMC energy removed       6559.082
+< Warning: large VMC energy removed      -8131.081
+< Warning: large VMC energy removed       4060.238
+< Warning: large VMC energy removed       9955.847
+< Warning: large VMC energy removed      -8107.588
+< Warning: large VMC energy removed      -4085.149
+< Warning: large VMC energy removed       5116.386
+< Warning: large VMC energy removed       4644.975
+< Warning: large VMC energy removed     -22748.004
+< Warning: large VMC energy removed      -5844.215
+< Warning: large VMC energy removed      11246.336
+< Warning: large VMC energy removed     -80601.757
+< Warning: large VMC energy removed       3440.046
+< Warning: large VMC energy removed       3042.968
+< Warning: large VMC energy removed      -4029.392
+< Warning: large VMC energy removed      -2843.774
+< Warning: large VMC energy removed      -3688.684
+< Warning: large VMC energy removed      -2907.000
+< Warning: large VMC energy removed      -6527.611
+< Warning: large VMC energy removed       3022.659
+< Warning: large VMC energy removed     -15115.278
+< Warning: large VMC energy removed     -20043.272
+< Warning: large VMC energy removed      -6366.143
+< Warning: large VMC energy removed       8577.862
+< Warning: large VMC energy removed      -8780.153
+< Warning: large VMC energy removed      50365.107
+< Warning: large VMC energy removed      -7024.679
+< Warning: large VMC energy removed      12925.077
+< Warning: large VMC energy removed     -42456.638
+< Warning: large VMC energy removed       3296.979
+< Warning: large VMC energy removed      16031.453
+< Warning: large VMC energy removed      13173.513
+< Warning: large VMC energy removed      -3792.802
+< Warning: large VMC energy removed      -3693.624
+< Warning: large VMC energy removed       6826.751
+< Warning: large VMC energy removed       3537.925
+< Warning: large VMC energy removed      -7251.582
+< Warning: large VMC energy removed      -6622.865
+< Warning: large VMC energy removed       8097.328
+< Warning: large VMC energy removed      -3114.718
+< Warning: large VMC energy removed      -4025.789
+< Warning: large VMC energy removed       4215.749
+< Warning: large VMC energy removed      -7559.029
+< Warning: large VMC energy removed       5071.203
+< Warning: large VMC energy removed      55373.176
+< Warning: large VMC energy removed       6127.207
+< Warning: large VMC energy removed       3089.711
+< Warning: large VMC energy removed       2800.768
+< Warning: large VMC energy removed       5266.481
+< Warning: large VMC energy removed      14721.253
+< Warning: large VMC energy removed       4306.706
+< Warning: large VMC energy removed      -3375.347
+< Warning: large VMC energy removed      -3131.179
+< Warning: large VMC energy removed      39942.540
+< Warning: large VMC energy removed       3493.669
+< Warning: large VMC energy removed       2919.533
+< Warning: large VMC energy removed      -6638.125
+< Warning: large VMC energy removed      33840.767
+< Warning: large VMC energy removed       4686.468
+< Warning: large VMC energy removed       8589.447
+< Warning: large VMC energy removed      -2896.580
+< Warning: large VMC energy removed      13688.644
+< Warning: large VMC energy removed       5350.447
+< Warning: large VMC energy removed       3039.554
+< Warning: large VMC energy removed      29508.960
+< Warning: large VMC energy removed       7800.526
+< Warning: large VMC energy removed      -7931.915
+< Warning: large VMC energy removed     -10572.299
+< Warning: large VMC energy removed      -3455.822
+< Warning: large VMC energy removed       6082.251
+< Warning: large VMC energy removed       5823.457
+< Warning: large VMC energy removed      -2810.268
+< Warning: large VMC energy removed      38675.834
+< Warning: large VMC energy removed     -52782.466
+< Warning: large VMC energy removed       3229.175
+< total energy-propagated        0.00000000E+00  -3.6627073085E+01 +-    3.3501394116E+01   
+< kinetic energy                 0.00000000E+00  -3.0172455394E+01 +-    3.3495412804E+01   
+< proton kin-energy              0.00000000E+00  -6.6727942776E+00 +-    8.4441082401E+00   
+< neutron kin-energy             0.00000000E+00  -2.3499661117E+01 +-    2.5072461597E+01   
+< potential energy               0.00000000E+00  -6.4546176911E+00 +-    4.3240543720E-01   
+< im energy                      0.00000000E+00  -4.3006201897E+00 +-    4.3884126962E+00   
+< imkin energy                   0.00000000E+00  -4.3976576925E+00 +-    4.3974417166E+00   
+< proton imkin-energy            0.00000000E+00  -2.7194927319E+00 +-    2.5482846546E+00   
+< neutron imkin-energy           0.00000000E+00  -1.6781649607E+00 +-    1.8581300288E+00   
+< impot energy                   0.00000000E+00   9.7037502825E-02 +-    1.7511986294E-01   
+< v cent                         0.00000000E+00   1.5557165747E-01 +-    3.7251891255E-01   
+< v tau                          0.00000000E+00  -2.4260219083E-01 +-    5.6988068632E-02   
+< v sigma                        0.00000000E+00  -5.1844888188E-01 +-    7.6811081840E-02   
+< v sigtau                       0.00000000E+00  -3.5051895667E+00 +-    1.7163529916E-01   
+< v tensor                       0.00000000E+00   1.5755135159E-02 +-    2.9634923073E-02   
+< v tenstau                      0.00000000E+00  -2.3597038443E+00 +-    2.4738412894E-01   
+< v ls                           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v lstau                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpot v6                        0.00000000E+00  -6.4546176911E+00 +-    4.3240543720E-01   
+< vpot v8                        0.00000000E+00  -6.4546176911E+00 +-    4.3240543720E-01   
+< v coulomb                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v external                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pipr-anticomm             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1pr                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vepr                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni central                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pi-tm                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd2                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni ve                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpottot v8+tni                 0.00000000E+00  -6.4546176911E+00 +-    4.3240543720E-01   
+< enetot v8+tni                  0.00000000E+00  -3.6627073085E+01 +-    3.3501394116E+01   
+< vper cent                      0.00000000E+00   1.5557165747E-01 +-    3.7251891255E-01   
+< vper tau                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigma                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigtau                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tensor                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tenstau                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper ls                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper lstau                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpotper v6                     0.00000000E+00   1.5557165747E-01 +-    3.7251891255E-01   
+< vpotper v8                     0.00000000E+00   1.5557165747E-01 +-    3.7251891255E-01   
+< vpotv6pr-vpotv6per diff        0.00000000E+00  -6.6101893485E+00 +-    3.9328261483E-01   
+< vpotv8pr-vpotv8per diff        0.00000000E+00  -6.6101893485E+00 +-    3.9328261483E-01   
+< 2piapr-2pia diff               0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vd1pr-vd1 diff                 0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vepr-ve diff                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff1 2piapr-2pia-2picxx       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff2 vd1pr-vd1-2picxd         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff3 vepr-ve-2picdd           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< sum diff1+dif2+diff3           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< proton rms                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron rms                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< total rms                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron-proton rms             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau+                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau-                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< Psi**2                         0.00000000E+00   2.9306661233E-01 +-    7.1715299029E-03   
+< jackson-feenberg energy        0.00000000E+00  -2.0646703252E+01 +-    1.6753925888E+01   
+< acceptance                     0.00000000E+00   9.6312000000E-01 +-    5.9598544949E-04   
+< acceptance-spin                0.00000000E+00   8.4837000000E-01 +-    1.1341884460E-03   
+< Warning: large VMC energy removed     -33489.082
+< Optimization:
+<  eave  =    -4.86315   0.13632
+<  rave  =    13.57482   0.01140
+<  new parameters =        3.49468736492366049973        3.77141138135909992357        1.49551960606319078728        5.22398586359549810254       -3.84852846061320130744       -0.99394652511333692058       -2.23767260732020378811       -0.73012412724129260866        1.00000000000000000000        0.00000000000000000000        0.31556248254657448538       -0.18735825707005854257        1.32940045854023414229       -0.04925587869033305755       -0.66810358959225579767        0.99929994302924740612       -0.00000005697075251927        9.28192362780334079275        1.66794329920704220704        1.12135065349837970139        0.73332902450186976395        1.00000000000000000000        1.04050420999999992944        0.98434586000000001693        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000
+<         3.49468736492366049973
+<         3.77141138135909992357
+<         1.49551960606319078728
+<         5.22398586359549810254
+<        -3.84852846061320130744
+<        -0.99394652511333692058
+<        -2.23767260732020378811
+<        -0.73012412724129260866
+<         1.00000000000000000000
+<         0.00000000000000000000
+<         0.31556248254657448538
+<        -0.18735825707005854257
+<         1.32940045854023414229
+<        -0.04925587869033305755
+<        -0.66810358959225579767
+<         0.99929994302924740612
+<        -0.00000005697075251927
+<         9.28192362780334079275
+<         1.66794329920704220704
+<         1.12135065349837970139
+<         0.73332902450186976395
+<         1.00000000000000000000
+<         1.04050420999999992944
+<         0.98434586000000001693
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+< 
+< Time for steps        =      19.088 seconds,        0.318 minutes
+< Master Time for steps =      18.850 seconds,        0.314 minutes
+< 
+< optimization iteration number        307
+< dtn reset to    3.6840314986
+< dc larger than dtn, reset to    3.4840314986
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Time to process initial configurations (sec.) =       6.26
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Warning: large VMC energy removed      -4258.708
+< Warning: large VMC energy removed      21932.782
+< Warning: large VMC energy removed      -3728.696
+< Warning: large VMC energy removed      12961.425
+< Warning: large VMC energy removed       3941.729
+< Warning: large VMC energy removed     -35815.240
+< Warning: large VMC energy removed     -49938.259
+< Warning: large VMC energy removed      -5943.386
+< Warning: large VMC energy removed       7337.397
+< Warning: large VMC energy removed      -3286.763
+< Warning: large VMC energy removed       5568.819
+< Warning: large VMC energy removed      10985.536
+< Warning: large VMC energy removed      19944.894
+< Warning: large VMC energy removed      11373.468
+< Warning: large VMC energy removed       2886.997
+< Warning: large VMC energy removed      -7441.141
+< Warning: large VMC energy removed      -3804.305
+< Warning: large VMC energy removed     -10105.279
+< Warning: large VMC energy removed      -9390.695
+< Warning: large VMC energy removed      52614.179
+< Warning: large VMC energy removed       6099.774
+< Warning: large VMC energy removed      -9841.667
+< Warning: large VMC energy removed      -3257.545
+< Warning: large VMC energy removed     -13546.419
+< Warning: large VMC energy removed     -49695.597
+< Warning: large VMC energy removed      -8188.513
+< Warning: large VMC energy removed      25433.320
+< Warning: large VMC energy removed       9636.543
+< Warning: large VMC energy removed      15250.660
+< Warning: large VMC energy removed       4615.362
+< Warning: large VMC energy removed     -18425.214
+< Warning: large VMC energy removed      -4160.193
+< Warning: large VMC energy removed      12472.607
+< Warning: large VMC energy removed      10662.693
+< Warning: large VMC energy removed       4877.380
+< Warning: large VMC energy removed      -8768.489
+< Warning: large VMC energy removed      35675.558
+< Warning: large VMC energy removed       4141.952
+< Warning: large VMC energy removed       3939.007
+< Warning: large VMC energy removed      -3587.896
+< Warning: large VMC energy removed     -22809.937
+< Warning: large VMC energy removed      -4967.989
+< Warning: large VMC energy removed      -5393.665
+< Warning: large VMC energy removed       8949.040
+< Warning: large VMC energy removed      -3617.214
+< Warning: large VMC energy removed       6424.090
+< Warning: large VMC energy removed      -6949.701
+< Warning: large VMC energy removed      -5459.462
+< Warning: large VMC energy removed       8817.957
+< Warning: large VMC energy removed       3771.082
+< Warning: large VMC energy removed      -4217.882
+< Warning: large VMC energy removed      14745.902
+< Warning: large VMC energy removed      14347.849
+< Warning: large VMC energy removed      -6064.729
+< Warning: large VMC energy removed       8283.608
+< Warning: large VMC energy removed      -8143.649
+< Warning: large VMC energy removed       2903.284
+< Warning: large VMC energy removed      18670.370
+< Warning: large VMC energy removed     -13433.627
+< Warning: large VMC energy removed      -2935.688
+< Warning: large VMC energy removed      -3122.941
+< Warning: large VMC energy removed     -14632.201
+< Warning: large VMC energy removed       2815.250
+< Warning: large VMC energy removed       8316.708
+< Warning: large VMC energy removed     -10116.105
+< Warning: large VMC energy removed      -6617.654
+< Warning: large VMC energy removed       3714.910
+< Warning: large VMC energy removed       4815.198
+< Warning: large VMC energy removed      -8161.434
+< Warning: large VMC energy removed       8823.148
+< Warning: large VMC energy removed       3299.643
+< Warning: large VMC energy removed       7118.509
+< Warning: large VMC energy removed       7877.851
+< Warning: large VMC energy removed      50597.562
+< Warning: large VMC energy removed     -20893.566
+< Warning: large VMC energy removed       7106.547
+< Warning: large VMC energy removed      14958.647
+< Warning: large VMC energy removed       8066.068
+< Warning: large VMC energy removed      -5753.107
+< Warning: large VMC energy removed      -8626.594
+< Warning: large VMC energy removed      -3467.963
+< total energy-propagated        0.00000000E+00  -2.5289461017E+01 +-    2.6841724329E+01   
+< kinetic energy                 0.00000000E+00  -1.7055340328E+01 +-    2.6810485962E+01   
+< proton kin-energy              0.00000000E+00   1.4117418357E+00 +-    1.6191192485E+01   
+< neutron kin-energy             0.00000000E+00  -1.8467082164E+01 +-    1.5524921500E+01   
+< potential energy               0.00000000E+00  -8.2341206886E+00 +-    4.4439775511E-01   
+< im energy                      0.00000000E+00  -8.3519524274E+00 +-    8.6416754446E+00   
+< imkin energy                   0.00000000E+00  -8.5362017961E+00 +-    8.6411191342E+00   
+< proton imkin-energy            0.00000000E+00  -4.4589728397E+00 +-    5.0864376897E+00   
+< neutron imkin-energy           0.00000000E+00  -4.0772289564E+00 +-    3.5980260656E+00   
+< impot energy                   0.00000000E+00   1.8424936878E-01 +-    2.1118563239E-01   
+< v cent                         0.00000000E+00  -5.2251560783E-01 +-    2.1250625104E-01   
+< v tau                          0.00000000E+00  -2.3297654347E-01 +-    4.5342228521E-02   
+< v sigma                        0.00000000E+00  -5.1579540513E-01 +-    7.5902828923E-02   
+< v sigtau                       0.00000000E+00  -3.7170812130E+00 +-    1.7251940455E-01   
+< v tensor                       0.00000000E+00  -3.9216900024E-02 +-    3.1731154677E-02   
+< v tenstau                      0.00000000E+00  -3.2065350191E+00 +-    2.9664577076E-01   
+< v ls                           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v lstau                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpot v6                        0.00000000E+00  -8.2341206886E+00 +-    4.4439775511E-01   
+< vpot v8                        0.00000000E+00  -8.2341206886E+00 +-    4.4439775511E-01   
+< v coulomb                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v external                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pipr-anticomm             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1pr                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vepr                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni central                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pi-tm                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd2                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni ve                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpottot v8+tni                 0.00000000E+00  -8.2341206886E+00 +-    4.4439775511E-01   
+< enetot v8+tni                  0.00000000E+00  -2.5289461017E+01 +-    2.6841724329E+01   
+< vper cent                      0.00000000E+00  -5.2251560783E-01 +-    2.1250625104E-01   
+< vper tau                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigma                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigtau                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tensor                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tenstau                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper ls                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper lstau                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpotper v6                     0.00000000E+00  -5.2251560783E-01 +-    2.1250625104E-01   
+< vpotper v8                     0.00000000E+00  -5.2251560783E-01 +-    2.1250625104E-01   
+< vpotv6pr-vpotv6per diff        0.00000000E+00  -7.7116050807E+00 +-    4.3834855222E-01   
+< vpotv8pr-vpotv8per diff        0.00000000E+00  -7.7116050807E+00 +-    4.3834855222E-01   
+< 2piapr-2pia diff               0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vd1pr-vd1 diff                 0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vepr-ve diff                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff1 2piapr-2pia-2picxx       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff2 vd1pr-vd1-2picxd         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff3 vepr-ve-2picdd           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< sum diff1+dif2+diff3           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< proton rms                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron rms                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< total rms                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron-proton rms             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau+                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau-                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< Psi**2                         0.00000000E+00   2.9577911279E-01 +-    7.2149038385E-03   
+< jackson-feenberg energy        0.00000000E+00  -1.5893711712E+01 +-    1.3437828008E+01   
+< acceptance                     0.00000000E+00   9.6261000000E-01 +-    5.9993322878E-04   
+< acceptance-spin                0.00000000E+00   8.4685000000E-01 +-    1.1388374665E-03   
+< Warning: large VMC energy removed     -26129.456
+< Warning: large VMC energy removed       6185.283
+< Optimization:
+<  eave  =    -5.14455   0.14575
+<  rave  =    13.56508   0.01147
+<  new parameters =        3.49958631329873348648        3.78378556699219181780        1.50633087001226217971        5.28418335704258890217       -3.89132290177628847871       -1.00056014630926481956       -2.23323331311878758854       -0.71961412298852767133        1.00000000000000000000        0.00000000000000000000        0.31602083662411739606       -0.18751216404852474873        1.32682235892046684889       -0.04861162965389000806       -0.67279247606223435696        0.99929994328157301098       -0.00000005671842693202        9.28611118414156422318        1.65340525115124292732        1.10736223479336404196        0.78754436995426579937        1.00000000000000000000        1.04050420999999992944        0.98434586000000001693        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000
+<         3.49958631329873348648
+<         3.78378556699219181780
+<         1.50633087001226217971
+<         5.28418335704258890217
+<        -3.89132290177628847871
+<        -1.00056014630926481956
+<        -2.23323331311878758854
+<        -0.71961412298852767133
+<         1.00000000000000000000
+<         0.00000000000000000000
+<         0.31602083662411739606
+<        -0.18751216404852474873
+<         1.32682235892046684889
+<        -0.04861162965389000806
+<        -0.67279247606223435696
+<         0.99929994328157301098
+<        -0.00000005671842693202
+<         9.28611118414156422318
+<         1.65340525115124292732
+<         1.10736223479336404196
+<         0.78754436995426579937
+<         1.00000000000000000000
+<         1.04050420999999992944
+<         0.98434586000000001693
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+< 
+< Time for steps        =      18.268 seconds,        0.304 minutes
+< Master Time for steps =      18.015 seconds,        0.300 minutes
+< 
+< optimization iteration number        308
+< dtn reset to    3.6840314986
+< dc larger than dtn, reset to    3.4840314986
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Time to process initial configurations (sec.) =       6.26
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Warning: large VMC energy removed      34830.421
+< Warning: large VMC energy removed     -11945.922
+< Warning: large VMC energy removed       2931.227
+< Warning: large VMC energy removed      16887.742
+< Warning: large VMC energy removed       5416.841
+< Warning: large VMC energy removed      -9747.203
+< Warning: large VMC energy removed      -9671.205
+< Warning: large VMC energy removed     -21839.131
+< Warning: large VMC energy removed     -25337.714
+< Warning: large VMC energy removed     -22291.466
+< Warning: large VMC energy removed     -10063.547
+< Warning: large VMC energy removed      17507.245
+< Warning: large VMC energy removed       5543.682
+< Warning: large VMC energy removed      -8329.913
+< Warning: large VMC energy removed      -3391.457
+< Warning: large VMC energy removed      -2881.334
+< Warning: large VMC energy removed      -3730.080
+< Warning: large VMC energy removed      -4062.061
+< Warning: large VMC energy removed      34315.804
+< Warning: large VMC energy removed      -3624.497
+< Warning: large VMC energy removed      -8356.290
+< Warning: large VMC energy removed      -3032.106
+< Warning: large VMC energy removed      -6292.156
+< Warning: large VMC energy removed      -9297.711
+< Warning: large VMC energy removed     -17512.439
+< Warning: large VMC energy removed       2888.174
+< Warning: large VMC energy removed       5916.792
+< Warning: large VMC energy removed      -8679.638
+< Warning: large VMC energy removed       2920.355
+< Warning: large VMC energy removed      -2927.959
+< Warning: large VMC energy removed      37479.555
+< Warning: large VMC energy removed      -2801.019
+< Warning: large VMC energy removed     -22567.273
+< Warning: large VMC energy removed      -4704.385
+< Warning: large VMC energy removed      58876.278
+< Warning: large VMC energy removed      -3117.842
+< Warning: large VMC energy removed       5961.047
+< Warning: large VMC energy removed      -9352.368
+< Warning: large VMC energy removed       7923.354
+< Warning: large VMC energy removed       3463.849
+< Warning: large VMC energy removed       7704.730
+< Warning: large VMC energy removed      12617.279
+< Warning: large VMC energy removed      -8948.844
+< Warning: large VMC energy removed      -5811.030
+< Warning: large VMC energy removed      18419.846
+< Warning: large VMC energy removed      33427.631
+< Warning: large VMC energy removed     -22641.791
+< Warning: large VMC energy removed       3123.745
+< Warning: large VMC energy removed      -9769.245
+< Warning: large VMC energy removed      -4893.309
+< Warning: large VMC energy removed      -5766.929
+< Warning: large VMC energy removed      -3093.539
+< Warning: large VMC energy removed       3510.533
+< Warning: large VMC energy removed       4510.518
+< Warning: large VMC energy removed       9296.229
+< Warning: large VMC energy removed       3343.943
+< Warning: large VMC energy removed       2907.634
+< Warning: large VMC energy removed       6349.723
+< Warning: large VMC energy removed      30430.099
+< Warning: large VMC energy removed      18020.486
+< Warning: large VMC energy removed     -11639.469
+< Warning: large VMC energy removed       4006.319
+< Warning: large VMC energy removed     -17248.677
+< Warning: large VMC energy removed     -41783.282
+< total energy-propagated        0.00000000E+00  -4.9717279275E+00 +-    1.1958623918E-01   
+< kinetic energy                 0.00000000E+00   2.1709556521E+00 +-    3.5068327630E-01   
+< proton kin-energy              0.00000000E+00   1.0326365328E+00 +-    1.9504736805E-01   
+< neutron kin-energy             0.00000000E+00   1.1383191193E+00 +-    1.6752632952E-01   
+< potential energy               0.00000000E+00  -7.1426835797E+00 +-    4.0554925053E-01   
+< im energy                      0.00000000E+00   2.3679586611E-02 +-    6.3913490909E-02   
+< imkin energy                   0.00000000E+00  -2.6543621269E-01 +-    1.5347357658E-01   
+< proton imkin-energy            0.00000000E+00  -1.0012384164E-01 +-    8.0251200125E-02   
+< neutron imkin-energy           0.00000000E+00  -1.6531237105E-01 +-    8.7170767285E-02   
+< impot energy                   0.00000000E+00   2.8911579930E-01 +-    1.7523932079E-01   
+< v cent                         0.00000000E+00   2.0459485154E-01 +-    3.3909044310E-01   
+< v tau                          0.00000000E+00  -3.2751274956E-01 +-    6.9097525334E-02   
+< v sigma                        0.00000000E+00  -5.5828768827E-01 +-    7.4307389709E-02   
+< v sigtau                       0.00000000E+00  -3.5854106472E+00 +-    1.7371666361E-01   
+< v tensor                       0.00000000E+00   4.7855158924E-02 +-    3.3279215870E-02   
+< v tenstau                      0.00000000E+00  -2.9239225051E+00 +-    2.9490110108E-01   
+< v ls                           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v lstau                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpot v6                        0.00000000E+00  -7.1426835797E+00 +-    4.0554925053E-01   
+< vpot v8                        0.00000000E+00  -7.1426835797E+00 +-    4.0554925053E-01   
+< v coulomb                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v external                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pipr-anticomm             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1pr                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vepr                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni central                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pi-tm                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd2                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni ve                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpottot v8+tni                 0.00000000E+00  -7.1426835797E+00 +-    4.0554925053E-01   
+< enetot v8+tni                  0.00000000E+00  -4.9717279275E+00 +-    1.1958623918E-01   
+< vper cent                      0.00000000E+00   2.0459485154E-01 +-    3.3909044310E-01   
+< vper tau                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigma                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigtau                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tensor                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tenstau                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper ls                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper lstau                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpotper v6                     0.00000000E+00   2.0459485154E-01 +-    3.3909044310E-01   
+< vpotper v8                     0.00000000E+00   2.0459485154E-01 +-    3.3909044310E-01   
+< vpotv6pr-vpotv6per diff        0.00000000E+00  -7.3472784312E+00 +-    4.4707680819E-01   
+< vpotv8pr-vpotv8per diff        0.00000000E+00  -7.3472784312E+00 +-    4.4707680819E-01   
+< 2piapr-2pia diff               0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vd1pr-vd1 diff                 0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vepr-ve diff                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff1 2piapr-2pia-2picxx       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff2 vd1pr-vd1-2picxd         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff3 vepr-ve-2picdd           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< sum diff1+dif2+diff3           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< proton rms                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron rms                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< total rms                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron-proton rms             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau+                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau-                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< Psi**2                         0.00000000E+00   2.8228371941E-01 +-    6.6569221371E-03   
+< jackson-feenberg energy        0.00000000E+00  -5.1302968496E+00 +-    2.4176024093E-01   
+< acceptance                     0.00000000E+00   9.6332000000E-01 +-    5.9442894950E-04   
+< acceptance-spin                0.00000000E+00   8.4909000000E-01 +-    1.1319724904E-03   
+< Optimization:
+<  eave  =    -5.19190   0.13577
+<  rave  =    13.57224   0.01147
+<  new parameters =        3.48824272399150192570        3.78238271083388299942        1.50844578906437787325        5.29079688309129547719       -3.89835674509923935105       -0.99318543058240327248       -2.21221526645920407717       -0.71977752722272092534        1.00000000000000000000        0.00000000000000000000        0.30096327921689214335       -0.17719765672545434443        1.35079926189107690782       -0.00038115385617155939       -0.67666822603771614730        0.99929994073831851509       -0.00000005926168144433        9.28402501469632035480        1.64295255043083066049        1.11453964881090783479        0.77820292897727083581        1.00000000000000000000        1.04050420999999992944        0.98434586000000001693        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000
+<         3.48824272399150192570
+<         3.78238271083388299942
+<         1.50844578906437787325
+<         5.29079688309129547719
+<        -3.89835674509923935105
+<        -0.99318543058240327248
+<        -2.21221526645920407717
+<        -0.71977752722272092534
+<         1.00000000000000000000
+<         0.00000000000000000000
+<         0.30096327921689214335
+<        -0.17719765672545434443
+<         1.35079926189107690782
+<        -0.00038115385617155939
+<        -0.67666822603771614730
+<         0.99929994073831851509
+<        -0.00000005926168144433
+<         9.28402501469632035480
+<         1.64295255043083066049
+<         1.11453964881090783479
+<         0.77820292897727083581
+<         1.00000000000000000000
+<         1.04050420999999992944
+<         0.98434586000000001693
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+< 
+< Time for steps        =      18.257 seconds,        0.304 minutes
+< Master Time for steps =      18.010 seconds,        0.300 minutes
+< 
+< optimization iteration number        309
+< dtn reset to    3.6840314986
+< dc larger than dtn, reset to    3.4840314986
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Time to process initial configurations (sec.) =       6.26
+< !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!
+< Warning: large VMC energy removed      -3110.115
+< Warning: large VMC energy removed      -5154.331
+< Warning: large VMC energy removed      38579.917
+< Warning: large VMC energy removed      -4994.206
+< Warning: large VMC energy removed      -2909.362
+< Warning: large VMC energy removed     -15237.088
+< Warning: large VMC energy removed      -3271.030
+< Warning: large VMC energy removed      -4395.726
+< Warning: large VMC energy removed       6611.171
+< Warning: large VMC energy removed     -17513.370
+< Warning: large VMC energy removed       4498.664
+< Warning: large VMC energy removed       6110.726
+< Warning: large VMC energy removed     -28567.111
+< Warning: large VMC energy removed      -4622.058
+< Warning: large VMC energy removed     -48088.096
+< Warning: large VMC energy removed      24587.027
+< Warning: large VMC energy removed      -5021.243
+< Warning: large VMC energy removed      14039.477
+< Warning: large VMC energy removed      -6682.685
+< Warning: large VMC energy removed       6871.076
+< Warning: large VMC energy removed      54700.635
+< Warning: large VMC energy removed       2904.719
+< Warning: large VMC energy removed      -7421.469
+< Warning: large VMC energy removed      -4073.857
+< Warning: large VMC energy removed       8182.888
+< Warning: large VMC energy removed      11040.356
+< Warning: large VMC energy removed      -4169.042
+< Warning: large VMC energy removed     -42803.758
+< Warning: large VMC energy removed     -11033.492
+< Warning: large VMC energy removed     -11038.515
+< Warning: large VMC energy removed       4419.166
+< Warning: large VMC energy removed      11323.014
+< Warning: large VMC energy removed     -26229.775
+< Warning: large VMC energy removed      -5473.084
+< Warning: large VMC energy removed      -7908.098
+< Warning: large VMC energy removed      10417.105
+< Warning: large VMC energy removed     -16041.036
+< Warning: large VMC energy removed       5586.022
+< Warning: large VMC energy removed     -22132.848
+< Warning: large VMC energy removed      -4511.918
+< Warning: large VMC energy removed     -44959.846
+< Warning: large VMC energy removed       7594.391
+< Warning: large VMC energy removed     -27137.719
+< Warning: large VMC energy removed      -3187.439
+< Warning: large VMC energy removed       6392.410
+< Warning: large VMC energy removed     -56126.897
+< Warning: large VMC energy removed      -3117.439
+< Warning: large VMC energy removed     -81041.354
+< Warning: large VMC energy removed      -3817.072
+< Warning: large VMC energy removed       7559.266
+< Warning: large VMC energy removed      -5174.795
+< Warning: large VMC energy removed      -3930.680
+< Warning: large VMC energy removed     -13170.004
+< Warning: large VMC energy removed     -10560.141
+< Warning: large VMC energy removed     -24422.558
+< Warning: large VMC energy removed      -6210.987
+< Warning: large VMC energy removed     -15929.844
+< Warning: large VMC energy removed      -7037.451
+< Warning: large VMC energy removed       3466.131
+< Warning: large VMC energy removed      -6739.262
+< Warning: large VMC energy removed       3582.027
+< Warning: large VMC energy removed      17045.141
+< Warning: large VMC energy removed       6759.624
+< Warning: large VMC energy removed       3392.504
+< Warning: large VMC energy removed     -23850.829
+< Warning: large VMC energy removed      -9183.700
+< Warning: large VMC energy removed       3532.083
+< Warning: large VMC energy removed      -4390.988
+< Warning: large VMC energy removed      -3954.255
+< Warning: large VMC energy removed      30109.693
+< Warning: large VMC energy removed       8760.147
+< total energy-propagated        0.00000000E+00  -6.3420560253E+00 +-    1.5083709530E+00   
+< kinetic energy                 0.00000000E+00   5.8537943955E-01 +-    1.5409291368E+00   
+< proton kin-energy              0.00000000E+00   2.2990119963E-01 +-    8.0826335469E-01   
+< neutron kin-energy             0.00000000E+00   3.5547823992E-01 +-    7.4359816896E-01   
+< potential energy               0.00000000E+00  -6.9274354648E+00 +-    4.3970362720E-01   
+< im energy                      0.00000000E+00   1.1735569148E-01 +-    1.9307586358E-01   
+< imkin energy                   0.00000000E+00  -1.5737568202E-01 +-    2.5288015387E-01   
+< proton imkin-energy            0.00000000E+00  -7.9052602968E-02 +-    1.5913668735E-01   
+< neutron imkin-energy           0.00000000E+00  -7.8323079049E-02 +-    1.1189564141E-01   
+< impot energy                   0.00000000E+00   2.7473137350E-01 +-    1.9732014302E-01   
+< v cent                         0.00000000E+00   2.0110641060E-01 +-    3.2456031578E-01   
+< v tau                          0.00000000E+00  -2.4234732715E-01 +-    6.6539810854E-02   
+< v sigma                        0.00000000E+00  -5.8438136595E-01 +-    9.3697431404E-02   
+< v sigtau                       0.00000000E+00  -3.5902683244E+00 +-    1.7598382718E-01   
+< v tensor                       0.00000000E+00   7.3864867557E-02 +-    4.6168803994E-02   
+< v tenstau                      0.00000000E+00  -2.7854097255E+00 +-    3.4710569673E-01   
+< v ls                           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v lstau                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpot v6                        0.00000000E+00  -6.9274354648E+00 +-    4.3970362720E-01   
+< vpot v8                        0.00000000E+00  -6.9274354648E+00 +-    4.3970362720E-01   
+< v coulomb                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< v external                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pipr-anticomm             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1pr                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vepr                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni central                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-anticommutator       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixx-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pixd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pidd-commutator           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni 2pi-tm                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd1                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni vd2                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< tni ve                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpottot v8+tni                 0.00000000E+00  -6.9274354648E+00 +-    4.3970362720E-01   
+< enetot v8+tni                  0.00000000E+00  -6.3420560253E+00 +-    1.5083709530E+00   
+< vper cent                      0.00000000E+00   2.0110641060E-01 +-    3.2456031578E-01   
+< vper tau                       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigma                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper sigtau                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tensor                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper tenstau                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper ls                        0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vper lstau                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vpotper v6                     0.00000000E+00   2.0110641060E-01 +-    3.2456031578E-01   
+< vpotper v8                     0.00000000E+00   2.0110641060E-01 +-    3.2456031578E-01   
+< vpotv6pr-vpotv6per diff        0.00000000E+00  -7.1285418754E+00 +-    4.6529745460E-01   
+< vpotv8pr-vpotv8per diff        0.00000000E+00  -7.1285418754E+00 +-    4.6529745460E-01   
+< 2piapr-2pia diff               0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vd1pr-vd1 diff                 0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< vepr-ve diff                   0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff1 2piapr-2pia-2picxx       0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff2 vd1pr-vd1-2picxd         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< diff3 vepr-ve-2picdd           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< sum diff1+dif2+diff3           0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< proton rms                     0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron rms                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< total rms                      0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< neutron-proton rms             0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau+                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigXtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigYtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< GT sigZtau-                    0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau+                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< F tau-                         0.00000000E+00   0.0000000000E+00 +-    0.0000000000E+00   
+< Psi**2                         0.00000000E+00   2.7803800178E-01 +-    6.4315640836E-03   
+< jackson-feenberg energy        0.00000000E+00  -5.5796069439E+00 +-    8.0679675122E-01   
+< acceptance                     0.00000000E+00   9.6321000000E-01 +-    5.9528561128E-04   
+< acceptance-spin                0.00000000E+00   8.4815000000E-01 +-    1.1348637694E-03   
+< Optimization:
+<  eave  =    -5.14081   0.12446
+<  rave  =    13.57439   0.01150
+<  new parameters =        3.49991069351752326355        3.77760781853199212321        1.50333629790448153329        5.29041740124198778261       -3.91518037816696784503       -1.00368000504351329027       -2.20742168999073440361       -0.71897753851410084458        1.00000000000000000000        0.00000000000000000000        0.30513851957838927786       -0.18098777475957436578        1.36850885751761941478       -0.03371952271825322256       -0.66942593619901891167        0.99929994105966668538       -0.00000005894033332055        9.28591893997550421602        1.64556063636540561568        1.11594720045953232912        0.76960602102482267295        1.00000000000000000000        1.04050420999999992944        0.98434586000000001693        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000        0.00000000000000000000
+<         3.49991069351752326355
+<         3.77760781853199212321
+<         1.50333629790448153329
+<         5.29041740124198778261
+<        -3.91518037816696784503
+<        -1.00368000504351329027
+<        -2.20742168999073440361
+<        -0.71897753851410084458
+<         1.00000000000000000000
+<         0.00000000000000000000
+<         0.30513851957838927786
+<        -0.18098777475957436578
+<         1.36850885751761941478
+<        -0.03371952271825322256
+<        -0.66942593619901891167
+<         0.99929994105966668538
+<        -0.00000005894033332055
+<         9.28591893997550421602
+<         1.64556063636540561568
+<         1.11594720045953232912
+<         0.76960602102482267295
+<         1.00000000000000000000
+<         1.04050420999999992944
+<         0.98434586000000001693
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+<         0.00000000000000000000
+< 
+< Time for steps        =      18.253 seconds,        0.304 minutes
+< Master Time for steps =      18.000 seconds,        0.300 minutes
+< 
+< optimization iteration number        310
+< dtn reset to    3.6840314986
+< dc larger than dtn, reset to    3.4840314986
